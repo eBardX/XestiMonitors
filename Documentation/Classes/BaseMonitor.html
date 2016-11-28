@@ -155,7 +155,7 @@ classes.</p>
                       <div class="abstract">
                         <p>Cleans up the monitor so that active monitoring can end.</p>
 
-<p>If monitoring is not active when the <code><a href="../Classes/BaseMonitor.html#/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb">endMonitoring()</a></code> method is
+<p>If monitoring is not active when the <code><a href="../Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor13endMonitoringFT_Sb">endMonitoring()</a></code> method is
 invoked, this method is not called. If you override this method, you
 must be sure to invoke the superclass implementation.</p>
 
@@ -181,7 +181,7 @@ must be sure to invoke the superclass implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L28-L32">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1b96ab2feeae7e8252d37cf615a47d54e2a03e28/Source/Base/BaseMonitor.swift#L28-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -201,7 +201,7 @@ must be sure to invoke the superclass implementation.</p>
                       <div class="abstract">
                         <p>Configures the monitor so that active monitoring can begin.</p>
 
-<p>If monitoring is already active when the <code><a href="../Classes/BaseMonitor.html#/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb">beginMonitoring()</a></code> method is
+<p>If monitoring is already active when the <code><a href="../Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor15beginMonitoringFT_Sb">beginMonitoring()</a></code> method is
 invoked, this method is not called. If you override this method, you
 must be sure to invoke the superclass implementation.</p>
 
@@ -227,7 +227,7 @@ must be sure to invoke the superclass implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L44-L48">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1b96ab2feeae7e8252d37cf615a47d54e2a03e28/Source/Base/BaseMonitor.swift#L44-L48">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -246,9 +246,9 @@ must be sure to invoke the superclass implementation.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP13XestiMonitors7Monitor12isMonitoringSb"></a>
+                    <a name="/s:vC13XestiMonitors11BaseMonitor12isMonitoringSb"></a>
                     <a name="//apple_ref/swift/Property/isMonitoring" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP13XestiMonitors7Monitor12isMonitoringSb">isMonitoring</a>
+                    <a class="token" href="#/s:vC13XestiMonitors11BaseMonitor12isMonitoringSb">isMonitoring</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -256,7 +256,9 @@ must be sure to invoke the superclass implementation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>A Boolean value indicating whether monitoring is active (<code>true</code>) or not
+(<code>false</code>).</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -267,7 +269,7 @@ must be sure to invoke the superclass implementation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L21">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1b96ab2feeae7e8252d37cf615a47d54e2a03e28/Source/Base/BaseMonitor.swift#L56">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -286,9 +288,9 @@ must be sure to invoke the superclass implementation.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb"></a>
+                    <a name="/s:FC13XestiMonitors11BaseMonitor15beginMonitoringFT_Sb"></a>
                     <a name="//apple_ref/swift/Method/beginMonitoring()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb">beginMonitoring()</a>
+                    <a class="token" href="#/s:FC13XestiMonitors11BaseMonitor15beginMonitoringFT_Sb">beginMonitoring()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -296,7 +298,15 @@ must be sure to invoke the superclass implementation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Begins active monitoring of changes specific to the monitor.</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <code>true</code> if active monitoring was successfully begun or
+        <code>false</code> on failure (or if monitoring was already active).
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -312,7 +322,7 @@ must be sure to invoke the superclass implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L57-L67">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1b96ab2feeae7e8252d37cf615a47d54e2a03e28/Source/Base/BaseMonitor.swift#L67-L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -320,9 +330,9 @@ must be sure to invoke the superclass implementation.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb"></a>
+                    <a name="/s:FC13XestiMonitors11BaseMonitor13endMonitoringFT_Sb"></a>
                     <a name="//apple_ref/swift/Method/endMonitoring()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb">endMonitoring()</a>
+                    <a class="token" href="#/s:FC13XestiMonitors11BaseMonitor13endMonitoringFT_Sb">endMonitoring()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,7 +340,15 @@ must be sure to invoke the superclass implementation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Ends active monitoring of changes specific to the monitor.</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <code>true</code> if active monitoring was successfully ended or
+        <code>false</code> on failure (or if monitoring was not active).
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -346,7 +364,7 @@ must be sure to invoke the superclass implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L70-L80">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1b96ab2feeae7e8252d37cf615a47d54e2a03e28/Source/Base/BaseMonitor.swift#L86-L96">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
