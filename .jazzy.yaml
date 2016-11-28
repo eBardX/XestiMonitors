@@ -1,0 +1,26 @@
+---
+custom_categories:
+- name: Protocols
+  children:
+  - Monitor
+- name: Base Classes
+  children:
+  - BaseMonitor
+  - BaseNotificationMonitor
+- name: Application Classes
+  children:
+  - ApplicationStateMonitor
+  - BackgroundRefreshMonitor
+  - MemoryMonitor
+  - ProtectedDataMonitor
+  - ScreenshotMonitor
+  - StatusBarMonitor
+  - TimeMonitor
+- name: Device Classes
+  children:
+  - BatteryMonitor
+  - OrientationMonitor
+  - ProximityMonitor
+- name: Other Classes
+  children:
+  - KeyboardMonitor

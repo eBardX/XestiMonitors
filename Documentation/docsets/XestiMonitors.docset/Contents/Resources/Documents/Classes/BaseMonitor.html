@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BaseMonitor Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/BaseMonitor" class="dashAnchor"></a>
+    <a title="BaseMonitor Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">XestiMonitors Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/eBardX/XestiMonitors"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">XestiMonitors Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        BaseMonitor Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Monitor.html">Monitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Base Classes.html">Base Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BaseMonitor.html">BaseMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Application Classes.html">Application Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemoryMonitor.html">MemoryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProtectedDataMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatusBarMonitor.html">StatusBarMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatusBarMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TimeMonitor.html">TimeMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Device Classes.html">Device Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BatteryMonitor.html">BatteryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BatteryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrientationMonitor.html">OrientationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProximityMonitor.html">ProximityMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor/Info.html">– Info</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>BaseMonitor</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BaseMonitor</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Monitor.html">Monitor</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>An abstract base class that simplifies the implementation of <code><a href="../Protocols/Monitor.html">Monitor</a></code>
+classes.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Instance%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Public Instance Methods" class="dashAnchor"></a>
+                <a href="#/Public%20Instance%20Methods">
+                  <h3 class="section-name">Public Instance Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC13XestiMonitors11BaseMonitor14cleanupMonitorFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/cleanupMonitor()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC13XestiMonitors11BaseMonitor14cleanupMonitorFT_Sb">cleanupMonitor()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cleans up the monitor so that active monitoring can end.</p>
+
+<p>If monitoring is not active when the <code><a href="../Classes/BaseMonitor.html#/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb">endMonitoring()</a></code> method is
+invoked, this method is not called. If you override this method, you
+must be sure to invoke the superclass implementation.</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <code>true</code> if the monitor was successfully cleaned up or
+        <code>false</code> on failure.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the monitor was successfully cleaned up or <code>false</code> on failure.</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L28-L32">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC13XestiMonitors11BaseMonitor16configureMonitorFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/configureMonitor()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC13XestiMonitors11BaseMonitor16configureMonitorFT_Sb">configureMonitor()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configures the monitor so that active monitoring can begin.</p>
+
+<p>If monitoring is already active when the <code><a href="../Classes/BaseMonitor.html#/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb">beginMonitoring()</a></code> method is
+invoked, this method is not called. If you override this method, you
+must be sure to invoke the superclass implementation.</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <code>true</code> if the monitor was successfully configured or
+        <code>false</code> on failure.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the monitor was successfully configured or <code>false</code> on failure.</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L44-L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Monitor%20Instance%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Monitor Instance Properties" class="dashAnchor"></a>
+                <a href="#/Monitor%20Instance%20Properties">
+                  <h3 class="section-name">Monitor Instance Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP13XestiMonitors7Monitor12isMonitoringSb"></a>
+                    <a name="//apple_ref/swift/Property/isMonitoring" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP13XestiMonitors7Monitor12isMonitoringSb">isMonitoring</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">final</span> <span class="k">var</span> <span class="nv">isMonitoring</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L21">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Monitor%20Instance%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Monitor Instance Methods" class="dashAnchor"></a>
+                <a href="#/Monitor%20Instance%20Methods">
+                  <h3 class="section-name">Monitor Instance Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/beginMonitoring()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb">beginMonitoring()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">beginMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if active monitoring was successfully begun or <code>false</code> on failure (or if monitoring was already active).</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L57-L67">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/endMonitoring()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb">endMonitoring()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">endMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if active monitoring was successfully ended or <code>false</code> on failure (or if monitoring was not active).</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/bede68cea774d30bffee62b58771a68a9092e926/XestiMonitors/Classes/Base/BaseMonitor.swift#L70-L80">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016 J. G. Pusey</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
