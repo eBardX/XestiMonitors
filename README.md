@@ -41,4 +41,4 @@ J. G. Pusey (ebardx@gmail.com)
 
 ## License
 
-XestiMonitors is available under [the MIT license][license].
+XestiMonitors is available under [the MIT license](LICENSE.md).
