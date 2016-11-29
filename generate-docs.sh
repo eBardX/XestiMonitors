@@ -25,7 +25,7 @@ jazzy --author "J. G. Pusey"                                                \
       --github-file-prefix "https://github.com/$gituser/$module/tree/$ref"  \
       --module "$module"                                                    \
       --module-version "$version"                                           \
-      --output Documentation                                                \
+      --output docs                                                         \
       --readme README.md                                                    \
       --root-url "https://$gituser.github.io/$module/reference/"            \
       --skip-undocumented                                                   \

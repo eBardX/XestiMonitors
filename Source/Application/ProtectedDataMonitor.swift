@@ -19,7 +19,7 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     public enum Event {
 
         ///
-        /// Protected files become available for your code to access.
+        /// Protected files have become available for your code to access.
         ///
         case didBecomeAvailable
 
