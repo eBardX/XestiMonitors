@@ -3,11 +3,11 @@ custom_categories:
 - name: Protocols
   children:
   - Monitor
-- name: Base Classes
+- name: Base Monitor Classes
   children:
   - BaseMonitor
   - BaseNotificationMonitor
-- name: Application Classes
+- name: Application Monitor Classes
   children:
   - ApplicationStateMonitor
   - BackgroundRefreshMonitor
@@ -16,11 +16,11 @@ custom_categories:
   - ScreenshotMonitor
   - StatusBarMonitor
   - TimeMonitor
-- name: Device Classes
+- name: Device Monitor Classes
   children:
   - BatteryMonitor
   - OrientationMonitor
   - ProximityMonitor
-- name: Other Classes
+- name: Other Monitor Classes
   children:
   - KeyboardMonitor
