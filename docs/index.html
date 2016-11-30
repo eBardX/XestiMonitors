@@ -131,33 +131,88 @@
 
 <ul>
 <li><a href="#overview">Overview</a></li>
+<li><a href="#reference_documentation">Reference Documentation</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#usage">Usage</a></li>
+<li><a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#application_monitors">Application Monitors</a></li>
+<li><a href="#device_monitors">Device Monitors</a></li>
+<li><a href="#other_monitors">Other Monitors</a></li>
+<li><a href="#custom_monitors">Custom Monitors</a></li>
+</ul></li>
 <li><a href="#credits">Credits</a></li>
 <li><a href="#license">License</a></li>
 </ul>
-<a href='#overview' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='overview'>Overview</h2>
-<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+<a href='#a-name-overview-overview-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-overview-overview-a'><a name="overview">Overview</a></h2>
+
+<p>The XestiMonitors framework provides &hellip;</p>
+<a href='#a-name-reference_documentation-reference-documentation-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-reference_documentation-reference-documentation-a'><a name="reference_documentation">Reference Documentation</a></h2>
+
+<p>Full <a href="https://eBardX.github.io/XestiMonitors/">reference documentation</a> is available courtesy of <a href="https://github.com/realm/jazzy">Jazzy</a>.</p>
+<a href='#a-name-requirements-requirements-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-requirements-requirements-a'><a name="requirements">Requirements</a></h2>
 
 <ul>
 <li>iOS 8.0+</li>
 <li>Xcode 8.0+</li>
 <li>Swift 3.0+</li>
 </ul>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+<a href='#a-name-installation-installation-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-installation-installation-a'><a name="installation">Installation</a></h2>
 
-<p>XestiMonitors is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
-it, simply add the following line to your Podfile:</p>
+<p>XestiMonitors is available through <a href="http://cocoapods.org">CocoaPods</a>. To install it,
+simply add the following line to your Podfile:</p>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'XestiMonitors'</span>
 </code></pre>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
-<a href='#credits' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='credits'>Credits</h2>
+<a href='#a-name-usage-usage-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-usage-usage-a'><a name="usage">Usage</a></h2>
+
+<p>XestiMonitors provides almost a dozen fully-functional monitor classes right
+out of the box that make it easy for your app to monitor and respond to many
+common system-generated events. All monitors conform to the <code>Monitor</code> protocol.
+This allows you to create arrays of monitors that can be enabled or disabled
+uniformly and thereby save on coding.</p>
+
+<p>For example, in a custom view controller, you can lazily instantiate several
+monitors and then lazily instantiate an array variable containing the monitors:</p>
+<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
+
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">memoryMonitor</span><span class="p">:</span> <span class="kt">MemoryMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">MemoryMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
+
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">orientationMonitor</span><span class="p">:</span> <span class="kt">OrientationMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">OrientationMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
+
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">keyboardMonitor</span><span class="p">,</span>
+                                  <span class="k">self</span><span class="o">.</span><span class="n">memoryMonitor</span><span class="p">,</span>
+                                  <span class="k">self</span><span class="o">.</span><span class="n">orientationMonitor</span><span class="p">]</span> <span class="p">}()</span>
+</code></pre>
+
+<p>Then, in the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can
+enable and disable the monitors as a group:</p>
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+
+    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">beginMonitoring</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">endMonitoring</span><span class="p">()</span> <span class="p">}</span>
+
+    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+
+<span class="p">}</span>
+</code></pre>
+<a href='#a-name-application_monitors-application-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-application_monitors-application-monitors-a'><a name="application_monitors">Application Monitors</a></h3>
+<a href='#a-name-device_monitors-device-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-device_monitors-device-monitors-a'><a name="device_monitors">Device Monitors</a></h3>
+<a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
+<a href='#a-name-custom_monitors-custom-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-custom_monitors-custom-monitors-a'><a name="custom_monitors">Custom Monitors</a></h3>
+<a href='#a-name-credits-credits-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-credits-credits-a'><a name="credits">Credits</a></h2>
 
 <p>J. G. Pusey (<a href="mailto:ebardx@gmail.com">ebardx@gmail.com</a>)</p>
-<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+<a href='#a-name-license-license-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-license-license-a'><a name="license">License</a></h2>
 
-<p>XestiMonitors is available under <a href="LICENSE.md">the MIT license</a>.</p>
+<p>XestiMonitors is available under <a href="https://github.com/eBardX/XestiMonitors/blob/master/LICENSE.md">the MIT license</a>.</p>
 
           </section>
         </section>

@@ -9,36 +9,102 @@ An extensible monitoring framework for Swift
 
 ## Contents
 
-- [Overview](#overview)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+* [Overview](#overview)
+* [Reference Documentation](#reference_documentation)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+    * [Application Monitors](#application_monitors)
+    * [Device Monitors](#device_monitors)
+    * [Other Monitors](#other_monitors)
+    * [Custom Monitors](#custom_monitors)
+* [Credits](#credits)
+* [License](#license)
 
-## Overview
+## <a name="overview">Overview</a>
 
-## Requirements
+The XestiMonitors framework provides ...
+
+## <a name="reference_documentation">Reference Documentation</a>
+
+Full [reference documentation][refdocs] is available courtesy of [Jazzy][jazzy].
+
+## <a name="requirements">Requirements</a>
 
 - iOS 8.0+
 - Xcode 8.0+
 - Swift 3.0+
 
-## Installation
+## <a name="installation">Installation</a>
 
-XestiMonitors is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+XestiMonitors is available through [CocoaPods][cocoapods]. To install it,
+simply add the following line to your Podfile:
 
 ```ruby
 pod 'XestiMonitors'
 ```
 
-## Usage
+## <a name="usage">Usage</a>
 
-## Credits
+XestiMonitors provides almost a dozen fully-functional monitor classes right
+out of the box that make it easy for your app to monitor and respond to many
+common system-generated events. All monitors conform to the `Monitor` protocol.
+This allows you to create arrays of monitors that can be enabled or disabled
+uniformly and thereby save on coding.
+
+For example, in a custom view controller, you can lazily instantiate several
+monitors and then lazily instantiate an array variable containing the monitors:
+
+```swift
+lazy var keyboardMonitor: KeyboardMonitor = { KeyboardMonitor { /* do something… */ } }()
+
+lazy var memoryMonitor: MemoryMonitor = { MemoryMonitor { /* do something… */ } }()
+
+lazy var orientationMonitor: OrientationMonitor = { OrientationMonitor { /* do something… */ } }()
+
+lazy var monitors: [Monitor] = { [self.keyboardMonitor,
+                                  self.memoryMonitor,
+                                  self.orientationMonitor] }()
+```
+
+Then, in the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can
+enable and disable the monitors as a group:
+
+```swift
+override func viewWillAppear(_ animated: Bool) {
+
+    super.viewWillAppear(animated)
+
+    monitors.forEach { $0.beginMonitoring() }
+
+}
+
+override func viewWillDisappear(_ animated: Bool) {
+
+    monitors.forEach { $0.endMonitoring() }
+
+    super.viewWillDisappear(animated)
+
+}
+```
+
+### <a name="application_monitors">Application Monitors</a>
+
+### <a name="device_monitors">Device Monitors</a>
+
+### <a name="other_monitors">Other Monitors</a>
+
+### <a name="custom_monitors">Custom Monitors</a>
+
+## <a name="credits">Credits</a>
 
 J. G. Pusey (ebardx@gmail.com)
 
-## License
+## <a name="license">License</a>
 
-XestiMonitors is available under [the MIT license](LICENSE.md).
+XestiMonitors is available under [the MIT license][license].
+
+[cocoapods]:    http://cocoapods.org
+[jazzy]:        https://github.com/realm/jazzy
+[license]:      https://github.com/eBardX/XestiMonitors/blob/master/LICENSE.md
+[refdocs]:      https://eBardX.github.io/XestiMonitors/
