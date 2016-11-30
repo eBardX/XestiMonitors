@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage            = 'https://github.com/eBardX/XestiMonitors'
   s.source              = { :git => 'https://github.com/eBardX/XestiMonitors.git',
                             :tag => "v#{s.version}" }
-  s.summary             = 'An extensible monitoring framework for Swift.'
+  s.summary             = 'An extensible monitoring framework written in pure Swift.'
 
 #  s.description         = <<-DESC
 #TODO: Add long description of the pod here.

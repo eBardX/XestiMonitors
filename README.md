@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
-An extensible monitoring framework for Swift
+An extensible monitoring framework written in pure Swift
 
 ## Contents
 
