@@ -120,27 +120,27 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidChangeStatusBarFrame(_:)),
-                           name: .UIApplicationDidChangeStatusBarFrame,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidChangeStatusBarFrame(_:)),
+                                       name: .UIApplicationDidChangeStatusBarFrame,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidChangeStatusBarOrientation(_:)),
-                           name: .UIApplicationDidChangeStatusBarOrientation,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidChangeStatusBarOrientation(_:)),
+                                       name: .UIApplicationDidChangeStatusBarOrientation,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationWillChangeStatusBarFrame(_:)),
-                           name: .UIApplicationWillChangeStatusBarFrame,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationWillChangeStatusBarFrame(_:)),
+                                       name: .UIApplicationWillChangeStatusBarFrame,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationWillChangeStatusBarOrientation(_:)),
-                           name: .UIApplicationWillChangeStatusBarOrientation,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationWillChangeStatusBarOrientation(_:)),
+                                       name: .UIApplicationWillChangeStatusBarOrientation,
+                                       object: nil)
 
         return true
 

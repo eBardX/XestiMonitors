@@ -49,12 +49,12 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(deviceOrientationDidChange(_:)),
-                           name: .UIDeviceOrientationDidChange,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(deviceOrientationDidChange(_:)),
+                                       name: .UIDeviceOrientationDidChange,
+                                       object: nil)
 
         device.beginGeneratingDeviceOrientationNotifications()
 
@@ -62,11 +62,11 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     }
 
-    public override func removeNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
         device.endGeneratingDeviceOrientationNotifications()
 
-        return super.removeNotificationObservers(center)
+        return super.removeNotificationObservers(notificationCenter)
 
     }
 

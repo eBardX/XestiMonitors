@@ -194,37 +194,37 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(keyboardDidChangeFrame(_:)),
-                           name: .UIKeyboardDidChangeFrame,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardDidChangeFrame(_:)),
+                                       name: .UIKeyboardDidChangeFrame,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(keyboardDidHide(_:)),
-                           name: .UIKeyboardDidHide,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardDidHide(_:)),
+                                       name: .UIKeyboardDidHide,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(keyboardDidShow(_:)),
-                           name: .UIKeyboardDidShow,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardDidShow(_:)),
+                                       name: .UIKeyboardDidShow,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(keyboardWillChangeFrame(_:)),
-                           name: .UIKeyboardWillChangeFrame,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillChangeFrame(_:)),
+                                       name: .UIKeyboardWillChangeFrame,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(keyboardWillHide(_:)),
-                           name: .UIKeyboardWillHide,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide(_:)),
+                                       name: .UIKeyboardWillHide,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(keyboardWillShow(_:)),
-                           name: .UIKeyboardWillShow,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow(_:)),
+                                       name: .UIKeyboardWillShow,
+                                       object: nil)
 
         return true
 

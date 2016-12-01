@@ -69,23 +69,23 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                       selector: #selector(deviceProximityStateDidChange(_:)),
-                       name: .UIDeviceProximityStateDidChange,
-                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(deviceProximityStateDidChange(_:)),
+                                       name: .UIDeviceProximityStateDidChange,
+                                       object: nil)
 
         device.isProximityMonitoringEnabled = true
 
         return true
     }
 
-    public override func removeNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
         device.isProximityMonitoringEnabled = false
 
-        return super.removeNotificationObservers(center)
+        return super.removeNotificationObservers(notificationCenter)
 
     }
 

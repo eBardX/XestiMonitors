@@ -79,17 +79,17 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(deviceBatteryLevelDidChange(_:)),
-                           name: .UIDeviceBatteryLevelDidChange,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(deviceBatteryLevelDidChange(_:)),
+                                       name: .UIDeviceBatteryLevelDidChange,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(deviceBatteryStateDidChange(_:)),
-                           name: .UIDeviceBatteryStateDidChange,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(deviceBatteryStateDidChange(_:)),
+                                       name: .UIDeviceBatteryStateDidChange,
+                                       object: nil)
 
         device.isBatteryMonitoringEnabled = true
 
@@ -97,11 +97,11 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     }
 
-    public override func removeNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
         device.isBatteryMonitoringEnabled = false
 
-        return super.removeNotificationObservers(center)
+        return super.removeNotificationObservers(notificationCenter)
 
     }
 

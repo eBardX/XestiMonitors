@@ -115,37 +115,37 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidBecomeActive(_:)),
-                           name: .UIApplicationDidBecomeActive,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidBecomeActive(_:)),
+                                       name: .UIApplicationDidBecomeActive,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidEnterBackground(_:)),
-                           name: .UIApplicationDidEnterBackground,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidEnterBackground(_:)),
+                                       name: .UIApplicationDidEnterBackground,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidFinishLaunching(_:)),
-                           name: .UIApplicationDidFinishLaunching,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidFinishLaunching(_:)),
+                                       name: .UIApplicationDidFinishLaunching,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationWillEnterForeground(_:)),
-                           name: .UIApplicationWillEnterForeground,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationWillEnterForeground(_:)),
+                                       name: .UIApplicationWillEnterForeground,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationWillResignActive(_:)),
-                           name: .UIApplicationWillResignActive,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationWillResignActive(_:)),
+                                       name: .UIApplicationWillResignActive,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationWillTerminate(_:)),
-                           name: .UIApplicationWillTerminate,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationWillTerminate(_:)),
+                                       name: .UIApplicationWillTerminate,
+                                       object: nil)
 
         return true
 

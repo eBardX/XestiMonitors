@@ -66,17 +66,17 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(applicationProtectedDataDidBecomeAvailable(_:)),
-                           name: .UIApplicationProtectedDataDidBecomeAvailable,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationProtectedDataDidBecomeAvailable(_:)),
+                                       name: .UIApplicationProtectedDataDidBecomeAvailable,
+                                       object: nil)
 
-        center.addObserver(self,
-                           selector: #selector(applicationProtectedDataWillBecomeUnavailable(_:)),
-                           name: .UIApplicationProtectedDataWillBecomeUnavailable,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationProtectedDataWillBecomeUnavailable(_:)),
+                                       name: .UIApplicationProtectedDataWillBecomeUnavailable,
+                                       object: nil)
 
         return true
 

@@ -52,12 +52,12 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(applicationBackgroundRefreshStatusDidChange(_:)),
-                           name: .UIApplicationBackgroundRefreshStatusDidChange,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationBackgroundRefreshStatusDidChange(_:)),
+                                       name: .UIApplicationBackgroundRefreshStatusDidChange,
+                                       object: nil)
 
         return true
 

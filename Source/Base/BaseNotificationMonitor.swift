@@ -23,12 +23,12 @@ public class BaseNotificationMonitor: BaseMonitor {
     /// must be sure to invoke the superclass implementation.
     ///
     /// - Parameters:
-    ///   - center: The notification center to add observers to.
+    ///   - notificationCenter: The notification center to add observers to.
     ///
     /// - Returns:  `true` if notification observers were successfully added or
     ///             `false` on failure.
     ///
-    public func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
         return true
 
@@ -44,14 +44,14 @@ public class BaseNotificationMonitor: BaseMonitor {
     /// implementation.
     ///
     /// - Parameters:
-    ///   - center: The notification center to remove observers from.
+    ///   - notificationCenter: The notification center to remove observers from.
     ///
     /// - Returns:  `true` if notification observers were successfully removed
     ///             or `false` on failure.
     ///
-    public func removeNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.removeObserver(self)
+        notificationCenter.removeObserver(self)
 
         return true
 
@@ -61,7 +61,7 @@ public class BaseNotificationMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        return removeNotificationObservers(NotificationCenter.default)
+        return removeNotificationObservers(NotificationCenter.`default`)
             && super.cleanupMonitor()
 
     }
@@ -69,7 +69,7 @@ public class BaseNotificationMonitor: BaseMonitor {
     public override final func configureMonitor() -> Bool {
 
         return super.configureMonitor()
-            && addNotificationObservers(NotificationCenter.default)
+            && addNotificationObservers(NotificationCenter.`default`)
 
     }
 

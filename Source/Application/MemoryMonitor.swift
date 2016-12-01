@@ -42,12 +42,12 @@ public class MemoryMonitor: BaseNotificationMonitor {
 
     // MARK: Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ center: NotificationCenter) -> Bool {
+    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
-        center.addObserver(self,
-                           selector: #selector(applicationDidReceiveMemoryWarning(_:)),
-                           name: .UIApplicationDidReceiveMemoryWarning,
-                           object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(applicationDidReceiveMemoryWarning(_:)),
+                                       name: .UIApplicationDidReceiveMemoryWarning,
+                                       object: nil)
 
         return true
     }

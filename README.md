@@ -25,7 +25,7 @@ The XestiMonitors framework provides ...
 
 ## <a name="reference_documentation">Reference Documentation</a>
 
-Full [reference documentation][refdocs] is available courtesy of [Jazzy][jazzy].
+Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 
 ## <a name="requirements">Requirements</a>
 
@@ -105,4 +105,4 @@ XestiMonitors is available under [the MIT license][license].
 [cocoapods]:    http://cocoapods.org
 [jazzy]:        https://github.com/realm/jazzy
 [license]:      https://github.com/eBardX/XestiMonitors/blob/master/LICENSE.md
-[refdocs]:      https://eBardX.github.io/XestiMonitors/
+[refdoc]:       https://eBardX.github.io/XestiMonitors/
