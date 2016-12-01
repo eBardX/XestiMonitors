@@ -8,8 +8,8 @@
 //
 
 ///
-/// An `ApplicationStateMonitor` object monitors the app for changes to its runtime
-/// state.
+/// An `ApplicationStateMonitor` object monitors the app for changes to its
+/// runtime state.
 ///
 public class ApplicationStateMonitor: BaseNotificationMonitor {
 

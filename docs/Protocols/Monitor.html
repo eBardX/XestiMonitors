@@ -126,7 +126,8 @@
 
                 </div>
               </div>
-            <p>A type that monitors something.</p>
+            <p>A type that monitors events. What constitutes an <em>event</em> is specific to the
+implementation.</p>
 
           </section>
           <section class="section task-group-section">
@@ -152,8 +153,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Boolean value indicating whether monitoring is active (<code>true</code>) or not
-(<code>false</code>).</p>
+                        <p>A Boolean value indicating whether monitoring of events specific to the
+monitor is active (<code>true</code>) or not (<code>false</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -165,7 +166,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Monitor.swift#L21">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Monitor.swift#L22">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -184,9 +185,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb"></a>
-                    <a name="//apple_ref/swift/Method/beginMonitoring()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP13XestiMonitors7Monitor15beginMonitoringFT_Sb">beginMonitoring()</a>
+                    <a name="/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/startMonitoring()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb">startMonitoring()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -194,11 +195,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Begins active monitoring of changes specific to the monitor.</p>
+                        <p>Starts active monitoring of events specific to the monitor.</p>
 
 <div class="aside aside-returns">
     <p class="aside-title">Returns</p>
-    <code>true</code> if active monitoring was successfully begun or
+    <code>true</code> if active monitoring was successfully started or
         <code>false</code> on failure (or if monitoring was already active).
 
 </div>
@@ -208,17 +209,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">beginMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">startMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>true</code> if active monitoring was successfully begun or <code>false</code> on failure (or if monitoring was already active).</p>
+                        <p><code>true</code> if active monitoring was successfully started or <code>false</code> on failure (or if monitoring was already active).</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Monitor.swift#L32">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Monitor.swift#L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -226,9 +227,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb"></a>
-                    <a name="//apple_ref/swift/Method/endMonitoring()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP13XestiMonitors7Monitor13endMonitoringFT_Sb">endMonitoring()</a>
+                    <a name="/s:FP13XestiMonitors7Monitor14stopMonitoringFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/stopMonitoring()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13XestiMonitors7Monitor14stopMonitoringFT_Sb">stopMonitoring()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -236,11 +237,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Ends active monitoring of changes specific to the monitor.</p>
+                        <p>Stops active monitoring of events specific to the monitor.</p>
 
 <div class="aside aside-returns">
     <p class="aside-title">Returns</p>
-    <code>true</code> if active monitoring was successfully ended or
+    <code>true</code> if active monitoring was successfully stopped or
         <code>false</code> on failure (or if monitoring was not active).
 
 </div>
@@ -250,17 +251,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">endMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">stopMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>true</code> if active monitoring was successfully ended or <code>false</code> on failure (or if monitoring was not active).</p>
+                        <p><code>true</code> if active monitoring was successfully stopped or <code>false</code> on failure (or if monitoring was not active).</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Monitor.swift#L41">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Monitor.swift#L42">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

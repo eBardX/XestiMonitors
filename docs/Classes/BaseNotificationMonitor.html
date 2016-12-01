@@ -126,8 +126,8 @@
 
                 </div>
               </div>
-            <p>An abstract base class that simplifies the implemenation of <code><a href="../Protocols/Monitor.html">Monitor</a></code>
-classes which rely on notification observers.</p>
+            <p>An abstract base class that simplifies the implemenation of a monitor which
+relies on one or more notification observers.</p>
 
           </section>
           <section class="section task-group-section">
@@ -155,7 +155,7 @@ classes which rely on notification observers.</p>
                       <div class="abstract">
                         <p>Adds observers to the specified notification center.</p>
 
-<p>If monitoring is already active when the <code>beginMonitoring()</code> method is
+<p>If monitoring is already active when the <code>startMonitoring()</code> method is
 invoked, this method is not called. If you override this method, you
 must be sure to invoke the superclass implementation.</p>
 
@@ -206,7 +206,7 @@ must be sure to invoke the superclass implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Base/BaseNotificationMonitor.swift#L31-L35">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Base/BaseNotificationMonitor.swift#L31-L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -226,7 +226,7 @@ must be sure to invoke the superclass implementation.</p>
                       <div class="abstract">
                         <p>Removes observers from the specified notification center.</p>
 
-<p>If monitoring is not active when the <code>endMonitoring()</code> method is
+<p>If monitoring is not active when the <code>stopMonitoring()</code> method is
 invoked, this method is not called. The default implementation of this
 method removes <em>all</em> observers from the specified notification center.
 If you override this method, you must be sure to invoke the superclass
@@ -279,7 +279,7 @@ implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Base/BaseNotificationMonitor.swift#L52-L58">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Base/BaseNotificationMonitor.swift#L52-L58">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -324,7 +324,7 @@ implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Base/BaseNotificationMonitor.swift#L62-L67">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Base/BaseNotificationMonitor.swift#L62-L67">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -358,7 +358,7 @@ implementation.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/2df382154abdcf31756b202cd86f87c836ece3b8/Source/Base/BaseNotificationMonitor.swift#L69-L74">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/9aa0914a68d08282f69ddf21be681aba5b722592/Source/Base/BaseNotificationMonitor.swift#L69-L74">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

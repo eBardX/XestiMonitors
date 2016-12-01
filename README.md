@@ -5,8 +5,6 @@
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
-An extensible monitoring framework written in pure Swift
-
 ## Contents
 
 * [Overview](#overview)
@@ -49,7 +47,7 @@ pod 'XestiMonitors'
 XestiMonitors provides almost a dozen fully-functional monitor classes right
 out of the box that make it easy for your app to monitor and respond to many
 common system-generated events. All monitors conform to the `Monitor` protocol.
-This allows you to create arrays of monitors that can be enabled or disabled
+This allows you to create arrays of monitors that can be started or stopped
 uniformly and thereby save on coding.
 
 For example, in a custom view controller, you can lazily instantiate several
@@ -68,20 +66,20 @@ lazy var monitors: [Monitor] = { [self.keyboardMonitor,
 ```
 
 Then, in the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can
-enable and disable the monitors as a group:
+start and stop the monitors as a group:
 
 ```swift
 override func viewWillAppear(_ animated: Bool) {
 
     super.viewWillAppear(animated)
 
-    monitors.forEach { $0.beginMonitoring() }
+    monitors.forEach { $0.startMonitoring() }
 
 }
 
 override func viewWillDisappear(_ animated: Bool) {
 
-    monitors.forEach { $0.endMonitoring() }
+    monitors.forEach { $0.stopMonitoring() }
 
     super.viewWillDisappear(animated)
 

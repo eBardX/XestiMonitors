@@ -257,13 +257,13 @@ class ApplicationDetailViewController: UITableViewController {
 
         super.viewWillAppear(animated)
 
-        monitors.forEach { $0.beginMonitoring() }
+        monitors.forEach { $0.startMonitoring() }
 
     }
 
     override func viewWillDisappear(_ animated: Bool) {
 
-        monitors.forEach { $0.endMonitoring() }
+        monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
 

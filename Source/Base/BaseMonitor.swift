@@ -8,17 +8,16 @@
 //
 
 ///
-/// An abstract base class that simplifies the implementation of `Monitor`
-/// classes.
+/// An abstract base class that simplifies the implementation of a monitor.
 ///
 public class BaseMonitor: Monitor {
 
     // MARK: Public Instance Methods
 
     ///
-    /// Cleans up the monitor so that active monitoring can end.
+    /// Cleans up the monitor so that active monitoring can stop.
     ///
-    /// If monitoring is not active when the `endMonitoring()` method is
+    /// If monitoring is not active when the `stopMonitoring()` method is
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
@@ -32,9 +31,9 @@ public class BaseMonitor: Monitor {
     }
 
     ///
-    /// Configures the monitor so that active monitoring can begin.
+    /// Configures the monitor so that active monitoring can start.
     ///
-    /// If monitoring is already active when the `beginMonitoring()` method is
+    /// If monitoring is already active when the `startMonitoring()` method is
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
@@ -50,21 +49,21 @@ public class BaseMonitor: Monitor {
     // MARK: Monitor Instance Properties
 
     ///
-    /// A Boolean value indicating whether monitoring is active (`true`) or not
-    /// (`false`).
+    /// A Boolean value indicating whether monitoring of events specific to the
+    /// monitor is active (`true`) or not (`false`).
     ///
     public private(set) final var isMonitoring = false
 
     // MARK: Monitor Instance Methods
 
     ///
-    /// Begins active monitoring of changes specific to the monitor.
+    /// Starts active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully begun or
+    /// - Returns:  `true` if active monitoring was successfully started or
     ///             `false` on failure (or if monitoring was already active).
     ///
     @discardableResult
-    public final func beginMonitoring() -> Bool {
+    public final func startMonitoring() -> Bool {
 
         guard !isMonitoring else { return false }
 
@@ -77,13 +76,13 @@ public class BaseMonitor: Monitor {
     }
 
     ///
-    /// Ends active monitoring of changes specific to the monitor.
+    /// Stops active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully ended or
+    /// - Returns:  `true` if active monitoring was successfully stopped or
     ///             `false` on failure (or if monitoring was not active).
     ///
     @discardableResult
-    public final func endMonitoring() -> Bool {
+    public final func stopMonitoring() -> Bool {
 
         guard isMonitoring else { return false }
 
@@ -99,7 +98,7 @@ public class BaseMonitor: Monitor {
 
     deinit {
 
-        endMonitoring()
+        stopMonitoring()
 
     }
 

@@ -8,36 +8,37 @@
 //
 
 ///
-/// A type that monitors something.
+/// A type that monitors events. What constitutes an *event* is specific to the
+/// implementation.
 ///
 public protocol Monitor {
 
     // MARK: Instance Properties
 
     ///
-    /// A Boolean value indicating whether monitoring is active (`true`) or not
-    /// (`false`).
+    /// A Boolean value indicating whether monitoring of events specific to the
+    /// monitor is active (`true`) or not (`false`).
     ///
     var isMonitoring: Bool { get }
 
     // MARK: Instance Methods
 
     ///
-    /// Begins active monitoring of changes specific to the monitor.
+    /// Starts active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully begun or
+    /// - Returns:  `true` if active monitoring was successfully started or
     ///             `false` on failure (or if monitoring was already active).
     ///
     @discardableResult
-    func beginMonitoring() -> Bool
+    func startMonitoring() -> Bool
 
     ///
-    /// Ends active monitoring of changes specific to the monitor.
+    /// Stops active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully ended or
+    /// - Returns:  `true` if active monitoring was successfully stopped or
     ///             `false` on failure (or if monitoring was not active).
     ///
     @discardableResult
-    func endMonitoring() -> Bool
+    func stopMonitoring() -> Bool
 
 }

@@ -125,8 +125,6 @@
 <a href="http://cocoapods.org/pods/XestiMonitors"><img src="https://img.shields.io/cocoapods/l/XestiMonitors.svg" alt="License"></a>
 <a href="http://cocoapods.org/pods/XestiMonitors"><img src="https://img.shields.io/cocoapods/p/XestiMonitors.svg" alt="Platform"></a>
 <a href="http://cocoapods.org/pods/XestiMonitors"><img src="https://img.shields.io/cocoapods/v/XestiMonitors.svg" alt="Version"></a></p>
-
-<p>An extensible monitoring framework written in pure Swift</p>
 <a href='#contents' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contents'>Contents</h2>
 
 <ul>
@@ -169,7 +167,7 @@ simply add the following line to your Podfile:</p>
 <p>XestiMonitors provides almost a dozen fully-functional monitor classes right
 out of the box that make it easy for your app to monitor and respond to many
 common system-generated events. All monitors conform to the <code>Monitor</code> protocol.
-This allows you to create arrays of monitors that can be enabled or disabled
+This allows you to create arrays of monitors that can be started or stopped
 uniformly and thereby save on coding.</p>
 
 <p>For example, in a custom view controller, you can lazily instantiate several
@@ -186,18 +184,18 @@ monitors and then lazily instantiate an array variable containing the monitors:<
 </code></pre>
 
 <p>Then, in the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can
-enable and disable the monitors as a group:</p>
+start and stop the monitors as a group:</p>
 <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
 
-    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">beginMonitoring</span><span class="p">()</span> <span class="p">}</span>
+    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">startMonitoring</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">endMonitoring</span><span class="p">()</span> <span class="p">}</span>
+    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">stopMonitoring</span><span class="p">()</span> <span class="p">}</span>
 
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
 

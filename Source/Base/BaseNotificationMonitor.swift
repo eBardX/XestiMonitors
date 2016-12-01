@@ -8,8 +8,8 @@
 //
 
 ///
-/// An abstract base class that simplifies the implemenation of `Monitor`
-/// classes which rely on notification observers.
+/// An abstract base class that simplifies the implemenation of a monitor which
+/// relies on one or more notification observers.
 ///
 public class BaseNotificationMonitor: BaseMonitor {
 
@@ -18,7 +18,7 @@ public class BaseNotificationMonitor: BaseMonitor {
     ///
     /// Adds observers to the specified notification center.
     ///
-    /// If monitoring is already active when the `beginMonitoring()` method is
+    /// If monitoring is already active when the `startMonitoring()` method is
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
@@ -37,7 +37,7 @@ public class BaseNotificationMonitor: BaseMonitor {
     ///
     /// Removes observers from the specified notification center.
     ///
-    /// If monitoring is not active when the `endMonitoring()` method is
+    /// If monitoring is not active when the `stopMonitoring()` method is
     /// invoked, this method is not called. The default implementation of this
     /// method removes *all* observers from the specified notification center.
     /// If you override this method, you must be sure to invoke the superclass
