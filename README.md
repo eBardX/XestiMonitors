@@ -29,9 +29,9 @@ Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 
 ## <a name="requirements">Requirements</a>
 
-- iOS 8.0+
-- Xcode 8.0+
-- Swift 3.0+
+* iOS 8.0+
+* Xcode 8.0+
+* Swift 3.0+
 
 ## <a name="installation">Installation</a>
 
@@ -44,14 +44,15 @@ pod 'XestiMonitors'
 
 ## <a name="usage">Usage</a>
 
-XestiMonitors provides almost a dozen fully-functional monitor classes right
+XestiMonitors provides nearly a dozen fully-functional monitor classes right
 out of the box that make it easy for your app to monitor and respond to many
 common system-generated events. All monitors conform to the `Monitor` protocol.
 This allows you to create arrays of monitors that can be started or stopped
 uniformly and thereby save on coding.
 
 For example, in a custom view controller, you can lazily instantiate several
-monitors and then lazily instantiate an array variable containing the monitors:
+monitors and, in addition, lazily instantiate an array variable containing
+these monitors:
 
 ```swift
 lazy var keyboardMonitor: KeyboardMonitor = { KeyboardMonitor { /* do something… */ } }()
@@ -65,8 +66,8 @@ lazy var monitors: [Monitor] = { [self.keyboardMonitor,
                                   self.orientationMonitor] }()
 ```
 
-Then, in the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can
-start and stop the monitors as a group:
+In the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can easily
+start or stop this array of monitors with a single line of code:
 
 ```swift
 override func viewWillAppear(_ animated: Bool) {
@@ -88,9 +89,31 @@ override func viewWillDisappear(_ animated: Bool) {
 
 ### <a name="application_monitors">Application Monitors</a>
 
+XestiMonitors provides seven monitor classes that allow you to ...
+
+* ApplicationStateMonitor
+* BackgroundRefreshMonitor
+* MemoryMonitor
+* ProtectedDataMonitor
+* ScreenshotMonitor
+* StatusBarMonitor
+* TimeMonitor
+
 ### <a name="device_monitors">Device Monitors</a>
 
+XestiMonitors provides three monitor classes that allow you to easily detect
+changes in the characteristics of the current device:
+
+* The `BatteryMonitor` class monitors the device for changes to the charge
+  state and charge level of its battery.
+* The `OrientationMonitor` class monitors the device for changes to its
+  physical orientation.
+* The `ProximityMonitor` class monitors the device for changes to the state of
+  its proximity sensor.
+
 ### <a name="other_monitors">Other Monitors</a>
+
+In addition, XestiMonitors provides a `KeyboardMonitor` class ...
 
 ### <a name="custom_monitors">Custom Monitors</a>
 

@@ -9,7 +9,7 @@
 
 ///
 /// An `OrientationMonitor` object monitors the device for changes to its
-/// orientation.
+/// physical orientation.
 ///
 public class OrientationMonitor: BaseNotificationMonitor {
 
@@ -19,8 +19,8 @@ public class OrientationMonitor: BaseNotificationMonitor {
     /// Initializes a new `OrientationMonitor`.
     ///
     /// - Parameters:
-    ///   - handler:    The handler to call when the orientation of the device
-    ///                 changes.
+    ///   - handler:    The handler to call when the physical orientation of
+    ///                 the device changes.
     ///
     public init(handler: @escaping (UIDeviceOrientation) -> Void) {
 

@@ -164,14 +164,15 @@ simply add the following line to your Podfile:</p>
 </code></pre>
 <a href='#a-name-usage-usage-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-usage-usage-a'><a name="usage">Usage</a></h2>
 
-<p>XestiMonitors provides almost a dozen fully-functional monitor classes right
+<p>XestiMonitors provides nearly a dozen fully-functional monitor classes right
 out of the box that make it easy for your app to monitor and respond to many
 common system-generated events. All monitors conform to the <code>Monitor</code> protocol.
 This allows you to create arrays of monitors that can be started or stopped
 uniformly and thereby save on coding.</p>
 
 <p>For example, in a custom view controller, you can lazily instantiate several
-monitors and then lazily instantiate an array variable containing the monitors:</p>
+monitors and, in addition, lazily instantiate an array variable containing
+these monitors:</p>
 <pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
 
 <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">memoryMonitor</span><span class="p">:</span> <span class="kt">MemoryMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">MemoryMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
@@ -183,8 +184,8 @@ monitors and then lazily instantiate an array variable containing the monitors:<
                                   <span class="k">self</span><span class="o">.</span><span class="n">orientationMonitor</span><span class="p">]</span> <span class="p">}()</span>
 </code></pre>
 
-<p>Then, in the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can
-start and stop the monitors as a group:</p>
+<p>In the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can easily
+start or stop this array of monitors with a single line of code:</p>
 <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
@@ -202,8 +203,34 @@ start and stop the monitors as a group:</p>
 <span class="p">}</span>
 </code></pre>
 <a href='#a-name-application_monitors-application-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-application_monitors-application-monitors-a'><a name="application_monitors">Application Monitors</a></h3>
+
+<p>XestiMonitors provides seven monitor classes that allow you to &hellip;</p>
+
+<ul>
+<li>ApplicationStateMonitor</li>
+<li>BackgroundRefreshMonitor</li>
+<li>MemoryMonitor</li>
+<li>ProtectedDataMonitor</li>
+<li>ScreenshotMonitor</li>
+<li>StatusBarMonitor</li>
+<li>TimeMonitor</li>
+</ul>
 <a href='#a-name-device_monitors-device-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-device_monitors-device-monitors-a'><a name="device_monitors">Device Monitors</a></h3>
+
+<p>XestiMonitors provides three monitor classes that allow you to easily detect
+changes in the characteristics of the current device:</p>
+
+<ul>
+<li>The <code>BatteryMonitor</code> class monitors the device for changes to the charge
+state and charge level of its battery.</li>
+<li>The <code>OrientationMonitor</code> class monitors the device for changes to its
+physical orientation.</li>
+<li>The <code>ProximityMonitor</code> class monitors the device for changes to the state of
+its proximity sensor.</li>
+</ul>
 <a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
+
+<p>In addition, XestiMonitors provides a <code>KeyboardMonitor</code> class &hellip;</p>
 <a href='#a-name-custom_monitors-custom-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-custom_monitors-custom-monitors-a'><a name="custom_monitors">Custom Monitors</a></h3>
 <a href='#a-name-credits-credits-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-credits-credits-a'><a name="credits">Credits</a></h2>
 

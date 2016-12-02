@@ -8,8 +8,8 @@
 //
 
 ///
-/// A `BatteryMonitor` object monitors the device for changes to its battery
-/// state or battery level.
+/// A `BatteryMonitor` object monitors the device for changes to the charge
+/// state and charge level of its battery.
 ///
 public class BatteryMonitor: BaseNotificationMonitor {
 
