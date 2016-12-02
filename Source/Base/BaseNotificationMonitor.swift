@@ -8,8 +8,8 @@
 //
 
 ///
-/// An abstract base class that simplifies the implemenation of a monitor which
-/// relies on one or more notification observers.
+/// An abstract base class that simplifies the implementation of a monitor
+/// which relies on one or more notification observers.
 ///
 public class BaseNotificationMonitor: BaseMonitor {
 
