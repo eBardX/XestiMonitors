@@ -26,3 +26,5 @@ custom_categories:
 - name: Other Monitor Classes
   children:
   - KeyboardMonitor
+readme: README.md
+theme: apple
