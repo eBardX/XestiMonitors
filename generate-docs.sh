@@ -17,10 +17,7 @@ else
     ref="$(git rev-parse HEAD)"
 fi
 
-jazzy --author "J. G. Pusey"                                                \
-      --author_url "http://ebardx.tumblr.com/"                              \
-      --clean                                                               \
-      --copyright "© 2016 J. G. Pusey"                                      \
+jazzy --clean                                                               \
       --github_url "https://github.com/$gituser/$module"                    \
       --github-file-prefix "https://github.com/$gituser/$module/tree/$ref"  \
       --module "$module"                                                    \
