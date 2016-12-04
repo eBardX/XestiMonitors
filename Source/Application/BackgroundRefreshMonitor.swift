@@ -13,7 +13,7 @@
 ///
 public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `BackgroundRefreshMonitor`.
@@ -29,7 +29,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// Whether the app can be launched into the background to handle
@@ -37,12 +37,12 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     ///
     public var status: UIBackgroundRefreshStatus { return application.backgroundRefreshStatus }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let application: UIApplication
     private let handler: (UIBackgroundRefreshStatus) -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func applicationBackgroundRefreshStatusDidChange(_ notification: NSNotification) {
 
@@ -50,7 +50,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

@@ -134,7 +134,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         }
     }
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `KeyboardMonitor`.
@@ -150,11 +150,11 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func keyboardDidChangeFrame(_ notification: NSNotification) {
 
@@ -192,7 +192,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

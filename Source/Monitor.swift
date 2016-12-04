@@ -13,7 +13,7 @@
 ///
 public protocol Monitor {
 
-    // MARK: Instance Properties
+    // Instance Properties
 
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
@@ -21,7 +21,7 @@ public protocol Monitor {
     ///
     var isMonitoring: Bool { get }
 
-    // MARK: Instance Methods
+    // Instance Methods
 
     ///
     /// Starts active monitoring of events specific to the monitor.

@@ -13,7 +13,7 @@
 ///
 public class OrientationMonitor: BaseNotificationMonitor {
 
-    // MARK: Public
+    // Public
 
     ///
     /// Initializes a new `OrientationMonitor`.
@@ -29,14 +29,14 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// The physical orientation of the device.
     ///
     public var orientation: UIDeviceOrientation { return device.orientation }
 
-    // MARK: Private
+    // Private
 
     private let device: UIDevice
     private let handler: (UIDeviceOrientation) -> Void
@@ -47,7 +47,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

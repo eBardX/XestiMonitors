@@ -13,7 +13,7 @@
 ///
 public class BaseNotificationMonitor: BaseMonitor {
 
-    // MARK: Public Instance Methods
+    // Public Instance Methods
 
     ///
     /// Adds observers to the specified notification center.
@@ -57,7 +57,7 @@ public class BaseNotificationMonitor: BaseMonitor {
 
     }
 
-    // MARK: Overridden BaseMonitor Instance Methods
+    // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 

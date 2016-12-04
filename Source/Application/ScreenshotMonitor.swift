@@ -12,7 +12,7 @@
 ///
 public class ScreenshotMonitor: BaseNotificationMonitor {
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `ScreenshotMonitor`.
@@ -27,11 +27,11 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let handler: () -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func applicationUserDidTakeScreenshot(_ notification: NSNotification) {
 
@@ -39,7 +39,7 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

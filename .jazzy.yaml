@@ -32,3 +32,4 @@ module: XestiMonitors
 readme: README.md
 root_url: https://eBardX.github.io/XestiMonitors/reference/
 sdk: iphoneos
+theme: apple

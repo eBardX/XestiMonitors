@@ -40,7 +40,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         case willChangeOrientation(UIInterfaceOrientation)
     }
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `StatusBarMonitor`.
@@ -57,7 +57,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// The current frame rectangle defining the area of the status bar.
@@ -69,12 +69,12 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     ///
     public var orientation: UIInterfaceOrientation { return application.statusBarOrientation }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let application: UIApplication
     private let handler: (Event) -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func applicationDidChangeStatusBarFrame(_ notification: NSNotification) {
 
@@ -118,7 +118,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

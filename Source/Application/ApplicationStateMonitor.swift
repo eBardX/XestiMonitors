@@ -49,7 +49,7 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         case willTerminate
     }
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `ApplicationStateMonitor`.
@@ -64,18 +64,18 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// The runtime state of the app.
     ///
     public var state: UIApplicationState { return UIApplication.shared.applicationState }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func applicationDidBecomeActive(_ notification: NSNotification) {
 
@@ -113,7 +113,7 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

@@ -19,8 +19,6 @@ class MasterViewController: UITableViewController {
 
     }
 
-    // MARK: - Segues
-
     //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     //    if segue.identifier == "showDetail" {
     //        if let indexPath = self.tableView.indexPathForSelectedRow {

@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     }
 
-    // MARK: UISplitViewControllerDelegate Methods
+    // UISplitViewControllerDelegate Methods
 
     //func splitViewController(_ splitViewController: UISplitViewController,
     //                         collapseSecondary secondaryViewController: UIViewController,

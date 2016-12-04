@@ -12,7 +12,7 @@
 ///
 public class BaseMonitor: Monitor {
 
-    // MARK: Public Instance Methods
+    // Public Instance Methods
 
     ///
     /// Cleans up the monitor so that active monitoring can stop.
@@ -46,7 +46,7 @@ public class BaseMonitor: Monitor {
 
     }
 
-    // MARK: Monitor Instance Properties
+    // Monitor Instance Properties
 
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
@@ -54,7 +54,7 @@ public class BaseMonitor: Monitor {
     ///
     public private(set) final var isMonitoring = false
 
-    // MARK: Monitor Instance Methods
+    // Monitor Instance Methods
 
     ///
     /// Starts active monitoring of events specific to the monitor.
@@ -94,7 +94,7 @@ public class BaseMonitor: Monitor {
 
     }
 
-    // MARK: Deinitializer
+    // Deinitializer
 
     deinit {
 

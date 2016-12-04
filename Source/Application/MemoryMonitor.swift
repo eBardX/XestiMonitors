@@ -13,7 +13,7 @@
 ///
 public class MemoryMonitor: BaseNotificationMonitor {
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `MemoryMonitor`.
@@ -28,11 +28,11 @@ public class MemoryMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let handler: () -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func applicationDidReceiveMemoryWarning(_ notification: NSNotification) {
 
@@ -40,7 +40,7 @@ public class MemoryMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

@@ -145,11 +145,65 @@
 </ul>
 <a href='#a-name-overview-overview-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-overview-overview-a'><a name="overview">Overview</a></h2>
 
-<p>The XestiMonitors framework provides &hellip;</p>
+<p>The XestiMonitors framework provides nearly a dozen fully-functional monitor
+classes right out of the box that make it easy for your iOS app to detect and
+respond to many common system-generated events.</p>
 
-<p>XestiMonitors provides nearly a dozen fully-functional monitor classes right
-out of the box that make it easy for your app to monitor and respond to many
-common system-generated events.</p>
+<p>You can think of XestiMonitors as an easier way to manage the most common iOS
+notifications. At present, XestiMonitors provides “wrappers” around all <code>UIKit</code>
+notifications:</p>
+
+<ul>
+<li><p>Application-related</p>
+
+<ul>
+<li><code>UIApplicationBackgroundRefreshStatusDidChange</code></li>
+<li><code>UIApplicationDidBecomeActive</code></li>
+<li><code>UIApplicationDidChangeStatusBarFrame</code></li>
+<li><code>UIApplicationDidChangeStatusBarOrientation</code></li>
+<li><code>UIApplicationDidEnterBackground</code></li>
+<li><code>UIApplicationDidFinishLaunching</code></li>
+<li><code>UIApplicationDidReceiveMemoryWarning</code></li>
+<li><code>UIApplicationProtectedDataDidBecomeAvailable</code></li>
+<li><code>UIApplicationProtectedDataWillBecomeUnavailable</code></li>
+<li><code>UIApplicationSignificantTimeChange</code></li>
+<li><code>UIApplicationUserDidTakeScreenshot</code></li>
+<li><code>UIApplicationWillChangeStatusBarFrame</code></li>
+<li><code>UIApplicationWillChangeStatusBarOrientation</code></li>
+<li><code>UIApplicationWillEnterForeground</code></li>
+<li><code>UIApplicationWillResignActive</code></li>
+<li><code>UIApplicationWillTerminate</code></li>
+</ul>
+
+<p>See <a href="#application_monitors">Application Monitors</a> for details.</p></li>
+<li><p>Device-related</p>
+
+<ul>
+<li><code>UIDeviceBatteryLevelDidChange</code></li>
+<li><code>UIDeviceBatteryStateDidChange</code></li>
+<li><code>UIDeviceOrientationDidChange</code></li>
+<li><code>UIDeviceProximityStateDidChange</code></li>
+</ul>
+
+<p>See <a href="#device_monitors">Device Monitors</a> for details.</p></li>
+<li><p>Keyboard-related</p>
+
+<ul>
+<li><code>UIKeyboardDidChangeFrame</code></li>
+<li><code>UIKeyboardDidHide</code></li>
+<li><code>UIKeyboardDidShow</code></li>
+<li><code>UIKeyboardWillChangeFrame</code></li>
+<li><code>UIKeyboardWillHide</code></li>
+<li><code>UIKeyboardWillShow</code></li>
+</ul>
+
+<p>See <a href="#other_monitors">Other Monitors</a> for details.</p></li>
+</ul>
+
+<p>Additional monitors will be rolled out in future releases of XestiMonitor!</p>
+
+<p>Finally, XestiMonitors is <em>extensible</em>: you can easily create your own <em>custom</em>
+monitors. See <a href="#custom_monitors">Custom Monitors</a> for details.</p>
 <a href='#a-name-reference_documentation-reference-documentation-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-reference_documentation-reference-documentation-a'><a name="reference_documentation">Reference Documentation</a></h2>
 
 <p>Full <a href="https://eBardX.github.io/XestiMonitors/">reference documentation</a> is available courtesy of <a href="https://github.com/realm/jazzy">Jazzy</a>.</p>
@@ -175,33 +229,30 @@ stopped uniformly—thereby avoiding more tedious lines of code!</p>
 <p>For example, in a custom view controller, you can lazily instantiate several
 monitors and, in addition, lazily instantiate an array variable containing
 these monitors:</p>
-<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
-
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">memoryMonitor</span><span class="p">:</span> <span class="kt">MemoryMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">MemoryMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
-
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">orientationMonitor</span><span class="p">:</span> <span class="kt">OrientationMonitor</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">OrientationMonitor</span> <span class="p">{</span> <span class="cm">/* do something… */</span> <span class="p">}</span> <span class="p">}()</span>
-
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">keyboardMonitor</span><span class="p">,</span>
-                                  <span class="k">self</span><span class="o">.</span><span class="n">memoryMonitor</span><span class="p">,</span>
-                                  <span class="k">self</span><span class="o">.</span><span class="n">orientationMonitor</span><span class="p">]</span> <span class="p">}()</span>
+<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+    <span class="c1">// do something…</span>
+<span class="p">}</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">memoryMonitor</span><span class="p">:</span> <span class="kt">MemoryMonitor</span> <span class="o">=</span> <span class="kt">MemoryMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+    <span class="c1">// do something…</span>
+<span class="p">}</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">orientationMonitor</span><span class="p">:</span> <span class="kt">OrientationMonitor</span> <span class="o">=</span> <span class="kt">OrientationMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+    <span class="c1">// do something…</span>
+<span class="p">}</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">keyboardMonitor</span><span class="p">,</span>
+                                <span class="k">self</span><span class="o">.</span><span class="n">memoryMonitor</span><span class="p">,</span>
+                                <span class="k">self</span><span class="o">.</span><span class="n">orientationMonitor</span><span class="p">]</span>
 </code></pre>
 
-<p>In the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can easily
+<p>In the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can simply
 start or stop this array of monitors with a single line of code:</p>
 <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
     <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">startMonitoring</span><span class="p">()</span> <span class="p">}</span>
-
 <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">stopMonitoring</span><span class="p">()</span> <span class="p">}</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
 <span class="p">}</span>
 </code></pre>
 <a href='#a-name-application_monitors-application-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-application_monitors-application-monitors-a'><a name="application_monitors">Application Monitors</a></h3>
@@ -210,33 +261,33 @@ start or stop this array of monitors with a single line of code:</p>
 events generated by the system about the app:</p>
 
 <ul>
-<li>An <a href="https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a> object monitors the
-app for changes to its runtime state.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a> object monitors the
-app for changes to its status for downloading content in the background.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html">MemoryMonitor</a> object monitors the app for memory warnings
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a> to monitor the app
+for changes to its runtime state.</li>
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a> to monitor the app
+for changes to its status for downloading content in the background.</li>
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html">MemoryMonitor</a> to monitor the app for memory warnings
 from the operating system.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a> object monitors the app for
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a> to monitor the app for
 changes to the accessibility of protected files.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html">ScreenshotMonitor</a> object monitors the app for
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html">ScreenshotMonitor</a> to monitor the app for
 screenshots.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html">StatusBarMonitor</a> object monitors the app for changes
-to the orientation of its user interface or to the frame of the status bar.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html">TimeMonitor</a> object monitors the app for significant changes
-in time.</li>
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html">StatusBarMonitor</a> to monitor the app for changes to
+the orientation of its user interface or to the frame of the status bar.</li>
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html">TimeMonitor</a> to monitor the app for significant changes in
+time.</li>
 </ul>
 <a href='#a-name-device_monitors-device-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-device_monitors-device-monitors-a'><a name="device_monitors">Device Monitors</a></h3>
 
 <p>XestiMonitors provides three monitor classes that you can use to easily detect
-changes in the characteristics of the current device:</p>
+changes in the characteristics of the device:</p>
 
 <ul>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html">BatteryMonitor</a> object monitors the device for changes to
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html">BatteryMonitor</a> to monitor the device for changes to
 the charge state and charge level of its battery.</li>
-<li>An <a href="https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html">OrientationMonitor</a> object monitors the device for
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html">OrientationMonitor</a> to monitor the device for
 changes to its physical orientation.</li>
-<li>A <a href="https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html">ProximityMonitor</a> object monitors the device for
-changes to the state of its proximity sensor.</li>
+<li>Use <a href="https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html">ProximityMonitor</a> to monitor the device for changes
+to the state of its proximity sensor.</li>
 </ul>
 <a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
 
@@ -248,9 +299,7 @@ code from your app.</p>
 <p>This is how keyboard monitoring is typically handled in a custom view
 controller:</p>
 <pre class="highlight swift"><code>    <span class="kd">func</span> <span class="nf">keyboardWillHide</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
-
         <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
-
         <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.0</span>
 
         <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardAnimationDurationUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSNumber</span><span class="p">)?</span><span class="o">.</span><span class="n">doubleValue</span> <span class="p">{</span>
@@ -261,13 +310,10 @@ controller:</p>
 
         <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="n">animationDuration</span><span class="p">,</span>
                        <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* do animations… */</span> <span class="p">})</span>
-
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">keyboardWillShow</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
-
         <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
-
         <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">var</span> <span class="nv">frameEnd</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="o">.</span><span class="n">zero</span>
 
@@ -283,104 +329,181 @@ controller:</p>
 
         <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="n">animationDuration</span><span class="p">,</span>
                        <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* do animations… */</span> <span class="p">})</span>
-
     <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
     <span class="k">let</span> <span class="nv">nc</span> <span class="o">=</span> <span class="kt">NotificationCenter</span><span class="o">.</span><span class="err">`</span><span class="k">default</span><span class="err">`</span>
-
     <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span>
                    <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillHide(_:)</span><span class="kd">)</span><span class="p">,</span>
                    <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillHide</span><span class="p">,</span>
                    <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-
     <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span>
                    <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillShow(_:)</span><span class="kd">)</span><span class="p">,</span>
                    <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillShow</span><span class="p">,</span>
                    <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-
 <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="kt">NotificationCenter</span><span class="o">.</span><span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="o">.</span><span class="nf">removeObserver</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
 <span class="p">}</span>
 </code></pre>
 
 <p>And this is the XestiMonitors way using <a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a>:</p>
-<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="p">{</span>
-
-    <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="n">event</span> <span class="k">in</span>
-
+<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span><span class="p">:</span> <span class="kt">KeyboardMonitor</span> <span class="o">=</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">event</span> <span class="k">in</span>
         <span class="k">switch</span> <span class="n">event</span> <span class="p">{</span>
-
             <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">willHide</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
 
                 <span class="c1">// do something to view frame…</span>
 
                 <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">animationDuration</span><span class="p">,</span>
                                <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* do animations… */</span> <span class="p">})</span>
-
             <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">willShow</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
 
                 <span class="c1">// do something to view frame with info.frameEnd…</span>
 
                 <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">animationDuration</span><span class="p">,</span>
                                <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* do animations… */</span> <span class="p">})</span>
-
             <span class="k">default</span><span class="p">:</span>
                 <span class="k">break</span>
-
         <span class="p">}</span>
-
     <span class="p">}</span>
 
-<span class="p">}()</span>
-
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
     <span class="n">keyboardMonitor</span><span class="o">.</span><span class="nf">startMonitoring</span><span class="p">()</span>
-
 <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="n">keyboardMonitor</span><span class="o">.</span><span class="nf">stopMonitoring</span><span class="p">()</span>
-
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-
 <span class="p">}</span>
 </code></pre>
 
 <p>What’s in <em>your</em> wallet?</p>
 <a href='#a-name-custom_monitors-custom-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-custom_monitors-custom-monitors-a'><a name="custom_monitors">Custom Monitors</a></h3>
 
-<p>You can implement your own custom monitors very simply by creating a class that
-conforms to the <a href="https://eBardX.github.io/XestiMonitors/Protocols/Monitor.html">Monitor</a> protocol.</p>
+<p>The XestiMonitors framework provides several ways to create your own custom
+monitors quite easily.</p>
+<a href='#implementing-the-monitor-protocol' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='implementing-the-monitor-protocol'>Implementing the Monitor Protocol</h4>
 
-<p>Typically, however, you will want to create a subclass of
-<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html">BaseMonitor</a>. The advantage of using this abstract base class is
-that the logic of starting and stopping the monitor only once is taken care of.
-Instead of directly implementing the required protocol methods and properties,
-you need only override the <code>configureMonitor()</code> and <code>cleanupMonitor()</code> methods
-of the base class. You will <em>not</em> be able to override the <code>startMonitoring()</code>
-and <code>stopMonitoring()</code> methods or the <code>isMonitoring</code> property—they are declared
-<code>final</code> in the base class.</p>
+<p>You can create a new class, or extend an existing class, that conforms to the
+<a href="https://eBardX.github.io/XestiMonitors/Protocols/Monitor.html">Monitor</a> protocol. You need only implement the
+<a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb">startMonitoring()</a> and
+<a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor14stopMonitoringFT_Sb">stopMonitoring()</a> methods, as well as the
+<a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:vP13XestiMonitors7Monitor12isMonitoringSb">isMonitoring</a> property:</p>
+<pre class="highlight swift"><code><span class="n">extend</span> <span class="kt">MegaHoobieWatcher</span><span class="p">:</span> <span class="kt">Monitor</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">isMonitoring</span> <span class="p">{</span> <span class="nf">isWatchingForHoobies</span><span class="p">()</span> <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">startMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="o">!</span><span class="n">isMonitoring</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">}</span>
+        <span class="nf">beginWatchingForHoobies</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">isMonitoring</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="n">isMonitoring</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">}</span>
+        <span class="nf">endWatchingForHoobies</span><span class="p">()</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">isMonitoring</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Note:</strong> The guard statements in both <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb">startMonitoring()</a>
+and <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor14stopMonitoringFT_Sb">stopMonitoring()</a> protect against starting or stopping
+the monitor if it is in the incorrect state. This is considered good coding
+practice.</p>
+<a href='#subclassing-the-basemonitor-class' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='subclassing-the-basemonitor-class'>Subclassing the BaseMonitor Class</h4>
+
+<p>Typically, you will want to create a subclass of <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html">BaseMonitor</a>.
+The advantage of using this abstract base class is that some basic logic is
+taken care of for you. Specifically, the
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor15startMonitoringFT_Sb">startMonitoring()</a> method does not attempt to start the
+monitor if it is already active, and the <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor14stopMonitoringFT_Sb">stopMonitoring()</a>
+method does not attempt to stop the monitor if it is <em>not</em> active. Instead of
+directly implementing the required protocol methods and properties, you need
+only override the <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor16configureMonitorFT_Sb">configureMonitor()</a> and
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor14cleanupMonitorFT_Sb">cleanupMonitor()</a> methods of this base class. In fact, you
+will <em>not</em> be able to override the <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor15startMonitoringFT_Sb">startMonitoring()</a> and
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor14stopMonitoringFT_Sb">stopMonitoring()</a> methods or the
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:vC13XestiMonitors11BaseMonitor12isMonitoringSb">isMonitoring</a> property—they are declared <code>final</code> in
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html">BaseMonitor</a>.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GigaHoobieMonitor</span><span class="p">:</span> <span class="kt">BaseMonitor</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">handler</span><span class="p">:</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="k">let</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">GigaHoobie</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">GigaHoobie</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">hoobie</span> <span class="o">=</span> <span class="n">hoobie</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">super</span><span class="o">.</span><span class="nf">configureMonitor</span><span class="p">()</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">}</span>
+        <span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">forKeyPath</span><span class="p">:</span> <span class="s">"hoobie.activity.isNefarious"</span><span class="p">,</span>
+                    <span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">initial</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="nf">removeObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">forKeyPath</span><span class="p">:</span> <span class="s">"hoobie.activity.isNefarious"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">super</span><span class="o">.</span><span class="nf">cleanupMonitor</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">observeValue</span><span class="p">(</span><span class="n">forKeyPath</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">of</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span>
+                      <span class="nv">change</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSKeyValueChangeKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span>
+                      <span class="nv">context</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">keyPath</span> <span class="o">=</span> <span class="n">keyPath</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+        <span class="k">if</span> <span class="n">keyPath</span> <span class="o">==</span> <span class="s">"hoobie.activity.isNefarious"</span> <span class="p">{</span>
+            <span class="nf">handler</span><span class="p">(</span><span class="n">hoobie</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">isNefarious</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Note:</strong> Be sure to invoke the superclass implementation of both
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor16configureMonitorFT_Sb">configureMonitor()</a> and
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor14cleanupMonitorFT_Sb">cleanupMonitor()</a>.</p>
+<a href='#subclassing-the-basenotificationmonitor-class' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='subclassing-the-basenotificationmonitor-class'>Subclassing the BaseNotificationMonitor Class</h4>
 
 <p>If your custom monitor determines events by observing notifications, you should
-create a subclass of <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
-instead. In most cases, you need only override the
-<code>addNotificationObservers(_:)</code> method. You can also override the
-<code>removeNotificationObservers(_:)</code> method if your monitor requires extra actions
-when the notification observers are removed upon stopping.</p>
+consider creating a subclass of
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a> instead. In most cases you
+need only override the
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor24addNotificationObserversFCSo18NotificationCenterSb">addNotificationObservers(_:)</a> method. You can
+also override the
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor27removeNotificationObserversFCSo18NotificationCenterSb">removeNotificationObservers(_:)</a> method if
+extra cleanup is required when the notification observers are removed upon
+stopping the monitor. Although this base class inherits from
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html">BaseMonitor</a>, you will <em>not</em> be able to override the
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor16configureMonitorFT_Sb">configureMonitor()</a> and
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor14cleanupMonitorFT_Sb">cleanupMonitor()</a> methods—they are declared <code>final</code> in
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TeraHoobieMonitor</span><span class="p">:</span> <span class="kt">BaseNotificationMonitor</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="k">let</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">TeraHoobie</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">TeraHoobie</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">hoobie</span> <span class="o">=</span> <span class="n">hoobie</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">(</span><span class="n">_</span> <span class="nv">notificationCenter</span><span class="p">:</span> <span class="kt">NotificationCenter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="n">notificationCenter</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">hoobieDidChange(_:)</span><span class="kd">)</span><span class="p">,</span>
+                                       <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="n">hoobieDidChange</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="n">hoobie</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+
+    <span class="kd">@objc</span> <span class="kd">func</span> <span class="nf">hoobieDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">handler</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Note:</strong> Be sure to invoke the superclass implementation of both
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor24addNotificationObserversFCSo18NotificationCenterSb">addNotificationObservers(_:)</a> and
+<a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor27removeNotificationObserversFCSo18NotificationCenterSb">removeNotificationObservers(_:)</a> in your
+overrides.</p>
 <a href='#a-name-credits-credits-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-credits-credits-a'><a name="credits">Credits</a></h2>
 
 <p>J. G. Pusey (<a href="mailto:ebardx@gmail.com">ebardx@gmail.com</a>)</p>

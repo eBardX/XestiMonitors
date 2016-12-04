@@ -30,7 +30,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
         case stateDidChange(UIDeviceBatteryState)
     }
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `BatteryMonitor`.
@@ -46,7 +46,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// The battery charge level for the device.
@@ -58,12 +58,12 @@ public class BatteryMonitor: BaseNotificationMonitor {
     ///
     public var state: UIDeviceBatteryState { return device.batteryState }
 
-    // MARK: Private Instance Properties
+    // Private Instance Properties
 
     private let device: UIDevice
     private let handler: (Event) -> Void
 
-    // MARK: Private Instance Methods
+    // Private Instance Methods
 
     @objc private func deviceBatteryLevelDidChange(_ notification: NSNotification) {
 
@@ -77,7 +77,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 

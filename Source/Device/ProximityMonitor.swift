@@ -13,7 +13,7 @@
 ///
 public class ProximityMonitor: BaseNotificationMonitor {
 
-    // MARK: Public Type Properties
+    // Public Type Properties
 
     ///
     /// A Boolean value indicating whether proximity monitoring is available on
@@ -32,7 +32,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
     }()
 
-    // MARK: Public Initializers
+    // Public Initializers
 
     ///
     /// Initializes a new `ProximityMonitor`.
@@ -48,7 +48,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Public Instance Properties
+    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether the proximity sensor is close to the
@@ -56,7 +56,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
     ///
     public var state: Bool { return device.proximityState }
 
-    // MARK: Private
+    // Private
 
     private let device: UIDevice
     private let handler: (Bool) -> Void
@@ -67,7 +67,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
     }
 
-    // MARK: Overridden BaseNotificationMonitor Instance Methods
+    // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
 
