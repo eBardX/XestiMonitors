@@ -20,9 +20,13 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var keyboardIsLocalLabel: UILabel!
     @IBOutlet weak var keyboardTextField: UITextField!
 
-    lazy var keyboardMonitor: KeyboardMonitor = { KeyboardMonitor { self.displayKeyboard($0) } }()
+    lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [weak self] in
 
-    lazy var monitors: [Monitor] = { [self.keyboardMonitor] }()
+        self?.displayKeyboard($0)
+
+    }
+
+    lazy var monitors: [Monitor] = [self.keyboardMonitor]
 
     // MARK: -
 

@@ -23,27 +23,55 @@ class ApplicationDetailViewController: UITableViewController {
     @IBOutlet weak var statusBarOrientationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
 
-    lazy var applicationStateMonitor: ApplicationStateMonitor = { ApplicationStateMonitor { self.displayApplication($0) } }()
+    lazy var applicationStateMonitor: ApplicationStateMonitor = ApplicationStateMonitor { [weak self] in
 
-    lazy var backgroundRefreshMonitor: BackgroundRefreshMonitor = { BackgroundRefreshMonitor { self.displayBackgroundRefresh($0) } }()
+        self?.displayApplication($0)
 
-    lazy var memoryMonitor: MemoryMonitor = { MemoryMonitor { self.displayMemory() } }()
+    }
 
-    lazy var protectedDataMonitor: ProtectedDataMonitor = { ProtectedDataMonitor { self.displayProtectedData($0) } }()
+    lazy var backgroundRefreshMonitor: BackgroundRefreshMonitor = BackgroundRefreshMonitor { [weak self] in
 
-    lazy var screenshotMonitor: ScreenshotMonitor = { ScreenshotMonitor { self.displayScreenshot() } }()
+        self?.displayBackgroundRefresh($0)
 
-    lazy var statusBarMonitor: StatusBarMonitor = { StatusBarMonitor { self.displayStatusBar($0) } }()
+    }
 
-    lazy var timeMonitor: TimeMonitor = { TimeMonitor { self.displayTime() } }()
+    lazy var memoryMonitor: MemoryMonitor = MemoryMonitor { [weak self] in
 
-    lazy var monitors: [Monitor] = { [self.applicationStateMonitor,
-                                      self.backgroundRefreshMonitor,
-                                      self.memoryMonitor,
-                                      self.protectedDataMonitor,
-                                      self.screenshotMonitor,
-                                      self.statusBarMonitor,
-                                      self.timeMonitor] }()
+        self?.displayMemory()
+
+    }
+
+    lazy var protectedDataMonitor: ProtectedDataMonitor = ProtectedDataMonitor { [weak self] in
+
+        self?.displayProtectedData($0)
+
+    }
+
+    lazy var screenshotMonitor: ScreenshotMonitor = ScreenshotMonitor { [weak self] in
+
+        self?.displayScreenshot()
+
+    }
+
+    lazy var statusBarMonitor: StatusBarMonitor = StatusBarMonitor { [weak self] in
+
+        self?.displayStatusBar($0)
+
+    }
+
+    lazy var timeMonitor: TimeMonitor = TimeMonitor { [weak self] in
+
+        self?.displayTime()
+
+    }
+
+    lazy var monitors: [Monitor] = [self.applicationStateMonitor,
+                                    self.backgroundRefreshMonitor,
+                                    self.memoryMonitor,
+                                    self.protectedDataMonitor,
+                                    self.screenshotMonitor,
+                                    self.statusBarMonitor,
+                                    self.timeMonitor]
 
     var memoryCount = -1
     var screenshotCount = -1
