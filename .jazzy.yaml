@@ -2,28 +2,33 @@ author: J. G. Pusey
 author_url: http://ebardx.tumblr.com/
 copyright: © 2016 J. G. Pusey
 custom_categories:
-- name: Protocols
-  children:
-  - Monitor
-- name: Base Monitor Classes
-  children:
-  - BaseMonitor
-  - BaseNotificationMonitor
-- name: Application Monitor Classes
-  children:
-  - ApplicationStateMonitor
-  - BackgroundRefreshMonitor
-  - MemoryMonitor
-  - ProtectedDataMonitor
-  - ScreenshotMonitor
-  - StatusBarMonitor
-  - TimeMonitor
-- name: Device Monitor Classes
-  children:
-  - BatteryMonitor
-  - OrientationMonitor
-  - ProximityMonitor
-- name: Other Monitor Classes
-  children:
-  - KeyboardMonitor
+  - name: Protocols
+    children:
+      - Monitor
+  - name: Base Monitor Classes
+    children:
+      - BaseMonitor
+      - BaseNotificationMonitor
+  - name: Application Monitor Classes
+    children:
+      - ApplicationStateMonitor
+      - BackgroundRefreshMonitor
+      - MemoryMonitor
+      - ProtectedDataMonitor
+      - ScreenshotMonitor
+      - StatusBarMonitor
+      - TimeMonitor
+  - name: Device Monitor Classes
+    children:
+      - BatteryMonitor
+      - OrientationMonitor
+      - ProximityMonitor
+  - name: Other Monitor Classes
+    children:
+      - KeyboardMonitor
+github_url: https://github.com/eBardX/XestiMonitors
+min_acl: public
+module: XestiMonitors
 readme: README.md
+root_url: https://eBardX.github.io/XestiMonitors/reference/
+sdk: iphoneos
