@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'XestiMonitors_Example' do
+  pod 'XestiMonitors', :path => '../'
+
+  target 'XestiMonitors_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
