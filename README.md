@@ -212,14 +212,10 @@ func keyboardWillShow(_ notification: NSNotification) {
 override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     let nc = NotificationCenter.`default`
-    nc.addObserver(self,
-                   selector: #selector(keyboardWillHide(_:)),
-                   name: .UIKeyboardWillHide,
-                   object: nil)
-    nc.addObserver(self,
-                   selector: #selector(keyboardWillShow(_:)),
-                   name: .UIKeyboardWillShow,
-                   object: nil)
+    nc.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                   name: .UIKeyboardWillHide, object: nil)
+    nc.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                   name: .UIKeyboardWillShow, object: nil)
 }
 
 override func viewWillDisappear(_ animated: Bool) {
