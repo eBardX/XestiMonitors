@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source              = { :git => 'https://github.com/eBardX/XestiMonitors.git',
                             :tag => "v#{s.version}" }
   s.summary             = 'An extensible monitoring framework written in Swift.'
+  s.documentation_url   = 'https://ebardx.github.io/XestiMonitors/'
 
   s.platform            = :ios, '8.0'
 
