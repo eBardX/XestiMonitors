@@ -52,7 +52,13 @@ public class ReachabilityMonitor: BaseMonitor {
 
     }
 
-
+    ///
+    /// Initializes a new `ReachabilityMonitor`.
+    ///
+    /// - Parameters:
+    ///   - host:       ...
+    ///   - handler:    The handler to call when ...
+    ///
     public convenience init?(host: String,
                              handler: @escaping (Status) -> Void) {
 
@@ -60,6 +66,34 @@ public class ReachabilityMonitor: BaseMonitor {
 
         self.init(reachability: reachability,
                   handler: handler)
+
+    }
+
+    // Public Instance Properties
+
+    ///
+    ///
+    ///
+    public var isReachable: Bool { return isReachableViaWiFi ||  isReachableViaWWAN }
+
+    ///
+    ///
+    ///
+    public var isReachableViaWiFi: Bool { return status == .reachableViaWiFi }
+
+    ///
+    ///
+    ///
+    public var isReachableViaWWAN: Bool { return status == .reachableViaWWAN }
+
+    ///
+    ///
+    ///
+    public var status: Status {
+
+        guard let flags = self.currentFlags else { return .unknown }
+
+        return statusFromFlags(flags)
 
     }
 
@@ -71,25 +105,6 @@ public class ReachabilityMonitor: BaseMonitor {
         self.handler = handler
         self.previousFlags = SCNetworkReachabilityFlags()
         self.reachability = reachability
-
-    }
-
-    // Public Instance Properties
-
-    public var isReachable: Bool { return isReachableViaWiFi ||  isReachableViaWWAN }
-
-    public var isReachableViaWiFi: Bool { return status == .reachableViaWiFi }
-
-    public var isReachableViaWWAN: Bool { return status == .reachableViaWWAN }
-
-    ///
-    ///
-    ///
-    public var status: Status {
-
-        guard let flags = self.currentFlags else { return .unknown }
-
-        return statusForFlags(flags)
 
     }
 
@@ -105,11 +120,7 @@ public class ReachabilityMonitor: BaseMonitor {
 
         var flags = SCNetworkReachabilityFlags()
 
-        if SCNetworkReachabilityGetFlags(reachability, &flags) {
-            return flags
-        }
-
-        return nil
+        return SCNetworkReachabilityGetFlags(reachability, &flags) ? flags : nil
 
     }
 
@@ -121,34 +132,35 @@ public class ReachabilityMonitor: BaseMonitor {
 
         previousFlags = flags
 
-        handler(statusForFlags(flags))
+        handler(statusFromFlags(flags))
 
     }
 
-    private func statusForFlags(_ flags: SCNetworkReachabilityFlags) -> Status {
+    private func statusFromFlags(_ flags: SCNetworkReachabilityFlags) -> Status {
 
-        guard flags.contains(.reachable) else { return .notReachable }
-
-        var status: Status = .notReachable
-
-        if !flags.contains(.connectionRequired) {
-            status = .reachableViaWiFi
+        if !flags.contains(.reachable) {
+            return .notReachable;
         }
 
-        if flags.contains(.connectionOnDemand)
-            || flags.contains(.connectionOnTraffic) {
-            if !flags.contains(.interventionRequired) {
-                status = .reachableViaWiFi
+        if flags.contains(.connectionRequired) {
+
+            if flags.contains(.interventionRequired) {
+                return .notReachable;
+            }
+
+            if !flags.contains(.connectionOnDemand)
+                && !flags.contains(.connectionOnTraffic) {
+                return .notReachable;
             }
         }
 
         #if os(iOS)
             if flags.contains(.isWWAN) {
-                status = .reachableViaWWAN
+                return .reachableViaWWAN
             }
         #endif
 
-        return status
+        return .reachableViaWiFi
 
     }
 
@@ -156,41 +168,48 @@ public class ReachabilityMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-//        return removeNotificationObservers(NotificationCenter.`default`)
-//            && super.cleanupMonitor()
+        guard SCNetworkReachabilitySetDispatchQueue(reachability, nil) else { return false }
 
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
-        SCNetworkReachabilitySetDispatchQueue(reachability, nil)
 
-        return true
+        return super.cleanupMonitor()
 
     }
 
     public override final func configureMonitor() -> Bool {
 
-//        return super.configureMonitor()
-//            && addNotificationObservers(NotificationCenter.`default`)
+        guard super.configureMonitor() else { return false }
 
         var context = SCNetworkReachabilityContext()
 
         context.info = Unmanaged.passUnretained(self).toOpaque()
 
-        let callbackEnabled = SCNetworkReachabilitySetCallback(reachability,
-                                                               { (_, flags, info) in
-                                                                let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info!).takeUnretainedValue()
-                                                                monitor.invokeHandler(flags) },
-                                                               &context)
+        let callback: SCNetworkReachabilityCallBack = { _, flags, info in
 
-        let queueEnabled = SCNetworkReachabilitySetDispatchQueue(reachability, queue)
+            let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info!).takeUnretainedValue()
+
+            monitor.invokeHandler(flags)
+
+        }
+
+        guard SCNetworkReachabilitySetCallback(reachability, callback, &context) else { return false }
+
+        guard SCNetworkReachabilitySetDispatchQueue(reachability, queue) else {
+
+            SCNetworkReachabilitySetCallback(reachability, nil, nil)
+
+            return false
+        }
 
         queue.async {
+
             self.previousFlags = SCNetworkReachabilityFlags()
 
             self.invokeHandler(self.currentFlags ?? SCNetworkReachabilityFlags())
+
         }
 
-        return callbackEnabled && queueEnabled
-
+        return true
     }
 
 }
