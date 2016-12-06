@@ -333,14 +333,10 @@ controller:</p>
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
     <span class="k">let</span> <span class="nv">nc</span> <span class="o">=</span> <span class="kt">NotificationCenter</span><span class="o">.</span><span class="err">`</span><span class="k">default</span><span class="err">`</span>
-    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span>
-                   <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillHide(_:)</span><span class="kd">)</span><span class="p">,</span>
-                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillHide</span><span class="p">,</span>
-                   <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span>
-                   <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillShow(_:)</span><span class="kd">)</span><span class="p">,</span>
-                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillShow</span><span class="p">,</span>
-                   <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillHide(_:)</span><span class="kd">)</span><span class="p">,</span>
+                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillHide</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillShow(_:)</span><span class="kd">)</span><span class="p">,</span>
+                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillShow</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
