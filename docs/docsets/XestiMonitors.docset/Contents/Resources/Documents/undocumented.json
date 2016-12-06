@@ -1,6 +1,33 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/jgp/Programming/Xesticode/Public/XestiMonitors/Source/Other/ReachabilityMonitor.swift",
+      "line": 21,
+      "symbol": "ReachabilityMonitor.Status.unknown",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jgp/Programming/Xesticode/Public/XestiMonitors/Source/Other/ReachabilityMonitor.swift",
+      "line": 22,
+      "symbol": "ReachabilityMonitor.Status.notReachable",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jgp/Programming/Xesticode/Public/XestiMonitors/Source/Other/ReachabilityMonitor.swift",
+      "line": 23,
+      "symbol": "ReachabilityMonitor.Status.reachableViaWiFi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jgp/Programming/Xesticode/Public/XestiMonitors/Source/Other/ReachabilityMonitor.swift",
+      "line": 24,
+      "symbol": "ReachabilityMonitor.Status.reachableViaWWAN",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/jgp/Programming/Xesticode/Public/XestiMonitors"
 }

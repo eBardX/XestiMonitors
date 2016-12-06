@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `StatusBarMonitor` object monitors the app for changes to the orientation
 /// of its user interface or to the frame of the status bar.

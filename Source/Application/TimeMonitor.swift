@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `TimeMonitor` object monitors the app for significant changes in time.
 ///

@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform            = :ios, '8.0'
 
   s.requires_arc        = true
-  s.frameworks          = 'Foundation', 'UIKit'
+  s.frameworks          = 'Foundation', 'SystemConfiguration', 'UIKit'
 
   s.source_files        = 'Source/**/*.swift'
 end

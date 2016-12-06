@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `ProximityMonitor` object monitors the device for changes to the state of
 /// its proximity sensor.

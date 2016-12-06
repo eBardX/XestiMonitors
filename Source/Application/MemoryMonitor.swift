@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `MemoryMonitor` object monitors the app for memory warnings from the
 /// operating system.

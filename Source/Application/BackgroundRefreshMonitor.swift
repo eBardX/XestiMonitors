@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `BackgroundRefreshMonitor` object monitors the app for changes to its
 /// status for downloading content in the background.

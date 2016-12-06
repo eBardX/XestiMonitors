@@ -7,7 +7,6 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
-//import Foundation
 import SystemConfiguration
 
 ///
