@@ -1,6 +1,6 @@
 {
   "name": "XestiMonitors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": {
     "J. G. Pusey": "ebardx@gmail.com"
   },
@@ -11,9 +11,10 @@
   "homepage": "https://github.com/eBardX/XestiMonitors",
   "source": {
     "git": "https://github.com/eBardX/XestiMonitors.git",
-    "tag": "v1.0.0"
+    "tag": "v1.0.1"
   },
   "summary": "An extensible monitoring framework written in Swift.",
+  "documentation_url": "https://ebardx.github.io/XestiMonitors/",
   "platforms": {
     "ios": "8.0"
   },
