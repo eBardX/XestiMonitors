@@ -10,27 +10,49 @@
 import SystemConfiguration
 
 ///
-/// A `ReachabilityMonitor` object monitors ...
+/// A `ReachabilityMonitor` object monitors a network node name or address for
+/// changes to its reachability.
 ///
 public class ReachabilityMonitor: BaseMonitor {
 
     ///
-    ///
+    /// Encapsulates the reachability of a network node name or address.
     ///
     public enum Status {
+
+        ///
+        /// The reachability of the network node name or address cannot be
+        /// determined.
+        ///
         case unknown
+
+        ///
+        /// The network node name or address is not reachable.
+        ///
         case notReachable
+
+        ///
+        /// The network node name or address can be reached via a non-cellular
+        /// connection.
+        ///
         case reachableViaWiFi
+
+        ///
+        /// The network node name or address can be reached via a cellular
+        /// connection.
+        ///
         case reachableViaWWAN
     }
 
     // Public Initializers
 
     ///
-    /// Initializes a new `ReachabilityMonitor`.
+    /// Initializes a new `ReachabilityMonitor` for the network address
+    /// `0.0.0.0` (meaning “any IPv4 address at all”).
     ///
     /// - Parameters:
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when the reachability of the
+    ///                 network node address changes.
     ///
     public convenience init?(handler: @escaping (Status) -> Void) {
 
@@ -39,12 +61,16 @@ public class ReachabilityMonitor: BaseMonitor {
         address.sin_family = sa_family_t(AF_INET)
         address.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
 
-        guard let reachability = withUnsafePointer(to: &address,
-                                                   { pointer in
-                                                    return pointer.withMemoryRebound(to: sockaddr.self,
-                                                                                     capacity: MemoryLayout<sockaddr>.size) {
-                                                                                        return SCNetworkReachabilityCreateWithAddress(nil, $0)
-                                                    }}) else { return nil }
+        let reachability = withUnsafePointer(to: &address) { pointer in
+
+            return pointer.withMemoryRebound(to: sockaddr.self,
+                                             capacity: MemoryLayout<sockaddr>.size) {
+
+                                                return SCNetworkReachabilityCreateWithAddress(nil, $0)
+
+            }
+
+        }
 
         self.init(reachability: reachability,
                   handler: handler)
@@ -52,16 +78,18 @@ public class ReachabilityMonitor: BaseMonitor {
     }
 
     ///
-    /// Initializes a new `ReachabilityMonitor`.
+    /// Initializes a new `ReachabilityMonitor` for the specified network node
+    /// name.
     ///
     /// - Parameters:
-    ///   - host:       ...
-    ///   - handler:    The handler to call when ...
+    ///   - host:       The network node name of the desired host.
+    ///   - handler:    The handler to call when the reachability of the
+    ///                 network node name changes.
     ///
-    public convenience init?(host: String,
+    public convenience init?(name: String,
                              handler: @escaping (Status) -> Void) {
 
-        guard let reachability = SCNetworkReachabilityCreateWithName(nil, host) else { return nil }
+        let reachability = SCNetworkReachabilityCreateWithName(nil, name)
 
         self.init(reachability: reachability,
                   handler: handler)
@@ -71,22 +99,25 @@ public class ReachabilityMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    ///
+    /// A Boolean value indicating whether the network node name or address can
+    /// be reached (`true`) or not (`false`).
     ///
     public var isReachable: Bool { return isReachableViaWiFi ||  isReachableViaWWAN }
 
     ///
-    ///
+    /// A Boolean value indicating whether the network node name or address can
+    /// be reached via a non-cellular connection (`true`) or not (`false`).
     ///
     public var isReachableViaWiFi: Bool { return status == .reachableViaWiFi }
 
     ///
-    ///
+    /// A Boolean value indicating whether the network node name or address can
+    /// be reached via a cellular connection (`true`) or not (`false`).
     ///
     public var isReachableViaWWAN: Bool { return status == .reachableViaWWAN }
 
     ///
-    ///
+    /// The reachability of the network node name or address.
     ///
     public var status: Status {
 
@@ -98,8 +129,10 @@ public class ReachabilityMonitor: BaseMonitor {
 
     // Private Initializers
 
-    private init(reachability: SCNetworkReachability,
-                 handler: @escaping (Status) -> Void) {
+    private init?(reachability: SCNetworkReachability?,
+                  handler: @escaping (Status) -> Void) {
+
+        guard let reachability = reachability else { return nil }
 
         self.handler = handler
         self.previousFlags = SCNetworkReachabilityFlags()
