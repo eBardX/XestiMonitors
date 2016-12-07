@@ -70,6 +70,10 @@ notifications:
 
     See [Other Monitors](#other_monitors) for details.
 
+XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to make
+it super easy for your app to determine the reachability of a target host. See
+[Other Monitors](#other_monitors) for details.
+
 Additional monitors targeting additional parts of iOS will be rolled out in
 future releases of XestiMonitor!
 
@@ -172,13 +176,16 @@ changes in the characteristics of the device:
 
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides a [KeyboardMonitor][keyboard_monitor] class
-that you can use to monitor the keyboard for changes to its visibility or to
-its frame. This monitor is especially handy in removing lots of boilerplate
-code from your app.
+In addition, XestiMonitors provides two other monitors:
 
-This is how keyboard monitoring is typically handled in a custom view
-controller:
+* [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
+  its visibility or to its frame.
+* [ReachabilityMonitor][reachability_monitor] to monitor a network node name or
+  address for changes to its reachability.
+
+[KeyboardMonitor][keyboard_monitor] is especially handy in removing lots of
+boilerplate code from your app. This is how keyboard monitoring is typically
+handled in a custom view controller:
 
 ```swift
 func keyboardWillHide(_ notification: NSNotification) {
@@ -422,6 +429,7 @@ XestiMonitors is available under [the MIT license][license].
 [orientation_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
 [protected_data_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
+[reachability_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/ReachabilityMonitor.html
 [screenshot_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [status_bar_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [time_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
