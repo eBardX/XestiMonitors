@@ -47,6 +47,13 @@
 		AABE85B08D4DF9CCBE0C07CF /* Pods-XestiMonitors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors_Example/Pods-XestiMonitors_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DC087DA492990F05C97C59C8 /* Pods-XestiMonitors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors_Tests/Pods-XestiMonitors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3A2EA17A6AFC95B2774698F /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		F5962E591DF85FAE00CFC142 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		F5962E691DF8643900CFC142 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		F5962E6A1DF8643900CFC142 /* .jazzy.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .jazzy.yaml; path = ../.jazzy.yaml; sourceTree = "<group>"; };
+		F5962E6B1DF8643900CFC142 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
+		F5962E6C1DF8643900CFC142 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
+		F5962E6D1DF8643900CFC142 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		F5962E6E1DF8643900CFC142 /* generate-docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "generate-docs.sh"; path = "../generate-docs.sh"; sourceTree = "<group>"; };
 		F5D560491DE399A7009D8E67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5D5604C1DE3A318009D8E67 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		F5D560501DE3A323009D8E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,8 +96,9 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for XestiMonitors */,
+				607FACF51AFB993E008FA782 /* Metadata */,
+				F5962E681DF863FD00CFC142 /* Configuration */,
+				607FACD21AFB9204008FA782 /* Example */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				07F4D983855457ADD1DCE1AB /* Pods */,
@@ -107,7 +115,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for XestiMonitors */ = {
+		607FACD21AFB9204008FA782 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -120,7 +128,7 @@
 				F5D5604F1DE3A323009D8E67 /* LaunchScreen.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 			);
-			name = "Example for XestiMonitors";
+			name = Example;
 			path = XestiMonitors;
 			sourceTree = "<group>";
 		};
@@ -141,14 +149,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+		607FACF51AFB993E008FA782 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				F5962E591DF85FAE00CFC142 /* CHANGELOG.md */,
 				E3A2EA17A6AFC95B2774698F /* LICENSE.md */,
 				FDECD231293AFFD9D5C3B265 /* README.md */,
 				8341C186C2A364BA55E48502 /* XestiMonitors.podspec */,
 			);
-			name = "Podspec Metadata";
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 		D97FFF471A5A7188C93133EE /* Frameworks */ = {
@@ -158,6 +167,19 @@
 				3D0BADCFB654BDC234EF5279 /* Pods_XestiMonitors_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5962E681DF863FD00CFC142 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F5962E691DF8643900CFC142 /* .gitignore */,
+				F5962E6A1DF8643900CFC142 /* .jazzy.yaml */,
+				F5962E6B1DF8643900CFC142 /* .swift-version */,
+				F5962E6C1DF8643900CFC142 /* .swiftlint.yml */,
+				F5962E6D1DF8643900CFC142 /* .travis.yml */,
+				F5962E6E1DF8643900CFC142 /* generate-docs.sh */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
