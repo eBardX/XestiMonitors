@@ -1,9 +1,11 @@
 # XestiMonitors
 
-[![Swift3](https://img.shields.io/badge/Swift-3.0-blue.svg)](https://developer.apple.com/swift/)
-[![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![Build Status](https://travis-ci.org/ebardx/XestiMonitors.svg?branch=master)](https://travis-ci.org/ebardx/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-blue.svg)](https://developer.apple.com/swift/)
+[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
 
 ## Contents
 
