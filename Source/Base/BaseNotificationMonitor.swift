@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// An abstract base class that simplifies the implementation of a monitor
 /// which relies on one or more notification observers.

@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `BatteryMonitor` object monitors the device for changes to the charge
 /// state and charge level of its battery.

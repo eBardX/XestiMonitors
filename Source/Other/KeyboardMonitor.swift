@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `KeyboardMonitor` object monitors the keyboard for changes to its
 /// visibility or to its frame.

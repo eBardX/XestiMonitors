@@ -26,6 +26,7 @@ custom_categories:
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor
+      - ReachabilityMonitor
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
 module: XestiMonitors

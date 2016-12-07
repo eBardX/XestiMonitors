@@ -7,6 +7,9 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
+import Foundation
+import UIKit
+
 ///
 /// A `ProtectedDataMonitor` object monitors the app for changes to the
 /// accessibility of protected files.

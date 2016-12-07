@@ -19,6 +19,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var keyboardFrameEndLabel: UILabel!
     @IBOutlet weak var keyboardIsLocalLabel: UILabel!
     @IBOutlet weak var keyboardTextField: UITextField!
+    @IBOutlet weak var reachabilityLabel: UILabel!
 
     lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [weak self] in
 
@@ -26,7 +27,14 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
-    lazy var monitors: [Monitor] = [self.keyboardMonitor]
+    lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [weak self] in
+
+        self?.displayReachability($0)
+
+    }
+
+    lazy var monitors: [Monitor] = [self.keyboardMonitor,
+                                    self.reachabilityMonitor]
 
     // MARK: -
 
@@ -97,6 +105,30 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
+    private func displayReachability(_ status: ReachabilityMonitor.Status) {
+
+        var text: String
+
+        switch status {
+
+        case .notReachable:
+            text = "Not reachable"
+
+        case .reachableViaWiFi:
+            text = "Reachable via Wi-Fi"
+
+        case .reachableViaWWAN:
+            text = "Reachable via WWAN"
+
+        default :
+            text = "Unknown"
+
+        }
+
+        reachabilityLabel.text = text
+
+    }
+
     private func formatAnimationCurve(_ animationCurve: UIViewAnimationCurve) -> String {
 
         switch animationCurve {
@@ -125,6 +157,8 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
         keyboardTextField.delegate = self
 
         displayKeyboard(nil)
+
+        displayReachability(.unknown)
 
     }
 

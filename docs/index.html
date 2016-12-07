@@ -111,6 +111,12 @@
               <li class="nav-group-task">
                 <a href="Classes/KeyboardMonitor/Info.html">– Info</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReachabilityMonitor.html">ReachabilityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReachabilityMonitor/Status.html">– Status</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -199,6 +205,10 @@ notifications:</p>
 
 <p>See <a href="#other_monitors">Other Monitors</a> for details.</p></li>
 </ul>
+
+<p>XestiMonitors also provides a “wrapper” around <code>SCNetworkReachability</code> to make
+it super easy for your app to determine the reachability of a target host. See
+<a href="#other_monitors">Other Monitors</a> for details.</p>
 
 <p>Additional monitors targeting additional parts of iOS will be rolled out in
 future releases of XestiMonitor!</p>
@@ -295,13 +305,18 @@ the state of its proximity sensor.</li>
 </ul>
 <a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
 
-<p>In addition, XestiMonitors provides a <a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> class
-that you can use to monitor the keyboard for changes to its visibility or to
-its frame. This monitor is especially handy in removing lots of boilerplate
-code from your app.</p>
+<p>In addition, XestiMonitors provides two other monitors:</p>
 
-<p>This is how keyboard monitoring is typically handled in a custom view
-controller:</p>
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> to monitor the keyboard for changes to
+its visibility or to its frame.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ReachabilityMonitor.html">ReachabilityMonitor</a> to monitor a network node name or
+address for changes to its reachability.</li>
+</ul>
+
+<p><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> is especially handy in removing lots of
+boilerplate code from your app. This is how keyboard monitoring is typically
+handled in a custom view controller:</p>
 <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">keyboardWillHide</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
     <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span>

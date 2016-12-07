@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Info Struct Reference</title>
+    <title>Status Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/Info" class="dashAnchor"></a>
-    <a title="Info Struct Reference"></a>
+    <a name="//apple_ref/swift/Enum/Status" class="dashAnchor"></a>
+    <a title="Status Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../../index.html">XestiMonitors Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html">XestiMonitors Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        Info Struct Reference
+        Status Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -125,15 +125,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Info</h1>
+            <h1>Status</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Info</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Status</span></code></pre>
 
                 </div>
               </div>
-            <p>Encapsulates keyboard information associated with a keyboard monitor
-event.</p>
+            <p>Encapsulates the reachability of a network node name or address.</p>
 
           </section>
           <section class="section task-group-section">
@@ -142,9 +141,9 @@ event.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vVC13XestiMonitors15KeyboardMonitor4Info14animationCurveOSC20UIViewAnimationCurve"></a>
-                    <a name="//apple_ref/swift/Property/animationCurve" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vVC13XestiMonitors15KeyboardMonitor4Info14animationCurveOSC20UIViewAnimationCurve">animationCurve</a>
+                    <a name="/s:FOC13XestiMonitors19ReachabilityMonitor6Status7unknownFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/unknown" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors19ReachabilityMonitor6Status7unknownFMS1_S1_">unknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -152,29 +151,34 @@ event.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines how the keyboard will be animated onto or off the screen.</p>
+                        <p>The reachability of the network node name or address cannot be
+determined.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">animationCurve</span><span class="p">:</span> <span class="kt">UIViewAnimationCurve</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unknown</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/KeyboardMonitor.swift#L65">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/ReachabilityMonitor.swift#L27">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vVC13XestiMonitors15KeyboardMonitor4Info17animationDurationSd"></a>
-                    <a name="//apple_ref/swift/Property/animationDuration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vVC13XestiMonitors15KeyboardMonitor4Info17animationDurationSd">animationDuration</a>
+                    <a name="/s:FOC13XestiMonitors19ReachabilityMonitor6Status12notReachableFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/notReachable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors19ReachabilityMonitor6Status12notReachableFMS1_S1_">notReachable</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,29 +186,33 @@ event.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The duration of the animation onto or off the screen in seconds.</p>
+                        <p>The network node name or address is not reachable.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">notReachable</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/KeyboardMonitor.swift#L70">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/ReachabilityMonitor.swift#L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vVC13XestiMonitors15KeyboardMonitor4Info10frameBeginVSC6CGRect"></a>
-                    <a name="//apple_ref/swift/Property/frameBegin" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vVC13XestiMonitors15KeyboardMonitor4Info10frameBeginVSC6CGRect">frameBegin</a>
+                    <a name="/s:FOC13XestiMonitors19ReachabilityMonitor6Status16reachableViaWiFiFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/reachableViaWiFi" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors19ReachabilityMonitor6Status16reachableViaWiFiFMS1_S1_">reachableViaWiFi</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -212,33 +220,34 @@ event.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The start frame of the keyboard in screen coordinates. These
-coordinates do not take into account any rotation factors applied
-to the window’s contents as a result of interface orientation
-changes. Thus, you may need to convert the rectangle to window
-coordinates or to view coordinates before using it.</p>
+                        <p>The network node name or address can be reached via a non-cellular
+connection.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">frameBegin</span><span class="p">:</span> <span class="kt">CGRect</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">reachableViaWiFi</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/KeyboardMonitor.swift#L79">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/ReachabilityMonitor.swift#L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vVC13XestiMonitors15KeyboardMonitor4Info8frameEndVSC6CGRect"></a>
-                    <a name="//apple_ref/swift/Property/frameEnd" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vVC13XestiMonitors15KeyboardMonitor4Info8frameEndVSC6CGRect">frameEnd</a>
+                    <a name="/s:FOC13XestiMonitors19ReachabilityMonitor6Status16reachableViaWWANFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/reachableViaWWAN" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors19ReachabilityMonitor6Status16reachableViaWWANFMS1_S1_">reachableViaWWAN</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,56 +255,20 @@ coordinates or to view coordinates before using it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The end frame of the keyboard in screen coordinates. These
-coordinates do not take into account any rotation factors applied
-to the window’s contents as a result of interface orientation
-changes. Thus, you may need to convert the rectangle to window
-coordinates or to view coordinates (before using it.</p>
+                        <p>The network node name or address can be reached via a cellular
+connection.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">frameEnd</span><span class="p">:</span> <span class="kt">CGRect</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">reachableViaWWAN</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/KeyboardMonitor.swift#L88">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vVC13XestiMonitors15KeyboardMonitor4Info7isLocalSb"></a>
-                    <a name="//apple_ref/swift/Property/isLocal" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vVC13XestiMonitors15KeyboardMonitor4Info7isLocalSb">isLocal</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Whether the keyboard belongs to the current app. With multitasking
-on iPad, all visible apps are notified when the keyboard appears
-and disappears. <code>true</code> for the app that caused the keyboard to
-appear and <code>false</code> for any other apps.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isLocal</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/KeyboardMonitor.swift#L96">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/be9bdfba213f54f46f90a1f9b0fa1aa10dfde957/Source/Other/ReachabilityMonitor.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
