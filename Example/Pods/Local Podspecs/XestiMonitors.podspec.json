@@ -21,6 +21,7 @@
   "requires_arc": true,
   "frameworks": [
     "Foundation",
+    "SystemConfiguration",
     "UIKit"
   ],
   "source_files": "Source/**/*.swift"
