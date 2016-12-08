@@ -1,6 +1,6 @@
 # XestiMonitors
 
-[![Build Status](https://travis-ci.org/ebardx/XestiMonitors.svg?branch=master)](https://travis-ci.org/ebardx/XestiMonitors)
+[![Build Status](https://travis-ci.org/eBardX/XestiMonitors.svg?branch=master)](https://travis-ci.org/eBardX/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://cocoapods.org/pods/XestiMonitors)
