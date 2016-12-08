@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode8.1
 script:
 - set -o pipefail
-- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO build | xcpretty
-#- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty
-- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors-Example -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO build | xcpretty
+- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors ONLY_ACTIVE_ARCH=NO build | xcpretty
+- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty
+- xcodebuild -workspace Example/XestiMonitors.xcworkspace -scheme XestiMonitors-Example ONLY_ACTIVE_ARCH=NO build | xcpretty
 - pod lib lint
