@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'XestiMonitors'
-  s.version             = '1.1.0'
+  s.version             = '1.2.0'
   s.authors             = { 'J. G. Pusey' => 'ebardx@gmail.com' }
   s.license             = { :type => 'MIT',
                             :file => 'LICENSE.md' }
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform            = :ios, '8.0'
 
   s.requires_arc        = true
-  s.frameworks          = 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.frameworks          = 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
 
   s.source_files        = 'Source/**/*.swift'
 end
