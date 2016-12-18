@@ -15,6 +15,28 @@ import Foundation
 ///
 public class AccelerometerMonitor: BaseMonitor {
 
+    ///
+    /// Encapsulates ...
+    ///
+    public enum Info {
+
+        ///
+        ///
+        ///
+        case data(CMAccelerometerData)
+
+        ///
+        ///
+        ///
+        case error(Error)
+
+        ///
+        ///
+        ///
+        case unknown
+    }
+
+
     // Public Type Properties
 
     ///
@@ -34,27 +56,35 @@ public class AccelerometerMonitor: BaseMonitor {
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
                 updateInterval: TimeInterval,
-                handler: @escaping (CMAccelerometerData?, Error?) -> Void) {
+                handler: @escaping (Info) -> Void) {
 
         self.handler = handler
         self.motionManager = motionManager
-
-        motionManager.accelerometerUpdateInterval = updateInterval
+        self.updateInterval = updateInterval
 
     }
 
     // Public Instance Properties
 
     ///
-    /// A Boolean value indicating whether ...
     ///
-    public var data: CMAccelerometerData? { return motionManager.accelerometerData }
+    ///
+    public var info: Info {
+
+        if let data = motionManager.accelerometerData {
+            return .data(data)
+        } else {
+            return .unknown
+        }
+
+    }
 
     // Private
 
-    private let handler: (CMAccelerometerData?, Error?) -> Void
+    private let handler: (Info) -> Void
     private let motionManager: CMMotionManager
     private let queue = DispatchQueue.main
+    private let updateInterval: TimeInterval
 
     // Overridden BaseMonitor Instance Methods
 
@@ -72,9 +102,17 @@ public class AccelerometerMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
+        motionManager.accelerometerUpdateInterval = updateInterval
+
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
 
-            self?.queue.async { self?.handler(data, error) }
+            if let error = error {
+                self?.queue.async { self?.handler(.error(error)) }
+            } else if let data = data {
+                self?.queue.async { self?.handler(.data(data)) }
+            } else {
+                self?.queue.async { self?.handler(.unknown) }
+            }
 
         }
 

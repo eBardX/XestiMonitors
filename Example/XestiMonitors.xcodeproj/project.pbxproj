@@ -14,6 +14,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7CAF8542FCFEDFC1CB5525A1 /* Pods_XestiMonitors_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767185E2A044C2C93F7528EB /* Pods_XestiMonitors_Example.framework */; };
 		BECF16F15E92623803E25D53 /* Pods_XestiMonitors_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0BADCFB654BDC234EF5279 /* Pods_XestiMonitors_Tests.framework */; };
+		F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */; };
 		F5D5604E1DE3A318009D8E67 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5604C1DE3A318009D8E67 /* MasterViewController.swift */; };
 		F5D560511DE3A323009D8E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D5604F1DE3A323009D8E67 /* LaunchScreen.storyboard */; };
 		F5D560541DE3A61D009D8E67 /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */; };
@@ -47,6 +48,7 @@
 		AABE85B08D4DF9CCBE0C07CF /* Pods-XestiMonitors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors_Example/Pods-XestiMonitors_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DC087DA492990F05C97C59C8 /* Pods-XestiMonitors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors_Tests/Pods-XestiMonitors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3A2EA17A6AFC95B2774698F /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetailViewController.swift; sourceTree = "<group>"; };
 		F5962E591DF85FAE00CFC142 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		F5962E691DF8643900CFC142 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		F5962E6A1DF8643900CFC142 /* .jazzy.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .jazzy.yaml; path = ../.jazzy.yaml; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */,
 				607FACD71AFB9204008FA782 /* DeviceDetailViewController.swift */,
 				F5D5604C1DE3A318009D8E67 /* MasterViewController.swift */,
+				F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */,
 				F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */,
 				F5D560491DE399A7009D8E67 /* Info.plist */,
 				F5D5604F1DE3A323009D8E67 /* LaunchScreen.storyboard */,
@@ -405,6 +408,7 @@
 				F5D5604E1DE3A318009D8E67 /* MasterViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* DeviceDetailViewController.swift in Sources */,
 				F5D560541DE3A61D009D8E67 /* ApplicationDetailViewController.swift in Sources */,
+				F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

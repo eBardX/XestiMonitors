@@ -25,7 +25,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     lazy var applicationStateMonitor: ApplicationStateMonitor = ApplicationStateMonitor { [weak self] in
 
-        self?.displayApplication($0)
+        self?.displayApplicationState($0)
 
     }
 
@@ -79,7 +79,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     // MARK: -
 
-    private func displayApplication(_ event: ApplicationStateMonitor.Event?) {
+    private func displayApplicationState(_ event: ApplicationStateMonitor.Event?) {
 
         var text: String
 
@@ -265,7 +265,7 @@ class ApplicationDetailViewController: UITableViewController {
 
         super.viewDidLoad()
 
-        displayApplication(nil)
+        displayApplicationState(nil)
 
         displayBackgroundRefresh(backgroundRefreshMonitor.status)
 

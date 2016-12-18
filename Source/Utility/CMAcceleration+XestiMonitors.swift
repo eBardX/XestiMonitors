@@ -13,22 +13,22 @@ import UIKit
 ///
 ///
 ///
-extension CMAccelerometerData {
+extension CMAcceleration {
 
     ///
     ///
     ///
     public var deviceOrientation: UIDeviceOrientation {
 
-        let angle = atan2(acceleration.y, -acceleration.x)
-
-        if fabs(acceleration.z) > 0.8 {
-            if acceleration.z > 0.0 {
-                return .faceDown
-            } else {
-                return .faceUp
-            }
+        if z > 0.8 {
+            return .faceDown
         }
+
+        if z < -0.8 {
+            return .faceUp
+        }
+
+        let angle = atan2(y, -x)
 
         if (angle >= -2.0) && (angle <= -1.0) {
             return .portrait
