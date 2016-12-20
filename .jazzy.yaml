@@ -26,6 +26,9 @@ custom_categories:
   - name: Motion Monitor Classes
     children:
       - AccelerometerMonitor
+      - DeviceMotionMonitor
+      - GyroMonitor
+      - MagnetometerMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor

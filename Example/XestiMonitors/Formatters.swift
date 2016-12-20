@@ -17,6 +17,12 @@ func formatAcceleration(_ value: CMAcceleration) -> String {
 
 }
 
+func formatAttitude(_ value: CMAttitude) -> String {
+
+    return "\(formatDecimal(value.roll)), \(formatDecimal(value.pitch)), \(formatDecimal(value.yaw))"
+
+}
+
 func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String {
 
     switch value {
@@ -115,11 +121,48 @@ func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
 
 }
 
+func formatMagneticField(_ value: CMCalibratedMagneticField) -> String {
+
+    return "\(formatMagneticField(value.field)) \(formatMagneticFieldCalibrationAccuracy(value.accuracy))"
+
+}
+
+func formatMagneticField(_ value: CMMagneticField) -> String {
+
+    return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
+
+}
+
+func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationAccuracy) -> String {
+
+    switch value {
+
+    case .high:
+        return "High"
+
+    case .low:
+        return "Low"
+
+    case .medium:
+        return "Medium"
+
+    case .uncalibrated:
+        return "Uncalibrated"
+
+    }
+}
+
 func formatPercentage (_ value: Float) -> String {
 
     let number = NSNumber(value: value)
 
     return percentageFormatter.string(from: number) ?? "\(value * 100.0)%"
+
+}
+
+func formatRotationRate(_ value: CMRotationRate) -> String {
+
+    return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
 
 }
 
