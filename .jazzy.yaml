@@ -23,10 +23,17 @@ custom_categories:
       - BatteryMonitor
       - OrientationMonitor
       - ProximityMonitor
+  - name: Motion Monitor Classes
+    children:
+      - AccelerometerMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor
       - ReachabilityMonitor
+  - name: Extensions
+    children:
+      - CMAcceleration
+      - CMMotionManager
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
 module: XestiMonitors

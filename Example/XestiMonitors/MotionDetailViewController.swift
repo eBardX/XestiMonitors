@@ -17,7 +17,7 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var accelerometerOrientationLabel: UILabel!
     @IBOutlet weak var accelerometerTimestampLabel: UILabel!
 
-    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(updateInterval: 0.2) { [weak self] in
+    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(updateInterval: 0.25) { [weak self] in
 
         self?.displayAccelerometer($0)
 
@@ -31,15 +31,15 @@ class MotionDetailViewController: UITableViewController {
 
         switch info {
 
-        case let .data(data):
-            accelerometerAccelerationLabel.text = "[\(data.acceleration.x), \(data.acceleration.y), \(data.acceleration.z)]"
+        case .data(let data):
+            accelerometerAccelerationLabel.text = formatAcceleration(data.acceleration)
 
             accelerometerOrientationLabel.text = formatDeviceOrientation(data.acceleration.deviceOrientation)
 
-            accelerometerTimestampLabel.text = "\(data.timestamp)"
+            accelerometerTimestampLabel.text = formatTimeInterval(data.timestamp)
             accelerometerTimestampLabel.textColor = UIColor.black
 
-        case let .error(error):
+        case .error(let error):
             accelerometerAccelerationLabel.text = " "
 
             accelerometerOrientationLabel.text = " "
@@ -56,35 +56,6 @@ class MotionDetailViewController: UITableViewController {
             accelerometerTimestampLabel.textColor = UIColor.gray
 
         }
-    }
-
-    private func formatDeviceOrientation(_ orientation: UIDeviceOrientation) -> String {
-
-        switch orientation {
-
-        case .faceDown:
-            return "Face down"
-
-        case .faceUp:
-            return "Face up"
-
-        case .landscapeLeft:
-            return "Landscape left"
-
-        case .landscapeRight:
-            return "Landscape right"
-
-        case .portrait:
-            return "Portrait"
-
-        case .portraitUpsideDown:
-            return "Portrait upside down"
-
-        default:
-            return "Unknown"
-
-        }
-
     }
 
     // MARK: -

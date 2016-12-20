@@ -106,13 +106,17 @@ public class AccelerometerMonitor: BaseMonitor {
 
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
 
+            var info: Info
+
             if let error = error {
-                self?.queue.async { self?.handler(.error(error)) }
+                info = .error(error)
             } else if let data = data {
-                self?.queue.async { self?.handler(.data(data)) }
+                info = .data(data)
             } else {
-                self?.queue.async { self?.handler(.unknown) }
+                info = .unknown
             }
+
+            self?.queue.async { self?.handler(info) }
 
         }
 

@@ -119,22 +119,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     private func displayBackgroundRefresh(_ status: UIBackgroundRefreshStatus) {
 
-        var text: String
-
-        switch status {
-
-        case .available:
-            text = "Available"
-
-        case .denied:
-            text = "Denied"
-
-        case .restricted:
-            text = "Restricted"
-
-        }
-
-        backgroundRefreshLabel.text = text
+        backgroundRefreshLabel.text = formatBackgroundRefreshStatus(status)
 
     }
 
@@ -216,7 +201,7 @@ class ApplicationDetailViewController: UITableViewController {
 
         statusBarFrameLabel.text = "\(frame)"
 
-        statusBarOrientationLabel.text = formatOrientation(orientation)
+        statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
 
     }
 
@@ -225,29 +210,6 @@ class ApplicationDetailViewController: UITableViewController {
         timeCount += 1
 
         timeLabel.text = "\(timeCount)"
-
-    }
-
-    private func formatOrientation(_ orientation: UIInterfaceOrientation) -> String {
-
-        switch orientation {
-
-        case .landscapeLeft:
-            return "Landscape left"
-
-        case .landscapeRight:
-            return "Landscape right"
-
-        case .portrait:
-            return "Portrait"
-
-        case .portraitUpsideDown:
-            return "Portrait upside down"
-
-        default:
-            return "Unknown"
-
-        }
 
     }
 

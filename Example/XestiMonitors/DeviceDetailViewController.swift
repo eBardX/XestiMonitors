@@ -57,58 +57,13 @@ class DeviceDetailViewController: UITableViewController {
     private func displayBattery(_ state: UIDeviceBatteryState,
                                 _ level: Float) {
 
-        var text: String
-
-        switch state {
-
-        case .charging:
-            text = "Charging \(level * 100)%"
-
-        case .full:
-            text = "Full"
-
-        case .unplugged:
-            text = "Unplugged \(level * 100)%"
-
-        default:
-            text = "Unknown"
-
-        }
-
-        batteryLabel.text = text
+        batteryLabel.text = formatDeviceBatteryStateAndLevel(state, level)
 
     }
 
     private func displayOrientation(_ orientation: UIDeviceOrientation) {
 
-        var text: String
-
-        switch orientation {
-
-        case .faceDown:
-            text = "Face down"
-
-        case .faceUp:
-            text = "Face up"
-
-        case .landscapeLeft:
-            text = "Landscape left"
-
-        case .landscapeRight:
-            text = "Landscape right"
-
-        case .portrait:
-            text = "Portrait"
-
-        case .portraitUpsideDown:
-            text = "Portrait upside down"
-
-        default:
-            text = "Unknown"
-
-        }
-
-        orientationLabel.text = text
+        orientationLabel.text = formatDeviceOrientation(orientation)
 
     }
 

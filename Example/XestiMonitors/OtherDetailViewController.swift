@@ -77,7 +77,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
         if let info = info {
 
-            keyboardAnimationCurveLabel.text = "\(formatAnimationCurve(info.animationCurve))"
+            keyboardAnimationCurveLabel.text = formatViewAnimationCurve(info.animationCurve)
 
             keyboardAnimationDurationLabel.text = "\(info.animationDuration)"
 
@@ -127,25 +127,6 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
         reachabilityLabel.text = text
 
-    }
-
-    private func formatAnimationCurve(_ animationCurve: UIViewAnimationCurve) -> String {
-
-        switch animationCurve {
-
-        case .easeIn:
-            return "Ease in"
-
-        case .easeInOut:
-            return "Ease in/out"
-
-        case .easeOut:
-            return "Ease out"
-
-        case .linear:
-            return "Linear"
-
-        }
     }
 
     // MARK: -
