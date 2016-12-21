@@ -57,21 +57,20 @@ public class AccelerometerMonitor: BaseMonitor {
     /// Initializes a new `AccelerometerMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
-    ///                     default, a shared instance is used as recommended
-    ///                     by Apple.
-    ///   - interval:       The interval, in seconds, for providing
-    ///                     acceleration measurements to the handler.
-    ///   - handler:        The handler to call periodically when a new
-    ///                     acceleration measurement is available.
+    ///   - manager:    The instance of `CMMotionManager` to use. By default, a
+    ///                 shared instance is used as recommended by Apple.
+    ///   - interval:   The interval, in seconds, for providing acceleration
+    ///                 measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 acceleration measurement is available.
     ///
-    public init(motionManager: CMMotionManager = CMMotionManager.shared,
+    public init(manager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
+        self.manager = manager
 
     }
 
@@ -82,7 +81,7 @@ public class AccelerometerMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = motionManager.accelerometerData {
+        if let data = manager.accelerometerData {
             return .data(data)
         } else {
             return .unknown
@@ -94,16 +93,16 @@ public class AccelerometerMonitor: BaseMonitor {
 
     private let handler: (Info) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let manager: CMMotionManager
     private let queue = DispatchQueue.main
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isAccelerometerActive else { return false }
+        guard manager.isAccelerometerActive else { return false }
 
-        motionManager.stopAccelerometerUpdates()
+        manager.stopAccelerometerUpdates()
 
         return super.cleanupMonitor()
 
@@ -113,9 +112,9 @@ public class AccelerometerMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.accelerometerUpdateInterval = interval
+        manager.accelerometerUpdateInterval = interval
 
-        motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
+        manager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
 
             var info: Info
 

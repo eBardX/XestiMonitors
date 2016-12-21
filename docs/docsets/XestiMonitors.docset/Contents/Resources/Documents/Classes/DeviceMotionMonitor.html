@@ -206,7 +206,7 @@ processed into device motion measurements.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L23-L40">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L23-L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -237,7 +237,7 @@ on the device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L48-L52">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L48-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -245,9 +245,9 @@ on the device.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13XestiMonitors19DeviceMotionMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(motionManager:interval:handler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13XestiMonitors19DeviceMotionMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_">init(motionManager:interval:handler:)</a>
+                    <a name="/s:FC13XestiMonitors19DeviceMotionMonitorcFT7managerCSo15CMMotionManager8intervalSd5usingVSC24CMAttitudeReferenceFrame7handlerFOS0_4InfoT__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(manager:interval:using:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC13XestiMonitors19DeviceMotionMonitorcFT7managerCSo15CMMotionManager8intervalSd5usingVSC24CMAttitudeReferenceFrame7handlerFOS0_4InfoT__S0_">init(manager:interval:using:handler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -261,11 +261,13 @@ on the device.</p>
 <li>Parameters:
 
 <ul>
-<li>motionManager:  The instance of <code>CMMotionManager</code> to use. By
+<li>manager:        The instance of <code>CMMotionManager</code> to use. By
             default, a shared instance is used as recommended
             by Apple.</li>
 <li>interval:       The interval, in seconds, for providing device
             motion measurements to the handler.</li>
+<li>referenceFrame: The reference frame to use for device motion
+            measurements.</li>
 <li>handler:        The handler to call periodically when a new device
             motion measurement is available.</li>
 </ul></li>
@@ -276,8 +278,9 @@ on the device.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">motionManager</span><span class="p">:</span> <span class="kt">CMMotionManager</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="p">,</span>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="kt">CMMotionManager</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="p">,</span>
                 <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
+                <span class="n">using</span> <span class="nv">referenceFrame</span><span class="p">:</span> <span class="kt">CMAttitudeReferenceFrame</span><span class="p">,</span>
                 <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/DeviceMotionMonitor/Info.html">Info</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -289,7 +292,7 @@ on the device.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>motionManager</em>
+                                <em>manager</em>
                                 </code>
                               </td>
                               <td>
@@ -315,6 +318,19 @@ on the device.</p>
                             <tr>
                               <td>
                                 <code>
+                                <em>referenceFrame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reference frame to use for device motion measurements.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>handler</em>
                                 </code>
                               </td>
@@ -329,7 +345,7 @@ on the device.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L68-L76">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L70-L80">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -359,7 +375,7 @@ on the device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L83-L91">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L87-L95">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -393,7 +409,7 @@ on the device.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L102-L110">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L107-L115">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -427,7 +443,7 @@ on the device.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/DeviceMotionMonitor.swift#L112-L135">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/DeviceMotionMonitor.swift#L117-L141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

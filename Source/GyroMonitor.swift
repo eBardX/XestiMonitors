@@ -57,21 +57,20 @@ public class GyroMonitor: BaseMonitor {
     /// Initializes a new `GyroMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
-    ///                     default, a shared instance is used as recommended
-    ///                     by Apple.
-    ///   - interval:       The interval, in seconds, for providing rotation
-    ///                     rate measurements to the handler.
-    ///   - handler:        The handler to call periodically when a new
-    ///                     rotation rate measurement is available.
+    ///   - manager:    The instance of `CMMotionManager` to use. By default, a
+    ///                 shared instance is used as recommended by Apple.
+    ///   - interval:   The interval, in seconds, for providing rotation rate
+    ///                 measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new rotation
+    ///                 rate measurement is available.
     ///
-    public init(motionManager: CMMotionManager = CMMotionManager.shared,
+    public init(manager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
+        self.manager = manager
 
     }
 
@@ -82,7 +81,7 @@ public class GyroMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = motionManager.gyroData {
+        if let data = manager.gyroData {
             return .data(data)
         } else {
             return .unknown
@@ -94,16 +93,16 @@ public class GyroMonitor: BaseMonitor {
 
     private let handler: (Info) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let manager: CMMotionManager
     private let queue = DispatchQueue.main
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isGyroActive else { return false }
+        guard manager.isGyroActive else { return false }
 
-        motionManager.stopGyroUpdates()
+        manager.stopGyroUpdates()
 
         return super.cleanupMonitor()
 
@@ -113,9 +112,9 @@ public class GyroMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.gyroUpdateInterval = interval
+        manager.gyroUpdateInterval = interval
 
-        motionManager.startGyroUpdates(to: .main) { [weak self] data, error in
+        manager.startGyroUpdates(to: .main) { [weak self] data, error in
 
             var info: Info
 

@@ -58,21 +58,20 @@ public class MagnetometerMonitor: BaseMonitor {
     /// Initializes a new `MagnetometerMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
-    ///                     default, a shared instance is used as recommended
-    ///                     by Apple.
-    ///   - interval:       The interval, in seconds, for providing magnetic
-    ///                     field measurements to the handler.
-    ///   - handler:        The handler to call periodically when a new
-    ///                     magnetic field measurement is available.
+    ///   - manager:    The instance of `CMMotionManager` to use. By default, a
+    ///                 shared instance is used as recommended by Apple.
+    ///   - interval:   The interval, in seconds, for providing magnetic field
+    ///                 measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new magnetic
+    ///                 field measurement is available.
     ///
-    public init(motionManager: CMMotionManager = CMMotionManager.shared,
+    public init(manager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
+        self.manager = manager
 
     }
 
@@ -83,7 +82,7 @@ public class MagnetometerMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = motionManager.magnetometerData {
+        if let data = manager.magnetometerData {
             return .data(data)
         } else {
             return .unknown
@@ -95,16 +94,16 @@ public class MagnetometerMonitor: BaseMonitor {
 
     private let handler: (Info) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let manager: CMMotionManager
     private let queue = DispatchQueue.main
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isMagnetometerActive else { return false }
+        guard manager.isMagnetometerActive else { return false }
 
-        motionManager.stopMagnetometerUpdates()
+        manager.stopMagnetometerUpdates()
 
         return super.cleanupMonitor()
 
@@ -114,9 +113,9 @@ public class MagnetometerMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.magnetometerUpdateInterval = interval
+        manager.magnetometerUpdateInterval = interval
 
-        motionManager.startMagnetometerUpdates(to: .main) { [weak self] data, error in
+        manager.startMagnetometerUpdates(to: .main) { [weak self] data, error in
 
             var info: Info
 

@@ -57,21 +57,25 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// Initializes a new `DeviceMotionMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///   - manager:        The instance of `CMMotionManager` to use. By
     ///                     default, a shared instance is used as recommended
     ///                     by Apple.
     ///   - interval:       The interval, in seconds, for providing device
     ///                     motion measurements to the handler.
+    ///   - referenceFrame: The reference frame to use for device motion
+    ///                     measurements.
     ///   - handler:        The handler to call periodically when a new device
     ///                     motion measurement is available.
     ///
-    public init(motionManager: CMMotionManager = CMMotionManager.shared,
+    public init(manager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
+                using referenceFrame: CMAttitudeReferenceFrame,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
+        self.manager = manager
+        self.referenceFrame = referenceFrame
 
     }
 
@@ -82,7 +86,7 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = motionManager.deviceMotion {
+        if let data = manager.deviceMotion {
             return .data(data)
         } else {
             return .unknown
@@ -94,16 +98,17 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     private let handler: (Info) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let manager: CMMotionManager
     private let queue = DispatchQueue.main
+    private let referenceFrame: CMAttitudeReferenceFrame
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isDeviceMotionActive else { return false }
+        guard manager.isDeviceMotionActive else { return false }
 
-        motionManager.stopDeviceMotionUpdates()
+        manager.stopDeviceMotionUpdates()
 
         return super.cleanupMonitor()
 
@@ -113,21 +118,22 @@ public class DeviceMotionMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.accelerometerUpdateInterval = interval
+        manager.accelerometerUpdateInterval = interval
 
-        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] data, error in
+        manager.startDeviceMotionUpdates(using: self.referenceFrame,
+                                         to: .main) { [weak self] data, error in
 
-            var info: Info
+                                            var info: Info
 
-            if let error = error {
-                info = .error(error)
-            } else if let data = data {
-                info = .data(data)
-            } else {
-                info = .unknown
-            }
+                                            if let error = error {
+                                                info = .error(error)
+                                            } else if let data = data {
+                                                info = .data(data)
+                                            } else {
+                                                info = .unknown
+                                            }
 
-            self?.queue.async { self?.handler(info) }
+                                            self?.queue.async { self?.handler(info) }
 
         }
 

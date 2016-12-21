@@ -184,6 +184,7 @@
 <ul>
 <li><a href="#application_monitors">Application Monitors</a></li>
 <li><a href="#device_monitors">Device Monitors</a></li>
+<li><a href="#motion_monitors">Motion Monitors</a></li>
 <li><a href="#other_monitors">Other Monitors</a></li>
 <li><a href="#custom_monitors">Custom Monitors</a></li>
 </ul></li>
@@ -192,7 +193,7 @@
 </ul>
 <a href='#a-name-overview-overview-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='a-name-overview-overview-a'><a name="overview">Overview</a></h2>
 
-<p>The XestiMonitors framework provides nearly a dozen fully-functional monitor
+<p>The XestiMonitors framework provides more than a dozen fully-functional monitor
 classes right out of the box that make it easy for your iOS app to detect and
 respond to many common system-generated events.</p>
 
@@ -251,7 +252,12 @@ notifications:</p>
 it super easy for your app to determine the reachability of a target host. See
 <a href="#other_monitors">Other Monitors</a> for details.</p>
 
-<p>Additional monitors targeting additional parts of iOS will be rolled out in
+<p><strong>NEW!</strong> XestiMonitors now provides a “wrapper” around <code>CMMotionManager</code> to
+make it easier for your app to obtain both raw and processed motion
+measurements from the device. See <a href="#motion_monitors">Motion Monitors</a> for
+details.</p>
+
+<p>Additional monitors targeting even more parts of iOS will be rolled out in
 future releases of XestiMonitor!</p>
 
 <p>Finally, XestiMonitors is <em>extensible</em>—you can easily create your own <em>custom</em>
@@ -333,8 +339,8 @@ time.</li>
 </ul>
 <a href='#a-name-device_monitors-device-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-device_monitors-device-monitors-a'><a name="device_monitors">Device Monitors</a></h3>
 
-<p>XestiMonitors also provides three monitor classes that you can use to detect
-changes in the characteristics of the device:</p>
+<p>XestiMonitors provides three monitor classes that you can use to detect changes
+in the characteristics of the device:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html">BatteryMonitor</a> to monitor the device for changes to the
@@ -343,6 +349,24 @@ charge state and charge level of its battery.</li>
 to its physical orientation.</li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html">ProximityMonitor</a> to monitor the device for changes to
 the state of its proximity sensor.</li>
+</ul>
+<a href='#a-name-motion_monitors-motion-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-motion_monitors-motion-monitors-a'><a name="motion_monitors">Motion Monitors</a></h3>
+
+<p>XestiMonitors also provides four monitor classes that you can use to obtain raw
+and processed motion measurements from the device:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html">AccelerometerMonitor</a> to monitor the device’s
+accelerometer for periodic raw measurements of the acceleration along the
+three spatial axes.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a> to monitor the device’s
+accelerometer, gyroscope, and magnetometer for periodic raw measurements
+which are processed into device motion measurements.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/GyroMonitor.html">GyroMonitor</a> to monitor the device’s gyroscope for periodic
+raw measurements of the rotation rate around the three spatial axes.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html">MagnetometerMonitor</a> to monitor the device’s
+magnetometer for periodic raw measurements of the magnetic field around the
+three spatial axes.</li>
 </ul>
 <a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
 

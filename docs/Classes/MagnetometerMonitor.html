@@ -173,7 +173,8 @@
                 </div>
               </div>
             <p>A <code>MagnetometerMonitor</code> object monitors the device’s magnetometer for
-periodic measurements of the magnetic field around the three spatial axes.</p>
+periodic raw measurements of the magnetic field around the three spatial
+axes.</p>
 
           </section>
           <section class="section task-group-section">
@@ -206,7 +207,7 @@ spatial axes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L23-L40">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L24-L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -237,7 +238,7 @@ device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L48-L52">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L49-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -245,9 +246,9 @@ device.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13XestiMonitors19MagnetometerMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(motionManager:interval:handler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13XestiMonitors19MagnetometerMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_">init(motionManager:interval:handler:)</a>
+                    <a name="/s:FC13XestiMonitors19MagnetometerMonitorcFT7managerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(manager:interval:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC13XestiMonitors19MagnetometerMonitorcFT7managerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_">init(manager:interval:handler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -261,13 +262,12 @@ device.</p>
 <li>Parameters:
 
 <ul>
-<li>motionManager:  The instance of <code>CMMotionManager</code> to use. By
-            default, a shared instance is used as recommended
-            by Apple.</li>
-<li>interval:       The interval, in seconds, for providing magnetic
-            field measurements to the handler.</li>
-<li>handler:        The handler to call periodically when a new
-            magnetic field measurement is available.</li>
+<li>manager:    The instance of <code>CMMotionManager</code> to use. By default, a
+        shared instance is used as recommended by Apple.</li>
+<li>interval:   The interval, in seconds, for providing magnetic field
+        measurements to the handler.</li>
+<li>handler:    The handler to call periodically when a new magnetic
+        field measurement is available.</li>
 </ul></li>
 </ul>
 
@@ -276,7 +276,7 @@ device.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">motionManager</span><span class="p">:</span> <span class="kt">CMMotionManager</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="p">,</span>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="kt">CMMotionManager</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="p">,</span>
                 <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
                 <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/MagnetometerMonitor/Info.html">Info</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
@@ -289,7 +289,7 @@ device.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>motionManager</em>
+                                <em>manager</em>
                                 </code>
                               </td>
                               <td>
@@ -329,7 +329,7 @@ device.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L68-L76">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L68-L76">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -359,7 +359,7 @@ device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L83-L91">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L83-L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -393,7 +393,7 @@ device.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L102-L110">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L102-L110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -427,7 +427,7 @@ device.</p>
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/ef8d7f1466c1f2ad9616d57cba77f2fd4c1ea6f6/Source/MagnetometerMonitor.swift#L112-L135">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d10752a8bb551e3268d5b50daefc1201db87a099/Source/MagnetometerMonitor.swift#L112-L135">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

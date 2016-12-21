@@ -33,7 +33,8 @@ class MotionDetailViewController: UITableViewController {
 
     }
 
-    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(interval: 0.25) { [weak self] in
+    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(interval: 0.25,
+                                                                            using: .xArbitraryZVertical) { [weak self] in
 
         self?.displayDeviceMotion($0)
 
