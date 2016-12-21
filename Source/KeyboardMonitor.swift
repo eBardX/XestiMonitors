@@ -54,8 +54,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     }
 
     ///
-    /// Encapsulates keyboard information associated with a keyboard monitor
-    /// event.
+    /// Encapsulates information associated with a keyboard monitor event.
     ///
     public struct Info {
 

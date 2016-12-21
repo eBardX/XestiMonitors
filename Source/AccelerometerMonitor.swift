@@ -11,27 +11,30 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `AccelerometerMonitor` object monitors ...
+/// An `AccelerometerMonitor` object monitors the device’s accelerometers for
+/// periodic measurements to the acceleration along the three spatial axes.
 ///
 public class AccelerometerMonitor: BaseMonitor {
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates the measurement of acceleration along the three spatial axes
+    /// at a moment of time.
     ///
     public enum Info {
 
         ///
-        ///
+        /// The acceleration measurement.
         ///
         case data(CMAccelerometerData)
 
         ///
-        ///
+        /// The error encountered in attempting to obtain the acceleration
+        /// measurement.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No acceleration measurement is available.
         ///
         case unknown
     }
@@ -40,9 +43,14 @@ public class AccelerometerMonitor: BaseMonitor {
     // Public Type Properties
 
     ///
-    /// A Boolean value indicating whether ...
+    /// A Boolean value indicating whether accelerometers are available on the
+    /// device.
     ///
-    public static var isAvailable = CMMotionManager.shared.isAccelerometerAvailable
+    public static var isAvailable: Bool {
+
+        return CMMotionManager.shared.isAccelerometerAvailable
+
+    }
 
     // Public Initializers
 
@@ -50,24 +58,28 @@ public class AccelerometerMonitor: BaseMonitor {
     /// Initializes a new `AccelerometerMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The ...
-    ///   - updateInterval: The ...
-    ///   - handler:        The handler to call when ...
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by the Apple documentation.
+    ///   - interval:       The interval, in seconds, for providing
+    ///                     acceleration measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     acceleration measurement is available.
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
-                updateInterval: TimeInterval,
+                interval: TimeInterval,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
+        self.interval = interval
         self.motionManager = motionManager
-        self.updateInterval = updateInterval
 
     }
 
     // Public Instance Properties
 
     ///
-    ///
+    /// The latest acceleration measurement available.
     ///
     public var info: Info {
 
@@ -82,9 +94,9 @@ public class AccelerometerMonitor: BaseMonitor {
     // Private
 
     private let handler: (Info) -> Void
+    private let interval: TimeInterval
     private let motionManager: CMMotionManager
     private let queue = DispatchQueue.main
-    private let updateInterval: TimeInterval
 
     // Overridden BaseMonitor Instance Methods
 
@@ -102,7 +114,7 @@ public class AccelerometerMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.accelerometerUpdateInterval = updateInterval
+        motionManager.accelerometerUpdateInterval = interval
 
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
 

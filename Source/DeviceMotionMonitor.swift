@@ -51,16 +51,16 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///
     /// - Parameters:
     ///   - motionManager:  The ...
-    ///   - updateInterval: The ...
+    ///   - interval:       The ...
     ///   - handler:        The handler to call when ...
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
-                updateInterval: TimeInterval,
+                interval: TimeInterval,
                 handler: @escaping (Info) -> Void) {
 
         self.handler = handler
+        self.interval = interval
         self.motionManager = motionManager
-        self.updateInterval = updateInterval
 
     }
 
@@ -82,9 +82,9 @@ public class DeviceMotionMonitor: BaseMonitor {
     // Private
 
     private let handler: (Info) -> Void
+    private let interval: TimeInterval
     private let motionManager: CMMotionManager
     private let queue = DispatchQueue.main
-    private let updateInterval: TimeInterval
 
     // Overridden BaseMonitor Instance Methods
 
@@ -102,7 +102,7 @@ public class DeviceMotionMonitor: BaseMonitor {
 
         guard super.configureMonitor() else { return false }
 
-        motionManager.accelerometerUpdateInterval = updateInterval
+        motionManager.accelerometerUpdateInterval = interval
 
         motionManager.startDeviceMotionUpdates(to: .main) { [weak self] data, error in
 

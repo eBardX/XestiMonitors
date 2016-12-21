@@ -109,6 +109,24 @@
               <li class="nav-group-task">
                 <a href="../Classes/AccelerometerMonitor/Info.html">– Info</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceMotionMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GyroMonitor.html">GyroMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GyroMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MagnetometerMonitor/Info.html">– Info</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -154,7 +172,8 @@
 
                 </div>
               </div>
-            <p>A <code>AccelerometerMonitor</code> object monitors &hellip;</p>
+            <p>An <code>AccelerometerMonitor</code> object monitors the device’s accelerometers for
+periodic measurements to the acceleration along the three spatial axes.</p>
 
           </section>
           <section class="section task-group-section">
@@ -173,7 +192,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Encapsulates &hellip;</p>
+                        <p>Encapsulates the measurement of acceleration along the three spatial axes
+at a moment of time.</p>
 
                         <a href="../Classes/AccelerometerMonitor/Info.html" class="slightly-smaller">See more</a>
                       </div>
@@ -186,7 +206,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L21-L37">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L23-L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -204,19 +224,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Boolean value indicating whether &hellip;</p>
+                        <p>A Boolean value indicating whether accelerometers are available on the
+device.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isAvailable</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">isAccelerometerAvailable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isAvailable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L45">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L49-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -224,9 +245,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13XestiMonitors20AccelerometerMonitorcFT13motionManagerCSo15CMMotionManager14updateIntervalSd7handlerFOS0_4InfoT__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(motionManager:updateInterval:handler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13XestiMonitors20AccelerometerMonitorcFT13motionManagerCSo15CMMotionManager14updateIntervalSd7handlerFOS0_4InfoT__S0_">init(motionManager:updateInterval:handler:)</a>
+                    <a name="/s:FC13XestiMonitors20AccelerometerMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(motionManager:interval:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC13XestiMonitors20AccelerometerMonitorcFT13motionManagerCSo15CMMotionManager8intervalSd7handlerFOS0_4InfoT__S0_">init(motionManager:interval:handler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -240,9 +261,13 @@
 <li>Parameters:
 
 <ul>
-<li>motionManager:  The &hellip;</li>
-<li>updateInterval: The &hellip;</li>
-<li>handler:        The handler to call when &hellip;</li>
+<li>motionManager:  The instance of <code>CMMotionManager</code> to use. By
+            default, a shared instance is used as recommended
+            by the Apple documentation.</li>
+<li>interval:       The interval, in seconds, for providing
+            acceleration measurements to the handler.</li>
+<li>handler:        The handler to call periodically when a new
+            acceleration measurement is available.</li>
 </ul></li>
 </ul>
 
@@ -252,7 +277,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">motionManager</span><span class="p">:</span> <span class="kt">CMMotionManager</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="p">,</span>
-                <span class="nv">updateInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
+                <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
                 <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/AccelerometerMonitor/Info.html">Info</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -269,7 +294,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The …</p>
+                                  <p>The instance of <code>CMMotionManager</code> to use. By default, a shared instance is used as recommended by the Apple documentation.</p>
 
                                 </div>
                               </td>
@@ -277,12 +302,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>updateInterval</em>
+                                <em>interval</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The …</p>
+                                  <p>The interval, in seconds, for providing acceleration measurements to the handler.</p>
 
                                 </div>
                               </td>
@@ -295,7 +320,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The handler to call when …</p>
+                                  <p>The handler to call periodically when a new acceleration measurement is available.</p>
 
                                 </div>
                               </td>
@@ -304,7 +329,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L57-L65">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L69-L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -322,7 +347,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The latest acceleration measurement available.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -333,7 +359,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L72-L80">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L84-L92">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -367,7 +393,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L91-L99">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L103-L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -401,7 +427,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/cd47579f7d6489995824923229161c0c7d4544f8/Source/AccelerometerMonitor.swift#L101-L124">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/AccelerometerMonitor.swift#L113-L136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

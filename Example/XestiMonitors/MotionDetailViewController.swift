@@ -27,25 +27,25 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var magnetometerMagneticFieldLabel: UILabel!
     @IBOutlet weak var magnetometerTimestampLabel: UILabel!
 
-    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(updateInterval: 0.25) { [weak self] in
+    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(interval: 0.25) { [weak self] in
 
         self?.displayAccelerometer($0)
 
     }
 
-    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(updateInterval: 0.25) { [weak self] in
+    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(interval: 0.25) { [weak self] in
 
         self?.displayDeviceMotion($0)
 
     }
 
-    lazy var gyroMonitor: GyroMonitor = GyroMonitor(updateInterval: 0.25) { [weak self] in
+    lazy var gyroMonitor: GyroMonitor = GyroMonitor(interval: 0.25) { [weak self] in
 
         self?.displayGyro($0)
 
     }
 
-    lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(updateInterval: 0.25) { [weak self] in
+    lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(interval: 0.25) { [weak self] in
 
         self?.displayMagnetometer($0)
 
