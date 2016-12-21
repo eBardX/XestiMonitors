@@ -1,4 +1,4 @@
-# 1.2.0 (???)
+# 1.2.0 (2016-12-21)
 
 Adds support for four new monitor classes: `AccelerometerMonitor`,
 `DeviceMotionMonitor`, `GyroMonitor`, and `MagnetometerMonitor`.
