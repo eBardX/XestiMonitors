@@ -11,38 +11,45 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `GyroMonitor` object monitors ...
+/// A `GyroMonitor` object monitors the device’s gyroscope for periodic
+/// measurements of the rotation rate around the three spatial axes.
 ///
 public class GyroMonitor: BaseMonitor {
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates the measurement of the rotation rate around the three
+    /// spatial axes at a moment of time.
     ///
     public enum Info {
 
         ///
-        ///
+        /// The rotation rate measurement.
         ///
         case data(CMGyroData)
 
         ///
-        ///
+        /// The error encountered in attempting to obtain the rotation rate
+        /// measurement.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No rotation rate measurement is available.
         ///
         case unknown
     }
 
-
     // Public Type Properties
 
     ///
-    /// A Boolean value indicating whether ...
+    /// A Boolean value indicating whether a gyroscope is available on the
+    /// device.
     ///
-    public static var isAvailable = CMMotionManager.shared.isGyroAvailable
+    public static var isAvailable: Bool {
+
+        return CMMotionManager.shared.isGyroAvailable
+
+    }
 
     // Public Initializers
 
@@ -50,9 +57,13 @@ public class GyroMonitor: BaseMonitor {
     /// Initializes a new `GyroMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The ...
-    ///   - interval:       The ...
-    ///   - handler:        The handler to call when ...
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by Apple.
+    ///   - interval:       The interval, in seconds, for providing rotation
+    ///                     rate measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     rotation rate measurement is available.
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
@@ -67,7 +78,7 @@ public class GyroMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    ///
+    /// The latest rotation rate measurement available.
     ///
     public var info: Info {
 

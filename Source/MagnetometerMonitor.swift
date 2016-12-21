@@ -11,38 +11,45 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MagnetometerMonitor` object monitors ...
+/// A `MagnetometerMonitor` object monitors the device’s magnetometer for
+/// periodic measurements of the magnetic field around the three spatial axes.
 ///
 public class MagnetometerMonitor: BaseMonitor {
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates the measurement of the magnetic field around the three
+    /// spatial axes.
     ///
     public enum Info {
 
         ///
-        ///
+        /// The magnetic field measurement.
         ///
         case data(CMMagnetometerData)
 
         ///
-        ///
+        /// The error encountered in attempting to obtain the magnetic field
+        /// measurement.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No magnetic field measurement is available.
         ///
         case unknown
     }
 
-
     // Public Type Properties
 
     ///
-    /// A Boolean value indicating whether ...
+    /// A Boolean value indicating whether a magnetometer is available on the
+    /// device.
     ///
-    public static var isAvailable = CMMotionManager.shared.isMagnetometerAvailable
+    public static var isAvailable: Bool {
+
+        return CMMotionManager.shared.isMagnetometerAvailable
+
+    }
 
     // Public Initializers
 
@@ -50,9 +57,13 @@ public class MagnetometerMonitor: BaseMonitor {
     /// Initializes a new `MagnetometerMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The ...
-    ///   - interval: The ...
-    ///   - handler:        The handler to call when ...
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by Apple.
+    ///   - interval:       The interval, in seconds, for providing magnetic
+    ///                     field measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     magnetic field measurement is available.
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
@@ -67,7 +78,7 @@ public class MagnetometerMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    ///
+    /// The latest magnetic field measurement available.
     ///
     public var info: Info {
 

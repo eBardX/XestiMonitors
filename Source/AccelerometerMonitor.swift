@@ -11,14 +11,14 @@ import CoreMotion
 import Foundation
 
 ///
-/// An `AccelerometerMonitor` object monitors the device’s accelerometers for
-/// periodic measurements to the acceleration along the three spatial axes.
+/// An `AccelerometerMonitor` object monitors the device’s accelerometer for
+/// periodic measurements of the acceleration along the three spatial axes.
 ///
 public class AccelerometerMonitor: BaseMonitor {
 
     ///
-    /// Encapsulates the measurement of acceleration along the three spatial axes
-    /// at a moment of time.
+    /// Encapsulates the measurement of the acceleration along the three
+    /// spatial axes at a moment of time.
     ///
     public enum Info {
 
@@ -39,11 +39,10 @@ public class AccelerometerMonitor: BaseMonitor {
         case unknown
     }
 
-
     // Public Type Properties
 
     ///
-    /// A Boolean value indicating whether accelerometers are available on the
+    /// A Boolean value indicating whether an accelerometer is available on the
     /// device.
     ///
     public static var isAvailable: Bool {
@@ -60,7 +59,7 @@ public class AccelerometerMonitor: BaseMonitor {
     /// - Parameters:
     ///   - motionManager:  The instance of `CMMotionManager` to use. By
     ///                     default, a shared instance is used as recommended
-    ///                     by the Apple documentation.
+    ///                     by Apple.
     ///   - interval:       The interval, in seconds, for providing
     ///                     acceleration measurements to the handler.
     ///   - handler:        The handler to call periodically when a new

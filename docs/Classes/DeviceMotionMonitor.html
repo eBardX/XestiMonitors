@@ -172,7 +172,9 @@
 
                 </div>
               </div>
-            <p>A <code>DeviceMotionMonitor</code> object monitors &hellip;</p>
+            <p>A <code>DeviceMotionMonitor</code> object monitors the device’s accelerometer,
+gyroscope, and magnetometer for periodic raw measurements which are
+processed into device motion measurements.</p>
 
           </section>
           <section class="section task-group-section">
@@ -191,7 +193,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Encapsulates &hellip;</p>
+                        <p>Encapsulates the measurement of device motion.</p>
 
                         <a href="../Classes/DeviceMotionMonitor/Info.html" class="slightly-smaller">See more</a>
                       </div>
@@ -204,7 +206,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L21-L37">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L23-L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -222,19 +224,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Boolean value indicating whether &hellip;</p>
+                        <p>A Boolean value indicating whether device motion measuring is available
+on the device.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isAvailable</span> <span class="o">=</span> <span class="kt">CMMotionManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">isDeviceMotionAvailable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isAvailable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L45">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L48-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -258,9 +261,13 @@
 <li>Parameters:
 
 <ul>
-<li>motionManager:  The &hellip;</li>
-<li>interval:       The &hellip;</li>
-<li>handler:        The handler to call when &hellip;</li>
+<li>motionManager:  The instance of <code>CMMotionManager</code> to use. By
+            default, a shared instance is used as recommended
+            by Apple.</li>
+<li>interval:       The interval, in seconds, for providing device
+            motion measurements to the handler.</li>
+<li>handler:        The handler to call periodically when a new device
+            motion measurement is available.</li>
 </ul></li>
 </ul>
 
@@ -287,7 +294,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The …</p>
+                                  <p>The instance of <code>CMMotionManager</code> to use. By default, a shared instance is used as recommended by Apple.</p>
 
                                 </div>
                               </td>
@@ -300,7 +307,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The …</p>
+                                  <p>The interval, in seconds, for providing device motion measurements to the handler.</p>
 
                                 </div>
                               </td>
@@ -313,7 +320,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The handler to call when …</p>
+                                  <p>The handler to call periodically when a new device motion measurement is available.</p>
 
                                 </div>
                               </td>
@@ -322,7 +329,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L57-L65">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L68-L76">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -340,7 +347,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The latest device motion measurement available.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -351,7 +359,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L72-L80">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L83-L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -385,7 +393,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L91-L99">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L102-L110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -419,7 +427,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/d46449f21e5808543f6ff88727ff14fd3a62fc74/Source/DeviceMotionMonitor.swift#L101-L124">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/eab07531cd2033bf1490e2d079889b2e25f0b697/Source/DeviceMotionMonitor.swift#L112-L135">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

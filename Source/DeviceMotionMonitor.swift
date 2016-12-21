@@ -11,38 +11,45 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `DeviceMotionMonitor` object monitors ...
+/// A `DeviceMotionMonitor` object monitors the device’s accelerometer,
+/// gyroscope, and magnetometer for periodic raw measurements which are
+/// processed into device motion measurements.
 ///
 public class DeviceMotionMonitor: BaseMonitor {
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates the measurement of device motion.
     ///
     public enum Info {
 
         ///
-        ///
+        /// The device motion measurement at a moment of time.
         ///
         case data(CMDeviceMotion)
 
         ///
-        ///
+        /// The error encountered in attempting to obtain the device motion
+        /// measurement.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No device motion measurement is available.
         ///
         case unknown
     }
 
-
     // Public Type Properties
 
     ///
-    /// A Boolean value indicating whether ...
+    /// A Boolean value indicating whether device motion measuring is available
+    /// on the device.
     ///
-    public static var isAvailable = CMMotionManager.shared.isDeviceMotionAvailable
+    public static var isAvailable: Bool {
+
+        return CMMotionManager.shared.isDeviceMotionAvailable
+
+    }
 
     // Public Initializers
 
@@ -50,9 +57,13 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// Initializes a new `DeviceMotionMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The ...
-    ///   - interval:       The ...
-    ///   - handler:        The handler to call when ...
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by Apple.
+    ///   - interval:       The interval, in seconds, for providing device
+    ///                     motion measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new device
+    ///                     motion measurement is available.
     ///
     public init(motionManager: CMMotionManager = CMMotionManager.shared,
                 interval: TimeInterval,
@@ -67,7 +78,7 @@ public class DeviceMotionMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    ///
+    /// The latest device motion measurement available.
     ///
     public var info: Info {
 
