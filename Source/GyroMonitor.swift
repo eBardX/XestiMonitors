@@ -11,7 +11,7 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `GyroMonitor` object monitors the device’s gyroscope for periodic
+/// A `GyroMonitor` object monitors the device’s gyroscope for periodic raw
 /// measurements of the rotation rate around the three spatial axes.
 ///
 public class GyroMonitor: BaseMonitor {

@@ -12,7 +12,7 @@ import Foundation
 
 ///
 /// An `AccelerometerMonitor` object monitors the device’s accelerometer for
-/// periodic measurements of the acceleration along the three spatial axes.
+/// periodic raw measurements of the acceleration along the three spatial axes.
 ///
 public class AccelerometerMonitor: BaseMonitor {
 
