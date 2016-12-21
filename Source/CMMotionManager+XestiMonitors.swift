@@ -9,13 +9,19 @@
 
 import CoreMotion
 
-///
-///
-///
-extension CMMotionManager {
+public extension CMMotionManager {
 
     ///
+    /// Returns the singleton motion manager instance.
     ///
+    /// According to Apple:
+    ///
+    /// > An app should create only a single instance of the `CMMotionManager`
+    /// > class. Multiple instances of this class can affect the rate at which
+    /// > data is received from the accelerometer and gyroscope.
+    ///
+    /// By default, all motion monitor classes use this shared motion manager
+    /// instance.
     ///
     public static let shared = CMMotionManager()
 
