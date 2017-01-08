@@ -51,7 +51,7 @@ public extension CMAcceleration {
             return .landscapeRight
         }
 
-        return .unknown;
+        return .unknown
 
     }
 

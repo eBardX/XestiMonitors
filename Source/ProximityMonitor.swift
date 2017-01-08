@@ -27,7 +27,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
         let device = UIDevice.current
         let oldValue = device.isProximityMonitoringEnabled
 
-        defer { device.isProximityMonitoringEnabled = oldValue; }
+        defer { device.isProximityMonitoringEnabled = oldValue }
 
         device.isProximityMonitoringEnabled = true
 

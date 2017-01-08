@@ -171,18 +171,18 @@ public class ReachabilityMonitor: BaseMonitor {
     private func statusFromFlags(_ flags: SCNetworkReachabilityFlags) -> Status {
 
         if !flags.contains(.reachable) {
-            return .notReachable;
+            return .notReachable
         }
 
         if flags.contains(.connectionRequired) {
 
             if flags.contains(.interventionRequired) {
-                return .notReachable;
+                return .notReachable
             }
 
             if !flags.contains(.connectionOnDemand)
                 && !flags.contains(.connectionOnTraffic) {
-                return .notReachable;
+                return .notReachable
             }
         }
 
