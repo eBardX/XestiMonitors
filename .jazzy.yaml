@@ -1,6 +1,6 @@
 author: J. G. Pusey
 author_url: http://ebardx.tumblr.com/
-copyright: © 2016 J. G. Pusey
+copyright: © 2016–2017 J. G. Pusey
 custom_categories:
   - name: Protocols
     children:
@@ -29,6 +29,10 @@ custom_categories:
       - DeviceMotionMonitor
       - GyroMonitor
       - MagnetometerMonitor
+  - name: Accessibility Monitor Classes
+    children:
+      - AccessibilityAnnouncementMonitor
+      - AccessibilitySettingsMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor

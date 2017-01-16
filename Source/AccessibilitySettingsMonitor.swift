@@ -1,5 +1,5 @@
 //
-//  AccessibilityStatusMonitor.swift
+//  AccessibilitySettingsMonitor.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-01-13.
@@ -11,92 +11,94 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityStatusMonitor` object monitors ...
+/// An `AccessibilitySettingsMonitor` object monitors the system for changes to
+/// various accessibility settings.
 ///
-public class AccessibilityStatusMonitor: BaseNotificationMonitor {
+public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
 
     ///
-    /// Encapsulates changes to ...
+    /// Encapsulates changes to the status of various system accessibility
+    /// settings.
     ///
     public enum Event {
 
         ///
-        ///
+        /// The system’s assistive touch setting has changed.
         ///
         case assistiveTouchStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s bold text setting has changed.
         ///
         case boldTextStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s closed captioning setting has changed.
         ///
         case closedCaptioningStatusDidChange(Bool)
 
         ///
+        /// The system’s darken colors setting has changed.
         ///
-        ///
-        case darkenSystemColorsStatusDidChange(Bool)
+        case darkenColorsStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s grayscale setting has changed.
         ///
         case grayscaleStatusDidChange(Bool)
 
         ///
-        ///
+        /// A guided access session has started or stopped.
         ///
         case guidedAccessStatusDidChange(Bool)
 
         ///
-        ///
+        /// A paired hearing device has changed.
         ///
         case hearingDevicePairedEarDidChange(HearingDeviceEar)
 
         ///
-        ///
+        /// The system’s invert colors setting has changed.
         ///
         case invertColorsStatusDidChange(Bool)
 
         ///
-        ///
+        /// System audio changes from stereo to mono.
         ///
         case monoAudioStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s reduce motion setting has changed.
         ///
         case reduceMotionStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s reduce transparency setting has changed.
         ///
         case reduceTransparencyStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s shake to undo setting has changed.
         ///
         case shakeToUndoStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s speak screen setting has changed.
         ///
         case speakScreenStatusDidChange(Bool)
 
         ///
-        ///
+        /// The system’s speak selection setting has changed.
         ///
         case speakSelectionStatusDidChange(Bool)
 
         ///
-        ///
-        ///
+        /// The system’s switch sontrol setting has changed.
+        ///s
         case switchControlStatusDidChange(Bool)
 
         ///
-        ///
+        /// VoiceOver has started or stopped.
         ///
         case voiceOverStatusDidChange(Bool)
 
@@ -107,11 +109,20 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     public struct HearingDeviceEar: OptionSet {
 
+        ///
+        ///
+        ///
+        public static let both: HearingDeviceEar = [.left, .right]
+
+        ///
+        ///
+        ///
         public static let left = HearingDeviceEar(rawValue: 1 << 1)
 
+        ///
+        ///
+        ///
         public static let right = HearingDeviceEar(rawValue: 1 << 2)
-
-        public static let both: HearingDeviceEar = [.left, .right]
 
         public let rawValue: UInt
 
@@ -124,7 +135,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     // Public Initializers
 
     ///
-    /// Initializes a new `AccessibilityStatusMonitor`.
+    /// Initializes a new `AccessibilitySettingsMonitor`.
     ///
     /// - Parameters:
     ///   - handler:    The handler to call when ...
@@ -156,7 +167,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// A Boolean value indicating whether AssistiveTouch is currently running.
     ///
     public var isAssistiveTouchRunning: Bool {
 
@@ -169,52 +180,60 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled bold text in
+    /// Settings.
     ///
     public var isBoldTextEnabled: Bool { return UIAccessibilityIsBoldTextEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled closed
+    /// captioning in Settings.
     ///
     public var isClosedCaptioningEnabled: Bool { return UIAccessibilityIsClosedCaptioningEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled darken colors
+    /// in Settings.
     ///
     public var isDarkenColorsEnabled: Bool { return UIAccessibilityDarkerSystemColorsEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled grayscale in
+    /// Settings.
     ///
     public var isGrayscaleEnabled: Bool { return UIAccessibilityIsGrayscaleEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the app is running in guided access
+    /// mode.
     ///
     public var isGuidedAccessEnabled: Bool { return UIAccessibilityIsGuidedAccessEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled invert colors
+    /// in Settings.
     ///
     public var isInvertColorsEnabled: Bool { return UIAccessibilityIsInvertColorsEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether system audio is set to mono.
     ///
     public var isMonoAudioEnabled: Bool { return UIAccessibilityIsMonoAudioEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled reduce motion
+    /// in Settings.
     ///
     public var isReduceMotionEnabled: Bool { return UIAccessibilityIsReduceMotionEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled reduce
+    /// transparency in Settings.
     ///
     public var isReduceTransparencyEnabled: Bool { return UIAccessibilityIsReduceTransparencyEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether shake to undo is currently enabled.
     ///
     public var isShakeToUndoEnabled: Bool {
 
@@ -227,22 +246,25 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled speak screen in
+    /// Settings.
     ///
     public var isSpeakScreenEnabled: Bool { return UIAccessibilityIsSpeakScreenEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled speak selection
+    /// in Settings.
     ///
     public var isSpeakSelectionEnabled: Bool { return UIAccessibilityIsSpeakSelectionEnabled() }
 
     ///
-    ///
+    /// A Boolean value indicating whether the user has enabled switch control
+    /// in Settings.
     ///
     public var isSwitchControlRunning: Bool { return UIAccessibilityIsSwitchControlRunning() }
 
     ///
-    ///
+    /// A Boolean value indicating whether VoiceOver is currently running.
     ///
     public var isVoiceOverRunning: Bool { return UIAccessibilityIsVoiceOverRunning() }
 
@@ -273,7 +295,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     @objc private func accessibilityDarkerSystemColorsStatusDidChange(_ notification: NSNotification) {
 
-        handler(.darkenSystemColorsStatusDidChange(isDarkenColorsEnabled))
+        handler(.darkenColorsStatusDidChange(isDarkenColorsEnabled))
 
     }
 

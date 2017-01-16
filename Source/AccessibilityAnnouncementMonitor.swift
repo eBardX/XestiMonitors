@@ -11,23 +11,24 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityAnnouncementMonitor` object monitors ...
+/// An `AccessibilityAnnouncementMonitor` object monitors the system for
+/// accessibility announcements that have finished being read.
 ///
 public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     ///
     /// Encapsulates information associated with an accessibility announcement
-    /// monitor event.
+    /// that finished.
     ///
     public struct Info {
 
         ///
-        ///
+        /// Indicates whether the announcement was successfully made.
         ///
         public let didSucceed: Bool
 
         ///
-        ///
+        /// The text of the announcement that finished.
         ///
         public let text: String
 
@@ -57,7 +58,8 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityAnnouncementMonitor`.
     ///
     /// - Parameters:
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when the system has finished
+    ///                 reading an announcement.
     ///
     public init(handler: @escaping (Info) -> Void) {
 

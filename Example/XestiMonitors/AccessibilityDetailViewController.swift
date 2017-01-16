@@ -15,22 +15,22 @@ class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet weak var announcementButton: UIButton!
     @IBOutlet weak var announcementDidSucceedLabel: UILabel!
     @IBOutlet weak var announcementTextLabel: UILabel!
-    @IBOutlet weak var statusAssistiveTouchLabel: UILabel!
-    @IBOutlet weak var statusBoldTextLabel: UILabel!
-    @IBOutlet weak var statusClosedCaptioningLabel: UILabel!
-    @IBOutlet weak var statusDarkenColorsLabel: UILabel!
-    @IBOutlet weak var statusGrayscaleLabel: UILabel!
-    @IBOutlet weak var statusGuidedAccessLabel: UILabel!
-    @IBOutlet weak var statusHearingDeviceLabel: UILabel!
-    @IBOutlet weak var statusInvertColorsLabel: UILabel!
-    @IBOutlet weak var statusMonoAudioLabel: UILabel!
-    @IBOutlet weak var statusReduceMotionLabel: UILabel!
-    @IBOutlet weak var statusReduceTransparencyLabel: UILabel!
-    @IBOutlet weak var statusShakeToUndoLabel: UILabel!
-    @IBOutlet weak var statusSpeakScreenLabel: UILabel!
-    @IBOutlet weak var statusSpeakSelectionLabel: UILabel!
-    @IBOutlet weak var statusSwitchControlLabel: UILabel!
-    @IBOutlet weak var statusVoiceOverLabel: UILabel!
+    @IBOutlet weak var settingsAssistiveTouchLabel: UILabel!
+    @IBOutlet weak var settingsBoldTextLabel: UILabel!
+    @IBOutlet weak var settingsClosedCaptioningLabel: UILabel!
+    @IBOutlet weak var settingsDarkenColorsLabel: UILabel!
+    @IBOutlet weak var settingsGrayscaleLabel: UILabel!
+    @IBOutlet weak var settingsGuidedAccessLabel: UILabel!
+    @IBOutlet weak var settingsHearingDeviceLabel: UILabel!
+    @IBOutlet weak var settingsInvertColorsLabel: UILabel!
+    @IBOutlet weak var settingsMonoAudioLabel: UILabel!
+    @IBOutlet weak var settingsReduceMotionLabel: UILabel!
+    @IBOutlet weak var settingsReduceTransparencyLabel: UILabel!
+    @IBOutlet weak var settingsShakeToUndoLabel: UILabel!
+    @IBOutlet weak var settingsSpeakScreenLabel: UILabel!
+    @IBOutlet weak var settingsSpeakSelectionLabel: UILabel!
+    @IBOutlet weak var settingsSwitchControlLabel: UILabel!
+    @IBOutlet weak var settingsVoiceOverLabel: UILabel!
 
     lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [weak self] in
 
@@ -38,14 +38,14 @@ class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [weak self] in
+    lazy var settingsMonitor: AccessibilitySettingsMonitor = AccessibilitySettingsMonitor { [weak self] in
 
-        self?.displayStatus($0)
+        self?.displaySettings($0)
 
     }
 
     lazy var monitors: [Monitor] = [self.announcementMonitor,
-                                    self.statusMonitor]
+                                    self.settingsMonitor]
 
     var announcementCount = 0
 
@@ -71,101 +71,101 @@ class AccessibilityDetailViewController: UITableViewController {
 
     // swiftlint:disable cyclomatic_complexity
 
-    private func displayStatus(_ event: AccessibilityStatusMonitor.Event) {
+    private func displaySettings(_ event: AccessibilitySettingsMonitor.Event) {
 
-            switch event {
+        switch event {
 
-            case let .assistiveTouchStatusDidChange(value):
-                statusAssistiveTouchLabel.text = "\(value)"
+        case let .assistiveTouchStatusDidChange(value):
+            settingsAssistiveTouchLabel.text = "\(value)"
 
-            case let .boldTextStatusDidChange(value):
-                statusBoldTextLabel.text = "\(value)"
+        case let .boldTextStatusDidChange(value):
+            settingsBoldTextLabel.text = "\(value)"
 
-            case let .closedCaptioningStatusDidChange(value):
-                statusClosedCaptioningLabel.text = "\(value)"
+        case let .closedCaptioningStatusDidChange(value):
+            settingsClosedCaptioningLabel.text = "\(value)"
 
-            case let .darkenSystemColorsStatusDidChange(value):
-                statusDarkenColorsLabel.text = "\(value)"
+        case let .darkenColorsStatusDidChange(value):
+            settingsDarkenColorsLabel.text = "\(value)"
 
-            case let .grayscaleStatusDidChange(value):
-                statusGrayscaleLabel.text = "\(value)"
+        case let .grayscaleStatusDidChange(value):
+            settingsGrayscaleLabel.text = "\(value)"
 
-            case let .guidedAccessStatusDidChange(value):
-                statusGuidedAccessLabel.text = "\(value)"
+        case let .guidedAccessStatusDidChange(value):
+            settingsGuidedAccessLabel.text = "\(value)"
 
-            case let .hearingDevicePairedEarDidChange(value):
-                statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
+        case let .hearingDevicePairedEarDidChange(value):
+            settingsHearingDeviceLabel.text = formatHearingDeviceEar(value)
 
-            case let .invertColorsStatusDidChange(value):
-                statusInvertColorsLabel.text = "\(value)"
+        case let .invertColorsStatusDidChange(value):
+            settingsInvertColorsLabel.text = "\(value)"
 
-            case let .monoAudioStatusDidChange(value):
-                statusMonoAudioLabel.text = "\(value)"
+        case let .monoAudioStatusDidChange(value):
+            settingsMonoAudioLabel.text = "\(value)"
 
-            case let .reduceMotionStatusDidChange(value):
-                statusReduceMotionLabel.text = "\(value)"
+        case let .reduceMotionStatusDidChange(value):
+            settingsReduceMotionLabel.text = "\(value)"
 
-            case let .reduceTransparencyStatusDidChange(value):
-                statusReduceTransparencyLabel.text = "\(value)"
+        case let .reduceTransparencyStatusDidChange(value):
+            settingsReduceTransparencyLabel.text = "\(value)"
 
-            case let .shakeToUndoStatusDidChange(value):
-                statusShakeToUndoLabel.text = "\(value)"
+        case let .shakeToUndoStatusDidChange(value):
+            settingsShakeToUndoLabel.text = "\(value)"
 
-            case let .speakScreenStatusDidChange(value):
-                statusSpeakScreenLabel.text = "\(value)"
+        case let .speakScreenStatusDidChange(value):
+            settingsSpeakScreenLabel.text = "\(value)"
 
-            case let .speakSelectionStatusDidChange(value):
-                statusSpeakSelectionLabel.text = "\(value)"
+        case let .speakSelectionStatusDidChange(value):
+            settingsSpeakSelectionLabel.text = "\(value)"
 
-            case let .switchControlStatusDidChange(value):
-                statusSwitchControlLabel.text = "\(value)"
+        case let .switchControlStatusDidChange(value):
+            settingsSwitchControlLabel.text = "\(value)"
 
-            case let .voiceOverStatusDidChange(value):
-                statusVoiceOverLabel.text = "\(value)"
+        case let .voiceOverStatusDidChange(value):
+            settingsVoiceOverLabel.text = "\(value)"
 
-            }
+        }
 
     }
 
     // swiftlint:enable cyclomatic_complexity
 
-    private func displayStatus() {
+    private func displaySettings() {
 
-        statusAssistiveTouchLabel.text = "\(statusMonitor.isAssistiveTouchRunning)"
+        settingsAssistiveTouchLabel.text = "\(settingsMonitor.isAssistiveTouchRunning)"
 
-        statusBoldTextLabel.text = "\(statusMonitor.isBoldTextEnabled)"
+        settingsBoldTextLabel.text = "\(settingsMonitor.isBoldTextEnabled)"
 
-        statusClosedCaptioningLabel.text = "\(statusMonitor.isClosedCaptioningEnabled)"
+        settingsClosedCaptioningLabel.text = "\(settingsMonitor.isClosedCaptioningEnabled)"
 
-        statusDarkenColorsLabel.text = "\(statusMonitor.isDarkenColorsEnabled)"
+        settingsDarkenColorsLabel.text = "\(settingsMonitor.isDarkenColorsEnabled)"
 
-        statusGrayscaleLabel.text = "\(statusMonitor.isGrayscaleEnabled)"
+        settingsGrayscaleLabel.text = "\(settingsMonitor.isGrayscaleEnabled)"
 
-        statusGuidedAccessLabel.text = "\(statusMonitor.isGuidedAccessEnabled)"
+        settingsGuidedAccessLabel.text = "\(settingsMonitor.isGuidedAccessEnabled)"
 
-        statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
+        settingsHearingDeviceLabel.text = formatHearingDeviceEar(settingsMonitor.hearingDevicePairedEar)
 
-        statusInvertColorsLabel.text = "\(statusMonitor.isInvertColorsEnabled)"
+        settingsInvertColorsLabel.text = "\(settingsMonitor.isInvertColorsEnabled)"
 
-        statusMonoAudioLabel.text = "\(statusMonitor.isMonoAudioEnabled)"
+        settingsMonoAudioLabel.text = "\(settingsMonitor.isMonoAudioEnabled)"
 
-        statusReduceMotionLabel.text = "\(statusMonitor.isReduceMotionEnabled)"
+        settingsReduceMotionLabel.text = "\(settingsMonitor.isReduceMotionEnabled)"
 
-        statusReduceTransparencyLabel.text = "\(statusMonitor.isReduceTransparencyEnabled)"
+        settingsReduceTransparencyLabel.text = "\(settingsMonitor.isReduceTransparencyEnabled)"
 
-        statusShakeToUndoLabel.text = "\(statusMonitor.isShakeToUndoEnabled)"
+        settingsShakeToUndoLabel.text = "\(settingsMonitor.isShakeToUndoEnabled)"
 
-        statusSpeakScreenLabel.text = "\(statusMonitor.isSpeakScreenEnabled)"
+        settingsSpeakScreenLabel.text = "\(settingsMonitor.isSpeakScreenEnabled)"
 
-        statusSpeakSelectionLabel.text = "\(statusMonitor.isSpeakSelectionEnabled)"
+        settingsSpeakSelectionLabel.text = "\(settingsMonitor.isSpeakSelectionEnabled)"
 
-        statusSwitchControlLabel.text = "\(statusMonitor.isSwitchControlRunning)"
+        settingsSwitchControlLabel.text = "\(settingsMonitor.isSwitchControlRunning)"
 
-        statusVoiceOverLabel.text = "\(statusMonitor.isVoiceOverRunning)"
+        settingsVoiceOverLabel.text = "\(settingsMonitor.isVoiceOverRunning)"
 
     }
 
-    private func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
+    private func formatHearingDeviceEar(_ ear: AccessibilitySettingsMonitor.HearingDeviceEar) -> String {
 
         switch ear {
 
@@ -206,7 +206,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
         displayAnnouncement(nil)
 
-        displayStatus()
+        displaySettings()
 
     }
 

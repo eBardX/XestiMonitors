@@ -15,6 +15,7 @@
     * [Application Monitors](#application_monitors)
     * [Device Monitors](#device_monitors)
     * [Motion Monitors](#motion_monitors)
+    * [Accessibility Monitors](#accessibility_monitors)
     * [Other Monitors](#other_monitors)
     * [Custom Monitors](#custom_monitors)
 * [Credits](#credits)
@@ -27,8 +28,30 @@ classes right out of the box that make it easy for your iOS app to detect and
 respond to many common system-generated events.
 
 You can think of XestiMonitors as a better way to manage the most common iOS
-notifications. At present, XestiMonitors provides “wrappers” around all `UIKit`
-notifications:
+notifications. At present, XestiMonitors provides “wrappers” around most
+`UIKit` notifications:
+
+* **Accessibility-related — NEW!**
+
+    * `UIAccessibilityAnnouncementDidFinish`
+    * `UIAccessibilityAssistiveTouchStatusDidChange`
+    * `UIAccessibilityBoldTextStatusDidChange`
+    * `UIAccessibilityClosedCaptioningStatusDidChange`
+    * `UIAccessibilityDarkerSystemColorsStatusDidChange`
+    * `UIAccessibilityGrayscaleStatusDidChange`
+    * `UIAccessibilityGuidedAccessStatusDidChange`
+    * `UIAccessibilityHearingDevicePairedEarDidChange`
+    * `UIAccessibilityInvertColorsStatusDidChange`
+    * `UIAccessibilityMonoAudioStatusDidChange`
+    * `UIAccessibilityReduceMotionStatusDidChange`
+    * `UIAccessibilityReduceTransparencyStatusDidChange`
+    * `UIAccessibilityShakeToUndoDidChange`
+    * `UIAccessibilitySpeakScreenStatusDidChange`
+    * `UIAccessibilitySpeakSelectionStatusDidChange`
+    * `UIAccessibilitySwitchControlStatusDidChange`
+    * `UIAccessibilityVoiceOverStatusChanged`
+
+    See [Accessibility Monitors](#accessibility_monitors) for details.
 
 * **Application-related**
 
@@ -71,14 +94,14 @@ notifications:
 
     See [Other Monitors](#other_monitors) for details.
 
-XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to make
-it super easy for your app to determine the reachability of a target host. See
-[Other Monitors](#other_monitors) for details.
-
-**NEW!** XestiMonitors now provides a “wrapper” around `CMMotionManager` to
+XestiMonitors also provides a “wrapper” around `CMMotionManager` to
 make it easier for your app to obtain both raw and processed motion
 measurements from the device. See [Motion Monitors](#motion_monitors) for
 details.
+
+XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to make
+it super easy for your app to determine the reachability of a target host. See
+[Other Monitors](#other_monitors) for details.
 
 Additional monitors targeting even more parts of iOS will be rolled out in
 future releases of XestiMonitor!
@@ -182,8 +205,8 @@ in the characteristics of the device:
 
 ### <a name="motion_monitors">Motion Monitors</a>
 
-XestiMonitors also provides four monitor classes that you can use to obtain raw
-and processed motion measurements from the device:
+XestiMonitors provides four monitor classes that you can use to obtain raw and
+processed motion measurements from the device:
 
 * [AccelerometerMonitor][accelerometer_monitor] to monitor the device’s
   accelerometer for periodic raw measurements of the acceleration along the
@@ -196,6 +219,10 @@ and processed motion measurements from the device:
 * [MagnetometerMonitor][magnetometer_monitor] to monitor the device’s
   magnetometer for periodic raw measurements of the magnetic field around the
   three spatial axes.
+
+### <a name="accessibility_monitors">Accessibility Monitors</a>
+
+XestiMonitors provides two monitor classes that you can use to ...
 
 ### <a name="other_monitors">Other Monitors</a>
 
