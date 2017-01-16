@@ -12,7 +12,7 @@ import XestiMonitors
 
 class ApplicationDetailViewController: UITableViewController {
 
-    @IBOutlet weak var applicationLabel: UILabel!
+    @IBOutlet weak var applicationStateLabel: UILabel!
     @IBOutlet weak var backgroundRefreshLabel: UILabel!
     @IBOutlet weak var memoryButton: UIButton!
     @IBOutlet weak var memoryLabel: UILabel!
@@ -113,7 +113,7 @@ class ApplicationDetailViewController: UITableViewController {
 
         }
 
-        applicationLabel.text = text
+        applicationStateLabel.text = text
 
     }
 

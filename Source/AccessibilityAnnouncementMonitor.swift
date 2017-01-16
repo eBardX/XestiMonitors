@@ -44,7 +44,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
             if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
                 self.text = value
             } else {
-                self.text = ""
+                self.text = " "
             }
 
         }

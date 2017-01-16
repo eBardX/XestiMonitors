@@ -12,6 +12,9 @@ import XestiMonitors
 
 class AccessibilityDetailViewController: UITableViewController {
 
+    @IBOutlet weak var announcementButton: UIButton!
+    @IBOutlet weak var announcementDidSucceedLabel: UILabel!
+    @IBOutlet weak var announcementTextLabel: UILabel!
     @IBOutlet weak var statusAssistiveTouchLabel: UILabel!
     @IBOutlet weak var statusBoldTextLabel: UILabel!
     @IBOutlet weak var statusClosedCaptioningLabel: UILabel!
@@ -29,19 +32,46 @@ class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet weak var statusSwitchControlLabel: UILabel!
     @IBOutlet weak var statusVoiceOverLabel: UILabel!
 
-    lazy var accessibilityStatusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [weak self] in
+    lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [weak self] in
 
-        self?.displayAccessibilityStatus($0)
+        self?.displayAnnouncement($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.accessibilityStatusMonitor]
+    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [weak self] in
+
+        self?.displayStatus($0)
+
+    }
+
+    lazy var monitors: [Monitor] = [self.announcementMonitor,
+                                    self.statusMonitor]
+
+    var announcementCount = 0
 
     // MARK: -
 
+    private func displayAnnouncement(_ info: AccessibilityAnnouncementMonitor.Info?) {
+
+        if let info = info {
+
+            announcementDidSucceedLabel.text = "\(info.didSucceed)"
+
+            announcementTextLabel.text = info.text
+
+        } else {
+
+            announcementDidSucceedLabel.text = " "
+
+            announcementTextLabel.text = " "
+
+        }
+
+    }
+
     // swiftlint:disable cyclomatic_complexity
 
-    private func displayAccessibilityStatus(_ event: AccessibilityStatusMonitor.Event) {
+    private func displayStatus(_ event: AccessibilityStatusMonitor.Event) {
 
             switch event {
 
@@ -99,39 +129,39 @@ class AccessibilityDetailViewController: UITableViewController {
 
     // swiftlint:enable cyclomatic_complexity
 
-    private func displayAccessibilityStatus() {
+    private func displayStatus() {
 
-        statusAssistiveTouchLabel.text = "\(accessibilityStatusMonitor.isAssistiveTouchRunning)"
+        statusAssistiveTouchLabel.text = "\(statusMonitor.isAssistiveTouchRunning)"
 
-        statusBoldTextLabel.text = "\(accessibilityStatusMonitor.isBoldTextEnabled)"
+        statusBoldTextLabel.text = "\(statusMonitor.isBoldTextEnabled)"
 
-        statusClosedCaptioningLabel.text = "\(accessibilityStatusMonitor.isClosedCaptioningEnabled)"
+        statusClosedCaptioningLabel.text = "\(statusMonitor.isClosedCaptioningEnabled)"
 
-        statusDarkenColorsLabel.text = "\(accessibilityStatusMonitor.isDarkenColorsEnabled)"
+        statusDarkenColorsLabel.text = "\(statusMonitor.isDarkenColorsEnabled)"
 
-        statusGrayscaleLabel.text = "\(accessibilityStatusMonitor.isGrayscaleEnabled)"
+        statusGrayscaleLabel.text = "\(statusMonitor.isGrayscaleEnabled)"
 
-        statusGuidedAccessLabel.text = "\(accessibilityStatusMonitor.isGuidedAccessEnabled)"
+        statusGuidedAccessLabel.text = "\(statusMonitor.isGuidedAccessEnabled)"
 
-        statusHearingDeviceLabel.text = formatHearingDeviceEar(accessibilityStatusMonitor.hearingDevicePairedEar)
+        statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
 
-        statusInvertColorsLabel.text = "\(accessibilityStatusMonitor.isInvertColorsEnabled)"
+        statusInvertColorsLabel.text = "\(statusMonitor.isInvertColorsEnabled)"
 
-        statusMonoAudioLabel.text = "\(accessibilityStatusMonitor.isMonoAudioEnabled)"
+        statusMonoAudioLabel.text = "\(statusMonitor.isMonoAudioEnabled)"
 
-        statusReduceMotionLabel.text = "\(accessibilityStatusMonitor.isReduceMotionEnabled)"
+        statusReduceMotionLabel.text = "\(statusMonitor.isReduceMotionEnabled)"
 
-        statusReduceTransparencyLabel.text = "\(accessibilityStatusMonitor.isReduceTransparencyEnabled)"
+        statusReduceTransparencyLabel.text = "\(statusMonitor.isReduceTransparencyEnabled)"
 
-        statusShakeToUndoLabel.text = "\(accessibilityStatusMonitor.isShakeToUndoEnabled)"
+        statusShakeToUndoLabel.text = "\(statusMonitor.isShakeToUndoEnabled)"
 
-        statusSpeakScreenLabel.text = "\(accessibilityStatusMonitor.isSpeakScreenEnabled)"
+        statusSpeakScreenLabel.text = "\(statusMonitor.isSpeakScreenEnabled)"
 
-        statusSpeakSelectionLabel.text = "\(accessibilityStatusMonitor.isSpeakSelectionEnabled)"
+        statusSpeakSelectionLabel.text = "\(statusMonitor.isSpeakSelectionEnabled)"
 
-        statusSwitchControlLabel.text = "\(accessibilityStatusMonitor.isSwitchControlRunning)"
+        statusSwitchControlLabel.text = "\(statusMonitor.isSwitchControlRunning)"
 
-        statusVoiceOverLabel.text = "\(accessibilityStatusMonitor.isVoiceOverRunning)"
+        statusVoiceOverLabel.text = "\(statusMonitor.isVoiceOverRunning)"
 
     }
 
@@ -155,13 +185,28 @@ class AccessibilityDetailViewController: UITableViewController {
 
     }
 
+    @IBAction private func announcementButtonTapped() {
+
+        announcementCount += 1
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+
+            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
+                                            "Announcement #\(self.announcementCount)")
+
+        }
+
+    }
+
     // MARK: -
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
-        displayAccessibilityStatus()
+        displayAnnouncement(nil)
+
+        displayStatus()
 
     }
 
