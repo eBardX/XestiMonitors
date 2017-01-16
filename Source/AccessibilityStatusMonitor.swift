@@ -53,8 +53,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
         ///
         ///
-        @available(iOS 10.0, *)
-        case hearingDevicePairedEarDidChange(UIAccessibilityHearingDeviceEar)
+        case hearingDevicePairedEarDidChange(HearingDeviceEar)
 
         ///
         ///
@@ -103,6 +102,25 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     }
 
+    ///
+    ///
+    ///
+    public struct HearingDeviceEar: OptionSet {
+
+        public static let left = HearingDeviceEar(rawValue: 1 << 1)
+
+        public static let right = HearingDeviceEar(rawValue: 1 << 2)
+
+        public static let both: HearingDeviceEar = [.left, .right]
+
+        public let rawValue: UInt
+
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+    }
+
     // Public Initializers
 
     ///
@@ -122,14 +140,33 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     ///
     ///
-    @available(iOS 10.0, *)
-    public var hearingDevicePairedEar: UIAccessibilityHearingDeviceEar { return UIAccessibilityHearingDevicePairedEar() }
+    public var hearingDevicePairedEar: HearingDeviceEar {
+
+        if #available(iOS 10.0, *) {
+            switch UIAccessibilityHearingDevicePairedEar() {
+            case [.both]:  return [.both]
+            case [.left]:  return [.left]
+            case [.right]: return [.right]
+            default:       return []
+            }
+        } else {
+            return []
+        }
+
+    }
 
     ///
     ///
     ///
-    @available(iOS 10.0, *)
-    public var isAssistiveTouchRunning: Bool { return UIAccessibilityIsAssistiveTouchRunning() }
+    public var isAssistiveTouchRunning: Bool {
+
+        if #available(iOS 10.0, *) {
+            return UIAccessibilityIsAssistiveTouchRunning()
+        } else {
+            return false
+        }
+
+    }
 
     ///
     ///
@@ -144,7 +181,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     ///
     ///
-    public var isDarkenSystemColorsEnabled: Bool { return UIAccessibilityDarkerSystemColorsEnabled() }
+    public var isDarkenColorsEnabled: Bool { return UIAccessibilityDarkerSystemColorsEnabled() }
 
     ///
     ///
@@ -179,8 +216,15 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     ///
     ///
-    @available(iOS 9.0, *)
-    public var isShakeToUndoEnabled: Bool { return UIAccessibilityIsShakeToUndoEnabled() }
+    public var isShakeToUndoEnabled: Bool {
+
+        if #available(iOS 9.0, *) {
+            return UIAccessibilityIsShakeToUndoEnabled()
+        } else {
+            return false
+        }
+
+    }
 
     ///
     ///
@@ -229,7 +273,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     @objc private func accessibilityDarkerSystemColorsStatusDidChange(_ notification: NSNotification) {
 
-        handler(.darkenSystemColorsStatusDidChange(isDarkenSystemColorsEnabled))
+        handler(.darkenSystemColorsStatusDidChange(isDarkenColorsEnabled))
 
     }
 
