@@ -78,7 +78,7 @@ class AccessibilityDetailViewController: UITableViewController {
             case let .reduceTransparencyStatusDidChange(value):
                 statusReduceTransparencyLabel.text = "\(value)"
 
-            case let .shakeToUndoDidChange(value):
+            case let .shakeToUndoStatusDidChange(value):
                 statusShakeToUndoLabel.text = "\(value)"
 
             case let .speakScreenStatusDidChange(value):

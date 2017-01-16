@@ -94,7 +94,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         ///
         public let isLocal: Bool
 
-        internal init (notification: NSNotification) {
+        internal init (_ notification: NSNotification) {
 
             let userInfo = notification.userInfo
 
@@ -134,6 +134,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
             }
 
         }
+
     }
 
     // Public Initializers
@@ -160,37 +161,37 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     @objc private func keyboardDidChangeFrame(_ notification: NSNotification) {
 
-        handler(.didChangeFrame(Info(notification: notification)))
+        handler(.didChangeFrame(Info(notification)))
 
     }
 
     @objc private func keyboardDidHide(_ notification: NSNotification) {
 
-        handler(.didHide(Info(notification: notification)))
+        handler(.didHide(Info(notification)))
 
     }
 
     @objc private func keyboardDidShow(_ notification: NSNotification) {
 
-        handler(.didShow(Info(notification: notification)))
+        handler(.didShow(Info(notification)))
 
     }
 
     @objc private func keyboardWillChangeFrame(_ notification: NSNotification) {
 
-        handler(.willChangeFrame(Info(notification: notification)))
+        handler(.willChangeFrame(Info(notification)))
 
     }
 
     @objc private func keyboardWillHide(_ notification: NSNotification) {
 
-        handler(.willHide(Info(notification: notification)))
+        handler(.willHide(Info(notification)))
 
     }
 
     @objc private func keyboardWillShow(_ notification: NSNotification) {
 
-        handler(.willShow(Info(notification: notification)))
+        handler(.willShow(Info(notification)))
 
     }
 

@@ -78,7 +78,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
         ///
         ///
-        case shakeToUndoDidChange(Bool)
+        case shakeToUndoStatusDidChange(Bool)
 
         ///
         ///
@@ -323,7 +323,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     @available(iOS 9.0, *)
     @objc private func accessibilityShakeToUndoDidChange(_ notification: NSNotification) {
 
-        handler(.shakeToUndoDidChange(isShakeToUndoEnabled))
+        handler(.shakeToUndoStatusDidChange(isShakeToUndoEnabled))
 
     }
 
