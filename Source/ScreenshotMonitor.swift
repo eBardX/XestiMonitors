@@ -36,7 +36,7 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationUserDidTakeScreenshot(_ notification: NSNotification) {
+    @objc private func applicationUserDidTakeScreenshot(_ notification: Notification) {
 
         handler()
 
@@ -45,6 +45,8 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationUserDidTakeScreenshot(_:)),

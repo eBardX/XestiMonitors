@@ -64,7 +64,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
     private let device: UIDevice
     private let handler: (Bool) -> Void
 
-    @objc private func deviceProximityStateDidChange(_ notification: NSNotification) {
+    @objc private func deviceProximityStateDidChange(_ notification: Notification) {
 
         handler(device.proximityState)
 
@@ -73,6 +73,8 @@ public class ProximityMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(deviceProximityStateDidChange(_:)),

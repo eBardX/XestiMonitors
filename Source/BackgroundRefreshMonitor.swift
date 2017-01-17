@@ -47,7 +47,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationBackgroundRefreshStatusDidChange(_ notification: NSNotification) {
+    @objc private func applicationBackgroundRefreshStatusDidChange(_ notification: Notification) {
 
         handler(status)
 
@@ -56,6 +56,8 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationBackgroundRefreshStatusDidChange(_:)),

@@ -80,37 +80,37 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationDidBecomeActive(_ notification: NSNotification) {
+    @objc private func applicationDidBecomeActive(_ notification: Notification) {
 
         handler(.didBecomeActive)
 
     }
 
-    @objc private func applicationDidEnterBackground(_ notification: NSNotification) {
+    @objc private func applicationDidEnterBackground(_ notification: Notification) {
 
         handler(.didEnterBackground)
 
     }
 
-    @objc private func applicationDidFinishLaunching(_ notification: NSNotification) {
+    @objc private func applicationDidFinishLaunching(_ notification: Notification) {
 
         handler(.didFinishLaunching(notification.userInfo))
 
     }
 
-    @objc private func applicationWillEnterForeground(_ notification: NSNotification) {
+    @objc private func applicationWillEnterForeground(_ notification: Notification) {
 
         handler(.willEnterForeground)
 
     }
 
-    @objc private func applicationWillResignActive(_ notification: NSNotification) {
+    @objc private func applicationWillResignActive(_ notification: Notification) {
 
         handler(.willResignActive)
 
     }
 
-    @objc private func applicationWillTerminate(_ notification: NSNotification) {
+    @objc private func applicationWillTerminate(_ notification: Notification) {
 
         handler(.willTerminate)
 
@@ -119,6 +119,8 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationDidBecomeActive(_:)),

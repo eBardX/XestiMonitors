@@ -94,7 +94,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         ///
         public let isLocal: Bool
 
-        internal init (_ notification: NSNotification) {
+        internal init (_ notification: Notification) {
 
             let userInfo = notification.userInfo
 
@@ -159,37 +159,37 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func keyboardDidChangeFrame(_ notification: NSNotification) {
+    @objc private func keyboardDidChangeFrame(_ notification: Notification) {
 
         handler(.didChangeFrame(Info(notification)))
 
     }
 
-    @objc private func keyboardDidHide(_ notification: NSNotification) {
+    @objc private func keyboardDidHide(_ notification: Notification) {
 
         handler(.didHide(Info(notification)))
 
     }
 
-    @objc private func keyboardDidShow(_ notification: NSNotification) {
+    @objc private func keyboardDidShow(_ notification: Notification) {
 
         handler(.didShow(Info(notification)))
 
     }
 
-    @objc private func keyboardWillChangeFrame(_ notification: NSNotification) {
+    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
 
         handler(.willChangeFrame(Info(notification)))
 
     }
 
-    @objc private func keyboardWillHide(_ notification: NSNotification) {
+    @objc private func keyboardWillHide(_ notification: Notification) {
 
         handler(.willHide(Info(notification)))
 
     }
 
-    @objc private func keyboardWillShow(_ notification: NSNotification) {
+    @objc private func keyboardWillShow(_ notification: Notification) {
 
         handler(.willShow(Info(notification)))
 
@@ -198,6 +198,8 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardDidChangeFrame(_:)),

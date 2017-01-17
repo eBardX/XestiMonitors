@@ -37,7 +37,7 @@ public class MemoryMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationDidReceiveMemoryWarning(_ notification: NSNotification) {
+    @objc private func applicationDidReceiveMemoryWarning(_ notification: Notification) {
 
         handler()
 
@@ -46,6 +46,8 @@ public class MemoryMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationDidReceiveMemoryWarning(_:)),

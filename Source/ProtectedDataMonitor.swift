@@ -55,13 +55,13 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationProtectedDataDidBecomeAvailable(_ notification: NSNotification) {
+    @objc private func applicationProtectedDataDidBecomeAvailable(_ notification: Notification) {
 
         handler(.didBecomeAvailable)
 
     }
 
-    @objc private func applicationProtectedDataWillBecomeUnavailable(_ notification: NSNotification) {
+    @objc private func applicationProtectedDataWillBecomeUnavailable(_ notification: Notification) {
 
         handler(.willBecomeUnavailable)
 
@@ -70,6 +70,8 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationProtectedDataDidBecomeAvailable(_:)),

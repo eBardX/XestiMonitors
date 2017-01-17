@@ -79,7 +79,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationDidChangeStatusBarFrame(_ notification: NSNotification) {
+    @objc private func applicationDidChangeStatusBarFrame(_ notification: Notification) {
 
         if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
             handler(.didChangeFrame(frame))
@@ -89,7 +89,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     }
 
-    @objc private func applicationDidChangeStatusBarOrientation(_ notification: NSNotification) {
+    @objc private func applicationDidChangeStatusBarOrientation(_ notification: Notification) {
 
         if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
             let orientation = UIInterfaceOrientation(rawValue: rawValue) {
@@ -100,7 +100,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     }
 
-    @objc private func applicationWillChangeStatusBarFrame(_ notification: NSNotification) {
+    @objc private func applicationWillChangeStatusBarFrame(_ notification: Notification) {
 
         if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
             handler(.willChangeFrame(frame))
@@ -110,7 +110,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     }
 
-    @objc private func applicationWillChangeStatusBarOrientation(_ notification: NSNotification) {
+    @objc private func applicationWillChangeStatusBarOrientation(_ notification: Notification) {
 
         if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
             let orientation = UIInterfaceOrientation(rawValue: rawValue) {
@@ -124,6 +124,8 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationDidChangeStatusBarFrame(_:)),

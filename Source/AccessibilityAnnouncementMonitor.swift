@@ -41,7 +41,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
         ///
         public let text: String
 
-        internal init (_ notification: NSNotification) {
+        internal init (_ notification: Notification) {
 
             let userInfo = notification.userInfo
 
@@ -82,7 +82,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func accessibilityAnnouncementDidFinish(_ notification: NSNotification) {
+    @objc private func accessibilityAnnouncementDidFinish(_ notification: Notification) {
 
         handler(Info(notification))
 
@@ -91,6 +91,8 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(accessibilityAnnouncementDidFinish(_:)),

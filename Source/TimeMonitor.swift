@@ -36,7 +36,7 @@ public class TimeMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func applicationSignificantTimeChange(_ notification: NSNotification) {
+    @objc private func applicationSignificantTimeChange(_ notification: Notification) {
 
         handler()
 
@@ -45,6 +45,8 @@ public class TimeMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(applicationSignificantTimeChange(_:)),

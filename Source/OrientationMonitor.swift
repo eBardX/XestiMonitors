@@ -44,7 +44,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
     private let device: UIDevice
     private let handler: (UIDeviceOrientation) -> Void
 
-    @objc private func deviceOrientationDidChange(_ notification: NSNotification) {
+    @objc private func deviceOrientationDidChange(_ notification: Notification) {
 
         handler(device.orientation)
 
@@ -53,6 +53,8 @@ public class OrientationMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(deviceOrientationDidChange(_:)),

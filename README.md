@@ -238,7 +238,7 @@ boilerplate code from your app. This is how keyboard monitoring is typically
 handled in a custom view controller:
 
 ```swift
-func keyboardWillHide(_ notification: NSNotification) {
+func keyboardWillHide(_ notification: Notification) {
     let userInfo = notification.userInfo
     var animationDuration: TimeInterval = 0
     if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
@@ -250,7 +250,7 @@ func keyboardWillHide(_ notification: NSNotification) {
     }
 }
 
-func keyboardWillShow(_ notification: NSNotification) {
+func keyboardWillShow(_ notification: Notification) {
     let userInfo = notification.userInfo
     var animationDuration: TimeInterval = 0
     if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
@@ -440,12 +440,13 @@ class TeraHoobieMonitor: BaseNotificationMonitor {
     }
 
     override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+        guard super.addNotificationObservers(notificationObserver) else { return false }
         notificationCenter.addObserver(self, selector: #selector(hoobieDidChange(_:)),
                                        name: .TeraHoobieDidChange, object: hoobie)
         return true
     }
 
-    func hoobieDidChange(_ notification: NSNotification) {
+    func hoobieDidChange(_ notification: Notification) {
         handler()
     }
 }

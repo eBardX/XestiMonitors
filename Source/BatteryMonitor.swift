@@ -68,13 +68,13 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func deviceBatteryLevelDidChange(_ notification: NSNotification) {
+    @objc private func deviceBatteryLevelDidChange(_ notification: Notification) {
 
         handler(.levelDidChange(level))
 
     }
 
-    @objc private func deviceBatteryStateDidChange(_ notification: NSNotification) {
+    @objc private func deviceBatteryStateDidChange(_ notification: Notification) {
 
         handler(.stateDidChange(state))
 
@@ -83,6 +83,8 @@ public class BatteryMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         notificationCenter.addObserver(self,
                                        selector: #selector(deviceBatteryLevelDidChange(_:)),

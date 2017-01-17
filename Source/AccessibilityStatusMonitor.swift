@@ -279,99 +279,99 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     // Private Instance Methods
 
     @available(iOS 10.0, *)
-    @objc private func accessibilityAssistiveTouchStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityAssistiveTouchStatusDidChange(_ notification: Notification) {
 
         handler(.assistiveTouchStatusDidChange(isAssistiveTouchRunning))
 
     }
 
-    @objc private func accessibilityBoldTextStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityBoldTextStatusDidChange(_ notification: Notification) {
 
         handler(.boldTextStatusDidChange(isBoldTextEnabled))
 
     }
 
-    @objc private func accessibilityClosedCaptioningStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityClosedCaptioningStatusDidChange(_ notification: Notification) {
 
         handler(.closedCaptioningStatusDidChange(isClosedCaptioningEnabled))
 
     }
 
-    @objc private func accessibilityDarkerSystemColorsStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityDarkerSystemColorsStatusDidChange(_ notification: Notification) {
 
         handler(.darkenColorsStatusDidChange(isDarkenColorsEnabled))
 
     }
 
-    @objc private func accessibilityGrayscaleStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityGrayscaleStatusDidChange(_ notification: Notification) {
 
         handler(.grayscaleStatusDidChange(isGrayscaleEnabled))
 
     }
 
-    @objc private func accessibilityGuidedAccessStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityGuidedAccessStatusDidChange(_ notification: Notification) {
 
         handler(.guidedAccessStatusDidChange(isGuidedAccessEnabled))
 
     }
 
     @available(iOS 10.0, *)
-    @objc private func accessibilityHearingDevicePairedEarDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityHearingDevicePairedEarDidChange(_ notification: Notification) {
 
         handler(.hearingDevicePairedEarDidChange(hearingDevicePairedEar))
 
     }
 
-    @objc private func accessibilityInvertColorsStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityInvertColorsStatusDidChange(_ notification: Notification) {
 
         handler(.invertColorsStatusDidChange(isInvertColorsEnabled))
 
     }
 
-    @objc private func accessibilityMonoAudioStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityMonoAudioStatusDidChange(_ notification: Notification) {
 
         handler(.monoAudioStatusDidChange(isMonoAudioEnabled))
 
     }
 
-    @objc private func accessibilityReduceMotionStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityReduceMotionStatusDidChange(_ notification: Notification) {
 
         handler(.reduceMotionStatusDidChange(isReduceMotionEnabled))
 
     }
 
-    @objc private func accessibilityReduceTransparencyStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityReduceTransparencyStatusDidChange(_ notification: Notification) {
 
         handler(.reduceTransparencyStatusDidChange(isReduceTransparencyEnabled))
 
     }
 
     @available(iOS 9.0, *)
-    @objc private func accessibilityShakeToUndoDidChange(_ notification: NSNotification) {
+    @objc private func accessibilityShakeToUndoDidChange(_ notification: Notification) {
 
         handler(.shakeToUndoStatusDidChange(isShakeToUndoEnabled))
 
     }
 
-    @objc private func accessibilitySpeakScreenStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilitySpeakScreenStatusDidChange(_ notification: Notification) {
 
         handler(.speakScreenStatusDidChange(isSpeakScreenEnabled))
 
     }
 
-    @objc private func accessibilitySpeakSelectionStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilitySpeakSelectionStatusDidChange(_ notification: Notification) {
 
         handler(.speakSelectionStatusDidChange(isSpeakSelectionEnabled))
 
     }
 
-    @objc private func accessibilitySwitchControlStatusDidChange(_ notification: NSNotification) {
+    @objc private func accessibilitySwitchControlStatusDidChange(_ notification: Notification) {
 
         handler(.switchControlStatusDidChange(isSwitchControlRunning))
 
     }
 
-    @objc private func accessibilityVoiceOverStatusChanged(_ notification: NSNotification) {
+    @objc private func accessibilityVoiceOverStatusChanged(_ notification: Notification) {
 
         handler(.voiceOverStatusDidChange(isVoiceOverRunning))
 
@@ -380,6 +380,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         if #available(iOS 10.0, *) {
             notificationCenter.addObserver(self,
@@ -464,7 +466,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
         notificationCenter.addObserver(self,
                                        selector: #selector(accessibilityVoiceOverStatusChanged(_:)),
-                                       name: NSNotification.Name(UIAccessibilityVoiceOverStatusChanged),
+                                       name: Notification.Name(UIAccessibilityVoiceOverStatusChanged),
                                        object: nil)
 
         return true

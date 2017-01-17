@@ -38,7 +38,7 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
         ///
         public let unfocusedElement: Any?
 
-        internal init (_ notification: NSNotification) {
+        internal init (_ notification: Notification) {
 
             let userInfo = notification.userInfo
 
@@ -85,7 +85,7 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
     // Private Instance Methods
 
-    @objc private func accessibilityElementFocused(_ notification: NSNotification) {
+    @objc private func accessibilityElementFocused(_ notification: Notification) {
 
         handler(Info(notification))
 
@@ -94,6 +94,8 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+
+        guard super.addNotificationObservers(notificationCenter) else { return false }
 
         if #available(iOS 9.0, *) {
             notificationCenter.addObserver(self,
