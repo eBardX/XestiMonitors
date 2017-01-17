@@ -17,6 +17,21 @@ func formatAcceleration(_ value: CMAcceleration) -> String {
 
 }
 
+func formatAssistiveTechnology(_ value: String) -> String {
+
+    if UIAccessibilityNotificationSwitchControlIdentifier == value {
+        return "Switch Control"
+    }
+
+    if #available(iOS 9.0, *),
+        UIAccessibilityNotificationVoiceOverIdentifier == value {
+        return "VoiceOver"
+    }
+
+    return value
+
+}
+
 func formatAttitude(_ value: CMAttitude) -> String {
 
     return "\(formatDecimal(value.roll)), \(formatDecimal(value.pitch)), \(formatDecimal(value.yaw))"

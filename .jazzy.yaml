@@ -32,7 +32,8 @@ custom_categories:
   - name: Accessibility Monitor Classes
     children:
       - AccessibilityAnnouncementMonitor
-      - AccessibilitySettingsMonitor
+      - AccessibilityElementMonitor
+      - AccessibilityStatusMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor

@@ -14,6 +14,11 @@ import UIKit
 /// An `AccessibilityAnnouncementMonitor` object monitors the system for
 /// accessibility announcements that have finished being read.
 ///
+/*
+ Listen for this notification to know when VoiceOver finishes outputting an announcement.
+ The userInfo dictionary contains UIAccessibilityAnnouncementKeyString and UIAccessibilityAnnouncementKeyWasSuccessful.
+ */
+
 public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     ///
@@ -22,10 +27,14 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     ///
     public struct Info {
 
+        // The corresponding value is an NSNumber representing whether VoiceOver successfully outputted the announcement.
+
         ///
         /// Indicates whether the announcement was successfully made.
         ///
         public let didSucceed: Bool
+
+        // The corresponding value is the string that was used for the announcement.
 
         ///
         /// The text of the announcement that finished.

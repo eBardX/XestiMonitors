@@ -1,5 +1,5 @@
 //
-//  AccessibilitySettingsMonitor.swift
+//  AccessibilityStatusMonitor.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-01-13.
@@ -11,10 +11,10 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilitySettingsMonitor` object monitors the system for changes to
-/// various accessibility settings.
+/// An `AccessibilityStatusMonitor` object monitors the system for changes to
+/// the status of various accessibility settings.
 ///
-public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
+public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     ///
     /// Encapsulates changes to the status of various system accessibility
@@ -63,7 +63,7 @@ public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
         case invertColorsStatusDidChange(Bool)
 
         ///
-        /// System audio changes from stereo to mono.
+        /// System audio has changed from stereo to mono.
         ///
         case monoAudioStatusDidChange(Bool)
 
@@ -127,7 +127,16 @@ public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
         public let rawValue: UInt
 
         public init(rawValue: UInt) {
+
             self.rawValue = rawValue
+
+        }
+
+        @available(iOS 10.0, *)
+        internal init(_ value: UIAccessibilityHearingDeviceEar) {
+
+            self.rawValue = value.rawValue
+
         }
 
     }
@@ -135,7 +144,7 @@ public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
     // Public Initializers
 
     ///
-    /// Initializes a new `AccessibilitySettingsMonitor`.
+    /// Initializes a new `AccessibilityStatusMonitor`.
     ///
     /// - Parameters:
     ///   - handler:    The handler to call when ...
@@ -149,17 +158,12 @@ public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
     // Public Instance Properties
 
     ///
-    ///
+    /// The current pairing status of compatible hearing aids.
     ///
     public var hearingDevicePairedEar: HearingDeviceEar {
 
         if #available(iOS 10.0, *) {
-            switch UIAccessibilityHearingDevicePairedEar() {
-            case [.both]:  return [.both]
-            case [.left]:  return [.left]
-            case [.right]: return [.right]
-            default:       return []
-            }
+            return HearingDeviceEar(UIAccessibilityHearingDevicePairedEar())
         } else {
             return []
         }
@@ -258,7 +262,7 @@ public class AccessibilitySettingsMonitor: BaseNotificationMonitor {
     public var isSpeakSelectionEnabled: Bool { return UIAccessibilityIsSpeakSelectionEnabled() }
 
     ///
-    /// A Boolean value indicating whether the user has enabled switch control
+    /// A Boolean value indicating whether the user has enabled Switch Control
     /// in Settings.
     ///
     public var isSwitchControlRunning: Bool { return UIAccessibilityIsSwitchControlRunning() }
