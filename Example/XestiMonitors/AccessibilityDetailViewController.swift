@@ -174,7 +174,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
         } else {
 
-            statusAssistiveTouchLabel.text = "\(statusMonitor.isAssistiveTouchRunning)"
+            statusAssistiveTouchLabel.text = "\(statusMonitor.isAssistiveTouchEnabled)"
 
             statusBoldTextLabel.text = "\(statusMonitor.isBoldTextEnabled)"
 
@@ -202,9 +202,9 @@ class AccessibilityDetailViewController: UITableViewController {
 
             statusSpeakSelectionLabel.text = "\(statusMonitor.isSpeakSelectionEnabled)"
 
-            statusSwitchControlLabel.text = "\(statusMonitor.isSwitchControlRunning)"
+            statusSwitchControlLabel.text = "\(statusMonitor.isSwitchControlEnabled)"
 
-            statusVoiceOverLabel.text = "\(statusMonitor.isVoiceOverRunning)"
+            statusVoiceOverLabel.text = "\(statusMonitor.isVoiceOverEnabled)"
 
         }
 
@@ -215,8 +215,8 @@ class AccessibilityDetailViewController: UITableViewController {
 
     private func formatElement(_ element: Any) -> String {
 
-        if let accelem = element as? UIAccessibilityElement,
-            let label = accelem.accessibilityLabel {
+        if let accElem = element as? UIAccessibilityElement,
+            let label = accElem.accessibilityLabel {
             return label
         }
 
@@ -229,16 +229,16 @@ class AccessibilityDetailViewController: UITableViewController {
         switch ear {
 
         case [.both]:
-            return "Both"
+            return "L+R"
 
         case [.left]:
-            return "Left"
+            return "L"
 
         case [.right]:
-            return "Right"
+            return "R"
 
         default :
-            return "None"
+            return "none"
 
         }
 

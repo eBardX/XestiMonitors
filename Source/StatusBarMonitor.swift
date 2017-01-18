@@ -98,9 +98,9 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     }
 
     @objc private func applicationWillChangeStatusBarOrientation(_ notification: Notification) {
-        
+
         handler(.willChangeOrientation(extractStatusBarOrientation(notification)))
-        
+
     }
 
     private func extractStatusBarFrame(_ notification: Notification) -> CGRect {
@@ -119,11 +119,11 @@ public class StatusBarMonitor: BaseNotificationMonitor {
             let orientation = UIInterfaceOrientation(rawValue: rawValue) {
             return orientation
         }
-        
+
         return .unknown
-        
+
     }
-    
+
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {

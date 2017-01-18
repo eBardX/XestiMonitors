@@ -11,14 +11,14 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityElementMonitor` object monitors the system to determine
-/// when an assistive technology has focused on an element.
+/// An `AccessibilityElementMonitor` object monitors the system for changes to
+/// element focus by an assistive technology.
 ///
 public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
     ///
-    /// Encapsulates information associated with an element that has been
-    /// focused on by an assistive technology.
+    /// Encapsulates information associated with an element focus change by an
+    /// assistive technology.
     ///
     public struct Info {
 
@@ -70,8 +70,8 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityElementMonitor`.
     ///
     /// - Parameters:
-    ///   - handler:    The handler to call when an assistive technology has
-    ///                 focused on an element.
+    ///   - handler:    The handler to call when an assistive technology
+    ///                 changes element focus.
     ///
     public init(handler: @escaping (Info) -> Void) {
 
