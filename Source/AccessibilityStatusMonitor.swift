@@ -114,9 +114,9 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         public init(rawValue: UInt) {
 
             self.rawValue = rawValue
-            
+
         }
-        
+
         ///
         /// Both left and right ears.
         ///
@@ -137,7 +137,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         public let rawValue: UInt
 
         // Internal Initializers
-        
+
         @available(iOS 10.0, *)
         internal init(_ value: UIAccessibilityHearingDeviceEar) {
 
