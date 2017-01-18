@@ -81,46 +81,49 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     @objc private func applicationDidChangeStatusBarFrame(_ notification: Notification) {
 
-        if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
-            handler(.didChangeFrame(frame))
-        } else {
-            handler(.didChangeFrame(.zero))
-        }
+        handler(.didChangeFrame(extractStatusBarFrame(notification)))
 
     }
 
     @objc private func applicationDidChangeStatusBarOrientation(_ notification: Notification) {
 
-        if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
-            let orientation = UIInterfaceOrientation(rawValue: rawValue) {
-            handler(.didChangeOrientation(orientation))
-        } else {
-            handler(.didChangeOrientation(.unknown))
-        }
+        handler(.didChangeOrientation(extractStatusBarOrientation(notification)))
 
     }
 
     @objc private func applicationWillChangeStatusBarFrame(_ notification: Notification) {
 
-        if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
-            handler(.willChangeFrame(frame))
-        } else {
-            handler(.willChangeFrame(.zero))
-        }
+        handler(.willChangeFrame(extractStatusBarFrame(notification)))
 
     }
 
     @objc private func applicationWillChangeStatusBarOrientation(_ notification: Notification) {
+        
+        handler(.willChangeOrientation(extractStatusBarOrientation(notification)))
+        
+    }
 
-        if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
-            let orientation = UIInterfaceOrientation(rawValue: rawValue) {
-            handler(.willChangeOrientation(orientation))
-        } else {
-            handler(.willChangeOrientation(.unknown))
+    private func extractStatusBarFrame(_ notification: Notification) -> CGRect {
+
+        if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
+            return frame
         }
+
+        return .zero
 
     }
 
+    private func extractStatusBarOrientation(_ notification: Notification) -> UIInterfaceOrientation {
+
+        if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
+            let orientation = UIInterfaceOrientation(rawValue: rawValue) {
+            return orientation
+        }
+        
+        return .unknown
+        
+    }
+    
     // Overridden BaseNotificationMonitor Instance Methods
 
     public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
