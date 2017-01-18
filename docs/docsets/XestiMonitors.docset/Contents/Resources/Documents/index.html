@@ -129,6 +129,32 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Accessibility Monitor Classes.html">Accessibility Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityElementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AccessibilityStatusMonitor/HearingDeviceEar.html">– HearingDeviceEar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Other Monitor Classes.html">Other Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -185,6 +211,7 @@
 <li><a href="#application_monitors">Application Monitors</a></li>
 <li><a href="#device_monitors">Device Monitors</a></li>
 <li><a href="#motion_monitors">Motion Monitors</a></li>
+<li><a href="#accessibility_monitors">Accessibility Monitors</a></li>
 <li><a href="#other_monitors">Other Monitors</a></li>
 <li><a href="#custom_monitors">Custom Monitors</a></li>
 </ul></li>
@@ -198,10 +225,33 @@ classes right out of the box that make it easy for your iOS app to detect and
 respond to many common system-generated events.</p>
 
 <p>You can think of XestiMonitors as a better way to manage the most common iOS
-notifications. At present, XestiMonitors provides “wrappers” around all <code>UIKit</code>
-notifications:</p>
+notifications. At present, XestiMonitors provides “wrappers” around most
+<code>UIKit</code> notifications:</p>
 
 <ul>
+<li><p><strong>Accessibility-related — NEW!</strong></p>
+
+<ul>
+<li><code>UIAccessibilityAnnouncementDidFinish</code></li>
+<li><code>UIAccessibilityAssistiveTouchStatusDidChange</code></li>
+<li><code>UIAccessibilityBoldTextStatusDidChange</code></li>
+<li><code>UIAccessibilityClosedCaptioningStatusDidChange</code></li>
+<li><code>UIAccessibilityDarkerSystemColorsStatusDidChange</code></li>
+<li><code>UIAccessibilityGrayscaleStatusDidChange</code></li>
+<li><code>UIAccessibilityGuidedAccessStatusDidChange</code></li>
+<li><code>UIAccessibilityHearingDevicePairedEarDidChange</code></li>
+<li><code>UIAccessibilityInvertColorsStatusDidChange</code></li>
+<li><code>UIAccessibilityMonoAudioStatusDidChange</code></li>
+<li><code>UIAccessibilityReduceMotionStatusDidChange</code></li>
+<li><code>UIAccessibilityReduceTransparencyStatusDidChange</code></li>
+<li><code>UIAccessibilityShakeToUndoDidChange</code></li>
+<li><code>UIAccessibilitySpeakScreenStatusDidChange</code></li>
+<li><code>UIAccessibilitySpeakSelectionStatusDidChange</code></li>
+<li><code>UIAccessibilitySwitchControlStatusDidChange</code></li>
+<li><code>UIAccessibilityVoiceOverStatusChanged</code></li>
+</ul>
+
+<p>See <a href="#accessibility_monitors">Accessibility Monitors</a> for details.</p></li>
 <li><p><strong>Application-related</strong></p>
 
 <ul>
@@ -248,14 +298,14 @@ notifications:</p>
 <p>See <a href="#other_monitors">Other Monitors</a> for details.</p></li>
 </ul>
 
-<p>XestiMonitors also provides a “wrapper” around <code>SCNetworkReachability</code> to make
-it super easy for your app to determine the reachability of a target host. See
-<a href="#other_monitors">Other Monitors</a> for details.</p>
-
-<p><strong>NEW!</strong> XestiMonitors now provides a “wrapper” around <code>CMMotionManager</code> to
+<p>XestiMonitors also provides a “wrapper” around <code>CMMotionManager</code> to
 make it easier for your app to obtain both raw and processed motion
 measurements from the device. See <a href="#motion_monitors">Motion Monitors</a> for
 details.</p>
+
+<p>XestiMonitors also provides a “wrapper” around <code>SCNetworkReachability</code> to make
+it super easy for your app to determine the reachability of a target host. See
+<a href="#other_monitors">Other Monitors</a> for details.</p>
 
 <p>Additional monitors targeting even more parts of iOS will be rolled out in
 future releases of XestiMonitor!</p>
@@ -352,8 +402,8 @@ the state of its proximity sensor.</li>
 </ul>
 <a href='#a-name-motion_monitors-motion-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-motion_monitors-motion-monitors-a'><a name="motion_monitors">Motion Monitors</a></h3>
 
-<p>XestiMonitors also provides four monitor classes that you can use to obtain raw
-and processed motion measurements from the device:</p>
+<p>XestiMonitors provides four monitor classes that you can use to obtain raw and
+processed motion measurements from the device:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html">AccelerometerMonitor</a> to monitor the device’s
@@ -367,6 +417,20 @@ raw measurements of the rotation rate around the three spatial axes.</li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html">MagnetometerMonitor</a> to monitor the device’s
 magnetometer for periodic raw measurements of the magnetic field around the
 three spatial axes.</li>
+</ul>
+<a href='#a-name-accessibility_monitors-accessibility-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-accessibility_monitors-accessibility-monitors-a'><a name="accessibility_monitors">Accessibility Monitors</a></h3>
+
+<p>XestiMonitors provides three monitor classes that you can use to observe
+accessibility events generated by the system:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a> to
+monitor the system for accessibility announcements that VoiceOver has
+finished outputting.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a> to monitor the
+system for changes to element focus by an assistive technology.</li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a> to monitor the
+system for changes to the status of various accessibility settings.</li>
 </ul>
 <a href='#a-name-other_monitors-other-monitors-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-other_monitors-other-monitors-a'><a name="other_monitors">Other Monitors</a></h3>
 
@@ -382,7 +446,7 @@ address for changes to its reachability.</li>
 <p><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> is especially handy in removing lots of
 boilerplate code from your app. This is how keyboard monitoring is typically
 handled in a custom view controller:</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">keyboardWillHide</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">keyboardWillHide</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
     <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardAnimationDurationUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSNumber</span><span class="p">)?</span><span class="o">.</span><span class="n">doubleValue</span> <span class="p">{</span>
@@ -394,7 +458,7 @@ handled in a custom view controller:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">keyboardWillShow</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">keyboardWillShow</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
     <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardAnimationDurationUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSNumber</span><span class="p">)?</span><span class="o">.</span><span class="n">doubleValue</span> <span class="p">{</span>
@@ -572,12 +636,13 @@ stopping the monitor. Although this base class inherits from
     <span class="p">}</span>
 
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">(</span><span class="n">_</span> <span class="nv">notificationCenter</span><span class="p">:</span> <span class="kt">NotificationCenter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">super</span><span class="o">.</span><span class="nf">addNotificationObservers</span><span class="p">(</span><span class="n">notificationObserver</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">}</span>
         <span class="n">notificationCenter</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">hoobieDidChange(_:)</span><span class="kd">)</span><span class="p">,</span>
                                        <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">TeraHoobieDidChange</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="n">hoobie</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">true</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">hoobieDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">hoobieDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">handler</span><span class="p">()</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -597,7 +662,7 @@ overrides.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2016 J. G. Pusey</p>
+          <p>© 2016–2017 J. G. Pusey</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

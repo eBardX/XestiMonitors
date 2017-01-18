@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Enum Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/Event" class="dashAnchor"></a>
+    <a title="Event Enum Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">XestiMonitors Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/eBardX/XestiMonitors"><img src="../../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml"><img src="../../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">XestiMonitors Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        Event Enum Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/Monitor.html">Monitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Base Monitor Classes.html">Base Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/BaseMonitor.html">BaseMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Application Monitor Classes.html">Application Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ApplicationStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MemoryMonitor.html">MemoryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProtectedDataMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/StatusBarMonitor.html">StatusBarMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/StatusBarMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/TimeMonitor.html">TimeMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Device Monitor Classes.html">Device Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/BatteryMonitor.html">BatteryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BatteryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/OrientationMonitor.html">OrientationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProximityMonitor.html">ProximityMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Motion Monitor Classes.html">Motion Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/AccelerometerMonitor.html">AccelerometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccelerometerMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/DeviceMotionMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/GyroMonitor.html">GyroMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/GyroMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MagnetometerMonitor/Info.html">– Info</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Accessibility Monitor Classes.html">Accessibility Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityElementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor/HearingDeviceEar.html">– HearingDeviceEar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Other Monitor Classes.html">Other Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ReachabilityMonitor.html">ReachabilityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ReachabilityMonitor/Status.html">– Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Extensions/CMAcceleration.html">CMAcceleration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/CMMotionManager.html">CMMotionManager</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Event</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Event</span></code></pre>
+
+                </div>
+              </div>
+            <p>Encapsulates changes to the status of various system accessibility
+settings.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event29assistiveTouchStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/assistiveTouchStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event29assistiveTouchStatusDidChangeFMS1_FSbS1_">assistiveTouchStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s AssistiveTouch setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">assistiveTouchStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L28">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event23boldTextStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/boldTextStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event23boldTextStatusDidChangeFMS1_FSbS1_">boldTextStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Bold Text setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">boldTextStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L33">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event31closedCaptioningStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/closedCaptioningStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event31closedCaptioningStatusDidChangeFMS1_FSbS1_">closedCaptioningStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Closed Captioning setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">closedCaptioningStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L38">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27darkenColorsStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/darkenColorsStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27darkenColorsStatusDidChangeFMS1_FSbS1_">darkenColorsStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Darken Colors setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">darkenColorsStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24grayscaleStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/grayscaleStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24grayscaleStatusDidChangeFMS1_FSbS1_">grayscaleStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Grayscale setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">grayscaleStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27guidedAccessStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/guidedAccessStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27guidedAccessStatusDidChangeFMS1_FSbS1_">guidedAccessStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Guided Access setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">guidedAccessStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L53">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event31hearingDevicePairedEarDidChangeFMS1_FVS0_16HearingDeviceEarS1_"></a>
+                    <a name="//apple_ref/swift/Element/hearingDevicePairedEarDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event31hearingDevicePairedEarDidChangeFMS1_FVS0_16HearingDeviceEarS1_">hearingDevicePairedEarDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s hearing device pairing options have changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">hearingDevicePairedEarDidChange</span><span class="p">(</span><span class="kt"><a href="../../Classes/AccessibilityStatusMonitor/HearingDeviceEar.html">HearingDeviceEar</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L58">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27invertColorsStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/invertColorsStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27invertColorsStatusDidChangeFMS1_FSbS1_">invertColorsStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Invert Colors setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">invertColorsStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L63">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24monoAudioStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/monoAudioStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24monoAudioStatusDidChangeFMS1_FSbS1_">monoAudioStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Mono Audio setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">monoAudioStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L68">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27reduceMotionStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/reduceMotionStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event27reduceMotionStatusDidChangeFMS1_FSbS1_">reduceMotionStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Reduce Motion setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">reduceMotionStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L73">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event33reduceTransparencyStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/reduceTransparencyStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event33reduceTransparencyStatusDidChangeFMS1_FSbS1_">reduceTransparencyStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Reduce Transparency setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">reduceTransparencyStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L78">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event26shakeToUndoStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/shakeToUndoStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event26shakeToUndoStatusDidChangeFMS1_FSbS1_">shakeToUndoStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Shake to Undo setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">shakeToUndoStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event26speakScreenStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/speakScreenStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event26speakScreenStatusDidChangeFMS1_FSbS1_">speakScreenStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Speak Screen setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">speakScreenStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L88">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event29speakSelectionStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/speakSelectionStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event29speakSelectionStatusDidChangeFMS1_FSbS1_">speakSelectionStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Speak Selection setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">speakSelectionStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L93">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event28switchControlStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/switchControlStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event28switchControlStatusDidChangeFMS1_FSbS1_">switchControlStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s Switch Control setting has changed.
+s</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">switchControlStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L98">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24voiceOverStatusDidChangeFMS1_FSbS1_"></a>
+                    <a name="//apple_ref/swift/Element/voiceOverStatusDidChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC13XestiMonitors26AccessibilityStatusMonitor5Event24voiceOverStatusDidChangeFMS1_FSbS1_">voiceOverStatusDidChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The system’s VoiceOver setting has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">voiceOverStatusDidChange</span><span class="p">(</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L103">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016–2017 J. G. Pusey</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

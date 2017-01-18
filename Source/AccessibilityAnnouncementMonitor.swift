@@ -18,7 +18,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     ///
     /// Encapsulates information associated with an accessibility announcement
-    /// that VoiceOver finished outputting.
+    /// that VoiceOver has finished outputting.
     ///
     public struct Info {
 
@@ -29,7 +29,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
         public let didSucceed: Bool
 
         ///
-        /// The text that was used for the announcement.
+        /// The text used for the announcement.
         ///
         public let text: String
 

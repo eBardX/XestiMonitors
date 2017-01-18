@@ -109,6 +109,14 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     public struct HearingDeviceEar: OptionSet {
 
+        // Public Initializers
+
+        public init(rawValue: UInt) {
+
+            self.rawValue = rawValue
+            
+        }
+        
         ///
         /// Both left and right ears.
         ///
@@ -124,14 +132,12 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
         public static let right = HearingDeviceEar(rawValue: 1 << 2)
 
+        // Public Instance Properties
+
         public let rawValue: UInt
 
-        public init(rawValue: UInt) {
-
-            self.rawValue = rawValue
-
-        }
-
+        // Internal Initializers
+        
         @available(iOS 10.0, *)
         internal init(_ value: UIAccessibilityHearingDeviceEar) {
 
@@ -147,7 +153,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityStatusMonitor`.
     ///
     /// - Parameters:
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when the status of a system
+    ///                 accessibility setting changes.
     ///
     public init(handler: @escaping (Event) -> Void) {
 

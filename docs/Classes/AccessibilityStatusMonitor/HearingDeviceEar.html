@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HearingDeviceEar Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/HearingDeviceEar" class="dashAnchor"></a>
+    <a title="HearingDeviceEar Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">XestiMonitors Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/eBardX/XestiMonitors"><img src="../../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml"><img src="../../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">XestiMonitors Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        HearingDeviceEar Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/Monitor.html">Monitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Base Monitor Classes.html">Base Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/BaseMonitor.html">BaseMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Application Monitor Classes.html">Application Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ApplicationStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MemoryMonitor.html">MemoryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProtectedDataMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/StatusBarMonitor.html">StatusBarMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/StatusBarMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/TimeMonitor.html">TimeMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Device Monitor Classes.html">Device Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/BatteryMonitor.html">BatteryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/BatteryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/OrientationMonitor.html">OrientationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ProximityMonitor.html">ProximityMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Motion Monitor Classes.html">Motion Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/AccelerometerMonitor.html">AccelerometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccelerometerMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/DeviceMotionMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/GyroMonitor.html">GyroMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/GyroMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MagnetometerMonitor/Info.html">– Info</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Accessibility Monitor Classes.html">Accessibility Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityElementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/AccessibilityStatusMonitor/HearingDeviceEar.html">– HearingDeviceEar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Other Monitor Classes.html">Other Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/KeyboardMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ReachabilityMonitor.html">ReachabilityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ReachabilityMonitor/Status.html">– Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Extensions/CMAcceleration.html">CMAcceleration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/CMMotionManager.html">CMMotionManager</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>HearingDeviceEar</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HearingDeviceEar</span><span class="p">:</span> <span class="kt">OptionSet</span></code></pre>
+
+                </div>
+              </div>
+            <p>Defines hearing device pairing options.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FPs9OptionSetcFT8rawValuewx8RawValue_x"></a>
+                    <a name="//apple_ref/swift/Method/init(rawValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FPs9OptionSetcFT8rawValuewx8RawValue_x">init(rawValue:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rawValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The raw value of the option set to create. Each bit of <code>rawValue</code> potentially represents an element of the option set, though raw values may include bits that are not defined as distinct values of the <code>OptionSet</code> type.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L114-L118">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar4bothS1_"></a>
+                    <a name="//apple_ref/swift/Variable/both" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar4bothS1_">both</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Both left and right ears.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">both</span><span class="p">:</span> <span class="kt">HearingDeviceEar</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="k">left</span><span class="p">,</span> <span class="o">.</span><span class="k">right</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L123">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar4leftS1_"></a>
+                    <a name="//apple_ref/swift/Variable/left" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar4leftS1_">left</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The left ear.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">left</span> <span class="o">=</span> <span class="kt">HearingDeviceEar</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L128">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar5rightS1_"></a>
+                    <a name="//apple_ref/swift/Variable/right" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvVC13XestiMonitors26AccessibilityStatusMonitor16HearingDeviceEar5rightS1_">right</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The right ear.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">right</span> <span class="o">=</span> <span class="kt">HearingDeviceEar</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L133">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vPs16RawRepresentable8rawValuewx8RawValue"></a>
+                    <a name="//apple_ref/swift/Property/rawValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vPs16RawRepresentable8rawValuewx8RawValue">rawValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">rawValue</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/1ce21ab2cd77cfa4494ac638b45ca3a4b9b10912/Source/AccessibilityStatusMonitor.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016–2017 J. G. Pusey</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
