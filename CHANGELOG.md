@@ -1,3 +1,9 @@
+# 1.3.0 (2017-01-18)
+
+Adds support for three new accessibility classes:
+`AccessibilityAnnouncementMonitor`, `AccessibilityElementMonitor`, and
+`AccessibilityStatusMonitor`.
+
 # 1.2.0 (2016-12-21)
 
 Adds support for four new monitor classes: `AccelerometerMonitor`,
