@@ -218,7 +218,9 @@ public class ReachabilityMonitor: BaseMonitor {
 
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
 
-            let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info!).takeUnretainedValue()
+            guard let info = info else { return }
+
+            let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
 
             monitor.invokeHandler(flags)
 

@@ -219,7 +219,7 @@ private var decimalFormatter: NumberFormatter = {
 
     return formatter
 
-} ()
+}()
 
 private var percentageFormatter: NumberFormatter = {
 
@@ -231,7 +231,7 @@ private var percentageFormatter: NumberFormatter = {
 
     return formatter
 
-} ()
+}()
 
 private var timeIntervalFormatter: DateComponentsFormatter = {
 
@@ -243,4 +243,4 @@ private var timeIntervalFormatter: DateComponentsFormatter = {
 
     return formatter
 
-} ()
+}()
