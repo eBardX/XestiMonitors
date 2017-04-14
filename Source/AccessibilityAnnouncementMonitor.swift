@@ -72,8 +72,8 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityAnnouncementMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:      The operation queue on which notification blocks
-    ///                 execute. By default, the main operation queue is used.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when VoiceOver finishes outputting
     ///                 an announcement.
     ///

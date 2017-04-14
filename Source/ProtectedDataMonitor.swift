@@ -41,8 +41,8 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProtectedDataMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:      The operation queue on which notification blocks
-    ///                 execute. By default, the main operation queue is used.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when protected files become
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.

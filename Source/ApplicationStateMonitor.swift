@@ -60,8 +60,8 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     /// Initializes a new `ApplicationStateMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:      The operation queue on which notification blocks
-    ///                 execute. By default, the main operation queue is used.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the app changes its runtime
     ///                 state or is about to change its runtime state.
     ///

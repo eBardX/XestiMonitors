@@ -64,10 +64,12 @@ public class ReachabilityMonitor: BaseMonitor {
     /// `0.0.0.0` (meaning “any IPv4 address at all”).
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node address changes.
     ///
-    public convenience init?(queue: DispatchQueue = .main,
+    public convenience init?(queue: OperationQueue = .main,
                              handler: @escaping (Event) -> Void) {
 
         var address = sockaddr_in()
@@ -97,12 +99,14 @@ public class ReachabilityMonitor: BaseMonitor {
     /// name.
     ///
     /// - Parameters:
-    ///   - host:       The network node name of the desired host.
+    ///   - name:       The network node name of the desired host.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node name changes.
     ///
     public convenience init?(name: String,
-                             queue: DispatchQueue = .main,
+                             queue: OperationQueue = .main,
                              handler: @escaping (Event) -> Void) {
 
         let reachability = SCNetworkReachabilityCreateWithName(nil, name)
@@ -148,45 +152,49 @@ public class ReachabilityMonitor: BaseMonitor {
     // Private Initializers
 
     private init?(reachability: SCNetworkReachability?,
-                  queue: DispatchQueue,
+                  queue: OperationQueue,
                   handler: @escaping (Event) -> Void) {
 
         guard let reachability = reachability
             else { return nil }
 
         self.handler = handler
-        self.previousFlags = SCNetworkReachabilityFlags()
+        self.innerQueue = .main
         self.queue = queue
         self.reachability = reachability
+        self.unsafePreviousFlags = []
 
     }
 
     // Private Instance Properties
 
     private let handler: (Event) -> Void
-    private let queue: DispatchQueue
+    private let innerQueue: DispatchQueue
+    private let queue: OperationQueue
     private let reachability: SCNetworkReachability
-
-    private var previousFlags: SCNetworkReachabilityFlags
 
     private var currentFlags: SCNetworkReachabilityFlags? {
 
-        var flags = SCNetworkReachabilityFlags()
+        var flags: SCNetworkReachabilityFlags = []
 
         return SCNetworkReachabilityGetFlags(reachability, &flags) ? flags : nil
 
     }
 
+    private var unsafePreviousFlags: SCNetworkReachabilityFlags
+
     // Private Instance Methods
 
     private func invokeHandler(_ flags: SCNetworkReachabilityFlags) {
 
-        guard previousFlags != flags
+        guard unsafePreviousFlags != flags
             else { return }
 
-        previousFlags = flags
+        unsafePreviousFlags = flags
 
-        handler(.statusDidChange(statusFromFlags(flags)))
+        queue.addOperation {
+            self.handler(.statusDidChange(self.statusFromFlags(flags)))
+        }
 
     }
 
@@ -260,7 +268,7 @@ public class ReachabilityMonitor: BaseMonitor {
             else { return false }
 
         guard SCNetworkReachabilitySetDispatchQueue(reachability,
-                                                    queue)
+                                                    innerQueue)
             else {
 
                 SCNetworkReachabilitySetCallback(reachability, nil, nil)
@@ -268,11 +276,11 @@ public class ReachabilityMonitor: BaseMonitor {
                 return false
         }
 
-        queue.async {
+        innerQueue.async {
 
-            self.previousFlags = SCNetworkReachabilityFlags()
+            self.unsafePreviousFlags = []
 
-            self.invokeHandler(self.currentFlags ?? SCNetworkReachabilityFlags())
+            self.invokeHandler(self.currentFlags ?? [])
 
         }
 

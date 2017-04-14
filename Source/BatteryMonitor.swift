@@ -41,8 +41,8 @@ public class BatteryMonitor: BaseNotificationMonitor {
     /// Initializes a new `BatteryMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:      The operation queue on which notification blocks
-    ///                 execute. By default, the main operation queue is used.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///

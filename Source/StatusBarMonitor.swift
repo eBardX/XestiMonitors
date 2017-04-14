@@ -51,8 +51,8 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     /// Initializes a new `StatusBarMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:      The operation queue on which notification blocks
-    ///                 execute. By default, the main operation queue is used.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the orientation of the app’s
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.
