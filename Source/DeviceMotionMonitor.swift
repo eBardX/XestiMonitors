@@ -139,7 +139,7 @@ public class DeviceMotionMonitor: BaseMonitor {
         motionManager.accelerometerUpdateInterval = interval
 
         motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
-                                               to: .main) { [unowned self] data, error in
+                                               to: queue) { [unowned self] data, error in
 
                                                 var info: Info
 

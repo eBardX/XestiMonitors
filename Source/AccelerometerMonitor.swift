@@ -134,7 +134,7 @@ public class AccelerometerMonitor: BaseMonitor {
 
         motionManager.accelerometerUpdateInterval = interval
 
-        motionManager.startAccelerometerUpdates(to: .main) { [unowned self] data, error in
+        motionManager.startAccelerometerUpdates(to: queue) { [unowned self] data, error in
 
             var info: Info
 

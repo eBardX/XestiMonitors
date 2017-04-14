@@ -135,7 +135,7 @@ public class MagnetometerMonitor: BaseMonitor {
 
         motionManager.magnetometerUpdateInterval = interval
 
-        motionManager.startMagnetometerUpdates(to: .main) { [unowned self] data, error in
+        motionManager.startMagnetometerUpdates(to: queue) { [unowned self] data, error in
 
             var info: Info
 
