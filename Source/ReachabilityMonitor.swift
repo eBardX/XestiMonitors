@@ -15,6 +15,19 @@ import SystemConfiguration
 ///
 public class ReachabilityMonitor: BaseMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates changes to the reachability of a network node name or
+    /// address.
+    ///
+    public enum Event {
+        ///
+        /// The reachability status has changed.
+        ///
+        case statusDidChange(Status)
+    }
+
     ///
     /// Encapsulates the reachability of a network node name or address.
     ///
@@ -54,7 +67,8 @@ public class ReachabilityMonitor: BaseMonitor {
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node address changes.
     ///
-    public convenience init?(handler: @escaping (Status) -> Void) {
+    public convenience init?(queue: DispatchQueue = .main,
+                             handler: @escaping (Event) -> Void) {
 
         var address = sockaddr_in()
 
@@ -73,6 +87,7 @@ public class ReachabilityMonitor: BaseMonitor {
         }
 
         self.init(reachability: reachability,
+                  queue: queue,
                   handler: handler)
 
     }
@@ -87,11 +102,13 @@ public class ReachabilityMonitor: BaseMonitor {
     ///                 network node name changes.
     ///
     public convenience init?(name: String,
-                             handler: @escaping (Status) -> Void) {
+                             queue: DispatchQueue = .main,
+                             handler: @escaping (Event) -> Void) {
 
         let reachability = SCNetworkReachabilityCreateWithName(nil, name)
 
         self.init(reachability: reachability,
+                  queue: queue,
                   handler: handler)
 
     }
@@ -121,7 +138,8 @@ public class ReachabilityMonitor: BaseMonitor {
     ///
     public var status: Status {
 
-        guard let flags = self.currentFlags else { return .unknown }
+        guard let flags = self.currentFlags
+            else { return .unknown }
 
         return statusFromFlags(flags)
 
@@ -130,20 +148,23 @@ public class ReachabilityMonitor: BaseMonitor {
     // Private Initializers
 
     private init?(reachability: SCNetworkReachability?,
-                  handler: @escaping (Status) -> Void) {
+                  queue: DispatchQueue,
+                  handler: @escaping (Event) -> Void) {
 
-        guard let reachability = reachability else { return nil }
+        guard let reachability = reachability
+            else { return nil }
 
         self.handler = handler
         self.previousFlags = SCNetworkReachabilityFlags()
+        self.queue = queue
         self.reachability = reachability
 
     }
 
     // Private Instance Properties
 
-    private let handler: (Status) -> Void
-    private let queue = DispatchQueue.main
+    private let handler: (Event) -> Void
+    private let queue: DispatchQueue
     private let reachability: SCNetworkReachability
 
     private var previousFlags: SCNetworkReachabilityFlags
@@ -160,11 +181,12 @@ public class ReachabilityMonitor: BaseMonitor {
 
     private func invokeHandler(_ flags: SCNetworkReachabilityFlags) {
 
-        guard previousFlags != flags else { return }
+        guard previousFlags != flags
+            else { return }
 
         previousFlags = flags
 
-        handler(statusFromFlags(flags))
+        handler(.statusDidChange(statusFromFlags(flags)))
 
     }
 
@@ -200,9 +222,13 @@ public class ReachabilityMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard SCNetworkReachabilitySetDispatchQueue(reachability, nil) else { return false }
+        guard SCNetworkReachabilitySetDispatchQueue(reachability,
+                                                    nil)
+            else { return false }
 
-        SCNetworkReachabilitySetCallback(reachability, nil, nil)
+        SCNetworkReachabilitySetCallback(reachability,
+                                         nil,
+                                         nil)
 
         return super.cleanupMonitor()
 
@@ -210,7 +236,8 @@ public class ReachabilityMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor() else { return false }
+        guard super.configureMonitor()
+            else { return false }
 
         var context = SCNetworkReachabilityContext()
 
@@ -218,7 +245,8 @@ public class ReachabilityMonitor: BaseMonitor {
 
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
 
-            guard let info = info else { return }
+            guard let info = info
+                else { return }
 
             let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
 
@@ -226,13 +254,18 @@ public class ReachabilityMonitor: BaseMonitor {
 
         }
 
-        guard SCNetworkReachabilitySetCallback(reachability, callback, &context) else { return false }
+        guard SCNetworkReachabilitySetCallback(reachability,
+                                               callback,
+                                               &context)
+            else { return false }
 
-        guard SCNetworkReachabilitySetDispatchQueue(reachability, queue) else {
+        guard SCNetworkReachabilitySetDispatchQueue(reachability,
+                                                    queue)
+            else {
 
-            SCNetworkReachabilitySetCallback(reachability, nil, nil)
+                SCNetworkReachabilitySetCallback(reachability, nil, nil)
 
-            return false
+                return false
         }
 
         queue.async {
@@ -244,6 +277,7 @@ public class ReachabilityMonitor: BaseMonitor {
         }
 
         return true
+
     }
 
 }

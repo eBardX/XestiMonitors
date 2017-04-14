@@ -13,13 +13,9 @@ import UIKit
 ///
 /// An abstract base class that simplifies the implementation of a monitor.
 ///
-/// This class is a subclass of `NSObject` so that concrete monitor subclasses
-/// of it have the option to become key-value observers and receive KVO
-/// notifications.
-///
-open class BaseMonitor: NSObject, Monitor {
+open class BaseMonitor: Monitor {
 
-    // Public Instance Methods
+    // Open Instance Methods
 
     ///
     /// Cleans up the monitor so that active monitoring can stop.
@@ -53,7 +49,7 @@ open class BaseMonitor: NSObject, Monitor {
 
     }
 
-    // Monitor Instance Properties
+    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
@@ -61,7 +57,7 @@ open class BaseMonitor: NSObject, Monitor {
     ///
     public private(set) final var isMonitoring = false
 
-    // Monitor Instance Methods
+    // Public Instance Methods
 
     ///
     /// Starts active monitoring of events specific to the monitor.
@@ -72,7 +68,8 @@ open class BaseMonitor: NSObject, Monitor {
     @discardableResult
     public final func startMonitoring() -> Bool {
 
-        guard !isMonitoring else { return false }
+        guard !isMonitoring
+            else { return false }
 
         if configureMonitor() {
             isMonitoring = true
@@ -91,7 +88,8 @@ open class BaseMonitor: NSObject, Monitor {
     @discardableResult
     public final func stopMonitoring() -> Bool {
 
-        guard isMonitoring else { return false }
+        guard isMonitoring
+            else { return false }
 
         if cleanupMonitor() {
             isMonitoring = false

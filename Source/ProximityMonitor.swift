@@ -16,24 +16,17 @@ import UIKit
 ///
 public class ProximityMonitor: BaseNotificationMonitor {
 
-    // Public Type Properties
+    // Public Nested Types
 
     ///
-    /// A Boolean value indicating whether proximity monitoring is available on
-    /// the device (`true`) or not (`false`).
+    /// Encapsulates changes to the state of the proximity sensor.
     ///
-    public static var isAvailable: Bool = {
-
-        let device = UIDevice.current
-        let oldValue = device.isProximityMonitoringEnabled
-
-        defer { device.isProximityMonitoringEnabled = oldValue }
-
-        device.isProximityMonitoringEnabled = true
-
-        return device.isProximityMonitoringEnabled
-
-    }()
+    public enum Event {
+        ///
+        /// The state of the proximity sensor has changed.
+        ///
+        case stateDidChange(Bool)
+    }
 
     // Public Initializers
 
@@ -41,17 +34,38 @@ public class ProximityMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProximityMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the state of the proximity
     ///                 sensor changes.
     ///
-    public init(handler: @escaping (Bool) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
-        self.device = UIDevice.current
+        self.device = .current
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Public Instance Properties
+
+    ///
+    /// A Boolean value indicating whether proximity monitoring is available on
+    /// the device (`true`) or not (`false`).
+    ///
+    public lazy var isAvailable: Bool = {
+
+        let oldValue = self.device.isProximityMonitoringEnabled
+
+        defer { self.device.isProximityMonitoringEnabled = oldValue }
+
+        self.device.isProximityMonitoringEnabled = true
+
+        return self.device.isProximityMonitoringEnabled
+
+    }()
 
     ///
     /// A Boolean value indicating whether the proximity sensor is close to the
@@ -59,38 +73,33 @@ public class ProximityMonitor: BaseNotificationMonitor {
     ///
     public var state: Bool { return device.proximityState }
 
-    // Private
+    // Private Instance Properties
 
     private let device: UIDevice
-    private let handler: (Bool) -> Void
-
-    @objc private func deviceProximityStateDidChange(_ notification: Notification) {
-
-        handler(device.proximityState)
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(deviceProximityStateDidChange(_:)),
-                                       name: .UIDeviceProximityStateDidChange,
-                                       object: nil)
+        observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
+            self.handler(.stateDidChange(self.device.proximityState))
+        }
 
         device.isProximityMonitoringEnabled = true
 
         return true
+
     }
 
-    public override func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func removeNotificationObservers() -> Bool {
 
         device.isProximityMonitoringEnabled = false
 
-        return super.removeNotificationObservers(notificationCenter)
+        return super.removeNotificationObservers()
 
     }
 

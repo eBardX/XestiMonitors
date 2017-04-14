@@ -16,21 +16,21 @@ class DeviceDetailViewController: UITableViewController {
     @IBOutlet weak var orientationLabel: UILabel!
     @IBOutlet weak var proximityLabel: UILabel!
 
-    lazy var batteryMonitor: BatteryMonitor = BatteryMonitor { [weak self] in
+    lazy var batteryMonitor: BatteryMonitor = BatteryMonitor { [unowned self] in
 
-        self?.displayBattery($0)
-
-    }
-
-    lazy var orientationMonitor: OrientationMonitor = OrientationMonitor { [weak self] in
-
-        self?.displayOrientation($0)
+        self.displayBattery($0)
 
     }
 
-    lazy var proximityMonitor: ProximityMonitor = ProximityMonitor { [weak self] in
+    lazy var orientationMonitor: OrientationMonitor = OrientationMonitor { [unowned self] in
 
-        self?.displayProximity($0)
+        self.displayOrientation($0)
+
+    }
+
+    lazy var proximityMonitor: ProximityMonitor = ProximityMonitor { [unowned self] in
+
+        self.displayProximity($0)
 
     }
 
@@ -40,37 +40,50 @@ class DeviceDetailViewController: UITableViewController {
 
     // MARK: -
 
-    private func displayBattery(_ event: BatteryMonitor.Event) {
+    private func displayBattery(_ event: BatteryMonitor.Event?) {
 
-        switch event {
+        if let event = event {
 
-        case let .levelDidChange(level):
-            displayBattery(self.batteryMonitor.state, level)
+            switch event {
 
-        case let .stateDidChange(state):
-            displayBattery(state, self.batteryMonitor.level)
+            case let .levelDidChange(level):
+                batteryLabel.text = formatDeviceBatteryStateAndLevel(batteryMonitor.state,
+                                                                     level)
+
+            case let .stateDidChange(state):
+                batteryLabel.text = formatDeviceBatteryStateAndLevel(state,
+                                                                     batteryMonitor.level)
+
+            }
+
+        } else {
+
+            batteryLabel.text = formatDeviceBatteryStateAndLevel(batteryMonitor.state,
+                                                                 batteryMonitor.level)
 
         }
 
     }
 
-    private func displayBattery(_ state: UIDeviceBatteryState,
-                                _ level: Float) {
+    private func displayOrientation(_ event: OrientationMonitor.Event?) {
 
-        batteryLabel.text = formatDeviceBatteryStateAndLevel(state, level)
-
-    }
-
-    private func displayOrientation(_ orientation: UIDeviceOrientation) {
-
-        orientationLabel.text = formatDeviceOrientation(orientation)
+        if let event = event, case let .didChange(orientation) = event {
+            orientationLabel.text = formatDeviceOrientation(orientation)
+        } else {
+            orientationLabel.text = formatDeviceOrientation(orientationMonitor.orientation)
+        }
 
     }
 
-    private func displayProximity(_ state: Bool) {
+    private func displayProximity(_ event: ProximityMonitor.Event?) {
 
-        proximityLabel.text = !ProximityMonitor.isAvailable ? "N/A" :
-            state ? "Close" : "Not close"
+        if !proximityMonitor.isAvailable {
+            proximityLabel.text = formatDeviceProximityState(nil)
+        } else if let event = event, case let .stateDidChange(state) = event {
+            proximityLabel.text = formatDeviceProximityState(state)
+        } else {
+            proximityLabel.text = formatDeviceProximityState(proximityMonitor.state)
+        }
 
     }
 
@@ -80,12 +93,11 @@ class DeviceDetailViewController: UITableViewController {
 
         super.viewDidLoad()
 
-        displayBattery(batteryMonitor.state,
-                       batteryMonitor.level)
+        displayBattery(nil)
 
-        displayOrientation(orientationMonitor.orientation)
+        displayOrientation(nil)
 
-        displayProximity(proximityMonitor.state)
+        displayProximity(nil)
 
     }
 

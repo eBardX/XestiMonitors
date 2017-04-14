@@ -17,6 +17,19 @@ import Foundation
 ///
 public class MagnetometerMonitor: BaseMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates updates to the measurement of the magnetic field around
+    /// the three spatial axes.
+    ///
+    public enum Event {
+        ///
+        /// The magnetic field measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
+
     ///
     /// Encapsulates the measurement of the magnetic field around the three
     /// spatial axes.
@@ -38,17 +51,6 @@ public class MagnetometerMonitor: BaseMonitor {
         /// No magnetic field measurement is available.
         ///
         case unknown
-    }
-
-    // Public Type Properties
-
-    ///
-    /// A Boolean value indicating whether a magnetometer is available on the
-    /// device.
-    ///
-    public static var isAvailable: Bool {
-
-        return CMMotionManager.shared.isMagnetometerAvailable
 
     }
 
@@ -58,20 +60,26 @@ public class MagnetometerMonitor: BaseMonitor {
     /// Initializes a new `MagnetometerMonitor`.
     ///
     /// - Parameters:
-    ///   - manager:    The instance of `CMMotionManager` to use. By default, a
-    ///                 shared instance is used as recommended by Apple.
-    ///   - interval:   The interval, in seconds, for providing magnetic field
-    ///                 measurements to the handler.
-    ///   - handler:    The handler to call periodically when a new magnetic
-    ///                 field measurement is available.
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by Apple.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     Because the events might arrive at a high rate,
+    ///                     using the main operation queue is not recommended.
+    ///   - interval:       The interval, in seconds, for providing magnetic
+    ///                     field measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     magnetic field measurement is available.
     ///
-    public init(manager: CMMotionManager = CMMotionManager.shared,
+    public init(motionManager: CMMotionManager = .shared,
+                queue: OperationQueue,
                 interval: TimeInterval,
-                handler: @escaping (Info) -> Void) {
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.manager = manager
+        self.motionManager = motionManager
+        self.queue = queue
 
     }
 
@@ -82,7 +90,7 @@ public class MagnetometerMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = manager.magnetometerData {
+        if let data = motionManager.magnetometerData {
             return .data(data)
         } else {
             return .unknown
@@ -90,20 +98,31 @@ public class MagnetometerMonitor: BaseMonitor {
 
     }
 
+    ///
+    /// A Boolean value indicating whether a magnetometer is available on the
+    /// device.
+    ///
+    public var isAvailable: Bool {
+
+        return motionManager.isMagnetometerAvailable
+
+    }
+
     // Private
 
-    private let handler: (Info) -> Void
+    private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let manager: CMMotionManager
-    private let queue = DispatchQueue.main
+    private let motionManager: CMMotionManager
+    private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard manager.isMagnetometerActive else { return false }
+        guard motionManager.isMagnetometerActive
+            else { return false }
 
-        manager.stopMagnetometerUpdates()
+        motionManager.stopMagnetometerUpdates()
 
         return super.cleanupMonitor()
 
@@ -111,11 +130,12 @@ public class MagnetometerMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor() else { return false }
+        guard super.configureMonitor()
+            else { return false }
 
-        manager.magnetometerUpdateInterval = interval
+        motionManager.magnetometerUpdateInterval = interval
 
-        manager.startMagnetometerUpdates(to: .main) { [weak self] data, error in
+        motionManager.startMagnetometerUpdates(to: .main) { [unowned self] data, error in
 
             var info: Info
 
@@ -127,11 +147,12 @@ public class MagnetometerMonitor: BaseMonitor {
                 info = .unknown
             }
 
-            self?.queue.async { self?.handler(info) }
+            self.handler(.didUpdate(info))
 
         }
 
         return true
+
     }
 
 }

@@ -13,8 +13,8 @@ import XestiMonitors
 class AccessibilityDetailViewController: UITableViewController {
 
     @IBOutlet weak var announcementButton: UIButton!
-    @IBOutlet weak var announcementDidSucceedLabel: UILabel!
-    @IBOutlet weak var announcementTextLabel: UILabel!
+    @IBOutlet weak var announcementStringValueLabel: UILabel!
+    @IBOutlet weak var announcementWasSuccessfulLabel: UILabel!
     @IBOutlet weak var elementFocusedLabel: UILabel!
     @IBOutlet weak var elementTechnologyLabel: UILabel!
     @IBOutlet weak var elementUnfocusedLabel: UILabel!
@@ -35,21 +35,21 @@ class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet weak var statusSwitchControlLabel: UILabel!
     @IBOutlet weak var statusVoiceOverLabel: UILabel!
 
-    lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [weak self] in
+    lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
 
-        self?.displayAnnouncement($0)
-
-    }
-
-    lazy var elementMonitor: AccessibilityElementMonitor = AccessibilityElementMonitor { [weak self] in
-
-        self?.displayElement($0)
+        self.displayAnnouncement($0)
 
     }
 
-    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [weak self] in
+    lazy var elementMonitor: AccessibilityElementMonitor = AccessibilityElementMonitor { [unowned self] in
 
-        self?.displaySettings($0)
+        self.displayElement($0)
+
+    }
+
+    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [unowned self] in
+
+        self.displayStatus($0)
 
     }
 
@@ -61,27 +61,27 @@ class AccessibilityDetailViewController: UITableViewController {
 
     // MARK: -
 
-    private func displayAnnouncement(_ info: AccessibilityAnnouncementMonitor.Info?) {
+    private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
 
-        if let info = info {
+        if let event = event, case let .didFinish(info) = event {
 
-            announcementDidSucceedLabel.text = "\(info.didSucceed)"
+            announcementStringValueLabel.text = info.stringValue
 
-            announcementTextLabel.text = info.text
+            announcementWasSuccessfulLabel.text = "\(info.wasSuccessful)"
 
         } else {
 
-            announcementDidSucceedLabel.text = " "
+            announcementStringValueLabel.text = " "
 
-            announcementTextLabel.text = " "
+            announcementWasSuccessfulLabel.text = " "
 
         }
 
     }
 
-    private func displayElement(_ info: AccessibilityElementMonitor.Info?) {
+    private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
 
-        if let info = info {
+        if let event = event, case let .didFocus(info) = event {
 
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatElement(element)
@@ -116,7 +116,7 @@ class AccessibilityDetailViewController: UITableViewController {
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_body_length
 
-    private func displaySettings(_ event: AccessibilityStatusMonitor.Event?) {
+    private func displayStatus(_ event: AccessibilityStatusMonitor.Event?) {
 
         if let event = event {
 
@@ -267,7 +267,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
         displayElement(nil)
 
-        displaySettings(nil)
+        displayStatus(nil)
 
     }
 

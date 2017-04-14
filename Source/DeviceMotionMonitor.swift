@@ -17,6 +17,18 @@ import Foundation
 ///
 public class DeviceMotionMonitor: BaseMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates updates to the measurement of device motion.
+    ///
+    public enum Event {
+        ///
+        /// The device motion measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
+
     ///
     /// Encapsulates the measurement of device motion.
     ///
@@ -37,17 +49,6 @@ public class DeviceMotionMonitor: BaseMonitor {
         /// No device motion measurement is available.
         ///
         case unknown
-    }
-
-    // Public Type Properties
-
-    ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
-    ///
-    public static var isAvailable: Bool {
-
-        return CMMotionManager.shared.isDeviceMotionAvailable
 
     }
 
@@ -57,9 +58,12 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// Initializes a new `DeviceMotionMonitor`.
     ///
     /// - Parameters:
-    ///   - manager:        The instance of `CMMotionManager` to use. By
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
     ///                     default, a shared instance is used as recommended
     ///                     by Apple.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     Because the events might arrive at a high rate,
+    ///                     using the main operation queue is not recommended.
     ///   - interval:       The interval, in seconds, for providing device
     ///                     motion measurements to the handler.
     ///   - referenceFrame: The reference frame to use for device motion
@@ -67,14 +71,16 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new device
     ///                     motion measurement is available.
     ///
-    public init(manager: CMMotionManager = CMMotionManager.shared,
+    public init(motionManager: CMMotionManager = .shared,
+                queue: OperationQueue,
                 interval: TimeInterval,
                 using referenceFrame: CMAttitudeReferenceFrame,
-                handler: @escaping (Info) -> Void) {
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.manager = manager
+        self.motionManager = motionManager
+        self.queue = queue
         self.referenceFrame = referenceFrame
 
     }
@@ -86,7 +92,7 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = manager.deviceMotion {
+        if let data = motionManager.deviceMotion {
             return .data(data)
         } else {
             return .unknown
@@ -94,21 +100,32 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     }
 
+    ///
+    /// A Boolean value indicating whether device motion measuring is available
+    /// on the device.
+    ///
+    public var isAvailable: Bool {
+
+        return motionManager.isDeviceMotionAvailable
+
+    }
+
     // Private
 
-    private let handler: (Info) -> Void
+    private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let manager: CMMotionManager
-    private let queue = DispatchQueue.main
+    private let motionManager: CMMotionManager
+    private let queue: OperationQueue
     private let referenceFrame: CMAttitudeReferenceFrame
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard manager.isDeviceMotionActive else { return false }
+        guard motionManager.isDeviceMotionActive
+            else { return false }
 
-        manager.stopDeviceMotionUpdates()
+        motionManager.stopDeviceMotionUpdates()
 
         return super.cleanupMonitor()
 
@@ -116,28 +133,30 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor() else { return false }
+        guard super.configureMonitor()
+            else { return false }
 
-        manager.accelerometerUpdateInterval = interval
+        motionManager.accelerometerUpdateInterval = interval
 
-        manager.startDeviceMotionUpdates(using: self.referenceFrame,
-                                         to: .main) { [weak self] data, error in
+        motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
+                                               to: .main) { [unowned self] data, error in
 
-                                            var info: Info
+                                                var info: Info
 
-                                            if let error = error {
-                                                info = .error(error)
-                                            } else if let data = data {
-                                                info = .data(data)
-                                            } else {
-                                                info = .unknown
-                                            }
+                                                if let error = error {
+                                                    info = .error(error)
+                                                } else if let data = data {
+                                                    info = .data(data)
+                                                } else {
+                                                    info = .unknown
+                                                }
 
-                                            self?.queue.async { self?.handler(info) }
+                                                self.handler(.didUpdate(info))
 
         }
 
         return true
+
     }
 
 }

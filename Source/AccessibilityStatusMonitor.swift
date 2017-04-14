@@ -16,6 +16,8 @@ import UIKit
 ///
 public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the status of various system accessibility
     /// settings.
@@ -153,12 +155,17 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityStatusMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -287,198 +294,82 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    // Private Instance Methods
-
-    @available(iOS 10.0, *)
-    @objc private func accessibilityAssistiveTouchStatusDidChange(_ notification: Notification) {
-
-        handler(.assistiveTouchStatusDidChange(isAssistiveTouchEnabled))
-
-    }
-
-    @objc private func accessibilityBoldTextStatusDidChange(_ notification: Notification) {
-
-        handler(.boldTextStatusDidChange(isBoldTextEnabled))
-
-    }
-
-    @objc private func accessibilityClosedCaptioningStatusDidChange(_ notification: Notification) {
-
-        handler(.closedCaptioningStatusDidChange(isClosedCaptioningEnabled))
-
-    }
-
-    @objc private func accessibilityDarkerSystemColorsStatusDidChange(_ notification: Notification) {
-
-        handler(.darkenColorsStatusDidChange(isDarkenColorsEnabled))
-
-    }
-
-    @objc private func accessibilityGrayscaleStatusDidChange(_ notification: Notification) {
-
-        handler(.grayscaleStatusDidChange(isGrayscaleEnabled))
-
-    }
-
-    @objc private func accessibilityGuidedAccessStatusDidChange(_ notification: Notification) {
-
-        handler(.guidedAccessStatusDidChange(isGuidedAccessEnabled))
-
-    }
-
-    @available(iOS 10.0, *)
-    @objc private func accessibilityHearingDevicePairedEarDidChange(_ notification: Notification) {
-
-        handler(.hearingDevicePairedEarDidChange(hearingDevicePairedEar))
-
-    }
-
-    @objc private func accessibilityInvertColorsStatusDidChange(_ notification: Notification) {
-
-        handler(.invertColorsStatusDidChange(isInvertColorsEnabled))
-
-    }
-
-    @objc private func accessibilityMonoAudioStatusDidChange(_ notification: Notification) {
-
-        handler(.monoAudioStatusDidChange(isMonoAudioEnabled))
-
-    }
-
-    @objc private func accessibilityReduceMotionStatusDidChange(_ notification: Notification) {
-
-        handler(.reduceMotionStatusDidChange(isReduceMotionEnabled))
-
-    }
-
-    @objc private func accessibilityReduceTransparencyStatusDidChange(_ notification: Notification) {
-
-        handler(.reduceTransparencyStatusDidChange(isReduceTransparencyEnabled))
-
-    }
-
-    @available(iOS 9.0, *)
-    @objc private func accessibilityShakeToUndoDidChange(_ notification: Notification) {
-
-        handler(.shakeToUndoStatusDidChange(isShakeToUndoEnabled))
-
-    }
-
-    @objc private func accessibilitySpeakScreenStatusDidChange(_ notification: Notification) {
-
-        handler(.speakScreenStatusDidChange(isSpeakScreenEnabled))
-
-    }
-
-    @objc private func accessibilitySpeakSelectionStatusDidChange(_ notification: Notification) {
-
-        handler(.speakSelectionStatusDidChange(isSpeakSelectionEnabled))
-
-    }
-
-    @objc private func accessibilitySwitchControlStatusDidChange(_ notification: Notification) {
-
-        handler(.switchControlStatusDidChange(isSwitchControlEnabled))
-
-    }
-
-    @objc private func accessibilityVoiceOverStatusChanged(_ notification: Notification) {
-
-        handler(.voiceOverStatusDidChange(isVoiceOverEnabled))
-
-    }
-
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
-
-        if #available(iOS 10.0, *) {
-            notificationCenter.addObserver(self,
-                                           selector: #selector(accessibilityAssistiveTouchStatusDidChange(_:)),
-                                           name: .UIAccessibilityAssistiveTouchStatusDidChange,
-                                           object: nil)
-        }
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityBoldTextStatusDidChange(_:)),
-                                       name: .UIAccessibilityBoldTextStatusDidChange,
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityClosedCaptioningStatusDidChange(_:)),
-                                       name: .UIAccessibilityClosedCaptioningStatusDidChange,
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityDarkerSystemColorsStatusDidChange(_:)),
-                                       name: .UIAccessibilityDarkerSystemColorsStatusDidChange,
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityGrayscaleStatusDidChange(_:)),
-                                       name: .UIAccessibilityGrayscaleStatusDidChange,
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityGuidedAccessStatusDidChange(_:)),
-                                       name: .UIAccessibilityGuidedAccessStatusDidChange,
-                                       object: nil)
+        guard super.addNotificationObservers()
+            else { return false }
 
         if #available(iOS 10.0, *) {
-            notificationCenter.addObserver(self,
-                                           selector: #selector(accessibilityHearingDevicePairedEarDidChange(_:)),
-                                           name: .UIAccessibilityHearingDevicePairedEarDidChange,
-                                           object: nil)
+            observe(.UIAccessibilityAssistiveTouchStatusDidChange) { [unowned self] _ in
+                self.handler(.assistiveTouchStatusDidChange(self.isAssistiveTouchEnabled))
+            }
         }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityInvertColorsStatusDidChange(_:)),
-                                       name: .UIAccessibilityInvertColorsStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
+            self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityMonoAudioStatusDidChange(_:)),
-                                       name: .UIAccessibilityMonoAudioStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
+            self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityReduceMotionStatusDidChange(_:)),
-                                       name: .UIAccessibilityReduceMotionStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
+            self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityReduceTransparencyStatusDidChange(_:)),
-                                       name: .UIAccessibilityReduceTransparencyStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
+            self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
+        }
+
+        observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
+            self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
+        }
+
+        if #available(iOS 10.0, *) {
+            observe(.UIAccessibilityHearingDevicePairedEarDidChange) { [unowned self] _ in
+                self.handler(.hearingDevicePairedEarDidChange(self.hearingDevicePairedEar))
+            }
+        }
+
+        observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
+            self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
+        }
+
+        observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
+            self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
+        }
+
+        observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
+            self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
+        }
+
+        observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
+            self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
+        }
 
         if #available(iOS 9.0, *) {
-            notificationCenter.addObserver(self,
-                                           selector: #selector(accessibilityShakeToUndoDidChange(_:)),
-                                           name: .UIAccessibilityShakeToUndoDidChange,
-                                           object: nil)
+            observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
+                self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
+            }
         }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilitySpeakScreenStatusDidChange(_:)),
-                                       name: .UIAccessibilitySpeakScreenStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
+            self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilitySpeakSelectionStatusDidChange(_:)),
-                                       name: .UIAccessibilitySpeakSelectionStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
+            self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilitySwitchControlStatusDidChange(_:)),
-                                       name: .UIAccessibilitySwitchControlStatusDidChange,
-                                       object: nil)
+        observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
+            self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityVoiceOverStatusChanged(_:)),
-                                       name: Notification.Name(UIAccessibilityVoiceOverStatusChanged),
-                                       object: nil)
+        observe(Notification.Name(UIAccessibilityVoiceOverStatusChanged)) { [unowned self] _ in
+            self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
+        }
 
         return true
 

@@ -113,6 +113,16 @@ func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
 
 }
 
+func formatDeviceProximityState(_ value: Bool?) -> String {
+
+    if let value = value {
+        return value ? "Close" : "Not close"
+    } else {
+        return "N/A"
+    }
+
+}
+
 func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
 
     switch value {

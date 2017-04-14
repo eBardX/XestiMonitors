@@ -16,19 +16,37 @@ import UIKit
 ///
 public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates changes to the app’s status for downloading content in the
+    /// background.
+    ///
+    public enum Event {
+        ///
+        /// The background refresh status has changed.
+        ///
+        case statusDidChange(UIBackgroundRefreshStatus)
+    }
+
     // Public Initializers
 
     ///
     /// Initializes a new `BackgroundRefreshMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the app’s status for
     ///                 downloading content in the background changes.
     ///
-    public init(handler: @escaping (UIBackgroundRefreshStatus) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
-        self.application = UIApplication.shared
+        self.application = .shared
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -43,26 +61,18 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     // Private Instance Properties
 
     private let application: UIApplication
-    private let handler: (UIBackgroundRefreshStatus) -> Void
-
-    // Private Instance Methods
-
-    @objc private func applicationBackgroundRefreshStatusDidChange(_ notification: Notification) {
-
-        handler(status)
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationBackgroundRefreshStatusDidChange(_:)),
-                                       name: .UIApplicationBackgroundRefreshStatusDidChange,
-                                       object: nil)
+        observe(.UIApplicationBackgroundRefreshStatusDidChange) { [unowned self] _ in
+            self.handler(.statusDidChange(self.status))
+        }
 
         return true
 

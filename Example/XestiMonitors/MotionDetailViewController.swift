@@ -27,28 +27,32 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var magnetometerMagneticFieldLabel: UILabel!
     @IBOutlet weak var magnetometerTimestampLabel: UILabel!
 
-    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(interval: 0.25) { [weak self] in
+    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(queue: .main,
+                                                                               interval: 0.5) { [unowned self] in
 
-        self?.displayAccelerometer($0)
-
-    }
-
-    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(interval: 0.25,
-                                                                            using: .xArbitraryZVertical) { [weak self] in
-
-        self?.displayDeviceMotion($0)
+                                                                                self.displayAccelerometer($0)
 
     }
 
-    lazy var gyroMonitor: GyroMonitor = GyroMonitor(interval: 0.25) { [weak self] in
+    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(queue: .main,
+                                                                            interval: 0.5,
+                                                                            using: .xArbitraryZVertical) { [unowned self] in
 
-        self?.displayGyro($0)
+                                                                                self.displayDeviceMotion($0)
 
     }
 
-    lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(interval: 0.25) { [weak self] in
+    lazy var gyroMonitor: GyroMonitor = GyroMonitor(queue: .main,
+                                                    interval: 0.5) { [unowned self] in
 
-        self?.displayMagnetometer($0)
+                                                        self.displayGyro($0)
+
+    }
+
+    lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(queue: .main,
+                                                                            interval: 0.5) { [unowned self] in
+
+                                                                                self.displayMagnetometer($0)
 
     }
 
@@ -58,6 +62,16 @@ class MotionDetailViewController: UITableViewController {
                                     self.magnetometerMonitor]
 
     // MARK: -
+
+    private func displayAccelerometer(_ event: AccelerometerMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayAccelerometer(info)
+        } else {
+            displayAccelerometer(.unknown)
+        }
+
+    }
 
     private func displayAccelerometer(_ info: AccelerometerMonitor.Info) {
 
@@ -88,6 +102,16 @@ class MotionDetailViewController: UITableViewController {
             accelerometerTimestampLabel.textColor = UIColor.gray
 
         }
+    }
+
+    private func displayDeviceMotion(_ event: DeviceMotionMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayDeviceMotion(info)
+        } else {
+            displayDeviceMotion(.unknown)
+        }
+
     }
 
     private func displayDeviceMotion(_ info: DeviceMotionMonitor.Info) {
@@ -139,6 +163,16 @@ class MotionDetailViewController: UITableViewController {
         }
     }
 
+    private func displayGyro(_ event: GyroMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayGyro(info)
+        } else {
+            displayGyro(.unknown)
+        }
+
+    }
+
     private func displayGyro(_ info: GyroMonitor.Info) {
 
         switch info {
@@ -162,6 +196,16 @@ class MotionDetailViewController: UITableViewController {
             gyroTimestampLabel.textColor = UIColor.gray
 
         }
+    }
+
+    private func displayMagnetometer(_ event: MagnetometerMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayMagnetometer(info)
+        } else {
+            displayMagnetometer(.unknown)
+        }
+
     }
 
     private func displayMagnetometer(_ info: MagnetometerMonitor.Info) {
@@ -195,7 +239,13 @@ class MotionDetailViewController: UITableViewController {
 
         super.viewDidLoad()
 
-        displayAccelerometer(.unknown)
+        displayAccelerometer(nil)
+
+        displayDeviceMotion(nil)
+
+        displayGyro(nil)
+
+        displayMagnetometer(nil)
 
     }
 

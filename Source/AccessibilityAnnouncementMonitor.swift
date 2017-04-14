@@ -16,6 +16,19 @@ import UIKit
 ///
 public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates accessibility announcements that VoiceOver has finished
+    /// outputting.
+    ///
+    public enum Event {
+        ///
+        /// VoiceOver has finished outputting an accessibility announcement.
+        ///
+        case didFinish(Info)
+    }
+
     ///
     /// Encapsulates information associated with an accessibility announcement
     /// that VoiceOver has finished outputting.
@@ -23,30 +36,30 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     public struct Info {
 
         ///
+        /// The text used for the announcement.
+        ///
+        public let stringValue: String
+
+        ///
         /// Indicates whether VoiceOver successfully outputted the
         /// announcement.
         ///
-        public let didSucceed: Bool
-
-        ///
-        /// The text used for the announcement.
-        ///
-        public let text: String
+        public let wasSuccessful: Bool
 
         internal init (_ notification: Notification) {
 
             let userInfo = notification.userInfo
 
-            if let value = (userInfo?[UIAccessibilityAnnouncementKeyWasSuccessful] as? NSNumber)?.boolValue {
-                self.didSucceed = value
+            if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
+                self.stringValue = value
             } else {
-                self.didSucceed = false
+                self.stringValue = " "
             }
 
-            if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
-                self.text = value
+            if let value = (userInfo?[UIAccessibilityAnnouncementKeyWasSuccessful] as? NSNumber)?.boolValue {
+                self.wasSuccessful = value
             } else {
-                self.text = " "
+                self.wasSuccessful = false
             }
 
         }
@@ -59,37 +72,34 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityAnnouncementMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when VoiceOver finishes outputting
     ///                 an announcement.
     ///
-    public init(handler: @escaping (Info) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Private Instance Properties
 
-    private let handler: (Info) -> Void
-
-    // Private Instance Methods
-
-    @objc private func accessibilityAnnouncementDidFinish(_ notification: Notification) {
-
-        handler(Info(notification))
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(accessibilityAnnouncementDidFinish(_:)),
-                                       name: .UIAccessibilityAnnouncementDidFinish,
-                                       object: nil)
+        observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in
+            self.handler(.didFinish(Info($0)))
+        }
 
         return true
 

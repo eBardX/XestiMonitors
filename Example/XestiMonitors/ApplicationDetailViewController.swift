@@ -23,45 +23,45 @@ class ApplicationDetailViewController: UITableViewController {
     @IBOutlet weak var statusBarOrientationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
 
-    lazy var applicationStateMonitor: ApplicationStateMonitor = ApplicationStateMonitor { [weak self] in
+    lazy var applicationStateMonitor: ApplicationStateMonitor = ApplicationStateMonitor { [unowned self] in
 
-        self?.displayApplicationState($0)
-
-    }
-
-    lazy var backgroundRefreshMonitor: BackgroundRefreshMonitor = BackgroundRefreshMonitor { [weak self] in
-
-        self?.displayBackgroundRefresh($0)
+        self.displayApplicationState($0)
 
     }
 
-    lazy var memoryMonitor: MemoryMonitor = MemoryMonitor { [weak self] in
+    lazy var backgroundRefreshMonitor: BackgroundRefreshMonitor = BackgroundRefreshMonitor { [unowned self] in
 
-        self?.displayMemory()
-
-    }
-
-    lazy var protectedDataMonitor: ProtectedDataMonitor = ProtectedDataMonitor { [weak self] in
-
-        self?.displayProtectedData($0)
+        self.displayBackgroundRefresh($0)
 
     }
 
-    lazy var screenshotMonitor: ScreenshotMonitor = ScreenshotMonitor { [weak self] in
+    lazy var memoryMonitor: MemoryMonitor = MemoryMonitor { [unowned self] in
 
-        self?.displayScreenshot()
-
-    }
-
-    lazy var statusBarMonitor: StatusBarMonitor = StatusBarMonitor { [weak self] in
-
-        self?.displayStatusBar($0)
+        self.displayMemory($0)
 
     }
 
-    lazy var timeMonitor: TimeMonitor = TimeMonitor { [weak self] in
+    lazy var protectedDataMonitor: ProtectedDataMonitor = ProtectedDataMonitor { [unowned self] in
 
-        self?.displayTime()
+        self.displayProtectedData($0)
+
+    }
+
+    lazy var screenshotMonitor: ScreenshotMonitor = ScreenshotMonitor { [unowned self] in
+
+        self.displayScreenshot($0)
+
+    }
+
+    lazy var statusBarMonitor: StatusBarMonitor = StatusBarMonitor { [unowned self] in
+
+        self.displayStatusBar($0)
+
+    }
+
+    lazy var timeMonitor: TimeMonitor = TimeMonitor { [unowned self] in
+
+        self.displayTime($0)
 
     }
 
@@ -73,59 +73,61 @@ class ApplicationDetailViewController: UITableViewController {
                                     self.statusBarMonitor,
                                     self.timeMonitor]
 
-    var memoryCount = -1
-    var screenshotCount = -1
-    var timeCount = -1
+    var memoryCount = 0
+    var screenshotCount = 0
+    var timeCount = 0
 
     // MARK: -
 
     private func displayApplicationState(_ event: ApplicationStateMonitor.Event?) {
-
-        var text: String
 
         if let event = event {
 
             switch event {
 
             case .didBecomeActive:
-                text = "Did become active"
+                applicationStateLabel.text = "Did become active"
 
             case .didEnterBackground:
-                text = "Did enter background"
+                applicationStateLabel.text = "Did enter background"
 
             case .didFinishLaunching:
-                text = "Did finish launching"
+                applicationStateLabel.text = "Did finish launching"
 
             case .willEnterForeground:
-                text = "Will enter foreground"
+                applicationStateLabel.text = "Will enter foreground"
 
             case .willResignActive:
-                text = "Will resign active"
+                applicationStateLabel.text = "Will resign active"
 
             case .willTerminate:
-                text = "Will terminate"
+                applicationStateLabel.text = "Will terminate"
 
             }
 
         } else {
 
-            text = " "
+            applicationStateLabel.text = " "
 
         }
 
-        applicationStateLabel.text = text
+    }
+
+    private func displayBackgroundRefresh(_ event: BackgroundRefreshMonitor.Event?) {
+
+        if let event = event, case let .statusDidChange(status) = event {
+            backgroundRefreshLabel.text = formatBackgroundRefreshStatus(status)
+        } else {
+            backgroundRefreshLabel.text = formatBackgroundRefreshStatus(backgroundRefreshMonitor.status)
+        }
 
     }
 
-    private func displayBackgroundRefresh(_ status: UIBackgroundRefreshStatus) {
+    private func displayMemory(_ event: MemoryMonitor.Event?) {
 
-        backgroundRefreshLabel.text = formatBackgroundRefreshStatus(status)
-
-    }
-
-    private func displayMemory() {
-
-        memoryCount += 1
+        if let event = event, case .didReceiveWarning = event {
+            memoryCount += 1
+        }
 
         memoryLabel.text = "\(memoryCount)"
 
@@ -133,33 +135,31 @@ class ApplicationDetailViewController: UITableViewController {
 
     private func displayProtectedData(_ event: ProtectedDataMonitor.Event?) {
 
-        var text: String
-
         if let event = event {
 
             switch event {
 
             case .didBecomeAvailable:
-                text = "Did become available"
+                protectedDataLabel.text = "Did become available"
 
             case .willBecomeUnavailable:
-                text = "Will become unavailable"
+                protectedDataLabel.text = "Will become unavailable"
 
             }
 
         } else {
 
-            text = " "
+            protectedDataLabel.text = " "
 
         }
 
-        protectedDataLabel.text = text
-
     }
 
-    private func displayScreenshot() {
+    private func displayScreenshot(_ event: ScreenshotMonitor.Event?) {
 
-        screenshotCount += 1
+        if let event = event, case .userDidTake = event {
+            screenshotCount += 1
+        }
 
         screenshotLabel.text = "\(screenshotCount)"
 
@@ -172,42 +172,52 @@ class ApplicationDetailViewController: UITableViewController {
             switch event {
 
             case let .didChangeFrame(frame):
-                displayStatusBar("Did change frame", frame, statusBarMonitor.orientation)
+                statusBarActionLabel.text = "Did change frame"
+
+                statusBarFrameLabel.text = "\(frame)"
+
+                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
             case let .didChangeOrientation(orientation):
-                displayStatusBar("Did change orientation", statusBarMonitor.frame, orientation)
+                statusBarActionLabel.text = "Did change orientation"
+
+                statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+
+                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
 
             case let .willChangeFrame(frame):
-                displayStatusBar("Will change frame", frame, statusBarMonitor.orientation)
+                statusBarActionLabel.text = "Will change frame"
+
+                statusBarFrameLabel.text = "\(frame)"
+
+                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
             case let .willChangeOrientation(orientation):
-                displayStatusBar("Will change orientation", statusBarMonitor.frame, orientation)
+                statusBarActionLabel.text = "Will change orientation"
+
+                statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+
+                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
 
             }
 
         } else {
 
-            displayStatusBar(" ", statusBarMonitor.frame, statusBarMonitor.orientation)
+            statusBarActionLabel.text = " "
+
+            statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+
+            statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
         }
 
     }
 
-    private func displayStatusBar(_ action: String,
-                                  _ frame: CGRect,
-                                  _ orientation: UIInterfaceOrientation) {
+    private func displayTime(_ event: TimeMonitor.Event?) {
 
-        statusBarActionLabel.text = action
-
-        statusBarFrameLabel.text = "\(frame)"
-
-        statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
-
-    }
-
-    private func displayTime() {
-
-        timeCount += 1
+        if let event = event, case .significantChange = event {
+            timeCount += 1
+        }
 
         timeLabel.text = "\(timeCount)"
 
@@ -229,17 +239,17 @@ class ApplicationDetailViewController: UITableViewController {
 
         displayApplicationState(nil)
 
-        displayBackgroundRefresh(backgroundRefreshMonitor.status)
+        displayBackgroundRefresh(nil)
 
-        displayMemory()
+        displayMemory(nil)
 
         displayProtectedData(nil)
 
-        displayScreenshot()
+        displayScreenshot(nil)
 
         displayStatusBar(nil)
 
-        displayTime()
+        displayTime(nil)
 
     }
 

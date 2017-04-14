@@ -15,43 +15,53 @@ import UIKit
 ///
 public class ScreenshotMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates screenshots taken when the user presses the Home and Lock
+    /// buttons.
+    ///
+    public enum Event {
+        ///
+        /// The user has taken a screenshot.
+        ///
+        case userDidTake
+    }
+
     // Public Initializers
 
     ///
     /// Initializes a new `ScreenshotMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the user presses the Home and
     ///                 Lock buttons to take a screenshot.
     ///
-    public init(handler: @escaping () -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Private Instance Properties
 
-    private let handler: () -> Void
-
-    // Private Instance Methods
-
-    @objc private func applicationUserDidTakeScreenshot(_ notification: Notification) {
-
-        handler()
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationUserDidTakeScreenshot(_:)),
-                                       name: .UIApplicationUserDidTakeScreenshot,
-                                       object: nil)
+        observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in
+            self.handler(.userDidTake)
+        }
 
         return true
 

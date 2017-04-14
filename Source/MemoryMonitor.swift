@@ -16,45 +16,56 @@ import UIKit
 ///
 public class MemoryMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates warnings received by the app from the operating system
+    /// about low memory availability.
+    ///
+    public enum Event {
+        ///
+        /// The app has received a memory warning.
+        ///
+        case didReceiveWarning
+    }
+
     // Public Initializers
 
     ///
     /// Initializes a new `MemoryMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the app receives a warning
     ///                 from the operating system about low memory availability.
     ///
-    public init(handler: @escaping () -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Private Instance Properties
 
-    private let handler: () -> Void
-
-    // Private Instance Methods
-
-    @objc private func applicationDidReceiveMemoryWarning(_ notification: Notification) {
-
-        handler()
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidReceiveMemoryWarning(_:)),
-                                       name: .UIApplicationDidReceiveMemoryWarning,
-                                       object: nil)
+        observe(.UIApplicationDidReceiveMemoryWarning) { [unowned self] _ in
+            self.handler(.didReceiveWarning)
+        }
 
         return true
+
     }
 
 }

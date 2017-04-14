@@ -16,6 +16,8 @@ import UIKit
 ///
 public class ApplicationStateMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the runtime state of the app.
     ///
@@ -58,12 +60,18 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     /// Initializes a new `ApplicationStateMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the app changes its runtime
     ///                 state or is about to change its runtime state.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
+        self.application = .shared
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -72,85 +80,43 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     ///
     /// The runtime state of the app.
     ///
-    public var state: UIApplicationState { return UIApplication.shared.applicationState }
+    public var state: UIApplicationState { return application.applicationState }
 
     // Private Instance Properties
 
+    private let application: UIApplication
     private let handler: (Event) -> Void
-
-    // Private Instance Methods
-
-    @objc private func applicationDidBecomeActive(_ notification: Notification) {
-
-        handler(.didBecomeActive)
-
-    }
-
-    @objc private func applicationDidEnterBackground(_ notification: Notification) {
-
-        handler(.didEnterBackground)
-
-    }
-
-    @objc private func applicationDidFinishLaunching(_ notification: Notification) {
-
-        handler(.didFinishLaunching(notification.userInfo))
-
-    }
-
-    @objc private func applicationWillEnterForeground(_ notification: Notification) {
-
-        handler(.willEnterForeground)
-
-    }
-
-    @objc private func applicationWillResignActive(_ notification: Notification) {
-
-        handler(.willResignActive)
-
-    }
-
-    @objc private func applicationWillTerminate(_ notification: Notification) {
-
-        handler(.willTerminate)
-
-    }
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidBecomeActive(_:)),
-                                       name: .UIApplicationDidBecomeActive,
-                                       object: nil)
+        observe(.UIApplicationDidBecomeActive) { [unowned self] _ in
+            self.handler(.didBecomeActive)
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidEnterBackground(_:)),
-                                       name: .UIApplicationDidEnterBackground,
-                                       object: nil)
+        observe(.UIApplicationDidEnterBackground) { [unowned self] _ in
+            self.handler(.didEnterBackground)
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidFinishLaunching(_:)),
-                                       name: .UIApplicationDidFinishLaunching,
-                                       object: nil)
+        observe(.UIApplicationDidFinishLaunching) { [unowned self] in
+            self.handler(.didFinishLaunching($0.userInfo))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationWillEnterForeground(_:)),
-                                       name: .UIApplicationWillEnterForeground,
-                                       object: nil)
+        observe(.UIApplicationWillEnterForeground) { [unowned self] _ in
+            self.handler(.willEnterForeground)
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationWillResignActive(_:)),
-                                       name: .UIApplicationWillResignActive,
-                                       object: nil)
+        observe(.UIApplicationWillResignActive) { [unowned self] _ in
+            self.handler(.willResignActive)
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationWillTerminate(_:)),
-                                       name: .UIApplicationWillTerminate,
-                                       object: nil)
+        observe(.UIApplicationWillTerminate) { [unowned self] _ in
+            self.handler(.willTerminate)
+        }
 
         return true
 

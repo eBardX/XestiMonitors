@@ -16,6 +16,8 @@ import UIKit
 ///
 public class StatusBarMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the orientation of the app’s user interface and
     /// to the frame of the status bar.
@@ -49,14 +51,19 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     /// Initializes a new `StatusBarMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the orientation of the app’s
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
-        self.application = UIApplication.shared
+        self.application = .shared
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -78,30 +85,6 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     private let handler: (Event) -> Void
 
     // Private Instance Methods
-
-    @objc private func applicationDidChangeStatusBarFrame(_ notification: Notification) {
-
-        handler(.didChangeFrame(extractStatusBarFrame(notification)))
-
-    }
-
-    @objc private func applicationDidChangeStatusBarOrientation(_ notification: Notification) {
-
-        handler(.didChangeOrientation(extractStatusBarOrientation(notification)))
-
-    }
-
-    @objc private func applicationWillChangeStatusBarFrame(_ notification: Notification) {
-
-        handler(.willChangeFrame(extractStatusBarFrame(notification)))
-
-    }
-
-    @objc private func applicationWillChangeStatusBarOrientation(_ notification: Notification) {
-
-        handler(.willChangeOrientation(extractStatusBarOrientation(notification)))
-
-    }
 
     private func extractStatusBarFrame(_ notification: Notification) -> CGRect {
 
@@ -126,29 +109,26 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidChangeStatusBarFrame(_:)),
-                                       name: .UIApplicationDidChangeStatusBarFrame,
-                                       object: nil)
+        observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
+            self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationDidChangeStatusBarOrientation(_:)),
-                                       name: .UIApplicationDidChangeStatusBarOrientation,
-                                       object: nil)
+        observe(.UIApplicationDidChangeStatusBarOrientation) { [unowned self] in
+            self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationWillChangeStatusBarFrame(_:)),
-                                       name: .UIApplicationWillChangeStatusBarFrame,
-                                       object: nil)
+        observe(.UIApplicationWillChangeStatusBarFrame) { [unowned self] in
+            self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationWillChangeStatusBarOrientation(_:)),
-                                       name: .UIApplicationWillChangeStatusBarOrientation,
-                                       object: nil)
+        observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
+            self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
+        }
 
         return true
 

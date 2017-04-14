@@ -16,6 +16,18 @@ import UIKit
 ///
 public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates changes to element focus by an assistive technology.
+    ///
+    public enum Event {
+        ///
+        /// An assistive technology has changed element focus.
+        ///
+        case didFocus(Info)
+    }
+
     ///
     /// Encapsulates information associated with an element focus change by an
     /// assistive technology.
@@ -70,38 +82,35 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityElementMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when an assistive technology
     ///                 changes element focus.
     ///
-    public init(handler: @escaping (Info) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Private Instance Properties
 
-    private let handler: (Info) -> Void
-
-    // Private Instance Methods
-
-    @objc private func accessibilityElementFocused(_ notification: Notification) {
-
-        handler(Info(notification))
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
         if #available(iOS 9.0, *) {
-            notificationCenter.addObserver(self,
-                                           selector: #selector(accessibilityElementFocused(_:)),
-                                           name: .UIAccessibilityElementFocused,
-                                           object: nil)
+            observe(.UIAccessibilityElementFocused) { [unowned self] in
+                self.handler(.didFocus(Info($0)))
+            }
         }
 
         return true

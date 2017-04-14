@@ -16,6 +16,19 @@ import Foundation
 ///
 public class GyroMonitor: BaseMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates updates to the measurement of the rotation rate around the
+    /// three spatial axes.
+    ///
+    public enum Event {
+        ///
+        /// The rotation rate measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
+
     ///
     /// Encapsulates the measurement of the rotation rate around the three
     /// spatial axes at a moment of time.
@@ -37,17 +50,6 @@ public class GyroMonitor: BaseMonitor {
         /// No rotation rate measurement is available.
         ///
         case unknown
-    }
-
-    // Public Type Properties
-
-    ///
-    /// A Boolean value indicating whether a gyroscope is available on the
-    /// device.
-    ///
-    public static var isAvailable: Bool {
-
-        return CMMotionManager.shared.isGyroAvailable
 
     }
 
@@ -57,20 +59,26 @@ public class GyroMonitor: BaseMonitor {
     /// Initializes a new `GyroMonitor`.
     ///
     /// - Parameters:
-    ///   - manager:    The instance of `CMMotionManager` to use. By default, a
-    ///                 shared instance is used as recommended by Apple.
-    ///   - interval:   The interval, in seconds, for providing rotation rate
-    ///                 measurements to the handler.
-    ///   - handler:    The handler to call periodically when a new rotation
-    ///                 rate measurement is available.
+    ///   - motionManager:  The instance of `CMMotionManager` to use. By
+    ///                     default, a shared instance is used as recommended
+    ///                     by Apple.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     Because the events might arrive at a high rate,
+    ///                     using the main operation queue is not recommended.
+    ///   - interval:       The interval, in seconds, for providing rotation
+    ///                     rate measurements to the handler.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     rotation rate measurement is available.
     ///
-    public init(manager: CMMotionManager = CMMotionManager.shared,
+    public init(motionManager: CMMotionManager = .shared,
+                queue: OperationQueue,
                 interval: TimeInterval,
-                handler: @escaping (Info) -> Void) {
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
         self.interval = interval
-        self.manager = manager
+        self.motionManager = motionManager
+        self.queue = queue
 
     }
 
@@ -81,7 +89,7 @@ public class GyroMonitor: BaseMonitor {
     ///
     public var info: Info {
 
-        if let data = manager.gyroData {
+        if let data = motionManager.gyroData {
             return .data(data)
         } else {
             return .unknown
@@ -89,20 +97,31 @@ public class GyroMonitor: BaseMonitor {
 
     }
 
+    ///
+    /// A Boolean value indicating whether a gyroscope is available on the
+    /// device.
+    ///
+    public var isAvailable: Bool {
+
+        return motionManager.isGyroAvailable
+
+    }
+
     // Private
 
-    private let handler: (Info) -> Void
+    private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let manager: CMMotionManager
-    private let queue = DispatchQueue.main
+    private let motionManager: CMMotionManager
+    private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard manager.isGyroActive else { return false }
+        guard motionManager.isGyroActive
+            else { return false }
 
-        manager.stopGyroUpdates()
+        motionManager.stopGyroUpdates()
 
         return super.cleanupMonitor()
 
@@ -110,11 +129,12 @@ public class GyroMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor() else { return false }
+        guard super.configureMonitor()
+            else { return false }
 
-        manager.gyroUpdateInterval = interval
+        motionManager.gyroUpdateInterval = interval
 
-        manager.startGyroUpdates(to: .main) { [weak self] data, error in
+        motionManager.startGyroUpdates(to: queue) { [unowned self] data, error in
 
             var info: Info
 
@@ -126,11 +146,12 @@ public class GyroMonitor: BaseMonitor {
                 info = .unknown
             }
 
-            self?.queue.async { self?.handler(info) }
+            self.handler(.didUpdate(info))
 
         }
 
         return true
+
     }
 
 }

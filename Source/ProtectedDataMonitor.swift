@@ -16,6 +16,8 @@ import UIKit
 ///
 public class ProtectedDataMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the accessibility of protected files.
     ///
@@ -39,13 +41,18 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProtectedDataMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when protected files become
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -53,35 +60,20 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    // Private Instance Methods
-
-    @objc private func applicationProtectedDataDidBecomeAvailable(_ notification: Notification) {
-
-        handler(.didBecomeAvailable)
-
-    }
-
-    @objc private func applicationProtectedDataWillBecomeUnavailable(_ notification: Notification) {
-
-        handler(.willBecomeUnavailable)
-
-    }
-
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationProtectedDataDidBecomeAvailable(_:)),
-                                       name: .UIApplicationProtectedDataDidBecomeAvailable,
-                                       object: nil)
+        observe(.UIApplicationProtectedDataDidBecomeAvailable) { [unowned self] _ in
+            self.handler(.didBecomeAvailable)
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationProtectedDataWillBecomeUnavailable(_:)),
-                                       name: .UIApplicationProtectedDataWillBecomeUnavailable,
-                                       object: nil)
+        observe(.UIApplicationProtectedDataWillBecomeUnavailable) { [unowned self] _ in
+            self.handler(.willBecomeUnavailable)
+        }
 
         return true
 

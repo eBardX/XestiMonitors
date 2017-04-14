@@ -16,6 +16,8 @@ import UIKit
 ///
 public class KeyboardMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the visibility of the keyboard and to the frame
     /// of the keyboard.
@@ -143,13 +145,18 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     /// Initializes a new `KeyboardMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the visibility of the keyboard
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -157,79 +164,36 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    // Private Instance Methods
-
-    @objc private func keyboardDidChangeFrame(_ notification: Notification) {
-
-        handler(.didChangeFrame(Info(notification)))
-
-    }
-
-    @objc private func keyboardDidHide(_ notification: Notification) {
-
-        handler(.didHide(Info(notification)))
-
-    }
-
-    @objc private func keyboardDidShow(_ notification: Notification) {
-
-        handler(.didShow(Info(notification)))
-
-    }
-
-    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
-
-        handler(.willChangeFrame(Info(notification)))
-
-    }
-
-    @objc private func keyboardWillHide(_ notification: Notification) {
-
-        handler(.willHide(Info(notification)))
-
-    }
-
-    @objc private func keyboardWillShow(_ notification: Notification) {
-
-        handler(.willShow(Info(notification)))
-
-    }
-
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardDidChangeFrame(_:)),
-                                       name: .UIKeyboardDidChangeFrame,
-                                       object: nil)
+        observe(.UIKeyboardDidChangeFrame) { [unowned self] in
+            self.handler(.didChangeFrame(Info($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardDidHide(_:)),
-                                       name: .UIKeyboardDidHide,
-                                       object: nil)
+        observe(.UIKeyboardDidHide) { [unowned self] in
+            self.handler(.didHide(Info($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardDidShow(_:)),
-                                       name: .UIKeyboardDidShow,
-                                       object: nil)
+        observe(.UIKeyboardDidShow) { [unowned self] in
+            self.handler(.didShow(Info($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillChangeFrame(_:)),
-                                       name: .UIKeyboardWillChangeFrame,
-                                       object: nil)
+        observe(.UIKeyboardWillChangeFrame) { [unowned self] in
+            self.handler(.willChangeFrame(Info($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillHide(_:)),
-                                       name: .UIKeyboardWillHide,
-                                       object: nil)
+        observe(.UIKeyboardWillHide) { [unowned self] in
+            self.handler(.willHide(Info($0)))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillShow(_:)),
-                                       name: .UIKeyboardWillShow,
-                                       object: nil)
+        observe(.UIKeyboardWillShow) { [unowned self] in
+            self.handler(.willShow(Info($0)))
+        }
 
         return true
 

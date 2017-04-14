@@ -15,43 +15,52 @@ import UIKit
 ///
 public class TimeMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
+    ///
+    /// Encapsulates significant changes in time.
+    ///
+    public enum Event {
+        ///
+        /// There has been a significant change in time.
+        ///
+        case significantChange
+    }
+
     // Public Initializers
 
     ///
     /// Initializes a new `TimeMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when there is a significant change
     ///                 in time.
     ///
-    public init(handler: @escaping () -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
     // Private Instance Properties
 
-    private let handler: () -> Void
-
-    // Private Instance Methods
-
-    @objc private func applicationSignificantTimeChange(_ notification: Notification) {
-
-        handler()
-
-    }
+    private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(applicationSignificantTimeChange(_:)),
-                                       name: .UIApplicationSignificantTimeChange,
-                                       object: nil)
+        observe(.UIApplicationSignificantTimeChange) { [unowned self] _ in
+            self.handler(.significantChange)
+        }
 
         return true
 

@@ -21,15 +21,15 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var keyboardTextField: UITextField!
     @IBOutlet weak var reachabilityLabel: UILabel!
 
-    lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [weak self] in
+    lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [unowned self] in
 
-        self?.displayKeyboard($0)
+        self.displayKeyboard($0)
 
     }
 
-    lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [weak self] in
+    lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [unowned self] in
 
-        self?.displayReachability($0)
+        self.displayReachability($0)
 
     }
 
@@ -105,29 +105,33 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
-    private func displayReachability(_ status: ReachabilityMonitor.Status) {
+    private func displayReachability(_ event: ReachabilityMonitor.Event?) {
 
-        var text: String
+        if let event = event, case let .statusDidChange(status) = event {
 
-        switch status {
+            switch status {
 
-        case .notReachable:
-            text = "Not reachable"
+            case .notReachable:
+                reachabilityLabel.text = "Not reachable"
 
-        case .reachableViaWiFi:
-            text = "Reachable via Wi-Fi"
+            case .reachableViaWiFi:
+                reachabilityLabel.text = "Reachable via Wi-Fi"
 
-        case .reachableViaWWAN:
-            text = "Reachable via WWAN"
+            case .reachableViaWWAN:
+                reachabilityLabel.text = "Reachable via WWAN"
 
-        default :
-            text = "Unknown"
+            default :
+                reachabilityLabel.text = "Unknown"
+
+            }
+
+        } else {
+
+            reachabilityLabel.text = "Unknown"
 
         }
 
-        reachabilityLabel.text = text
-
-    }
+        }
 
     // MARK: -
 
@@ -139,7 +143,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
         displayKeyboard(nil)
 
-        displayReachability(.unknown)
+        displayReachability(nil)
 
     }
 

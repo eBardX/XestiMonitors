@@ -16,6 +16,8 @@ import UIKit
 ///
 public class BatteryMonitor: BaseNotificationMonitor {
 
+    // Public Nested Types
+
     ///
     /// Encapsulates changes to the battery state or battery level of the
     /// device.
@@ -39,13 +41,18 @@ public class BatteryMonitor: BaseNotificationMonitor {
     /// Initializes a new `BatteryMonitor`.
     ///
     /// - Parameters:
+    ///   - queue:      The operation queue on which notification blocks
+    ///                 execute. By default, the main operation queue is used.
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
-    public init(handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
 
-        self.device = UIDevice.current
+        self.device = .current
         self.handler = handler
+
+        super.init(queue: queue)
 
     }
 
@@ -66,35 +73,20 @@ public class BatteryMonitor: BaseNotificationMonitor {
     private let device: UIDevice
     private let handler: (Event) -> Void
 
-    // Private Instance Methods
-
-    @objc private func deviceBatteryLevelDidChange(_ notification: Notification) {
-
-        handler(.levelDidChange(level))
-
-    }
-
-    @objc private func deviceBatteryStateDidChange(_ notification: Notification) {
-
-        handler(.stateDidChange(state))
-
-    }
-
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers(notificationCenter) else { return false }
+        guard super.addNotificationObservers()
+            else { return false }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(deviceBatteryLevelDidChange(_:)),
-                                       name: .UIDeviceBatteryLevelDidChange,
-                                       object: nil)
+        observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
+            self.handler(.levelDidChange(self.level))
+        }
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(deviceBatteryStateDidChange(_:)),
-                                       name: .UIDeviceBatteryStateDidChange,
-                                       object: nil)
+        observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
+            self.handler(.stateDidChange(self.state))
+        }
 
         device.isBatteryMonitoringEnabled = true
 
@@ -102,11 +94,11 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     }
 
-    public override func removeNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
+    public override func removeNotificationObservers() -> Bool {
 
         device.isBatteryMonitoringEnabled = false
 
-        return super.removeNotificationObservers(notificationCenter)
+        return super.removeNotificationObservers()
 
     }
 
