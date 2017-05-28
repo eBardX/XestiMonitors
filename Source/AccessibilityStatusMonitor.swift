@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityStatusMonitor` object monitors the system for changes to
+/// An `AccessibilityStatusMonitor` instance monitors the system for changes to
 /// the status of various accessibility settings.
 ///
 public class AccessibilityStatusMonitor: BaseNotificationMonitor {

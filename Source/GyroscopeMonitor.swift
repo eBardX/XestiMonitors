@@ -1,5 +1,5 @@
 //
-//  GyroMonitor.swift
+//  GyroscopeMonitor.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2016-12-20.
@@ -11,10 +11,10 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `GyroMonitor` object monitors the device’s gyroscope for periodic raw
+/// A `GyroscopeMonitor` instance monitors the device’s gyroscope for periodic raw
 /// measurements of the rotation rate around the three spatial axes.
 ///
-public class GyroMonitor: BaseMonitor {
+public class GyroscopeMonitor: BaseMonitor {
 
     // Public Nested Types
 
@@ -56,7 +56,7 @@ public class GyroMonitor: BaseMonitor {
     // Public Initializers
 
     ///
-    /// Initializes a new `GyroMonitor`.
+    /// Initializes a new `GyroscopeMonitor`.
     ///
     /// - Parameters:
     ///   - motionManager:  The instance of `CMMotionManager` to use. By

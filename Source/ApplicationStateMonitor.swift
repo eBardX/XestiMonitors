@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// An `ApplicationStateMonitor` object monitors the app for changes to its
+/// An `ApplicationStateMonitor` instance monitors the app for changes to its
 /// runtime state.
 ///
 public class ApplicationStateMonitor: BaseNotificationMonitor {

@@ -11,8 +11,8 @@ import Foundation
 import UIKit
 
 ///
-/// A `ProximityMonitor` object monitors the device for changes to the state of
-/// its proximity sensor.
+/// A `ProximityMonitor` instance monitors the device for changes to the state
+/// of its proximity sensor.
 ///
 public class ProximityMonitor: BaseNotificationMonitor {
 

@@ -22,8 +22,8 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var deviceMotionRotationRateLabel: UILabel!
     @IBOutlet weak var deviceMotionTimestampLabel: UILabel!
     @IBOutlet weak var deviceMotionUserAccelerationLabel: UILabel!
-    @IBOutlet weak var gyroRotationRateLabel: UILabel!
-    @IBOutlet weak var gyroTimestampLabel: UILabel!
+    @IBOutlet weak var gyroscopeRotationRateLabel: UILabel!
+    @IBOutlet weak var gyroscopeTimestampLabel: UILabel!
     @IBOutlet weak var magnetometerMagneticFieldLabel: UILabel!
     @IBOutlet weak var magnetometerTimestampLabel: UILabel!
 
@@ -42,10 +42,10 @@ class MotionDetailViewController: UITableViewController {
 
     }
 
-    lazy var gyroMonitor: GyroMonitor = GyroMonitor(queue: .main,
-                                                    interval: 0.5) { [unowned self] in
+    lazy var gyroscopeMonitor: GyroscopeMonitor = GyroscopeMonitor(queue: .main,
+                                                                   interval: 0.5) { [unowned self] in
 
-                                                        self.displayGyro($0)
+                                                                    self.displayGyroscope($0)
 
     }
 
@@ -58,7 +58,7 @@ class MotionDetailViewController: UITableViewController {
 
     lazy var monitors: [Monitor] = [self.accelerometerMonitor,
                                     self.deviceMotionMonitor,
-                                    self.gyroMonitor,
+                                    self.gyroscopeMonitor,
                                     self.magnetometerMonitor]
 
     // MARK: -
@@ -163,37 +163,37 @@ class MotionDetailViewController: UITableViewController {
         }
     }
 
-    private func displayGyro(_ event: GyroMonitor.Event?) {
+    private func displayGyroscope(_ event: GyroscopeMonitor.Event?) {
 
         if let event = event, case let .didUpdate(info) = event {
-            displayGyro(info)
+            displayGyroscope(info)
         } else {
-            displayGyro(.unknown)
+            displayGyroscope(.unknown)
         }
 
     }
 
-    private func displayGyro(_ info: GyroMonitor.Info) {
+    private func displayGyroscope(_ info: GyroscopeMonitor.Info) {
 
         switch info {
 
         case .data(let data):
-            gyroRotationRateLabel.text = formatRotationRate(data.rotationRate)
+            gyroscopeRotationRateLabel.text = formatRotationRate(data.rotationRate)
 
-            gyroTimestampLabel.text = formatTimeInterval(data.timestamp)
-            gyroTimestampLabel.textColor = UIColor.black
+            gyroscopeTimestampLabel.text = formatTimeInterval(data.timestamp)
+            gyroscopeTimestampLabel.textColor = UIColor.black
 
         case .error(let error):
-            gyroRotationRateLabel.text = " "
+            gyroscopeRotationRateLabel.text = " "
 
-            gyroTimestampLabel.text = error.localizedDescription
-            gyroTimestampLabel.textColor = UIColor.red
+            gyroscopeTimestampLabel.text = error.localizedDescription
+            gyroscopeTimestampLabel.textColor = UIColor.red
 
         case .unknown:
-            gyroRotationRateLabel.text = " "
+            gyroscopeRotationRateLabel.text = " "
 
-            gyroTimestampLabel.text = "Unknown"
-            gyroTimestampLabel.textColor = UIColor.gray
+            gyroscopeTimestampLabel.text = "Unknown"
+            gyroscopeTimestampLabel.textColor = UIColor.gray
 
         }
     }
@@ -243,7 +243,7 @@ class MotionDetailViewController: UITableViewController {
 
         displayDeviceMotion(nil)
 
-        displayGyro(nil)
+        displayGyroscope(nil)
 
         displayMagnetometer(nil)
 

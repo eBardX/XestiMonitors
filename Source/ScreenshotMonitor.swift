@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `ScreenshotMonitor` object monitors the app for screenshots.
+/// A `ScreenshotMonitor` instance monitors the app for screenshots.
 ///
 public class ScreenshotMonitor: BaseNotificationMonitor {
 

@@ -11,14 +11,14 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MotionActivityMonitor` object monitors ...
+/// A `MotionActivityMonitor` instance monitors ...
 ///
 public class MotionActivityMonitor: BaseMonitor {
 
     // Public Nested Types
 
     ///
-    /// Encapsulates updates to the measurement of device motion.
+    /// Encapsulates updates to ...
     ///
     public enum Event {
 
@@ -28,14 +28,14 @@ public class MotionActivityMonitor: BaseMonitor {
         case didQuery(Info)
 
         ///
-        /// The motion activity measurement has been updated.
+        ///
         ///
         case didUpdate(Info)
 
     }
 
     ///
-    /// Encapsulates the measurement of motion activity.
+    /// Encapsulates ...
     ///
     public enum Info {
 
@@ -45,7 +45,7 @@ public class MotionActivityMonitor: BaseMonitor {
         case activities([CMMotionActivity])
 
         ///
-        /// The motion activity measurement at a moment of time.
+        ///
         ///
         case activity(CMMotionActivity)
 
@@ -55,7 +55,7 @@ public class MotionActivityMonitor: BaseMonitor {
         case error(Error)
 
         ///
-        /// No motion activity measurement is available.
+        ///
         ///
         case unknown
 
@@ -68,8 +68,7 @@ public class MotionActivityMonitor: BaseMonitor {
     ///
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
-    ///   - handler:    The handler to call periodically when a new device
-    ///                 motion measurement is available.
+    ///   - handler:    The handler to call when ...
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
@@ -83,8 +82,8 @@ public class MotionActivityMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether motion data is available on the
+    /// device.
     ///
     public var isAvailable: Bool {
 
@@ -94,6 +93,12 @@ public class MotionActivityMonitor: BaseMonitor {
 
     // Public Instance Methods
 
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - start: <#start description#>
+    ///   - end: <#end description#>
+    /// - Returns: <#return value description#>
     public func query(from start: Date,
                       to end: Date) -> Bool {
 

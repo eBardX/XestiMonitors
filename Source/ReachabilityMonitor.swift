@@ -10,8 +10,8 @@
 import SystemConfiguration
 
 ///
-/// A `ReachabilityMonitor` object monitors a network node name or address for
-/// changes to its reachability.
+/// A `ReachabilityMonitor` instance monitors a network node name or address
+/// for changes to its reachability.
 ///
 public class ReachabilityMonitor: BaseMonitor {
 

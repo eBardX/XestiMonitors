@@ -11,7 +11,7 @@ import CoreMotion
 import Foundation
 
 ///
-/// An `AccelerometerMonitor` object monitors the device’s accelerometer for
+/// An `AccelerometerMonitor` instance monitors the device’s accelerometer for
 /// periodic raw measurements of the acceleration along the three spatial axes.
 ///
 public class AccelerometerMonitor: BaseMonitor {

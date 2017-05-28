@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `ProtectedDataMonitor` object monitors the app for changes to the
+/// A `ProtectedDataMonitor` instance monitors the app for changes to the
 /// accessibility of protected files.
 ///
 public class ProtectedDataMonitor: BaseNotificationMonitor {

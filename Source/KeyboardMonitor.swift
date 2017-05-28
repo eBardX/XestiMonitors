@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `KeyboardMonitor` object monitors the keyboard for changes to its
+/// A `KeyboardMonitor` instance monitors the keyboard for changes to its
 /// visibility or to its frame.
 ///
 public class KeyboardMonitor: BaseNotificationMonitor {

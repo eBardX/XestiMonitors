@@ -11,7 +11,7 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `DeviceMotionMonitor` object monitors the device’s accelerometer,
+/// A `DeviceMotionMonitor` instance monitors the device’s accelerometer,
 /// gyroscope, and magnetometer for periodic raw measurements which are
 /// processed into device motion measurements.
 ///

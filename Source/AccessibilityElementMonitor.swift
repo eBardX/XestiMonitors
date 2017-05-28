@@ -11,8 +11,8 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityElementMonitor` object monitors the system for changes to
-/// element focus by an assistive technology.
+/// An `AccessibilityElementMonitor` instance monitors the system for changes
+/// to element focus by an assistive technology.
 ///
 public class AccessibilityElementMonitor: BaseNotificationMonitor {
 

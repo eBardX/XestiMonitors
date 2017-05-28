@@ -214,8 +214,8 @@ processed motion measurements from the device:
 * [DeviceMotionMonitor][device_motion_monitor] to monitor the device’s
   accelerometer, gyroscope, and magnetometer for periodic raw measurements
   which are processed into device motion measurements.
-* [GyroMonitor][gyro_monitor] to monitor the device’s gyroscope for periodic
-  raw measurements of the rotation rate around the three spatial axes.
+* [GyroscopeMonitor][gyroscope_monitor] to monitor the device’s gyroscope for
+  periodic raw measurements of the rotation rate around the three spatial axes.
 * [MagnetometerMonitor][magnetometer_monitor] to monitor the device’s
   magnetometer for periodic raw measurements of the magnetic field around the
   three spatial axes.
@@ -484,7 +484,7 @@ XestiMonitors is available under [the MIT license][license].
 [accessibility_element_monitor]:        https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html
 [accessibility_status_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html
 [device_motion_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
-[gyro_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/GyroMonitor.html
+[gyroscope_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [magnetometer_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
 [application_state_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html
 [background_refresh_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html

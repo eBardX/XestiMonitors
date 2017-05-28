@@ -11,7 +11,7 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MagnetometerMonitor` object monitors the device’s magnetometer for
+/// A `MagnetometerMonitor` instance monitors the device’s magnetometer for
 /// periodic raw measurements of the magnetic field around the three spatial
 /// axes.
 ///

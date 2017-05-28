@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `MemoryMonitor` object monitors the app for memory warnings from the
+/// A `MemoryMonitor` instance monitors the app for memory warnings from the
 /// operating system.
 ///
 public class MemoryMonitor: BaseNotificationMonitor {

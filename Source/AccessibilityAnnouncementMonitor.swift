@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// An `AccessibilityAnnouncementMonitor` object monitors the system for
+/// An `AccessibilityAnnouncementMonitor` instance monitors the system for
 /// accessibility announcements that VoiceOver has finished outputting.
 ///
 public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {

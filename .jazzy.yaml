@@ -27,7 +27,7 @@ custom_categories:
     children:
       - AccelerometerMonitor
       - DeviceMotionMonitor
-      - GyroMonitor
+      - GyroscopeMonitor
       - MagnetometerMonitor
   - name: Accessibility Monitor Classes
     children:

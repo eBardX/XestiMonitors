@@ -11,14 +11,15 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `PedometerMonitor` object monitors ...
+/// A `PedometerMonitor` instance monitors the device to fetch
+/// pedestrian-related data.
 ///
 public class PedometerMonitor: BaseMonitor {
 
     // Public Nested Types
 
     ///
-    /// Encapsulates updates to the measurement of device motion.
+    ///
     ///
     public enum Event {
 
@@ -28,30 +29,29 @@ public class PedometerMonitor: BaseMonitor {
         case didQuery(Info)
 
         ///
-        /// The device motion measurement has been updated.
+        ///
         ///
         case didUpdate(Info)
 
     }
 
     ///
-    /// Encapsulates the measurement of device motion.
+    ///
     ///
     public enum Info {
 
         ///
-        /// The device motion measurement at a moment of time.
+        ///
         ///
         case data(CMPedometerData)
 
         ///
-        /// The error encountered in attempting to obtain the device motion
-        /// measurement.
+        ///
         ///
         case error(Error)
 
         ///
-        /// No device motion measurement is available.
+        ///
         ///
         case unknown
 
@@ -63,11 +63,8 @@ public class PedometerMonitor: BaseMonitor {
     /// Initializes a new `PedometerMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:          The operation queue on which the handler executes.
-    ///                     Because the events might arrive at a high rate,
-    ///                     using the main operation queue is not recommended.
-    ///   - handler:        The handler to call periodically when a new device
-    ///                     motion measurement is available.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///   - handler:    The handler to call when ...
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
@@ -81,8 +78,8 @@ public class PedometerMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether cadence information is available on
+    /// the device.
     ///
     public var isCadenceAvailable: Bool {
 
@@ -95,8 +92,8 @@ public class PedometerMonitor: BaseMonitor {
     }
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether distance estimation is available on
+    /// the device.
     ///
     public var isDistanceAvailable: Bool {
 
@@ -105,8 +102,8 @@ public class PedometerMonitor: BaseMonitor {
     }
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether floor counting is available on the
+    /// device.
     ///
     public var isFloorCountingAvailable: Bool {
 
@@ -115,8 +112,8 @@ public class PedometerMonitor: BaseMonitor {
     }
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether pace information is available on the
+    /// device.
     ///
     public var isPaceAvailable: Bool {
 
@@ -129,8 +126,8 @@ public class PedometerMonitor: BaseMonitor {
     }
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether step counting is available on the
+    /// device.
     ///
     public var isStepCountingAvailable: Bool {
 
@@ -156,7 +153,9 @@ public class PedometerMonitor: BaseMonitor {
                                             info = .unknown
                                         }
 
-                                        self.handler(.didQuery(info))
+                                        self.queue.addOperation {
+                                            self.handler(.didQuery(info))
+                                        }
 
         }
 

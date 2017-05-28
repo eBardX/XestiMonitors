@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// An `OrientationMonitor` object monitors the device for changes to its
+/// An `OrientationMonitor` instance monitors the device for changes to its
 /// physical orientation.
 ///
 public class OrientationMonitor: BaseNotificationMonitor {

@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `TimeMonitor` object monitors the app for significant changes in time.
+/// A `TimeMonitor` instance monitors the app for significant changes in time.
 ///
 public class TimeMonitor: BaseNotificationMonitor {
 

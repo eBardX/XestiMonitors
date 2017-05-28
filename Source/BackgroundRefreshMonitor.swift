@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `BackgroundRefreshMonitor` object monitors the app for changes to its
+/// A `BackgroundRefreshMonitor` instance monitors the app for changes to its
 /// status for downloading content in the background.
 ///
 public class BackgroundRefreshMonitor: BaseNotificationMonitor {

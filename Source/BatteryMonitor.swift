@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 ///
-/// A `BatteryMonitor` object monitors the device for changes to the charge
+/// A `BatteryMonitor` instance monitors the device for changes to the charge
 /// state and charge level of its battery.
 ///
 public class BatteryMonitor: BaseNotificationMonitor {

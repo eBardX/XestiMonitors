@@ -11,40 +11,41 @@ import CoreMotion
 import Foundation
 
 ///
-/// An `AltimeterMonitor` object monitors ...
+/// An `AltimeterMonitor` instance monitors the device for changes in relative
+/// altitude.
 ///
 public class AltimeterMonitor: BaseMonitor {
 
     // Public Nested Types
 
     ///
-    /// Encapsulates updates to the measurement of device motion.
+    /// Encapsulates changes to the relative altitude.
     ///
     public enum Event {
         ///
-        /// The device motion measurement has been updated.
+        /// The relative altitude has changed.
         ///
-        case didUpdate(Info)
+        case didChange(Info)
     }
 
     ///
-    /// Encapsulates the measurement of device motion.
+    /// Encapsulates the relative change in altitude.
     ///
     public enum Info {
 
         ///
-        /// The device motion measurement at a moment of time.
+        /// The relative change in altitude data.
         ///
         case data(CMAltitudeData)
 
         ///
-        /// The error encountered in attempting to obtain the device motion
-        /// measurement.
+        /// The error encountered in attempting to obtain the relative change
+        /// in altitude.
         ///
         case error(Error)
 
         ///
-        /// No device motion measurement is available.
+        /// No altitude data is available.
         ///
         case unknown
 
@@ -56,11 +57,9 @@ public class AltimeterMonitor: BaseMonitor {
     /// Initializes a new `AltimeterMonitor`.
     ///
     /// - Parameters:
-    ///   - queue:          The operation queue on which the handler executes.
-    ///                     Because the events might arrive at a high rate,
-    ///                     using the main operation queue is not recommended.
-    ///   - handler:        The handler to call periodically when a new device
-    ///                     motion measurement is available.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///   - handler:    The handler to call when new altitude data is
+    ///                 available.
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
@@ -74,8 +73,8 @@ public class AltimeterMonitor: BaseMonitor {
     // Public Instance Properties
 
     ///
-    /// A Boolean value indicating whether device motion measuring is available
-    /// on the device.
+    /// A Boolean value indicating whether the device supports generating data
+    /// for relative altitude changes.
     ///
     public var isAvailable: Bool {
 
@@ -116,7 +115,7 @@ public class AltimeterMonitor: BaseMonitor {
                                                     info = .unknown
                                                 }
 
-                                                self.handler(.didUpdate(info))
+                                                self.handler(.didChange(info))
 
         }
 
