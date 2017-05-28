@@ -67,7 +67,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
             announcementStringValueLabel.text = info.stringValue
 
-            announcementWasSuccessfulLabel.text = "\(info.wasSuccessful)"
+            announcementWasSuccessfulLabel.text = formatBool(info.wasSuccessful)
 
         } else {
 
@@ -84,7 +84,7 @@ class AccessibilityDetailViewController: UITableViewController {
         if let event = event, case let .didFocus(info) = event {
 
             if let element = info.focusedElement {
-                elementFocusedLabel.text = formatElement(element)
+                elementFocusedLabel.text = formatAccessibilityElement(element)
             } else {
                 elementFocusedLabel.text = " "
             }
@@ -96,7 +96,7 @@ class AccessibilityDetailViewController: UITableViewController {
             }
 
             if let element = info.unfocusedElement {
-                elementUnfocusedLabel.text = formatElement(element)
+                elementUnfocusedLabel.text = formatAccessibilityElement(element)
             } else {
                 elementUnfocusedLabel.text = " "
             }
@@ -123,88 +123,88 @@ class AccessibilityDetailViewController: UITableViewController {
             switch event {
 
             case let .assistiveTouchStatusDidChange(value):
-                statusAssistiveTouchLabel.text = "\(value)"
+                statusAssistiveTouchLabel.text = formatBool(value)
 
             case let .boldTextStatusDidChange(value):
-                statusBoldTextLabel.text = "\(value)"
+                statusBoldTextLabel.text = formatBool(value)
 
             case let .closedCaptioningStatusDidChange(value):
-                statusClosedCaptioningLabel.text = "\(value)"
+                statusClosedCaptioningLabel.text = formatBool(value)
 
             case let .darkenColorsStatusDidChange(value):
-                statusDarkenColorsLabel.text = "\(value)"
+                statusDarkenColorsLabel.text = formatBool(value)
 
             case let .grayscaleStatusDidChange(value):
-                statusGrayscaleLabel.text = "\(value)"
+                statusGrayscaleLabel.text = formatBool(value)
 
             case let .guidedAccessStatusDidChange(value):
-                statusGuidedAccessLabel.text = "\(value)"
+                statusGuidedAccessLabel.text = formatBool(value)
 
             case let .hearingDevicePairedEarDidChange(value):
                 statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
 
             case let .invertColorsStatusDidChange(value):
-                statusInvertColorsLabel.text = "\(value)"
+                statusInvertColorsLabel.text = formatBool(value)
 
             case let .monoAudioStatusDidChange(value):
-                statusMonoAudioLabel.text = "\(value)"
+                statusMonoAudioLabel.text = formatBool(value)
 
             case let .reduceMotionStatusDidChange(value):
-                statusReduceMotionLabel.text = "\(value)"
+                statusReduceMotionLabel.text = formatBool(value)
 
             case let .reduceTransparencyStatusDidChange(value):
-                statusReduceTransparencyLabel.text = "\(value)"
+                statusReduceTransparencyLabel.text = formatBool(value)
 
             case let .shakeToUndoStatusDidChange(value):
-                statusShakeToUndoLabel.text = "\(value)"
+                statusShakeToUndoLabel.text = formatBool(value)
 
             case let .speakScreenStatusDidChange(value):
-                statusSpeakScreenLabel.text = "\(value)"
+                statusSpeakScreenLabel.text = formatBool(value)
 
             case let .speakSelectionStatusDidChange(value):
-                statusSpeakSelectionLabel.text = "\(value)"
+                statusSpeakSelectionLabel.text = formatBool(value)
 
             case let .switchControlStatusDidChange(value):
-                statusSwitchControlLabel.text = "\(value)"
+                statusSwitchControlLabel.text = formatBool(value)
 
             case let .voiceOverStatusDidChange(value):
-                statusVoiceOverLabel.text = "\(value)"
+                statusVoiceOverLabel.text = formatBool(value)
 
             }
 
         } else {
 
-            statusAssistiveTouchLabel.text = "\(statusMonitor.isAssistiveTouchEnabled)"
+            statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
 
-            statusBoldTextLabel.text = "\(statusMonitor.isBoldTextEnabled)"
+            statusBoldTextLabel.text = formatBool(statusMonitor.isBoldTextEnabled)
 
-            statusClosedCaptioningLabel.text = "\(statusMonitor.isClosedCaptioningEnabled)"
+            statusClosedCaptioningLabel.text = formatBool(statusMonitor.isClosedCaptioningEnabled)
 
-            statusDarkenColorsLabel.text = "\(statusMonitor.isDarkenColorsEnabled)"
+            statusDarkenColorsLabel.text = formatBool(statusMonitor.isDarkenColorsEnabled)
 
-            statusGrayscaleLabel.text = "\(statusMonitor.isGrayscaleEnabled)"
+            statusGrayscaleLabel.text = formatBool(statusMonitor.isGrayscaleEnabled)
 
-            statusGuidedAccessLabel.text = "\(statusMonitor.isGuidedAccessEnabled)"
+            statusGuidedAccessLabel.text = formatBool(statusMonitor.isGuidedAccessEnabled)
 
             statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
 
-            statusInvertColorsLabel.text = "\(statusMonitor.isInvertColorsEnabled)"
+            statusInvertColorsLabel.text = formatBool(statusMonitor.isInvertColorsEnabled)
 
-            statusMonoAudioLabel.text = "\(statusMonitor.isMonoAudioEnabled)"
+            statusMonoAudioLabel.text = formatBool(statusMonitor.isMonoAudioEnabled)
 
-            statusReduceMotionLabel.text = "\(statusMonitor.isReduceMotionEnabled)"
+            statusReduceMotionLabel.text = formatBool(statusMonitor.isReduceMotionEnabled)
 
-            statusReduceTransparencyLabel.text = "\(statusMonitor.isReduceTransparencyEnabled)"
+            statusReduceTransparencyLabel.text = formatBool(statusMonitor.isReduceTransparencyEnabled)
 
-            statusShakeToUndoLabel.text = "\(statusMonitor.isShakeToUndoEnabled)"
+            statusShakeToUndoLabel.text = formatBool(statusMonitor.isShakeToUndoEnabled)
 
-            statusSpeakScreenLabel.text = "\(statusMonitor.isSpeakScreenEnabled)"
+            statusSpeakScreenLabel.text = formatBool(statusMonitor.isSpeakScreenEnabled)
 
-            statusSpeakSelectionLabel.text = "\(statusMonitor.isSpeakSelectionEnabled)"
+            statusSpeakSelectionLabel.text = formatBool(statusMonitor.isSpeakSelectionEnabled)
 
-            statusSwitchControlLabel.text = "\(statusMonitor.isSwitchControlEnabled)"
+            statusSwitchControlLabel.text = formatBool(statusMonitor.isSwitchControlEnabled)
 
-            statusVoiceOverLabel.text = "\(statusMonitor.isVoiceOverEnabled)"
+            statusVoiceOverLabel.text = formatBool(statusMonitor.isVoiceOverEnabled)
 
         }
 
@@ -212,37 +212,6 @@ class AccessibilityDetailViewController: UITableViewController {
 
     // swiftlint:enable cyclomatic_complexity
     // swiftlint:enable function_body_length
-
-    private func formatElement(_ element: Any) -> String {
-
-        if let accElem = element as? UIAccessibilityElement,
-            let label = accElem.accessibilityLabel {
-            return label
-        }
-
-        return "\(element)"
-
-    }
-
-    private func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
-
-        switch ear {
-
-        case [.both]:
-            return "L+R"
-
-        case [.left]:
-            return "L"
-
-        case [.right]:
-            return "R"
-
-        default :
-            return "none"
-
-        }
-
-    }
 
     @IBAction private func announcementButtonTapped() {
 

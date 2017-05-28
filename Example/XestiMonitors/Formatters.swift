@@ -10,10 +10,22 @@
 import CoreMotion
 import Foundation
 import UIKit
+import XestiMonitors
 
 func formatAcceleration(_ value: CMAcceleration) -> String {
 
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
+
+}
+
+func formatAccessibilityElement(_ element: Any) -> String {
+
+    if let accElem = element as? UIAccessibilityElement,
+        let label = accElem.accessibilityLabel {
+        return label
+    }
+
+    return "\(element)"
 
 }
 
@@ -55,11 +67,35 @@ func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String
 
 }
 
-func formatDecimal (_ value: Double) -> String {
+func formatBool(_ value: Bool) -> String {
+
+    return value ? "True" : "False"
+
+}
+
+func formatCadence(_ value: NSNumber) -> String {
+
+    return "\(formatDecimal(value)) steps/s"
+
+}
+
+func formatDate(_ value: Date) -> String {
+
+    return dateFormatter.string(from: value)
+
+}
+
+func formatDecimal(_ value: Double) -> String {
 
     let number = NSNumber(value: value)
 
     return decimalFormatter.string(from: number) ?? "\(value)"
+
+}
+
+func formatDecimal(_ value: NSNumber) -> String {
+
+    return decimalFormatter.string(from: value) ?? "\(value)"
 
 }
 
@@ -123,6 +159,46 @@ func formatDeviceProximityState(_ value: Bool?) -> String {
 
 }
 
+func formatDistance(_ value: NSNumber) -> String {
+
+    return "\(formatDecimal(value))m"
+
+}
+
+func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
+
+    switch ear {
+
+    case [.both]:
+        return "L+R"
+
+    case [.left]:
+        return "L"
+
+    case [.right]:
+        return "R"
+
+    default :
+        return "none"
+
+    }
+
+}
+
+func formatInteger(_ value: Int) -> String {
+
+    let number = NSNumber(value: value)
+
+    return integerFormatter.string(from: number) ?? "\(value)"
+
+}
+
+func formatInteger(_ value: NSNumber) -> String {
+
+    return integerFormatter.string(from: value) ?? "\(value)"
+
+}
+
 func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
 
     switch value {
@@ -177,11 +253,52 @@ func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationA
     }
 }
 
-func formatPercentage (_ value: Float) -> String {
+func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) -> String {
+
+    switch value {
+
+    case .high:
+        return "High"
+
+    case .low:
+        return "Low"
+
+    case .medium:
+        return "Medium"
+
+    }
+
+}
+
+func formatPace(_ value: NSNumber) -> String {
+
+    return "\(formatDecimal(value))s/m"
+
+}
+
+func formatPercentage(_ value: Float) -> String {
 
     let number = NSNumber(value: value)
 
     return percentageFormatter.string(from: number) ?? "\(value * 100.0)%"
+
+}
+
+func formatPressure(_ value: NSNumber) -> String {
+
+    return "\(formatDecimal(value))kPa"
+
+}
+
+func formatRect(_ value: CGRect) -> String {
+
+    return "\(value)"   // for now ...
+
+}
+
+func formatRelativeAltitude(_ value: NSNumber) -> String {
+
+    return "\(formatDecimal(value))m"
 
 }
 
@@ -191,7 +308,7 @@ func formatRotationRate(_ value: CMRotationRate) -> String {
 
 }
 
-func formatTimeInterval (_ value: TimeInterval) -> String {
+func formatTimeInterval(_ value: TimeInterval) -> String {
 
     return timeIntervalFormatter.string(from: value) ?? "\(value)"
 
@@ -218,12 +335,36 @@ func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
 
 // MARK: -
 
+private var dateFormatter: DateFormatter = {
+
+    var formatter = DateFormatter()
+
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .medium
+
+    return formatter
+
+}()
+
 private var decimalFormatter: NumberFormatter = {
 
     var formatter = NumberFormatter()
 
     formatter.maximumFractionDigits = 3
     formatter.minimumFractionDigits = 3
+    formatter.numberStyle = .decimal
+    formatter.usesGroupingSeparator = true
+
+    return formatter
+
+}()
+
+private var integerFormatter: NumberFormatter = {
+
+    var formatter = NumberFormatter()
+
+    formatter.maximumFractionDigits = 0
+    formatter.minimumFractionDigits = 0
     formatter.numberStyle = .decimal
     formatter.usesGroupingSeparator = true
 

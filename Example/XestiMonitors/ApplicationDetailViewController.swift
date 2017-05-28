@@ -129,7 +129,7 @@ class ApplicationDetailViewController: UITableViewController {
             memoryCount += 1
         }
 
-        memoryLabel.text = "\(memoryCount)"
+        memoryLabel.text = formatInteger(memoryCount)
 
     }
 
@@ -161,7 +161,7 @@ class ApplicationDetailViewController: UITableViewController {
             screenshotCount += 1
         }
 
-        screenshotLabel.text = "\(screenshotCount)"
+        screenshotLabel.text = formatInteger(screenshotCount)
 
     }
 
@@ -174,28 +174,28 @@ class ApplicationDetailViewController: UITableViewController {
             case let .didChangeFrame(frame):
                 statusBarActionLabel.text = "Did change frame"
 
-                statusBarFrameLabel.text = "\(frame)"
+                statusBarFrameLabel.text = formatRect(frame)
 
                 statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
             case let .didChangeOrientation(orientation):
                 statusBarActionLabel.text = "Did change orientation"
 
-                statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
 
                 statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
 
             case let .willChangeFrame(frame):
                 statusBarActionLabel.text = "Will change frame"
 
-                statusBarFrameLabel.text = "\(frame)"
+                statusBarFrameLabel.text = formatRect(frame)
 
                 statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
             case let .willChangeOrientation(orientation):
                 statusBarActionLabel.text = "Will change orientation"
 
-                statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
 
                 statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
 
@@ -205,7 +205,7 @@ class ApplicationDetailViewController: UITableViewController {
 
             statusBarActionLabel.text = " "
 
-            statusBarFrameLabel.text = "\(statusBarMonitor.frame)"
+            statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
 
             statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
 
@@ -219,7 +219,7 @@ class ApplicationDetailViewController: UITableViewController {
             timeCount += 1
         }
 
-        timeLabel.text = "\(timeCount)"
+        timeLabel.text = formatInteger(timeCount)
 
     }
 

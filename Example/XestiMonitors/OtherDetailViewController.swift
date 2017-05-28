@@ -79,13 +79,13 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
             keyboardAnimationCurveLabel.text = formatViewAnimationCurve(info.animationCurve)
 
-            keyboardAnimationDurationLabel.text = "\(info.animationDuration)"
+            keyboardAnimationDurationLabel.text = formatTimeInterval(info.animationDuration)
 
-            keyboardFrameBeginLabel.text = "\(info.frameBegin)"
+            keyboardFrameBeginLabel.text = formatRect(info.frameBegin)
 
-            keyboardFrameEndLabel.text = "\(info.frameEnd)"
+            keyboardFrameEndLabel.text = formatRect(info.frameEnd)
 
-            keyboardIsLocalLabel.text = "\(info.isLocal)"
+            keyboardIsLocalLabel.text = formatBool(info.isLocal)
 
         } else {
 

@@ -16,6 +16,8 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var accelerometerAccelerationLabel: UILabel!
     @IBOutlet weak var accelerometerOrientationLabel: UILabel!
     @IBOutlet weak var accelerometerTimestampLabel: UILabel!
+    @IBOutlet weak var altimeterPressureLabel: UILabel!
+    @IBOutlet weak var altimeterRelativeAltitudeLabel: UILabel!
     @IBOutlet weak var deviceMotionAttitudeLabel: UILabel!
     @IBOutlet weak var deviceMotionGravityLabel: UILabel!
     @IBOutlet weak var deviceMotionMagneticFieldLabel: UILabel!
@@ -26,11 +28,35 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var gyroscopeTimestampLabel: UILabel!
     @IBOutlet weak var magnetometerMagneticFieldLabel: UILabel!
     @IBOutlet weak var magnetometerTimestampLabel: UILabel!
+    @IBOutlet weak var motionActivityAutomotiveLabel: UILabel!
+    @IBOutlet weak var motionActivityConfidenceLabel: UILabel!
+    @IBOutlet weak var motionActivityCyclingLabel: UILabel!
+    @IBOutlet weak var motionActivityRunningLabel: UILabel!
+    @IBOutlet weak var motionActivityStartDateLabel: UILabel!
+    @IBOutlet weak var motionActivityStationaryLabel: UILabel!
+    @IBOutlet weak var motionActivityTimestampLabel: UILabel!
+    @IBOutlet weak var motionActivityUnknownLabel: UILabel!
+    @IBOutlet weak var motionActivityWalkingLabel: UILabel!
+    @IBOutlet weak var pedometerAverageActivePaceLabel: UILabel!
+    @IBOutlet weak var pedometerCurrentCadenceLabel: UILabel!
+    @IBOutlet weak var pedometerCurrentPaceLabel: UILabel!
+    @IBOutlet weak var pedometerDistanceLabel: UILabel!
+    @IBOutlet weak var pedometerEndDateLabel: UILabel!
+    @IBOutlet weak var pedometerFloorsAscendedLabel: UILabel!
+    @IBOutlet weak var pedometerFloorsDescendedLabel: UILabel!
+    @IBOutlet weak var pedometerNumberOfStepsLabel: UILabel!
+    @IBOutlet weak var pedometerStartDateLabel: UILabel!
 
     lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(queue: .main,
                                                                                interval: 0.5) { [unowned self] in
 
                                                                                 self.displayAccelerometer($0)
+
+    }
+
+    lazy var altimeterMonitor: AltimeterMonitor = AltimeterMonitor(queue: .main) { [unowned self] in
+
+        self.displayAltimeter($0)
 
     }
 
@@ -56,10 +82,25 @@ class MotionDetailViewController: UITableViewController {
 
     }
 
+    lazy var motionActivityMonitor: MotionActivityMonitor = MotionActivityMonitor(queue: .main) { [unowned self] in
+
+        self.displayMotionActivity($0)
+
+    }
+
+    lazy var pedometerMonitor: PedometerMonitor = PedometerMonitor(queue: .main) { [unowned self] in
+
+        self.displayPedometer($0)
+
+    }
+
     lazy var monitors: [Monitor] = [self.accelerometerMonitor,
+                                    self.altimeterMonitor,
                                     self.deviceMotionMonitor,
                                     self.gyroscopeMonitor,
-                                    self.magnetometerMonitor]
+                                    self.magnetometerMonitor,
+                                    self.motionActivityMonitor,
+                                    self.pedometerMonitor]
 
     // MARK: -
 
@@ -100,6 +141,41 @@ class MotionDetailViewController: UITableViewController {
 
             accelerometerTimestampLabel.text = "Unknown"
             accelerometerTimestampLabel.textColor = UIColor.gray
+
+        }
+    }
+
+    private func displayAltimeter(_ event: AltimeterMonitor.Event?) {
+
+        if let event = event, case let .didChange(info) = event {
+            displayAltimeter(info)
+        } else {
+            displayAltimeter(.unknown)
+        }
+
+    }
+
+    private func displayAltimeter(_ info: AltimeterMonitor.Info) {
+
+        switch info {
+
+        case .data(let data):
+            altimeterPressureLabel.text = formatPressure(data.pressure)
+
+            altimeterRelativeAltitudeLabel.text = formatRelativeAltitude(data.relativeAltitude)
+            altimeterRelativeAltitudeLabel.textColor = UIColor.black
+
+        case .error(let error):
+            altimeterPressureLabel.text = " "
+
+            altimeterRelativeAltitudeLabel.text = error.localizedDescription
+            altimeterRelativeAltitudeLabel.textColor = UIColor.red
+
+        case .unknown:
+            altimeterPressureLabel.text = " "
+
+            altimeterRelativeAltitudeLabel.text = "Unknown"
+            altimeterRelativeAltitudeLabel.textColor = UIColor.gray
 
         }
     }
@@ -233,6 +309,199 @@ class MotionDetailViewController: UITableViewController {
         }
     }
 
+    private func displayMotionActivity(_ event: MotionActivityMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayMotionActivity(info)
+        } else {
+            displayMotionActivity(.unknown)
+        }
+
+    }
+
+    private func displayMotionActivity(_ info: MotionActivityMonitor.Info) {
+
+        switch info {
+
+        case .activity(let activity):
+            motionActivityAutomotiveLabel.text = formatBool(activity.automotive)
+
+            motionActivityConfidenceLabel.text = formatMotionActivityConfidence(activity.confidence)
+
+            motionActivityCyclingLabel.text = formatBool(activity.cycling)
+
+            motionActivityRunningLabel.text = formatBool(activity.running)
+
+            motionActivityStartDateLabel.text = formatDate(activity.startDate)
+
+            motionActivityStationaryLabel.text = formatBool(activity.stationary)
+
+            motionActivityTimestampLabel.text = formatTimeInterval(activity.timestamp)
+            motionActivityTimestampLabel.textColor = UIColor.black
+
+            motionActivityUnknownLabel.text = formatBool(activity.unknown)
+
+            motionActivityWalkingLabel.text = formatBool(activity.walking)
+
+        case .error(let error):
+            motionActivityAutomotiveLabel.text = " "
+
+            motionActivityConfidenceLabel.text = " "
+
+            motionActivityCyclingLabel.text = " "
+
+            motionActivityRunningLabel.text = " "
+
+            motionActivityStartDateLabel.text = " "
+
+            motionActivityStationaryLabel.text = " "
+
+            motionActivityTimestampLabel.text = error.localizedDescription
+            motionActivityTimestampLabel.textColor = UIColor.red
+
+            motionActivityUnknownLabel.text = " "
+
+            motionActivityWalkingLabel.text = " "
+
+        case .unknown:
+            motionActivityAutomotiveLabel.text = " "
+
+            motionActivityConfidenceLabel.text = " "
+
+            motionActivityCyclingLabel.text = " "
+
+            motionActivityRunningLabel.text = " "
+
+            motionActivityStartDateLabel.text = " "
+
+            motionActivityStationaryLabel.text = " "
+
+            motionActivityTimestampLabel.text = "Unknown"
+            motionActivityTimestampLabel.textColor = UIColor.gray
+
+            motionActivityUnknownLabel.text = " "
+
+            motionActivityWalkingLabel.text = " "
+
+        default:
+            break
+
+        }
+    }
+
+    private func displayPedometer(_ event: PedometerMonitor.Event?) {
+
+        if let event = event, case let .didUpdate(info) = event {
+            displayPedometer(info)
+        } else {
+            displayPedometer(.unknown)
+        }
+
+    }
+
+    private func displayPedometer(_ info: PedometerMonitor.Info) {
+
+        switch info {
+
+        case .data(let data):
+            if #available(iOS 10.0, *) {
+                if let value = data.averageActivePace {
+                    pedometerAverageActivePaceLabel.text = formatPace(value)
+                } else {
+                    pedometerAverageActivePaceLabel.text = " "
+                }
+            } else {
+                pedometerAverageActivePaceLabel.text = " "
+            }
+
+            if #available(iOS 9.0, *) {
+                if let value = data.currentCadence {
+                    pedometerCurrentCadenceLabel.text = formatCadence(value)
+                } else {
+                    pedometerCurrentCadenceLabel.text = " "
+                }
+            } else {
+                pedometerCurrentCadenceLabel.text = " "
+            }
+
+            if #available(iOS 9.0, *) {
+                if let value = data.currentPace {
+                    pedometerCurrentPaceLabel.text = formatPace(value)
+                } else {
+                    pedometerCurrentPaceLabel.text = " "
+                }
+            } else {
+                pedometerCurrentPaceLabel.text = " "
+            }
+
+            if let value = data.distance {
+                pedometerDistanceLabel.text = formatDistance(value)
+            } else {
+                pedometerDistanceLabel.text = " "
+            }
+
+            pedometerEndDateLabel.text = formatDate(data.endDate)
+
+            if let value = data.floorsAscended {
+                pedometerFloorsAscendedLabel.text = formatDecimal(value)
+            } else {
+                pedometerFloorsAscendedLabel.text = " "
+            }
+
+            if let value = data.floorsDescended {
+                pedometerFloorsDescendedLabel.text = formatDecimal(value)
+            } else {
+                pedometerFloorsDescendedLabel.text = " "
+            }
+
+            pedometerNumberOfStepsLabel.text = formatInteger(data.numberOfSteps)
+
+            pedometerStartDateLabel.text = formatDate(data.startDate)
+            pedometerStartDateLabel.textColor = UIColor.black
+
+        case .error(let error):
+            pedometerAverageActivePaceLabel.text = " "
+
+            pedometerCurrentCadenceLabel.text = " "
+
+            pedometerCurrentPaceLabel.text = " "
+
+            pedometerDistanceLabel.text = " "
+
+            pedometerEndDateLabel.text = " "
+
+            pedometerFloorsAscendedLabel.text = " "
+
+            pedometerFloorsDescendedLabel.text = " "
+
+            pedometerNumberOfStepsLabel.text = " "
+
+            pedometerStartDateLabel.text = error.localizedDescription
+            pedometerStartDateLabel.textColor = UIColor.red
+
+        case .unknown:
+            pedometerAverageActivePaceLabel.text = " "
+
+            pedometerCurrentCadenceLabel.text = " "
+
+            pedometerCurrentPaceLabel.text = " "
+
+            pedometerDistanceLabel.text = " "
+
+            pedometerEndDateLabel.text = " "
+
+            pedometerFloorsAscendedLabel.text = " "
+
+            pedometerFloorsDescendedLabel.text = " "
+
+            pedometerNumberOfStepsLabel.text = " "
+
+            pedometerStartDateLabel.text = "Unknown"
+            pedometerStartDateLabel.textColor = UIColor.gray
+
+        }
+    }
+
     // MARK: -
 
     override func viewDidLoad() {
@@ -241,11 +510,17 @@ class MotionDetailViewController: UITableViewController {
 
         displayAccelerometer(nil)
 
+        displayAltimeter(nil)
+
         displayDeviceMotion(nil)
 
         displayGyroscope(nil)
 
         displayMagnetometer(nil)
+
+        displayMotionActivity(nil)
+
+        displayPedometer(nil)
 
     }
 
