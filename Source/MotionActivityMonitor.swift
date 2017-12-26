@@ -11,7 +11,7 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MotionActivityMonitor` instance monitors ...
+/// A `MotionActivityMonitor` instance monitors provides access to the motion data stored by a device. Motion data reflects whether the user is walking, running, in a vehicle, or stationary for periods of time. A navigation app might look for changes in the current type of motion and offer different directions for each. Using this class, you can ask for notifications when the current type of motion changes or you can gather past motion change data.
 ///
 public class MotionActivityMonitor: BaseMonitor {
 
@@ -35,29 +35,29 @@ public class MotionActivityMonitor: BaseMonitor {
     }
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates ... the current type of motion for the device
     ///
     public enum Info {
 
         ///
-        ///
+        /// An array of CMMotionActivity objects indicating the updates that occurred. The objects in the array are ordered by the time at which they occurred in the specified time interval. Use the startDate property in each motion object to determine when the update occurred.
         ///
         case activities([CMMotionActivity])
 
         ///
-        ///
+        /// The motion activity object that defines the current type of motion for the device.
         ///
         case activity(CMMotionActivity)
 
         ///
-        ///
+        /// An error object indicating that there was a problem gathering the data or nil if the motion data was determined correctly.
         ///
         case error(Error)
 
         ///
         ///
         ///
-        case unknown
+        case unknown    // ELIMINATE???
 
     }
 
@@ -68,7 +68,10 @@ public class MotionActivityMonitor: BaseMonitor {
     ///
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when a change in the current type
+    ///                 of motion is detected.
+    ///                 - OR -
+    ///                 The block to execute with the results.
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
@@ -93,14 +96,16 @@ public class MotionActivityMonitor: BaseMonitor {
 
     // Public Instance Methods
 
-    /// <#Description#>
+    ///
+    /// Gathers and returns historical motion data for the specified time
+    /// period.
     ///
     /// - Parameters:
-    ///   - start: <#start description#>
-    ///   - end: <#end description#>
-    /// - Returns: <#return value description#>
+    ///   - start:  The start time to use when gathering motion data.
+    ///   - end:    The end time to use when gathering motion data.
+    ///
     public func query(from start: Date,
-                      to end: Date) -> Bool {
+                      to end: Date) {
 
         manager.queryActivityStarting(from: start,
                                       to: end,
@@ -119,8 +124,6 @@ public class MotionActivityMonitor: BaseMonitor {
                                         self.handler(.didQuery(info))
 
         }
-
-        return true
 
     }
 

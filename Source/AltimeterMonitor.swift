@@ -47,7 +47,7 @@ public class AltimeterMonitor: BaseMonitor {
         ///
         /// No altitude data is available.
         ///
-        case unknown
+        case unknown    // ELIMINATE???
 
     }
 

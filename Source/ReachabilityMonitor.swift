@@ -34,12 +34,6 @@ public class ReachabilityMonitor: BaseMonitor {
     public enum Status {
 
         ///
-        /// The reachability of the network node name or address cannot be
-        /// determined.
-        ///
-        case unknown
-
-        ///
         /// The network node name or address is not reachable.
         ///
         case notReachable
@@ -55,6 +49,12 @@ public class ReachabilityMonitor: BaseMonitor {
         /// connection.
         ///
         case reachableViaWWAN
+
+        ///
+        /// The reachability of the network node name or address cannot be
+        /// determined.
+        ///
+        case unknown
     }
 
     // Public Initializers

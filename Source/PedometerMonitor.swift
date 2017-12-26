@@ -53,7 +53,7 @@ public class PedometerMonitor: BaseMonitor {
         ///
         ///
         ///
-        case unknown
+        case unknown    // ELIMINATE???
 
     }
 

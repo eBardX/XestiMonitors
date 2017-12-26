@@ -48,7 +48,7 @@ class MotionDetailViewController: UITableViewController {
     @IBOutlet weak var pedometerStartDateLabel: UILabel!
 
     lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(queue: .main,
-                                                                               interval: 0.5) { [unowned self] in
+                                                                               interval: 1) { [unowned self] in
 
                                                                                 self.displayAccelerometer($0)
 
@@ -61,7 +61,7 @@ class MotionDetailViewController: UITableViewController {
     }
 
     lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(queue: .main,
-                                                                            interval: 0.5,
+                                                                            interval: 1,
                                                                             using: .xArbitraryZVertical) { [unowned self] in
 
                                                                                 self.displayDeviceMotion($0)
@@ -76,7 +76,7 @@ class MotionDetailViewController: UITableViewController {
     }
 
     lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(queue: .main,
-                                                                            interval: 0.5) { [unowned self] in
+                                                                            interval: 1) { [unowned self] in
 
                                                                                 self.displayMagnetometer($0)
 
