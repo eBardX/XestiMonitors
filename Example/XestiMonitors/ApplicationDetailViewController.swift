@@ -10,72 +10,72 @@
 import UIKit
 import XestiMonitors
 
-class ApplicationDetailViewController: UITableViewController {
+public class ApplicationDetailViewController: UITableViewController {
 
-    @IBOutlet weak var applicationStateLabel: UILabel!
-    @IBOutlet weak var backgroundRefreshLabel: UILabel!
-    @IBOutlet weak var memoryButton: UIButton!
-    @IBOutlet weak var memoryLabel: UILabel!
-    @IBOutlet weak var protectedDataLabel: UILabel!
-    @IBOutlet weak var screenshotLabel: UILabel!
-    @IBOutlet weak var statusBarActionLabel: UILabel!
-    @IBOutlet weak var statusBarFrameLabel: UILabel!
-    @IBOutlet weak var statusBarOrientationLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var applicationStateLabel: UILabel!
+    @IBOutlet private weak var backgroundRefreshLabel: UILabel!
+    @IBOutlet private weak var memoryButton: UIButton!
+    @IBOutlet private weak var memoryLabel: UILabel!
+    @IBOutlet private weak var protectedDataLabel: UILabel!
+    @IBOutlet private weak var screenshotLabel: UILabel!
+    @IBOutlet private weak var statusBarActionLabel: UILabel!
+    @IBOutlet private weak var statusBarFrameLabel: UILabel!
+    @IBOutlet private weak var statusBarOrientationLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
 
-    lazy var applicationStateMonitor: ApplicationStateMonitor = ApplicationStateMonitor { [unowned self] in
+    private lazy var applicationStateMonitor = ApplicationStateMonitor { [unowned self] in
 
         self.displayApplicationState($0)
 
     }
 
-    lazy var backgroundRefreshMonitor: BackgroundRefreshMonitor = BackgroundRefreshMonitor { [unowned self] in
+    private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor { [unowned self] in
 
         self.displayBackgroundRefresh($0)
 
     }
 
-    lazy var memoryMonitor: MemoryMonitor = MemoryMonitor { [unowned self] in
+    private lazy var memoryMonitor = MemoryMonitor { [unowned self] in
 
         self.displayMemory($0)
 
     }
 
-    lazy var protectedDataMonitor: ProtectedDataMonitor = ProtectedDataMonitor { [unowned self] in
+    private lazy var protectedDataMonitor = ProtectedDataMonitor { [unowned self] in
 
         self.displayProtectedData($0)
 
     }
 
-    lazy var screenshotMonitor: ScreenshotMonitor = ScreenshotMonitor { [unowned self] in
+    private lazy var screenshotMonitor = ScreenshotMonitor { [unowned self] in
 
         self.displayScreenshot($0)
 
     }
 
-    lazy var statusBarMonitor: StatusBarMonitor = StatusBarMonitor { [unowned self] in
+    private lazy var statusBarMonitor = StatusBarMonitor { [unowned self] in
 
         self.displayStatusBar($0)
 
     }
 
-    lazy var timeMonitor: TimeMonitor = TimeMonitor { [unowned self] in
+    private lazy var timeMonitor = TimeMonitor { [unowned self] in
 
         self.displayTime($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.applicationStateMonitor,
-                                    self.backgroundRefreshMonitor,
-                                    self.memoryMonitor,
-                                    self.protectedDataMonitor,
-                                    self.screenshotMonitor,
-                                    self.statusBarMonitor,
-                                    self.timeMonitor]
+    private lazy var monitors: [Monitor] = [self.applicationStateMonitor,
+                                            self.backgroundRefreshMonitor,
+                                            self.memoryMonitor,
+                                            self.protectedDataMonitor,
+                                            self.screenshotMonitor,
+                                            self.statusBarMonitor,
+                                            self.timeMonitor]
 
-    var memoryCount = 0
-    var screenshotCount = 0
-    var timeCount = 0
+    private var memoryCount = 0
+    private var screenshotCount = 0
+    private var timeCount = 0
 
     // MARK: -
 
@@ -233,7 +233,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     // MARK: -
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
 
         super.viewDidLoad()
 
@@ -253,7 +253,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -261,7 +261,7 @@ class ApplicationDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
 
         monitors.forEach { $0.stopMonitoring() }
 

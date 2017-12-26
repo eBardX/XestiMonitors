@@ -94,7 +94,8 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in

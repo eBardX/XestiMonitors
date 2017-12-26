@@ -118,7 +118,8 @@ public class AccelerometerMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isAccelerometerActive
+        guard
+            motionManager.isAccelerometerActive
             else { return false }
 
         motionManager.stopAccelerometerUpdates()
@@ -129,7 +130,8 @@ public class AccelerometerMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         motionManager.accelerometerUpdateInterval = interval

@@ -12,13 +12,13 @@ import Foundation
 import UIKit
 import XestiMonitors
 
-func formatAcceleration(_ value: CMAcceleration) -> String {
+public func formatAcceleration(_ value: CMAcceleration) -> String {
 
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
 
 }
 
-func formatAccessibilityElement(_ element: Any) -> String {
+public func formatAccessibilityElement(_ element: Any) -> String {
 
     if let accElem = element as? UIAccessibilityElement,
         let label = accElem.accessibilityLabel {
@@ -29,7 +29,7 @@ func formatAccessibilityElement(_ element: Any) -> String {
 
 }
 
-func formatAssistiveTechnology(_ value: String) -> String {
+public func formatAssistiveTechnology(_ value: String) -> String {
 
     if UIAccessibilityNotificationSwitchControlIdentifier == value {
         return "Switch Control"
@@ -44,13 +44,13 @@ func formatAssistiveTechnology(_ value: String) -> String {
 
 }
 
-func formatAttitude(_ value: CMAttitude) -> String {
+public func formatAttitude(_ value: CMAttitude) -> String {
 
     return "\(formatDecimal(value.roll)), \(formatDecimal(value.pitch)), \(formatDecimal(value.yaw))"
 
 }
 
-func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String {
+public func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String {
 
     switch value {
 
@@ -67,25 +67,25 @@ func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String
 
 }
 
-func formatBool(_ value: Bool) -> String {
+public func formatBool(_ value: Bool) -> String {
 
     return value ? "True" : "False"
 
 }
 
-func formatCadence(_ value: NSNumber) -> String {
+public func formatCadence(_ value: NSNumber) -> String {
 
     return "\(formatDecimal(value)) steps/s"
 
 }
 
-func formatDate(_ value: Date) -> String {
+public func formatDate(_ value: Date) -> String {
 
     return dateFormatter.string(from: value)
 
 }
 
-func formatDecimal(_ value: Double) -> String {
+public func formatDecimal(_ value: Double) -> String {
 
     let number = NSNumber(value: value)
 
@@ -93,14 +93,14 @@ func formatDecimal(_ value: Double) -> String {
 
 }
 
-func formatDecimal(_ value: NSNumber) -> String {
+public func formatDecimal(_ value: NSNumber) -> String {
 
     return decimalFormatter.string(from: value) ?? "\(value)"
 
 }
 
-func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
-                                      _ level: Float) -> String {
+public func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
+                                             _ level: Float) -> String {
 
     switch state {
 
@@ -120,7 +120,7 @@ func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
 
 }
 
-func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
+public func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
 
     switch value {
 
@@ -149,7 +149,7 @@ func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
 
 }
 
-func formatDeviceProximityState(_ value: Bool?) -> String {
+public func formatDeviceProximityState(_ value: Bool?) -> String {
 
     if let value = value {
         return value ? "Close" : "Not close"
@@ -159,13 +159,13 @@ func formatDeviceProximityState(_ value: Bool?) -> String {
 
 }
 
-func formatDistance(_ value: NSNumber) -> String {
+public func formatDistance(_ value: NSNumber) -> String {
 
     return "\(formatDecimal(value))m"
 
 }
 
-func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
+public func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
 
     switch ear {
 
@@ -185,7 +185,7 @@ func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) 
 
 }
 
-func formatInteger(_ value: Int) -> String {
+public func formatInteger(_ value: Int) -> String {
 
     let number = NSNumber(value: value)
 
@@ -193,13 +193,13 @@ func formatInteger(_ value: Int) -> String {
 
 }
 
-func formatInteger(_ value: NSNumber) -> String {
+public func formatInteger(_ value: NSNumber) -> String {
 
     return integerFormatter.string(from: value) ?? "\(value)"
 
 }
 
-func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
+public func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
 
     switch value {
 
@@ -222,19 +222,19 @@ func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
 
 }
 
-func formatMagneticField(_ value: CMCalibratedMagneticField) -> String {
+public func formatMagneticField(_ value: CMCalibratedMagneticField) -> String {
 
     return "\(formatMagneticField(value.field)) \(formatMagneticFieldCalibrationAccuracy(value.accuracy))"
 
 }
 
-func formatMagneticField(_ value: CMMagneticField) -> String {
+public func formatMagneticField(_ value: CMMagneticField) -> String {
 
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
 
 }
 
-func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationAccuracy) -> String {
+public func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationAccuracy) -> String {
 
     switch value {
 
@@ -253,7 +253,7 @@ func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationA
     }
 }
 
-func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) -> String {
+public func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) -> String {
 
     switch value {
 
@@ -270,13 +270,13 @@ func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) -> Stri
 
 }
 
-func formatPace(_ value: NSNumber) -> String {
+public func formatPace(_ value: NSNumber) -> String {
 
     return "\(formatDecimal(value))s/m"
 
 }
 
-func formatPercentage(_ value: Float) -> String {
+public func formatPercentage(_ value: Float) -> String {
 
     let number = NSNumber(value: value)
 
@@ -284,37 +284,37 @@ func formatPercentage(_ value: Float) -> String {
 
 }
 
-func formatPressure(_ value: NSNumber) -> String {
+public func formatPressure(_ value: NSNumber) -> String {
 
     return "\(formatDecimal(value))kPa"
 
 }
 
-func formatRect(_ value: CGRect) -> String {
+public func formatRect(_ value: CGRect) -> String {
 
     return "\(value)"   // for now ...
 
 }
 
-func formatRelativeAltitude(_ value: NSNumber) -> String {
+public func formatRelativeAltitude(_ value: NSNumber) -> String {
 
     return "\(formatDecimal(value))m"
 
 }
 
-func formatRotationRate(_ value: CMRotationRate) -> String {
+public func formatRotationRate(_ value: CMRotationRate) -> String {
 
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
 
 }
 
-func formatTimeInterval(_ value: TimeInterval) -> String {
+public func formatTimeInterval(_ value: TimeInterval) -> String {
 
     return timeIntervalFormatter.string(from: value) ?? "\(value)"
 
 }
 
-func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
+public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
 
     switch value {
 

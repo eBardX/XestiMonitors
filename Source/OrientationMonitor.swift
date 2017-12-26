@@ -65,7 +65,8 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIDeviceOrientationDidChange) { [unowned self] _ in

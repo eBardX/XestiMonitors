@@ -10,33 +10,33 @@
 import UIKit
 import XestiMonitors
 
-class DeviceDetailViewController: UITableViewController {
+public class DeviceDetailViewController: UITableViewController {
 
-    @IBOutlet weak var batteryLabel: UILabel!
-    @IBOutlet weak var orientationLabel: UILabel!
-    @IBOutlet weak var proximityLabel: UILabel!
+    @IBOutlet private weak var batteryLabel: UILabel!
+    @IBOutlet private weak var orientationLabel: UILabel!
+    @IBOutlet private weak var proximityLabel: UILabel!
 
-    lazy var batteryMonitor: BatteryMonitor = BatteryMonitor { [unowned self] in
+    private lazy var batteryMonitor = BatteryMonitor { [unowned self] in
 
         self.displayBattery($0)
 
     }
 
-    lazy var orientationMonitor: OrientationMonitor = OrientationMonitor { [unowned self] in
+    private lazy var orientationMonitor = OrientationMonitor { [unowned self] in
 
         self.displayOrientation($0)
 
     }
 
-    lazy var proximityMonitor: ProximityMonitor = ProximityMonitor { [unowned self] in
+    private lazy var proximityMonitor = ProximityMonitor { [unowned self] in
 
         self.displayProximity($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.batteryMonitor,
-                                    self.orientationMonitor,
-                                    self.proximityMonitor]
+    private lazy var monitors: [Monitor] = [self.batteryMonitor,
+                                            self.orientationMonitor,
+                                            self.proximityMonitor]
 
     // MARK: -
 
@@ -89,7 +89,7 @@ class DeviceDetailViewController: UITableViewController {
 
     // MARK: -
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
 
         super.viewDidLoad()
 
@@ -101,7 +101,7 @@ class DeviceDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -109,7 +109,7 @@ class DeviceDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
 
         monitors.forEach { $0.stopMonitoring() }
 

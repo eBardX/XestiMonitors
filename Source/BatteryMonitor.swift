@@ -77,7 +77,8 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in

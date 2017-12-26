@@ -68,7 +68,8 @@ open class BaseMonitor: Monitor {
     @discardableResult
     public final func startMonitoring() -> Bool {
 
-        guard !isMonitoring
+        guard
+            !isMonitoring
             else { return false }
 
         if configureMonitor() {
@@ -88,7 +89,8 @@ open class BaseMonitor: Monitor {
     @discardableResult
     public final func stopMonitoring() -> Bool {
 
-        guard isMonitoring
+        guard
+            isMonitoring
             else { return false }
 
         if cleanupMonitor() {

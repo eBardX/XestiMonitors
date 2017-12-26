@@ -11,7 +11,13 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MotionActivityMonitor` instance monitors provides access to the motion data stored by a device. Motion data reflects whether the user is walking, running, in a vehicle, or stationary for periods of time. A navigation app might look for changes in the current type of motion and offer different directions for each. Using this class, you can ask for notifications when the current type of motion changes or you can gather past motion change data.
+/// A `MotionActivityMonitor` instance monitors provides access to the motion
+/// data stored by a device. Motion data reflects whether the user is walking,
+/// running, in a vehicle, or stationary for periods of time. A navigation app
+/// might look for changes in the current type of motion and offer different
+/// directions for each. Using this class, you can ask for notifications when
+/// the current type of motion changes or you can gather past motion change
+/// data.
 ///
 public class MotionActivityMonitor: BaseMonitor {
 
@@ -40,17 +46,23 @@ public class MotionActivityMonitor: BaseMonitor {
     public enum Info {
 
         ///
-        /// An array of CMMotionActivity objects indicating the updates that occurred. The objects in the array are ordered by the time at which they occurred in the specified time interval. Use the startDate property in each motion object to determine when the update occurred.
+        /// An array of CMMotionActivity objects indicating the updates that
+        /// occurred. The objects in the array are ordered by the time at which
+        /// they occurred in the specified time interval. Use the startDate
+        /// property in each motion object to determine when the update
+        /// occurred.
         ///
         case activities([CMMotionActivity])
 
         ///
-        /// The motion activity object that defines the current type of motion for the device.
+        /// The motion activity object that defines the current type of motion
+        /// for the device.
         ///
         case activity(CMMotionActivity)
 
         ///
-        /// An error object indicating that there was a problem gathering the data or nil if the motion data was determined correctly.
+        /// An error object indicating that there was a problem gathering the
+        /// data or nil if the motion data was determined correctly.
         ///
         case error(Error)
 
@@ -145,7 +157,8 @@ public class MotionActivityMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         manager.startActivityUpdates(to: queue) { [unowned self] activity in

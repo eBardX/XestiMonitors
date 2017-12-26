@@ -111,7 +111,8 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in

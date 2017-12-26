@@ -56,7 +56,8 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in

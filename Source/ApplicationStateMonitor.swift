@@ -91,7 +91,8 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIApplicationDidBecomeActive) { [unowned self] _ in

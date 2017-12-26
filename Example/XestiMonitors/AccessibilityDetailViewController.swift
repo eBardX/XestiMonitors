@@ -10,54 +10,54 @@
 import UIKit
 import XestiMonitors
 
-class AccessibilityDetailViewController: UITableViewController {
+public class AccessibilityDetailViewController: UITableViewController {
 
-    @IBOutlet weak var announcementButton: UIButton!
-    @IBOutlet weak var announcementStringValueLabel: UILabel!
-    @IBOutlet weak var announcementWasSuccessfulLabel: UILabel!
-    @IBOutlet weak var elementFocusedLabel: UILabel!
-    @IBOutlet weak var elementTechnologyLabel: UILabel!
-    @IBOutlet weak var elementUnfocusedLabel: UILabel!
-    @IBOutlet weak var statusAssistiveTouchLabel: UILabel!
-    @IBOutlet weak var statusBoldTextLabel: UILabel!
-    @IBOutlet weak var statusClosedCaptioningLabel: UILabel!
-    @IBOutlet weak var statusDarkenColorsLabel: UILabel!
-    @IBOutlet weak var statusGrayscaleLabel: UILabel!
-    @IBOutlet weak var statusGuidedAccessLabel: UILabel!
-    @IBOutlet weak var statusHearingDeviceLabel: UILabel!
-    @IBOutlet weak var statusInvertColorsLabel: UILabel!
-    @IBOutlet weak var statusMonoAudioLabel: UILabel!
-    @IBOutlet weak var statusReduceMotionLabel: UILabel!
-    @IBOutlet weak var statusReduceTransparencyLabel: UILabel!
-    @IBOutlet weak var statusShakeToUndoLabel: UILabel!
-    @IBOutlet weak var statusSpeakScreenLabel: UILabel!
-    @IBOutlet weak var statusSpeakSelectionLabel: UILabel!
-    @IBOutlet weak var statusSwitchControlLabel: UILabel!
-    @IBOutlet weak var statusVoiceOverLabel: UILabel!
+    @IBOutlet private weak var announcementButton: UIButton!
+    @IBOutlet private weak var announcementStringValueLabel: UILabel!
+    @IBOutlet private weak var announcementWasSuccessfulLabel: UILabel!
+    @IBOutlet private weak var elementFocusedLabel: UILabel!
+    @IBOutlet private weak var elementTechnologyLabel: UILabel!
+    @IBOutlet private weak var elementUnfocusedLabel: UILabel!
+    @IBOutlet private weak var statusAssistiveTouchLabel: UILabel!
+    @IBOutlet private weak var statusBoldTextLabel: UILabel!
+    @IBOutlet private weak var statusClosedCaptioningLabel: UILabel!
+    @IBOutlet private weak var statusDarkenColorsLabel: UILabel!
+    @IBOutlet private weak var statusGrayscaleLabel: UILabel!
+    @IBOutlet private weak var statusGuidedAccessLabel: UILabel!
+    @IBOutlet private weak var statusHearingDeviceLabel: UILabel!
+    @IBOutlet private weak var statusInvertColorsLabel: UILabel!
+    @IBOutlet private weak var statusMonoAudioLabel: UILabel!
+    @IBOutlet private weak var statusReduceMotionLabel: UILabel!
+    @IBOutlet private weak var statusReduceTransparencyLabel: UILabel!
+    @IBOutlet private weak var statusShakeToUndoLabel: UILabel!
+    @IBOutlet private weak var statusSpeakScreenLabel: UILabel!
+    @IBOutlet private weak var statusSpeakSelectionLabel: UILabel!
+    @IBOutlet private weak var statusSwitchControlLabel: UILabel!
+    @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
-    lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
+    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
 
         self.displayAnnouncement($0)
 
     }
 
-    lazy var elementMonitor: AccessibilityElementMonitor = AccessibilityElementMonitor { [unowned self] in
+    private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
 
         self.displayElement($0)
 
     }
 
-    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [unowned self] in
+    private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
 
         self.displayStatus($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.announcementMonitor,
+    private lazy var monitors: [Monitor] = [self.announcementMonitor,
                                     self.elementMonitor,
                                     self.statusMonitor]
 
-    var announcementCount = 0
+    private var announcementCount = 0
 
     // MARK: -
 
@@ -112,9 +112,6 @@ class AccessibilityDetailViewController: UITableViewController {
         }
 
     }
-
-    // swiftlint:disable cyclomatic_complexity
-    // swiftlint:disable function_body_length
 
     private func displayStatus(_ event: AccessibilityStatusMonitor.Event?) {
 
@@ -210,9 +207,6 @@ class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    // swiftlint:enable cyclomatic_complexity
-    // swiftlint:enable function_body_length
-
     @IBAction private func announcementButtonTapped() {
 
         announcementCount += 1
@@ -228,7 +222,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
     // MARK: -
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
 
         super.viewDidLoad()
 
@@ -240,7 +234,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -248,7 +242,7 @@ class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
 
         monitors.forEach { $0.stopMonitoring() }
 

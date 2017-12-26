@@ -23,7 +23,7 @@ public extension CMAcceleration {
     /// orientation changes with an `OrientationMonitor` instance—when rotation
     /// is locked on the device.
     ///
-    public var deviceOrientation: UIDeviceOrientation {
+    var deviceOrientation: UIDeviceOrientation {
 
         if z > 0.8 {
             return .faceDown

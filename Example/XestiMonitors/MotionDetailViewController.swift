@@ -11,96 +11,97 @@ import CoreMotion
 import UIKit
 import XestiMonitors
 
-class MotionDetailViewController: UITableViewController {
+// swiftlint:disable file_length type_body_length
+public class MotionDetailViewController: UITableViewController {
 
-    @IBOutlet weak var accelerometerAccelerationLabel: UILabel!
-    @IBOutlet weak var accelerometerOrientationLabel: UILabel!
-    @IBOutlet weak var accelerometerTimestampLabel: UILabel!
-    @IBOutlet weak var altimeterPressureLabel: UILabel!
-    @IBOutlet weak var altimeterRelativeAltitudeLabel: UILabel!
-    @IBOutlet weak var deviceMotionAttitudeLabel: UILabel!
-    @IBOutlet weak var deviceMotionGravityLabel: UILabel!
-    @IBOutlet weak var deviceMotionMagneticFieldLabel: UILabel!
-    @IBOutlet weak var deviceMotionRotationRateLabel: UILabel!
-    @IBOutlet weak var deviceMotionTimestampLabel: UILabel!
-    @IBOutlet weak var deviceMotionUserAccelerationLabel: UILabel!
-    @IBOutlet weak var gyroscopeRotationRateLabel: UILabel!
-    @IBOutlet weak var gyroscopeTimestampLabel: UILabel!
-    @IBOutlet weak var magnetometerMagneticFieldLabel: UILabel!
-    @IBOutlet weak var magnetometerTimestampLabel: UILabel!
-    @IBOutlet weak var motionActivityAutomotiveLabel: UILabel!
-    @IBOutlet weak var motionActivityConfidenceLabel: UILabel!
-    @IBOutlet weak var motionActivityCyclingLabel: UILabel!
-    @IBOutlet weak var motionActivityRunningLabel: UILabel!
-    @IBOutlet weak var motionActivityStartDateLabel: UILabel!
-    @IBOutlet weak var motionActivityStationaryLabel: UILabel!
-    @IBOutlet weak var motionActivityTimestampLabel: UILabel!
-    @IBOutlet weak var motionActivityUnknownLabel: UILabel!
-    @IBOutlet weak var motionActivityWalkingLabel: UILabel!
-    @IBOutlet weak var pedometerAverageActivePaceLabel: UILabel!
-    @IBOutlet weak var pedometerCurrentCadenceLabel: UILabel!
-    @IBOutlet weak var pedometerCurrentPaceLabel: UILabel!
-    @IBOutlet weak var pedometerDistanceLabel: UILabel!
-    @IBOutlet weak var pedometerEndDateLabel: UILabel!
-    @IBOutlet weak var pedometerFloorsAscendedLabel: UILabel!
-    @IBOutlet weak var pedometerFloorsDescendedLabel: UILabel!
-    @IBOutlet weak var pedometerNumberOfStepsLabel: UILabel!
-    @IBOutlet weak var pedometerStartDateLabel: UILabel!
+    @IBOutlet private weak var accelerometerAccelerationLabel: UILabel!
+    @IBOutlet private weak var accelerometerOrientationLabel: UILabel!
+    @IBOutlet private weak var accelerometerTimestampLabel: UILabel!
+    @IBOutlet private weak var altimeterPressureLabel: UILabel!
+    @IBOutlet private weak var altimeterRelativeAltitudeLabel: UILabel!
+    @IBOutlet private weak var deviceMotionAttitudeLabel: UILabel!
+    @IBOutlet private weak var deviceMotionGravityLabel: UILabel!
+    @IBOutlet private weak var deviceMotionMagneticFieldLabel: UILabel!
+    @IBOutlet private weak var deviceMotionRotationRateLabel: UILabel!
+    @IBOutlet private weak var deviceMotionTimestampLabel: UILabel!
+    @IBOutlet private weak var deviceMotionUserAccelerationLabel: UILabel!
+    @IBOutlet private weak var gyroscopeRotationRateLabel: UILabel!
+    @IBOutlet private weak var gyroscopeTimestampLabel: UILabel!
+    @IBOutlet private weak var magnetometerMagneticFieldLabel: UILabel!
+    @IBOutlet private weak var magnetometerTimestampLabel: UILabel!
+    @IBOutlet private weak var motionActivityAutomotiveLabel: UILabel!
+    @IBOutlet private weak var motionActivityConfidenceLabel: UILabel!
+    @IBOutlet private weak var motionActivityCyclingLabel: UILabel!
+    @IBOutlet private weak var motionActivityRunningLabel: UILabel!
+    @IBOutlet private weak var motionActivityStartDateLabel: UILabel!
+    @IBOutlet private weak var motionActivityStationaryLabel: UILabel!
+    @IBOutlet private weak var motionActivityTimestampLabel: UILabel!
+    @IBOutlet private weak var motionActivityUnknownLabel: UILabel!
+    @IBOutlet private weak var motionActivityWalkingLabel: UILabel!
+    @IBOutlet private weak var pedometerAverageActivePaceLabel: UILabel!
+    @IBOutlet private weak var pedometerCurrentCadenceLabel: UILabel!
+    @IBOutlet private weak var pedometerCurrentPaceLabel: UILabel!
+    @IBOutlet private weak var pedometerDistanceLabel: UILabel!
+    @IBOutlet private weak var pedometerEndDateLabel: UILabel!
+    @IBOutlet private weak var pedometerFloorsAscendedLabel: UILabel!
+    @IBOutlet private weak var pedometerFloorsDescendedLabel: UILabel!
+    @IBOutlet private weak var pedometerNumberOfStepsLabel: UILabel!
+    @IBOutlet private weak var pedometerStartDateLabel: UILabel!
 
-    lazy var accelerometerMonitor: AccelerometerMonitor = AccelerometerMonitor(queue: .main,
-                                                                               interval: 1) { [unowned self] in
+    private lazy var accelerometerMonitor = AccelerometerMonitor(queue: .main,
+                                                                 interval: 1) { [unowned self] in
 
-                                                                                self.displayAccelerometer($0)
+                                                                    self.displayAccelerometer($0)
 
     }
 
-    lazy var altimeterMonitor: AltimeterMonitor = AltimeterMonitor(queue: .main) { [unowned self] in
+    private lazy var altimeterMonitor = AltimeterMonitor(queue: .main) { [unowned self] in
 
         self.displayAltimeter($0)
 
     }
 
-    lazy var deviceMotionMonitor: DeviceMotionMonitor = DeviceMotionMonitor(queue: .main,
-                                                                            interval: 1,
-                                                                            using: .xArbitraryZVertical) { [unowned self] in
+    private lazy var deviceMotionMonitor = DeviceMotionMonitor(queue: .main,
+                                                               interval: 1,
+                                                               using: .xArbitraryZVertical) { [unowned self] in
 
-                                                                                self.displayDeviceMotion($0)
-
-    }
-
-    lazy var gyroscopeMonitor: GyroscopeMonitor = GyroscopeMonitor(queue: .main,
-                                                                   interval: 0.5) { [unowned self] in
-
-                                                                    self.displayGyroscope($0)
+                                                                self.displayDeviceMotion($0)
 
     }
 
-    lazy var magnetometerMonitor: MagnetometerMonitor = MagnetometerMonitor(queue: .main,
-                                                                            interval: 1) { [unowned self] in
+    private lazy var gyroscopeMonitor = GyroscopeMonitor(queue: .main,
+                                                         interval: 0.5) { [unowned self] in
 
-                                                                                self.displayMagnetometer($0)
+                                                            self.displayGyroscope($0)
 
     }
 
-    lazy var motionActivityMonitor: MotionActivityMonitor = MotionActivityMonitor(queue: .main) { [unowned self] in
+    private lazy var magnetometerMonitor = MagnetometerMonitor(queue: .main,
+                                                               interval: 1) { [unowned self] in
+
+                                                                self.displayMagnetometer($0)
+
+    }
+
+    private lazy var motionActivityMonitor = MotionActivityMonitor(queue: .main) { [unowned self] in
 
         self.displayMotionActivity($0)
 
     }
 
-    lazy var pedometerMonitor: PedometerMonitor = PedometerMonitor(queue: .main) { [unowned self] in
+    private lazy var pedometerMonitor = PedometerMonitor(queue: .main) { [unowned self] in
 
         self.displayPedometer($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.accelerometerMonitor,
-                                    self.altimeterMonitor,
-                                    self.deviceMotionMonitor,
-                                    self.gyroscopeMonitor,
-                                    self.magnetometerMonitor,
-                                    self.motionActivityMonitor,
-                                    self.pedometerMonitor]
+    private lazy var monitors: [Monitor] = [self.accelerometerMonitor,
+                                            self.altimeterMonitor,
+                                            self.deviceMotionMonitor,
+                                            self.gyroscopeMonitor,
+                                            self.magnetometerMonitor,
+                                            self.motionActivityMonitor,
+                                            self.pedometerMonitor]
 
     // MARK: -
 
@@ -504,7 +505,7 @@ class MotionDetailViewController: UITableViewController {
 
     // MARK: -
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
 
         super.viewDidLoad()
 
@@ -524,7 +525,7 @@ class MotionDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -532,7 +533,7 @@ class MotionDetailViewController: UITableViewController {
 
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
 
         monitors.forEach { $0.stopMonitoring() }
 

@@ -104,7 +104,8 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         if #available(iOS 9.0, *) {

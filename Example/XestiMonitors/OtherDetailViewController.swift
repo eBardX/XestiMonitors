@@ -10,24 +10,24 @@
 import UIKit
 import XestiMonitors
 
-class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
+public class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var keyboardActionLabel: UILabel!
-    @IBOutlet weak var keyboardAnimationCurveLabel: UILabel!
-    @IBOutlet weak var keyboardAnimationDurationLabel: UILabel!
-    @IBOutlet weak var keyboardFrameBeginLabel: UILabel!
-    @IBOutlet weak var keyboardFrameEndLabel: UILabel!
-    @IBOutlet weak var keyboardIsLocalLabel: UILabel!
-    @IBOutlet weak var keyboardTextField: UITextField!
-    @IBOutlet weak var reachabilityLabel: UILabel!
+    @IBOutlet private weak var keyboardActionLabel: UILabel!
+    @IBOutlet private weak var keyboardAnimationCurveLabel: UILabel!
+    @IBOutlet private weak var keyboardAnimationDurationLabel: UILabel!
+    @IBOutlet private weak var keyboardFrameBeginLabel: UILabel!
+    @IBOutlet private weak var keyboardFrameEndLabel: UILabel!
+    @IBOutlet private weak var keyboardIsLocalLabel: UILabel!
+    @IBOutlet private weak var keyboardTextField: UITextField!
+    @IBOutlet private weak var reachabilityLabel: UILabel!
 
-    lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [unowned self] in
+    private lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
 
         self.displayKeyboard($0)
 
     }
 
-    lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [unowned self] in
+    private lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [unowned self] in
 
         self.displayReachability($0)
 
@@ -131,11 +131,11 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
         }
 
-        }
+    }
 
     // MARK: -
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
 
         super.viewDidLoad()
 
@@ -147,7 +147,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -155,7 +155,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
 
         monitors.forEach { $0.stopMonitoring() }
 
@@ -165,7 +165,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: -
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
         textField.text = ""
 

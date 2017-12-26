@@ -141,13 +141,13 @@ these monitors:
 ```swift
 import XestiMonitors
 
-lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [unowned self] in
+lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
     // do something…
 }
-lazy var memoryMonitor: MemoryMonitor = MemoryMonitor { [unowned self] in
+lazy var memoryMonitor = MemoryMonitor { [unowned self] in
     // do something…
 }
-lazy var orientationMonitor: OrientationMonitor = OrientationMonitor { [unowned self] in
+lazy var orientationMonitor = OrientationMonitor { [unowned self] in
     // do something…
 }
 lazy var monitors: [Monitor] = [self.keyboardMonitor,
@@ -295,7 +295,7 @@ And this is the XestiMonitors way using [KeyboardMonitor][keyboard_monitor]:
 ```swift
 import XestiMonitors
 
-lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [unowned self] event in
+lazy var keyboardMonitor = KeyboardMonitor { [unowned self] event in
     guard let constraint = self?.constraint,
           let view = self?.view else { return }
     switch event {

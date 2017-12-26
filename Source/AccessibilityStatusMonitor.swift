@@ -96,7 +96,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
         ///
         /// The system’s Switch Control setting has changed.
-        ///s
+        ///
         case switchControlStatusDidChange(Bool)
 
         ///
@@ -298,7 +298,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         if #available(iOS 10.0, *) {

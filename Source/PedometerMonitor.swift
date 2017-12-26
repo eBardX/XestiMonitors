@@ -181,7 +181,8 @@ public class PedometerMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         pedometer.startUpdates(from: Date()) { [unowned self] data, error in

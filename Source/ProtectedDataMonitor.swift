@@ -64,7 +64,8 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() -> Bool {
 
-        guard super.addNotificationObservers()
+        guard
+            super.addNotificationObservers()
             else { return false }
 
         observe(.UIApplicationProtectedDataDidBecomeAvailable) { [unowned self] _ in

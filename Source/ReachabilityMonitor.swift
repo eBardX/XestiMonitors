@@ -123,7 +123,7 @@ public class ReachabilityMonitor: BaseMonitor {
     /// A Boolean value indicating whether the network node name or address can
     /// be reached (`true`) or not (`false`).
     ///
-    public var isReachable: Bool { return isReachableViaWiFi ||  isReachableViaWWAN }
+    public var isReachable: Bool { return isReachableViaWiFi || isReachableViaWWAN }
 
     ///
     /// A Boolean value indicating whether the network node name or address can
@@ -142,7 +142,8 @@ public class ReachabilityMonitor: BaseMonitor {
     ///
     public var status: Status {
 
-        guard let flags = self.currentFlags
+        guard
+            let flags = self.currentFlags
             else { return .unknown }
 
         return statusFromFlags(flags)
@@ -155,7 +156,8 @@ public class ReachabilityMonitor: BaseMonitor {
                   queue: OperationQueue,
                   handler: @escaping (Event) -> Void) {
 
-        guard let reachability = reachability
+        guard
+            let reachability = reachability
             else { return nil }
 
         self.handler = handler
@@ -187,7 +189,8 @@ public class ReachabilityMonitor: BaseMonitor {
 
     private func invokeHandler(_ flags: SCNetworkReachabilityFlags) {
 
-        guard unsafePreviousFlags != flags
+        guard
+            unsafePreviousFlags != flags
             else { return }
 
         unsafePreviousFlags = flags
@@ -220,6 +223,7 @@ public class ReachabilityMonitor: BaseMonitor {
             if flags.contains(.isWWAN) {
                 return .reachableViaWWAN
             }
+
         #endif
 
         return .reachableViaWiFi
@@ -230,8 +234,9 @@ public class ReachabilityMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard SCNetworkReachabilitySetDispatchQueue(reachability,
-                                                    nil)
+        guard
+            SCNetworkReachabilitySetDispatchQueue(reachability,
+                                                  nil)
             else { return false }
 
         SCNetworkReachabilitySetCallback(reachability,
@@ -244,7 +249,8 @@ public class ReachabilityMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         var context = SCNetworkReachabilityContext()
@@ -253,7 +259,8 @@ public class ReachabilityMonitor: BaseMonitor {
 
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
 
-            guard let info = info
+            guard
+                let info = info
                 else { return }
 
             let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
@@ -262,13 +269,15 @@ public class ReachabilityMonitor: BaseMonitor {
 
         }
 
-        guard SCNetworkReachabilitySetCallback(reachability,
-                                               callback,
-                                               &context)
+        guard
+            SCNetworkReachabilitySetCallback(reachability,
+                                             callback,
+                                             &context)
             else { return false }
 
-        guard SCNetworkReachabilitySetDispatchQueue(reachability,
-                                                    innerQueue)
+        guard
+            SCNetworkReachabilitySetDispatchQueue(reachability,
+                                                  innerQueue)
             else {
 
                 SCNetworkReachabilitySetCallback(reachability, nil, nil)

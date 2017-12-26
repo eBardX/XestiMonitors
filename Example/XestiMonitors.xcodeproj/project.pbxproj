@@ -21,6 +21,7 @@
 		F5D560541DE3A61D009D8E67 /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */; };
 		F5D560551DE3A61D009D8E67 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */; };
 		F5ECB3851E2D1BB800272EBB /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */; };
+		F5F97DFE1FF2BB4D0082F773 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		F5962E691DF8643900CFC142 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		F5962E6A1DF8643900CFC142 /* .jazzy.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .jazzy.yaml; path = ../.jazzy.yaml; sourceTree = "<group>"; };
 		F5962E6B1DF8643900CFC142 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
-		F5962E6C1DF8643900CFC142 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		F5962E6D1DF8643900CFC142 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		F5962E6E1DF8643900CFC142 /* generate-docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "generate-docs.sh"; path = "../generate-docs.sh"; sourceTree = "<group>"; };
 		F5D560491DE399A7009D8E67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +65,7 @@
 		F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
 		F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
 		F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
+		F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		FDECD231293AFFD9D5C3B265 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; name = README.md; path = ../README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
 
@@ -184,7 +185,7 @@
 				F5962E691DF8643900CFC142 /* .gitignore */,
 				F5962E6A1DF8643900CFC142 /* .jazzy.yaml */,
 				F5962E6B1DF8643900CFC142 /* .swift-version */,
-				F5962E6C1DF8643900CFC142 /* .swiftlint.yml */,
+				F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */,
 				F5962E6D1DF8643900CFC142 /* .travis.yml */,
 				F5962E6E1DF8643900CFC142 /* generate-docs.sh */,
 			);
@@ -284,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				F5F97DFE1FF2BB4D0082F773 /* .swiftlint.yml in Resources */,
 				F5D560511DE3A323009D8E67 /* LaunchScreen.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -410,7 +412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}\"/..\n\"${PODS_ROOT}\"/SwiftLint/swiftlint autocorrect\n";
+			shellScript = "CONFIG_DIR=$(unset CDPATH && cd \"${SRCROOT}\"/.. &>/dev/null && pwd)\nCONFIG_FILE=\"${CONFIG_DIR}\"/.swiftlint.yml\n\"${PODS_ROOT}\"/SwiftLint/swiftlint autocorrect --config \"${CONFIG_FILE}\"\n\"${PODS_ROOT}\"/SwiftLint/swiftlint lint --config \"${CONFIG_FILE}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

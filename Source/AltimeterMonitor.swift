@@ -100,7 +100,8 @@ public class AltimeterMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         altimeter.startRelativeAltitudeUpdates(to: .main) { [unowned self] data, error in

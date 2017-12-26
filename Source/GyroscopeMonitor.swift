@@ -118,7 +118,8 @@ public class GyroscopeMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        guard motionManager.isGyroActive
+        guard
+            motionManager.isGyroActive
             else { return false }
 
         motionManager.stopGyroUpdates()
@@ -129,7 +130,8 @@ public class GyroscopeMonitor: BaseMonitor {
 
     public override final func configureMonitor() -> Bool {
 
-        guard super.configureMonitor()
+        guard
+            super.configureMonitor()
             else { return false }
 
         motionManager.gyroUpdateInterval = interval

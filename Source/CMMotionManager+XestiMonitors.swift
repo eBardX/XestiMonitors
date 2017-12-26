@@ -23,6 +23,6 @@ public extension CMMotionManager {
     /// By default, all motion monitor classes use this shared motion manager
     /// instance.
     ///
-    public static let shared = CMMotionManager()
+    static let shared = CMMotionManager()
 
 }
