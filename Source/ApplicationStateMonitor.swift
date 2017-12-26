@@ -36,7 +36,7 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         ///
         /// The app has finished launching.
         ///
-        case didFinishLaunching([AnyHashable : Any]?)
+        case didFinishLaunching([AnyHashable: Any]?)
 
         ///
         /// The app is about to leave the background state.
