@@ -55,7 +55,7 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     private lazy var monitors: [Monitor] = [self.announcementMonitor,
                                     self.elementMonitor,
-                                    self.statusMonitor]
+                                    self.statusMonitor ]
 
     private var announcementCount = 0
 

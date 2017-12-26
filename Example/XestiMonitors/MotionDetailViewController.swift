@@ -11,7 +11,7 @@ import CoreMotion
 import UIKit
 import XestiMonitors
 
-// swiftlint:disable file_length type_body_length
+// swiftlint:disable type_body_length
 public class MotionDetailViewController: UITableViewController {
 
     @IBOutlet private weak var accelerometerAccelerationLabel: UILabel!
@@ -101,7 +101,7 @@ public class MotionDetailViewController: UITableViewController {
                                             self.gyroscopeMonitor,
                                             self.magnetometerMonitor,
                                             self.motionActivityMonitor,
-                                            self.pedometerMonitor]
+                                            self.pedometerMonitor ]
 
     // MARK: -
 

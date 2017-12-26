@@ -71,7 +71,7 @@ public class ApplicationDetailViewController: UITableViewController {
                                             self.protectedDataMonitor,
                                             self.screenshotMonitor,
                                             self.statusBarMonitor,
-                                            self.timeMonitor]
+                                            self.timeMonitor ]
 
     private var memoryCount = 0
     private var screenshotCount = 0

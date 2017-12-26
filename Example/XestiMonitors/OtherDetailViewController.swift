@@ -27,14 +27,14 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
 
     }
 
-    private lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [unowned self] in
+    private lazy var reachabilityMonitor = ReachabilityMonitor { [unowned self] in
 
         self.displayReachability($0)
 
     }
 
-    lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                    self.reachabilityMonitor]
+    private lazy var monitors: [Monitor] = [self.keyboardMonitor,
+                                            self.reachabilityMonitor ]
 
     // MARK: -
 

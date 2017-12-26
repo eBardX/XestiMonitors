@@ -1,10 +1,9 @@
 #disabled_rules:
-#  - large_tuple
-#  - nesting
 
 opt_in_rules:
   - array_init
   - attributes
+  - closure_end_indentation
   - closure_spacing
   - conditional_returns_on_newline
   - contains_over_first_not_nil
@@ -40,10 +39,16 @@ opt_in_rules:
   - single_test_class
   - sorted_first_last
   - sorted_imports
+  - strict_fileprivate
   - switch_case_on_newline
   - trailing_closure
   - unneeded_parentheses_in_closure_argument
   - vertical_parameter_alignment_on_call
+
+# NOT opted in:
+# - explicit_type_interface
+# - no_extension_access_modifier
+# - no_grouping_extension
 
 included:
   - Tests
@@ -53,32 +58,69 @@ included:
 excluded:
   - Example/Pods
 
-# configurable rules can be customized from this configuration file
-# binary rules can set their severity level
-force_cast: warning # implicitly
-force_try:
-  severity: warning # explicitly
-# rules that have both warning and error levels, can set just the warning level
-# implicitly
-line_length: 150
-# they can set both implicitly with an array
-type_body_length:
-  - 150 # warning
-  - 250 # error
-# or they can set both explicitly
-file_length:
-  warning: 450
-  error: 500
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
-type_name:
-  min_length: 1     # only warning
-  max_length:       # warning and error
-    warning: 40
-    error: 50
-identifier_name:
-  min_length: 1     # only min_length
 reporter: "xcode"
+
+attributes:
+  always_on_line_above:
+    - "@objc"
+  always_on_same_line:
+    - "@IBAction"
+    - "@IBOutlet"
+colon:
+  apply_to_dictionaries: true
+  flexible_right_spacing: false
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+  ignores_case_statements: true
+dynamic_inline: warning
+empty_count: warning
+file_length:
+  warning: 400
+  error: 500
+  ignore_comment_only_lines: true
+function_body_length:
+  warning: 40
+  error: 100
+function_parameter_count:
+  warning: 5
+  error: 8
+large_tuple:
+  warning: 3
+  error: 4
+line_length:
+  warning: 150
+  ignores_comments: true
+  ignores_function_declarations: false
+  ignores_urls: true
+multiline_arguments:
+  first_argument_location: same_line
+nesting:
+  statement_level: 5
+  type_level: 2
+number_separator:
+  minimum_length: 0
+object_literal:
+  color_literal: true
+  image_literal: true
+private_outlet:
+  allow_private_set: false
+private_over_fileprivate:
+  validate_extensions: true
+shorthand_operator: warning
+superfluous_disable_command: warning
+trailing_comma:
+  mandatory_comma: false
+trailing_whitespace:
+  ignores_comments: false
+  ignores_empty_lines: false
+type_body_length:
+  warning: 150
+  error: 250
+unused_optional_binding:
+  ignore_optional_try: false
+vertical_whitespace:
+  max_empty_lines: 1
 
 custom_rules:
   closing_brace_whitespace:

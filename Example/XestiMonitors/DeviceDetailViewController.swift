@@ -36,7 +36,7 @@ public class DeviceDetailViewController: UITableViewController {
 
     private lazy var monitors: [Monitor] = [self.batteryMonitor,
                                             self.orientationMonitor,
-                                            self.proximityMonitor]
+                                            self.proximityMonitor ]
 
     // MARK: -
 

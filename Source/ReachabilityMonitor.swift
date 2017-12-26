@@ -69,24 +69,17 @@ public class ReachabilityMonitor: BaseMonitor {
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node address changes.
     ///
-    public convenience init?(queue: OperationQueue = .main,
-                             handler: @escaping (Event) -> Void) {
+    public convenience init(queue: OperationQueue = .main,
+                            handler: @escaping (Event) -> Void) {
 
         var address = sockaddr_in()
 
         address.sin_family = sa_family_t(AF_INET)
         address.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
 
-        let reachability = withUnsafePointer(to: &address) { pointer in
-
-            return pointer.withMemoryRebound(to: sockaddr.self,
-                                             capacity: MemoryLayout<sockaddr>.size) {
-
-                                                return SCNetworkReachabilityCreateWithAddress(nil, $0)
-
-            }
-
-        }
+        guard
+            let reachability = ReachabilityMonitor.createReachability(for: address)
+            else { fatalError("Unable to create reachability reference") }
 
         self.init(reachability: reachability,
                   queue: queue,
@@ -105,11 +98,13 @@ public class ReachabilityMonitor: BaseMonitor {
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node name changes.
     ///
-    public convenience init?(name: String,
-                             queue: OperationQueue = .main,
-                             handler: @escaping (Event) -> Void) {
+    public convenience init(name: String,
+                            queue: OperationQueue = .main,
+                            handler: @escaping (Event) -> Void) {
 
-        let reachability = SCNetworkReachabilityCreateWithName(nil, name)
+        guard
+            let reachability = ReachabilityMonitor.createReachability(for: name)
+            else { fatalError("Unable to create reachability reference") }
 
         self.init(reachability: reachability,
                   queue: queue,
@@ -150,15 +145,32 @@ public class ReachabilityMonitor: BaseMonitor {
 
     }
 
+    // Private Type Methods
+
+    private static func createReachability(for address: sockaddr_in) -> SCNetworkReachability? {
+
+        var address = address
+
+        return withUnsafePointer(to: &address) {
+            return $0.withMemoryRebound(to: sockaddr.self,
+                                        capacity: MemoryLayout<sockaddr_in>.size) {
+                                            return SCNetworkReachabilityCreateWithAddress(nil, $0)
+            }
+        }
+
+    }
+
+    private static func createReachability(for name: String) -> SCNetworkReachability? {
+
+        return SCNetworkReachabilityCreateWithName(nil, name)
+
+    }
+
     // Private Initializers
 
-    private init?(reachability: SCNetworkReachability?,
-                  queue: OperationQueue,
-                  handler: @escaping (Event) -> Void) {
-
-        guard
-            let reachability = reachability
-            else { return nil }
+    private init(reachability: SCNetworkReachability,
+                 queue: OperationQueue,
+                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
         self.innerQueue = .main

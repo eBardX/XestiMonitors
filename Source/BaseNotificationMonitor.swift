@@ -91,10 +91,12 @@ open class BaseNotificationMonitor: BaseMonitor {
                         object: Any? = nil,
                         using block: @escaping (Notification) -> Void) {
 
-        observers += [notificationCenter.addObserver(forName: name,
-                                                     object: object,
-                                                     queue: queue,
-                                                     using: block)]
+        let observer = notificationCenter.addObserver(forName: name,
+                                                      object: object,
+                                                      queue: queue,
+                                                      using: block)
+
+        observers.append(observer)
 
     }
 
