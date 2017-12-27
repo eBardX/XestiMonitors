@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_XestiMonitors_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_XestiMonitors_TestsVersionString[];
+FOUNDATION_EXPORT double Pods_XestiMonitorsTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_XestiMonitorsTestsVersionString[];
 

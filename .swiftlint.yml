@@ -51,9 +51,9 @@ opt_in_rules:
 # - no_grouping_extension
 
 included:
-  - Tests
   - XestiMonitors
   - ../Source
+  - ../XestiMonitorsTests
 
 excluded:
   - Example/Pods
