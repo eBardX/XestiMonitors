@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://cocoapods.org/pods/XestiMonitors)
-[![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-blue.svg)](https://developer.apple.com/swift/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)](https://developer.apple.com/swift/)
 [![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
 
 * [Overview](#overview)
@@ -31,7 +31,7 @@ You can think of XestiMonitors as a better way to manage the most common iOS
 notifications. At present, XestiMonitors provides “wrappers” around most
 `UIKit` notifications:
 
-* **Accessibility-related — NEW!**
+* **Accessibility-related**
 
     * `UIAccessibilityAnnouncementDidFinish`
     * `UIAccessibilityAssistiveTouchStatusDidChange`
@@ -116,8 +116,8 @@ Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 ## <a name="requirements">Requirements</a>
 
 * iOS 8.0+
-* Xcode 8.0+
-* Swift 3.0+
+* Xcode 9.0+
+* Swift 4.0+
 
 ## <a name="installation">Installation</a>
 
@@ -386,7 +386,8 @@ import XestiMonitors
 
 class GigaHoobieMonitor: BaseMonitor {
     let handler: (Float) -> Void
-    let hoobie: GigaHoobie
+    @objc let hoobie: GigaHoobie
+    private var observation: NSKeyValueObservation?
 
     init(_ hoobie: GigaHoobie, handler: @escaping (Float) -> Void) {
         self.handler = handler
@@ -395,23 +396,15 @@ class GigaHoobieMonitor: BaseMonitor {
 
     override func configureMonitor() -> Bool {
         guard super.configureMonitor() else { return false }
-        addObserver(self, forKeyPath: #keyPath(hoobie.nefariousActivityLevel),
-                    options: .initial, context: nil)
+        observation = hoobie.observe(\.nefariousActivityLevel) { [unowned self] hoobie, change in
+            self.handler(hoobie.nefariousActivityLevel) }
         return true
     }
 
     override func cleanupMonitor() -> Bool {
-        removeObserver(self, forKeyPath: #keyPath(hoobie.nefariousActivityLevel))
+        observation?.invalidate()
+        observation = nil
         return super.cleanupMonitor()
-    }
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
-        guard let keyPath = keyPath else { return }
-        if keyPath == #keyPath(hoobie.nefariousActivityLevel) {
-            handler(hoobie.nefariousActivityLevel)
-        }
     }
 }
 ```
@@ -440,23 +433,21 @@ stopping the monitor. Although this base class inherits from
 import XestiMonitors
 
 class TeraHoobieMonitor: BaseNotificationMonitor {
-    let handler: () -> Void
+    let handler: (Bool) -> Void
     let hoobie: TeraHoobie
 
-    init(_ hoobie: TeraHoobie, handler: @escaping () -> Void) {
+    init(hoobie: TeraHoobie, queue: OperationQueue = .main,
+         handler: @escaping (Bool) -> Void) {
         self.handler = handler
         self.hoobie = hoobie
+        super.init(queue: queue)
     }
 
-    override func addNotificationObservers(_ notificationCenter: NotificationCenter) -> Bool {
-        guard super.addNotificationObservers(notificationObserver) else { return false }
-        notificationCenter.addObserver(self, selector: #selector(hoobieDidChange(_:)),
-                                       name: .TeraHoobieDidChange, object: hoobie)
+    override func addNotificationObservers() -> Bool {
+        guard super.addNotificationObservers() else { return false }
+        observe(.teraHoobieDidChange) { [unowned self] _ in
+            self.handler(self.hoobie.value) }
         return true
-    }
-
-    func hoobieDidChange(_ notification: Notification) {
-        handler()
     }
 }
 ```

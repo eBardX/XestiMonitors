@@ -49,6 +49,11 @@ open class BaseMonitor: Monitor {
 
     }
 
+    // Public Initializers
+
+    public init() {
+    }
+
     // Public Instance Properties
 
     ///

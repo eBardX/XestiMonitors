@@ -368,7 +368,15 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
             self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
         }
 
-        observe(Notification.Name(UIAccessibilityVoiceOverStatusChanged)) { [unowned self] _ in
+        let voiceOverStatusDidChange: Notification.Name
+
+        if #available(iOS 11.0, *) {
+            voiceOverStatusDidChange = .UIAccessibilityVoiceOverStatusDidChange
+        } else {
+            voiceOverStatusDidChange = Notification.Name(UIAccessibilityVoiceOverStatusChanged)
+        }
+
+        observe(voiceOverStatusDidChange) { [unowned self] _ in
             self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
         }
 

@@ -125,7 +125,7 @@ public class MotionDetailViewController: UITableViewController {
             accelerometerOrientationLabel.text = formatDeviceOrientation(data.acceleration.deviceOrientation)
 
             accelerometerTimestampLabel.text = formatTimeInterval(data.timestamp)
-            accelerometerTimestampLabel.textColor = UIColor.black
+            accelerometerTimestampLabel.textColor = .black
 
         case .error(let error):
             accelerometerAccelerationLabel.text = " "
@@ -133,7 +133,7 @@ public class MotionDetailViewController: UITableViewController {
             accelerometerOrientationLabel.text = " "
 
             accelerometerTimestampLabel.text = error.localizedDescription
-            accelerometerTimestampLabel.textColor = UIColor.red
+            accelerometerTimestampLabel.textColor = .red
 
         case .unknown:
             accelerometerAccelerationLabel.text = " "
@@ -141,7 +141,7 @@ public class MotionDetailViewController: UITableViewController {
             accelerometerOrientationLabel.text = " "
 
             accelerometerTimestampLabel.text = "Unknown"
-            accelerometerTimestampLabel.textColor = UIColor.gray
+            accelerometerTimestampLabel.textColor = .gray
 
         }
     }
@@ -164,19 +164,19 @@ public class MotionDetailViewController: UITableViewController {
             altimeterPressureLabel.text = formatPressure(data.pressure)
 
             altimeterRelativeAltitudeLabel.text = formatRelativeAltitude(data.relativeAltitude)
-            altimeterRelativeAltitudeLabel.textColor = UIColor.black
+            altimeterRelativeAltitudeLabel.textColor = .black
 
         case .error(let error):
             altimeterPressureLabel.text = " "
 
             altimeterRelativeAltitudeLabel.text = error.localizedDescription
-            altimeterRelativeAltitudeLabel.textColor = UIColor.red
+            altimeterRelativeAltitudeLabel.textColor = .red
 
         case .unknown:
             altimeterPressureLabel.text = " "
 
             altimeterRelativeAltitudeLabel.text = "Unknown"
-            altimeterRelativeAltitudeLabel.textColor = UIColor.gray
+            altimeterRelativeAltitudeLabel.textColor = .gray
 
         }
     }
@@ -205,7 +205,7 @@ public class MotionDetailViewController: UITableViewController {
             deviceMotionRotationRateLabel.text = formatRotationRate(data.rotationRate)
 
             deviceMotionTimestampLabel.text = formatTimeInterval(data.timestamp)
-            deviceMotionTimestampLabel.textColor = UIColor.black
+            deviceMotionTimestampLabel.textColor = .black
 
             deviceMotionUserAccelerationLabel.text = formatAcceleration(data.userAcceleration)
 
@@ -219,7 +219,7 @@ public class MotionDetailViewController: UITableViewController {
             deviceMotionRotationRateLabel.text = " "
 
             deviceMotionTimestampLabel.text = error.localizedDescription
-            deviceMotionTimestampLabel.textColor = UIColor.red
+            deviceMotionTimestampLabel.textColor = .red
 
             deviceMotionUserAccelerationLabel.text = " "
 
@@ -233,7 +233,7 @@ public class MotionDetailViewController: UITableViewController {
             deviceMotionRotationRateLabel.text = " "
 
             deviceMotionTimestampLabel.text = "Unknown"
-            deviceMotionTimestampLabel.textColor = UIColor.gray
+            deviceMotionTimestampLabel.textColor = .gray
 
             deviceMotionUserAccelerationLabel.text = " "
 
@@ -258,19 +258,19 @@ public class MotionDetailViewController: UITableViewController {
             gyroscopeRotationRateLabel.text = formatRotationRate(data.rotationRate)
 
             gyroscopeTimestampLabel.text = formatTimeInterval(data.timestamp)
-            gyroscopeTimestampLabel.textColor = UIColor.black
+            gyroscopeTimestampLabel.textColor = .black
 
         case .error(let error):
             gyroscopeRotationRateLabel.text = " "
 
             gyroscopeTimestampLabel.text = error.localizedDescription
-            gyroscopeTimestampLabel.textColor = UIColor.red
+            gyroscopeTimestampLabel.textColor = .red
 
         case .unknown:
             gyroscopeRotationRateLabel.text = " "
 
             gyroscopeTimestampLabel.text = "Unknown"
-            gyroscopeTimestampLabel.textColor = UIColor.gray
+            gyroscopeTimestampLabel.textColor = .gray
 
         }
     }
@@ -293,19 +293,19 @@ public class MotionDetailViewController: UITableViewController {
             magnetometerMagneticFieldLabel.text = formatMagneticField(data.magneticField)
 
             magnetometerTimestampLabel.text = formatTimeInterval(data.timestamp)
-            magnetometerTimestampLabel.textColor = UIColor.black
+            magnetometerTimestampLabel.textColor = .black
 
         case .error(let error):
             magnetometerMagneticFieldLabel.text = " "
 
             magnetometerTimestampLabel.text = error.localizedDescription
-            magnetometerTimestampLabel.textColor = UIColor.red
+            magnetometerTimestampLabel.textColor = .red
 
         case .unknown:
             magnetometerMagneticFieldLabel.text = " "
 
             magnetometerTimestampLabel.text = "Unknown"
-            magnetometerTimestampLabel.textColor = UIColor.gray
+            magnetometerTimestampLabel.textColor = .gray
 
         }
     }
@@ -338,7 +338,7 @@ public class MotionDetailViewController: UITableViewController {
             motionActivityStationaryLabel.text = formatBool(activity.stationary)
 
             motionActivityTimestampLabel.text = formatTimeInterval(activity.timestamp)
-            motionActivityTimestampLabel.textColor = UIColor.black
+            motionActivityTimestampLabel.textColor = .black
 
             motionActivityUnknownLabel.text = formatBool(activity.unknown)
 
@@ -358,7 +358,7 @@ public class MotionDetailViewController: UITableViewController {
             motionActivityStationaryLabel.text = " "
 
             motionActivityTimestampLabel.text = error.localizedDescription
-            motionActivityTimestampLabel.textColor = UIColor.red
+            motionActivityTimestampLabel.textColor = .red
 
             motionActivityUnknownLabel.text = " "
 
@@ -378,7 +378,7 @@ public class MotionDetailViewController: UITableViewController {
             motionActivityStationaryLabel.text = " "
 
             motionActivityTimestampLabel.text = "Unknown"
-            motionActivityTimestampLabel.textColor = UIColor.gray
+            motionActivityTimestampLabel.textColor = .gray
 
             motionActivityUnknownLabel.text = " "
 
@@ -458,7 +458,7 @@ public class MotionDetailViewController: UITableViewController {
             pedometerNumberOfStepsLabel.text = formatInteger(data.numberOfSteps)
 
             pedometerStartDateLabel.text = formatDate(data.startDate)
-            pedometerStartDateLabel.textColor = UIColor.black
+            pedometerStartDateLabel.textColor = .black
 
         case .error(let error):
             pedometerAverageActivePaceLabel.text = " "
@@ -478,7 +478,7 @@ public class MotionDetailViewController: UITableViewController {
             pedometerNumberOfStepsLabel.text = " "
 
             pedometerStartDateLabel.text = error.localizedDescription
-            pedometerStartDateLabel.textColor = UIColor.red
+            pedometerStartDateLabel.textColor = .red
 
         case .unknown:
             pedometerAverageActivePaceLabel.text = " "
@@ -498,7 +498,7 @@ public class MotionDetailViewController: UITableViewController {
             pedometerNumberOfStepsLabel.text = " "
 
             pedometerStartDateLabel.text = "Unknown"
-            pedometerStartDateLabel.textColor = UIColor.gray
+            pedometerStartDateLabel.textColor = .gray
 
         }
     }

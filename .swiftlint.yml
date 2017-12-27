@@ -80,7 +80,7 @@ file_length:
   error: 500
   ignore_comment_only_lines: true
 function_body_length:
-  warning: 40
+  warning: 50
   error: 100
 function_parameter_count:
   warning: 5
