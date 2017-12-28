@@ -145,18 +145,21 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     /// Initializes a new `KeyboardMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the visibility of the keyboard
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

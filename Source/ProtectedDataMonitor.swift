@@ -41,18 +41,21 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProtectedDataMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when protected files become
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

@@ -15,7 +15,6 @@
 		A8B2B8764690709C402FC76D /* Pods_XestiMonitorsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ED948741804FBA762BFFFC /* Pods_XestiMonitorsTests.framework */; };
 		F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */; };
 		F57BCEF11E09A6C30014D3E1 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57BCEF01E09A6C30014D3E1 /* Formatters.swift */; };
-		F5AE20C91FF43CB1001BC279 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5AE20C71FF43CB1001BC279 /* Info.plist */; };
 		F5AE20E71FF448DE001BC279 /* KeyboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */; };
 		F5AE20E81FF448DE001BC279 /* ReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CD1FF448DE001BC279 /* ReachabilityMonitorTests.swift */; };
 		F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CF1FF448DE001BC279 /* ApplicationStateMonitorTests.swift */; };
@@ -396,7 +395,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5AE20C91FF43CB1001BC279 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,9 +443,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsTests/Pods-XestiMonitorsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/XestiMonitors/XestiMonitors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XestiMonitors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

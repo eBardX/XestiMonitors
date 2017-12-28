@@ -72,17 +72,20 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityAnnouncementMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when VoiceOver finishes outputting
     ///                 an announcement.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

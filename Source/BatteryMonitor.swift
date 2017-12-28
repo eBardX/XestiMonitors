@@ -41,18 +41,23 @@ public class BatteryMonitor: BaseNotificationMonitor {
     /// Initializes a new `BatteryMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - device
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
+                device: UIDevice = .current,
                 handler: @escaping (Event) -> Void) {
 
-        self.device = .current
+        self.device = device
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

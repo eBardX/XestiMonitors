@@ -115,7 +115,8 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private func displayBackgroundRefresh(_ event: BackgroundRefreshMonitor.Event?) {
 
-        if let event = event, case let .statusDidChange(status) = event {
+        if let event = event,
+            case let .statusDidChange(status) = event {
             backgroundRefreshLabel.text = formatBackgroundRefreshStatus(status)
         } else {
             backgroundRefreshLabel.text = formatBackgroundRefreshStatus(backgroundRefreshMonitor.status)
@@ -125,7 +126,8 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private func displayMemory(_ event: MemoryMonitor.Event?) {
 
-        if let event = event, case .didReceiveWarning = event {
+        if let event = event,
+            case .didReceiveWarning = event {
             memoryCount += 1
         }
 

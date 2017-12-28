@@ -64,11 +64,13 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// Initializes a new base notification monitor.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
-    public init(queue: OperationQueue) {
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue) {
 
-        self.notificationCenter = .`default`
+        self.notificationCenter = notificationCenter
         self.queue = queue
 
     }

@@ -33,17 +33,20 @@ public class TimeMonitor: BaseNotificationMonitor {
     /// Initializes a new `TimeMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when there is a significant change
     ///                 in time.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

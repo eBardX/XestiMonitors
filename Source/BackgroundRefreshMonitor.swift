@@ -35,18 +35,23 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     /// Initializes a new `BackgroundRefreshMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - application
     ///   - handler:    The handler to call when the app’s status for
     ///                 downloading content in the background changes.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
+                application: UIApplication = .shared,
                 handler: @escaping (Event) -> Void) {
 
-        self.application = .shared
+        self.application = application
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 

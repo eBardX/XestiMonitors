@@ -82,17 +82,20 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityElementMonitor`.
     ///
     /// - Parameters:
+    ///   - notificationCenter
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when an assistive technology
     ///                 changes element focus.
     ///
-    public init(queue: OperationQueue = .main,
+    public init(notificationCenter: NotificationCenter = .`default`,
+                queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
 
-        super.init(queue: queue)
+        super.init(notificationCenter: notificationCenter,
+                   queue: queue)
 
     }
 
