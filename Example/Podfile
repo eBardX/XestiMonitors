@@ -9,8 +9,10 @@ target 'XestiMonitors_Example' do
     pod 'SwiftLint',     '~> 0.24.0'
     pod 'XestiMonitors', :path => '../'
 
-    target 'XestiMonitorsTests' do
-        inherit! :search_paths
-    end
+end
+
+target 'XestiMonitorsTests' do
+
+    pod 'XestiMonitors', :path => '../'
 
 end
