@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class BackgroundRefreshMonitorTests: XCTestCase {
+internal class BackgroundRefreshMonitorTests: XCTestCase {
 
     func testExample() {
     }

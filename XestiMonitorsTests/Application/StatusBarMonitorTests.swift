@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class StatusBarMonitorTests: XCTestCase {
+internal class StatusBarMonitorTests: XCTestCase {
 
     func testExample() {
     }

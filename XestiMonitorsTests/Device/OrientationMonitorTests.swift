@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class OrientationMonitorTests: XCTestCase {
+internal class OrientationMonitorTests: XCTestCase {
 
     func testExample() {
     }

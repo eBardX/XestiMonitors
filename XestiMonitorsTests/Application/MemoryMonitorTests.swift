@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class MemoryMonitorTests: XCTestCase {
+internal class MemoryMonitorTests: XCTestCase {
 
     func testExample() {
     }

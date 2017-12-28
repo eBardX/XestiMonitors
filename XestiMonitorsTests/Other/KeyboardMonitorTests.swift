@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class KeyboardMonitorTests: XCTestCase {
+internal class KeyboardMonitorTests: XCTestCase {
 
     func testExample() {
     }

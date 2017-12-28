@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class DeviceMotionMonitorTests: XCTestCase {
+internal class DeviceMotionMonitorTests: XCTestCase {
 
     func testExample() {
     }

@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class GyroscopeMonitorTests: XCTestCase {
+internal class GyroscopeMonitorTests: XCTestCase {
 
     func testExample() {
     }

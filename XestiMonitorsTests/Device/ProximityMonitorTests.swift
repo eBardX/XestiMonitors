@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class ProximityMonitorTests: XCTestCase {
+internal class ProximityMonitorTests: XCTestCase {
 
     func testExample() {
     }

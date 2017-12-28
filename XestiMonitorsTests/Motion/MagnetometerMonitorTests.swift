@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class MagnetometerMonitorTests: XCTestCase {
+internal class MagnetometerMonitorTests: XCTestCase {
 
     func testExample() {
     }

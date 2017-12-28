@@ -38,6 +38,8 @@
 		F5AE20FA1FF448DE001BC279 /* MagnetometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20E41FF448DE001BC279 /* MagnetometerMonitorTests.swift */; };
 		F5AE20FB1FF448DE001BC279 /* MotionActivityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20E51FF448DE001BC279 /* MotionActivityMonitorTests.swift */; };
 		F5AE20FC1FF448DE001BC279 /* PedometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20E61FF448DE001BC279 /* PedometerMonitorTests.swift */; };
+		F5AE20FF1FF459B7001BC279 /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20FD1FF459B7001BC279 /* MockApplication.swift */; };
+		F5AE21001FF459B7001BC279 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */; };
 		F5D5604E1DE3A318009D8E67 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5604C1DE3A318009D8E67 /* MasterViewController.swift */; };
 		F5D560511DE3A323009D8E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D5604F1DE3A323009D8E67 /* LaunchScreen.storyboard */; };
 		F5D560541DE3A61D009D8E67 /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */; };
@@ -93,6 +95,8 @@
 		F5AE20E41FF448DE001BC279 /* MagnetometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetometerMonitorTests.swift; sourceTree = "<group>"; };
 		F5AE20E51FF448DE001BC279 /* MotionActivityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivityMonitorTests.swift; sourceTree = "<group>"; };
 		F5AE20E61FF448DE001BC279 /* PedometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitorTests.swift; sourceTree = "<group>"; };
+		F5AE20FD1FF459B7001BC279 /* MockApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockApplication.swift; sourceTree = "<group>"; };
+		F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
 		F5D560491DE399A7009D8E67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5D5604C1DE3A318009D8E67 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F5D560501DE3A323009D8E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 		F5AE20DE1FF448DE001BC279 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				F5AE20FD1FF459B7001BC279 /* MockApplication.swift */,
+				F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AE20F61FF448DE001BC279 /* AccelerometerMonitorTests.swift in Sources */,
+				F5AE21001FF459B7001BC279 /* MockNotificationCenter.swift in Sources */,
 				F5AE20F01FF448DE001BC279 /* BatteryMonitorTests.swift in Sources */,
 				F5AE20ED1FF448DE001BC279 /* ScreenshotMonitorTests.swift in Sources */,
 				F5AE20F71FF448DE001BC279 /* AltimeterMonitorTests.swift in Sources */,
@@ -554,6 +561,7 @@
 				F5AE20FB1FF448DE001BC279 /* MotionActivityMonitorTests.swift in Sources */,
 				F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */,
 				F5AE20F21FF448DE001BC279 /* ProximityMonitorTests.swift in Sources */,
+				F5AE20FF1FF459B7001BC279 /* MockApplication.swift in Sources */,
 				F5AE20F11FF448DE001BC279 /* OrientationMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-class AccessibilityElementMonitorTests: XCTestCase {
+internal class AccessibilityElementMonitorTests: XCTestCase {
 
     func testExample() {
     }
