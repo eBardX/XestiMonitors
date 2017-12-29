@@ -13,7 +13,7 @@ import XCTest
 
 internal class TimeMonitorTests: XCTestCase {
 
-    let application = UIApplication.shared  // MockApplication()
+    let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_significantChange() {

@@ -44,7 +44,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     ///
     public init(notificationCenter: NotificationCenter = .`default`,
                 queue: OperationQueue = .main,
-                application: UIApplication = .shared,
+                application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {
 
         self.application = application
@@ -65,7 +65,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     // Private Instance Properties
 
-    private let application: UIApplication
+    private let application: Application
     private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods

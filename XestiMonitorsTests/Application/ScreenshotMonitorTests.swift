@@ -13,7 +13,7 @@ import XCTest
 
 internal class ScreenshotMonitorTests: XCTestCase {
 
-    let application = UIApplication.shared  // MockApplication()
+    let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_userDidTake() {

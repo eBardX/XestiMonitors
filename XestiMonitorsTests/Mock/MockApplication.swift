@@ -8,44 +8,25 @@
 //
 
 import UIKit
+@testable import XestiMonitors
 
-internal class MockApplication: UIApplication {
+internal class MockApplication: Application {
 
     init(applicationState: UIApplicationState = .active,
-         backgroundRefreshStatus: UIBackgroundRefreshStatus = .available,
+         backgroundRefreshStatus: UIBackgroundRefreshStatus = .restricted,
          statusBarFrame: CGRect = .zero,
          statusBarOrientation: UIInterfaceOrientation = .unknown) {
 
-        self.mockApplicationState = applicationState
-        self.mockBackgroundRefreshStatus = backgroundRefreshStatus
-        self.mockStatusBarFrame = statusBarFrame
-        self.mockStatusBarOrientation = statusBarOrientation
+        self.applicationState = applicationState
+        self.backgroundRefreshStatus = backgroundRefreshStatus
+        self.statusBarFrame = statusBarFrame
+        self.statusBarOrientation = statusBarOrientation
 
     }
 
-    private var mockApplicationState: UIApplicationState
-    private var mockBackgroundRefreshStatus: UIBackgroundRefreshStatus
-    private var mockStatusBarFrame: CGRect
-    private var mockStatusBarOrientation: UIInterfaceOrientation
-
-    override var applicationState: UIApplicationState {
-        get { return mockApplicationState }
-        set { mockApplicationState = newValue }
-    }
-
-    override var backgroundRefreshStatus: UIBackgroundRefreshStatus {
-        get { return mockBackgroundRefreshStatus }
-        set { mockBackgroundRefreshStatus = newValue }
-    }
-
-    override var statusBarFrame: CGRect {
-        get { return mockStatusBarFrame }
-        set { mockStatusBarFrame = newValue }
-    }
-
-    override var statusBarOrientation: UIInterfaceOrientation {
-        get { return mockStatusBarOrientation }
-        set { mockStatusBarOrientation = newValue }
-    }
+    var applicationState: UIApplicationState
+    var backgroundRefreshStatus: UIBackgroundRefreshStatus
+    var statusBarFrame: CGRect
+    var statusBarOrientation: UIInterfaceOrientation
 
 }

@@ -13,19 +13,21 @@ import XCTest
 
 internal class BackgroundRefreshMonitorTests: XCTestCase {
 
-    let application = UIApplication.shared  // MockApplication()
+    let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
 
-        //application.backgroundRefreshStatus = .available
+        super.setUp()
+
+        application.backgroundRefreshStatus = .restricted
 
     }
 
     func testMonitor_statusDidChange() {
 
         let expectation = self.expectation(description: "Handler called")
-        let expectedStatus: UIBackgroundRefreshStatus = .denied
+        let expectedStatus: UIBackgroundRefreshStatus = .available
         var expectedEvent: BackgroundRefreshMonitor.Event?
         let monitor = BackgroundRefreshMonitor(notificationCenter: notificationCenter,
                                                queue: .main,
@@ -50,7 +52,7 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
 
     private func simulateStatusDidChange(to status: UIBackgroundRefreshStatus) {
 
-        //application.backgroundRefreshStatus = status
+        application.backgroundRefreshStatus = status
 
         notificationCenter.post(name: .UIApplicationBackgroundRefreshStatusDidChange,
                                 object: application)
