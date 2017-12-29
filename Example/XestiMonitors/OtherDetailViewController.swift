@@ -107,7 +107,8 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
 
     private func displayReachability(_ event: ReachabilityMonitor.Event?) {
 
-        if let event = event, case let .statusDidChange(status) = event {
+        if let event = event,
+            case let .statusDidChange(status) = event {
 
             switch status {
 

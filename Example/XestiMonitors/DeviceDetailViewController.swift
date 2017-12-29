@@ -67,7 +67,8 @@ public class DeviceDetailViewController: UITableViewController {
 
     private func displayOrientation(_ event: OrientationMonitor.Event?) {
 
-        if let event = event, case let .didChange(orientation) = event {
+        if let event = event,
+            case let .didChange(orientation) = event {
             orientationLabel.text = formatDeviceOrientation(orientation)
         } else {
             orientationLabel.text = formatDeviceOrientation(orientationMonitor.orientation)
@@ -79,7 +80,8 @@ public class DeviceDetailViewController: UITableViewController {
 
         if !proximityMonitor.isAvailable {
             proximityLabel.text = formatDeviceProximityState(nil)
-        } else if let event = event, case let .stateDidChange(state) = event {
+        } else if let event = event,
+            case let .stateDidChange(state) = event {
             proximityLabel.text = formatDeviceProximityState(state)
         } else {
             proximityLabel.text = formatDeviceProximityState(proximityMonitor.state)

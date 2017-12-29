@@ -63,7 +63,22 @@ internal class MockNotificationCenter: NotificationCenter {
 
     override func post(_ notification: Notification) {
 
-        fatalError("Not implemented")
+        guard
+            let observer = observers[notification.name.rawValue]
+            else { fatalError("No observer registered for name") }
+
+        if let filter = observer.object as AnyObject? {
+            guard
+                let object = notification.object as AnyObject?,
+                filter === object
+                else { return }
+        }
+
+        if let queue = observer.queue {
+            queue.addOperation { observer.block(notification) }
+        } else {
+            observer.block(notification)
+        }
 
     }
 
@@ -80,26 +95,9 @@ internal class MockNotificationCenter: NotificationCenter {
                        object: Any?,
                        userInfo: [AnyHashable: Any]? = nil) {
 
-        guard
-            let observer = observers[name.rawValue]
-            else { fatalError("No observer registered for name") }
-
-        if let filter = observer.object as AnyObject? {
-            guard
-                let object = object as AnyObject?,
-                filter === object
-                else { return }
-        }
-
-        let notification = Notification(name: name,
-                                        object: object,
-                                        userInfo: userInfo)
-
-        if let queue = observer.queue {
-            queue.addOperation { observer.block(notification) }
-        } else {
-            observer.block(notification)
-        }
+        post (Notification(name: name,
+                           object: object,
+                           userInfo: userInfo))
 
     }
 

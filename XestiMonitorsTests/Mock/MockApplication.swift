@@ -14,7 +14,7 @@ internal class MockApplication: UIApplication {
     init(applicationState: UIApplicationState = .active,
          backgroundRefreshStatus: UIBackgroundRefreshStatus = .available,
          statusBarFrame: CGRect = .zero,
-         statusBarOrientation: UIInterfaceOrientation = .portrait) {
+         statusBarOrientation: UIInterfaceOrientation = .unknown) {
 
         self.mockApplicationState = applicationState
         self.mockBackgroundRefreshStatus = backgroundRefreshStatus
@@ -25,8 +25,8 @@ internal class MockApplication: UIApplication {
 
     private var mockApplicationState: UIApplicationState
     private var mockBackgroundRefreshStatus: UIBackgroundRefreshStatus
-    private var mockStatusBarFrame: CGRect = .zero
-    private var mockStatusBarOrientation: UIInterfaceOrientation = .portrait
+    private var mockStatusBarFrame: CGRect
+    private var mockStatusBarOrientation: UIInterfaceOrientation
 
     override var applicationState: UIApplicationState {
         get { return mockApplicationState }

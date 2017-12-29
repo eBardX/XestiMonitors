@@ -107,7 +107,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayAccelerometer(_ event: AccelerometerMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayAccelerometer(info)
         } else {
             displayAccelerometer(.unknown)
@@ -148,7 +149,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayAltimeter(_ event: AltimeterMonitor.Event?) {
 
-        if let event = event, case let .didChange(info) = event {
+        if let event = event,
+            case let .didChange(info) = event {
             displayAltimeter(info)
         } else {
             displayAltimeter(.unknown)
@@ -183,7 +185,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayDeviceMotion(_ event: DeviceMotionMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayDeviceMotion(info)
         } else {
             displayDeviceMotion(.unknown)
@@ -242,7 +245,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayGyroscope(_ event: GyroscopeMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayGyroscope(info)
         } else {
             displayGyroscope(.unknown)
@@ -277,7 +281,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayMagnetometer(_ event: MagnetometerMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayMagnetometer(info)
         } else {
             displayMagnetometer(.unknown)
@@ -312,7 +317,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayMotionActivity(_ event: MotionActivityMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayMotionActivity(info)
         } else {
             displayMotionActivity(.unknown)
@@ -392,7 +398,8 @@ public class MotionDetailViewController: UITableViewController {
 
     private func displayPedometer(_ event: PedometerMonitor.Event?) {
 
-        if let event = event, case let .didUpdate(info) = event {
+        if let event = event,
+            case let .didUpdate(info) = event {
             displayPedometer(info)
         } else {
             displayPedometer(.unknown)

@@ -5,22 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEE92BFCE9B70A448F7D86A6981F52FE"
-               BuildableName = "XestiMonitors.framework"
-               BlueprintName = "XestiMonitors"
-               ReferencedContainer = "container:Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -34,20 +18,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "XestiMonitors_Tests.xctest"
-               BlueprintName = "XestiMonitors_Tests"
-               ReferencedContainer = "container:../XestiMonitors.xcodeproj">
+               BlueprintIdentifier = "F5AE20BD1FF43C39001BC279"
+               BuildableName = "XestiMonitorsTests.xctest"
+               BlueprintName = "XestiMonitorsTests"
+               ReferencedContainer = "container:XestiMonitors.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEE92BFCE9B70A448F7D86A6981F52FE"
-            BuildableName = "XestiMonitors.framework"
-            BlueprintName = "XestiMonitors"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BuildableName = "XestiMonitors_Example.app"
+            BlueprintName = "XestiMonitors_Example"
+            ReferencedContainer = "container:XestiMonitors.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,15 +48,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEE92BFCE9B70A448F7D86A6981F52FE"
-            BuildableName = "XestiMonitors.framework"
-            BlueprintName = "XestiMonitors"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -82,15 +57,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEE92BFCE9B70A448F7D86A6981F52FE"
-            BuildableName = "XestiMonitors.framework"
-            BlueprintName = "XestiMonitors"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -13,35 +13,36 @@ import XCTest
 
 internal class MemoryMonitorTests: XCTestCase {
 
+    let application = UIApplication.shared  // MockApplication()
     let notificationCenter = MockNotificationCenter()
 
-    func testBasic() {
+    func testMonitor_didReceiveWarning() {
 
-        let expect = expectation(description: "Handler called on main thread")
-        var outEvent: MemoryMonitor.Event?
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: MemoryMonitor.Event?
         let monitor = MemoryMonitor(notificationCenter: notificationCenter,
                                     queue: .main) { event in
-                                        outEvent = event
-                                        expect.fulfill()
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
-        XCTAssertTrue(monitor.startMonitoring())
-
-        defer { monitor.stopMonitoring() }
-
+        monitor.startMonitoring()
         simulateDidReceiveMemoryWarning()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
 
-        wait(for: [expect],
-             timeout: 1.0)
-
-        XCTAssertEqual(outEvent, .some(.didReceiveWarning))
+        if let event = expectedEvent {
+            XCTAssertEqual(event, .didReceiveWarning)
+        } else {
+            XCTFail("Unexpected event")
+        }
 
     }
 
     private func simulateDidReceiveMemoryWarning() {
 
         notificationCenter.post(name: .UIApplicationDidReceiveMemoryWarning,
-                                object: nil)
+                                object: application)
 
     }
 

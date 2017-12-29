@@ -63,7 +63,8 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
 
-        if let event = event, case let .didFinish(info) = event {
+        if let event = event,
+            case let .didFinish(info) = event {
 
             announcementStringValueLabel.text = info.stringValue
 
@@ -81,7 +82,8 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
 
-        if let event = event, case let .didFocus(info) = event {
+        if let event = event,
+            case let .didFocus(info) = event {
 
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatAccessibilityElement(element)

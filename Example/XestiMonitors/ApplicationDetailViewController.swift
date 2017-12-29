@@ -159,7 +159,8 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private func displayScreenshot(_ event: ScreenshotMonitor.Event?) {
 
-        if let event = event, case .userDidTake = event {
+        if let event = event,
+            case .userDidTake = event {
             screenshotCount += 1
         }
 
@@ -217,7 +218,8 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private func displayTime(_ event: TimeMonitor.Event?) {
 
-        if let event = event, case .significantChange = event {
+        if let event = event,
+            case .significantChange = event {
             timeCount += 1
         }
 
