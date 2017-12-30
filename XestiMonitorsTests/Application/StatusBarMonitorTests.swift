@@ -116,7 +116,7 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     }
 
-    func testMonitor_willChangeFrame_useBadValue() {
+    func testMonitor_willChangeFrame_badUserInfo() {
 
         let expectation = self.expectation(description: "Handler called")
         let expectedFrame = CGRect(x: 4, y: 3, width: 2, height: 1)
@@ -130,7 +130,7 @@ internal class StatusBarMonitorTests: XCTestCase {
 
         monitor.startMonitoring()
         simulateWillChangeFrame(to: expectedFrame,
-                                useBadValue: true)
+                                badUserInfo: true)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -169,7 +169,7 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     }
 
-    func testMonitor_willChangeOrientation_useBadValue() {
+    func testMonitor_willChangeOrientation_badUserInfo() {
 
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
@@ -183,7 +183,7 @@ internal class StatusBarMonitorTests: XCTestCase {
 
         monitor.startMonitoring()
         simulateWillChangeOrientation(to: expectedOrientation,
-                                      useBadValue: true)
+                                      badUserInfo: true)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -230,36 +230,36 @@ internal class StatusBarMonitorTests: XCTestCase {
     }
 
     private func simulateWillChangeFrame(to frame: CGRect,
-                                         useBadValue: Bool = false) {
+                                         badUserInfo: Bool = false) {
 
-        let value: Any
+        let userInfo: [AnyHashable: Any]?
 
-        if useBadValue {
-            value = "bogus"
+        if badUserInfo {
+            userInfo = nil
         } else {
-            value = NSValue(cgRect: frame)
+            userInfo = [UIApplicationStatusBarFrameUserInfoKey: NSValue(cgRect: frame)]
         }
 
         notificationCenter.post(name: .UIApplicationWillChangeStatusBarFrame,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarFrameUserInfoKey: value])
+                                userInfo: userInfo)
 
     }
 
     private func simulateWillChangeOrientation(to orientation: UIInterfaceOrientation,
-                                               useBadValue: Bool = false) {
+                                               badUserInfo: Bool = false) {
 
-        let value: Any
+        let userInfo: [AnyHashable: Any]?
 
-        if useBadValue {
-            value = "bogus"
+        if badUserInfo {
+            userInfo = nil
         } else {
-            value = NSNumber(value: orientation.rawValue)
+            userInfo = [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)]
         }
 
         notificationCenter.post(name: .UIApplicationWillChangeStatusBarOrientation,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarOrientationUserInfoKey: value])
+                                userInfo: userInfo)
 
     }
 
