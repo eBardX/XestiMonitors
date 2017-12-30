@@ -9,7 +9,7 @@
 
 import UIKit
 
-public protocol Application {
+public protocol Application: class {
 
     var applicationState: UIApplicationState { get }
 

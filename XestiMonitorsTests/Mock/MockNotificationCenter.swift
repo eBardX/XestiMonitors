@@ -65,7 +65,7 @@ internal class MockNotificationCenter: NotificationCenter {
 
         guard
             let observer = observers[notification.name.rawValue]
-            else { fatalError("No observer registered for name") }
+            else { return }
 
         if let filter = observer.object as AnyObject? {
             guard
@@ -105,7 +105,7 @@ internal class MockNotificationCenter: NotificationCenter {
 
         guard
             let name = observer as? String
-            else { fatalError("Bad observer") }
+            else { return }
 
         observers[name] = nil
 

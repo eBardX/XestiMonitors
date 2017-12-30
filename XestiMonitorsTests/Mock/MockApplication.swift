@@ -12,15 +12,12 @@ import UIKit
 
 internal class MockApplication: Application {
 
-    init(applicationState: UIApplicationState = .active,
-         backgroundRefreshStatus: UIBackgroundRefreshStatus = .restricted,
-         statusBarFrame: CGRect = .zero,
-         statusBarOrientation: UIInterfaceOrientation = .unknown) {
+    init() {
 
-        self.applicationState = applicationState
-        self.backgroundRefreshStatus = backgroundRefreshStatus
-        self.statusBarFrame = statusBarFrame
-        self.statusBarOrientation = statusBarOrientation
+        self.applicationState = .active
+        self.backgroundRefreshStatus = .restricted
+        self.statusBarFrame = .zero
+        self.statusBarOrientation = .unknown
 
     }
 

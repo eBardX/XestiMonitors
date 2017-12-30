@@ -15,6 +15,7 @@
 		A8B2B8764690709C402FC76D /* Pods_XestiMonitorsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ED948741804FBA762BFFFC /* Pods_XestiMonitorsTests.framework */; };
 		F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */; };
 		F57BCEF11E09A6C30014D3E1 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57BCEF01E09A6C30014D3E1 /* Formatters.swift */; };
+		F5A3CAD91FF7D4D6002625CB /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */; };
 		F5AE20E71FF448DE001BC279 /* KeyboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */; };
 		F5AE20E81FF448DE001BC279 /* ReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CD1FF448DE001BC279 /* ReachabilityMonitorTests.swift */; };
 		F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CF1FF448DE001BC279 /* ApplicationStateMonitorTests.swift */; };
@@ -70,6 +71,7 @@
 		F5962E6B1DF8643900CFC142 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
 		F5962E6D1DF8643900CFC142 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		F5962E6E1DF8643900CFC142 /* generate-docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "generate-docs.sh"; path = "../generate-docs.sh"; sourceTree = "<group>"; };
+		F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDevice.swift; sourceTree = "<group>"; };
 		F5AE20BE1FF43C39001BC279 /* XestiMonitorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XestiMonitorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5AE20C71FF43CB1001BC279 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitorTests.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				F5AE20FD1FF459B7001BC279 /* MockApplication.swift */,
+				F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */,
 				F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */,
 			);
 			path = Mock;
@@ -544,6 +547,7 @@
 				F5AE21001FF459B7001BC279 /* MockNotificationCenter.swift in Sources */,
 				F5AE20F01FF448DE001BC279 /* BatteryMonitorTests.swift in Sources */,
 				F5AE20ED1FF448DE001BC279 /* ScreenshotMonitorTests.swift in Sources */,
+				F5A3CAD91FF7D4D6002625CB /* MockDevice.swift in Sources */,
 				F5AE20F71FF448DE001BC279 /* AltimeterMonitorTests.swift in Sources */,
 				F5AE20EA1FF448DE001BC279 /* BackgroundRefreshMonitorTests.swift in Sources */,
 				F5AE20EE1FF448DE001BC279 /* StatusBarMonitorTests.swift in Sources */,

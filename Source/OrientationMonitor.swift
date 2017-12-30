@@ -43,7 +43,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
     ///
     public init(notificationCenter: NotificationCenter = .`default`,
                 queue: OperationQueue = .main,
-                device: UIDevice = .current,
+                device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {
 
         self.device = device
@@ -63,7 +63,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     // Private Instance Properties
 
-    private let device: UIDevice
+    private let device: Device
     private let handler: (Event) -> Void
 
     // Overridden BaseNotificationMonitor Instance Methods
