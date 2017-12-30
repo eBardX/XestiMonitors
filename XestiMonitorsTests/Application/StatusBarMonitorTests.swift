@@ -16,6 +16,28 @@ internal class StatusBarMonitorTests: XCTestCase {
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
+    override func setUp() {
+
+        super.setUp()
+
+        application.statusBarFrame = .zero
+        application.statusBarOrientation = .unknown
+
+    }
+
+    func testFrame() {
+
+        let expectedFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let monitor = StatusBarMonitor(notificationCenter: notificationCenter,
+                                       queue: .main,
+                                       application: application) { _ in }
+
+        simulateDidChangeFrame(to: expectedFrame)
+
+        XCTAssertEqual(monitor.frame, expectedFrame)
+
+    }
+
     func testMonitor_didChangeFrame() {
 
         let expectation = self.expectation(description: "Handler called")
@@ -94,6 +116,33 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     }
 
+    func testMonitor_willChangeFrame_useBadValue() {
+
+        let expectation = self.expectation(description: "Handler called")
+        let expectedFrame = CGRect(x: 4, y: 3, width: 2, height: 1)
+        var expectedEvent: StatusBarMonitor.Event?
+        let monitor = StatusBarMonitor(notificationCenter: notificationCenter,
+                                       queue: .main,
+                                       application: application) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateWillChangeFrame(to: expectedFrame,
+                                useBadValue: true)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .willChangeFrame(frame) = event {
+            XCTAssertNotEqual(frame, expectedFrame)
+        } else {
+            XCTFail("Unexpected event")
+        }
+
+    }
+
     func testMonitor_willChangeOrientation() {
 
         let expectation = self.expectation(description: "Handler called")
@@ -120,7 +169,49 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     }
 
+    func testMonitor_willChangeOrientation_useBadValue() {
+
+        let expectation = self.expectation(description: "Handler called")
+        let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
+        var expectedEvent: StatusBarMonitor.Event?
+        let monitor = StatusBarMonitor(notificationCenter: notificationCenter,
+                                       queue: .main,
+                                       application: application) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateWillChangeOrientation(to: expectedOrientation,
+                                      useBadValue: true)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .willChangeOrientation(orientation) = event {
+            XCTAssertNotEqual(orientation, expectedOrientation)
+        } else {
+            XCTFail("Unexpected event")
+        }
+
+    }
+
+    func testOrientation() {
+
+        let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
+        let monitor = StatusBarMonitor(notificationCenter: notificationCenter,
+                                       queue: .main,
+                                       application: application) { _ in }
+
+        simulateDidChangeOrientation(to: expectedOrientation)
+
+        XCTAssertEqual(monitor.orientation, expectedOrientation)
+
+    }
+
     private func simulateDidChangeFrame(to frame: CGRect) {
+
+        application.statusBarFrame = frame
 
         notificationCenter.post(name: .UIApplicationDidChangeStatusBarFrame,
                                 object: application,
@@ -130,25 +221,45 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     private func simulateDidChangeOrientation(to orientation: UIInterfaceOrientation) {
 
+        application.statusBarOrientation = orientation
+
         notificationCenter.post(name: .UIApplicationDidChangeStatusBarOrientation,
                                 object: application,
                                 userInfo: [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)])
 
     }
 
-    private func simulateWillChangeFrame(to frame: CGRect) {
+    private func simulateWillChangeFrame(to frame: CGRect,
+                                         useBadValue: Bool = false) {
+
+        let value: Any
+
+        if useBadValue {
+            value = "bogus"
+        } else {
+            value = NSValue(cgRect: frame)
+        }
 
         notificationCenter.post(name: .UIApplicationWillChangeStatusBarFrame,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarFrameUserInfoKey: NSValue(cgRect: frame)])
+                                userInfo: [UIApplicationStatusBarFrameUserInfoKey: value])
 
     }
 
-    private func simulateWillChangeOrientation(to orientation: UIInterfaceOrientation) {
+    private func simulateWillChangeOrientation(to orientation: UIInterfaceOrientation,
+                                               useBadValue: Bool = false) {
+
+        let value: Any
+
+        if useBadValue {
+            value = "bogus"
+        } else {
+            value = NSNumber(value: orientation.rawValue)
+        }
 
         notificationCenter.post(name: .UIApplicationWillChangeStatusBarOrientation,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)])
+                                userInfo: [UIApplicationStatusBarOrientationUserInfoKey: value])
 
     }
 

@@ -16,6 +16,14 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
+    override func setUp() {
+
+        super.setUp()
+
+        application.applicationState = .inactive
+
+    }
+
     func testMonitor_didBecomeActive() {
 
         let expectation = self.expectation(description: "Handler called")
@@ -161,7 +169,22 @@ internal class ApplicationStateMonitorTests: XCTestCase {
 
     }
 
+    func testState() {
+
+        let expectedState: UIApplicationState = .background
+        let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
+                                              queue: .main,
+                                              application: application) { _ in }
+
+        simulateDidEnterBackground()
+
+        XCTAssertEqual(monitor.state, expectedState)
+
+    }
+
     private func simulateDidBecomeActive() {
+
+        application.applicationState = .active
 
         notificationCenter.post(name: .UIApplicationDidBecomeActive,
                                 object: application)
@@ -169,6 +192,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     }
 
     private func simulateDidEnterBackground() {
+
+        application.applicationState = .background
 
         notificationCenter.post(name: .UIApplicationDidEnterBackground,
                                 object: application)

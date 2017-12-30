@@ -50,6 +50,19 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
 
     }
 
+    func testStatus() {
+
+        let expectedStatus: UIBackgroundRefreshStatus = .denied
+        let monitor = BackgroundRefreshMonitor(notificationCenter: notificationCenter,
+                                               queue: .main,
+                                               application: application) { _ in }
+
+        simulateStatusDidChange(to: expectedStatus)
+
+        XCTAssertEqual(monitor.status, expectedStatus)
+
+    }
+
     private func simulateStatusDidChange(to status: UIBackgroundRefreshStatus) {
 
         application.backgroundRefreshStatus = status

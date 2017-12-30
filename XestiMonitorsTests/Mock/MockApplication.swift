@@ -14,7 +14,7 @@ internal class MockApplication: Application {
 
     init() {
 
-        self.applicationState = .active
+        self.applicationState = .inactive
         self.backgroundRefreshStatus = .restricted
         self.statusBarFrame = .zero
         self.statusBarOrientation = .unknown
