@@ -63,14 +63,16 @@ public class PedometerMonitor: BaseMonitor {
     /// Initializes a new `PedometerMonitor`.
     ///
     /// - Parameters:
+    ///   - pedometer
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when ...
     ///
-    public init(queue: OperationQueue,
+    public init(pedometer: Pedometer = CMPedometer(),
+                queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
-        self.pedometer = CMPedometer()
+        self.pedometer = pedometer
         self.queue = queue
 
     }
@@ -84,7 +86,7 @@ public class PedometerMonitor: BaseMonitor {
     public var isCadenceAvailable: Bool {
 
         if #available(iOS 9.0, *) {
-            return CMPedometer.isCadenceAvailable()
+            return type(of: pedometer).isCadenceAvailable()
         } else {
             return false
         }
@@ -97,7 +99,7 @@ public class PedometerMonitor: BaseMonitor {
     ///
     public var isDistanceAvailable: Bool {
 
-        return CMPedometer.isDistanceAvailable()
+        return type(of: pedometer).isDistanceAvailable()
 
     }
 
@@ -107,7 +109,7 @@ public class PedometerMonitor: BaseMonitor {
     ///
     public var isFloorCountingAvailable: Bool {
 
-        return CMPedometer.isFloorCountingAvailable()
+        return type(of: pedometer).isFloorCountingAvailable()
 
     }
 
@@ -118,7 +120,7 @@ public class PedometerMonitor: BaseMonitor {
     public var isPaceAvailable: Bool {
 
         if #available(iOS 9.0, *) {
-            return CMPedometer.isPaceAvailable()
+            return type(of: pedometer).isPaceAvailable()
         } else {
             return false
         }
@@ -131,7 +133,7 @@ public class PedometerMonitor: BaseMonitor {
     ///
     public var isStepCountingAvailable: Bool {
 
-        return CMPedometer.isStepCountingAvailable()
+        return type(of: pedometer).isStepCountingAvailable()
 
     }
 
@@ -166,7 +168,7 @@ public class PedometerMonitor: BaseMonitor {
     // Private Instance Properties
 
     private let handler: (Event) -> Void
-    private let pedometer: CMPedometer
+    private let pedometer: Pedometer
     private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods

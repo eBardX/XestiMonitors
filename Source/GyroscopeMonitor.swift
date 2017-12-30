@@ -70,7 +70,7 @@ public class GyroscopeMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new
     ///                     rotation rate measurement is available.
     ///
-    public init(motionManager: CMMotionManager = .shared,
+    public init(motionManager: MotionManager = CMMotionManager.shared,
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
@@ -111,7 +111,7 @@ public class GyroscopeMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let motionManager: MotionManager
     private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods

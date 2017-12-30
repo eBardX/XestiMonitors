@@ -71,7 +71,7 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new device
     ///                     motion measurement is available.
     ///
-    public init(motionManager: CMMotionManager = .shared,
+    public init(motionManager: MotionManager = CMMotionManager.shared,
                 queue: OperationQueue,
                 interval: TimeInterval,
                 using referenceFrame: CMAttitudeReferenceFrame,
@@ -114,7 +114,7 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let motionManager: MotionManager
     private let queue: OperationQueue
     private let referenceFrame: CMAttitudeReferenceFrame
 
@@ -138,7 +138,7 @@ public class DeviceMotionMonitor: BaseMonitor {
             super.configureMonitor()
             else { return false }
 
-        motionManager.accelerometerUpdateInterval = interval
+        motionManager.deviceMotionUpdateInterval = interval
 
         motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
                                                to: queue) { [unowned self] data, error in

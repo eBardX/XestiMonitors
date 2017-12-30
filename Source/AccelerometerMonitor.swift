@@ -70,7 +70,7 @@ public class AccelerometerMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new
     ///                     acceleration measurement is available.
     ///
-    public init(motionManager: CMMotionManager = .shared,
+    public init(motionManager: MotionManager = CMMotionManager.shared,
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
@@ -107,7 +107,7 @@ public class AccelerometerMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let motionManager: MotionManager
     private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods

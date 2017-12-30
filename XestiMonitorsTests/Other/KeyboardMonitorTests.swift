@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
+// swiftlint:disable type_body_length
+
 internal class KeyboardMonitorTests: XCTestCase {
 
     let notificationCenter = MockNotificationCenter()

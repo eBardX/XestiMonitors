@@ -79,17 +79,19 @@ public class MotionActivityMonitor: BaseMonitor {
     /// Initializes a new `MotionActivityMonitor`.
     ///
     /// - Parameters:
+    ///   - motionActivityManager
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when a change in the current type
     ///                 of motion is detected.
     ///                 - OR -
     ///                 The block to execute with the results.
     ///
-    public init(queue: OperationQueue,
+    public init(motionActivityManager: MotionActivityManager = CMMotionActivityManager(),
+                queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
 
         self.handler = handler
-        self.manager = CMMotionActivityManager()
+        self.motionActivityManager = motionActivityManager
         self.queue = queue
 
     }
@@ -102,7 +104,7 @@ public class MotionActivityMonitor: BaseMonitor {
     ///
     public var isAvailable: Bool {
 
-        return CMMotionActivityManager.isActivityAvailable()
+        return type(of: motionActivityManager).isActivityAvailable()
 
     }
 
@@ -119,21 +121,21 @@ public class MotionActivityMonitor: BaseMonitor {
     public func query(from start: Date,
                       to end: Date) {
 
-        manager.queryActivityStarting(from: start,
-                                      to: end,
-                                      to: queue) { [unowned self] activities, error in
+        motionActivityManager.queryActivityStarting(from: start,
+                                                    to: end,
+                                                    to: queue) { [unowned self] activities, error in
 
-                                        var info: Info
+                                                        var info: Info
 
-                                        if let error = error {
-                                            info = .error(error)
-                                        } else if let activities = activities {
-                                            info = .activities(activities)
-                                        } else {
-                                            info = .unknown
-                                        }
+                                                        if let error = error {
+                                                            info = .error(error)
+                                                        } else if let activities = activities {
+                                                            info = .activities(activities)
+                                                        } else {
+                                                            info = .unknown
+                                                        }
 
-                                        self.handler(.didQuery(info))
+                                                        self.handler(.didQuery(info))
 
         }
 
@@ -142,14 +144,14 @@ public class MotionActivityMonitor: BaseMonitor {
     // Private Instance Properties
 
     private let handler: (Event) -> Void
-    private let manager: CMMotionActivityManager
+    private let motionActivityManager: MotionActivityManager
     private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods
 
     public override final func cleanupMonitor() -> Bool {
 
-        manager.stopActivityUpdates()
+        motionActivityManager.stopActivityUpdates()
 
         return super.cleanupMonitor()
 
@@ -161,7 +163,7 @@ public class MotionActivityMonitor: BaseMonitor {
             super.configureMonitor()
             else { return false }
 
-        manager.startActivityUpdates(to: queue) { [unowned self] activity in
+        motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
 
             var info: Info
 

@@ -71,7 +71,7 @@ public class MagnetometerMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new
     ///                     magnetic field measurement is available.
     ///
-    public init(motionManager: CMMotionManager = .shared,
+    public init(motionManager: MotionManager = CMMotionManager.shared,
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
@@ -112,7 +112,7 @@ public class MagnetometerMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: CMMotionManager
+    private let motionManager: MotionManager
     private let queue: OperationQueue
 
     // Overridden BaseMonitor Instance Methods

@@ -9,6 +9,65 @@
 
 import CoreMotion
 
+public protocol MotionManager: class {
+
+    var accelerometerData: CMAccelerometerData? { get }
+
+    var accelerometerUpdateInterval: TimeInterval { get set }
+
+    var deviceMotion: CMDeviceMotion? { get }
+
+    var deviceMotionUpdateInterval: TimeInterval { get set }
+
+    var gyroData: CMGyroData? { get }
+
+    var gyroUpdateInterval: TimeInterval { get set }
+
+    var isAccelerometerActive: Bool { get }
+
+    var isAccelerometerAvailable: Bool { get }
+
+    var isDeviceMotionActive: Bool { get }
+
+    var isDeviceMotionAvailable: Bool { get }
+
+    var isGyroActive: Bool { get }
+
+    var isGyroAvailable: Bool { get }
+
+    var isMagnetometerActive: Bool { get }
+
+    var isMagnetometerAvailable: Bool { get }
+
+    var magnetometerData: CMMagnetometerData? { get }
+
+    var magnetometerUpdateInterval: TimeInterval { get set }
+
+    func startAccelerometerUpdates(to queue: OperationQueue,
+                                   withHandler handler: @escaping CMAccelerometerHandler)
+
+    func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame,
+                                  to queue: OperationQueue,
+                                  withHandler handler: @escaping CMDeviceMotionHandler)
+
+    func startGyroUpdates(to queue: OperationQueue,
+                          withHandler handler: @escaping CMGyroHandler)
+
+    func startMagnetometerUpdates(to queue: OperationQueue,
+                                  withHandler handler: @escaping CMMagnetometerHandler)
+
+    func stopAccelerometerUpdates()
+
+    func stopDeviceMotionUpdates()
+
+    func stopGyroUpdates()
+
+    func stopMagnetometerUpdates()
+
+}
+
+extension CMMotionManager: MotionManager {}
+
 public extension CMMotionManager {
 
     ///

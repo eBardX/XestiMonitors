@@ -57,14 +57,16 @@ public class AltimeterMonitor: BaseMonitor {
     /// Initializes a new `AltimeterMonitor`.
     ///
     /// - Parameters:
+    ///   - altimeter
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when new altitude data is
     ///                 available.
     ///
-    public init(queue: OperationQueue,
+    public init(altimeter: Altimeter = CMAltimeter(),
+                queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
 
-        self.altimeter = CMAltimeter()
+        self.altimeter = altimeter
         self.handler = handler
         self.queue = queue
 
@@ -78,13 +80,13 @@ public class AltimeterMonitor: BaseMonitor {
     ///
     public var isAvailable: Bool {
 
-        return CMAltimeter.isRelativeAltitudeAvailable()
+        return type(of: altimeter).isRelativeAltitudeAvailable()
 
     }
 
     // Private Instance Properties
 
-    private let altimeter: CMAltimeter
+    private let altimeter: Altimeter
     private let handler: (Event) -> Void
     private let queue: OperationQueue
 
