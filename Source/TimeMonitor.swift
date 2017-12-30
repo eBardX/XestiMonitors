@@ -56,17 +56,13 @@ public class TimeMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationSignificantTimeChange) { [unowned self] _ in
             self.handler(.significantChange)
         }
-
-        return true
 
     }
 

@@ -58,17 +58,13 @@ public class MemoryMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationDidReceiveMemoryWarning) { [unowned self] _ in
             self.handler(.didReceiveWarning)
         }
-
-        return true
 
     }
 

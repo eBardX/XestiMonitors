@@ -95,17 +95,13 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in
             self.handler(.didFinish(Info($0)))
         }
-
-        return true
 
     }
 

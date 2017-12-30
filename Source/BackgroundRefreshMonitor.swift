@@ -61,7 +61,9 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     /// Whether the app can be launched into the background to handle
     /// background behaviors.
     ///
-    public var status: UIBackgroundRefreshStatus { return application.backgroundRefreshStatus }
+    public var status: UIBackgroundRefreshStatus {
+        return application.backgroundRefreshStatus
+    }
 
     // Private Instance Properties
 
@@ -70,17 +72,13 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationBackgroundRefreshStatusDidChange) { [unowned self] _ in
             self.handler(.statusDidChange(self.status))
         }
-
-        return true
 
     }
 

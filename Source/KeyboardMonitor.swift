@@ -169,11 +169,9 @@ public class KeyboardMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIKeyboardDidChangeFrame) { [unowned self] in
             self.handler(.didChangeFrame(Info($0)))
@@ -198,8 +196,6 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         observe(.UIKeyboardWillShow) { [unowned self] in
             self.handler(.willShow(Info($0)))
         }
-
-        return true
 
     }
 

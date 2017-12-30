@@ -88,13 +88,11 @@ public class AccelerometerMonitor: BaseMonitor {
     /// The latest acceleration measurement available.
     ///
     public var info: Info {
-
         if let data = motionManager.accelerometerData {
             return .data(data)
         } else {
             return .unknown
         }
-
     }
 
     ///
@@ -102,9 +100,7 @@ public class AccelerometerMonitor: BaseMonitor {
     /// device.
     ///
     public var isAvailable: Bool {
-
         return motionManager.isAccelerometerAvailable
-
     }
 
     // Private

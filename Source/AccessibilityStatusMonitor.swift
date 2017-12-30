@@ -178,13 +178,11 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// The current hearing device pairing options.
     ///
     public var hearingDevicePairedEar: HearingDeviceEar {
-
         if #available(iOS 10.0, *) {
             return HearingDeviceEar(UIAccessibilityHearingDevicePairedEar())
         } else {
             return []
         }
-
     }
 
     ///
@@ -192,106 +190,128 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isAssistiveTouchEnabled: Bool {
-
         if #available(iOS 10.0, *) {
             return UIAccessibilityIsAssistiveTouchRunning()
         } else {
             return false
         }
-
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled Bold Text in
     /// Settings.
     ///
-    public var isBoldTextEnabled: Bool { return UIAccessibilityIsBoldTextEnabled() }
+    public var isBoldTextEnabled: Bool {
+        return UIAccessibilityIsBoldTextEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Closed
     /// Captioning in Settings.
     ///
-    public var isClosedCaptioningEnabled: Bool { return UIAccessibilityIsClosedCaptioningEnabled() }
+    public var isClosedCaptioningEnabled: Bool {
+        return UIAccessibilityIsClosedCaptioningEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Darken Colors
     /// in Settings.
     ///
-    public var isDarkenColorsEnabled: Bool { return UIAccessibilityDarkerSystemColorsEnabled() }
+    public var isDarkenColorsEnabled: Bool {
+        return UIAccessibilityDarkerSystemColorsEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Grayscale in
     /// Settings.
     ///
-    public var isGrayscaleEnabled: Bool { return UIAccessibilityIsGrayscaleEnabled() }
+    public var isGrayscaleEnabled: Bool {
+        return UIAccessibilityIsGrayscaleEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Guided Access
     /// in Settings.
     ///
-    public var isGuidedAccessEnabled: Bool { return UIAccessibilityIsGuidedAccessEnabled() }
+    public var isGuidedAccessEnabled: Bool {
+        return UIAccessibilityIsGuidedAccessEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Invert Colors
     /// in Settings.
     ///
-    public var isInvertColorsEnabled: Bool { return UIAccessibilityIsInvertColorsEnabled() }
+    public var isInvertColorsEnabled: Bool {
+        return UIAccessibilityIsInvertColorsEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Mono Audio in
     /// Settings.
     ///
-    public var isMonoAudioEnabled: Bool { return UIAccessibilityIsMonoAudioEnabled() }
+    public var isMonoAudioEnabled: Bool {
+        return UIAccessibilityIsMonoAudioEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Reduce Motion
     /// in Settings.
     ///
-    public var isReduceMotionEnabled: Bool { return UIAccessibilityIsReduceMotionEnabled() }
+    public var isReduceMotionEnabled: Bool {
+        return UIAccessibilityIsReduceMotionEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Reduce
     /// Transparency in Settings.
     ///
-    public var isReduceTransparencyEnabled: Bool { return UIAccessibilityIsReduceTransparencyEnabled() }
+    public var isReduceTransparencyEnabled: Bool {
+        return UIAccessibilityIsReduceTransparencyEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Shake to Undo
     /// in Settings.
     ///
     public var isShakeToUndoEnabled: Bool {
-
         if #available(iOS 9.0, *) {
             return UIAccessibilityIsShakeToUndoEnabled()
         } else {
             return false
         }
-
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled Speak Screen in
     /// Settings.
     ///
-    public var isSpeakScreenEnabled: Bool { return UIAccessibilityIsSpeakScreenEnabled() }
+    public var isSpeakScreenEnabled: Bool {
+        return UIAccessibilityIsSpeakScreenEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Speak Selection
     /// in Settings.
     ///
-    public var isSpeakSelectionEnabled: Bool { return UIAccessibilityIsSpeakSelectionEnabled() }
+    public var isSpeakSelectionEnabled: Bool {
+        return UIAccessibilityIsSpeakSelectionEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Switch Control
     /// in Settings.
     ///
-    public var isSwitchControlEnabled: Bool { return UIAccessibilityIsSwitchControlRunning() }
+    public var isSwitchControlEnabled: Bool {
+        return UIAccessibilityIsSwitchControlRunning()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled VoiceOver in
     /// Settings.
     ///
-    public var isVoiceOverEnabled: Bool { return UIAccessibilityIsVoiceOverRunning() }
+    public var isVoiceOverEnabled: Bool {
+        return UIAccessibilityIsVoiceOverRunning()
+    }
 
     // Private Instance Properties
 
@@ -299,11 +319,9 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         if #available(iOS 10.0, *) {
             observe(.UIAccessibilityAssistiveTouchStatusDidChange) { [unowned self] _ in
@@ -382,8 +400,6 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         observe(voiceOverStatusDidChange) { [unowned self] _ in
             self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
         }
-
-        return true
 
     }
 

@@ -25,14 +25,9 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
-    /// - Returns:  `true` if notification observers were successfully added or
-    ///             `false` on failure.
-    ///
-    open func addNotificationObservers() -> Bool {
+    open func addNotificationObservers() {
 
         observers = []
-
-        return true
 
     }
 
@@ -45,16 +40,11 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// If you override this method, you must be sure to invoke the superclass
     /// implementation.
     ///
-    /// - Returns:  `true` if notification observers were successfully removed
-    ///             or `false` on failure.
-    ///
-    open func removeNotificationObservers() -> Bool {
+    open func removeNotificationObservers() {
 
         observers.forEach { notificationCenter.removeObserver($0) }
 
         observers = []
-
-        return true
 
     }
 
@@ -113,15 +103,21 @@ open class BaseNotificationMonitor: BaseMonitor {
 
     public override final func cleanupMonitor() -> Bool {
 
-        return removeNotificationObservers()
-            && super.cleanupMonitor()
+        removeNotificationObservers()
+
+        return super.cleanupMonitor()
 
     }
 
     public override final func configureMonitor() -> Bool {
 
-        return super.configureMonitor()
-            && addNotificationObservers()
+        let ok = super.configureMonitor()
+
+        if ok {
+            addNotificationObservers()
+        }
+
+        return ok
 
     }
 

@@ -59,7 +59,9 @@ public class OrientationMonitor: BaseNotificationMonitor {
     ///
     /// The physical orientation of the device.
     ///
-    public var orientation: UIDeviceOrientation { return device.orientation }
+    public var orientation: UIDeviceOrientation {
+        return device.orientation
+    }
 
     // Private Instance Properties
 
@@ -68,11 +70,9 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
             self.handler(.didChange(self.device.orientation))
@@ -80,15 +80,13 @@ public class OrientationMonitor: BaseNotificationMonitor {
 
         device.beginGeneratingDeviceOrientationNotifications()
 
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
+    public override func removeNotificationObservers() {
 
         device.endGeneratingDeviceOrientationNotifications()
 
-        return super.removeNotificationObservers()
+        super.removeNotificationObservers()
 
     }
 

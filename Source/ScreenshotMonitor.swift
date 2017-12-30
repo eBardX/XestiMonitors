@@ -57,17 +57,13 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in
             self.handler(.userDidTake)
         }
-
-        return true
 
     }
 

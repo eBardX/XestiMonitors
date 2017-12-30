@@ -105,19 +105,15 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         if #available(iOS 9.0, *) {
             observe(.UIAccessibilityElementFocused) { [unowned self] in
                 self.handler(.didFocus(Info($0)))
             }
         }
-
-        return true
 
     }
 

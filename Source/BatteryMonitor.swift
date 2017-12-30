@@ -66,12 +66,16 @@ public class BatteryMonitor: BaseNotificationMonitor {
     ///
     /// The battery charge level for the device.
     ///
-    public var level: Float { return device.batteryLevel }
+    public var level: Float {
+        return device.batteryLevel
+    }
 
     ///
     /// The battery state for the device.
     ///
-    public var state: UIDeviceBatteryState { return device.batteryState }
+    public var state: UIDeviceBatteryState {
+        return device.batteryState
+    }
 
     // Private Instance Properties
 
@@ -80,11 +84,9 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
             self.handler(.levelDidChange(self.level))
@@ -96,15 +98,13 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
         device.isBatteryMonitoringEnabled = true
 
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
+    public override func removeNotificationObservers() {
 
         device.isBatteryMonitoringEnabled = false
 
-        return super.removeNotificationObservers()
+        super.removeNotificationObservers()
 
     }
 

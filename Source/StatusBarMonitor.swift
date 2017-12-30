@@ -77,12 +77,16 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     ///
     /// The current frame rectangle defining the area of the status bar.
     ///
-    public var frame: CGRect { return application.statusBarFrame }
+    public var frame: CGRect {
+        return application.statusBarFrame
+    }
 
     ///
     /// The orientation of the app’s user interface.
     ///
-    public var orientation: UIInterfaceOrientation { return application.statusBarOrientation }
+    public var orientation: UIInterfaceOrientation {
+        return application.statusBarOrientation
+    }
 
     // Private Instance Properties
 
@@ -114,11 +118,9 @@ public class StatusBarMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
             self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
@@ -135,8 +137,6 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
             self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
         }
-
-        return true
 
     }
 

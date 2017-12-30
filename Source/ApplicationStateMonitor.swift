@@ -85,7 +85,9 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     ///
     /// The runtime state of the app.
     ///
-    public var state: UIApplicationState { return application.applicationState }
+    public var state: UIApplicationState {
+        return application.applicationState
+    }
 
     // Private Instance Properties
 
@@ -94,11 +96,9 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIApplicationDidBecomeActive) { [unowned self] _ in
             self.handler(.didBecomeActive)
@@ -123,8 +123,6 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         observe(.UIApplicationWillTerminate) { [unowned self] _ in
             self.handler(.willTerminate)
         }
-
-        return true
 
     }
 

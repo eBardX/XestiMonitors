@@ -61,7 +61,6 @@ public class ProximityMonitor: BaseNotificationMonitor {
     /// the device (`true`) or not (`false`).
     ///
     public lazy var isAvailable: Bool = {
-
         let oldValue = self.device.isProximityMonitoringEnabled
 
         defer { self.device.isProximityMonitoringEnabled = oldValue }
@@ -69,14 +68,15 @@ public class ProximityMonitor: BaseNotificationMonitor {
         self.device.isProximityMonitoringEnabled = true
 
         return self.device.isProximityMonitoringEnabled
-
     }()
 
     ///
     /// A Boolean value indicating whether the proximity sensor is close to the
     /// user (`true`) or not (`false`).
     ///
-    public var state: Bool { return device.proximityState }
+    public var state: Bool {
+        return device.proximityState
+    }
 
     // Private Instance Properties
 
@@ -85,11 +85,9 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
     // Overridden BaseNotificationMonitor Instance Methods
 
-    public override func addNotificationObservers() -> Bool {
+    public override func addNotificationObservers() {
 
-        guard
-            super.addNotificationObservers()
-            else { return false }
+        super.addNotificationObservers()
 
         observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
             self.handler(.stateDidChange(self.device.proximityState))
@@ -97,15 +95,13 @@ public class ProximityMonitor: BaseNotificationMonitor {
 
         device.isProximityMonitoringEnabled = true
 
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
+    public override func removeNotificationObservers() {
 
         device.isProximityMonitoringEnabled = false
 
-        return super.removeNotificationObservers()
+        super.removeNotificationObservers()
 
     }
 
