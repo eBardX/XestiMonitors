@@ -7,6 +7,7 @@
 //  © 2017 J. G. Pusey (see LICENSE.md)
 //
 
+import CoreMotion
 import XCTest
 @testable import XestiMonitors
 
