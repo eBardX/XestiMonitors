@@ -179,7 +179,7 @@ public func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDevi
         return "R"
 
     default :
-        return "none"
+        return "None"
 
     }
 

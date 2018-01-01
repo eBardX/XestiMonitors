@@ -80,8 +80,8 @@ file_length:
   error: 500
   ignore_comment_only_lines: true
 function_body_length:
-  warning: 50
-  error: 100
+  warning: 100
+  error: 200
 function_parameter_count:
   warning: 5
   error: 8
@@ -115,8 +115,8 @@ trailing_whitespace:
   ignores_comments: false
   ignores_empty_lines: false
 type_body_length:
-  warning: 150
-  error: 250
+  warning: 200
+  error: 300
 unused_optional_binding:
   ignore_optional_try: false
 vertical_whitespace:
