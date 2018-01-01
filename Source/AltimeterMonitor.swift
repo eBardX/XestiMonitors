@@ -23,9 +23,9 @@ public class AltimeterMonitor: BaseMonitor {
     ///
     public enum Event {
         ///
-        /// The relative altitude has changed.
+        /// The relative altitude has been updated.
         ///
-        case didChange(Info)
+        case didUpdate(Info)
     }
 
     ///
@@ -47,7 +47,7 @@ public class AltimeterMonitor: BaseMonitor {
         ///
         /// No altitude data is available.
         ///
-        case unknown    // ELIMINATE???
+        case unknown
 
     }
 
@@ -118,7 +118,7 @@ public class AltimeterMonitor: BaseMonitor {
                                                     info = .unknown
                                                 }
 
-                                                self.handler(.didChange(info))
+                                                self.handler(.didUpdate(info))
 
         }
 

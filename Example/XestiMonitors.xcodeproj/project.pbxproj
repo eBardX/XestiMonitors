@@ -14,6 +14,9 @@
 		7CAF8542FCFEDFC1CB5525A1 /* Pods_XestiMonitors_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767185E2A044C2C93F7528EB /* Pods_XestiMonitors_Example.framework */; };
 		A8B2B8764690709C402FC76D /* Pods_XestiMonitorsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ED948741804FBA762BFFFC /* Pods_XestiMonitorsTests.framework */; };
 		F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */; };
+		F575C7EE1FFAA106000C2A68 /* MockAltimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */; };
+		F575C7EF1FFAA106000C2A68 /* MockMotionActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */; };
+		F575C7F01FFAA106000C2A68 /* MockPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575C7ED1FFAA106000C2A68 /* MockPedometer.swift */; };
 		F57BCEF11E09A6C30014D3E1 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57BCEF01E09A6C30014D3E1 /* Formatters.swift */; };
 		F5A3CAD91FF7D4D6002625CB /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */; };
 		F5A3CADB1FF96F15002625CB /* MockMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3CADA1FF96F15002625CB /* MockMotionManager.swift */; };
@@ -65,6 +68,9 @@
 		CB7C562DFE714F89C1AC865F /* Pods-XestiMonitorsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsTests/Pods-XestiMonitorsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3A2EA17A6AFC95B2774698F /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetailViewController.swift; sourceTree = "<group>"; };
+		F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAltimeter.swift; sourceTree = "<group>"; };
+		F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMotionActivityManager.swift; sourceTree = "<group>"; };
+		F575C7ED1FFAA106000C2A68 /* MockPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPedometer.swift; sourceTree = "<group>"; };
 		F57BCEF01E09A6C30014D3E1 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		F5962E591DF85FAE00CFC142 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		F5962E691DF8643900CFC142 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
@@ -278,10 +284,13 @@
 		F5AE20DE1FF448DE001BC279 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */,
 				F5AE20FD1FF459B7001BC279 /* MockApplication.swift */,
 				F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */,
+				F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */,
 				F5A3CADA1FF96F15002625CB /* MockMotionManager.swift */,
 				F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */,
+				F575C7ED1FFAA106000C2A68 /* MockPedometer.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -548,11 +557,14 @@
 			files = (
 				F5AE20F61FF448DE001BC279 /* AccelerometerMonitorTests.swift in Sources */,
 				F5AE21001FF459B7001BC279 /* MockNotificationCenter.swift in Sources */,
+				F575C7EF1FFAA106000C2A68 /* MockMotionActivityManager.swift in Sources */,
+				F575C7F01FFAA106000C2A68 /* MockPedometer.swift in Sources */,
 				F5AE20F01FF448DE001BC279 /* BatteryMonitorTests.swift in Sources */,
 				F5AE20ED1FF448DE001BC279 /* ScreenshotMonitorTests.swift in Sources */,
 				F5A3CAD91FF7D4D6002625CB /* MockDevice.swift in Sources */,
 				F5AE20F71FF448DE001BC279 /* AltimeterMonitorTests.swift in Sources */,
 				F5AE20EA1FF448DE001BC279 /* BackgroundRefreshMonitorTests.swift in Sources */,
+				F575C7EE1FFAA106000C2A68 /* MockAltimeter.swift in Sources */,
 				F5AE20EE1FF448DE001BC279 /* StatusBarMonitorTests.swift in Sources */,
 				F5AE20F91FF448DE001BC279 /* GyroscopeMonitorTests.swift in Sources */,
 				F5AE20F81FF448DE001BC279 /* DeviceMotionMonitorTests.swift in Sources */,

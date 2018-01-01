@@ -53,7 +53,7 @@ public class PedometerMonitor: BaseMonitor {
         ///
         ///
         ///
-        case unknown    // ELIMINATE???
+        case unknown
 
     }
 
@@ -139,8 +139,11 @@ public class PedometerMonitor: BaseMonitor {
 
     // Public Instance Methods
 
+    ///
+    ///
+    ///
     public func query(from start: Date,
-                      to end: Date) -> Bool {
+                      to end: Date) {
 
         pedometer.queryPedometerData(from: start,
                                      to: end) { [unowned self] data, error in
@@ -160,8 +163,6 @@ public class PedometerMonitor: BaseMonitor {
                                         }
 
         }
-
-        return true
 
     }
 

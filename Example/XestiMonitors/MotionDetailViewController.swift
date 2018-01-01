@@ -150,7 +150,7 @@ public class MotionDetailViewController: UITableViewController {
     private func displayAltimeter(_ event: AltimeterMonitor.Event?) {
 
         if let event = event,
-            case let .didChange(info) = event {
+            case let .didUpdate(info) = event {
             displayAltimeter(info)
         } else {
             displayAltimeter(.unknown)

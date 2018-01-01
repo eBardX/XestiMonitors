@@ -69,7 +69,7 @@ public class MotionActivityMonitor: BaseMonitor {
         ///
         ///
         ///
-        case unknown    // ELIMINATE???
+        case unknown
 
     }
 
