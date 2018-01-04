@@ -57,7 +57,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
         /// The system’s hearing device pairing options have changed.
         ///
-        case hearingDevicePairedEarDidChange(HearingDeviceEar)
+        @available(iOS 10.0, *)
+        case hearingDevicePairedEarDidChange(UIAccessibilityHearingDeviceEar)
 
         ///
         /// The system’s Invert Colors setting has changed.
@@ -106,49 +107,6 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
     }
 
-    ///
-    /// Defines hearing device pairing options.
-    ///
-    public struct HearingDeviceEar: OptionSet {
-
-        // Public Initializers
-
-        public init(rawValue: UInt) {
-
-            self.rawValue = rawValue
-
-        }
-
-        ///
-        /// Both left and right ears.
-        ///
-        public static let both: HearingDeviceEar = [.left, .right]
-
-        ///
-        /// The left ear.
-        ///
-        public static let left = HearingDeviceEar(rawValue: 1 << 1)
-
-        ///
-        /// The right ear.
-        ///
-        public static let right = HearingDeviceEar(rawValue: 1 << 2)
-
-        // Public Instance Properties
-
-        public let rawValue: UInt
-
-        // Internal Initializers
-
-        @available(iOS 10.0, *)
-        internal init(_ value: UIAccessibilityHearingDeviceEar) {
-
-            self.rawValue = value.rawValue
-
-        }
-
-    }
-
     // Public Initializers
 
     ///
@@ -177,24 +135,18 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     /// The current hearing device pairing options.
     ///
-    public var hearingDevicePairedEar: HearingDeviceEar {
-        if #available(iOS 10.0, *) {
-            return HearingDeviceEar(UIAccessibilityHearingDevicePairedEar())
-        } else {
-            return []
-        }
+    @available(iOS 10.0, *)
+    public var hearingDevicePairedEar: UIAccessibilityHearingDeviceEar {
+        return UIAccessibilityHearingDevicePairedEar()
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled AssistiveTouch
     /// in Settings.
     ///
+    @available(iOS 10.0, *)
     public var isAssistiveTouchEnabled: Bool {
-        if #available(iOS 10.0, *) {
-            return UIAccessibilityIsAssistiveTouchRunning()
-        } else {
-            return false
-        }
+        return UIAccessibilityIsAssistiveTouchRunning()
     }
 
     ///
@@ -273,12 +225,9 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// A Boolean value indicating whether the user has enabled Shake to Undo
     /// in Settings.
     ///
+    @available(iOS 9.0, *)
     public var isShakeToUndoEnabled: Bool {
-        if #available(iOS 9.0, *) {
-            return UIAccessibilityIsShakeToUndoEnabled()
-        } else {
-            return false
-        }
+        return UIAccessibilityIsShakeToUndoEnabled()
     }
 
     ///

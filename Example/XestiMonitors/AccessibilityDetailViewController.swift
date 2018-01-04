@@ -41,6 +41,7 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
+    @available(iOS 9.0, *)
     private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
 
         self.displayElement($0)
@@ -53,9 +54,16 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    private lazy var monitors: [Monitor] = [self.announcementMonitor,
-                                    self.elementMonitor,
-                                    self.statusMonitor ]
+    private lazy var monitors: [Monitor] = {
+        if #available(iOS 9.0, *) {
+            return [self.announcementMonitor,
+                    self.elementMonitor,
+                    self.statusMonitor]
+        } else {
+            return [self.announcementMonitor,
+                    self.statusMonitor]
+        }
+    }()
 
     private var announcementCount = 0
 
@@ -80,6 +88,7 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
+    @available(iOS 9.0, *)
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
 
         if let event = event,
@@ -140,7 +149,11 @@ public class AccessibilityDetailViewController: UITableViewController {
                 statusGuidedAccessLabel.text = formatBool(value)
 
             case let .hearingDevicePairedEarDidChange(value):
-                statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
+                if #available(iOS 10.0, *) {
+                    statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
+                } else {
+                    statusHearingDeviceLabel.text = " "
+                }
 
             case let .invertColorsStatusDidChange(value):
                 statusInvertColorsLabel.text = formatBool(value)
@@ -173,7 +186,11 @@ public class AccessibilityDetailViewController: UITableViewController {
 
         } else {
 
-            statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
+            if #available(iOS 10.0, *) {
+                statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
+            } else {
+                statusAssistiveTouchLabel.text = " "
+            }
 
             statusBoldTextLabel.text = formatBool(statusMonitor.isBoldTextEnabled)
 
@@ -185,7 +202,11 @@ public class AccessibilityDetailViewController: UITableViewController {
 
             statusGuidedAccessLabel.text = formatBool(statusMonitor.isGuidedAccessEnabled)
 
-            statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
+            if #available(iOS 10.0, *) {
+                statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
+            } else {
+                statusHearingDeviceLabel.text = " "
+            }
 
             statusInvertColorsLabel.text = formatBool(statusMonitor.isInvertColorsEnabled)
 
@@ -195,7 +216,11 @@ public class AccessibilityDetailViewController: UITableViewController {
 
             statusReduceTransparencyLabel.text = formatBool(statusMonitor.isReduceTransparencyEnabled)
 
-            statusShakeToUndoLabel.text = formatBool(statusMonitor.isShakeToUndoEnabled)
+            if #available(iOS 9.0, *) {
+                statusShakeToUndoLabel.text = formatBool(statusMonitor.isShakeToUndoEnabled)
+            } else {
+                statusShakeToUndoLabel.text = " "
+            }
 
             statusSpeakScreenLabel.text = formatBool(statusMonitor.isSpeakScreenEnabled)
 
@@ -230,7 +255,9 @@ public class AccessibilityDetailViewController: UITableViewController {
 
         displayAnnouncement(nil)
 
-        displayElement(nil)
+        if #available(iOS 9.0, *) {
+            displayElement(nil)
+        }
 
         displayStatus(nil)
 

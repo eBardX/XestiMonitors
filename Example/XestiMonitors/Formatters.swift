@@ -165,7 +165,8 @@ public func formatDistance(_ value: NSNumber) -> String {
 
 }
 
-public func formatHearingDeviceEar(_ ear: AccessibilityStatusMonitor.HearingDeviceEar) -> String {
+@available(iOS 10.0, *)
+public func formatHearingDeviceEar(_ ear: UIAccessibilityHearingDeviceEar) -> String {
 
     switch ear {
 

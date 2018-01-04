@@ -14,6 +14,7 @@ import UIKit
 /// An `AccessibilityElementMonitor` instance monitors the system for changes
 /// to element focus by an assistive technology.
 ///
+@available(iOS 9.0, *)
 public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
     // Public Nested Types
@@ -54,23 +55,9 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
             let userInfo = notification.userInfo
 
-            if #available(iOS 9.0, *) {
-                self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
-            } else {
-                self.assistiveTechnology = nil
-            }
-
-            if #available(iOS 9.0, *) {
-                self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
-            } else {
-                self.focusedElement = nil
-            }
-
-            if #available(iOS 9.0, *) {
-                self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
-            } else {
-                self.unfocusedElement = nil
-            }
+            self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
+            self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
+            self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
 
         }
 
@@ -109,10 +96,8 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
 
         super.addNotificationObservers()
 
-        if #available(iOS 9.0, *) {
-            observe(.UIAccessibilityElementFocused) { [unowned self] in
-                self.handler(.didFocus(Info($0)))
-            }
+        observe(.UIAccessibilityElementFocused) { [unowned self] in
+            self.handler(.didFocus(Info($0)))
         }
 
     }
