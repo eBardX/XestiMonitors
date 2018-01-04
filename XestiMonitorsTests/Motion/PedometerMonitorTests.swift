@@ -15,6 +15,7 @@ internal class PedometerMonitorTests: XCTestCase {
 
     let pedometer = MockPedometer()
 
+    @available(iOS 9.0, *)
     func testIsCadenceAvailable_false() {
 
         let monitor = PedometerMonitor(pedometer: pedometer,
@@ -26,6 +27,7 @@ internal class PedometerMonitorTests: XCTestCase {
 
     }
 
+    @available(iOS 9.0, *)
     func testIsCadenceAvailable_true() {
 
         let monitor = PedometerMonitor(pedometer: pedometer,
@@ -81,6 +83,7 @@ internal class PedometerMonitorTests: XCTestCase {
 
     }
 
+    @available(iOS 9.0, *)
     func testIsPaceAvailable_false() {
 
         let monitor = PedometerMonitor(pedometer: pedometer,
@@ -92,6 +95,7 @@ internal class PedometerMonitorTests: XCTestCase {
 
     }
 
+    @available(iOS 9.0, *)
     func testIsPaceAvailable_true() {
 
         let monitor = PedometerMonitor(pedometer: pedometer,

@@ -11,6 +11,7 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
+@available(iOS 9.0, *)
 internal class AccessibilityElementMonitorTests: XCTestCase {
 
     let notificationCenter = MockNotificationCenter()
@@ -103,7 +104,7 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
 
         if badUserInfo {
             userInfo = nil
-        } else if #available(iOS 9.0, *) {
+        } else {
             userInfo = [:]
 
             if let value = assistiveTechnology {
@@ -117,16 +118,11 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
             if let value = unfocusedElement {
                 userInfo?[UIAccessibilityUnfocusedElementKey] = value
             }
-        } else {
-            userInfo = nil
         }
 
-        if #available(iOS 9.0, *) {
-            notificationCenter.post(name: .UIAccessibilityElementFocused,
-                                    object: nil,
-                                    userInfo: userInfo)
-        } else {
-        }
+        notificationCenter.post(name: .UIAccessibilityElementFocused,
+                                object: nil,
+                                userInfo: userInfo)
 
     }
 
