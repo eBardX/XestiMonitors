@@ -1,6 +1,6 @@
 author: J. G. Pusey
-author_url: http://ebardx.tumblr.com/
-copyright: © 2016–2017 J. G. Pusey
+author_url: https://github.com/eBardX
+copyright: © 2016–2018 J. G. Pusey
 custom_categories:
   - name: Protocols
     children:
@@ -26,9 +26,12 @@ custom_categories:
   - name: Motion Monitor Classes
     children:
       - AccelerometerMonitor
+      - AltimeterMonitor
       - DeviceMotionMonitor
       - GyroscopeMonitor
       - MagnetometerMonitor
+      - MotionActivityMonitor
+      - PedometerMonitor
   - name: Accessibility Monitor Classes
     children:
       - AccessibilityAnnouncementMonitor
@@ -42,6 +45,14 @@ custom_categories:
     children:
       - CMAcceleration
       - CMMotionManager
+  - name: Dependency Injection
+    children:
+      - Altimeter
+      - Application
+      - Device
+      - MotionActivityManager
+      - MotionManager
+      - Pedometer
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
 module: XestiMonitors
