@@ -7,12 +7,88 @@
 //  © 2017 J. G. Pusey (see LICENSE.md)
 //
 
+import UIKit
 import XCTest
 @testable import XestiMonitors
 
 internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
 
-    func testExample() {
+    let notificationCenter = MockNotificationCenter()
+
+    func testMonitor_didFinish() {
+
+        let expectation = self.expectation(description: "Handler called")
+        let expectedStringValue: String = "This is a test"
+        let expectedWasSuccessful: Bool = true
+        var expectedEvent: AccessibilityAnnouncementMonitor.Event?
+        let monitor = AccessibilityAnnouncementMonitor(notificationCenter: notificationCenter,
+                                                       queue: .main) { event in
+                                                        expectedEvent = event
+                                                        expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateDidFinish(stringValue: expectedStringValue,
+                          wasSuccessful: expectedWasSuccessful)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .didFinish(info) = event {
+            XCTAssertEqual(info.stringValue, expectedStringValue)
+            XCTAssertEqual(info.wasSuccessful, expectedWasSuccessful)
+        } else {
+            XCTFail("Unexpected event")
+        }
+
+    }
+
+    func testMonitor_didFinish_badUserInfo() {
+
+        let expectation = self.expectation(description: "Handler called")
+        let expectedStringValue: String = " "
+        let expectedWasSuccessful: Bool = false
+        var expectedEvent: AccessibilityAnnouncementMonitor.Event?
+        let monitor = AccessibilityAnnouncementMonitor(notificationCenter: notificationCenter,
+                                                       queue: .main) { event in
+                                                        expectedEvent = event
+                                                        expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateDidFinish(stringValue: expectedStringValue,
+                          wasSuccessful: expectedWasSuccessful,
+                          badUserInfo: true)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .didFinish(info) = event {
+            XCTAssertEqual(info.stringValue, expectedStringValue)
+            XCTAssertEqual(info.wasSuccessful, expectedWasSuccessful)
+        } else {
+            XCTFail("Unexpected event")
+        }
+
+    }
+
+    private func simulateDidFinish(stringValue: String,
+                                   wasSuccessful: Bool,
+                                   badUserInfo: Bool = false) {
+
+        let userInfo: [AnyHashable: Any]?
+
+        if badUserInfo {
+            userInfo = nil
+        } else {
+            userInfo = [UIAccessibilityAnnouncementKeyStringValue: stringValue,
+                        UIAccessibilityAnnouncementKeyWasSuccessful: NSNumber(value: wasSuccessful)]
+        }
+
+        notificationCenter.post(name: .UIAccessibilityAnnouncementDidFinish,
+                                object: nil,
+                                userInfo: userInfo)
+
     }
 
 }
