@@ -40,7 +40,7 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the user presses the Home and
     ///                 Lock buttons to take a screenshot.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

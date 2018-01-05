@@ -148,7 +148,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

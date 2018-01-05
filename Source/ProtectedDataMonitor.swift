@@ -48,7 +48,7 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

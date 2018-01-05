@@ -67,7 +67,7 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the app changes its runtime
     ///                 state or is about to change its runtime state.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {

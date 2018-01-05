@@ -39,7 +39,7 @@ public class TimeMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when there is a significant change
     ///                 in time.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

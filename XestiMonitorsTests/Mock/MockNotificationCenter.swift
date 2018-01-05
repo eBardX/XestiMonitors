@@ -8,8 +8,9 @@
 //
 
 import Foundation
+@testable import XestiMonitors
 
-internal class MockNotificationCenter: NotificationCenter {
+internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
 
     class MockObserver {
 
@@ -31,10 +32,10 @@ internal class MockNotificationCenter: NotificationCenter {
 
     var observers: [String: MockObserver] = [:]
 
-    override func addObserver(forName name: NSNotification.Name?,
-                              object: Any?,
-                              queue: OperationQueue?,
-                              using block: @escaping (Notification) -> Void) -> NSObjectProtocol {
+    func addObserver(forName name: NSNotification.Name?,
+                     object: Any?,
+                     queue: OperationQueue?,
+                     using block: @escaping (Notification) -> Void) -> NSObjectProtocol {
 
         guard
             let name = name
@@ -52,27 +53,24 @@ internal class MockNotificationCenter: NotificationCenter {
 
     }
 
-    override func addObserver(_ observer: Any,
-                              selector: Selector,
-                              name: NSNotification.Name?,
-                              object: Any?) {
-
-        fatalError("Not implemented")
-
-    }
-
-    override func post(_ notification: Notification) {
+    func post(name: NSNotification.Name,
+              object: Any?,
+              userInfo: [AnyHashable: Any]? = nil) {
 
         guard
-            let observer = observers[notification.name.rawValue]
+            let observer = observers[name.rawValue]
             else { return }
 
         if let filter = observer.object as AnyObject? {
             guard
-                let object = notification.object as AnyObject?,
+                let object = object as AnyObject?,
                 filter === object
                 else { return }
         }
+
+        let notification = Notification(name: name,
+                                        object: object,
+                                        userInfo: userInfo)
 
         if let queue = observer.queue {
             queue.addOperation { observer.block(notification) }
@@ -80,42 +78,16 @@ internal class MockNotificationCenter: NotificationCenter {
             observer.block(notification)
         }
 
-    }
-
-    override func post(name: NSNotification.Name,
-                       object: Any?) {
-
-        post(name: name,
-             object: object,
-             userInfo: nil)
 
     }
 
-    override func post(name: NSNotification.Name,
-                       object: Any?,
-                       userInfo: [AnyHashable: Any]? = nil) {
-
-        post (Notification(name: name,
-                           object: object,
-                           userInfo: userInfo))
-
-    }
-
-    override func removeObserver(_ observer: Any) {
+    func removeObserver(_ observer: Any) {
 
         guard
             let name = observer as? String
             else { return }
 
         observers[name] = nil
-
-    }
-
-    override func removeObserver(_ observer: Any,
-                                 name: NSNotification.Name?,
-                                 object: Any?) {
-
-        fatalError("Not implemented")
 
     }
 

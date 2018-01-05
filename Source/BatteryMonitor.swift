@@ -48,7 +48,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {

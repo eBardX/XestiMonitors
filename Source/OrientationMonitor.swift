@@ -41,7 +41,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the physical orientation of
     ///                 the device changes.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {

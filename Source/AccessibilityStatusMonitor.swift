@@ -119,7 +119,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///
-    public init(notificationCenter: NotificationCenter = .`default`,
+    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 
