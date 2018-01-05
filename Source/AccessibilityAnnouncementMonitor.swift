@@ -78,7 +78,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when VoiceOver finishes outputting
     ///                 an announcement.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

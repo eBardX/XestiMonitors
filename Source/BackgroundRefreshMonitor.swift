@@ -42,7 +42,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the app’s status for
     ///                 downloading content in the background changes.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {

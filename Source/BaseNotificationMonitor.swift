@@ -57,7 +57,7 @@ open class BaseNotificationMonitor: BaseMonitor {
     ///   - notificationCenter
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue) {
 
         self.notificationCenter = notificationCenter

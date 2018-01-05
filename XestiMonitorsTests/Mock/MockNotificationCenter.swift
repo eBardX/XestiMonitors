@@ -78,7 +78,6 @@ internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
             observer.block(notification)
         }
 
-
     }
 
     func removeObserver(_ observer: Any) {

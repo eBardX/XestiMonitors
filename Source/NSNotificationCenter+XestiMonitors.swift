@@ -1,5 +1,5 @@
 //
-//  NotificationCenter+XestiMonitors.swift
+//  NSNotificationCenter+XestiMonitors.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2018-01-05.
@@ -8,6 +8,8 @@
 //
 
 import Foundation
+
+public typealias NSNotificationCenter = Foundation.NotificationCenter
 
 public protocol NotificationCenter: class {
 
@@ -20,4 +22,4 @@ public protocol NotificationCenter: class {
 
 }
 
-extension Foundation.NotificationCenter: NotificationCenter {}
+extension NSNotificationCenter: NotificationCenter {}

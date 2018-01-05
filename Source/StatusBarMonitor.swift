@@ -59,7 +59,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {

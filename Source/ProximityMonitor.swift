@@ -41,7 +41,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the state of the proximity
     ///                 sensor changes.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {

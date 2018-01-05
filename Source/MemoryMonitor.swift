@@ -41,7 +41,7 @@ public class MemoryMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when the app receives a warning
     ///                 from the operating system about low memory availability.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

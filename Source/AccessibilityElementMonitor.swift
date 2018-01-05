@@ -74,7 +74,7 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     ///   - handler:    The handler to call when an assistive technology
     ///                 changes element focus.
     ///
-    public init(notificationCenter: NotificationCenter = Foundation.NotificationCenter.`default`,
+    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
 

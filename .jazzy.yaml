@@ -52,6 +52,7 @@ custom_categories:
       - Device
       - MotionActivityManager
       - MotionManager
+      - NotificationCenter
       - Pedometer
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
