@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		7CAF8542FCFEDFC1CB5525A1 /* Pods_XestiMonitors_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767185E2A044C2C93F7528EB /* Pods_XestiMonitors_Example.framework */; };
 		A8B2B8764690709C402FC76D /* Pods_XestiMonitorsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ED948741804FBA762BFFFC /* Pods_XestiMonitorsTests.framework */; };
+		F508EA531FFFD5FD00A70E7E /* CMAccelerationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508EA521FFFD5FC00A70E7E /* CMAccelerationExtensionsTests.swift */; };
 		F56B359F1E074B1B0005B4BE /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */; };
 		F575C7EE1FFAA106000C2A68 /* MockAltimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */; };
 		F575C7EF1FFAA106000C2A68 /* MockMotionActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */; };
@@ -67,6 +68,7 @@
 		AABE85B08D4DF9CCBE0C07CF /* Pods-XestiMonitors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors_Example/Pods-XestiMonitors_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CB7C562DFE714F89C1AC865F /* Pods-XestiMonitorsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsTests/Pods-XestiMonitorsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3A2EA17A6AFC95B2774698F /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		F508EA521FFFD5FC00A70E7E /* CMAccelerationExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMAccelerationExtensionsTests.swift; sourceTree = "<group>"; };
 		F56B359E1E074B1B0005B4BE /* MotionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetailViewController.swift; sourceTree = "<group>"; };
 		F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAltimeter.swift; sourceTree = "<group>"; };
 		F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMotionActivityManager.swift; sourceTree = "<group>"; };
@@ -210,6 +212,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F508EA511FFFD5FC00A70E7E /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				F508EA521FFFD5FC00A70E7E /* CMAccelerationExtensionsTests.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
 		F5962E681DF863FD00CFC142 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +239,7 @@
 				F5AE20DA1FF448DE001BC279 /* Accessibility */,
 				F5AE20CE1FF448DE001BC279 /* Application */,
 				F5AE20D61FF448DE001BC279 /* Device */,
+				F508EA511FFFD5FC00A70E7E /* Miscellaneous */,
 				F5AE20DE1FF448DE001BC279 /* Mock */,
 				F5AE20DF1FF448DE001BC279 /* Motion */,
 				F5AE20CB1FF448DE001BC279 /* Other */,
@@ -576,6 +587,7 @@
 				F5AE20E81FF448DE001BC279 /* ReachabilityMonitorTests.swift in Sources */,
 				F5AE20F51FF448DE001BC279 /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F5AE20EC1FF448DE001BC279 /* ProtectedDataMonitorTests.swift in Sources */,
+				F508EA531FFFD5FD00A70E7E /* CMAccelerationExtensionsTests.swift in Sources */,
 				F5AE20EF1FF448DE001BC279 /* TimeMonitorTests.swift in Sources */,
 				F5AE20EB1FF448DE001BC279 /* MemoryMonitorTests.swift in Sources */,
 				F5AE20FA1FF448DE001BC279 /* MagnetometerMonitorTests.swift in Sources */,

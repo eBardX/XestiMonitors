@@ -9,6 +9,11 @@ custom_categories:
     children:
       - BaseMonitor
       - BaseNotificationMonitor
+  - name: Accessibility Monitor Classes
+    children:
+      - AccessibilityAnnouncementMonitor
+      - AccessibilityElementMonitor
+      - AccessibilityStatusMonitor
   - name: Application Monitor Classes
     children:
       - ApplicationStateMonitor
@@ -32,11 +37,6 @@ custom_categories:
       - MagnetometerMonitor
       - MotionActivityMonitor
       - PedometerMonitor
-  - name: Accessibility Monitor Classes
-    children:
-      - AccessibilityAnnouncementMonitor
-      - AccessibilityElementMonitor
-      - AccessibilityStatusMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor
