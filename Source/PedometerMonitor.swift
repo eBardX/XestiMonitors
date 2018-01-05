@@ -85,9 +85,7 @@ public class PedometerMonitor: BaseMonitor {
     ///
     @available(iOS 9.0, *)
     public var isCadenceAvailable: Bool {
-
         return type(of: pedometer).isCadenceAvailable()
-
     }
 
     ///
@@ -95,9 +93,7 @@ public class PedometerMonitor: BaseMonitor {
     /// the device.
     ///
     public var isDistanceAvailable: Bool {
-
         return type(of: pedometer).isDistanceAvailable()
-
     }
 
     ///
@@ -105,9 +101,7 @@ public class PedometerMonitor: BaseMonitor {
     /// device.
     ///
     public var isFloorCountingAvailable: Bool {
-
         return type(of: pedometer).isFloorCountingAvailable()
-
     }
 
     ///
@@ -116,9 +110,7 @@ public class PedometerMonitor: BaseMonitor {
     ///
     @available(iOS 9.0, *)
     public var isPaceAvailable: Bool {
-
         return type(of: pedometer).isPaceAvailable()
-
     }
 
     ///
@@ -126,9 +118,7 @@ public class PedometerMonitor: BaseMonitor {
     /// device.
     ///
     public var isStepCountingAvailable: Bool {
-
         return type(of: pedometer).isStepCountingAvailable()
-
     }
 
     // Public Instance Methods
@@ -168,19 +158,17 @@ public class PedometerMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
+    public override final func cleanupMonitor() {
 
         pedometer.stopUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         pedometer.startUpdates(from: Date()) { [unowned self] data, error in
 
@@ -197,8 +185,6 @@ public class PedometerMonitor: BaseMonitor {
             self.queue.addOperation { self.handler(.didUpdate(info)) }
 
         }
-
-        return true
 
     }
 

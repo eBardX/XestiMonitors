@@ -79,9 +79,7 @@ public class AltimeterMonitor: BaseMonitor {
     /// for relative altitude changes.
     ///
     public var isAvailable: Bool {
-
         return type(of: altimeter).isRelativeAltitudeAvailable()
-
     }
 
     // Private Instance Properties
@@ -92,19 +90,17 @@ public class AltimeterMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
+    public override final func cleanupMonitor() {
 
         altimeter.stopRelativeAltitudeUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         altimeter.startRelativeAltitudeUpdates(to: .main) { [unowned self] data, error in
 
@@ -121,8 +117,6 @@ public class AltimeterMonitor: BaseMonitor {
                                                 self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

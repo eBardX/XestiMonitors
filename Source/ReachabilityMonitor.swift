@@ -142,11 +142,11 @@ public class ReachabilityMonitor: BaseMonitor {
     /// The reachability of the network node name or address.
     ///
     public var status: Status {
-        if let flags = self.currentFlags {
-            return statusFromFlags(flags)
-        } else {
-            return .unknown
-        }
+        guard
+            let flags = self.currentFlags
+            else { return .unknown }
+
+        return statusFromFlags(flags)
     }
 
     // Private Type Methods
@@ -248,26 +248,22 @@ public class ReachabilityMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
+    public override final func cleanupMonitor() {
 
-        guard
-            SCNetworkReachabilitySetDispatchQueue(reachability,
-                                                  nil)
-            else { return false }
+        SCNetworkReachabilitySetDispatchQueue(reachability,
+                                              nil)
 
         SCNetworkReachabilitySetCallback(reachability,
                                          nil,
                                          nil)
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         var context = SCNetworkReachabilityContext()
 
@@ -289,17 +285,14 @@ public class ReachabilityMonitor: BaseMonitor {
             SCNetworkReachabilitySetCallback(reachability,
                                              callback,
                                              &context)
-            else { return false }
+            else { return }
 
         guard
             SCNetworkReachabilitySetDispatchQueue(reachability,
                                                   innerQueue)
-            else {
-
-                SCNetworkReachabilitySetCallback(reachability, nil, nil)
-
-                return false
-        }
+            else { SCNetworkReachabilitySetCallback(reachability,
+                                                    nil,
+                                                    nil); return }
 
         innerQueue.async {
 
@@ -308,8 +301,6 @@ public class ReachabilityMonitor: BaseMonitor {
             self.invokeHandler(self.currentFlags ?? [])
 
         }
-
-        return true
 
     }
 

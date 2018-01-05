@@ -39,22 +39,6 @@ internal class MockMotionManager: MotionManager {
     private(set) var isMagnetometerAvailable: Bool
     private(set) var magnetometerData: CMMagnetometerData?
 
-    var isAccelerometerActive: Bool {
-        return accelerometerHandler != nil
-    }
-
-    var isDeviceMotionActive: Bool {
-        return deviceMotionHandler != nil
-    }
-
-    var isGyroActive: Bool {
-        return gyroscopeHandler != nil
-    }
-
-    var isMagnetometerActive: Bool {
-        return magnetometerHandler != nil
-    }
-
     func startAccelerometerUpdates(to queue: OperationQueue,
                                    withHandler handler: @escaping CMAccelerometerHandler) {
 

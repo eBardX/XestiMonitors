@@ -88,11 +88,11 @@ public class AccelerometerMonitor: BaseMonitor {
     /// The latest acceleration measurement available.
     ///
     public var info: Info {
-        if let data = motionManager.accelerometerData {
-            return .data(data)
-        } else {
-            return .unknown
-        }
+        guard
+            let data = motionManager.accelerometerData
+            else { return .unknown }
+
+        return .data(data)
     }
 
     ///
@@ -112,23 +112,17 @@ public class AccelerometerMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
-
-        guard
-            motionManager.isAccelerometerActive
-            else { return false }
+    public override final func cleanupMonitor() {
 
         motionManager.stopAccelerometerUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         motionManager.accelerometerUpdateInterval = interval
 
@@ -147,8 +141,6 @@ public class AccelerometerMonitor: BaseMonitor {
             self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

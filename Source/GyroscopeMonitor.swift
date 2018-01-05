@@ -88,13 +88,11 @@ public class GyroscopeMonitor: BaseMonitor {
     /// The latest rotation rate measurement available.
     ///
     public var info: Info {
+        guard
+            let data = motionManager.gyroData
+            else { return .unknown }
 
-        if let data = motionManager.gyroData {
-            return .data(data)
-        } else {
-            return .unknown
-        }
-
+        return .data(data)
     }
 
     ///
@@ -102,9 +100,7 @@ public class GyroscopeMonitor: BaseMonitor {
     /// device.
     ///
     public var isAvailable: Bool {
-
         return motionManager.isGyroAvailable
-
     }
 
     // Private
@@ -116,23 +112,17 @@ public class GyroscopeMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
-
-        guard
-            motionManager.isGyroActive
-            else { return false }
+    public override final func cleanupMonitor() {
 
         motionManager.stopGyroUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         motionManager.gyroUpdateInterval = interval
 
@@ -151,8 +141,6 @@ public class GyroscopeMonitor: BaseMonitor {
             self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

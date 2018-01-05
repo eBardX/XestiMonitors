@@ -101,23 +101,19 @@ open class BaseNotificationMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
+    public override final func cleanupMonitor() {
 
         removeNotificationObservers()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        let ok = super.configureMonitor()
+        super.configureMonitor()
 
-        if ok {
-            addNotificationObservers()
-        }
-
-        return ok
+        addNotificationObservers()
 
     }
 

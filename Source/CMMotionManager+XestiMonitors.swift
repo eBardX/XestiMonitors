@@ -23,19 +23,11 @@ public protocol MotionManager: class {
 
     var gyroUpdateInterval: TimeInterval { get set }
 
-    var isAccelerometerActive: Bool { get }
-
     var isAccelerometerAvailable: Bool { get }
-
-    var isDeviceMotionActive: Bool { get }
 
     var isDeviceMotionAvailable: Bool { get }
 
-    var isGyroActive: Bool { get }
-
     var isGyroAvailable: Bool { get }
-
-    var isMagnetometerActive: Bool { get }
 
     var isMagnetometerAvailable: Bool { get }
 

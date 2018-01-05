@@ -103,9 +103,7 @@ public class MotionActivityMonitor: BaseMonitor {
     /// device.
     ///
     public var isAvailable: Bool {
-
         return type(of: motionActivityManager).isActivityAvailable()
-
     }
 
     // Public Instance Methods
@@ -149,19 +147,17 @@ public class MotionActivityMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
+    public override final func cleanupMonitor() {
 
         motionActivityManager.stopActivityUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
 
@@ -176,8 +172,6 @@ public class MotionActivityMonitor: BaseMonitor {
             self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

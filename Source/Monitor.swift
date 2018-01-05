@@ -26,19 +26,11 @@ public protocol Monitor {
     ///
     /// Starts active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully started or
-    ///             `false` on failure (or if monitoring was already active).
-    ///
-    @discardableResult
-    func startMonitoring() -> Bool
+    func startMonitoring()
 
     ///
     /// Stops active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully stopped or
-    ///             `false` on failure (or if monitoring was not active).
-    ///
-    @discardableResult
-    func stopMonitoring() -> Bool
+    func stopMonitoring()
 
 }

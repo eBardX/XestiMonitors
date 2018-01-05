@@ -91,13 +91,11 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// The latest device motion measurement available.
     ///
     public var info: Info {
+        guard
+            let data = motionManager.deviceMotion
+            else { return .unknown }
 
-        if let data = motionManager.deviceMotion {
-            return .data(data)
-        } else {
-            return .unknown
-        }
-
+        return .data(data)
     }
 
     ///
@@ -105,9 +103,7 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// on the device.
     ///
     public var isAvailable: Bool {
-
         return motionManager.isDeviceMotionAvailable
-
     }
 
     // Private
@@ -120,23 +116,17 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
-
-        guard
-            motionManager.isDeviceMotionActive
-            else { return false }
+    public override final func cleanupMonitor() {
 
         motionManager.stopDeviceMotionUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         motionManager.deviceMotionUpdateInterval = interval
 
@@ -156,8 +146,6 @@ public class DeviceMotionMonitor: BaseMonitor {
                                                 self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

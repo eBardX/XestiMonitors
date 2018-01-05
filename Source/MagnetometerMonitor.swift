@@ -89,13 +89,11 @@ public class MagnetometerMonitor: BaseMonitor {
     /// The latest magnetic field measurement available.
     ///
     public var info: Info {
+        guard
+            let data = motionManager.magnetometerData
+            else { return .unknown }
 
-        if let data = motionManager.magnetometerData {
-            return .data(data)
-        } else {
-            return .unknown
-        }
-
+        return .data(data)
     }
 
     ///
@@ -103,9 +101,7 @@ public class MagnetometerMonitor: BaseMonitor {
     /// device.
     ///
     public var isAvailable: Bool {
-
         return motionManager.isMagnetometerAvailable
-
     }
 
     // Private
@@ -117,23 +113,17 @@ public class MagnetometerMonitor: BaseMonitor {
 
     // Overridden BaseMonitor Instance Methods
 
-    public override final func cleanupMonitor() -> Bool {
-
-        guard
-            motionManager.isMagnetometerActive
-            else { return false }
+    public override final func cleanupMonitor() {
 
         motionManager.stopMagnetometerUpdates()
 
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
 
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
 
-        guard
-            super.configureMonitor()
-            else { return false }
+        super.configureMonitor()
 
         motionManager.magnetometerUpdateInterval = interval
 
@@ -152,8 +142,6 @@ public class MagnetometerMonitor: BaseMonitor {
             self.handler(.didUpdate(info))
 
         }
-
-        return true
 
     }
 

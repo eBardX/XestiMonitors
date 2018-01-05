@@ -7,9 +7,6 @@
 //  © 2016 J. G. Pusey (see LICENSE.md)
 //
 
-import Foundation
-import UIKit
-
 ///
 /// An abstract base class that simplifies the implementation of a monitor.
 ///
@@ -24,13 +21,7 @@ open class BaseMonitor: Monitor {
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
-    /// - Returns:  `true` if the monitor was successfully cleaned up or
-    ///             `false` on failure.
-    ///
-    open func cleanupMonitor() -> Bool {
-
-        return true
-
+    open func cleanupMonitor() {
     }
 
     ///
@@ -40,13 +31,7 @@ open class BaseMonitor: Monitor {
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
-    /// - Returns:  `true` if the monitor was successfully configured or
-    ///             `false` on failure.
-    ///
-    open func configureMonitor() -> Bool {
-
-        return true
-
+    open func configureMonitor() {
     }
 
     // Public Initializers
@@ -67,42 +52,24 @@ open class BaseMonitor: Monitor {
     ///
     /// Starts active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully started or
-    ///             `false` on failure (or if monitoring was already active).
-    ///
-    @discardableResult
-    public final func startMonitoring() -> Bool {
+    public final func startMonitoring() {
 
-        guard
-            !isMonitoring
-            else { return false }
-
-        if configureMonitor() {
+        if !isMonitoring {
+            configureMonitor()
             isMonitoring = true
         }
-
-        return isMonitoring
 
     }
 
     ///
     /// Stops active monitoring of events specific to the monitor.
     ///
-    /// - Returns:  `true` if active monitoring was successfully stopped or
-    ///             `false` on failure (or if monitoring was not active).
-    ///
-    @discardableResult
-    public final func stopMonitoring() -> Bool {
+    public final func stopMonitoring() {
 
-        guard
-            isMonitoring
-            else { return false }
-
-        if cleanupMonitor() {
+        if isMonitoring {
+            cleanupMonitor()
             isMonitoring = false
         }
-
-        return !isMonitoring
 
     }
 
