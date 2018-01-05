@@ -11,14 +11,12 @@ import CoreMotion
 
 public protocol Pedometer: class {
 
-    @available(iOS 9.0, *)
     static func isCadenceAvailable() -> Bool
 
     static func isDistanceAvailable() -> Bool
 
     static func isFloorCountingAvailable() -> Bool
 
-    @available(iOS 9.0, *)
     static func isPaceAvailable() -> Bool
 
     static func isStepCountingAvailable() -> Bool

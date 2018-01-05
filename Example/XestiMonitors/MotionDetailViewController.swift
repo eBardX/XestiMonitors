@@ -422,22 +422,14 @@ public class MotionDetailViewController: UITableViewController {
                 pedometerAverageActivePaceLabel.text = " "
             }
 
-            if #available(iOS 9.0, *) {
-                if let value = data.currentCadence {
-                    pedometerCurrentCadenceLabel.text = formatCadence(value)
-                } else {
-                    pedometerCurrentCadenceLabel.text = " "
-                }
+            if let value = data.currentCadence {
+                pedometerCurrentCadenceLabel.text = formatCadence(value)
             } else {
                 pedometerCurrentCadenceLabel.text = " "
             }
 
-            if #available(iOS 9.0, *) {
-                if let value = data.currentPace {
-                    pedometerCurrentPaceLabel.text = formatPace(value)
-                } else {
-                    pedometerCurrentPaceLabel.text = " "
-                }
+            if let value = data.currentPace {
+                pedometerCurrentPaceLabel.text = formatPace(value)
             } else {
                 pedometerCurrentPaceLabel.text = " "
             }

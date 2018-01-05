@@ -35,8 +35,7 @@ public func formatAssistiveTechnology(_ value: String) -> String {
         return "Switch Control"
     }
 
-    if #available(iOS 9.0, *),
-        UIAccessibilityNotificationVoiceOverIdentifier == value {
+    if UIAccessibilityNotificationVoiceOverIdentifier == value {
         return "VoiceOver"
     }
 

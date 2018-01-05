@@ -11,7 +11,6 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
-@available(iOS 9.0, *)
 internal class AccessibilityElementMonitorTests: XCTestCase {
 
     let notificationCenter = MockNotificationCenter()

@@ -83,7 +83,6 @@ public class PedometerMonitor: BaseMonitor {
     /// A Boolean value indicating whether cadence information is available on
     /// the device.
     ///
-    @available(iOS 9.0, *)
     public var isCadenceAvailable: Bool {
         return type(of: pedometer).isCadenceAvailable()
     }
@@ -108,7 +107,6 @@ public class PedometerMonitor: BaseMonitor {
     /// A Boolean value indicating whether pace information is available on the
     /// device.
     ///
-    @available(iOS 9.0, *)
     public var isPaceAvailable: Bool {
         return type(of: pedometer).isPaceAvailable()
     }

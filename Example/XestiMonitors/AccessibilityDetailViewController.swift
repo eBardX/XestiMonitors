@@ -41,7 +41,6 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    @available(iOS 9.0, *)
     private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
 
         self.displayElement($0)
@@ -54,16 +53,9 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    private lazy var monitors: [Monitor] = {
-        if #available(iOS 9.0, *) {
-            return [self.announcementMonitor,
-                    self.elementMonitor,
-                    self.statusMonitor]
-        } else {
-            return [self.announcementMonitor,
-                    self.statusMonitor]
-        }
-    }()
+    private lazy var monitors: [Monitor] = [self.announcementMonitor,
+                                            self.elementMonitor,
+                                            self.statusMonitor]
 
     private var announcementCount = 0
 
@@ -88,7 +80,6 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     }
 
-    @available(iOS 9.0, *)
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
 
         if let event = event,
@@ -216,11 +207,7 @@ public class AccessibilityDetailViewController: UITableViewController {
 
             statusReduceTransparencyLabel.text = formatBool(statusMonitor.isReduceTransparencyEnabled)
 
-            if #available(iOS 9.0, *) {
-                statusShakeToUndoLabel.text = formatBool(statusMonitor.isShakeToUndoEnabled)
-            } else {
-                statusShakeToUndoLabel.text = " "
-            }
+            statusShakeToUndoLabel.text = formatBool(statusMonitor.isShakeToUndoEnabled)
 
             statusSpeakScreenLabel.text = formatBool(statusMonitor.isSpeakScreenEnabled)
 
@@ -255,9 +242,7 @@ public class AccessibilityDetailViewController: UITableViewController {
 
         displayAnnouncement(nil)
 
-        if #available(iOS 9.0, *) {
-            displayElement(nil)
-        }
+        displayElement(nil)
 
         displayStatus(nil)
 

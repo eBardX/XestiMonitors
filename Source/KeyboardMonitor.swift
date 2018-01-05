@@ -125,12 +125,8 @@ public class KeyboardMonitor: BaseNotificationMonitor {
                 self.frameEnd = .zero
             }
 
-            if #available(iOS 9.0, *) {
-                if let value = (userInfo?[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue {
-                    self.isLocal = value
-                } else {
-                    self.isLocal = true
-                }
+            if let value = (userInfo?[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue {
+                self.isLocal = value
             } else {
                 self.isLocal = true
             }

@@ -115,7 +115,7 @@ Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 
 ## <a name="requirements">Requirements</a>
 
-* iOS 8.0+
+* iOS 9.0+
 * Xcode 9.0+
 * Swift 4.0+
 

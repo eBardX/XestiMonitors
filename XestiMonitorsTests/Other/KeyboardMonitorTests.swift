@@ -283,18 +283,11 @@ internal class KeyboardMonitorTests: XCTestCase {
                               frameEnd: CGRect,
                               isLocal: Bool) -> [AnyHashable: Any] {
 
-        if #available(iOS 9.0, *) {
-            return [UIKeyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
-                    UIKeyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
-                    UIKeyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
-                    UIKeyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
-                    UIKeyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
-        } else {
-            return [UIKeyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
-                    UIKeyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
-                    UIKeyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
-                    UIKeyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd)]
-        }
+        return [UIKeyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
+                UIKeyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
+                UIKeyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
+                UIKeyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
+                UIKeyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
 
     }
 

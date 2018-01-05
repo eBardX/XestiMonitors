@@ -225,7 +225,6 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// A Boolean value indicating whether the user has enabled Shake to Undo
     /// in Settings.
     ///
-    @available(iOS 9.0, *)
     public var isShakeToUndoEnabled: Bool {
         return UIAccessibilityIsShakeToUndoEnabled()
     }
@@ -320,10 +319,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
             self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
         }
 
-        if #available(iOS 9.0, *) {
-            observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
-                self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
-            }
+        observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
+            self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
         }
 
         observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
