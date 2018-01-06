@@ -28,7 +28,7 @@ public class TimeMonitor: BaseNotificationMonitor {
     /// Initializes a new `TimeMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when there is a significant change

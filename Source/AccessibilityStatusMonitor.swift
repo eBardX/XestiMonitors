@@ -103,19 +103,133 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     ///
+    ///
+    ///
+    public struct Options: OptionSet {
+        ///
+        ///
+        ///
+        public static let assistiveTouchStatusDidChange = Options(rawValue: 1 << 0)
+
+        ///
+        ///
+        ///
+        public static let boldTextStatusDidChange = Options(rawValue: 1 << 1)
+
+        ///
+        ///
+        ///
+        public static let closedCaptioningStatusDidChange = Options(rawValue: 1 << 2)
+
+        ///
+        ///
+        ///
+        public static let darkenColorsStatusDidChange = Options(rawValue: 1 << 3)
+
+        ///
+        ///
+        ///
+        public static let grayscaleStatusDidChange = Options(rawValue: 1 << 4)
+
+        ///
+        ///
+        ///
+        public static let guidedAccessStatusDidChange = Options(rawValue: 1 << 5)
+
+        ///
+        ///
+        ///
+        public static let hearingDevicePairedEarDidChange = Options(rawValue: 1 << 6)
+
+        ///
+        ///
+        ///
+        public static let invertColorsStatusDidChange = Options(rawValue: 1 << 7)
+
+        ///
+        ///
+        ///
+        public static let monoAudioStatusDidChange = Options(rawValue: 1 << 8)
+
+        ///
+        ///
+        ///
+        public static let reduceMotionStatusDidChange = Options(rawValue: 1 << 9)
+
+        ///
+        ///
+        ///
+        public static let reduceTransparencyStatusDidChange = Options(rawValue: 1 << 10)
+
+        ///
+        ///
+        ///
+        public static let shakeToUndoStatusDidChange = Options(rawValue: 1 << 11)
+
+        ///
+        ///
+        ///
+        public static let speakScreenStatusDidChange = Options(rawValue: 1 << 12)
+
+        ///
+        ///
+        ///
+        public static let speakSelectionStatusDidChange = Options(rawValue: 1 << 13)
+
+        ///
+        ///
+        ///
+        public static let switchControlStatusDidChange = Options(rawValue: 1 << 14)
+
+        ///
+        ///
+        ///
+        public static let voiceOverStatusDidChange = Options(rawValue: 1 << 15)
+
+        ///
+        ///
+        ///
+        public static let all: Options = [.assistiveTouchStatusDidChange,
+                                          .boldTextStatusDidChange,
+                                          .closedCaptioningStatusDidChange,
+                                          .darkenColorsStatusDidChange,
+                                          .grayscaleStatusDidChange,
+                                          .guidedAccessStatusDidChange,
+                                          .hearingDevicePairedEarDidChange,
+                                          .invertColorsStatusDidChange,
+                                          .monoAudioStatusDidChange,
+                                          .reduceMotionStatusDidChange,
+                                          .reduceTransparencyStatusDidChange,
+                                          .shakeToUndoStatusDidChange,
+                                          .speakScreenStatusDidChange,
+                                          .speakSelectionStatusDidChange,
+                                          .switchControlStatusDidChange,
+                                          .voiceOverStatusDidChange]
+
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+        public let rawValue: UInt
+    }
+
+    ///
     /// Initializes a new `AccessibilityStatusMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - options:
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
+        self.options = options
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
@@ -251,84 +365,116 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     private let handler: (Event) -> Void
+    private let options: Options
 
+    // swiftlint:disable cyclomatic_complexity
     public override func addNotificationObservers() {
         super.addNotificationObservers()
 
-        if #available(iOS 10.0, *) {
+        if options.contains(.assistiveTouchStatusDidChange),
+            #available(iOS 10.0, *) {
             observe(.UIAccessibilityAssistiveTouchStatusDidChange) { [unowned self] _ in
                 self.handler(.assistiveTouchStatusDidChange(self.isAssistiveTouchEnabled))
             }
         }
 
-        observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
-            self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
+        if options.contains(.boldTextStatusDidChange) {
+            observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
+                self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
+            }
         }
 
-        observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
-            self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
+        if options.contains(.closedCaptioningStatusDidChange) {
+            observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
+                self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
+            }
         }
 
-        observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
-            self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
+        if options.contains(.darkenColorsStatusDidChange) {
+            observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
+                self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
+            }
         }
 
-        observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
-            self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
+        if options.contains(.grayscaleStatusDidChange) {
+            observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
+                self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
+            }
         }
 
-        observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
-            self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
+        if options.contains(.guidedAccessStatusDidChange) {
+            observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
+                self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
+            }
         }
 
-        if #available(iOS 10.0, *) {
+        if options.contains(.hearingDevicePairedEarDidChange),
+            #available(iOS 10.0, *) {
             observe(.UIAccessibilityHearingDevicePairedEarDidChange) { [unowned self] _ in
                 self.handler(.hearingDevicePairedEarDidChange(self.hearingDevicePairedEar))
             }
         }
 
-        observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
-            self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
+        if options.contains(.invertColorsStatusDidChange) {
+            observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
+                self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
+            }
         }
 
-        observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
-            self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
+        if options.contains(.monoAudioStatusDidChange) {
+            observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
+                self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
+            }
         }
 
-        observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
-            self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
+        if options.contains(.reduceMotionStatusDidChange) {
+            observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
+                self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
+            }
         }
 
-        observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
-            self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
+        if options.contains(.reduceTransparencyStatusDidChange) {
+            observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
+                self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
+            }
         }
 
-        observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
-            self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
+        if options.contains(.shakeToUndoStatusDidChange) {
+            observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
+                self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
+            }
         }
 
-        observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
-            self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
+        if options.contains(.speakScreenStatusDidChange) {
+            observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
+                self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
+            }
         }
 
-        observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
-            self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
+        if options.contains(.speakSelectionStatusDidChange) {
+            observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
+                self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
+            }
         }
 
-        observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
-            self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
+        if options.contains(.switchControlStatusDidChange) {
+            observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
+                self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
+            }
         }
 
-        let voiceOverStatusDidChange: Notification.Name
+        if options.contains(.voiceOverStatusDidChange) {
+            let voiceOverStatusDidChange: Notification.Name
 
-        if #available(iOS 11.0, *) {
-            voiceOverStatusDidChange = .UIAccessibilityVoiceOverStatusDidChange
-        } else {
-            voiceOverStatusDidChange = Notification.Name(UIAccessibilityVoiceOverStatusChanged)
-        }
+            if #available(iOS 11.0, *) {
+                voiceOverStatusDidChange = .UIAccessibilityVoiceOverStatusDidChange
+            } else {
+                voiceOverStatusDidChange = Notification.Name(UIAccessibilityVoiceOverStatusChanged)
+            }
 
-        observe(voiceOverStatusDidChange) { [unowned self] _ in
-            self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
+            observe(voiceOverStatusDidChange) { [unowned self] _ in
+                self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
+            }
         }
     }
 }

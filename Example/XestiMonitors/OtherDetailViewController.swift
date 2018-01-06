@@ -118,7 +118,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         keyboardTextField.delegate = self
 
         displayKeyboard(nil)
-
         displayReachability(nil)
     }
 

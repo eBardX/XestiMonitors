@@ -30,7 +30,7 @@ public class MemoryMonitor: BaseNotificationMonitor {
     /// Initializes a new `MemoryMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the app receives a warning

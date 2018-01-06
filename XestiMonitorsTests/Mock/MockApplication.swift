@@ -14,12 +14,14 @@ internal class MockApplication: Application {
     init() {
         self.applicationState = .inactive
         self.backgroundRefreshStatus = .restricted
+        self.isProtectedDataAvailable = false
         self.statusBarFrame = .zero
         self.statusBarOrientation = .unknown
     }
 
     var applicationState: UIApplicationState
     var backgroundRefreshStatus: UIBackgroundRefreshStatus
+    var isProtectedDataAvailable: Bool
     var statusBarFrame: CGRect
     var statusBarOrientation: UIInterfaceOrientation
 }

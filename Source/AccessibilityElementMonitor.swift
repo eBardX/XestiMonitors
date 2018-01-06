@@ -59,7 +59,7 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityElementMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when an assistive technology

@@ -30,10 +30,10 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     /// Initializes a new `BackgroundRefreshMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - application
+    ///   - application:
     ///   - handler:    The handler to call when the app’s status for
     ///                 downloading content in the background changes.
     ///

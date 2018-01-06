@@ -128,52 +128,119 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     }
 
     ///
+    ///
+    ///
+    public struct Options: OptionSet {
+        ///
+        ///
+        ///
+        public static let didChangeFrame = Options(rawValue: 1 << 0)
+
+        ///
+        ///
+        ///
+        public static let didHide = Options(rawValue: 1 << 1)
+
+        ///
+        ///
+        ///
+        public static let didShow = Options(rawValue: 1 << 2)
+
+        ///
+        ///
+        ///
+        public static let willChangeFrame = Options(rawValue: 1 << 3)
+
+        ///
+        ///
+        ///
+        public static let willHide = Options(rawValue: 1 << 4)
+
+        ///
+        ///
+        ///
+        public static let willShow = Options(rawValue: 1 << 5)
+
+        ///
+        ///
+        ///
+        public static let all: Options = [.didChangeFrame,
+                                          .didHide,
+                                          .didShow,
+                                          .willChangeFrame,
+                                          .willHide,
+                                          .willShow]
+
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+        public let rawValue: UInt
+    }
+
+    ///
     /// Initializes a new `KeyboardMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - options:
     ///   - handler:    The handler to call when the visibility of the keyboard
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.
     ///
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
+        self.options = options
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
     }
 
     private let handler: (Event) -> Void
+    private let options: Options
 
     public override func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIKeyboardDidChangeFrame) { [unowned self] in
-            self.handler(.didChangeFrame(Info($0)))
+        if options.contains(.didChangeFrame) {
+            observe(.UIKeyboardDidChangeFrame) { [unowned self] in
+                self.handler(.didChangeFrame(Info($0)))
+            }
         }
 
-        observe(.UIKeyboardDidHide) { [unowned self] in
-            self.handler(.didHide(Info($0)))
+        if options.contains(.didHide) {
+            observe(.UIKeyboardDidHide) { [unowned self] in
+                self.handler(.didHide(Info($0)))
+            }
         }
 
-        observe(.UIKeyboardDidShow) { [unowned self] in
-            self.handler(.didShow(Info($0)))
+        if options.contains(.didShow) {
+            observe(.UIKeyboardDidShow) { [unowned self] in
+                self.handler(.didShow(Info($0)))
+            }
         }
 
-        observe(.UIKeyboardWillChangeFrame) { [unowned self] in
-            self.handler(.willChangeFrame(Info($0)))
+        if options.contains(.willChangeFrame) {
+            observe(.UIKeyboardWillChangeFrame) { [unowned self] in
+                self.handler(.willChangeFrame(Info($0)))
+            }
         }
 
-        observe(.UIKeyboardWillHide) { [unowned self] in
-            self.handler(.willHide(Info($0)))
+        if options.contains(.willHide) {
+            observe(.UIKeyboardWillHide) { [unowned self] in
+                self.handler(.willHide(Info($0)))
+            }
         }
 
-        observe(.UIKeyboardWillShow) { [unowned self] in
-            self.handler(.willShow(Info($0)))
+        if options.contains(.willShow) {
+            observe(.UIKeyboardWillShow) { [unowned self] in
+                self.handler(.willShow(Info($0)))
+            }
         }
     }
 }

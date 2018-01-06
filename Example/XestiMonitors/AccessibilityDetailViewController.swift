@@ -212,9 +212,7 @@ public class AccessibilityDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         displayAnnouncement(nil)
-
         displayElement(nil)
-
         displayStatus(nil)
     }
 

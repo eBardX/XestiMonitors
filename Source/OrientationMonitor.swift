@@ -29,10 +29,10 @@ public class OrientationMonitor: BaseNotificationMonitor {
     /// Initializes a new `OrientationMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - device
+    ///   - device:
     ///   - handler:    The handler to call when the physical orientation of
     ///                 the device changes.
     ///

@@ -14,6 +14,8 @@ public protocol Application: class {
 
     var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
 
+    var isProtectedDataAvailable: Bool { get }
+
     var statusBarFrame: CGRect { get }
 
     var statusBarOrientation: UIInterfaceOrientation { get }

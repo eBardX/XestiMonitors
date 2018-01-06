@@ -15,11 +15,18 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
+    override func setUp() {
+        super.setUp()
+
+        application.isProtectedDataAvailable = false
+    }
+
     func testMonitor_didBecomeAvailable() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(notificationCenter: notificationCenter,
-                                           queue: .main) { event in
+                                           queue: .main,
+                                           application: application) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -36,11 +43,23 @@ internal class ProtectedDataMonitorTests: XCTestCase {
         }
     }
 
+    func testIsContentAccessible() {
+        let expectedIsContentAccessible: Bool = true
+        let monitor = ProtectedDataMonitor(notificationCenter: notificationCenter,
+                                           queue: .main,
+                                           application: application) { _ in }
+
+        application.isProtectedDataAvailable = true
+
+        XCTAssertEqual(monitor.isContentAccessible, expectedIsContentAccessible)
+    }
+
     func testMonitor_willBecomeUnavailable() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(notificationCenter: notificationCenter,
-                                           queue: .main) { event in
+                                           queue: .main,
+                                           application: application) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }

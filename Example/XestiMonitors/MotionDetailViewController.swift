@@ -461,17 +461,11 @@ public class MotionDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         displayAccelerometer(nil)
-
         displayAltimeter(nil)
-
         displayDeviceMotion(nil)
-
         displayGyroscope(nil)
-
         displayMagnetometer(nil)
-
         displayMotionActivity(nil)
-
         displayPedometer(nil)
     }
 

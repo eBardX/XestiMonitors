@@ -45,7 +45,7 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// Initializes a new base notification monitor.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,

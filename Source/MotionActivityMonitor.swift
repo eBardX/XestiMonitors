@@ -70,11 +70,11 @@ public class MotionActivityMonitor: BaseMonitor {
     /// Initializes a new `MotionActivityMonitor`.
     ///
     /// - Parameters:
-    ///   - motionActivityManager
+    ///   - motionActivityManager:
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when a change in the current type
     ///                 of motion is detected.
-    ///                 - OR -
+    ///                 ??? OR ???
     ///                 The block to execute with the results.
     ///
     public init(motionActivityManager: MotionActivityManager = CMMotionActivityManager(),

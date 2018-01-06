@@ -32,22 +32,52 @@ public class BatteryMonitor: BaseNotificationMonitor {
     }
 
     ///
+    ///
+    ///
+    public struct Options: OptionSet {
+        ///
+        ///
+        ///
+        public static let levelDidChange = Options(rawValue: 1 << 0)
+
+        ///
+        ///
+        ///
+        public static let stateDidChange = Options(rawValue: 1 << 1)
+
+        ///
+        ///
+        ///
+        public static let all: Options = [.levelDidChange,
+                                          .stateDidChange]
+
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+        public let rawValue: UInt
+    }
+
+    ///
     /// Initializes a new `BatteryMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - device
+    ///   - device:
+    ///   - options:
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
         self.device = device
         self.handler = handler
+        self.options = options
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
@@ -69,16 +99,21 @@ public class BatteryMonitor: BaseNotificationMonitor {
 
     private let device: Device
     private let handler: (Event) -> Void
+    private let options: Options
 
     public override func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
-            self.handler(.levelDidChange(self.level))
+        if options.contains(.levelDidChange) {
+            observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
+                self.handler(.levelDidChange(self.level))
+            }
         }
 
-        observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
-            self.handler(.stateDidChange(self.state))
+        if options.contains(.stateDidChange) {
+            observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
+                self.handler(.stateDidChange(self.state))
+            }
         }
 
         device.isBatteryMonitoringEnabled = true

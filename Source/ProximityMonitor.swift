@@ -29,10 +29,10 @@ public class ProximityMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProximityMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter
+    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - device
+    ///   - device:
     ///   - handler:    The handler to call when the state of the proximity
     ///                 sensor changes.
     ///

@@ -54,7 +54,7 @@ public class PedometerMonitor: BaseMonitor {
     /// Initializes a new `PedometerMonitor`.
     ///
     /// - Parameters:
-    ///   - pedometer
+    ///   - pedometer:
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when ...
     ///

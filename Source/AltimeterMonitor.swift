@@ -50,7 +50,7 @@ public class AltimeterMonitor: BaseMonitor {
     /// Initializes a new `AltimeterMonitor`.
     ///
     /// - Parameters:
-    ///   - altimeter
+    ///   - altimeter:
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when new altitude data is
     ///                 available.

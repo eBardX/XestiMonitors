@@ -195,17 +195,11 @@ public class ApplicationDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         displayApplicationState(nil)
-
         displayBackgroundRefresh(nil)
-
         displayMemory(nil)
-
         displayProtectedData(nil)
-
         displayScreenshot(nil)
-
         displayStatusBar(nil)
-
         displayTime(nil)
     }
 
