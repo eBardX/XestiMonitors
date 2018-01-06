@@ -14,13 +14,13 @@ import XCTest
 internal class TimeMonitorTests: XCTestCase {
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         NotificationCenterInjector.notificationCenter = notificationCenter
     }
-    
+
     func testMonitor_significantChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: TimeMonitor.Event?
@@ -28,19 +28,19 @@ internal class TimeMonitorTests: XCTestCase {
             expectedEvent = event
             expectation.fulfill()
         }
-        
+
         monitor.startMonitoring()
         simulateSignificantChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent {
             XCTAssertEqual(event, .significantChange)
         } else {
             XCTFail("Unexpected event")
         }
     }
-    
+
     private func simulateSignificantChange() {
         notificationCenter.post(name: .UIApplicationSignificantTimeChange,
                                 object: application)

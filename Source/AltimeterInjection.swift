@@ -1,5 +1,5 @@
 //
-//  CMAltimeter+XestiMonitors.swift
+//  AltimeterInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-12-30.
@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-public protocol Altimeter: class {
+internal protocol Altimeter: class {
     static func isRelativeAltitudeAvailable() -> Bool
 
     func startRelativeAltitudeUpdates(to queue: OperationQueue,
@@ -19,3 +19,13 @@ public protocol Altimeter: class {
 }
 
 extension CMAltimeter: Altimeter {}
+
+internal protocol AltimeterInjected {}
+
+internal struct AltimeterInjector {
+    static var altimeter: Altimeter = CMAltimeter()
+}
+
+internal extension AltimeterInjected {
+    var altimeter: Altimeter { return AltimeterInjector.altimeter }
+}

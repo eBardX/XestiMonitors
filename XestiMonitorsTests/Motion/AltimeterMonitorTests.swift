@@ -95,7 +95,7 @@ internal class AltimeterMonitorTests: XCTestCase {
         altimeter.updateAltimeter(data: nil)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .didUpdate(info) = event,
             case .unknown = info {

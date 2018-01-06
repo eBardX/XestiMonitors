@@ -44,16 +44,6 @@ custom_categories:
   - name: Extensions
     children:
       - CMAcceleration
-      - CMMotionManager
-  - name: Dependency Injection
-    children:
-      - Altimeter
-      - Application
-      - Device
-      - MotionActivityManager
-      - MotionManager
-      - NotificationCenter
-      - Pedometer
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
 module: XestiMonitors

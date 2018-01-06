@@ -1,5 +1,5 @@
 //
-//  CMMotionActivityManager+XestiMonitors.swift
+//  MotionActivityManagerInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-12-30.
@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-public protocol MotionActivityManager: class {
+internal protocol MotionActivityManager: class {
     static func isActivityAvailable() -> Bool
 
     func queryActivityStarting(from start: Date,
@@ -24,3 +24,13 @@ public protocol MotionActivityManager: class {
 }
 
 extension CMMotionActivityManager: MotionActivityManager {}
+
+internal protocol MotionActivityManagerInjected {}
+
+internal struct MotionActivityManagerInjector {
+    static var motionActivityManager: MotionActivityManager = CMMotionActivityManager()
+}
+
+internal extension MotionActivityManagerInjected {
+    var motionActivityManager: MotionActivityManager { return MotionActivityManagerInjector.motionActivityManager }
+}

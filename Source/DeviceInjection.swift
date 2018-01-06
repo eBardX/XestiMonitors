@@ -1,5 +1,5 @@
 //
-//  UIDevice+XestiMonitors.swift
+//  DeviceInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-12-29.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-public protocol Device: class {
+internal protocol Device: class {
     var batteryLevel: Float { get }
 
     var batteryState: UIDeviceBatteryState { get }
@@ -28,3 +28,13 @@ public protocol Device: class {
 }
 
 extension UIDevice: Device {}
+
+internal protocol DeviceInjected {}
+
+internal struct DeviceInjector {
+    static var device: Device = UIDevice.current
+}
+
+internal extension DeviceInjected {
+    var device: Device { return DeviceInjector.device }
+}

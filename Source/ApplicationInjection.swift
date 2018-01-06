@@ -1,5 +1,5 @@
 //
-//  UIApplication+XestiMonitors.swift
+//  ApplicationInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-12-29.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-public protocol Application: class {
+internal protocol Application: class {
     var applicationState: UIApplicationState { get }
 
     var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
@@ -22,3 +22,13 @@ public protocol Application: class {
 }
 
 extension UIApplication: Application {}
+
+internal protocol ApplicationInjected {}
+
+internal struct ApplicationInjector {
+    static var application: Application = UIApplication.shared
+}
+
+internal extension ApplicationInjected {
+    var application: Application { return ApplicationInjector.application }
+}

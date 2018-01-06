@@ -193,7 +193,7 @@ internal class StatusBarMonitorTests: XCTestCase {
                                 object: application,
                                 userInfo: [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)])
     }
-    
+
     private func simulateWillChangeFrame(to frame: CGRect,
                                          badUserInfo: Bool = false) {
         let userInfo: [AnyHashable: Any]?

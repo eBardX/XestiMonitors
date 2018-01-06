@@ -1,5 +1,5 @@
 //
-//  CMPedometer+XestiMonitors.swift
+//  PedometerInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2017-12-30.
@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-public protocol Pedometer: class {
+internal protocol Pedometer: class {
     static func isCadenceAvailable() -> Bool
 
     static func isDistanceAvailable() -> Bool
@@ -31,3 +31,13 @@ public protocol Pedometer: class {
 }
 
 extension CMPedometer: Pedometer {}
+
+internal protocol PedometerInjected {}
+
+internal struct PedometerInjector {
+    static var pedometer: Pedometer = CMPedometer()
+}
+
+internal extension PedometerInjected {
+    var pedometer: Pedometer { return PedometerInjector.pedometer }
+}

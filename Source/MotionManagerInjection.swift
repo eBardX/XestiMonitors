@@ -1,5 +1,5 @@
 //
-//  CMMotionManager+XestiMonitors.swift
+//  MotionManagerInjection.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2016-12-16.
@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-public protocol MotionManager: class {
+internal protocol MotionManager: class {
     var accelerometerData: CMAccelerometerData? { get }
 
     var accelerometerUpdateInterval: TimeInterval { get set }
@@ -57,3 +57,13 @@ public protocol MotionManager: class {
 }
 
 extension CMMotionManager: MotionManager {}
+
+internal protocol MotionManagerInjected {}
+
+internal struct MotionManagerInjector {
+    static var motionManager: MotionManager = CMMotionManager()
+}
+
+internal extension MotionManagerInjected {
+    var motionManager: MotionManager { return MotionManagerInjector.motionManager }
+}

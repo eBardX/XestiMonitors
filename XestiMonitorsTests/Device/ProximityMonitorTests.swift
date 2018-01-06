@@ -56,7 +56,7 @@ internal class ProximityMonitorTests: XCTestCase {
             XCTFail("Unexpected event")
         }
     }
-    
+
     func testState() {
         let expectedState: Bool = true
         let monitor = ProximityMonitor(queue: .main) { _ in }
