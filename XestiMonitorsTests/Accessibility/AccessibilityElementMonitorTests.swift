@@ -14,16 +14,21 @@ import XCTest
 internal class AccessibilityElementMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
 
+    override func setUp() {
+        super.setUp()
+
+        NotificationCenterInjector.notificationCenter = notificationCenter
+    }
+
     func testMonitor_didFinish() {
         let expectation = self.expectation(description: "Handler called")
         let expectedAssistiveTechnology: String? = "VoiceOver"
         let expectedFocusedElement: Any? = UITextField()
         let expectedUnfocusedElement: Any? = UIButton()
         var expectedEvent: AccessibilityElementMonitor.Event?
-        let monitor = AccessibilityElementMonitor(notificationCenter: notificationCenter,
-                                                  queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+        let monitor = AccessibilityElementMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -57,10 +62,9 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         let expectedFocusedElement: Any? = nil
         let expectedUnfocusedElement: Any? = nil
         var expectedEvent: AccessibilityElementMonitor.Event?
-        let monitor = AccessibilityElementMonitor(notificationCenter: notificationCenter,
-                                                  queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+        let monitor = AccessibilityElementMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()

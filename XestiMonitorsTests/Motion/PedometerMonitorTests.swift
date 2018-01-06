@@ -14,9 +14,14 @@ import XCTest
 internal class PedometerMonitorTests: XCTestCase {
     let pedometer = MockPedometer()
 
+    override func setUp() {
+        super.setUp()
+
+        PedometerInjector.pedometer = pedometer
+    }
+
     func testIsCadenceAvailable_false() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(cadenceAvailable: false)
 
@@ -24,8 +29,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsCadenceAvailable_true() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(cadenceAvailable: true)
 
@@ -33,8 +37,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsDistanceAvailable_false() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(distanceAvailable: false)
 
@@ -42,8 +45,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsDistanceAvailable_true() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(distanceAvailable: true)
 
@@ -51,8 +53,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsFloorCountingAvailable_false() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(floorCountingAvailable: false)
 
@@ -60,8 +61,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsFloorCountingAvailable_true() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(floorCountingAvailable: true)
 
@@ -69,8 +69,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsPaceAvailable_false() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(paceAvailable: false)
 
@@ -78,8 +77,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsPaceAvailable_true() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(paceAvailable: true)
 
@@ -87,8 +85,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsStepCountingAvailable_false() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(stepCountingAvailable: false)
 
@@ -96,8 +93,7 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsStepCountingAvailable_true() {
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in }
 
         pedometer.updatePedometer(stepCountingAvailable: true)
 
@@ -108,10 +104,9 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -133,10 +128,9 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -156,10 +150,9 @@ internal class PedometerMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -179,10 +172,9 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),
@@ -204,10 +196,9 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),
@@ -227,10 +218,9 @@ internal class PedometerMonitorTests: XCTestCase {
     func testQuery_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
-        let monitor = PedometerMonitor(pedometer: pedometer,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = PedometerMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),

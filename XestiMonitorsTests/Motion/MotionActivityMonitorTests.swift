@@ -14,9 +14,14 @@ import XCTest
 internal class MotionActivityMonitorTests: XCTestCase {
     let motionActivityManager = MockMotionActivityManager()
 
+    override func setUp() {
+        super.setUp()
+
+        MotionActivityManagerInjector.motionActivityManager = motionActivityManager
+    }
+
     func testIsAvailable_false() {
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { _ in }
+        let monitor = MotionActivityMonitor(queue: .main) { _ in }
 
         motionActivityManager.updateMotionActivity(available: false)
 
@@ -24,8 +29,7 @@ internal class MotionActivityMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { _ in }
+        let monitor = MotionActivityMonitor(queue: .main) { _ in }
 
         motionActivityManager.updateMotionActivity(available: true)
 
@@ -36,10 +40,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMMotionActivity()
         var expectedEvent: MotionActivityMonitor.Event?
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        let monitor = MotionActivityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -59,10 +62,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        let monitor = MotionActivityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -82,10 +84,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = [CMMotionActivity()]
         var expectedEvent: MotionActivityMonitor.Event?
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        let monitor = MotionActivityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),
@@ -107,10 +108,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: MotionActivityMonitor.Event?
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        let monitor = MotionActivityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),
@@ -130,10 +130,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
     func testQuery_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
-        let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        let monitor = MotionActivityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.query(from: Date(),

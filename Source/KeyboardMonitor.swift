@@ -182,7 +182,6 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     /// Initializes a new `KeyboardMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - options:
@@ -190,15 +189,13 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
+    public init(queue: OperationQueue = .main,
                 options: Options = .all,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
         self.options = options
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     private let handler: (Event) -> Void

@@ -217,22 +217,19 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Initializes a new `AccessibilityStatusMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - options:
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
+    public init(queue: OperationQueue = .main,
                 options: Options = .all,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
         self.options = options
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///

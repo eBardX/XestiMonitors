@@ -18,18 +18,20 @@ internal class OrientationMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        DeviceInjector.device = device
+
         device.orientation = .unknown
+
+        NotificationCenterInjector.notificationCenter = notificationCenter
     }
 
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIDeviceOrientation = .portrait
         var expectedEvent: OrientationMonitor.Event?
-        let monitor = OrientationMonitor(notificationCenter: notificationCenter,
-                                         queue: .main,
-                                         device: device) { event in
-                                            expectedEvent = event
-                                            expectation.fulfill()
+        let monitor = OrientationMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -47,9 +49,7 @@ internal class OrientationMonitorTests: XCTestCase {
 
     func testOrientation() {
         let expectedOrientation: UIDeviceOrientation = .landscapeRight
-        let monitor = OrientationMonitor(notificationCenter: notificationCenter,
-                                         queue: .main,
-                                         device: device) { _ in }
+        let monitor = OrientationMonitor(queue: .main) { _ in }
 
         simulateDidChange(to: expectedOrientation)
 

@@ -70,18 +70,15 @@ public class MotionActivityMonitor: BaseMonitor {
     /// Initializes a new `MotionActivityMonitor`.
     ///
     /// - Parameters:
-    ///   - motionActivityManager:
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when a change in the current type
     ///                 of motion is detected.
     ///                 ??? OR ???
     ///                 The block to execute with the results.
     ///
-    public init(motionActivityManager: MotionActivityManager = CMMotionActivityManager(),
-                queue: OperationQueue,
+    public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
-        self.motionActivityManager = motionActivityManager
         self.queue = queue
     }
 
@@ -121,7 +118,6 @@ public class MotionActivityMonitor: BaseMonitor {
     }
 
     private let handler: (Event) -> Void
-    private let motionActivityManager: MotionActivityManager
     private let queue: OperationQueue
 
     public override final func cleanupMonitor() {
@@ -146,3 +142,5 @@ public class MotionActivityMonitor: BaseMonitor {
         }
     }
 }
+
+extension MotionActivityMonitor: MotionActivityManagerInjected {}

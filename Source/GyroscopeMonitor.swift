@@ -52,9 +52,6 @@ public class GyroscopeMonitor: BaseMonitor {
     /// Initializes a new `GyroscopeMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
-    ///                     default, a shared instance is used as recommended
-    ///                     by Apple.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     Because the events might arrive at a high rate,
     ///                     using the main operation queue is not recommended.
@@ -63,13 +60,11 @@ public class GyroscopeMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new
     ///                     rotation rate measurement is available.
     ///
-    public init(motionManager: MotionManager = CMMotionManager.shared,
-                queue: OperationQueue,
+    public init(queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
         self.queue = queue
     }
 
@@ -94,7 +89,6 @@ public class GyroscopeMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: MotionManager
     private let queue: OperationQueue
 
     public override final func cleanupMonitor() {
@@ -123,3 +117,5 @@ public class GyroscopeMonitor: BaseMonitor {
         }
     }
 }
+
+extension GyroscopeMonitor: MotionManagerInjected {}

@@ -84,26 +84,20 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     /// Initializes a new `StatusBarMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - application:
     ///   - options:
     ///   - handler:    The handler to call when the orientation of the app’s
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
-                application: Application = UIApplication.shared,
+    public init(queue: OperationQueue = .main,
                 options: Options = .all,
                 handler: @escaping (Event) -> Void) {
-        self.application = application
         self.handler = handler
         self.options = options
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///
@@ -120,7 +114,6 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         return application.statusBarOrientation
     }
 
-    private let application: Application
     private let handler: (Event) -> Void
     private let options: Options
 
@@ -169,3 +162,5 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         }
     }
 }
+
+extension StatusBarMonitor: ApplicationInjected {}

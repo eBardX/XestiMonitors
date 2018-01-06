@@ -30,22 +30,16 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     /// Initializes a new `BackgroundRefreshMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - application:
     ///   - handler:    The handler to call when the app’s status for
     ///                 downloading content in the background changes.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
-                application: Application = UIApplication.shared,
+    public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.application = application
         self.handler = handler
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///
@@ -56,7 +50,6 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
         return application.backgroundRefreshStatus
     }
 
-    private let application: Application
     private let handler: (Event) -> Void
 
     public override func addNotificationObservers() {
@@ -67,3 +60,5 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
         }
     }
 }
+
+extension BackgroundRefreshMonitor: ApplicationInjected {}

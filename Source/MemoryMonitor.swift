@@ -30,19 +30,16 @@ public class MemoryMonitor: BaseNotificationMonitor {
     /// Initializes a new `MemoryMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the app receives a warning
     ///                 from the operating system about low memory availability.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
+    public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     private let handler: (Event) -> Void

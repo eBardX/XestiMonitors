@@ -51,9 +51,6 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// Initializes a new `DeviceMotionMonitor`.
     ///
     /// - Parameters:
-    ///   - motionManager:  The instance of `CMMotionManager` to use. By
-    ///                     default, a shared instance is used as recommended
-    ///                     by Apple.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     Because the events might arrive at a high rate,
     ///                     using the main operation queue is not recommended.
@@ -64,14 +61,12 @@ public class DeviceMotionMonitor: BaseMonitor {
     ///   - handler:        The handler to call periodically when a new device
     ///                     motion measurement is available.
     ///
-    public init(motionManager: MotionManager = CMMotionManager.shared,
-                queue: OperationQueue,
+    public init(queue: OperationQueue,
                 interval: TimeInterval,
                 using referenceFrame: CMAttitudeReferenceFrame,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
         self.interval = interval
-        self.motionManager = motionManager
         self.queue = queue
         self.referenceFrame = referenceFrame
     }
@@ -97,7 +92,6 @@ public class DeviceMotionMonitor: BaseMonitor {
 
     private let handler: (Event) -> Void
     private let interval: TimeInterval
-    private let motionManager: MotionManager
     private let queue: OperationQueue
     private let referenceFrame: CMAttitudeReferenceFrame
 
@@ -128,3 +122,5 @@ public class DeviceMotionMonitor: BaseMonitor {
         }
     }
 }
+
+extension DeviceMotionMonitor: MotionManagerInjected {}

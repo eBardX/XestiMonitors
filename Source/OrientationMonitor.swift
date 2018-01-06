@@ -29,22 +29,16 @@ public class OrientationMonitor: BaseNotificationMonitor {
     /// Initializes a new `OrientationMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - device:
     ///   - handler:    The handler to call when the physical orientation of
     ///                 the device changes.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
-                device: Device = UIDevice.current,
+    public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.device = device
         self.handler = handler
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///
@@ -54,7 +48,6 @@ public class OrientationMonitor: BaseNotificationMonitor {
         return device.orientation
     }
 
-    private let device: Device
     private let handler: (Event) -> Void
 
     public override func addNotificationObservers() {
@@ -73,3 +66,5 @@ public class OrientationMonitor: BaseNotificationMonitor {
         super.removeNotificationObservers()
     }
 }
+
+extension OrientationMonitor: DeviceInjected {}

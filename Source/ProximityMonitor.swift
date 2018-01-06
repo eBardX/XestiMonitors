@@ -29,22 +29,16 @@ public class ProximityMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProximityMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - device:
     ///   - handler:    The handler to call when the state of the proximity
     ///                 sensor changes.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
-                device: Device = UIDevice.current,
+    public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.device = device
         self.handler = handler
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///
@@ -69,7 +63,6 @@ public class ProximityMonitor: BaseNotificationMonitor {
         return device.proximityState
     }
 
-    private let device: Device
     private let handler: (Event) -> Void
 
     public override func addNotificationObservers() {
@@ -88,3 +81,5 @@ public class ProximityMonitor: BaseNotificationMonitor {
         super.removeNotificationObservers()
     }
 }
+
+extension ProximityMonitor: DeviceInjected {}

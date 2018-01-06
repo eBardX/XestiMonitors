@@ -18,13 +18,15 @@ internal class ProximityMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        DeviceInjector.device = device
+
         device.proximityState = false
+
+        NotificationCenterInjector.notificationCenter = notificationCenter
     }
 
     func testIsAvailable() {
-        let monitor = ProximityMonitor(notificationCenter: notificationCenter,
-                                       queue: .main,
-                                       device: device) { _ in }
+        let monitor = ProximityMonitor(queue: .main) { _ in }
 
         device.isProximityMonitoringEnabled = false
 
@@ -37,11 +39,9 @@ internal class ProximityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedState: Bool = true
         var expectedEvent: ProximityMonitor.Event?
-        let monitor = ProximityMonitor(notificationCenter: notificationCenter,
-                                       queue: .main,
-                                       device: device) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = ProximityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -56,12 +56,10 @@ internal class ProximityMonitorTests: XCTestCase {
             XCTFail("Unexpected event")
         }
     }
-
+    
     func testState() {
         let expectedState: Bool = true
-        let monitor = ProximityMonitor(notificationCenter: notificationCenter,
-                                       queue: .main,
-                                       device: device) { _ in }
+        let monitor = ProximityMonitor(queue: .main) { _ in }
 
         simulateStateDidChange(to: expectedState)
 

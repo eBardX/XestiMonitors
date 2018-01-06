@@ -62,26 +62,20 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     /// Initializes a new `ProtectedDataMonitor`.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - application:
     ///   - options:
     ///   - handler:    The handler to call when protected files become
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue = .main,
-                application: Application = UIApplication.shared,
+    public init(queue: OperationQueue = .main,
                 options: Options = .all,
                 handler: @escaping (Event) -> Void) {
-        self.application = application
         self.handler = handler
         self.options = options
 
-        super.init(notificationCenter: notificationCenter,
-                   queue: queue)
+        super.init(queue: queue)
     }
 
     ///
@@ -91,7 +85,6 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         return application.isProtectedDataAvailable
     }
 
-    private let application: Application
     private let handler: (Event) -> Void
     private let options: Options
 
@@ -111,3 +104,5 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         }
     }
 }
+
+extension ProtectedDataMonitor: ApplicationInjected {}

@@ -45,12 +45,9 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// Initializes a new base notification monitor.
     ///
     /// - Parameters:
-    ///   - notificationCenter:
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
-    public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
-                queue: OperationQueue) {
-        self.notificationCenter = notificationCenter
+    public init(queue: OperationQueue) {
         self.queue = queue
     }
 
@@ -77,7 +74,6 @@ open class BaseNotificationMonitor: BaseMonitor {
         observers.append(observer)
     }
 
-    private let notificationCenter: NotificationCenter
     private let queue: OperationQueue
 
     private var observers: [NSObjectProtocol] = []
@@ -94,3 +90,5 @@ open class BaseNotificationMonitor: BaseMonitor {
         addNotificationObservers()
     }
 }
+
+extension BaseNotificationMonitor: NotificationCenterInjected {}

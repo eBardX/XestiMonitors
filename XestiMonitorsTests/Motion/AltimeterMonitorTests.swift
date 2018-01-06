@@ -14,9 +14,14 @@ import XCTest
 internal class AltimeterMonitorTests: XCTestCase {
     let altimeter = MockAltimeter()
 
+    override func setUp() {
+        super.setUp()
+
+        AltimeterInjector.altimeter = altimeter
+    }
+
     func testIsAvailable_false() {
-        let monitor = AltimeterMonitor(altimeter: altimeter,
-                                       queue: .main) { _ in }
+        let monitor = AltimeterMonitor(queue: .main) { _ in }
 
         altimeter.updateAltimeter(available: false)
 
@@ -24,8 +29,7 @@ internal class AltimeterMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = AltimeterMonitor(altimeter: altimeter,
-                                       queue: .main) { _ in }
+        let monitor = AltimeterMonitor(queue: .main) { _ in }
 
         altimeter.updateAltimeter(available: true)
 
@@ -36,10 +40,9 @@ internal class AltimeterMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMAltitudeData()
         var expectedEvent: AltimeterMonitor.Event?
-        let monitor = AltimeterMonitor(altimeter: altimeter,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = AltimeterMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -61,10 +64,9 @@ internal class AltimeterMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: AltimeterMonitor.Event?
-        let monitor = AltimeterMonitor(altimeter: altimeter,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = AltimeterMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -84,17 +86,16 @@ internal class AltimeterMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: AltimeterMonitor.Event?
-        let monitor = AltimeterMonitor(altimeter: altimeter,
-                                       queue: .main) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = AltimeterMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
         altimeter.updateAltimeter(data: nil)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-
+        
         if let event = expectedEvent,
             case let .didUpdate(info) = event,
             case .unknown = info {

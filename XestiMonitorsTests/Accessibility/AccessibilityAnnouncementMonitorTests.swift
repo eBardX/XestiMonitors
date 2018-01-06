@@ -14,15 +14,20 @@ import XCTest
 internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
 
+    override func setUp() {
+        super.setUp()
+
+        NotificationCenterInjector.notificationCenter = notificationCenter
+    }
+
     func testMonitor_didFinish() {
         let expectation = self.expectation(description: "Handler called")
         let expectedStringValue: String = "This is a test"
         let expectedWasSuccessful: Bool = true
         var expectedEvent: AccessibilityAnnouncementMonitor.Event?
-        let monitor = AccessibilityAnnouncementMonitor(notificationCenter: notificationCenter,
-                                                       queue: .main) { event in
-                                                        expectedEvent = event
-                                                        expectation.fulfill()
+        let monitor = AccessibilityAnnouncementMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -45,10 +50,9 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         let expectedStringValue: String = " "
         let expectedWasSuccessful: Bool = false
         var expectedEvent: AccessibilityAnnouncementMonitor.Event?
-        let monitor = AccessibilityAnnouncementMonitor(notificationCenter: notificationCenter,
-                                                       queue: .main) { event in
-                                                        expectedEvent = event
-                                                        expectation.fulfill()
+        let monitor = AccessibilityAnnouncementMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()

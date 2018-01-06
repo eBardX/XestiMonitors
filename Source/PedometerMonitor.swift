@@ -54,15 +54,12 @@ public class PedometerMonitor: BaseMonitor {
     /// Initializes a new `PedometerMonitor`.
     ///
     /// - Parameters:
-    ///   - pedometer:
     ///   - queue:      The operation queue on which the handler executes.
     ///   - handler:    The handler to call when ...
     ///
-    public init(pedometer: Pedometer = CMPedometer(),
-                queue: OperationQueue,
+    public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
-        self.pedometer = pedometer
         self.queue = queue
     }
 
@@ -130,7 +127,6 @@ public class PedometerMonitor: BaseMonitor {
     }
 
     private let handler: (Event) -> Void
-    private let pedometer: Pedometer
     private let queue: OperationQueue
 
     public override final func cleanupMonitor() {
@@ -157,3 +153,5 @@ public class PedometerMonitor: BaseMonitor {
         }
     }
 }
+
+extension PedometerMonitor: PedometerInjected {}

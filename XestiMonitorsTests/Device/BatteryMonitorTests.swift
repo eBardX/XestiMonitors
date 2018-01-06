@@ -18,15 +18,17 @@ internal class BatteryMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        DeviceInjector.device = device
+
         device.batteryLevel = 0
         device.batteryState = .unknown
+
+        NotificationCenterInjector.notificationCenter = notificationCenter
     }
 
     func testLevel() {
         let expectedLevel: Float = 75
-        let monitor = BatteryMonitor(notificationCenter: notificationCenter,
-                                     queue: .main,
-                                     device: device) { _ in }
+        let monitor = BatteryMonitor(queue: .main) { _ in }
 
         simulateLevelDidChange(to: expectedLevel)
 
@@ -37,11 +39,9 @@ internal class BatteryMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedLevel: Float = 50
         var expectedEvent: BatteryMonitor.Event?
-        let monitor = BatteryMonitor(notificationCenter: notificationCenter,
-                                     queue: .main,
-                                     device: device) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = BatteryMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -61,11 +61,9 @@ internal class BatteryMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedState: UIDeviceBatteryState = .charging
         var expectedEvent: BatteryMonitor.Event?
-        let monitor = BatteryMonitor(notificationCenter: notificationCenter,
-                                     queue: .main,
-                                     device: device) { event in
-                                        expectedEvent = event
-                                        expectation.fulfill()
+        let monitor = BatteryMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -83,9 +81,7 @@ internal class BatteryMonitorTests: XCTestCase {
 
     func testState() {
         let expectedState: UIDeviceBatteryState = .full
-        let monitor = BatteryMonitor(notificationCenter: notificationCenter,
-                                     queue: .main,
-                                     device: device) { _ in }
+        let monitor = BatteryMonitor(queue: .main) { _ in }
 
         simulateStateDidChange(to: expectedState)
 
