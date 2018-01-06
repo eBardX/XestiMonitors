@@ -12,21 +12,17 @@ import XCTest
 @testable import XestiMonitors
 
 internal class BatteryMonitorTests: XCTestCase {
-
     let device = MockDevice()
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
-
         super.setUp()
 
         device.batteryLevel = 0
         device.batteryState = .unknown
-
     }
 
     func testLevel() {
-
         let expectedLevel: Float = 75
         let monitor = BatteryMonitor(notificationCenter: notificationCenter,
                                      queue: .main,
@@ -35,11 +31,9 @@ internal class BatteryMonitorTests: XCTestCase {
         simulateLevelDidChange(to: expectedLevel)
 
         XCTAssertEqual(monitor.level, expectedLevel)
-
     }
 
     func testMonitor_levelDidChange() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedLevel: Float = 50
         var expectedEvent: BatteryMonitor.Event?
@@ -61,11 +55,9 @@ internal class BatteryMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_stateDidChange() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedState: UIDeviceBatteryState = .charging
         var expectedEvent: BatteryMonitor.Event?
@@ -87,11 +79,9 @@ internal class BatteryMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testState() {
-
         let expectedState: UIDeviceBatteryState = .full
         let monitor = BatteryMonitor(notificationCenter: notificationCenter,
                                      queue: .main,
@@ -100,25 +90,19 @@ internal class BatteryMonitorTests: XCTestCase {
         simulateStateDidChange(to: expectedState)
 
         XCTAssertEqual(monitor.state, expectedState)
-
     }
 
     private func simulateLevelDidChange(to level: Float) {
-
         device.batteryLevel = level
 
         notificationCenter.post(name: .UIDeviceBatteryLevelDidChange,
                                 object: device)
-
     }
 
     private func simulateStateDidChange(to state: UIDeviceBatteryState) {
-
         device.batteryState = state
 
         notificationCenter.post(name: .UIDeviceBatteryStateDidChange,
                                 object: device)
-
     }
-
 }

@@ -12,20 +12,16 @@ import XCTest
 @testable import XestiMonitors
 
 internal class OrientationMonitorTests: XCTestCase {
-
     let device = MockDevice()
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
-
         super.setUp()
 
         device.orientation = .unknown
-
     }
 
     func testMonitor_didChange() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIDeviceOrientation = .portrait
         var expectedEvent: OrientationMonitor.Event?
@@ -47,11 +43,9 @@ internal class OrientationMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testOrientation() {
-
         let expectedOrientation: UIDeviceOrientation = .landscapeRight
         let monitor = OrientationMonitor(notificationCenter: notificationCenter,
                                          queue: .main,
@@ -60,16 +54,12 @@ internal class OrientationMonitorTests: XCTestCase {
         simulateDidChange(to: expectedOrientation)
 
         XCTAssertEqual(monitor.orientation, expectedOrientation)
-
     }
 
     private func simulateDidChange(to orientation: UIDeviceOrientation) {
-
         device.orientation = orientation
 
         notificationCenter.post(name: .UIDeviceOrientationDidChange,
                                 object: device)
-
     }
-
 }

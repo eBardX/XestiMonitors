@@ -11,9 +11,7 @@ import CoreMotion
 @testable import XestiMonitors
 
 internal class MockMotionManager: MotionManager {
-
     init() {
-
         self.accelerometerUpdateInterval = 0
         self.deviceMotionUpdateInterval = 0
         self.gyroUpdateInterval = 0
@@ -22,7 +20,6 @@ internal class MockMotionManager: MotionManager {
         self.isGyroAvailable = false
         self.isMagnetometerAvailable = false
         self.magnetometerUpdateInterval = 0
-
     }
 
     var accelerometerUpdateInterval: TimeInterval
@@ -41,55 +38,39 @@ internal class MockMotionManager: MotionManager {
 
     func startAccelerometerUpdates(to queue: OperationQueue,
                                    withHandler handler: @escaping CMAccelerometerHandler) {
-
         accelerometerHandler = handler
-
     }
 
     func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame,
                                   to queue: OperationQueue,
                                   withHandler handler: @escaping CMDeviceMotionHandler) {
-
         deviceMotionHandler = handler
-
     }
 
     func startGyroUpdates(to queue: OperationQueue,
                           withHandler handler: @escaping CMGyroHandler) {
-
         gyroscopeHandler = handler
-
     }
 
     func startMagnetometerUpdates(to queue: OperationQueue,
                                   withHandler handler: @escaping CMMagnetometerHandler) {
-
         magnetometerHandler = handler
-
     }
 
     func stopAccelerometerUpdates() {
-
         accelerometerHandler = nil
-
     }
 
     func stopDeviceMotionUpdates() {
-
         deviceMotionHandler = nil
-
     }
 
     func stopGyroUpdates() {
-
         gyroscopeHandler = nil
-
     }
 
     func stopMagnetometerUpdates() {
-
         magnetometerHandler = nil
-
     }
 
     private var accelerometerHandler: CMAccelerometerHandler?
@@ -100,107 +81,82 @@ internal class MockMotionManager: MotionManager {
     // MARK: -
 
     func updateAccelerometer(available: Bool) {
-
         isAccelerometerAvailable = available
-
     }
 
     func updateAccelerometer(data: CMAccelerometerData?) {
-
         accelerometerData = data
 
         if let handler = accelerometerHandler {
             handler(data, nil)
         }
-
     }
 
     func updateAccelerometer(error: Error) {
-
         accelerometerData = nil
 
         if let handler = accelerometerHandler {
             handler(nil, error)
         }
-
     }
 
     func updateDeviceMotion(available: Bool) {
-
         isDeviceMotionAvailable = available
-
     }
 
     func updateDeviceMotion(data: CMDeviceMotion?) {
-
         deviceMotion = data
 
         if let handler = deviceMotionHandler {
             handler(data, nil)
         }
-
     }
 
     func updateDeviceMotion(error: Error) {
-
         deviceMotion = nil
 
         if let handler = deviceMotionHandler {
             handler(nil, error)
         }
-
     }
 
     func updateGyroscope(available: Bool) {
-
         isGyroAvailable = available
-
     }
 
     func updateGyroscope(data: CMGyroData?) {
-
         gyroData = data
 
         if let handler = gyroscopeHandler {
             handler(data, nil)
         }
-
     }
 
     func updateGyroscope(error: Error) {
-
         gyroData = nil
 
         if let handler = gyroscopeHandler {
             handler(nil, error)
         }
-
     }
 
     func updateMagnetometer(available: Bool) {
-
         isMagnetometerAvailable = available
-
     }
 
     func updateMagnetometer(data: CMMagnetometerData?) {
-
         magnetometerData = data
 
         if let handler = magnetometerHandler {
             handler(data, nil)
         }
-
     }
 
     func updateMagnetometer(error: Error) {
-
         magnetometerData = nil
 
         if let handler = magnetometerHandler {
             handler(nil, error)
         }
-
     }
-
 }

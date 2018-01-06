@@ -12,20 +12,16 @@ import XCTest
 @testable import XestiMonitors
 
 internal class ProximityMonitorTests: XCTestCase {
-
     let device = MockDevice()
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
-
         super.setUp()
 
         device.proximityState = false
-
     }
 
     func testIsAvailable() {
-
         let monitor = ProximityMonitor(notificationCenter: notificationCenter,
                                        queue: .main,
                                        device: device) { _ in }
@@ -35,11 +31,9 @@ internal class ProximityMonitorTests: XCTestCase {
         XCTAssertFalse(device.isProximityMonitoringEnabled)
         XCTAssertTrue(monitor.isAvailable)
         XCTAssertFalse(device.isProximityMonitoringEnabled)
-
     }
 
     func testMonitor_stateDidChange() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedState: Bool = true
         var expectedEvent: ProximityMonitor.Event?
@@ -61,11 +55,9 @@ internal class ProximityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testState() {
-
         let expectedState: Bool = true
         let monitor = ProximityMonitor(notificationCenter: notificationCenter,
                                        queue: .main,
@@ -74,16 +66,12 @@ internal class ProximityMonitorTests: XCTestCase {
         simulateStateDidChange(to: expectedState)
 
         XCTAssertEqual(monitor.state, expectedState)
-
     }
 
     private func simulateStateDidChange(to state: Bool) {
-
         device.proximityState = state
 
         notificationCenter.post(name: .UIDeviceProximityStateDidChange,
                                 object: device)
-
     }
-
 }

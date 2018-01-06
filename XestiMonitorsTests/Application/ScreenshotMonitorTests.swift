@@ -12,12 +12,10 @@ import XCTest
 @testable import XestiMonitors
 
 internal class ScreenshotMonitorTests: XCTestCase {
-
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_userDidTake() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ScreenshotMonitor.Event?
         let monitor = ScreenshotMonitor(notificationCenter: notificationCenter,
@@ -36,14 +34,10 @@ internal class ScreenshotMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateUserDidTake() {
-
         notificationCenter.post(name: .UIApplicationUserDidTakeScreenshot,
                                 object: application)
-
     }
-
 }

@@ -12,33 +12,27 @@ import XCTest
 @testable import XestiMonitors
 
 internal class AltimeterMonitorTests: XCTestCase {
-
     let altimeter = MockAltimeter()
 
     func testIsAvailable_false() {
-
         let monitor = AltimeterMonitor(altimeter: altimeter,
                                        queue: .main) { _ in }
 
         altimeter.updateAltimeter(available: false)
 
         XCTAssertFalse(monitor.isAvailable)
-
     }
 
     func testIsAvailable_true() {
-
         let monitor = AltimeterMonitor(altimeter: altimeter,
                                        queue: .main) { _ in }
 
         altimeter.updateAltimeter(available: true)
 
         XCTAssertTrue(monitor.isAvailable)
-
     }
 
     func testMonitor_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMAltitudeData()
         var expectedEvent: AltimeterMonitor.Event?
@@ -60,11 +54,9 @@ internal class AltimeterMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -87,11 +79,9 @@ internal class AltimeterMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: AltimeterMonitor.Event?
         let monitor = AltimeterMonitor(altimeter: altimeter,
@@ -111,7 +101,5 @@ internal class AltimeterMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
-
 }

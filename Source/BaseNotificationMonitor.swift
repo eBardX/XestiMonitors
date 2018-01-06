@@ -15,9 +15,6 @@ import UIKit
 /// which relies on one or more notification observers.
 ///
 open class BaseNotificationMonitor: BaseMonitor {
-
-    // Open Instance Methods
-
     ///
     /// Adds observers to the default notification center.
     ///
@@ -26,9 +23,7 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// must be sure to invoke the superclass implementation.
     ///
     open func addNotificationObservers() {
-
         observers = []
-
     }
 
     ///
@@ -41,14 +36,10 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// implementation.
     ///
     open func removeNotificationObservers() {
-
         observers.forEach { notificationCenter.removeObserver($0) }
 
         observers = []
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new base notification monitor.
@@ -59,13 +50,9 @@ open class BaseNotificationMonitor: BaseMonitor {
     ///
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue) {
-
         self.notificationCenter = notificationCenter
         self.queue = queue
-
     }
-
-    // Public Instance Methods
 
     ///
     /// Adds an observer to the default notification center
@@ -82,39 +69,28 @@ open class BaseNotificationMonitor: BaseMonitor {
     public func observe(_ name: Notification.Name,
                         object: Any? = nil,
                         using block: @escaping (Notification) -> Void) {
-
         let observer = notificationCenter.addObserver(forName: name,
                                                       object: object,
                                                       queue: queue,
                                                       using: block)
 
         observers.append(observer)
-
     }
-
-    // Private Instance Properties
 
     private let notificationCenter: NotificationCenter
     private let queue: OperationQueue
 
     private var observers: [NSObjectProtocol] = []
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         removeNotificationObservers()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         addNotificationObservers()
-
     }
-
 }

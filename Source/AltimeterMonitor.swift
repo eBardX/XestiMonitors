@@ -15,9 +15,6 @@ import Foundation
 /// altitude.
 ///
 public class AltimeterMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the relative altitude.
     ///
@@ -32,7 +29,6 @@ public class AltimeterMonitor: BaseMonitor {
     /// Encapsulates the relative change in altitude.
     ///
     public enum Info {
-
         ///
         /// The relative change in altitude data.
         ///
@@ -48,10 +44,7 @@ public class AltimeterMonitor: BaseMonitor {
         /// No altitude data is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AltimeterMonitor`.
@@ -65,14 +58,10 @@ public class AltimeterMonitor: BaseMonitor {
     public init(altimeter: Altimeter = CMAltimeter(),
                 queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
-
         self.altimeter = altimeter
         self.handler = handler
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether the device supports generating data
@@ -82,28 +71,20 @@ public class AltimeterMonitor: BaseMonitor {
         return type(of: altimeter).isRelativeAltitudeAvailable()
     }
 
-    // Private Instance Properties
-
     private let altimeter: Altimeter
     private let handler: (Event) -> Void
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         altimeter.stopRelativeAltitudeUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         altimeter.startRelativeAltitudeUpdates(to: .main) { [unowned self] data, error in
-
                                                 var info: Info
 
                                                 if let error = error {
@@ -115,9 +96,6 @@ public class AltimeterMonitor: BaseMonitor {
                                                 }
 
                                                 self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

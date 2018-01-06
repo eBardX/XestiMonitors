@@ -10,7 +10,6 @@
 import UIKit
 
 public protocol Device: class {
-
     var batteryLevel: Float { get }
 
     var batteryState: UIDeviceBatteryState { get }
@@ -26,7 +25,6 @@ public protocol Device: class {
     func beginGeneratingDeviceOrientationNotifications()
 
     func endGeneratingDeviceOrientationNotifications()
-
 }
 
 extension UIDevice: Device {}

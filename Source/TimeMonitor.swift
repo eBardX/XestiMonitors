@@ -14,9 +14,6 @@ import UIKit
 /// A `TimeMonitor` instance monitors the app for significant changes in time.
 ///
 public class TimeMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates significant changes in time.
     ///
@@ -26,8 +23,6 @@ public class TimeMonitor: BaseNotificationMonitor {
         ///
         case significantChange
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `TimeMonitor`.
@@ -42,28 +37,19 @@ public class TimeMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationSignificantTimeChange) { [unowned self] _ in
             self.handler(.significantChange)
         }
-
     }
-
 }

@@ -14,11 +14,9 @@ import XCTest
 // swiftlint:disable type_body_length
 
 internal class KeyboardMonitorTests: XCTestCase {
-
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_didChangeFrame() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.15
@@ -51,11 +49,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didChangeFrame_badUserInfo() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.15
@@ -89,11 +85,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didHide() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeOut
         let expectedAnimationDuration: TimeInterval = 0.25
@@ -126,11 +120,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didShow() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeInOut
         let expectedAnimationDuration: TimeInterval = 0.35
@@ -163,11 +155,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willChangeFrame() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.45
@@ -200,11 +190,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willHide() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeOut
         let expectedAnimationDuration: TimeInterval = 0.55
@@ -237,11 +225,9 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willShow() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAnimationCurve: UIViewAnimationCurve = .easeInOut
         let expectedAnimationDuration: TimeInterval = 0.65
@@ -274,7 +260,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func makeUserInfo(animationCurve: UIViewAnimationCurve,
@@ -282,13 +267,11 @@ internal class KeyboardMonitorTests: XCTestCase {
                               frameBegin: CGRect,
                               frameEnd: CGRect,
                               isLocal: Bool) -> [AnyHashable: Any] {
-
         return [UIKeyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
                 UIKeyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
                 UIKeyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
                 UIKeyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
                 UIKeyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
-
     }
 
     private func simulateDidChangeFrame(animationCurve: UIViewAnimationCurve,
@@ -297,7 +280,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                         frameEnd: CGRect,
                                         isLocal: Bool,
                                         badUserInfo: Bool = false) {
-
         let userInfo: [AnyHashable: Any]?
 
         if badUserInfo {
@@ -313,7 +295,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardDidChangeFrame,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
 
     private func simulateDidHide(animationCurve: UIViewAnimationCurve,
@@ -321,7 +302,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                  frameBegin: CGRect,
                                  frameEnd: CGRect,
                                  isLocal: Bool) {
-
         let userInfo = makeUserInfo(animationCurve: animationCurve,
                                     animationDuration: animationDuration,
                                     frameBegin: frameBegin,
@@ -331,7 +311,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardDidHide,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
 
     private func simulateDidShow(animationCurve: UIViewAnimationCurve,
@@ -339,7 +318,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                  frameBegin: CGRect,
                                  frameEnd: CGRect,
                                  isLocal: Bool) {
-
         let userInfo = makeUserInfo(animationCurve: animationCurve,
                                     animationDuration: animationDuration,
                                     frameBegin: frameBegin,
@@ -349,7 +327,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardDidShow,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
 
     private func simulateWillChangeFrame(animationCurve: UIViewAnimationCurve,
@@ -357,7 +334,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                          frameBegin: CGRect,
                                          frameEnd: CGRect,
                                          isLocal: Bool) {
-
         let userInfo = makeUserInfo(animationCurve: animationCurve,
                                     animationDuration: animationDuration,
                                     frameBegin: frameBegin,
@@ -367,7 +343,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardWillChangeFrame,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
 
     private func simulateWillHide(animationCurve: UIViewAnimationCurve,
@@ -375,7 +350,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                   frameBegin: CGRect,
                                   frameEnd: CGRect,
                                   isLocal: Bool) {
-
         let userInfo = makeUserInfo(animationCurve: animationCurve,
                                     animationDuration: animationDuration,
                                     frameBegin: frameBegin,
@@ -385,7 +359,6 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardWillHide,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
 
     private func simulateWillShow(animationCurve: UIViewAnimationCurve,
@@ -393,7 +366,6 @@ internal class KeyboardMonitorTests: XCTestCase {
                                   frameBegin: CGRect,
                                   frameEnd: CGRect,
                                   isLocal: Bool) {
-
         let userInfo = makeUserInfo(animationCurve: animationCurve,
                                     animationDuration: animationDuration,
                                     frameBegin: frameBegin,
@@ -403,7 +375,5 @@ internal class KeyboardMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIKeyboardWillShow,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
-
 }

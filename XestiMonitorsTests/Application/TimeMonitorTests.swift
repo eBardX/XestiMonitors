@@ -12,12 +12,10 @@ import XCTest
 @testable import XestiMonitors
 
 internal class TimeMonitorTests: XCTestCase {
-
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_significantChange() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: TimeMonitor.Event?
         let monitor = TimeMonitor(notificationCenter: notificationCenter,
@@ -36,14 +34,10 @@ internal class TimeMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateSignificantChange() {
-
         notificationCenter.post(name: .UIApplicationSignificantTimeChange,
                                 object: application)
-
     }
-
 }

@@ -12,12 +12,10 @@ import XCTest
 @testable import XestiMonitors
 
 internal class ProtectedDataMonitorTests: XCTestCase {
-
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_didBecomeAvailable() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(notificationCenter: notificationCenter,
@@ -36,11 +34,9 @@ internal class ProtectedDataMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willBecomeUnavailable() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(notificationCenter: notificationCenter,
@@ -59,21 +55,15 @@ internal class ProtectedDataMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateDidBecomeAvailable() {
-
         notificationCenter.post(name: .UIApplicationProtectedDataDidBecomeAvailable,
                                 object: application)
-
     }
 
     private func simulateWillBecomeUnavailable() {
-
         notificationCenter.post(name: .UIApplicationProtectedDataWillBecomeUnavailable,
                                 object: application)
-
     }
-
 }

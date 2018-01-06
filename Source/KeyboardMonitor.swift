@@ -15,15 +15,11 @@ import UIKit
 /// visibility or to its frame.
 ///
 public class KeyboardMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the visibility of the keyboard and to the frame
     /// of the keyboard.
     ///
     public enum Event {
-
         ///
         /// The frame of the keyboard has changed.
         ///
@@ -59,7 +55,6 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     /// Encapsulates information associated with a keyboard monitor event.
     ///
     public struct Info {
-
         ///
         /// Defines how the keyboard will be animated onto or off the screen.
         ///
@@ -97,7 +92,6 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         public let isLocal: Bool
 
         internal init (_ notification: Notification) {
-
             let userInfo = notification.userInfo
 
             if let rawValue = (userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue,
@@ -130,12 +124,8 @@ public class KeyboardMonitor: BaseNotificationMonitor {
             } else {
                 self.isLocal = true
             }
-
         }
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `KeyboardMonitor`.
@@ -151,22 +141,15 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIKeyboardDidChangeFrame) { [unowned self] in
@@ -192,7 +175,5 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         observe(.UIKeyboardWillShow) { [unowned self] in
             self.handler(.willShow(Info($0)))
         }
-
     }
-
 }

@@ -15,9 +15,6 @@ import Foundation
 /// measurements of the rotation rate around the three spatial axes.
 ///
 public class GyroscopeMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates updates to the measurement of the rotation rate around the
     /// three spatial axes.
@@ -34,7 +31,6 @@ public class GyroscopeMonitor: BaseMonitor {
     /// spatial axes at a moment of time.
     ///
     public enum Info {
-
         ///
         /// The rotation rate measurement.
         ///
@@ -50,10 +46,7 @@ public class GyroscopeMonitor: BaseMonitor {
         /// No rotation rate measurement is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `GyroscopeMonitor`.
@@ -74,15 +67,11 @@ public class GyroscopeMonitor: BaseMonitor {
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.interval = interval
         self.motionManager = motionManager
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The latest rotation rate measurement available.
@@ -103,31 +92,23 @@ public class GyroscopeMonitor: BaseMonitor {
         return motionManager.isGyroAvailable
     }
 
-    // Private
-
     private let handler: (Event) -> Void
     private let interval: TimeInterval
     private let motionManager: MotionManager
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         motionManager.stopGyroUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         motionManager.gyroUpdateInterval = interval
 
         motionManager.startGyroUpdates(to: queue) { [unowned self] data, error in
-
             var info: Info
 
             if let error = error {
@@ -139,9 +120,6 @@ public class GyroscopeMonitor: BaseMonitor {
             }
 
             self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

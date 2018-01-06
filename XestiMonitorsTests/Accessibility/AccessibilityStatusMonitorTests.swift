@@ -12,8 +12,6 @@ import XCTest
 @testable import XestiMonitors
 
 internal class AccessibilityStatusMonitorTests: XCTestCase {
-
     func testExample() {
     }
-
 }

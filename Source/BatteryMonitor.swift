@@ -15,15 +15,11 @@ import UIKit
 /// state and charge level of its battery.
 ///
 public class BatteryMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the battery state or battery level of the
     /// device.
     ///
     public enum Event {
-
         ///
         /// The battery level of the device has changed.
         ///
@@ -34,8 +30,6 @@ public class BatteryMonitor: BaseNotificationMonitor {
         ///
         case stateDidChange(UIDeviceBatteryState)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `BatteryMonitor`.
@@ -52,16 +46,12 @@ public class BatteryMonitor: BaseNotificationMonitor {
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {
-
         self.device = device
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The battery charge level for the device.
@@ -77,15 +67,10 @@ public class BatteryMonitor: BaseNotificationMonitor {
         return device.batteryState
     }
 
-    // Private Instance Properties
-
     private let device: Device
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
@@ -97,15 +82,11 @@ public class BatteryMonitor: BaseNotificationMonitor {
         }
 
         device.isBatteryMonitoringEnabled = true
-
     }
 
     public override func removeNotificationObservers() {
-
         device.isBatteryMonitoringEnabled = false
 
         super.removeNotificationObservers()
-
     }
-
 }

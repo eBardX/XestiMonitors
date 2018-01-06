@@ -12,9 +12,7 @@ import XCTest
 @testable import XestiMonitors
 
 internal class CMAccelerationExtensionsTests: XCTestCase {
-
     func testDeviceOrientation() {
-
         let accelerations: [(CMAcceleration, UIDeviceOrientation)] = [
             (.init(x: 0.094, y: -0.401, z: 0.961), .faceDown),
             (.init(x: 0.014, y: -0.545, z: -0.872), .faceUp),
@@ -27,7 +25,5 @@ internal class CMAccelerationExtensionsTests: XCTestCase {
         accelerations.forEach {
             XCTAssertEqual($0.deviceOrientation, $1)
         }
-
     }
-
 }

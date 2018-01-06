@@ -10,7 +10,6 @@
 import CoreMotion
 
 public protocol Pedometer: class {
-
     static func isCadenceAvailable() -> Bool
 
     static func isDistanceAvailable() -> Bool
@@ -29,7 +28,6 @@ public protocol Pedometer: class {
                       withHandler handler: @escaping CMPedometerHandler)
 
     func stopUpdates()
-
 }
 
 extension CMPedometer: Pedometer {}

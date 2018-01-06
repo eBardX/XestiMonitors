@@ -10,14 +10,12 @@
 import CoreMotion
 
 public protocol Altimeter: class {
-
     static func isRelativeAltitudeAvailable() -> Bool
 
     func startRelativeAltitudeUpdates(to queue: OperationQueue,
                                       withHandler handler: @escaping CMAltitudeHandler)
 
     func stopRelativeAltitudeUpdates()
-
 }
 
 extension CMAltimeter: Altimeter {}

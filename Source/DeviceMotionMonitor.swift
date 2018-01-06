@@ -16,9 +16,6 @@ import Foundation
 /// processed into device motion measurements.
 ///
 public class DeviceMotionMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates updates to the measurement of device motion.
     ///
@@ -33,7 +30,6 @@ public class DeviceMotionMonitor: BaseMonitor {
     /// Encapsulates the measurement of device motion.
     ///
     public enum Info {
-
         ///
         /// The device motion measurement at a moment of time.
         ///
@@ -49,10 +45,7 @@ public class DeviceMotionMonitor: BaseMonitor {
         /// No device motion measurement is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `DeviceMotionMonitor`.
@@ -76,16 +69,12 @@ public class DeviceMotionMonitor: BaseMonitor {
                 interval: TimeInterval,
                 using referenceFrame: CMAttitudeReferenceFrame,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.interval = interval
         self.motionManager = motionManager
         self.queue = queue
         self.referenceFrame = referenceFrame
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The latest device motion measurement available.
@@ -106,33 +95,25 @@ public class DeviceMotionMonitor: BaseMonitor {
         return motionManager.isDeviceMotionAvailable
     }
 
-    // Private
-
     private let handler: (Event) -> Void
     private let interval: TimeInterval
     private let motionManager: MotionManager
     private let queue: OperationQueue
     private let referenceFrame: CMAttitudeReferenceFrame
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         motionManager.stopDeviceMotionUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         motionManager.deviceMotionUpdateInterval = interval
 
         motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
                                                to: queue) { [unowned self] data, error in
-
                                                 var info: Info
 
                                                 if let error = error {
@@ -144,9 +125,6 @@ public class DeviceMotionMonitor: BaseMonitor {
                                                 }
 
                                                 self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

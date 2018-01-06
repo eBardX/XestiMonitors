@@ -12,11 +12,9 @@ import XCTest
 @testable import XestiMonitors
 
 internal class DeviceMotionMonitorTests: XCTestCase {
-
     let motionManager = MockMotionManager()
 
     func testInfo_data() {
-
         let expectedData = CMDeviceMotion()
         let monitor = DeviceMotionMonitor(motionManager: motionManager,
                                           queue: .main,
@@ -30,11 +28,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected info")
         }
-
     }
 
     func testInfo_unknown() {
-
         let monitor = DeviceMotionMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1,
@@ -46,11 +42,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected info")
         }
-
     }
 
     func testIsAvailable_false() {
-
         let monitor = DeviceMotionMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1,
@@ -59,11 +53,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         motionManager.updateDeviceMotion(available: false)
 
         XCTAssertFalse(monitor.isAvailable)
-
     }
 
     func testIsAvailable_true() {
-
         let monitor = DeviceMotionMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1,
@@ -72,11 +64,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         motionManager.updateDeviceMotion(available: true)
 
         XCTAssertTrue(monitor.isAvailable)
-
     }
 
     func testMonitor_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMDeviceMotion()
         var expectedEvent: DeviceMotionMonitor.Event?
@@ -100,11 +90,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -129,11 +117,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: DeviceMotionMonitor.Event?
         let monitor = DeviceMotionMonitor(motionManager: motionManager,
@@ -155,7 +141,5 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
-
 }

@@ -12,6 +12,8 @@ import XestiMonitors
 
 public class AccessibilityDetailViewController: UITableViewController {
 
+    // MARK: Private Instance Properties
+
     @IBOutlet private weak var announcementButton: UIButton!
     @IBOutlet private weak var announcementStringValueLabel: UILabel!
     @IBOutlet private weak var announcementWasSuccessfulLabel: UILabel!
@@ -36,21 +38,15 @@ public class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
     private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
-
         self.displayAnnouncement($0)
-
     }
 
     private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
-
         self.displayElement($0)
-
     }
 
     private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
-
         self.displayStatus($0)
-
     }
 
     private lazy var monitors: [Monitor] = [self.announcementMonitor,
@@ -59,32 +55,24 @@ public class AccessibilityDetailViewController: UITableViewController {
 
     private var announcementCount = 0
 
-    // MARK: -
+    // MARK: Private Instance Methods
 
     private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
-
         if let event = event,
             case let .didFinish(info) = event {
-
             announcementStringValueLabel.text = info.stringValue
 
             announcementWasSuccessfulLabel.text = formatBool(info.wasSuccessful)
-
         } else {
-
             announcementStringValueLabel.text = " "
 
             announcementWasSuccessfulLabel.text = " "
-
         }
-
     }
 
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
-
         if let event = event,
             case let .didFocus(info) = event {
-
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatAccessibilityElement(element)
             } else {
@@ -102,25 +90,18 @@ public class AccessibilityDetailViewController: UITableViewController {
             } else {
                 elementUnfocusedLabel.text = " "
             }
-
         } else {
-
             elementFocusedLabel.text = " "
 
             elementTechnologyLabel.text = " "
 
             elementUnfocusedLabel.text = " "
-
         }
-
     }
 
     private func displayStatus(_ event: AccessibilityStatusMonitor.Event?) {
-
         if let event = event {
-
             switch event {
-
             case let .assistiveTouchStatusDidChange(value):
                 statusAssistiveTouchLabel.text = formatBool(value)
 
@@ -172,11 +153,8 @@ public class AccessibilityDetailViewController: UITableViewController {
 
             case let .voiceOverStatusDidChange(value):
                 statusVoiceOverLabel.text = formatBool(value)
-
             }
-
         } else {
-
             if #available(iOS 10.0, *) {
                 statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
             } else {
@@ -216,28 +194,21 @@ public class AccessibilityDetailViewController: UITableViewController {
             statusSwitchControlLabel.text = formatBool(statusMonitor.isSwitchControlEnabled)
 
             statusVoiceOverLabel.text = formatBool(statusMonitor.isVoiceOverEnabled)
-
         }
-
     }
 
     @IBAction private func announcementButtonTapped() {
-
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
                                             "Announcement #\(self.announcementCount)")
-
         }
-
     }
 
-    // MARK: -
+    // MARK: Overridden UIViewController Methods
 
     override public func viewDidLoad() {
-
         super.viewDidLoad()
 
         displayAnnouncement(nil)
@@ -245,23 +216,17 @@ public class AccessibilityDetailViewController: UITableViewController {
         displayElement(nil)
 
         displayStatus(nil)
-
     }
 
     override public func viewWillAppear(_ animated: Bool) {
-
         super.viewWillAppear(animated)
 
         monitors.forEach { $0.startMonitoring() }
-
     }
 
     override public func viewWillDisappear(_ animated: Bool) {
-
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
-
     }
-
 }

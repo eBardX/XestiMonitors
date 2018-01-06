@@ -12,12 +12,10 @@ import XCTest
 @testable import XestiMonitors
 
 internal class MemoryMonitorTests: XCTestCase {
-
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_didReceiveWarning() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MemoryMonitor.Event?
         let monitor = MemoryMonitor(notificationCenter: notificationCenter,
@@ -36,14 +34,10 @@ internal class MemoryMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateDidReceiveMemoryWarning() {
-
         notificationCenter.post(name: .UIApplicationDidReceiveMemoryWarning,
                                 object: application)
-
     }
-
 }

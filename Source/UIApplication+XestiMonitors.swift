@@ -10,7 +10,6 @@
 import UIKit
 
 public protocol Application: class {
-
     var applicationState: UIApplicationState { get }
 
     var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
@@ -18,7 +17,6 @@ public protocol Application: class {
     var statusBarFrame: CGRect { get }
 
     var statusBarOrientation: UIInterfaceOrientation { get }
-
 }
 
 extension UIApplication: Application {}

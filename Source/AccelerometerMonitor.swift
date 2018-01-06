@@ -15,9 +15,6 @@ import Foundation
 /// periodic raw measurements of the acceleration along the three spatial axes.
 ///
 public class AccelerometerMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates updates to the measurement of the acceleration along the
     /// three spatial axes.
@@ -34,7 +31,6 @@ public class AccelerometerMonitor: BaseMonitor {
     /// spatial axes at a moment of time.
     ///
     public enum Info {
-
         ///
         /// The acceleration measurement.
         ///
@@ -50,10 +46,7 @@ public class AccelerometerMonitor: BaseMonitor {
         /// No acceleration measurement is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AccelerometerMonitor`.
@@ -74,15 +67,11 @@ public class AccelerometerMonitor: BaseMonitor {
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.interval = interval
         self.motionManager = motionManager
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The latest acceleration measurement available.
@@ -103,31 +92,23 @@ public class AccelerometerMonitor: BaseMonitor {
         return motionManager.isAccelerometerAvailable
     }
 
-    // Private
-
     private let handler: (Event) -> Void
     private let interval: TimeInterval
     private let motionManager: MotionManager
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         motionManager.stopAccelerometerUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         motionManager.accelerometerUpdateInterval = interval
 
         motionManager.startAccelerometerUpdates(to: queue) { [unowned self] data, error in
-
             var info: Info
 
             if let error = error {
@@ -139,9 +120,6 @@ public class AccelerometerMonitor: BaseMonitor {
             }
 
             self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

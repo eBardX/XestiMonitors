@@ -11,8 +11,6 @@ import XCTest
 @testable import XestiMonitors
 
 internal class ReachabilityMonitorTests: XCTestCase {
-
     func testExample() {
     }
-
 }

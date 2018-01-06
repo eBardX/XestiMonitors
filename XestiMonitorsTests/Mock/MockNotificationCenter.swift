@@ -11,9 +11,7 @@ import Foundation
 @testable import XestiMonitors
 
 internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
-
     class MockObserver {
-
         let block: (Notification) -> Void
         let object: Any?
         let queue: OperationQueue?
@@ -21,13 +19,10 @@ internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
         init(object: Any?,
              queue: OperationQueue?,
              block: @escaping (Notification) -> Void) {
-
             self.block = block
             self.object = object
             self.queue = queue
-
         }
-
     }
 
     var observers: [String: MockObserver] = [:]
@@ -36,7 +31,6 @@ internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
                      object: Any?,
                      queue: OperationQueue?,
                      using block: @escaping (Notification) -> Void) -> NSObjectProtocol {
-
         guard
             let name = name
             else { fatalError("Name must be specified for testing") }
@@ -50,13 +44,11 @@ internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
                                                 block: block)
 
         return name.rawValue as NSString
-
     }
 
     func post(name: NSNotification.Name,
               object: Any?,
               userInfo: [AnyHashable: Any]? = nil) {
-
         guard
             let observer = observers[name.rawValue]
             else { return }
@@ -77,17 +69,13 @@ internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
         } else {
             observer.block(notification)
         }
-
     }
 
     func removeObserver(_ observer: Any) {
-
         guard
             let name = observer as? String
             else { return }
 
         observers[name] = nil
-
     }
-
 }

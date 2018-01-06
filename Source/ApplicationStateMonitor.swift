@@ -15,14 +15,10 @@ import UIKit
 /// runtime state.
 ///
 public class ApplicationStateMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the runtime state of the app.
     ///
     public enum Event {
-
         ///
         /// The app has entered the active state.
         ///
@@ -54,8 +50,6 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         case willTerminate
     }
 
-    // Public Initializers
-
     ///
     /// Initializes a new `ApplicationStateMonitor`.
     ///
@@ -71,16 +65,12 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
                 queue: OperationQueue = .main,
                 application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {
-
         self.application = application
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The runtime state of the app.
@@ -89,15 +79,10 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         return application.applicationState
     }
 
-    // Private Instance Properties
-
     private let application: Application
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationDidBecomeActive) { [unowned self] _ in
@@ -123,7 +108,5 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         observe(.UIApplicationWillTerminate) { [unowned self] _ in
             self.handler(.willTerminate)
         }
-
     }
-
 }

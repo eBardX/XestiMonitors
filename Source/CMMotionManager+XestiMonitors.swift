@@ -10,7 +10,6 @@
 import CoreMotion
 
 public protocol MotionManager: class {
-
     var accelerometerData: CMAccelerometerData? { get }
 
     var accelerometerUpdateInterval: TimeInterval { get set }
@@ -55,13 +54,11 @@ public protocol MotionManager: class {
     func stopGyroUpdates()
 
     func stopMagnetometerUpdates()
-
 }
 
 extension CMMotionManager: MotionManager {}
 
 public extension CMMotionManager {
-
     ///
     /// Returns the singleton motion manager instance.
     ///
@@ -75,5 +72,4 @@ public extension CMMotionManager {
     /// instance.
     ///
     static let shared = CMMotionManager()
-
 }

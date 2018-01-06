@@ -11,16 +11,13 @@ import UIKit
 @testable import XestiMonitors
 
 internal class MockDevice: Device {
-
     init() {
-
         self.batteryLevel = 0
         self.batteryState = .unknown
         self.isBatteryMonitoringEnabled = false
         self.isProximityMonitoringEnabled = false
         self.orientation = .unknown
         self.proximityState = false
-
     }
 
     var batteryLevel: Float
@@ -35,5 +32,4 @@ internal class MockDevice: Device {
 
     func endGeneratingDeviceOrientationNotifications() {
     }
-
 }

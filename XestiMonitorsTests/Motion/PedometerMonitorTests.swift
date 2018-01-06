@@ -12,121 +12,99 @@ import XCTest
 @testable import XestiMonitors
 
 internal class PedometerMonitorTests: XCTestCase {
-
     let pedometer = MockPedometer()
 
     func testIsCadenceAvailable_false() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(cadenceAvailable: false)
 
         XCTAssertFalse(monitor.isCadenceAvailable)
-
     }
 
     func testIsCadenceAvailable_true() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(cadenceAvailable: true)
 
         XCTAssertTrue(monitor.isCadenceAvailable)
-
     }
 
     func testIsDistanceAvailable_false() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(distanceAvailable: false)
 
         XCTAssertFalse(monitor.isDistanceAvailable)
-
     }
 
     func testIsDistanceAvailable_true() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(distanceAvailable: true)
 
         XCTAssertTrue(monitor.isDistanceAvailable)
-
     }
 
     func testIsFloorCountingAvailable_false() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(floorCountingAvailable: false)
 
         XCTAssertFalse(monitor.isFloorCountingAvailable)
-
     }
 
     func testIsFloorCountingAvailable_true() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(floorCountingAvailable: true)
 
         XCTAssertTrue(monitor.isFloorCountingAvailable)
-
     }
 
     func testIsPaceAvailable_false() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(paceAvailable: false)
 
         XCTAssertFalse(monitor.isPaceAvailable)
-
     }
 
     func testIsPaceAvailable_true() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(paceAvailable: true)
 
         XCTAssertTrue(monitor.isPaceAvailable)
-
     }
 
     func testIsStepCountingAvailable_false() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(stepCountingAvailable: false)
 
         XCTAssertFalse(monitor.isStepCountingAvailable)
-
     }
 
     func testIsStepCountingAvailable_true() {
-
         let monitor = PedometerMonitor(pedometer: pedometer,
                                        queue: .main) { _ in }
 
         pedometer.updatePedometer(stepCountingAvailable: true)
 
         XCTAssertTrue(monitor.isStepCountingAvailable)
-
     }
 
     func testMonitor_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
@@ -148,11 +126,9 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -175,11 +151,9 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(pedometer: pedometer,
@@ -199,11 +173,9 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
@@ -225,11 +197,9 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -252,11 +222,9 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(pedometer: pedometer,
@@ -276,7 +244,5 @@ internal class PedometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
-
 }

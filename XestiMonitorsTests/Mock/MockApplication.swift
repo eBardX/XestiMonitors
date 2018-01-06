@@ -11,19 +11,15 @@ import UIKit
 @testable import XestiMonitors
 
 internal class MockApplication: Application {
-
     init() {
-
         self.applicationState = .inactive
         self.backgroundRefreshStatus = .restricted
         self.statusBarFrame = .zero
         self.statusBarOrientation = .unknown
-
     }
 
     var applicationState: UIApplicationState
     var backgroundRefreshStatus: UIBackgroundRefreshStatus
     var statusBarFrame: CGRect
     var statusBarOrientation: UIInterfaceOrientation
-
 }

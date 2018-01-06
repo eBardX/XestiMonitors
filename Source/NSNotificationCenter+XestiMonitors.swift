@@ -12,14 +12,12 @@ import Foundation
 public typealias NSNotificationCenter = Foundation.NotificationCenter
 
 public protocol NotificationCenter: class {
-
     func addObserver(forName name: NSNotification.Name?,
                      object obj: Any?,
                      queue: OperationQueue?,
                      using block: @escaping (Notification) -> Void) -> NSObjectProtocol
 
     func removeObserver(_ observer: Any)
-
 }
 
 extension NSNotificationCenter: NotificationCenter {}

@@ -12,16 +12,11 @@
 /// implementation.
 ///
 public protocol Monitor {
-
-    // Instance Properties
-
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
     /// monitor is active (`true`) or not (`false`).
     ///
     var isMonitoring: Bool { get }
-
-    // Instance Methods
 
     ///
     /// Starts active monitoring of events specific to the monitor.
@@ -32,5 +27,4 @@ public protocol Monitor {
     /// Stops active monitoring of events specific to the monitor.
     ///
     func stopMonitoring()
-
 }

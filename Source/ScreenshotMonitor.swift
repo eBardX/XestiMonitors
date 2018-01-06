@@ -14,9 +14,6 @@ import UIKit
 /// A `ScreenshotMonitor` instance monitors the app for screenshots.
 ///
 public class ScreenshotMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates screenshots taken when the user presses the Home and Lock
     /// buttons.
@@ -27,8 +24,6 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
         ///
         case userDidTake
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `ScreenshotMonitor`.
@@ -43,28 +38,19 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in
             self.handler(.userDidTake)
         }
-
     }
-
 }

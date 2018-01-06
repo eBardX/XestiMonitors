@@ -11,9 +11,6 @@
 /// An abstract base class that simplifies the implementation of a monitor.
 ///
 open class BaseMonitor: Monitor {
-
-    // Open Instance Methods
-
     ///
     /// Cleans up the monitor so that active monitoring can stop.
     ///
@@ -34,12 +31,8 @@ open class BaseMonitor: Monitor {
     open func configureMonitor() {
     }
 
-    // Public Initializers
-
     public init() {
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
@@ -47,38 +40,27 @@ open class BaseMonitor: Monitor {
     ///
     public private(set) final var isMonitoring = false
 
-    // Public Instance Methods
-
     ///
     /// Starts active monitoring of events specific to the monitor.
     ///
     public final func startMonitoring() {
-
         if !isMonitoring {
             configureMonitor()
             isMonitoring = true
         }
-
     }
 
     ///
     /// Stops active monitoring of events specific to the monitor.
     ///
     public final func stopMonitoring() {
-
         if isMonitoring {
             cleanupMonitor()
             isMonitoring = false
         }
-
     }
-
-    // Deinitializer
 
     deinit {
-
         stopMonitoring()
-
     }
-
 }

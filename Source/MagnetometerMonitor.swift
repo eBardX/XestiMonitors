@@ -16,9 +16,6 @@ import Foundation
 /// axes.
 ///
 public class MagnetometerMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates updates to the measurement of the magnetic field around
     /// the three spatial axes.
@@ -35,7 +32,6 @@ public class MagnetometerMonitor: BaseMonitor {
     /// spatial axes.
     ///
     public enum Info {
-
         ///
         /// The magnetic field measurement.
         ///
@@ -51,10 +47,7 @@ public class MagnetometerMonitor: BaseMonitor {
         /// No magnetic field measurement is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `MagnetometerMonitor`.
@@ -75,15 +68,11 @@ public class MagnetometerMonitor: BaseMonitor {
                 queue: OperationQueue,
                 interval: TimeInterval,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.interval = interval
         self.motionManager = motionManager
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The latest magnetic field measurement available.
@@ -104,31 +93,23 @@ public class MagnetometerMonitor: BaseMonitor {
         return motionManager.isMagnetometerAvailable
     }
 
-    // Private
-
     private let handler: (Event) -> Void
     private let interval: TimeInterval
     private let motionManager: MotionManager
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         motionManager.stopMagnetometerUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         motionManager.magnetometerUpdateInterval = interval
 
         motionManager.startMagnetometerUpdates(to: queue) { [unowned self] data, error in
-
             var info: Info
 
             if let error = error {
@@ -140,9 +121,6 @@ public class MagnetometerMonitor: BaseMonitor {
             }
 
             self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

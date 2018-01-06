@@ -12,11 +12,9 @@ import XCTest
 @testable import XestiMonitors
 
 internal class AccessibilityElementMonitorTests: XCTestCase {
-
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_didFinish() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAssistiveTechnology: String? = "VoiceOver"
         let expectedFocusedElement: Any? = UITextField()
@@ -51,11 +49,9 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didFinish_badUserInfo() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedAssistiveTechnology: String? = nil
         let expectedFocusedElement: Any? = nil
@@ -91,14 +87,12 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateDidFocus(assistiveTechnology: String?,
                                   focusedElement: Any?,
                                   unfocusedElement: Any?,
                                   badUserInfo: Bool = false) {
-
         var userInfo: [AnyHashable: Any]?
 
         if badUserInfo {
@@ -122,7 +116,5 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIAccessibilityElementFocused,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
-
 }

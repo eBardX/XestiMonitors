@@ -13,24 +13,19 @@ import UIKit
 import XestiMonitors
 
 public func formatAcceleration(_ value: CMAcceleration) -> String {
-
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
-
 }
 
 public func formatAccessibilityElement(_ element: Any) -> String {
-
     if let accElem = element as? UIAccessibilityElement,
         let label = accElem.accessibilityLabel {
         return label
     }
 
     return "\(element)"
-
 }
 
 public func formatAssistiveTechnology(_ value: String) -> String {
-
     if UIAccessibilityNotificationSwitchControlIdentifier == value {
         return "Switch Control"
     }
@@ -40,19 +35,14 @@ public func formatAssistiveTechnology(_ value: String) -> String {
     }
 
     return value
-
 }
 
 public func formatAttitude(_ value: CMAttitude) -> String {
-
     return "\(formatDecimal(value.roll)), \(formatDecimal(value.pitch)), \(formatDecimal(value.yaw))"
-
 }
 
 public func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) -> String {
-
     switch value {
-
     case .available:
         return "Available"
 
@@ -61,48 +51,34 @@ public func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) ->
 
     case .restricted:
         return "Restricted"
-
     }
-
 }
 
 public func formatBool(_ value: Bool) -> String {
-
     return value ? "True" : "False"
-
 }
 
 public func formatCadence(_ value: NSNumber) -> String {
-
     return "\(formatDecimal(value)) steps/s"
-
 }
 
 public func formatDate(_ value: Date) -> String {
-
     return dateFormatter.string(from: value)
-
 }
 
 public func formatDecimal(_ value: Double) -> String {
-
     let number = NSNumber(value: value)
 
     return decimalFormatter.string(from: number) ?? "\(value)"
-
 }
 
 public func formatDecimal(_ value: NSNumber) -> String {
-
     return decimalFormatter.string(from: value) ?? "\(value)"
-
 }
 
 public func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
                                              _ level: Float) -> String {
-
     switch state {
-
     case .charging:
         return "Charging \(formatPercentage(level))"
 
@@ -114,15 +90,11 @@ public func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
 
     case .unknown:
         return "Unknown"
-
     }
-
 }
 
 public func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
-
     switch value {
-
     case .faceDown:
         return "Face down"
 
@@ -143,32 +115,24 @@ public func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
 
     case .unknown:
         return "Unknown"
-
     }
-
 }
 
 public func formatDeviceProximityState(_ value: Bool?) -> String {
-
     if let value = value {
         return value ? "Close" : "Not close"
     } else {
         return "N/A"
     }
-
 }
 
 public func formatDistance(_ value: NSNumber) -> String {
-
     return "\(formatDecimal(value))m"
-
 }
 
 @available(iOS 10.0, *)
 public func formatHearingDeviceEar(_ ear: UIAccessibilityHearingDeviceEar) -> String {
-
     switch ear {
-
     case [.both]:
         return "L+R"
 
@@ -180,29 +144,21 @@ public func formatHearingDeviceEar(_ ear: UIAccessibilityHearingDeviceEar) -> St
 
     default :
         return "None"
-
     }
-
 }
 
 public func formatInteger(_ value: Int) -> String {
-
     let number = NSNumber(value: value)
 
     return integerFormatter.string(from: number) ?? "\(value)"
-
 }
 
 public func formatInteger(_ value: NSNumber) -> String {
-
     return integerFormatter.string(from: value) ?? "\(value)"
-
 }
 
 public func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> String {
-
     switch value {
-
     case .landscapeLeft:
         return "Landscape left"
 
@@ -217,27 +173,19 @@ public func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> Strin
 
     case .unknown:
         return "Unknown"
-
     }
-
 }
 
 public func formatMagneticField(_ value: CMCalibratedMagneticField) -> String {
-
     return "\(formatMagneticField(value.field)) \(formatMagneticFieldCalibrationAccuracy(value.accuracy))"
-
 }
 
 public func formatMagneticField(_ value: CMMagneticField) -> String {
-
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
-
 }
 
 public func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalibrationAccuracy) -> String {
-
     switch value {
-
     case .high:
         return "High"
 
@@ -249,14 +197,11 @@ public func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalib
 
     case .uncalibrated:
         return "Uncalibrated"
-
     }
 }
 
 public func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) -> String {
-
     switch value {
-
     case .high:
         return "High"
 
@@ -265,59 +210,41 @@ public func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) 
 
     case .medium:
         return "Medium"
-
     }
-
 }
 
 public func formatPace(_ value: NSNumber) -> String {
-
     return "\(formatDecimal(value))s/m"
-
 }
 
 public func formatPercentage(_ value: Float) -> String {
-
     let number = NSNumber(value: value)
 
     return percentageFormatter.string(from: number) ?? "\(value * 100.0)%"
-
 }
 
 public func formatPressure(_ value: NSNumber) -> String {
-
     return "\(formatDecimal(value))kPa"
-
 }
 
 public func formatRect(_ value: CGRect) -> String {
-
     return "\(value)"   // for now ...
-
 }
 
 public func formatRelativeAltitude(_ value: NSNumber) -> String {
-
     return "\(formatDecimal(value))m"
-
 }
 
 public func formatRotationRate(_ value: CMRotationRate) -> String {
-
     return "\(formatDecimal(value.x)), \(formatDecimal(value.y)), \(formatDecimal(value.z))"
-
 }
 
 public func formatTimeInterval(_ value: TimeInterval) -> String {
-
     return timeIntervalFormatter.string(from: value) ?? "\(value)"
-
 }
 
 public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
-
     switch value {
-
     case .easeIn:
         return "Ease in"
 
@@ -329,25 +256,21 @@ public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
 
     case .linear:
         return "Linear"
-
     }
 }
 
 // MARK: -
 
 private var dateFormatter: DateFormatter = {
-
     var formatter = DateFormatter()
 
     formatter.dateStyle = .medium
     formatter.timeStyle = .medium
 
     return formatter
-
 }()
 
 private var decimalFormatter: NumberFormatter = {
-
     var formatter = NumberFormatter()
 
     formatter.maximumFractionDigits = 3
@@ -356,11 +279,9 @@ private var decimalFormatter: NumberFormatter = {
     formatter.usesGroupingSeparator = true
 
     return formatter
-
 }()
 
 private var integerFormatter: NumberFormatter = {
-
     var formatter = NumberFormatter()
 
     formatter.maximumFractionDigits = 0
@@ -369,11 +290,9 @@ private var integerFormatter: NumberFormatter = {
     formatter.usesGroupingSeparator = true
 
     return formatter
-
 }()
 
 private var percentageFormatter: NumberFormatter = {
-
     var formatter = NumberFormatter()
 
     formatter.maximumFractionDigits = 1
@@ -381,11 +300,9 @@ private var percentageFormatter: NumberFormatter = {
     formatter.usesGroupingSeparator = true
 
     return formatter
-
 }()
 
 private var timeIntervalFormatter: DateComponentsFormatter = {
-
     var formatter = DateComponentsFormatter()
 
     formatter.allowedUnits = [.day, .hour, .minute, .second]
@@ -393,5 +310,4 @@ private var timeIntervalFormatter: DateComponentsFormatter = {
     formatter.zeroFormattingBehavior = .pad
 
     return formatter
-
 }()

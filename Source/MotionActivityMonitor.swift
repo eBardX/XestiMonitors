@@ -20,14 +20,10 @@ import Foundation
 /// data.
 ///
 public class MotionActivityMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates updates to ...
     ///
     public enum Event {
-
         ///
         ///
         ///
@@ -37,14 +33,12 @@ public class MotionActivityMonitor: BaseMonitor {
         ///
         ///
         case didUpdate(Info)
-
     }
 
     ///
     /// Encapsulates ... the current type of motion for the device
     ///
     public enum Info {
-
         ///
         /// An array of CMMotionActivity objects indicating the updates that
         /// occurred. The objects in the array are ordered by the time at which
@@ -70,10 +64,7 @@ public class MotionActivityMonitor: BaseMonitor {
         ///
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `MotionActivityMonitor`.
@@ -89,14 +80,10 @@ public class MotionActivityMonitor: BaseMonitor {
     public init(motionActivityManager: MotionActivityManager = CMMotionActivityManager(),
                 queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.motionActivityManager = motionActivityManager
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether motion data is available on the
@@ -105,8 +92,6 @@ public class MotionActivityMonitor: BaseMonitor {
     public var isAvailable: Bool {
         return type(of: motionActivityManager).isActivityAvailable()
     }
-
-    // Public Instance Methods
 
     ///
     /// Gathers and returns historical motion data for the specified time
@@ -118,11 +103,9 @@ public class MotionActivityMonitor: BaseMonitor {
     ///
     public func query(from start: Date,
                       to end: Date) {
-
         motionActivityManager.queryActivityStarting(from: start,
                                                     to: end,
                                                     to: queue) { [unowned self] activities, error in
-
                                                         var info: Info
 
                                                         if let error = error {
@@ -134,33 +117,23 @@ public class MotionActivityMonitor: BaseMonitor {
                                                         }
 
                                                         self.handler(.didQuery(info))
-
         }
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
     private let motionActivityManager: MotionActivityManager
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         motionActivityManager.stopActivityUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
-
             var info: Info
 
             if let activity = activity {
@@ -170,9 +143,6 @@ public class MotionActivityMonitor: BaseMonitor {
             }
 
             self.handler(.didUpdate(info))
-
         }
-
     }
-
 }

@@ -15,14 +15,10 @@ import UIKit
 /// accessibility of protected files.
 ///
 public class ProtectedDataMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the accessibility of protected files.
     ///
     public enum Event {
-
         ///
         /// Protected files have become available for your code to access.
         ///
@@ -34,8 +30,6 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         ///
         case willBecomeUnavailable
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `ProtectedDataMonitor`.
@@ -51,22 +45,15 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationProtectedDataDidBecomeAvailable) { [unowned self] _ in
@@ -76,7 +63,5 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         observe(.UIApplicationProtectedDataWillBecomeUnavailable) { [unowned self] _ in
             self.handler(.willBecomeUnavailable)
         }
-
     }
-
 }

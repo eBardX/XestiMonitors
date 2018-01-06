@@ -12,11 +12,9 @@ import XCTest
 @testable import XestiMonitors
 
 internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
-
     let notificationCenter = MockNotificationCenter()
 
     func testMonitor_didFinish() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedStringValue: String = "This is a test"
         let expectedWasSuccessful: Bool = true
@@ -40,11 +38,9 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didFinish_badUserInfo() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedStringValue: String = " "
         let expectedWasSuccessful: Bool = false
@@ -69,13 +65,11 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     private func simulateDidFinish(stringValue: String,
                                    wasSuccessful: Bool,
                                    badUserInfo: Bool = false) {
-
         let userInfo: [AnyHashable: Any]?
 
         if badUserInfo {
@@ -88,7 +82,5 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         notificationCenter.post(name: .UIAccessibilityAnnouncementDidFinish,
                                 object: nil,
                                 userInfo: userInfo)
-
     }
-
 }

@@ -11,7 +11,6 @@ import CoreMotion
 import UIKit
 
 public extension CMAcceleration {
-
     ///
     /// Returns the device orientation as calculated from the 3-axis
     /// acceleration data.
@@ -24,7 +23,6 @@ public extension CMAcceleration {
     /// is locked on the device.
     ///
     var deviceOrientation: UIDeviceOrientation {
-
         if z > 0.8 {
             return .faceDown
         }
@@ -52,7 +50,5 @@ public extension CMAcceleration {
         }
 
         return .unknown
-
     }
-
 }

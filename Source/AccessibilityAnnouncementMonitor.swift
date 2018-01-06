@@ -15,9 +15,6 @@ import UIKit
 /// accessibility announcements that VoiceOver has finished outputting.
 ///
 public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates accessibility announcements that VoiceOver has finished
     /// outputting.
@@ -34,7 +31,6 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     /// that VoiceOver has finished outputting.
     ///
     public struct Info {
-
         ///
         /// The text used for the announcement.
         ///
@@ -47,7 +43,6 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
         public let wasSuccessful: Bool
 
         internal init (_ notification: Notification) {
-
             let userInfo = notification.userInfo
 
             if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
@@ -61,12 +56,8 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
             } else {
                 self.wasSuccessful = false
             }
-
         }
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AccessibilityAnnouncementMonitor`.
@@ -81,28 +72,19 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in
             self.handler(.didFinish(Info($0)))
         }
-
     }
-
 }

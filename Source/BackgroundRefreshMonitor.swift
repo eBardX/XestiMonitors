@@ -15,9 +15,6 @@ import UIKit
 /// status for downloading content in the background.
 ///
 public class BackgroundRefreshMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the app’s status for downloading content in the
     /// background.
@@ -28,8 +25,6 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
         ///
         case statusDidChange(UIBackgroundRefreshStatus)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `BackgroundRefreshMonitor`.
@@ -46,16 +41,12 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
                 queue: OperationQueue = .main,
                 application: Application = UIApplication.shared,
                 handler: @escaping (Event) -> Void) {
-
         self.application = application
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// Whether the app can be launched into the background to handle
@@ -65,21 +56,14 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
         return application.backgroundRefreshStatus
     }
 
-    // Private Instance Properties
-
     private let application: Application
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationBackgroundRefreshStatusDidChange) { [unowned self] _ in
             self.handler(.statusDidChange(self.status))
         }
-
     }
-
 }

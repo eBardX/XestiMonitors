@@ -14,6 +14,8 @@ import XestiMonitors
 // swiftlint:disable type_body_length
 public class MotionDetailViewController: UITableViewController {
 
+    // MARK: Private Instance Properties
+
     @IBOutlet private weak var accelerometerAccelerationLabel: UILabel!
     @IBOutlet private weak var accelerometerOrientationLabel: UILabel!
     @IBOutlet private weak var accelerometerTimestampLabel: UILabel!
@@ -50,49 +52,35 @@ public class MotionDetailViewController: UITableViewController {
 
     private lazy var accelerometerMonitor = AccelerometerMonitor(queue: .main,
                                                                  interval: 1) { [unowned self] in
-
                                                                     self.displayAccelerometer($0)
-
     }
 
     private lazy var altimeterMonitor = AltimeterMonitor(queue: .main) { [unowned self] in
-
         self.displayAltimeter($0)
-
     }
 
     private lazy var deviceMotionMonitor = DeviceMotionMonitor(queue: .main,
                                                                interval: 1,
                                                                using: .xArbitraryZVertical) { [unowned self] in
-
                                                                 self.displayDeviceMotion($0)
-
     }
 
     private lazy var gyroscopeMonitor = GyroscopeMonitor(queue: .main,
                                                          interval: 0.5) { [unowned self] in
-
                                                             self.displayGyroscope($0)
-
     }
 
     private lazy var magnetometerMonitor = MagnetometerMonitor(queue: .main,
                                                                interval: 1) { [unowned self] in
-
                                                                 self.displayMagnetometer($0)
-
     }
 
     private lazy var motionActivityMonitor = MotionActivityMonitor(queue: .main) { [unowned self] in
-
         self.displayMotionActivity($0)
-
     }
 
     private lazy var pedometerMonitor = PedometerMonitor(queue: .main) { [unowned self] in
-
         self.displayPedometer($0)
-
     }
 
     private lazy var monitors: [Monitor] = [self.accelerometerMonitor,
@@ -101,25 +89,21 @@ public class MotionDetailViewController: UITableViewController {
                                             self.gyroscopeMonitor,
                                             self.magnetometerMonitor,
                                             self.motionActivityMonitor,
-                                            self.pedometerMonitor ]
+                                            self.pedometerMonitor]
 
-    // MARK: -
+    // MARK: Private Instance Methods
 
     private func displayAccelerometer(_ event: AccelerometerMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayAccelerometer(info)
         } else {
             displayAccelerometer(.unknown)
         }
-
     }
 
     private func displayAccelerometer(_ info: AccelerometerMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             accelerometerAccelerationLabel.text = formatAcceleration(data.acceleration)
 
@@ -143,25 +127,20 @@ public class MotionDetailViewController: UITableViewController {
 
             accelerometerTimestampLabel.text = "Unknown"
             accelerometerTimestampLabel.textColor = .gray
-
         }
     }
 
     private func displayAltimeter(_ event: AltimeterMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayAltimeter(info)
         } else {
             displayAltimeter(.unknown)
         }
-
     }
 
     private func displayAltimeter(_ info: AltimeterMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             altimeterPressureLabel.text = formatPressure(data.pressure)
 
@@ -179,25 +158,20 @@ public class MotionDetailViewController: UITableViewController {
 
             altimeterRelativeAltitudeLabel.text = "Unknown"
             altimeterRelativeAltitudeLabel.textColor = .gray
-
         }
     }
 
     private func displayDeviceMotion(_ event: DeviceMotionMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayDeviceMotion(info)
         } else {
             displayDeviceMotion(.unknown)
         }
-
     }
 
     private func displayDeviceMotion(_ info: DeviceMotionMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             deviceMotionAttitudeLabel.text = formatAttitude(data.attitude)
 
@@ -239,25 +213,20 @@ public class MotionDetailViewController: UITableViewController {
             deviceMotionTimestampLabel.textColor = .gray
 
             deviceMotionUserAccelerationLabel.text = " "
-
         }
     }
 
     private func displayGyroscope(_ event: GyroscopeMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayGyroscope(info)
         } else {
             displayGyroscope(.unknown)
         }
-
     }
 
     private func displayGyroscope(_ info: GyroscopeMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             gyroscopeRotationRateLabel.text = formatRotationRate(data.rotationRate)
 
@@ -275,25 +244,20 @@ public class MotionDetailViewController: UITableViewController {
 
             gyroscopeTimestampLabel.text = "Unknown"
             gyroscopeTimestampLabel.textColor = .gray
-
         }
     }
 
     private func displayMagnetometer(_ event: MagnetometerMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayMagnetometer(info)
         } else {
             displayMagnetometer(.unknown)
         }
-
     }
 
     private func displayMagnetometer(_ info: MagnetometerMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             magnetometerMagneticFieldLabel.text = formatMagneticField(data.magneticField)
 
@@ -311,25 +275,20 @@ public class MotionDetailViewController: UITableViewController {
 
             magnetometerTimestampLabel.text = "Unknown"
             magnetometerTimestampLabel.textColor = .gray
-
         }
     }
 
     private func displayMotionActivity(_ event: MotionActivityMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayMotionActivity(info)
         } else {
             displayMotionActivity(.unknown)
         }
-
     }
 
     private func displayMotionActivity(_ info: MotionActivityMonitor.Info) {
-
         switch info {
-
         case .activity(let activity):
             motionActivityAutomotiveLabel.text = formatBool(activity.automotive)
 
@@ -392,25 +351,20 @@ public class MotionDetailViewController: UITableViewController {
 
         default:
             break
-
         }
     }
 
     private func displayPedometer(_ event: PedometerMonitor.Event?) {
-
         if let event = event,
             case let .didUpdate(info) = event {
             displayPedometer(info)
         } else {
             displayPedometer(.unknown)
         }
-
     }
 
     private func displayPedometer(_ info: PedometerMonitor.Info) {
-
         switch info {
-
         case .data(let data):
             if #available(iOS 10.0, *) {
                 if let value = data.averageActivePace {
@@ -498,14 +452,12 @@ public class MotionDetailViewController: UITableViewController {
 
             pedometerStartDateLabel.text = "Unknown"
             pedometerStartDateLabel.textColor = .gray
-
         }
     }
 
-    // MARK: -
+    // MARK: Overridden UIViewController Methods
 
     override public func viewDidLoad() {
-
         super.viewDidLoad()
 
         displayAccelerometer(nil)
@@ -521,23 +473,17 @@ public class MotionDetailViewController: UITableViewController {
         displayMotionActivity(nil)
 
         displayPedometer(nil)
-
     }
 
     override public func viewWillAppear(_ animated: Bool) {
-
         super.viewWillAppear(animated)
 
         monitors.forEach { $0.startMonitoring() }
-
     }
 
     override public func viewWillDisappear(_ animated: Bool) {
-
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
-
     }
-
 }

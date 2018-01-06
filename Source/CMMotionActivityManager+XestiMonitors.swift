@@ -10,7 +10,6 @@
 import CoreMotion
 
 public protocol MotionActivityManager: class {
-
     static func isActivityAvailable() -> Bool
 
     func queryActivityStarting(from start: Date,
@@ -22,7 +21,6 @@ public protocol MotionActivityManager: class {
                               withHandler handler: @escaping CMMotionActivityHandler)
 
     func stopActivityUpdates()
-
 }
 
 extension CMMotionActivityManager: MotionActivityManager {}

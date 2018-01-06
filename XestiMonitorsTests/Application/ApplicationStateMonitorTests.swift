@@ -12,20 +12,16 @@ import XCTest
 @testable import XestiMonitors
 
 internal class ApplicationStateMonitorTests: XCTestCase {
-
     let application = MockApplication()
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
-
         super.setUp()
 
         application.applicationState = .inactive
-
     }
 
     func testMonitor_didBecomeActive() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -45,11 +41,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didEnterBackground() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -69,11 +63,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didFinishLaunching() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -94,11 +86,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willEnterForeground() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -118,11 +108,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willResignActive() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -142,11 +130,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_willTerminate() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
@@ -166,11 +152,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testState() {
-
         let expectedState: UIApplicationState = .background
         let monitor = ApplicationStateMonitor(notificationCenter: notificationCenter,
                                               queue: .main,
@@ -179,53 +163,39 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         simulateDidEnterBackground()
 
         XCTAssertEqual(monitor.state, expectedState)
-
     }
 
     private func simulateDidBecomeActive() {
-
         application.applicationState = .active
 
         notificationCenter.post(name: .UIApplicationDidBecomeActive,
                                 object: application)
-
     }
 
     private func simulateDidEnterBackground() {
-
         application.applicationState = .background
 
         notificationCenter.post(name: .UIApplicationDidEnterBackground,
                                 object: application)
-
     }
 
     private func simulateDidFinishLaunching() {
-
         notificationCenter.post(name: .UIApplicationDidFinishLaunching,
                                 object: application)
-
     }
 
     private func simulateWillEnterForeground() {
-
         notificationCenter.post(name: .UIApplicationWillEnterForeground,
                                 object: application)
-
     }
 
     private func simulateWillResignActive() {
-
         notificationCenter.post(name: .UIApplicationWillResignActive,
                                 object: application)
-
     }
 
     private func simulateWillTerminate() {
-
         notificationCenter.post(name: .UIApplicationWillTerminate,
                                 object: application)
-
     }
-
 }

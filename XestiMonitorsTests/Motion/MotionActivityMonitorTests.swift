@@ -12,33 +12,27 @@ import XCTest
 @testable import XestiMonitors
 
 internal class MotionActivityMonitorTests: XCTestCase {
-
     let motionActivityManager = MockMotionActivityManager()
 
     func testIsAvailable_false() {
-
         let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
                                             queue: .main) { _ in }
 
         motionActivityManager.updateMotionActivity(available: false)
 
         XCTAssertFalse(monitor.isAvailable)
-
     }
 
     func testIsAvailable_true() {
-
         let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
                                             queue: .main) { _ in }
 
         motionActivityManager.updateMotionActivity(available: true)
 
         XCTAssertTrue(monitor.isAvailable)
-
     }
 
     func testMonitor_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMMotionActivity()
         var expectedEvent: MotionActivityMonitor.Event?
@@ -60,11 +54,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
@@ -84,11 +76,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = [CMMotionActivity()]
         var expectedEvent: MotionActivityMonitor.Event?
@@ -110,11 +100,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -137,11 +125,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testQuery_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(motionActivityManager: motionActivityManager,
@@ -161,7 +147,5 @@ internal class MotionActivityMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
-
 }

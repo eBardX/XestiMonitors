@@ -15,9 +15,6 @@ import UIKit
 /// operating system.
 ///
 public class MemoryMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates warnings received by the app from the operating system
     /// about low memory availability.
@@ -28,8 +25,6 @@ public class MemoryMonitor: BaseNotificationMonitor {
         ///
         case didReceiveWarning
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `MemoryMonitor`.
@@ -44,28 +39,19 @@ public class MemoryMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIApplicationDidReceiveMemoryWarning) { [unowned self] _ in
             self.handler(.didReceiveWarning)
         }
-
     }
-
 }

@@ -15,14 +15,10 @@ import Foundation
 /// pedestrian-related data.
 ///
 public class PedometerMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     ///
     ///
     public enum Event {
-
         ///
         ///
         ///
@@ -32,14 +28,12 @@ public class PedometerMonitor: BaseMonitor {
         ///
         ///
         case didUpdate(Info)
-
     }
 
     ///
     ///
     ///
     public enum Info {
-
         ///
         ///
         ///
@@ -54,10 +48,7 @@ public class PedometerMonitor: BaseMonitor {
         ///
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `PedometerMonitor`.
@@ -70,14 +61,10 @@ public class PedometerMonitor: BaseMonitor {
     public init(pedometer: Pedometer = CMPedometer(),
                 queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
         self.pedometer = pedometer
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether cadence information is available on
@@ -119,17 +106,13 @@ public class PedometerMonitor: BaseMonitor {
         return type(of: pedometer).isStepCountingAvailable()
     }
 
-    // Public Instance Methods
-
     ///
     ///
     ///
     public func query(from start: Date,
                       to end: Date) {
-
         pedometer.queryPedometerData(from: start,
                                      to: end) { [unowned self] data, error in
-
                                         var info: Info
 
                                         if let error = error {
@@ -143,33 +126,23 @@ public class PedometerMonitor: BaseMonitor {
                                         self.queue.addOperation {
                                             self.handler(.didQuery(info))
                                         }
-
         }
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
     private let pedometer: Pedometer
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
     public override final func cleanupMonitor() {
-
         pedometer.stopUpdates()
 
         super.cleanupMonitor()
-
     }
 
     public override final func configureMonitor() {
-
         super.configureMonitor()
 
         pedometer.startUpdates(from: Date()) { [unowned self] data, error in
-
             var info: Info
 
             if let error = error {
@@ -181,9 +154,6 @@ public class PedometerMonitor: BaseMonitor {
             }
 
             self.queue.addOperation { self.handler(.didUpdate(info)) }
-
         }
-
     }
-
 }

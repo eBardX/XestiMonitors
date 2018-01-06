@@ -15,9 +15,6 @@ import UIKit
 /// physical orientation.
 ///
 public class OrientationMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the physical orientation of the device.
     ///
@@ -27,8 +24,6 @@ public class OrientationMonitor: BaseNotificationMonitor {
         ///
         case didChange(UIDeviceOrientation)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `OrientationMonitor`.
@@ -45,16 +40,12 @@ public class OrientationMonitor: BaseNotificationMonitor {
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {
-
         self.device = device
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The physical orientation of the device.
@@ -63,15 +54,10 @@ public class OrientationMonitor: BaseNotificationMonitor {
         return device.orientation
     }
 
-    // Private Instance Properties
-
     private let device: Device
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
@@ -79,15 +65,11 @@ public class OrientationMonitor: BaseNotificationMonitor {
         }
 
         device.beginGeneratingDeviceOrientationNotifications()
-
     }
 
     public override func removeNotificationObservers() {
-
         device.endGeneratingDeviceOrientationNotifications()
 
         super.removeNotificationObservers()
-
     }
-
 }

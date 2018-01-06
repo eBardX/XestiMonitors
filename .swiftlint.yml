@@ -128,6 +128,16 @@ custom_rules:
     name: "Closing Brace Whitespace"
     message: "Empty line required after closing curly braces if code with same indentation follows."
     severity: warning
+  empty_line_after_opening_brace:
+    regex: '\{[^\n}]*\n\s*\n(?!\s*\/\/\s*MARK:)'
+    name: "Empty Line After Opening Brace"
+    message: "Don't put an empty line after an opening curly brace."
+    severity: warning
+  empty_line_before_closing_brace:
+    regex: '\n\s*\n\s*\}'
+    name: "Empty Line Before Closing Brace"
+    message: "Don't put an empty line before a closing curly brace."
+    severity: warning
   late_force_unwrapping:
     regex: '\(\S+\?\.\S+\)!'
     name: "Late Force Unwrapping"

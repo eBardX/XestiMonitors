@@ -12,11 +12,9 @@ import XCTest
 @testable import XestiMonitors
 
 internal class MagnetometerMonitorTests: XCTestCase {
-
     let motionManager = MockMotionManager()
 
     func testInfo_data() {
-
         let expectedData = CMMagnetometerData()
         let monitor = MagnetometerMonitor(motionManager: motionManager,
                                           queue: .main,
@@ -29,11 +27,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected info")
         }
-
     }
 
     func testInfo_unknown() {
-
         let monitor = MagnetometerMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1) { _ in }
@@ -44,11 +40,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected info")
         }
-
     }
 
     func testIsAvailable_false() {
-
         let monitor = MagnetometerMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1) { _ in }
@@ -56,11 +50,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         motionManager.updateMagnetometer(available: false)
 
         XCTAssertFalse(monitor.isAvailable)
-
     }
 
     func testIsAvailable_true() {
-
         let monitor = MagnetometerMonitor(motionManager: motionManager,
                                           queue: .main,
                                           interval: 1) { _ in }
@@ -68,11 +60,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         motionManager.updateMagnetometer(available: true)
 
         XCTAssertTrue(monitor.isAvailable)
-
     }
 
     func testMonitor_data() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMMagnetometerData()
         var expectedEvent: MagnetometerMonitor.Event?
@@ -95,11 +85,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_error() {
-
         let expectation = self.expectation(description: "Handler called")
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
@@ -123,11 +111,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_unknown() {
-
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MagnetometerMonitor.Event?
         let monitor = MagnetometerMonitor(motionManager: motionManager,
@@ -148,7 +134,5 @@ internal class MagnetometerMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected event")
         }
-
     }
-
 }

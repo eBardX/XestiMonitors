@@ -15,15 +15,11 @@ import UIKit
 /// the status of various accessibility settings.
 ///
 public class AccessibilityStatusMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the status of various system accessibility
     /// settings.
     ///
     public enum Event {
-
         ///
         /// The system’s AssistiveTouch setting has changed.
         ///
@@ -104,10 +100,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         /// The system’s VoiceOver setting has changed.
         ///
         case voiceOverStatusDidChange(Bool)
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AccessibilityStatusMonitor`.
@@ -122,15 +115,11 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     public init(notificationCenter: NotificationCenter = NSNotificationCenter.`default`,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The current hearing device pairing options.
@@ -261,14 +250,9 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         return UIAccessibilityIsVoiceOverRunning()
     }
 
-    // Private Instance Properties
-
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         if #available(iOS 10.0, *) {
@@ -346,7 +330,5 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         observe(voiceOverStatusDidChange) { [unowned self] _ in
             self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
         }
-
     }
-
 }

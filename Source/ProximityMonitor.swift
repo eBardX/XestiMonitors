@@ -15,9 +15,6 @@ import UIKit
 /// of its proximity sensor.
 ///
 public class ProximityMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the state of the proximity sensor.
     ///
@@ -27,8 +24,6 @@ public class ProximityMonitor: BaseNotificationMonitor {
         ///
         case stateDidChange(Bool)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `ProximityMonitor`.
@@ -45,16 +40,12 @@ public class ProximityMonitor: BaseNotificationMonitor {
                 queue: OperationQueue = .main,
                 device: Device = UIDevice.current,
                 handler: @escaping (Event) -> Void) {
-
         self.device = device
         self.handler = handler
 
         super.init(notificationCenter: notificationCenter,
                    queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether proximity monitoring is available on
@@ -78,15 +69,10 @@ public class ProximityMonitor: BaseNotificationMonitor {
         return device.proximityState
     }
 
-    // Private Instance Properties
-
     private let device: Device
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
     public override func addNotificationObservers() {
-
         super.addNotificationObservers()
 
         observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
@@ -94,15 +80,11 @@ public class ProximityMonitor: BaseNotificationMonitor {
         }
 
         device.isProximityMonitoringEnabled = true
-
     }
 
     public override func removeNotificationObservers() {
-
         device.isProximityMonitoringEnabled = false
 
         super.removeNotificationObservers()
-
     }
-
 }
