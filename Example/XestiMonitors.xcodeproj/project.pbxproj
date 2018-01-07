@@ -22,7 +22,7 @@
 		F5A3CAD91FF7D4D6002625CB /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */; };
 		F5A3CADB1FF96F15002625CB /* MockMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3CADA1FF96F15002625CB /* MockMotionManager.swift */; };
 		F5AE20E71FF448DE001BC279 /* KeyboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */; };
-		F5AE20E81FF448DE001BC279 /* ReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CD1FF448DE001BC279 /* ReachabilityMonitorTests.swift */; };
+		F5AE20E81FF448DE001BC279 /* NetworkReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CD1FF448DE001BC279 /* NetworkReachabilityMonitorTests.swift */; };
 		F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20CF1FF448DE001BC279 /* ApplicationStateMonitorTests.swift */; };
 		F5AE20EA1FF448DE001BC279 /* BackgroundRefreshMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20D01FF448DE001BC279 /* BackgroundRefreshMonitorTests.swift */; };
 		F5AE20EB1FF448DE001BC279 /* MemoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE20D11FF448DE001BC279 /* MemoryMonitorTests.swift */; };
@@ -86,7 +86,7 @@
 		F5AE20BE1FF43C39001BC279 /* XestiMonitorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XestiMonitorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5AE20C71FF43CB1001BC279 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitorTests.swift; sourceTree = "<group>"; };
-		F5AE20CD1FF448DE001BC279 /* ReachabilityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityMonitorTests.swift; sourceTree = "<group>"; };
+		F5AE20CD1FF448DE001BC279 /* NetworkReachabilityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitorTests.swift; sourceTree = "<group>"; };
 		F5AE20CF1FF448DE001BC279 /* ApplicationStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationStateMonitorTests.swift; sourceTree = "<group>"; };
 		F5AE20D01FF448DE001BC279 /* BackgroundRefreshMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshMonitorTests.swift; sourceTree = "<group>"; };
 		F5AE20D11FF448DE001BC279 /* MemoryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryMonitorTests.swift; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				F5AE20CC1FF448DE001BC279 /* KeyboardMonitorTests.swift */,
-				F5AE20CD1FF448DE001BC279 /* ReachabilityMonitorTests.swift */,
+				F5AE20CD1FF448DE001BC279 /* NetworkReachabilityMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 				F5AE20F31FF448DE001BC279 /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
 				F5AE20FC1FF448DE001BC279 /* PedometerMonitorTests.swift in Sources */,
 				F5AE20F41FF448DE001BC279 /* AccessibilityElementMonitorTests.swift in Sources */,
-				F5AE20E81FF448DE001BC279 /* ReachabilityMonitorTests.swift in Sources */,
+				F5AE20E81FF448DE001BC279 /* NetworkReachabilityMonitorTests.swift in Sources */,
 				F5AE20F51FF448DE001BC279 /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F5AE20EC1FF448DE001BC279 /* ProtectedDataMonitorTests.swift in Sources */,
 				F508EA531FFFD5FD00A70E7E /* CMAccelerationExtensionsTests.swift in Sources */,

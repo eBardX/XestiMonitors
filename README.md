@@ -239,7 +239,7 @@ In addition, XestiMonitors provides two other monitors:
 
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
   its visibility or to its frame.
-* [ReachabilityMonitor][reachability_monitor] to monitor a network node name or
+* [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a network node name or
   address for changes to its reachability.
 
 [KeyboardMonitor][keyboard_monitor] is especially handy in removing lots of
@@ -484,10 +484,10 @@ XestiMonitors is available under [the MIT license][license].
 [battery_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
 [keyboard_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
 [memory_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
+[network_reachability_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
 [orientation_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
 [protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
-[reachability_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/ReachabilityMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html

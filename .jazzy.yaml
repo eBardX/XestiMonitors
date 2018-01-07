@@ -40,7 +40,7 @@ custom_categories:
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor
-      - ReachabilityMonitor
+      - NetworkReachabilityMonitor
   - name: Extensions
     children:
       - CMAcceleration

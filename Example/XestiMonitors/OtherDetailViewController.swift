@@ -21,18 +21,18 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var keyboardFrameEndLabel: UILabel!
     @IBOutlet private weak var keyboardIsLocalLabel: UILabel!
     @IBOutlet private weak var keyboardTextField: UITextField!
-    @IBOutlet private weak var reachabilityLabel: UILabel!
+    @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
     private lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
         self.displayKeyboard($0)
     }
 
-    private lazy var reachabilityMonitor = ReachabilityMonitor { [unowned self] in
-        self.displayReachability($0)
+    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor { [unowned self] in
+        self.displayNetworkReachability($0)
     }
 
     private lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                            self.reachabilityMonitor]
+                                            self.networkReachabilityMonitor]
 
     // MARK: Private Instance Methods
 
@@ -89,24 +89,24 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         keyboardActionLabel.text = action
     }
 
-    private func displayReachability(_ event: ReachabilityMonitor.Event?) {
+    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
         if let event = event,
             case let .statusDidChange(status) = event {
             switch status {
             case .notReachable:
-                reachabilityLabel.text = "Not reachable"
+                networkReachabilityLabel.text = "Not reachable"
 
             case .reachableViaWiFi:
-                reachabilityLabel.text = "Reachable via Wi-Fi"
+                networkReachabilityLabel.text = "Reachable via Wi-Fi"
 
             case .reachableViaWWAN:
-                reachabilityLabel.text = "Reachable via WWAN"
+                networkReachabilityLabel.text = "Reachable via WWAN"
 
             default :
-                reachabilityLabel.text = "Unknown"
+                networkReachabilityLabel.text = "Unknown"
             }
         } else {
-            reachabilityLabel.text = "Unknown"
+            networkReachabilityLabel.text = "Unknown"
         }
     }
 
@@ -118,7 +118,7 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         keyboardTextField.delegate = self
 
         displayKeyboard(nil)
-        displayReachability(nil)
+        displayNetworkReachability(nil)
     }
 
     override public func viewWillAppear(_ animated: Bool) {

@@ -1,5 +1,5 @@
 //
-//  ReachabilityMonitor.swift
+//  NetworkReachabilityMonitor.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2016-12-05.
@@ -10,10 +10,10 @@
 import SystemConfiguration
 
 ///
-/// A `ReachabilityMonitor` instance monitors a network node name or address
-/// for changes to its reachability.
+/// A `NetworkReachabilityMonitor` instance monitors a network node name or
+/// address for changes to its reachability.
 ///
-public class ReachabilityMonitor: BaseMonitor {
+public class NetworkReachabilityMonitor: BaseMonitor {
     ///
     /// Encapsulates changes to the reachability of a network node name or
     /// address.
@@ -54,7 +54,7 @@ public class ReachabilityMonitor: BaseMonitor {
     }
 
     ///
-    /// Initializes a new `ReachabilityMonitor` for the network address
+    /// Initializes a new `NetworkReachabilityMonitor` for the network address
     /// `0.0.0.0` (meaning “any IPv4 address at all”).
     ///
     /// - Parameters:
@@ -63,25 +63,35 @@ public class ReachabilityMonitor: BaseMonitor {
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node address changes.
     ///
-    public convenience init(queue: OperationQueue = .main,
-                            handler: @escaping (Event) -> Void) {
+    public init(queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.innerQueue = .main
+        self.queue = queue
+        self.unsafePreviousFlags = []
+
+        super.init()
+
         var address = sockaddr_in()
 
         address.sin_family = sa_family_t(AF_INET)
         address.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
 
-        guard
-            let reachability = ReachabilityMonitor.createReachability(for: address)
-            else { fatalError("Unable to create reachability reference") }
+        let success = withUnsafePointer(to: &address) {
+            $0.withMemoryRebound(to: sockaddr.self,
+                                 capacity: MemoryLayout<sockaddr_in>.size) {
+                                    networkReachability.listen(to: $0)
+            }
+        }
 
-        self.init(reachability: reachability,
-                  queue: queue,
-                  handler: handler)
+        if !success {
+            fatalError("Unable to create network reachability")
+        }
     }
 
     ///
-    /// Initializes a new `ReachabilityMonitor` for the specified network node
-    /// name.
+    /// Initializes a new `NetworkReachabilityMonitor` for the specified
+    /// network node name.
     ///
     /// - Parameters:
     ///   - name:       The network node name of the desired host.
@@ -90,16 +100,19 @@ public class ReachabilityMonitor: BaseMonitor {
     ///   - handler:    The handler to call when the reachability of the
     ///                 network node name changes.
     ///
-    public convenience init(name: String,
-                            queue: OperationQueue = .main,
-                            handler: @escaping (Event) -> Void) {
-        guard
-            let reachability = ReachabilityMonitor.createReachability(for: name)
-            else { fatalError("Unable to create reachability reference") }
+    public init(name: String,
+                queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.innerQueue = .main
+        self.queue = queue
+        self.unsafePreviousFlags = []
 
-        self.init(reachability: reachability,
-                  queue: queue,
-                  handler: handler)
+        super.init()
+
+        if !networkReachability.listen(to: name) {
+            fatalError("Unable to create network reachability")
+        }
     }
 
     ///
@@ -137,40 +150,14 @@ public class ReachabilityMonitor: BaseMonitor {
         return statusFromFlags(flags)
     }
 
-    private static func createReachability(for address: sockaddr_in) -> SCNetworkReachability? {
-        var address = address
-
-        return withUnsafePointer(to: &address) {
-            return $0.withMemoryRebound(to: sockaddr.self,
-                                        capacity: MemoryLayout<sockaddr_in>.size) {
-                                            return SCNetworkReachabilityCreateWithAddress(nil, $0)
-            }
-        }
-    }
-
-    private static func createReachability(for name: String) -> SCNetworkReachability? {
-        return SCNetworkReachabilityCreateWithName(nil, name)
-    }
-
-    private init(reachability: SCNetworkReachability,
-                 queue: OperationQueue,
-                 handler: @escaping (Event) -> Void) {
-        self.handler = handler
-        self.innerQueue = .main
-        self.queue = queue
-        self.reachability = reachability
-        self.unsafePreviousFlags = []
-    }
-
     private let handler: (Event) -> Void
     private let innerQueue: DispatchQueue
     private let queue: OperationQueue
-    private let reachability: SCNetworkReachability
 
     private var currentFlags: SCNetworkReachabilityFlags? {
         var flags: SCNetworkReachabilityFlags = []
 
-        return SCNetworkReachabilityGetFlags(reachability, &flags) ? flags : nil
+        return networkReachability.getFlags(&flags) ? flags : nil
     }
 
     private var unsafePreviousFlags: SCNetworkReachabilityFlags
@@ -214,12 +201,8 @@ public class ReachabilityMonitor: BaseMonitor {
     }
 
     public override final func cleanupMonitor() {
-        SCNetworkReachabilitySetDispatchQueue(reachability,
-                                              nil)
-
-        SCNetworkReachabilitySetCallback(reachability,
-                                         nil,
-                                         nil)
+        networkReachability.setDispatchQueue(nil)
+        networkReachability.setCallback(nil, nil)
 
         super.cleanupMonitor()
     }
@@ -236,23 +219,18 @@ public class ReachabilityMonitor: BaseMonitor {
                 let info = info
                 else { return }
 
-            let monitor = Unmanaged<ReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
+            let monitor = Unmanaged<NetworkReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
 
             monitor.invokeHandler(flags)
         }
 
         guard
-            SCNetworkReachabilitySetCallback(reachability,
-                                             callback,
-                                             &context)
+            networkReachability.setCallback(callback, &context)
             else { return }
 
         guard
-            SCNetworkReachabilitySetDispatchQueue(reachability,
-                                                  innerQueue)
-            else { SCNetworkReachabilitySetCallback(reachability,
-                                                    nil,
-                                                    nil); return }
+            networkReachability.setDispatchQueue(innerQueue)
+            else { networkReachability.setCallback(nil, nil); return }
 
         innerQueue.async {
             self.unsafePreviousFlags = []
@@ -261,3 +239,5 @@ public class ReachabilityMonitor: BaseMonitor {
         }
     }
 }
+
+extension NetworkReachabilityMonitor: NetworkReachabilityInjected {}

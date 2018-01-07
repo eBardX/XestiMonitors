@@ -1,5 +1,5 @@
 //
-//  ReachabilityMonitorTests.swift
+//  NetworkReachabilityMonitorTests.swift
 //  XestiMonitorsTests
 //
 //  Created by J. G. Pusey on 2017-12-27.
@@ -10,7 +10,7 @@
 import XCTest
 @testable import XestiMonitors
 
-internal class ReachabilityMonitorTests: XCTestCase {
+internal class NetworkReachabilityMonitorTests: XCTestCase {
     func testExample() {
     }
 }

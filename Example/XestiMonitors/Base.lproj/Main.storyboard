@@ -808,7 +808,7 @@
                         <outlet property="keyboardFrameEndLabel" destination="JvI-pB-KOe" id="bvU-q4-GUb"/>
                         <outlet property="keyboardIsLocalLabel" destination="oIR-Zz-4sb" id="gK0-iU-QDg"/>
                         <outlet property="keyboardTextField" destination="epT-po-N4h" id="dfi-6r-Jwn"/>
-                        <outlet property="reachabilityLabel" destination="0wI-ig-uwW" id="3lE-ZC-FzQ"/>
+                        <outlet property="networkReachabilityLabel" destination="0wI-ig-uwW" id="3lE-ZC-FzQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVB-dR-Xhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
