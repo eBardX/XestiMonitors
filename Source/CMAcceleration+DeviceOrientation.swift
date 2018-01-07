@@ -1,5 +1,5 @@
 //
-//  CMAccelerometerData+XestiMonitors.swift
+//  CMAccelerometerData+DeviceOrientation.swift
 //  XestiMonitors
 //
 //  Created by J. G. Pusey on 2016-12-16.
