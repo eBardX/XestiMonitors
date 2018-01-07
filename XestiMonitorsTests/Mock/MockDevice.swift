@@ -10,7 +10,7 @@
 import UIKit
 @testable import XestiMonitors
 
-internal class MockDevice: Device {
+internal class MockDevice: DeviceProtocol {
     init() {
         self.batteryLevel = 0
         self.batteryState = .unknown

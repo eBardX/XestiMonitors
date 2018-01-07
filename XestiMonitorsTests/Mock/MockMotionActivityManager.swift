@@ -10,7 +10,7 @@
 import CoreMotion
 @testable import XestiMonitors
 
-internal class MockMotionActivityManager: MotionActivityManager {
+internal class MockMotionActivityManager: MotionActivityManagerProtocol {
     static func isActivityAvailable() -> Bool {
         return motionActivityAvailable
     }

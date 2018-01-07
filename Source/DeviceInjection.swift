@@ -9,7 +9,7 @@
 
 import UIKit
 
-internal protocol Device: class {
+internal protocol DeviceProtocol: class {
     var batteryLevel: Float { get }
 
     var batteryState: UIDeviceBatteryState { get }
@@ -27,14 +27,14 @@ internal protocol Device: class {
     func endGeneratingDeviceOrientationNotifications()
 }
 
-extension UIDevice: Device {}
+extension UIDevice: DeviceProtocol {}
 
 internal protocol DeviceInjected {}
 
 internal struct DeviceInjector {
-    static var device: Device = UIDevice.current
+    static var device: DeviceProtocol = UIDevice.current
 }
 
 internal extension DeviceInjected {
-    var device: Device { return DeviceInjector.device }
+    var device: DeviceProtocol { return DeviceInjector.device }
 }

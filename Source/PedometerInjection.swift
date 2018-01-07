@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-internal protocol Pedometer: class {
+internal protocol PedometerProtocol: class {
     static func isCadenceAvailable() -> Bool
 
     static func isDistanceAvailable() -> Bool
@@ -30,14 +30,14 @@ internal protocol Pedometer: class {
     func stopUpdates()
 }
 
-extension CMPedometer: Pedometer {}
+extension CMPedometer: PedometerProtocol {}
 
 internal protocol PedometerInjected {}
 
 internal struct PedometerInjector {
-    static var pedometer: Pedometer = CMPedometer()
+    static var pedometer: PedometerProtocol = CMPedometer()
 }
 
 internal extension PedometerInjected {
-    var pedometer: Pedometer { return PedometerInjector.pedometer }
+    var pedometer: PedometerProtocol { return PedometerInjector.pedometer }
 }

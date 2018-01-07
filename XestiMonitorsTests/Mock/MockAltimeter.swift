@@ -10,7 +10,7 @@
 import CoreMotion
 @testable import XestiMonitors
 
-internal class MockAltimeter: Altimeter {
+internal class MockAltimeter: AltimeterProtocol {
     static func isRelativeAltitudeAvailable() -> Bool {
         return altimeterAvailable
     }

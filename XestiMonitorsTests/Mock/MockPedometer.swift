@@ -10,7 +10,7 @@
 import CoreMotion
 @testable import XestiMonitors
 
-internal class MockPedometer: Pedometer {
+internal class MockPedometer: PedometerProtocol {
     static func isCadenceAvailable() -> Bool {
         return cadenceAvailable
     }

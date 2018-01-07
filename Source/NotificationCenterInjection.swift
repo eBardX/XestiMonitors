@@ -9,9 +9,7 @@
 
 import Foundation
 
-internal typealias NSNotificationCenter = Foundation.NotificationCenter
-
-internal protocol NotificationCenter: class {
+internal protocol NotificationCenterProtocol: class {
     func addObserver(forName name: NSNotification.Name?,
                      object obj: Any?,
                      queue: OperationQueue?,
@@ -20,14 +18,14 @@ internal protocol NotificationCenter: class {
     func removeObserver(_ observer: Any)
 }
 
-extension NSNotificationCenter: NotificationCenter {}
+extension NotificationCenter: NotificationCenterProtocol {}
 
 internal protocol NotificationCenterInjected {}
 
 internal struct NotificationCenterInjector {
-    static var notificationCenter: NotificationCenter = NSNotificationCenter.`default`
+    static var notificationCenter: NotificationCenterProtocol = NotificationCenter.`default`
 }
 
 internal extension NotificationCenterInjected {
-    var notificationCenter: NotificationCenter { return NotificationCenterInjector.notificationCenter }
+    var notificationCenter: NotificationCenterProtocol { return NotificationCenterInjector.notificationCenter }
 }

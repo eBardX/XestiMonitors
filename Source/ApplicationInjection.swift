@@ -9,7 +9,7 @@
 
 import UIKit
 
-internal protocol Application: class {
+internal protocol ApplicationProtocol: class {
     var applicationState: UIApplicationState { get }
 
     var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
@@ -21,14 +21,14 @@ internal protocol Application: class {
     var statusBarOrientation: UIInterfaceOrientation { get }
 }
 
-extension UIApplication: Application {}
+extension UIApplication: ApplicationProtocol {}
 
 internal protocol ApplicationInjected {}
 
 internal struct ApplicationInjector {
-    static var application: Application = UIApplication.shared
+    static var application: ApplicationProtocol = UIApplication.shared
 }
 
 internal extension ApplicationInjected {
-    var application: Application { return ApplicationInjector.application }
+    var application: ApplicationProtocol { return ApplicationInjector.application }
 }

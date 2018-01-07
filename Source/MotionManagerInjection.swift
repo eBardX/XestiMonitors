@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-internal protocol MotionManager: class {
+internal protocol MotionManagerProtocol: class {
     var accelerometerData: CMAccelerometerData? { get }
 
     var accelerometerUpdateInterval: TimeInterval { get set }
@@ -56,14 +56,14 @@ internal protocol MotionManager: class {
     func stopMagnetometerUpdates()
 }
 
-extension CMMotionManager: MotionManager {}
+extension CMMotionManager: MotionManagerProtocol {}
 
 internal protocol MotionManagerInjected {}
 
 internal struct MotionManagerInjector {
-    static var motionManager: MotionManager = CMMotionManager()
+    static var motionManager: MotionManagerProtocol = CMMotionManager()
 }
 
 internal extension MotionManagerInjected {
-    var motionManager: MotionManager { return MotionManagerInjector.motionManager }
+    var motionManager: MotionManagerProtocol { return MotionManagerInjector.motionManager }
 }

@@ -10,7 +10,7 @@
 import Foundation
 @testable import XestiMonitors
 
-internal class MockNotificationCenter: XestiMonitors.NotificationCenter {
+internal class MockNotificationCenter: NotificationCenterProtocol {
     class MockObserver {
         let block: (Notification) -> Void
         let object: Any?

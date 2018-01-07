@@ -10,7 +10,7 @@
 import UIKit
 @testable import XestiMonitors
 
-internal class MockApplication: Application {
+internal class MockApplication: ApplicationProtocol {
     init() {
         self.applicationState = .inactive
         self.backgroundRefreshStatus = .restricted

@@ -10,7 +10,7 @@
 import CoreMotion
 @testable import XestiMonitors
 
-internal class MockMotionManager: MotionManager {
+internal class MockMotionManager: MotionManagerProtocol {
     init() {
         self.accelerometerUpdateInterval = 0
         self.deviceMotionUpdateInterval = 0

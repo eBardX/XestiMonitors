@@ -9,7 +9,7 @@
 
 import CoreMotion
 
-internal protocol MotionActivityManager: class {
+internal protocol MotionActivityManagerProtocol: class {
     static func isActivityAvailable() -> Bool
 
     func queryActivityStarting(from start: Date,
@@ -23,14 +23,14 @@ internal protocol MotionActivityManager: class {
     func stopActivityUpdates()
 }
 
-extension CMMotionActivityManager: MotionActivityManager {}
+extension CMMotionActivityManager: MotionActivityManagerProtocol {}
 
 internal protocol MotionActivityManagerInjected {}
 
 internal struct MotionActivityManagerInjector {
-    static var motionActivityManager: MotionActivityManager = CMMotionActivityManager()
+    static var motionActivityManager: MotionActivityManagerProtocol = CMMotionActivityManager()
 }
 
 internal extension MotionActivityManagerInjected {
-    var motionActivityManager: MotionActivityManager { return MotionActivityManagerInjector.motionActivityManager }
+    var motionActivityManager: MotionActivityManagerProtocol { return MotionActivityManagerInjector.motionActivityManager }
 }
