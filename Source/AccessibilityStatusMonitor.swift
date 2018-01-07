@@ -237,7 +237,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     @available(iOS 10.0, *)
     public var hearingDevicePairedEar: UIAccessibilityHearingDeviceEar {
-        return UIAccessibilityHearingDevicePairedEar()
+        return type(of: accessibility).hearingDevicePairedEar()
     }
 
     ///
@@ -246,7 +246,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     @available(iOS 10.0, *)
     public var isAssistiveTouchEnabled: Bool {
-        return UIAccessibilityIsAssistiveTouchRunning()
+        return type(of: accessibility).isAssistiveTouchRunning()
     }
 
     ///
@@ -254,7 +254,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Settings.
     ///
     public var isBoldTextEnabled: Bool {
-        return UIAccessibilityIsBoldTextEnabled()
+        return type(of: accessibility).isBoldTextEnabled()
     }
 
     ///
@@ -262,7 +262,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Captioning in Settings.
     ///
     public var isClosedCaptioningEnabled: Bool {
-        return UIAccessibilityIsClosedCaptioningEnabled()
+        return type(of: accessibility).isClosedCaptioningEnabled()
     }
 
     ///
@@ -270,7 +270,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isDarkenColorsEnabled: Bool {
-        return UIAccessibilityDarkerSystemColorsEnabled()
+        return type(of: accessibility).darkerSystemColorsEnabled()
     }
 
     ///
@@ -278,7 +278,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Settings.
     ///
     public var isGrayscaleEnabled: Bool {
-        return UIAccessibilityIsGrayscaleEnabled()
+        return type(of: accessibility).isGrayscaleEnabled()
     }
 
     ///
@@ -286,7 +286,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isGuidedAccessEnabled: Bool {
-        return UIAccessibilityIsGuidedAccessEnabled()
+        return type(of: accessibility).isGuidedAccessEnabled()
     }
 
     ///
@@ -294,7 +294,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isInvertColorsEnabled: Bool {
-        return UIAccessibilityIsInvertColorsEnabled()
+        return type(of: accessibility).isInvertColorsEnabled()
     }
 
     ///
@@ -302,7 +302,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Settings.
     ///
     public var isMonoAudioEnabled: Bool {
-        return UIAccessibilityIsMonoAudioEnabled()
+        return type(of: accessibility).isMonoAudioEnabled()
     }
 
     ///
@@ -310,7 +310,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isReduceMotionEnabled: Bool {
-        return UIAccessibilityIsReduceMotionEnabled()
+        return type(of: accessibility).isReduceMotionEnabled()
     }
 
     ///
@@ -318,7 +318,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Transparency in Settings.
     ///
     public var isReduceTransparencyEnabled: Bool {
-        return UIAccessibilityIsReduceTransparencyEnabled()
+        return type(of: accessibility).isReduceTransparencyEnabled()
     }
 
     ///
@@ -326,7 +326,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isShakeToUndoEnabled: Bool {
-        return UIAccessibilityIsShakeToUndoEnabled()
+        return type(of: accessibility).isShakeToUndoEnabled()
     }
 
     ///
@@ -334,7 +334,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Settings.
     ///
     public var isSpeakScreenEnabled: Bool {
-        return UIAccessibilityIsSpeakScreenEnabled()
+        return type(of: accessibility).isSpeakScreenEnabled()
     }
 
     ///
@@ -342,7 +342,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isSpeakSelectionEnabled: Bool {
-        return UIAccessibilityIsSpeakSelectionEnabled()
+        return type(of: accessibility).isSpeakSelectionEnabled()
     }
 
     ///
@@ -350,7 +350,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isSwitchControlEnabled: Bool {
-        return UIAccessibilityIsSwitchControlRunning()
+        return type(of: accessibility).isSwitchControlRunning()
     }
 
     ///
@@ -358,7 +358,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Settings.
     ///
     public var isVoiceOverEnabled: Bool {
-        return UIAccessibilityIsVoiceOverRunning()
+        return type(of: accessibility).isVoiceOverRunning()
     }
 
     private let handler: (Event) -> Void
@@ -475,3 +475,5 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         }
     }
 }
+
+extension AccessibilityStatusMonitor: AccessibilityInjected {}

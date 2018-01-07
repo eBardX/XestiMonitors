@@ -49,6 +49,7 @@
 		F5D560511DE3A323009D8E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D5604F1DE3A323009D8E67 /* LaunchScreen.storyboard */; };
 		F5D560541DE3A61D009D8E67 /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */; };
 		F5D560551DE3A61D009D8E67 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */; };
+		F5D6283220019409008F95CD /* MockAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D6283120019409008F95CD /* MockAccessibility.swift */; };
 		F5ECB3851E2D1BB800272EBB /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */; };
 		F5F97DFE1FF2BB4D0082F773 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		F5D560501DE3A323009D8E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5D560521DE3A61D009D8E67 /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
 		F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
+		F5D6283120019409008F95CD /* MockAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAccessibility.swift; sourceTree = "<group>"; };
 		F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
 		F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		FDECD231293AFFD9D5C3B265 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; name = README.md; path = ../README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
@@ -295,6 +297,7 @@
 		F5AE20DE1FF448DE001BC279 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				F5D6283120019409008F95CD /* MockAccessibility.swift */,
 				F575C7EB1FFAA106000C2A68 /* MockAltimeter.swift */,
 				F5AE20FD1FF459B7001BC279 /* MockApplication.swift */,
 				F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */,
@@ -592,6 +595,7 @@
 				F5AE20EB1FF448DE001BC279 /* MemoryMonitorTests.swift in Sources */,
 				F5AE20FA1FF448DE001BC279 /* MagnetometerMonitorTests.swift in Sources */,
 				F5AE20FB1FF448DE001BC279 /* MotionActivityMonitorTests.swift in Sources */,
+				F5D6283220019409008F95CD /* MockAccessibility.swift in Sources */,
 				F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */,
 				F5AE20F21FF448DE001BC279 /* ProximityMonitorTests.swift in Sources */,
 				F5AE20FF1FF459B7001BC279 /* MockApplication.swift in Sources */,
