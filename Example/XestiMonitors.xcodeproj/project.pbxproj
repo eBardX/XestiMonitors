@@ -51,6 +51,7 @@
 		F5D560551DE3A61D009D8E67 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */; };
 		F5D6283220019409008F95CD /* MockAccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D6283120019409008F95CD /* MockAccessibilityStatus.swift */; };
 		F5ECB3851E2D1BB800272EBB /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */; };
+		F5EDB6C12003AFBA002DE408 /* MockNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EDB6C02003AFB9002DE408 /* MockNetworkReachability.swift */; };
 		F5F97DFE1FF2BB4D0082F773 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		F5D560531DE3A61D009D8E67 /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
 		F5D6283120019409008F95CD /* MockAccessibilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAccessibilityStatus.swift; sourceTree = "<group>"; };
 		F5ECB3841E2D1BB800272EBB /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
+		F5EDB6C02003AFB9002DE408 /* MockNetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkReachability.swift; sourceTree = "<group>"; };
 		F5F97DFD1FF2BB4D0082F773 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		FDECD231293AFFD9D5C3B265 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; name = README.md; path = ../README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
@@ -303,6 +305,7 @@
 				F5A3CAD81FF7D4D6002625CB /* MockDevice.swift */,
 				F575C7EC1FFAA106000C2A68 /* MockMotionActivityManager.swift */,
 				F5A3CADA1FF96F15002625CB /* MockMotionManager.swift */,
+				F5EDB6C02003AFB9002DE408 /* MockNetworkReachability.swift */,
 				F5AE20FE1FF459B7001BC279 /* MockNotificationCenter.swift */,
 				F575C7ED1FFAA106000C2A68 /* MockPedometer.swift */,
 			);
@@ -598,6 +601,7 @@
 				F5D6283220019409008F95CD /* MockAccessibilityStatus.swift in Sources */,
 				F5AE20E91FF448DE001BC279 /* ApplicationStateMonitorTests.swift in Sources */,
 				F5AE20F21FF448DE001BC279 /* ProximityMonitorTests.swift in Sources */,
+				F5EDB6C12003AFBA002DE408 /* MockNetworkReachability.swift in Sources */,
 				F5AE20FF1FF459B7001BC279 /* MockApplication.swift in Sources */,
 				F5AE20F11FF448DE001BC279 /* OrientationMonitorTests.swift in Sources */,
 			);
