@@ -206,10 +206,12 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
                                           .switchControlStatusDidChange,
                                           .voiceOverStatusDidChange]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 

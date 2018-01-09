@@ -51,10 +51,12 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         public static let all: Options = [.didBecomeAvailable,
                                           .willBecomeUnavailable]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 

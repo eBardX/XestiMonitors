@@ -51,10 +51,12 @@ public class BatteryMonitor: BaseNotificationMonitor {
         public static let all: Options = [.levelDidChange,
                                           .stateDidChange]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 

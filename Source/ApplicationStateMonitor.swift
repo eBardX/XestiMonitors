@@ -94,10 +94,12 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
                                           .willResignActive,
                                           .willTerminate]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 

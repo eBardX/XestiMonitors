@@ -31,6 +31,9 @@ open class BaseMonitor: Monitor {
     open func configureMonitor() {
     }
 
+    ///
+    /// Initializes a new base monitor.
+    ///
     public init() {
     }
 

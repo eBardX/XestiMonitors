@@ -73,10 +73,12 @@ public class StatusBarMonitor: BaseNotificationMonitor {
                                           .willChangeFrame,
                                           .willChangeOrientation]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 

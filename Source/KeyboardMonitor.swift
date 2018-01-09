@@ -171,10 +171,12 @@ public class KeyboardMonitor: BaseNotificationMonitor {
                                           .willHide,
                                           .willShow]
 
+        /// :nodoc:
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
 
+        /// :nodoc:
         public let rawValue: UInt
     }
 
