@@ -80,6 +80,13 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testMonitor_statusDidChange() throws {
         let expectation = self.expectation(description: "Handler called")
+
+        //
+        // Handler is always called once immediately upon start of monitoring,
+        // and then if/when status changes thereafter:
+        //
+        expectation.expectedFulfillmentCount = 2
+
         let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWiFi
         var expectedEvent: NetworkReachabilityMonitor.Event?
         let monitor = try NetworkReachabilityMonitor(queue: .main) { event in
@@ -102,6 +109,13 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testMonitor_statusDidChange_name() throws {
         let expectation = self.expectation(description: "Handler called")
+
+        //
+        // Handler is always called once immediately upon start of monitoring,
+        // and then if/when status changes thereafter:
+        //
+        expectation.expectedFulfillmentCount = 2
+
         let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWWAN
         var expectedEvent: NetworkReachabilityMonitor.Event?
         let monitor = try NetworkReachabilityMonitor(name: "bogus",
