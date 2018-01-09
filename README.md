@@ -23,13 +23,13 @@
 
 ## <a name="overview">Overview</a>
 
-The XestiMonitors framework provides more than a dozen fully-functional monitor
+The XestiMonitors framework provides nearly two dozen fully-functional monitor
 classes right out of the box that make it easy for your iOS app to detect and
 respond to many common system-generated events.
 
-You can think of XestiMonitors as a better way to manage the most common iOS
-notifications. At present, XestiMonitors provides “wrappers” around most
-`UIKit` notifications:
+Among other things, you can think of XestiMonitors as a better way to manage
+the most common iOS notifications. At present, XestiMonitors provides
+“wrappers” around many `UIKit` notifications:
 
 * **Accessibility-related**
 
@@ -38,6 +38,7 @@ notifications. At present, XestiMonitors provides “wrappers” around most
     * `UIAccessibilityBoldTextStatusDidChange`
     * `UIAccessibilityClosedCaptioningStatusDidChange`
     * `UIAccessibilityDarkerSystemColorsStatusDidChange`
+    * `UIAccessibilityElementFocused`
     * `UIAccessibilityGrayscaleStatusDidChange`
     * `UIAccessibilityGuidedAccessStatusDidChange`
     * `UIAccessibilityHearingDevicePairedEarDidChange`
@@ -49,7 +50,7 @@ notifications. At present, XestiMonitors provides “wrappers” around most
     * `UIAccessibilitySpeakScreenStatusDidChange`
     * `UIAccessibilitySpeakSelectionStatusDidChange`
     * `UIAccessibilitySwitchControlStatusDidChange`
-    * `UIAccessibilityVoiceOverStatusChanged`
+    * `UIAccessibilityVoiceOverStatusDidChange`
 
     See [Accessibility Monitors](#accessibility_monitors) for details.
 
@@ -205,12 +206,14 @@ in the characteristics of the device:
 
 ### <a name="motion_monitors">Motion Monitors</a>
 
-XestiMonitors provides four monitor classes that you can use to obtain raw and
+XestiMonitors provides seven monitor classes that you can use to obtain raw and
 processed motion measurements from the device:
 
 * [AccelerometerMonitor][accelerometer_monitor] to monitor the device’s
   accelerometer for periodic raw measurements of the acceleration along the
   three spatial axes.
+* [AltimeterMonitor][altimeter_monitor] to monitor the device for changes in
+  relative altitude.
 * [DeviceMotionMonitor][device_motion_monitor] to monitor the device’s
   accelerometer, gyroscope, and magnetometer for periodic raw measurements
   which are processed into device motion measurements.
@@ -219,6 +222,10 @@ processed motion measurements from the device:
 * [MagnetometerMonitor][magnetometer_monitor] to monitor the device’s
   magnetometer for periodic raw measurements of the magnetic field around the
   three spatial axes.
+* [MotionActivityMonitor][motion_activity_monitor] to provide access to the
+  motion data stored by the device.
+* [PedometerMonitor][pedometer_monitor] to monitor the device to fetch
+  pedestrian-related data.
 
 ### <a name="accessibility_monitors">Accessibility Monitors</a>
 
@@ -239,8 +246,8 @@ In addition, XestiMonitors provides two other monitors:
 
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
   its visibility or to its frame.
-* [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a network node name or
-  address for changes to its reachability.
+* [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
+  network node name or address for changes to its reachability.
 
 [KeyboardMonitor][keyboard_monitor] is especially handy in removing lots of
 boilerplate code from your app. This is how keyboard monitoring is typically
@@ -347,15 +354,13 @@ extension MegaHoobieWatcher: Monitor {
     var isMonitoring: Bool { return watchingForHoobiesCount() > 0 }
 
     func startMonitoring() -> Bool {
-        guard !isMonitoring else { return false }
+        guard !isMonitoring else { return }
         beginWatchingForHoobies()
-        return isMonitoring
     }
 
     func stopMonitoring() -> Bool {
-        guard isMonitoring else { return false }
+        guard isMonitoring else { return }
         endWatchingForHoobies()
-        return !isMonitoring
     }
 }
 ```
@@ -395,16 +400,15 @@ class GigaHoobieMonitor: BaseMonitor {
     }
 
     override func configureMonitor() -> Bool {
-        guard super.configureMonitor() else { return false }
-        observation = hoobie.observe(\.nefariousActivityLevel) { [unowned self] hoobie, change in
+        super.configureMonitor()
+        observation = hoobie.observe(\.nefariousActivityLevel) { [unowned self] hoobie, _ in
             self.handler(hoobie.nefariousActivityLevel) }
-        return true
     }
 
     override func cleanupMonitor() -> Bool {
         observation?.invalidate()
         observation = nil
-        return super.cleanupMonitor()
+        super.cleanupMonitor()
     }
 }
 ```
@@ -444,10 +448,9 @@ class TeraHoobieMonitor: BaseNotificationMonitor {
     }
 
     override func addNotificationObservers() -> Bool {
-        guard super.addNotificationObservers() else { return false }
+        super.addNotificationObservers()
         observe(.teraHoobieDidChange) { [unowned self] _ in
             self.handler(self.hoobie.value) }
-        return true
     }
 }
 ```
@@ -474,6 +477,7 @@ XestiMonitors is available under [the MIT license][license].
 [accessibility_announcement_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html
 [accessibility_element_monitor]:        https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html
 [accessibility_status_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html
+[altimeter_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/AltimeterMonitor.html
 [device_motion_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [gyroscope_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [magnetometer_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
@@ -484,8 +488,10 @@ XestiMonitors is available under [the MIT license][license].
 [battery_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
 [keyboard_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
 [memory_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
-[network_reachability_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
+[motion_activity_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MotionActivityMonitor.html
+[network_reachability_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
 [orientation_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
+[pedometer_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html

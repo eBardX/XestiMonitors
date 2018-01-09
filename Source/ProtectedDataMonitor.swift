@@ -32,21 +32,21 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `didBecomeAvailable` events.
         ///
         public static let didBecomeAvailable = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `willBecomeUnavailable` events.
         ///
         public static let willBecomeUnavailable = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.didBecomeAvailable,
                                           .willBecomeUnavailable]
@@ -64,7 +64,8 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when protected files become
     ///                 available for your code to access, or shortly before
     ///                 protected files are locked down and become inaccessible.
@@ -79,7 +80,8 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// A Boolean value indicating whether content is accessible for protected
+    /// files.
     ///
     public var isContentAccessible: Bool {
         return application.isProtectedDataAvailable

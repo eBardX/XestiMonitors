@@ -51,41 +51,41 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `didBecomeActive` events.
         ///
         public static let didBecomeActive = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `didEnterBackground` events.
         ///
         public static let didEnterBackground = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor `didFinishLaunching` events.
         ///
         public static let didFinishLaunching = Options(rawValue: 1 << 2)
 
         ///
-        ///
+        /// Monitor `willEnterForeground` events.
         ///
         public static let willEnterForeground = Options(rawValue: 1 << 3)
 
         ///
-        ///
+        /// Monitor `willResignActive` events.
         ///
         public static let willResignActive = Options(rawValue: 1 << 4)
 
         ///
-        ///
+        /// Monitor `willTerminate` events.
         ///
         public static let willTerminate = Options(rawValue: 1 << 5)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.didBecomeActive,
                                           .didEnterBackground,
@@ -107,7 +107,8 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the app changes its runtime
     ///                 state or is about to change its runtime state.
     ///

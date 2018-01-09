@@ -128,41 +128,41 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `didChangeFrame` events.
         ///
         public static let didChangeFrame = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `didHide` events.
         ///
         public static let didHide = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor `didShow` events.
         ///
         public static let didShow = Options(rawValue: 1 << 2)
 
         ///
-        ///
+        /// Monitor `willChangeFrame` events.
         ///
         public static let willChangeFrame = Options(rawValue: 1 << 3)
 
         ///
-        ///
+        /// Monitor `willHide` events.
         ///
         public static let willHide = Options(rawValue: 1 << 4)
 
         ///
-        ///
+        /// Monitor `willShow` events.
         ///
         public static let willShow = Options(rawValue: 1 << 5)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.didChangeFrame,
                                           .didHide,
@@ -184,7 +184,8 @@ public class KeyboardMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the visibility of the keyboard
     ///                 or the frame of the keyboard changes or is about to
     ///                 change.

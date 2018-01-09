@@ -42,31 +42,31 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `didChangeFrame` events.
         ///
         public static let didChangeFrame = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `didChangeOrientation` events.
         ///
         public static let didChangeOrientation = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor `willChangeFrame` events.
         ///
         public static let willChangeFrame = Options(rawValue: 1 << 2)
 
         ///
-        ///
+        /// Monitor `willChangeOrientation` events.
         ///
         public static let willChangeOrientation = Options(rawValue: 1 << 3)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.didChangeFrame,
                                           .didChangeOrientation,
@@ -86,7 +86,8 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the orientation of the app’s
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.

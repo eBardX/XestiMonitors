@@ -103,91 +103,91 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `assistiveTouchStatusDidChange` events.
         ///
         public static let assistiveTouchStatusDidChange = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `boldTextStatusDidChange` events.
         ///
         public static let boldTextStatusDidChange = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor `closedCaptioningStatusDidChange` events.
         ///
         public static let closedCaptioningStatusDidChange = Options(rawValue: 1 << 2)
 
         ///
-        ///
+        /// Monitor `darkenColorsStatusDidChange` events.
         ///
         public static let darkenColorsStatusDidChange = Options(rawValue: 1 << 3)
 
         ///
-        ///
+        /// Monitor `grayscaleStatusDidChange` events.
         ///
         public static let grayscaleStatusDidChange = Options(rawValue: 1 << 4)
 
         ///
-        ///
+        /// Monitor `guidedAccessStatusDidChange` events.
         ///
         public static let guidedAccessStatusDidChange = Options(rawValue: 1 << 5)
 
         ///
-        ///
+        /// Monitor `hearingDevicePairedEarDidChange` events.
         ///
         public static let hearingDevicePairedEarDidChange = Options(rawValue: 1 << 6)
 
         ///
-        ///
+        /// Monitor `invertColorsStatusDidChange` events.
         ///
         public static let invertColorsStatusDidChange = Options(rawValue: 1 << 7)
 
         ///
-        ///
+        /// Monitor `monoAudioStatusDidChange` events.
         ///
         public static let monoAudioStatusDidChange = Options(rawValue: 1 << 8)
 
         ///
-        ///
+        /// Monitor `reduceMotionStatusDidChange` events.
         ///
         public static let reduceMotionStatusDidChange = Options(rawValue: 1 << 9)
 
         ///
-        ///
+        /// Monitor `reduceTransparencyStatusDidChange` events.
         ///
         public static let reduceTransparencyStatusDidChange = Options(rawValue: 1 << 10)
 
         ///
-        ///
+        /// Monitor `shakeToUndoStatusDidChange` events.
         ///
         public static let shakeToUndoStatusDidChange = Options(rawValue: 1 << 11)
 
         ///
-        ///
+        /// Monitor `speakScreenStatusDidChange` events.
         ///
         public static let speakScreenStatusDidChange = Options(rawValue: 1 << 12)
 
         ///
-        ///
+        /// Monitor `speakSelectionStatusDidChange` events.
         ///
         public static let speakSelectionStatusDidChange = Options(rawValue: 1 << 13)
 
         ///
-        ///
+        /// Monitor `switchControlStatusDidChange` events.
         ///
         public static let switchControlStatusDidChange = Options(rawValue: 1 << 14)
 
         ///
-        ///
+        /// Monitor `voiceOverStatusDidChange` events.
         ///
         public static let voiceOverStatusDidChange = Options(rawValue: 1 << 15)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.assistiveTouchStatusDidChange,
                                           .boldTextStatusDidChange,
@@ -219,7 +219,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///

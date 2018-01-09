@@ -11,40 +11,33 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MotionActivityMonitor` instance monitors provides access to the motion
-/// data stored by a device. Motion data reflects whether the user is walking,
-/// running, in a vehicle, or stationary for periods of time. A navigation app
-/// might look for changes in the current type of motion and offer different
-/// directions for each. Using this class, you can ask for notifications when
-/// the current type of motion changes or you can gather past motion change
-/// data.
+/// A `MotionActivityMonitor` instance monitors the device for live and
+/// historic motion data. Motion data reflects whether the user is walking,
+/// running, in a vehicle, or stationary for periods of time.
 ///
 public class MotionActivityMonitor: BaseMonitor {
     ///
-    /// Encapsulates updates to ...
+    /// Encapsulates updates to and queries about the motion data.
     ///
     public enum Event {
         ///
-        ///
+        /// The historic motion data query has completed.
         ///
         case didQuery(Info)
 
         ///
-        ///
+        /// The live motion data has been updated.
         ///
         case didUpdate(Info)
     }
 
     ///
-    /// Encapsulates ... the current type of motion for the device
+    /// Encapsulates the type (or types) of motion for the device.
     ///
     public enum Info {
         ///
-        /// An array of CMMotionActivity objects indicating the updates that
-        /// occurred. The objects in the array are ordered by the time at which
-        /// they occurred in the specified time interval. Use the startDate
-        /// property in each motion object to determine when the update
-        /// occurred.
+        /// An array of motion activity objects that define the types of motion
+        /// for the device that occurred during the queried time period.
         ///
         case activities([CMMotionActivity])
 
@@ -55,13 +48,12 @@ public class MotionActivityMonitor: BaseMonitor {
         case activity(CMMotionActivity)
 
         ///
-        /// An error object indicating that there was a problem gathering the
-        /// data or nil if the motion data was determined correctly.
+        /// The error encountered in attempting to obtain the motion data.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No motion data is available.
         ///
         case unknown
     }
@@ -71,10 +63,8 @@ public class MotionActivityMonitor: BaseMonitor {
     ///
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
-    ///   - handler:    The handler to call when a change in the current type
-    ///                 of motion is detected.
-    ///                 ??? OR ???
-    ///                 The block to execute with the results.
+    ///   - handler:    The handler to call when new motion data is available
+    ///                 or when a query for historical motion data completes.
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
@@ -91,8 +81,7 @@ public class MotionActivityMonitor: BaseMonitor {
     }
 
     ///
-    /// Gathers and returns historical motion data for the specified time
-    /// period.
+    /// Retrieves historical motion data for the specified time period.
     ///
     /// - Parameters:
     ///   - start:  The start time to use when gathering motion data.

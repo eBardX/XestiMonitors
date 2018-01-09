@@ -32,21 +32,21 @@ public class BatteryMonitor: BaseNotificationMonitor {
     }
 
     ///
-    ///
+    /// Specifies which events to monitor.
     ///
     public struct Options: OptionSet {
         ///
-        ///
+        /// Monitor `levelDidChange` events.
         ///
         public static let levelDidChange = Options(rawValue: 1 << 0)
 
         ///
-        ///
+        /// Monitor `stateDidChange` events.
         ///
         public static let stateDidChange = Options(rawValue: 1 << 1)
 
         ///
-        ///
+        /// Monitor all events.
         ///
         public static let all: Options = [.levelDidChange,
                                           .stateDidChange]
@@ -64,7 +64,8 @@ public class BatteryMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - options:
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
