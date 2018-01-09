@@ -12,9 +12,9 @@ import SystemConfiguration
 internal protocol NetworkReachabilityProtocol: class {
     func getFlags(_ flags: UnsafeMutablePointer<SCNetworkReachabilityFlags>) -> Bool
 
-    func listen(to address: UnsafePointer<sockaddr>) -> Bool
+    func listen(to address: UnsafePointer<sockaddr>) throws
 
-    func listen(to nodename: UnsafePointer<Int8>) -> Bool
+    func listen(to nodename: UnsafePointer<Int8>) throws
 
     @discardableResult
     func setCallback(_ callout: SystemConfiguration.SCNetworkReachabilityCallBack?,

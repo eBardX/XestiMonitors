@@ -64,7 +64,7 @@ public class NetworkReachabilityMonitor: BaseMonitor {
     ///                 network node address changes.
     ///
     public init(queue: OperationQueue = .main,
-                handler: @escaping (Event) -> Void) {
+                handler: @escaping (Event) -> Void) throws {
         self.handler = handler
         self.innerQueue = .main
         self.queue = queue
@@ -77,15 +77,11 @@ public class NetworkReachabilityMonitor: BaseMonitor {
         address.sin_family = sa_family_t(AF_INET)
         address.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
 
-        let success = withUnsafePointer(to: &address) {
-            $0.withMemoryRebound(to: sockaddr.self,
-                                 capacity: MemoryLayout<sockaddr_in>.size) {
-                                    networkReachability.listen(to: $0)
+        try withUnsafePointer(to: &address) {
+            try $0.withMemoryRebound(to: sockaddr.self,
+                                     capacity: MemoryLayout<sockaddr_in>.size) {
+                                        try networkReachability.listen(to: $0)
             }
-        }
-
-        if !success {
-            fatalError("Unable to create network reachability")
         }
     }
 
@@ -102,7 +98,7 @@ public class NetworkReachabilityMonitor: BaseMonitor {
     ///
     public init(name: String,
                 queue: OperationQueue = .main,
-                handler: @escaping (Event) -> Void) {
+                handler: @escaping (Event) -> Void) throws {
         self.handler = handler
         self.innerQueue = .main
         self.queue = queue
@@ -110,9 +106,7 @@ public class NetworkReachabilityMonitor: BaseMonitor {
 
         super.init()
 
-        if !networkReachability.listen(to: name) {
-            fatalError("Unable to create network reachability")
-        }
+        try networkReachability.listen(to: name)
     }
 
     ///
@@ -143,11 +137,11 @@ public class NetworkReachabilityMonitor: BaseMonitor {
     /// The reachability of the network node name or address.
     ///
     public var status: Status {
-        guard
-            let flags = self.currentFlags
-            else { return .unknown }
-
-        return statusFromFlags(flags)
+        if let flags = self.currentFlags {
+            return statusFromFlags(flags)
+        } else {
+            return .unknown
+        }
     }
 
     private let handler: (Event) -> Void
@@ -163,14 +157,12 @@ public class NetworkReachabilityMonitor: BaseMonitor {
     private var unsafePreviousFlags: SCNetworkReachabilityFlags
 
     private func invokeHandler(_ flags: SCNetworkReachabilityFlags) {
-        guard
-            unsafePreviousFlags != flags
-            else { return }
+        if unsafePreviousFlags != flags {
+            unsafePreviousFlags = flags
 
-        unsafePreviousFlags = flags
-
-        queue.addOperation {
-            self.handler(.statusDidChange(self.statusFromFlags(flags)))
+            queue.addOperation {
+                self.handler(.statusDidChange(self.statusFromFlags(flags)))
+            }
         }
     }
 
@@ -212,25 +204,18 @@ public class NetworkReachabilityMonitor: BaseMonitor {
 
         var context = SCNetworkReachabilityContext()
 
-        context.info = Unmanaged.passUnretained(self).toOpaque()
+        context.info = Unmanaged<NetworkReachabilityMonitor>.passUnretained(self).toOpaque()
 
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
-            guard
-                let info = info
-                else { return }
+            if let info = info {
+                let monitor = Unmanaged<NetworkReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
 
-            let monitor = Unmanaged<NetworkReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
-
-            monitor.invokeHandler(flags)
+                monitor.invokeHandler(flags)
+            }
         }
 
-        guard
-            networkReachability.setCallback(callback, &context)
-            else { return }
-
-        guard
-            networkReachability.setDispatchQueue(innerQueue)
-            else { networkReachability.setCallback(nil, nil); return }
+        networkReachability.setCallback(callback, &context)
+        networkReachability.setDispatchQueue(innerQueue)
 
         innerQueue.async {
             self.unsafePreviousFlags = []

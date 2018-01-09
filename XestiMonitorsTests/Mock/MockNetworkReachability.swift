@@ -21,31 +21,28 @@ internal class MockNetworkReachability: NetworkReachabilityProtocol {
         return true
     }
 
-    func listen(to address: UnsafePointer<sockaddr>) -> Bool {
+    func listen(to address: UnsafePointer<sockaddr>) throws {
         self.handle = SCNetworkReachabilityCreateWithAddress(nil,
                                                              address)
-
-        return self.handle != nil
     }
 
-    func listen(to nodename: UnsafePointer<Int8>) -> Bool {
+    func listen(to nodename: UnsafePointer<Int8>) throws {
         self.handle = SCNetworkReachabilityCreateWithName(nil,
                                                           nodename)
-
-        return self.handle != nil
     }
 
     func setCallback(_ callout: SCNetworkReachabilityCallBack?,
                      _ context: UnsafeMutablePointer<SCNetworkReachabilityContext>?) -> Bool {
         self.callout = callout
-        self.context = context
+
+        if let info = context?.pointee.info {
+            self.monitor = Unmanaged<NetworkReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
+        }
 
         return true
     }
 
     func setDispatchQueue(_ queue: DispatchQueue?) -> Bool {
-        self.queue = queue
-
         return true
     }
 
@@ -56,21 +53,23 @@ internal class MockNetworkReachability: NetworkReachabilityProtocol {
 
         guard
             let callout = self.callout,
-            let context = self.context,
             let flags = self.flags,
             let handle = self.handle
             else { return }
 
-        //if let queue = queue {
-        //    queue.async { callout(handle, flags, context) }
-        //} else {
-            callout(handle, flags, context)
-        //}
+        let info: UnsafeMutableRawPointer?
+
+        if let monitor = monitor {
+            info = Unmanaged<NetworkReachabilityMonitor>.passUnretained(monitor).toOpaque()
+        } else {
+            info = nil
+        }
+
+        callout(handle, flags, info)
     }
 
     private var callout: SCNetworkReachabilityCallBack?
-    private var context: UnsafeMutablePointer<SCNetworkReachabilityContext>?
     private var flags: SCNetworkReachabilityFlags?
     private var handle: SCNetworkReachability?
-    private var queue: DispatchQueue?
+    private weak var monitor: NetworkReachabilityMonitor?
 }

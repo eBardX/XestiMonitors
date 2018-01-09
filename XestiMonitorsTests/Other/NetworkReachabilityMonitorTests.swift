@@ -22,110 +22,110 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         networkReachability.updateFlags(nil)
     }
 
-    func testIsReachable_false() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachable_false() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .notReachable)
 
         XCTAssertFalse(monitor.isReachable)
     }
 
-    func testIsReachable_true1() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachable_true1() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
         XCTAssertTrue(monitor.isReachable)
     }
 
-    func testIsReachable_true2() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachable_true2() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
         XCTAssertTrue(monitor.isReachable)
     }
 
-    func testIsReachableViaWiFi_false() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachableViaWiFi_false() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
         XCTAssertFalse(monitor.isReachableViaWiFi)
     }
 
-    func testIsReachableViaWiFi_true() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachableViaWiFi_true() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
         XCTAssertTrue(monitor.isReachableViaWiFi)
     }
 
-    func testIsReachableViaWWAN_false() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachableViaWWAN_false() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
         XCTAssertFalse(monitor.isReachableViaWWAN)
     }
 
-    func testIsReachableViaWWAN_true() {
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+    func testIsReachableViaWWAN_true() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
         XCTAssertTrue(monitor.isReachableViaWWAN)
     }
 
-//    func testMonitor_statusDidChange() {
-//        let expectation = self.expectation(description: "Handler called")
-//        let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWiFi
-//        var expectedEvent: NetworkReachabilityMonitor.Event?
-//        let monitor = NetworkReachabilityMonitor(queue: .main) { event in
-//            expectedEvent = event
-//            expectation.fulfill()
-//        }
-//
-//        monitor.startMonitoring()
-//        simulateStatusDidChange(to: expectedStatus)
-//        waitForExpectations(timeout: 1)
-//        monitor.stopMonitoring()
-//
-//        if let event = expectedEvent,
-//            case let .statusDidChange(status) = event {
-//            XCTAssertEqual(status, expectedStatus)
-//        } else {
-//            XCTFail("Unexpected event")
-//        }
-//    }
+    func testMonitor_statusDidChange() throws {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWiFi
+        var expectedEvent: NetworkReachabilityMonitor.Event?
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
+        }
 
-//    func testMonitor_statusDidChange_name() {
-//        let expectation = self.expectation(description: "Handler called")
-//        let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWWAN
-//        var expectedEvent: NetworkReachabilityMonitor.Event?
-//        let monitor = NetworkReachabilityMonitor(name: "bogus",
-//                                                 queue: .main) { event in
-//            expectedEvent = event
-//            expectation.fulfill()
-//        }
-//
-//        monitor.startMonitoring()
-//        simulateStatusDidChange(to: expectedStatus)
-//        waitForExpectations(timeout: 1)
-//        monitor.stopMonitoring()
-//
-//        if let event = expectedEvent,
-//            case let .statusDidChange(status) = event {
-//            XCTAssertEqual(status, expectedStatus)
-//        } else {
-//            XCTFail("Unexpected event")
-//        }
-//    }
+        monitor.startMonitoring()
+        simulateStatusDidChange(to: expectedStatus)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
 
-    func testStatus_notReachable1() {
+        if let event = expectedEvent,
+            case let .statusDidChange(status) = event {
+            XCTAssertEqual(status, expectedStatus)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_statusDidChange_name() throws {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWWAN
+        var expectedEvent: NetworkReachabilityMonitor.Event?
+        let monitor = try NetworkReachabilityMonitor(name: "bogus",
+                                                     queue: .main) { event in
+                                                        expectedEvent = event
+                                                        expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateStatusDidChange(to: expectedStatus)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .statusDidChange(status) = event {
+            XCTAssertEqual(status, expectedStatus)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testStatus_notReachable1() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -134,9 +134,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         XCTAssertEqual(monitor.status, expectedStatus)
     }
 
-    func testStatus_notReachable2() {
+    func testStatus_notReachable2() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -146,9 +146,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         XCTAssertEqual(monitor.status, expectedStatus)
     }
 
-    func testStatus_notReachable3() {
+    func testStatus_notReachable3() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -159,9 +159,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         XCTAssertNotEqual(monitor.status, expectedStatus)
     }
 
-    func testStatus_unknown() {
+    func testStatus_unknown() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .unknown
-        let monitor = NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: expectedStatus)
 

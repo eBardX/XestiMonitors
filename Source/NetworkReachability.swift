@@ -11,6 +11,12 @@ import SystemConfiguration
 
 internal class NetworkReachability {
 
+    // MARK: Public Nested Types
+
+    public enum Error: Swift.Error {
+        case creationFailure
+    }
+
     // MARK: Public Instance Methods
 
     public func getFlags(_ flags: UnsafeMutablePointer<SCNetworkReachabilityFlags>) -> Bool {
@@ -22,18 +28,22 @@ internal class NetworkReachability {
                                              flags)
     }
 
-    public func listen(to address: UnsafePointer<sockaddr>) -> Bool {
+    public func listen(to address: UnsafePointer<sockaddr>) throws {
         self.handle = SCNetworkReachabilityCreateWithAddress(nil,
                                                              address)
 
-        return self.handle != nil
+        if self.handle == nil {
+            throw Error.creationFailure
+        }
     }
 
-    public func listen(to nodename: UnsafePointer<Int8>) -> Bool {
+    public func listen(to nodename: UnsafePointer<Int8>) throws {
         self.handle = SCNetworkReachabilityCreateWithName(nil,
                                                           nodename)
 
-        return self.handle != nil
+        if self.handle == nil {
+            throw Error.creationFailure
+        }
     }
 
     @discardableResult
