@@ -15,24 +15,20 @@ import Foundation
 /// altitude.
 ///
 public class AltimeterMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the relative altitude.
     ///
     public enum Event {
         ///
-        /// The relative altitude has changed.
+        /// The relative altitude has been updated.
         ///
-        case didChange(Info)
+        case didUpdate(Info)
     }
 
     ///
     /// Encapsulates the relative change in altitude.
     ///
     public enum Info {
-
         ///
         /// The relative change in altitude data.
         ///
@@ -48,10 +44,7 @@ public class AltimeterMonitor: BaseMonitor {
         /// No altitude data is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AltimeterMonitor`.
@@ -63,48 +56,31 @@ public class AltimeterMonitor: BaseMonitor {
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
-
-        self.altimeter = CMAltimeter()
         self.handler = handler
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether the device supports generating data
     /// for relative altitude changes.
     ///
     public var isAvailable: Bool {
-
-        return CMAltimeter.isRelativeAltitudeAvailable()
-
+        return type(of: altimeter).isRelativeAltitudeAvailable()
     }
 
-    // Private Instance Properties
-
-    private let altimeter: CMAltimeter
     private let handler: (Event) -> Void
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
-
-    public override final func cleanupMonitor() -> Bool {
-
+    public override final func cleanupMonitor() {
         altimeter.stopRelativeAltitudeUpdates()
 
-        return super.cleanupMonitor()
-
+        super.cleanupMonitor()
     }
 
-    public override final func configureMonitor() -> Bool {
-
-        guard super.configureMonitor()
-            else { return false }
+    public override final func configureMonitor() {
+        super.configureMonitor()
 
         altimeter.startRelativeAltitudeUpdates(to: .main) { [unowned self] data, error in
-
                                                 var info: Info
 
                                                 if let error = error {
@@ -115,12 +91,9 @@ public class AltimeterMonitor: BaseMonitor {
                                                     info = .unknown
                                                 }
 
-                                                self.handler(.didChange(info))
-
+                                                self.handler(.didUpdate(info))
         }
-
-        return true
-
     }
-
 }
+
+extension AltimeterMonitor: AltimeterInjected {}

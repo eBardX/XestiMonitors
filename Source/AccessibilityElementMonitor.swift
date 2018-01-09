@@ -15,9 +15,6 @@ import UIKit
 /// to element focus by an assistive technology.
 ///
 public class AccessibilityElementMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to element focus by an assistive technology.
     ///
@@ -33,7 +30,6 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     /// assistive technology.
     ///
     public struct Info {
-
         ///
         /// The identifier of the assistive technology.
         ///
@@ -51,32 +47,13 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
         public let unfocusedElement: Any?
 
         internal init (_ notification: Notification) {
-
             let userInfo = notification.userInfo
 
-            if #available(iOS 9.0, *) {
-                self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
-            } else {
-                self.assistiveTechnology = nil
-            }
-
-            if #available(iOS 9.0, *) {
-                self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
-            } else {
-                self.focusedElement = nil
-            }
-
-            if #available(iOS 9.0, *) {
-                self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
-            } else {
-                self.unfocusedElement = nil
-            }
-
+            self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
+            self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
+            self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
         }
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AccessibilityElementMonitor`.
@@ -89,32 +66,18 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
 
         super.init(queue: queue)
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
-
-        if #available(iOS 9.0, *) {
-            observe(.UIAccessibilityElementFocused) { [unowned self] in
-                self.handler(.didFocus(Info($0)))
-            }
+        observe(.UIAccessibilityElementFocused) { [unowned self] in
+            self.handler(.didFocus(Info($0)))
         }
-
-        return true
-
     }
-
 }

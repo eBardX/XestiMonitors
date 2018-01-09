@@ -1,19 +1,19 @@
 PODS:
-  - SwiftLint (0.19.0)
+  - SwiftLint (0.24.0)
   - XestiMonitors (2.0.0)
 
 DEPENDENCIES:
-  - SwiftLint (~> 0.19.0)
+  - SwiftLint (~> 0.24.0)
   - XestiMonitors (from `../`)
 
 EXTERNAL SOURCES:
   XestiMonitors:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
-  XestiMonitors: 7c12e662446acdbd0e70e9cff5afb7c992ffda2b
+  SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
+  XestiMonitors: 682d62f27b71147ff19c7d3d697a34cd66cf7b09
 
-PODFILE CHECKSUM: c30f5103d52f7e4790d64f43473e0da57f02f7cd
+PODFILE CHECKSUM: 9df243f7b0704d2f26d2cb9b5765049646f85d2a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

@@ -10,67 +10,50 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
-    var window: UIWindow?
+    // MARK: Public Instance Properties
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    public var window: UIWindow?
 
-        guard let svc = self.window!.rootViewController as? UISplitViewController else { return false }
+    // MARK: Public Instance Methods
+
+    public func application(_ application: UIApplication,
+                            didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        guard
+            let svc = self.window?.rootViewController as? UISplitViewController
+            else { return false }
 
         svc.delegate = self
         svc.preferredDisplayMode = .allVisible
 
-        guard let nc = svc.viewControllers[svc.viewControllers.count - 1] as? UINavigationController else { return false }
+        guard
+            let nc = svc.viewControllers[svc.viewControllers.count - 1] as? UINavigationController
+            else { return false }
 
-        nc.topViewController!.navigationItem.leftBarButtonItem = svc.displayModeButtonItem
+        nc.topViewController?.navigationItem.leftBarButtonItem = svc.displayModeButtonItem
 
         return true
-
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
+    public func applicationDidBecomeActive(_ application: UIApplication) {
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-
+    public func applicationDidEnterBackground(_ application: UIApplication) {
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-
+    public func applicationWillEnterForeground(_ application: UIApplication) {
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-
+    public func applicationWillResignActive(_ application: UIApplication) {
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-
+    public func applicationWillTerminate(_ application: UIApplication) {
     }
 
     // UISplitViewControllerDelegate Methods
 
-    //func splitViewController(_ splitViewController: UISplitViewController,
-    //                         collapseSecondary secondaryViewController: UIViewController,
-    //                         onto primaryViewController: UIViewController) -> Bool {
-    //
-    //    guard let nc = secondaryViewController as? UINavigationController else { return false }
-    //    guard let vc = nc.topViewController as? DetailViewController else { return false }
-    //
-    //    if vc.detailItem == nil {
-    //        return true
-    //    }
-    //
-    //    return false
-    //
-    //}
-
-    func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
-
+    public func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
         return .allVisible
-
     }
-
 }

@@ -1,6 +1,6 @@
 author: J. G. Pusey
-author_url: http://ebardx.tumblr.com/
-copyright: © 2016–2017 J. G. Pusey
+author_url: https://github.com/eBardX
+copyright: © 2016–2018 J. G. Pusey
 custom_categories:
   - name: Protocols
     children:
@@ -9,6 +9,11 @@ custom_categories:
     children:
       - BaseMonitor
       - BaseNotificationMonitor
+  - name: Accessibility Monitor Classes
+    children:
+      - AccessibilityAnnouncementMonitor
+      - AccessibilityElementMonitor
+      - AccessibilityStatusMonitor
   - name: Application Monitor Classes
     children:
       - ApplicationStateMonitor
@@ -26,22 +31,19 @@ custom_categories:
   - name: Motion Monitor Classes
     children:
       - AccelerometerMonitor
+      - AltimeterMonitor
       - DeviceMotionMonitor
       - GyroscopeMonitor
       - MagnetometerMonitor
-  - name: Accessibility Monitor Classes
-    children:
-      - AccessibilityAnnouncementMonitor
-      - AccessibilityElementMonitor
-      - AccessibilityStatusMonitor
+      - MotionActivityMonitor
+      - PedometerMonitor
   - name: Other Monitor Classes
     children:
       - KeyboardMonitor
-      - ReachabilityMonitor
+      - NetworkReachabilityMonitor
   - name: Extensions
     children:
       - CMAcceleration
-      - CMMotionManager
 github_url: https://github.com/eBardX/XestiMonitors
 min_acl: public
 module: XestiMonitors

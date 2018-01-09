@@ -15,9 +15,6 @@ import UIKit
 /// which relies on one or more notification observers.
 ///
 open class BaseNotificationMonitor: BaseMonitor {
-
-    // Open Instance Methods
-
     ///
     /// Adds observers to the default notification center.
     ///
@@ -25,15 +22,8 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// invoked, this method is not called. If you override this method, you
     /// must be sure to invoke the superclass implementation.
     ///
-    /// - Returns:  `true` if notification observers were successfully added or
-    ///             `false` on failure.
-    ///
-    open func addNotificationObservers() -> Bool {
-
+    open func addNotificationObservers() {
         observers = []
-
-        return true
-
     }
 
     ///
@@ -45,20 +35,11 @@ open class BaseNotificationMonitor: BaseMonitor {
     /// If you override this method, you must be sure to invoke the superclass
     /// implementation.
     ///
-    /// - Returns:  `true` if notification observers were successfully removed
-    ///             or `false` on failure.
-    ///
-    open func removeNotificationObservers() -> Bool {
-
+    open func removeNotificationObservers() {
         observers.forEach { notificationCenter.removeObserver($0) }
 
         observers = []
-
-        return true
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new base notification monitor.
@@ -67,13 +48,8 @@ open class BaseNotificationMonitor: BaseMonitor {
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
     public init(queue: OperationQueue) {
-
-        self.notificationCenter = .`default`
         self.queue = queue
-
     }
-
-    // Public Instance Methods
 
     ///
     /// Adds an observer to the default notification center
@@ -90,35 +66,29 @@ open class BaseNotificationMonitor: BaseMonitor {
     public func observe(_ name: Notification.Name,
                         object: Any? = nil,
                         using block: @escaping (Notification) -> Void) {
+        let observer = notificationCenter.addObserver(forName: name,
+                                                      object: object,
+                                                      queue: queue,
+                                                      using: block)
 
-        observers += [notificationCenter.addObserver(forName: name,
-                                                     object: object,
-                                                     queue: queue,
-                                                     using: block)]
-
+        observers.append(observer)
     }
 
-    // Private Instance Properties
-
-    private let notificationCenter: NotificationCenter
     private let queue: OperationQueue
 
     private var observers: [NSObjectProtocol] = []
 
-    // Overridden BaseMonitor Instance Methods
+    public override final func cleanupMonitor() {
+        removeNotificationObservers()
 
-    public override final func cleanupMonitor() -> Bool {
-
-        return removeNotificationObservers()
-            && super.cleanupMonitor()
-
+        super.cleanupMonitor()
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
+        super.configureMonitor()
 
-        return super.configureMonitor()
-            && addNotificationObservers()
-
+        addNotificationObservers()
     }
-
 }
+
+extension BaseNotificationMonitor: NotificationCenterInjected {}

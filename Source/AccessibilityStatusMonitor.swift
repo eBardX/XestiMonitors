@@ -15,15 +15,11 @@ import UIKit
 /// the status of various accessibility settings.
 ///
 public class AccessibilityStatusMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the status of various system accessibility
     /// settings.
     ///
     public enum Event {
-
         ///
         /// The system’s AssistiveTouch setting has changed.
         ///
@@ -57,7 +53,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
         /// The system’s hearing device pairing options have changed.
         ///
-        case hearingDevicePairedEarDidChange(HearingDeviceEar)
+        @available(iOS 10.0, *)
+        case hearingDevicePairedEarDidChange(UIAccessibilityHearingDeviceEar)
 
         ///
         /// The system’s Invert Colors setting has changed.
@@ -96,60 +93,127 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
         ///
         /// The system’s Switch Control setting has changed.
-        ///s
+        ///
         case switchControlStatusDidChange(Bool)
 
         ///
         /// The system’s VoiceOver setting has changed.
         ///
         case voiceOverStatusDidChange(Bool)
-
     }
 
     ///
-    /// Defines hearing device pairing options.
+    /// Specifies which events to monitor.
     ///
-    public struct HearingDeviceEar: OptionSet {
+    public struct Options: OptionSet {
+        ///
+        /// Monitor `assistiveTouchStatusDidChange` events.
+        ///
+        public static let assistiveTouchStatusDidChange = Options(rawValue: 1 << 0)
 
-        // Public Initializers
+        ///
+        /// Monitor `boldTextStatusDidChange` events.
+        ///
+        public static let boldTextStatusDidChange = Options(rawValue: 1 << 1)
 
+        ///
+        /// Monitor `closedCaptioningStatusDidChange` events.
+        ///
+        public static let closedCaptioningStatusDidChange = Options(rawValue: 1 << 2)
+
+        ///
+        /// Monitor `darkenColorsStatusDidChange` events.
+        ///
+        public static let darkenColorsStatusDidChange = Options(rawValue: 1 << 3)
+
+        ///
+        /// Monitor `grayscaleStatusDidChange` events.
+        ///
+        public static let grayscaleStatusDidChange = Options(rawValue: 1 << 4)
+
+        ///
+        /// Monitor `guidedAccessStatusDidChange` events.
+        ///
+        public static let guidedAccessStatusDidChange = Options(rawValue: 1 << 5)
+
+        ///
+        /// Monitor `hearingDevicePairedEarDidChange` events.
+        ///
+        public static let hearingDevicePairedEarDidChange = Options(rawValue: 1 << 6)
+
+        ///
+        /// Monitor `invertColorsStatusDidChange` events.
+        ///
+        public static let invertColorsStatusDidChange = Options(rawValue: 1 << 7)
+
+        ///
+        /// Monitor `monoAudioStatusDidChange` events.
+        ///
+        public static let monoAudioStatusDidChange = Options(rawValue: 1 << 8)
+
+        ///
+        /// Monitor `reduceMotionStatusDidChange` events.
+        ///
+        public static let reduceMotionStatusDidChange = Options(rawValue: 1 << 9)
+
+        ///
+        /// Monitor `reduceTransparencyStatusDidChange` events.
+        ///
+        public static let reduceTransparencyStatusDidChange = Options(rawValue: 1 << 10)
+
+        ///
+        /// Monitor `shakeToUndoStatusDidChange` events.
+        ///
+        public static let shakeToUndoStatusDidChange = Options(rawValue: 1 << 11)
+
+        ///
+        /// Monitor `speakScreenStatusDidChange` events.
+        ///
+        public static let speakScreenStatusDidChange = Options(rawValue: 1 << 12)
+
+        ///
+        /// Monitor `speakSelectionStatusDidChange` events.
+        ///
+        public static let speakSelectionStatusDidChange = Options(rawValue: 1 << 13)
+
+        ///
+        /// Monitor `switchControlStatusDidChange` events.
+        ///
+        public static let switchControlStatusDidChange = Options(rawValue: 1 << 14)
+
+        ///
+        /// Monitor `voiceOverStatusDidChange` events.
+        ///
+        public static let voiceOverStatusDidChange = Options(rawValue: 1 << 15)
+
+        ///
+        /// Monitor all events.
+        ///
+        public static let all: Options = [.assistiveTouchStatusDidChange,
+                                          .boldTextStatusDidChange,
+                                          .closedCaptioningStatusDidChange,
+                                          .darkenColorsStatusDidChange,
+                                          .grayscaleStatusDidChange,
+                                          .guidedAccessStatusDidChange,
+                                          .hearingDevicePairedEarDidChange,
+                                          .invertColorsStatusDidChange,
+                                          .monoAudioStatusDidChange,
+                                          .reduceMotionStatusDidChange,
+                                          .reduceTransparencyStatusDidChange,
+                                          .shakeToUndoStatusDidChange,
+                                          .speakScreenStatusDidChange,
+                                          .speakSelectionStatusDidChange,
+                                          .switchControlStatusDidChange,
+                                          .voiceOverStatusDidChange]
+
+        /// :nodoc:
         public init(rawValue: UInt) {
-
             self.rawValue = rawValue
-
         }
 
-        ///
-        /// Both left and right ears.
-        ///
-        public static let both: HearingDeviceEar = [.left, .right]
-
-        ///
-        /// The left ear.
-        ///
-        public static let left = HearingDeviceEar(rawValue: 1 << 1)
-
-        ///
-        /// The right ear.
-        ///
-        public static let right = HearingDeviceEar(rawValue: 1 << 2)
-
-        // Public Instance Properties
-
+        /// :nodoc:
         public let rawValue: UInt
-
-        // Internal Initializers
-
-        @available(iOS 10.0, *)
-        internal init(_ value: UIAccessibilityHearingDeviceEar) {
-
-            self.rawValue = value.rawValue
-
-        }
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `AccessibilityStatusMonitor`.
@@ -157,222 +221,262 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the status of a system
     ///                 accessibility setting changes.
     ///
     public init(queue: OperationQueue = .main,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
+        self.options = options
 
         super.init(queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The current hearing device pairing options.
     ///
-    public var hearingDevicePairedEar: HearingDeviceEar {
-
-        if #available(iOS 10.0, *) {
-            return HearingDeviceEar(UIAccessibilityHearingDevicePairedEar())
-        } else {
-            return []
-        }
-
+    @available(iOS 10.0, *)
+    public var hearingDevicePairedEar: UIAccessibilityHearingDeviceEar {
+        return accessibilityStatus.hearingDevicePairedEar()
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled AssistiveTouch
     /// in Settings.
     ///
+    @available(iOS 10.0, *)
     public var isAssistiveTouchEnabled: Bool {
-
-        if #available(iOS 10.0, *) {
-            return UIAccessibilityIsAssistiveTouchRunning()
-        } else {
-            return false
-        }
-
+        return accessibilityStatus.isAssistiveTouchRunning()
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled Bold Text in
     /// Settings.
     ///
-    public var isBoldTextEnabled: Bool { return UIAccessibilityIsBoldTextEnabled() }
+    public var isBoldTextEnabled: Bool {
+        return accessibilityStatus.isBoldTextEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Closed
     /// Captioning in Settings.
     ///
-    public var isClosedCaptioningEnabled: Bool { return UIAccessibilityIsClosedCaptioningEnabled() }
+    public var isClosedCaptioningEnabled: Bool {
+        return accessibilityStatus.isClosedCaptioningEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Darken Colors
     /// in Settings.
     ///
-    public var isDarkenColorsEnabled: Bool { return UIAccessibilityDarkerSystemColorsEnabled() }
+    public var isDarkenColorsEnabled: Bool {
+        return accessibilityStatus.darkerSystemColorsEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Grayscale in
     /// Settings.
     ///
-    public var isGrayscaleEnabled: Bool { return UIAccessibilityIsGrayscaleEnabled() }
+    public var isGrayscaleEnabled: Bool {
+        return accessibilityStatus.isGrayscaleEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Guided Access
     /// in Settings.
     ///
-    public var isGuidedAccessEnabled: Bool { return UIAccessibilityIsGuidedAccessEnabled() }
+    public var isGuidedAccessEnabled: Bool {
+        return accessibilityStatus.isGuidedAccessEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Invert Colors
     /// in Settings.
     ///
-    public var isInvertColorsEnabled: Bool { return UIAccessibilityIsInvertColorsEnabled() }
+    public var isInvertColorsEnabled: Bool {
+        return accessibilityStatus.isInvertColorsEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Mono Audio in
     /// Settings.
     ///
-    public var isMonoAudioEnabled: Bool { return UIAccessibilityIsMonoAudioEnabled() }
+    public var isMonoAudioEnabled: Bool {
+        return accessibilityStatus.isMonoAudioEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Reduce Motion
     /// in Settings.
     ///
-    public var isReduceMotionEnabled: Bool { return UIAccessibilityIsReduceMotionEnabled() }
+    public var isReduceMotionEnabled: Bool {
+        return accessibilityStatus.isReduceMotionEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Reduce
     /// Transparency in Settings.
     ///
-    public var isReduceTransparencyEnabled: Bool { return UIAccessibilityIsReduceTransparencyEnabled() }
+    public var isReduceTransparencyEnabled: Bool {
+        return accessibilityStatus.isReduceTransparencyEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Shake to Undo
     /// in Settings.
     ///
     public var isShakeToUndoEnabled: Bool {
-
-        if #available(iOS 9.0, *) {
-            return UIAccessibilityIsShakeToUndoEnabled()
-        } else {
-            return false
-        }
-
+        return accessibilityStatus.isShakeToUndoEnabled()
     }
 
     ///
     /// A Boolean value indicating whether the user has enabled Speak Screen in
     /// Settings.
     ///
-    public var isSpeakScreenEnabled: Bool { return UIAccessibilityIsSpeakScreenEnabled() }
+    public var isSpeakScreenEnabled: Bool {
+        return accessibilityStatus.isSpeakScreenEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Speak Selection
     /// in Settings.
     ///
-    public var isSpeakSelectionEnabled: Bool { return UIAccessibilityIsSpeakSelectionEnabled() }
+    public var isSpeakSelectionEnabled: Bool {
+        return accessibilityStatus.isSpeakSelectionEnabled()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled Switch Control
     /// in Settings.
     ///
-    public var isSwitchControlEnabled: Bool { return UIAccessibilityIsSwitchControlRunning() }
+    public var isSwitchControlEnabled: Bool {
+        return accessibilityStatus.isSwitchControlRunning()
+    }
 
     ///
     /// A Boolean value indicating whether the user has enabled VoiceOver in
     /// Settings.
     ///
-    public var isVoiceOverEnabled: Bool { return UIAccessibilityIsVoiceOverRunning() }
-
-    // Private Instance Properties
+    public var isVoiceOverEnabled: Bool {
+        return accessibilityStatus.isVoiceOverRunning()
+    }
 
     private let handler: (Event) -> Void
+    private let options: Options
 
-    // Overridden BaseNotificationMonitor Instance Methods
+    // swiftlint:disable cyclomatic_complexity
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
-
-        if #available(iOS 10.0, *) {
+        if options.contains(.assistiveTouchStatusDidChange),
+            #available(iOS 10.0, *) {
             observe(.UIAccessibilityAssistiveTouchStatusDidChange) { [unowned self] _ in
                 self.handler(.assistiveTouchStatusDidChange(self.isAssistiveTouchEnabled))
             }
         }
 
-        observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
-            self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
+        if options.contains(.boldTextStatusDidChange) {
+            observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
+                self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
+            }
         }
 
-        observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
-            self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
+        if options.contains(.closedCaptioningStatusDidChange) {
+            observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
+                self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
+            }
         }
 
-        observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
-            self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
+        if options.contains(.darkenColorsStatusDidChange) {
+            observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
+                self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
+            }
         }
 
-        observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
-            self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
+        if options.contains(.grayscaleStatusDidChange) {
+            observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
+                self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
+            }
         }
 
-        observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
-            self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
+        if options.contains(.guidedAccessStatusDidChange) {
+            observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
+                self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
+            }
         }
 
-        if #available(iOS 10.0, *) {
+        if options.contains(.hearingDevicePairedEarDidChange),
+            #available(iOS 10.0, *) {
             observe(.UIAccessibilityHearingDevicePairedEarDidChange) { [unowned self] _ in
                 self.handler(.hearingDevicePairedEarDidChange(self.hearingDevicePairedEar))
             }
         }
 
-        observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
-            self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
+        if options.contains(.invertColorsStatusDidChange) {
+            observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
+                self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
+            }
         }
 
-        observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
-            self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
+        if options.contains(.monoAudioStatusDidChange) {
+            observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
+                self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
+            }
         }
 
-        observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
-            self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
+        if options.contains(.reduceMotionStatusDidChange) {
+            observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
+                self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
+            }
         }
 
-        observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
-            self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
+        if options.contains(.reduceTransparencyStatusDidChange) {
+            observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
+                self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
+            }
         }
 
-        if #available(iOS 9.0, *) {
+        if options.contains(.shakeToUndoStatusDidChange) {
             observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
                 self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
             }
         }
 
-        observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
-            self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
+        if options.contains(.speakScreenStatusDidChange) {
+            observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
+                self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
+            }
         }
 
-        observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
-            self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
+        if options.contains(.speakSelectionStatusDidChange) {
+            observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
+                self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
+            }
         }
 
-        observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
-            self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
+        if options.contains(.switchControlStatusDidChange) {
+            observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
+                self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
+            }
         }
 
-        observe(Notification.Name(UIAccessibilityVoiceOverStatusChanged)) { [unowned self] _ in
-            self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
+        if options.contains(.voiceOverStatusDidChange) {
+            let voiceOverStatusDidChange: Notification.Name
+
+            if #available(iOS 11.0, *) {
+                voiceOverStatusDidChange = .UIAccessibilityVoiceOverStatusDidChange
+            } else {
+                voiceOverStatusDidChange = Notification.Name(UIAccessibilityVoiceOverStatusChanged)
+            }
+
+            observe(voiceOverStatusDidChange) { [unowned self] _ in
+                self.handler(.voiceOverStatusDidChange(self.isVoiceOverEnabled))
+            }
         }
-
-        return true
-
     }
-
 }
+
+extension AccessibilityStatusMonitor: AccessibilityStatusInjected {}

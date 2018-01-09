@@ -10,40 +10,35 @@
 import UIKit
 import XestiMonitors
 
-class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
+public class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var keyboardActionLabel: UILabel!
-    @IBOutlet weak var keyboardAnimationCurveLabel: UILabel!
-    @IBOutlet weak var keyboardAnimationDurationLabel: UILabel!
-    @IBOutlet weak var keyboardFrameBeginLabel: UILabel!
-    @IBOutlet weak var keyboardFrameEndLabel: UILabel!
-    @IBOutlet weak var keyboardIsLocalLabel: UILabel!
-    @IBOutlet weak var keyboardTextField: UITextField!
-    @IBOutlet weak var reachabilityLabel: UILabel!
+    // MARK: Private Instance Properties
 
-    lazy var keyboardMonitor: KeyboardMonitor = KeyboardMonitor { [unowned self] in
+    @IBOutlet private weak var keyboardActionLabel: UILabel!
+    @IBOutlet private weak var keyboardAnimationCurveLabel: UILabel!
+    @IBOutlet private weak var keyboardAnimationDurationLabel: UILabel!
+    @IBOutlet private weak var keyboardFrameBeginLabel: UILabel!
+    @IBOutlet private weak var keyboardFrameEndLabel: UILabel!
+    @IBOutlet private weak var keyboardIsLocalLabel: UILabel!
+    @IBOutlet private weak var keyboardTextField: UITextField!
+    @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
+    private lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
         self.displayKeyboard($0)
-
     }
 
-    lazy var reachabilityMonitor: ReachabilityMonitor! = ReachabilityMonitor { [unowned self] in
-
-        self.displayReachability($0)
-
+    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor { [unowned self] in
+        self.displayNetworkReachability($0)
     }
 
-    lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                    self.reachabilityMonitor]
+    private lazy var monitors: [Monitor] = [self.keyboardMonitor,
+                                            self.networkReachabilityMonitor]
 
-    // MARK: -
+    // MARK: Private Instance Methods
 
     private func displayKeyboard(_ event: KeyboardMonitor.Event?) {
-
         if let event = event {
-
             switch event {
-
             case let .didChangeFrame(info):
                 displayKeyboard("Did change frame", info)
 
@@ -61,22 +56,15 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
 
             case let .willShow(info):
                 displayKeyboard("Will show", info)
-
             }
-
         } else {
-
             displayKeyboard(" ", nil)
-
         }
-
     }
 
     private func displayKeyboard(_ action: String,
                                  _ info: KeyboardMonitor.Info?) {
-
         if let info = info {
-
             keyboardAnimationCurveLabel.text = formatViewAnimationCurve(info.animationCurve)
 
             keyboardAnimationDurationLabel.text = formatTimeInterval(info.animationDuration)
@@ -86,9 +74,7 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
             keyboardFrameEndLabel.text = formatRect(info.frameEnd)
 
             keyboardIsLocalLabel.text = formatBool(info.isLocal)
-
         } else {
-
             keyboardAnimationCurveLabel.text = " "
 
             keyboardAnimationDurationLabel.text = " "
@@ -98,75 +84,58 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
             keyboardFrameEndLabel.text = " "
 
             keyboardIsLocalLabel.text = " "
-
         }
 
         keyboardActionLabel.text = action
-
     }
 
-    private func displayReachability(_ event: ReachabilityMonitor.Event?) {
-
-        if let event = event, case let .statusDidChange(status) = event {
-
+    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
+        if let event = event,
+            case let .statusDidChange(status) = event {
             switch status {
-
             case .notReachable:
-                reachabilityLabel.text = "Not reachable"
+                networkReachabilityLabel.text = "Not reachable"
 
             case .reachableViaWiFi:
-                reachabilityLabel.text = "Reachable via Wi-Fi"
+                networkReachabilityLabel.text = "Reachable via Wi-Fi"
 
             case .reachableViaWWAN:
-                reachabilityLabel.text = "Reachable via WWAN"
+                networkReachabilityLabel.text = "Reachable via WWAN"
 
             default :
-                reachabilityLabel.text = "Unknown"
-
+                networkReachabilityLabel.text = "Unknown"
             }
-
         } else {
-
-            reachabilityLabel.text = "Unknown"
-
+            networkReachabilityLabel.text = "Unknown"
         }
+    }
 
-        }
+    // MARK: Overridden UIViewController Methods
 
-    // MARK: -
-
-    override func viewDidLoad() {
-
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         keyboardTextField.delegate = self
 
         displayKeyboard(nil)
-
-        displayReachability(nil)
-
+        displayNetworkReachability(nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         monitors.forEach { $0.startMonitoring() }
-
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-
+    override public func viewWillDisappear(_ animated: Bool) {
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
-
     }
 
-    // MARK: -
+    // MARK: - UITextFieldDelegate
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.text = ""
 
         if textField.isFirstResponder {
@@ -174,7 +143,5 @@ class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
         }
 
         return false
-
     }
-
 }

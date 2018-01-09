@@ -15,15 +15,11 @@ import UIKit
 /// orientation of its user interface or to the frame of the status bar.
 ///
 public class StatusBarMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the orientation of the app’s user interface and
     /// to the frame of the status bar.
     ///
     public enum Event {
-
         ///
         /// The frame of the status bar has changed.
         ///
@@ -45,7 +41,46 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         case willChangeOrientation(UIInterfaceOrientation)
     }
 
-    // Public Initializers
+    ///
+    /// Specifies which events to monitor.
+    ///
+    public struct Options: OptionSet {
+        ///
+        /// Monitor `didChangeFrame` events.
+        ///
+        public static let didChangeFrame = Options(rawValue: 1 << 0)
+
+        ///
+        /// Monitor `didChangeOrientation` events.
+        ///
+        public static let didChangeOrientation = Options(rawValue: 1 << 1)
+
+        ///
+        /// Monitor `willChangeFrame` events.
+        ///
+        public static let willChangeFrame = Options(rawValue: 1 << 2)
+
+        ///
+        /// Monitor `willChangeOrientation` events.
+        ///
+        public static let willChangeOrientation = Options(rawValue: 1 << 3)
+
+        ///
+        /// Monitor all events.
+        ///
+        public static let all: Options = [.didChangeFrame,
+                                          .didChangeOrientation,
+                                          .willChangeFrame,
+                                          .willChangeOrientation]
+
+        /// :nodoc:
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+        /// :nodoc:
+        public let rawValue: UInt
+    }
 
     ///
     /// Initializes a new `StatusBarMonitor`.
@@ -53,85 +88,82 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the orientation of the app’s
     ///                 user interface or the frame of the status bar changes
     ///                 or is about to change.
     ///
     public init(queue: OperationQueue = .main,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
-
-        self.application = .shared
         self.handler = handler
+        self.options = options
 
         super.init(queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The current frame rectangle defining the area of the status bar.
     ///
-    public var frame: CGRect { return application.statusBarFrame }
+    public var frame: CGRect {
+        return application.statusBarFrame
+    }
 
     ///
     /// The orientation of the app’s user interface.
     ///
-    public var orientation: UIInterfaceOrientation { return application.statusBarOrientation }
+    public var orientation: UIInterfaceOrientation {
+        return application.statusBarOrientation
+    }
 
-    // Private Instance Properties
-
-    private let application: UIApplication
     private let handler: (Event) -> Void
-
-    // Private Instance Methods
+    private let options: Options
 
     private func extractStatusBarFrame(_ notification: Notification) -> CGRect {
-
         if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
             return frame
         }
 
         return .zero
-
     }
 
     private func extractStatusBarOrientation(_ notification: Notification) -> UIInterfaceOrientation {
-
         if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
             let orientation = UIInterfaceOrientation(rawValue: rawValue) {
             return orientation
         }
 
         return .unknown
-
     }
 
-    // Overridden BaseNotificationMonitor Instance Methods
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
-
-        observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
-            self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
+        if options.contains(.didChangeFrame) {
+            observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
+                self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
+            }
         }
 
-        observe(.UIApplicationDidChangeStatusBarOrientation) { [unowned self] in
-            self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
+        if options.contains(.didChangeOrientation) {
+            observe(.UIApplicationDidChangeStatusBarOrientation) { [unowned self] in
+                self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
+            }
         }
 
-        observe(.UIApplicationWillChangeStatusBarFrame) { [unowned self] in
-            self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
+        if options.contains(.willChangeFrame) {
+            observe(.UIApplicationWillChangeStatusBarFrame) { [unowned self] in
+                self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
+            }
         }
 
-        observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
-            self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
+        if options.contains(.willChangeOrientation) {
+            observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
+                self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
+            }
         }
-
-        return true
-
     }
-
 }
+
+extension StatusBarMonitor: ApplicationInjected {}

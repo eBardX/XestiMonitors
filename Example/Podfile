@@ -1,16 +1,18 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 use_frameworks!
 
 target 'XestiMonitors_Example' do
 
-    pod 'SwiftLint',     '~> 0.19.0'
+    pod 'SwiftLint',     '~> 0.24.0'
     pod 'XestiMonitors', :path => '../'
 
-    target 'XestiMonitors_Tests' do
-        inherit! :search_paths
-    end
+end
+
+target 'XestiMonitorsTests' do
+
+    pod 'XestiMonitors', :path => '../'
 
 end

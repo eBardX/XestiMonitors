@@ -15,9 +15,6 @@ import UIKit
 /// of its proximity sensor.
 ///
 public class ProximityMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the state of the proximity sensor.
     ///
@@ -27,8 +24,6 @@ public class ProximityMonitor: BaseNotificationMonitor {
         ///
         case stateDidChange(Bool)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `ProximityMonitor`.
@@ -41,22 +36,16 @@ public class ProximityMonitor: BaseNotificationMonitor {
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
-        self.device = .current
         self.handler = handler
 
         super.init(queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether proximity monitoring is available on
     /// the device (`true`) or not (`false`).
     ///
     public lazy var isAvailable: Bool = {
-
         let oldValue = self.device.isProximityMonitoringEnabled
 
         defer { self.device.isProximityMonitoringEnabled = oldValue }
@@ -64,43 +53,33 @@ public class ProximityMonitor: BaseNotificationMonitor {
         self.device.isProximityMonitoringEnabled = true
 
         return self.device.isProximityMonitoringEnabled
-
     }()
 
     ///
     /// A Boolean value indicating whether the proximity sensor is close to the
     /// user (`true`) or not (`false`).
     ///
-    public var state: Bool { return device.proximityState }
+    public var state: Bool {
+        return device.proximityState
+    }
 
-    // Private Instance Properties
-
-    private let device: UIDevice
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
         observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
             self.handler(.stateDidChange(self.device.proximityState))
         }
 
         device.isProximityMonitoringEnabled = true
-
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
-
+    public override func removeNotificationObservers() {
         device.isProximityMonitoringEnabled = false
 
-        return super.removeNotificationObservers()
-
+        super.removeNotificationObservers()
     }
-
 }
+
+extension ProximityMonitor: DeviceInjected {}

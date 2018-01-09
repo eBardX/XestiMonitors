@@ -16,7 +16,7 @@
   "summary": "An extensible monitoring framework written in Swift.",
   "documentation_url": "https://ebardx.github.io/XestiMonitors/",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "requires_arc": true,
   "frameworks": [

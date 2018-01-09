@@ -11,142 +11,114 @@ import CoreMotion
 import Foundation
 
 ///
-/// A `MotionActivityMonitor` instance monitors ...
+/// A `MotionActivityMonitor` instance monitors the device for live and
+/// historic motion data. Motion data reflects whether the user is walking,
+/// running, in a vehicle, or stationary for periods of time.
 ///
 public class MotionActivityMonitor: BaseMonitor {
-
-    // Public Nested Types
-
     ///
-    /// Encapsulates updates to ...
+    /// Encapsulates updates to and queries about the motion data.
     ///
     public enum Event {
-
         ///
-        ///
+        /// The historic motion data query has completed.
         ///
         case didQuery(Info)
 
         ///
-        ///
+        /// The live motion data has been updated.
         ///
         case didUpdate(Info)
-
     }
 
     ///
-    /// Encapsulates ...
+    /// Encapsulates the type (or types) of motion for the device.
     ///
     public enum Info {
-
         ///
-        ///
+        /// An array of motion activity objects that define the types of motion
+        /// for the device that occurred during the queried time period.
         ///
         case activities([CMMotionActivity])
 
         ///
-        ///
+        /// The motion activity object that defines the current type of motion
+        /// for the device.
         ///
         case activity(CMMotionActivity)
 
         ///
-        ///
+        /// The error encountered in attempting to obtain the motion data.
         ///
         case error(Error)
 
         ///
-        ///
+        /// No motion data is available.
         ///
         case unknown
-
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `MotionActivityMonitor`.
     ///
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when new motion data is available
+    ///                 or when a query for historical motion data completes.
     ///
     public init(queue: OperationQueue,
                 handler: @escaping (Event) -> Void) {
-
         self.handler = handler
-        self.manager = CMMotionActivityManager()
         self.queue = queue
-
     }
-
-    // Public Instance Properties
 
     ///
     /// A Boolean value indicating whether motion data is available on the
     /// device.
     ///
     public var isAvailable: Bool {
-
-        return CMMotionActivityManager.isActivityAvailable()
-
+        return type(of: motionActivityManager).isActivityAvailable()
     }
 
-    // Public Instance Methods
-
-    /// <#Description#>
+    ///
+    /// Retrieves historical motion data for the specified time period.
     ///
     /// - Parameters:
-    ///   - start: <#start description#>
-    ///   - end: <#end description#>
-    /// - Returns: <#return value description#>
+    ///   - start:  The start time to use when gathering motion data.
+    ///   - end:    The end time to use when gathering motion data.
+    ///
     public func query(from start: Date,
-                      to end: Date) -> Bool {
+                      to end: Date) {
+        motionActivityManager.queryActivityStarting(from: start,
+                                                    to: end,
+                                                    to: queue) { [unowned self] activities, error in
+                                                        var info: Info
 
-        manager.queryActivityStarting(from: start,
-                                      to: end,
-                                      to: queue) { [unowned self] activities, error in
+                                                        if let error = error {
+                                                            info = .error(error)
+                                                        } else if let activities = activities {
+                                                            info = .activities(activities)
+                                                        } else {
+                                                            info = .unknown
+                                                        }
 
-                                        var info: Info
-
-                                        if let error = error {
-                                            info = .error(error)
-                                        } else if let activities = activities {
-                                            info = .activities(activities)
-                                        } else {
-                                            info = .unknown
-                                        }
-
-                                        self.handler(.didQuery(info))
-
+                                                        self.handler(.didQuery(info))
         }
-
-        return true
-
     }
-
-    // Private Instance Properties
 
     private let handler: (Event) -> Void
-    private let manager: CMMotionActivityManager
     private let queue: OperationQueue
 
-    // Overridden BaseMonitor Instance Methods
+    public override final func cleanupMonitor() {
+        motionActivityManager.stopActivityUpdates()
 
-    public override final func cleanupMonitor() -> Bool {
-
-        manager.stopActivityUpdates()
-
-        return super.cleanupMonitor()
-
+        super.cleanupMonitor()
     }
 
-    public override final func configureMonitor() -> Bool {
+    public override final func configureMonitor() {
+        super.configureMonitor()
 
-        guard super.configureMonitor()
-            else { return false }
-
-        manager.startActivityUpdates(to: queue) { [unowned self] activity in
-
+        motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
             var info: Info
 
             if let activity = activity {
@@ -156,11 +128,8 @@ public class MotionActivityMonitor: BaseMonitor {
             }
 
             self.handler(.didUpdate(info))
-
         }
-
-        return true
-
     }
-
 }
+
+extension MotionActivityMonitor: MotionActivityManagerInjected {}

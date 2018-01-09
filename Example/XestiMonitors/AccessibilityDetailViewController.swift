@@ -10,79 +10,69 @@
 import UIKit
 import XestiMonitors
 
-class AccessibilityDetailViewController: UITableViewController {
+public class AccessibilityDetailViewController: UITableViewController {
 
-    @IBOutlet weak var announcementButton: UIButton!
-    @IBOutlet weak var announcementStringValueLabel: UILabel!
-    @IBOutlet weak var announcementWasSuccessfulLabel: UILabel!
-    @IBOutlet weak var elementFocusedLabel: UILabel!
-    @IBOutlet weak var elementTechnologyLabel: UILabel!
-    @IBOutlet weak var elementUnfocusedLabel: UILabel!
-    @IBOutlet weak var statusAssistiveTouchLabel: UILabel!
-    @IBOutlet weak var statusBoldTextLabel: UILabel!
-    @IBOutlet weak var statusClosedCaptioningLabel: UILabel!
-    @IBOutlet weak var statusDarkenColorsLabel: UILabel!
-    @IBOutlet weak var statusGrayscaleLabel: UILabel!
-    @IBOutlet weak var statusGuidedAccessLabel: UILabel!
-    @IBOutlet weak var statusHearingDeviceLabel: UILabel!
-    @IBOutlet weak var statusInvertColorsLabel: UILabel!
-    @IBOutlet weak var statusMonoAudioLabel: UILabel!
-    @IBOutlet weak var statusReduceMotionLabel: UILabel!
-    @IBOutlet weak var statusReduceTransparencyLabel: UILabel!
-    @IBOutlet weak var statusShakeToUndoLabel: UILabel!
-    @IBOutlet weak var statusSpeakScreenLabel: UILabel!
-    @IBOutlet weak var statusSpeakSelectionLabel: UILabel!
-    @IBOutlet weak var statusSwitchControlLabel: UILabel!
-    @IBOutlet weak var statusVoiceOverLabel: UILabel!
+    // MARK: Private Instance Properties
 
-    lazy var announcementMonitor: AccessibilityAnnouncementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
+    @IBOutlet private weak var announcementButton: UIButton!
+    @IBOutlet private weak var announcementStringValueLabel: UILabel!
+    @IBOutlet private weak var announcementWasSuccessfulLabel: UILabel!
+    @IBOutlet private weak var elementFocusedLabel: UILabel!
+    @IBOutlet private weak var elementTechnologyLabel: UILabel!
+    @IBOutlet private weak var elementUnfocusedLabel: UILabel!
+    @IBOutlet private weak var statusAssistiveTouchLabel: UILabel!
+    @IBOutlet private weak var statusBoldTextLabel: UILabel!
+    @IBOutlet private weak var statusClosedCaptioningLabel: UILabel!
+    @IBOutlet private weak var statusDarkenColorsLabel: UILabel!
+    @IBOutlet private weak var statusGrayscaleLabel: UILabel!
+    @IBOutlet private weak var statusGuidedAccessLabel: UILabel!
+    @IBOutlet private weak var statusHearingDeviceLabel: UILabel!
+    @IBOutlet private weak var statusInvertColorsLabel: UILabel!
+    @IBOutlet private weak var statusMonoAudioLabel: UILabel!
+    @IBOutlet private weak var statusReduceMotionLabel: UILabel!
+    @IBOutlet private weak var statusReduceTransparencyLabel: UILabel!
+    @IBOutlet private weak var statusShakeToUndoLabel: UILabel!
+    @IBOutlet private weak var statusSpeakScreenLabel: UILabel!
+    @IBOutlet private weak var statusSpeakSelectionLabel: UILabel!
+    @IBOutlet private weak var statusSwitchControlLabel: UILabel!
+    @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
+    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
         self.displayAnnouncement($0)
-
     }
 
-    lazy var elementMonitor: AccessibilityElementMonitor = AccessibilityElementMonitor { [unowned self] in
-
+    private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
         self.displayElement($0)
-
     }
 
-    lazy var statusMonitor: AccessibilityStatusMonitor = AccessibilityStatusMonitor { [unowned self] in
-
+    private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
         self.displayStatus($0)
-
     }
 
-    lazy var monitors: [Monitor] = [self.announcementMonitor,
-                                    self.elementMonitor,
-                                    self.statusMonitor]
+    private lazy var monitors: [Monitor] = [self.announcementMonitor,
+                                            self.elementMonitor,
+                                            self.statusMonitor]
 
-    var announcementCount = 0
+    private var announcementCount = 0
 
-    // MARK: -
+    // MARK: Private Instance Methods
 
     private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
-
-        if let event = event, case let .didFinish(info) = event {
-
+        if let event = event,
+            case let .didFinish(info) = event {
             announcementStringValueLabel.text = info.stringValue
 
             announcementWasSuccessfulLabel.text = formatBool(info.wasSuccessful)
-
         } else {
-
             announcementStringValueLabel.text = " "
 
             announcementWasSuccessfulLabel.text = " "
-
         }
-
     }
 
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
-
-        if let event = event, case let .didFocus(info) = event {
-
+        if let event = event,
+            case let .didFocus(info) = event {
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatAccessibilityElement(element)
             } else {
@@ -100,28 +90,18 @@ class AccessibilityDetailViewController: UITableViewController {
             } else {
                 elementUnfocusedLabel.text = " "
             }
-
         } else {
-
             elementFocusedLabel.text = " "
 
             elementTechnologyLabel.text = " "
 
             elementUnfocusedLabel.text = " "
-
         }
-
     }
 
-    // swiftlint:disable cyclomatic_complexity
-    // swiftlint:disable function_body_length
-
     private func displayStatus(_ event: AccessibilityStatusMonitor.Event?) {
-
         if let event = event {
-
             switch event {
-
             case let .assistiveTouchStatusDidChange(value):
                 statusAssistiveTouchLabel.text = formatBool(value)
 
@@ -141,7 +121,11 @@ class AccessibilityDetailViewController: UITableViewController {
                 statusGuidedAccessLabel.text = formatBool(value)
 
             case let .hearingDevicePairedEarDidChange(value):
-                statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
+                if #available(iOS 10.0, *) {
+                    statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
+                } else {
+                    statusHearingDeviceLabel.text = " "
+                }
 
             case let .invertColorsStatusDidChange(value):
                 statusInvertColorsLabel.text = formatBool(value)
@@ -169,12 +153,13 @@ class AccessibilityDetailViewController: UITableViewController {
 
             case let .voiceOverStatusDidChange(value):
                 statusVoiceOverLabel.text = formatBool(value)
-
             }
-
         } else {
-
-            statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
+            if #available(iOS 10.0, *) {
+                statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
+            } else {
+                statusAssistiveTouchLabel.text = " "
+            }
 
             statusBoldTextLabel.text = formatBool(statusMonitor.isBoldTextEnabled)
 
@@ -186,7 +171,11 @@ class AccessibilityDetailViewController: UITableViewController {
 
             statusGuidedAccessLabel.text = formatBool(statusMonitor.isGuidedAccessEnabled)
 
-            statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
+            if #available(iOS 10.0, *) {
+                statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
+            } else {
+                statusHearingDeviceLabel.text = " "
+            }
 
             statusInvertColorsLabel.text = formatBool(statusMonitor.isInvertColorsEnabled)
 
@@ -205,55 +194,37 @@ class AccessibilityDetailViewController: UITableViewController {
             statusSwitchControlLabel.text = formatBool(statusMonitor.isSwitchControlEnabled)
 
             statusVoiceOverLabel.text = formatBool(statusMonitor.isVoiceOverEnabled)
-
         }
-
     }
 
-    // swiftlint:enable cyclomatic_complexity
-    // swiftlint:enable function_body_length
-
     @IBAction private func announcementButtonTapped() {
-
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
                                             "Announcement #\(self.announcementCount)")
-
         }
-
     }
 
-    // MARK: -
+    // MARK: Overridden UIViewController Methods
 
-    override func viewDidLoad() {
-
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         displayAnnouncement(nil)
-
         displayElement(nil)
-
         displayStatus(nil)
-
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         monitors.forEach { $0.startMonitoring() }
-
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-
+    override public func viewWillDisappear(_ animated: Bool) {
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
-
     }
-
 }

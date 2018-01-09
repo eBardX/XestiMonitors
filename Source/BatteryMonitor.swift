@@ -15,15 +15,11 @@ import UIKit
 /// state and charge level of its battery.
 ///
 public class BatteryMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the battery state or battery level of the
     /// device.
     ///
     public enum Event {
-
         ///
         /// The battery level of the device has changed.
         ///
@@ -35,7 +31,34 @@ public class BatteryMonitor: BaseNotificationMonitor {
         case stateDidChange(UIDeviceBatteryState)
     }
 
-    // Public Initializers
+    ///
+    /// Specifies which events to monitor.
+    ///
+    public struct Options: OptionSet {
+        ///
+        /// Monitor `levelDidChange` events.
+        ///
+        public static let levelDidChange = Options(rawValue: 1 << 0)
+
+        ///
+        /// Monitor `stateDidChange` events.
+        ///
+        public static let stateDidChange = Options(rawValue: 1 << 1)
+
+        ///
+        /// Monitor all events.
+        ///
+        public static let all: Options = [.levelDidChange,
+                                          .stateDidChange]
+
+        /// :nodoc:
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
+
+        /// :nodoc:
+        public let rawValue: UInt
+    }
 
     ///
     /// Initializes a new `BatteryMonitor`.
@@ -43,63 +66,60 @@ public class BatteryMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
     ///   - handler:    The handler to call when the battery state or battery
     ///                 level of the device changes.
     ///
     public init(queue: OperationQueue = .main,
+                options: Options = .all,
                 handler: @escaping (Event) -> Void) {
-
-        self.device = .current
         self.handler = handler
+        self.options = options
 
         super.init(queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The battery charge level for the device.
     ///
-    public var level: Float { return device.batteryLevel }
+    public var level: Float {
+        return device.batteryLevel
+    }
 
     ///
     /// The battery state for the device.
     ///
-    public var state: UIDeviceBatteryState { return device.batteryState }
+    public var state: UIDeviceBatteryState {
+        return device.batteryState
+    }
 
-    // Private Instance Properties
-
-    private let device: UIDevice
     private let handler: (Event) -> Void
+    private let options: Options
 
-    // Overridden BaseNotificationMonitor Instance Methods
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
-
-        observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
-            self.handler(.levelDidChange(self.level))
+        if options.contains(.levelDidChange) {
+            observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
+                self.handler(.levelDidChange(self.level))
+            }
         }
 
-        observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
-            self.handler(.stateDidChange(self.state))
+        if options.contains(.stateDidChange) {
+            observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
+                self.handler(.stateDidChange(self.state))
+            }
         }
 
         device.isBatteryMonitoringEnabled = true
-
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
-
+    public override func removeNotificationObservers() {
         device.isBatteryMonitoringEnabled = false
 
-        return super.removeNotificationObservers()
-
+        super.removeNotificationObservers()
     }
-
 }
+
+extension BatteryMonitor: DeviceInjected {}

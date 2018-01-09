@@ -15,9 +15,6 @@ import UIKit
 /// physical orientation.
 ///
 public class OrientationMonitor: BaseNotificationMonitor {
-
-    // Public Nested Types
-
     ///
     /// Encapsulates changes to the physical orientation of the device.
     ///
@@ -27,8 +24,6 @@ public class OrientationMonitor: BaseNotificationMonitor {
         ///
         case didChange(UIDeviceOrientation)
     }
-
-    // Public Initializers
 
     ///
     /// Initializes a new `OrientationMonitor`.
@@ -41,49 +36,35 @@ public class OrientationMonitor: BaseNotificationMonitor {
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-
-        self.device = .current
         self.handler = handler
 
         super.init(queue: queue)
-
     }
-
-    // Public Instance Properties
 
     ///
     /// The physical orientation of the device.
     ///
-    public var orientation: UIDeviceOrientation { return device.orientation }
+    public var orientation: UIDeviceOrientation {
+        return device.orientation
+    }
 
-    // Private Instance Properties
-
-    private let device: UIDevice
     private let handler: (Event) -> Void
 
-    // Overridden BaseNotificationMonitor Instance Methods
-
-    public override func addNotificationObservers() -> Bool {
-
-        guard super.addNotificationObservers()
-            else { return false }
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
         observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
             self.handler(.didChange(self.device.orientation))
         }
 
         device.beginGeneratingDeviceOrientationNotifications()
-
-        return true
-
     }
 
-    public override func removeNotificationObservers() -> Bool {
-
+    public override func removeNotificationObservers() {
         device.endGeneratingDeviceOrientationNotifications()
 
-        return super.removeNotificationObservers()
-
+        super.removeNotificationObservers()
     }
-
 }
+
+extension OrientationMonitor: DeviceInjected {}

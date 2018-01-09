@@ -9,26 +9,10 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
-
-    override func viewWillAppear(_ animated: Bool) {
-
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+public class MasterViewController: UITableViewController {
+    override public func viewWillAppear(_ animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController?.isCollapsed ?? false
 
         super.viewWillAppear(animated)
-
     }
-
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //    if segue.identifier == "showDetail" {
-    //        if let indexPath = self.tableView.indexPathForSelectedRow {
-    //            let object = objects[indexPath.row] as! NSDate
-    //            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-    //            controller.detailItem = object
-    //            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-    //            controller.navigationItem.leftItemsSupplementBackButton = true
-    //        }
-    //    }
-    //}
-
 }

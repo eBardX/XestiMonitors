@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.summary             = 'An extensible monitoring framework written in Swift.'
   s.documentation_url   = 'https://ebardx.github.io/XestiMonitors/'
 
-  s.platform            = :ios, '8.0'
+  s.platform            = :ios, '9.0'
 
   s.requires_arc        = true
   s.frameworks          = 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
