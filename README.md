@@ -1,15 +1,15 @@
 # XestiMonitors
 
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)](https://developer.apple.com/swift/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
-[![Build Status](https://travis-ci.org/eBardX/XestiMonitors.svg?branch=master)](https://travis-ci.org/eBardX/XestiMonitors)
-[![Code Coverage](https://codecov.io/github/eBardX/XestiMonitors/coverage.svg?branch=master)](https://codecov.io/github/eBardX/XestiMonitors?branch=master)
+[![Build Status](https://img.shields.io/travis/eBardX/XestiMonitors/master.svg)](https://travis-ci.org/eBardX/XestiMonitors)
+[![Code Coverage](https://img.shields.io/codecov/c/github/eBardX/XestiMonitors/master.svg)](https://codecov.io/github/eBardX/XestiMonitors)
 [![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
 
-[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible.svg)](https://github.com/apple/swift-package-manager)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible.svg)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPod Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
 * [Overview](#overview)
@@ -287,10 +287,10 @@ processed motion measurements from the device:
 * [MagnetometerMonitor][magnetometer_monitor] to monitor the device’s
   magnetometer for periodic raw measurements of the magnetic field around the
   three spatial axes. *(iOS, watchOS)*
-* [MotionActivityMonitor][motion_activity_monitor] to provide access to the
-  motion data stored by the device. *(iOS, watchOS)*
-* [PedometerMonitor][pedometer_monitor] to monitor the device to fetch
-  pedestrian-related data. *(iOS, watchOS)*
+* [MotionActivityMonitor][motion_activity_monitor] to monitor the device for
+  live and historic motion data. *(iOS, watchOS)*
+* [PedometerMonitor][pedometer_monitor] to monitor the device for live and
+  historic walking data. *(iOS, watchOS)*
 
 ### <a name="accessibility_monitors">Accessibility Monitors</a>
 

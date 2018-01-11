@@ -8,9 +8,9 @@ Major rewrite.
 `MotionActivityMonitor`, and `PedometerMonitor`.
 * Adds unit tests for all public classes.
 
-**NOTE:** Developers using older versions of XestiMonitors will need to manually conform
-to the new APIs introduced in this version. There is _no_ deprecation path. Sorry! Life is too
-short.
+**NOTE:** Developers using older versions of XestiMonitors will need to
+manually conform to the new APIs introduced in this version. There is _no_
+deprecation path. Sorry! Life is too short.
 
 # 1.3.0 (2017-01-18)
 
