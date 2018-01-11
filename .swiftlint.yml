@@ -51,9 +51,9 @@ opt_in_rules:
 # - no_grouping_extension
 
 included:
-  - XestiMonitors
-  - ../Source
-  - ../XestiMonitorsTests
+  - XestiMonitorsDemo-iOS
+  - ../../Sources
+  - ../../Tests
 
 excluded:
   - Example/Pods
@@ -124,7 +124,7 @@ vertical_whitespace:
 
 custom_rules:
   closing_brace_whitespace:
-    regex: '(?:\n| {2,})\}\)? *\n *[^ \n\})\]]'
+    regex: '(?:\n| {2,})\}\)? *\n *[^ \n\})\]#]'
     name: "Closing Brace Whitespace"
     message: "Empty line required after closing curly braces if code with same indentation follows."
     severity: warning

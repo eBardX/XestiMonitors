@@ -1,0 +1,1832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F55F4F232006C4E600CCDDA0 /* XestiMonitors */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F55F4F262006C4E600CCDDA0 /* Build configuration list for PBXAggregateTarget "XestiMonitors" */;
+			buildPhases = (
+			);
+			dependencies = (
+				F55F4F282006C4EF00CCDDA0 /* PBXTargetDependency */,
+				F55F4F2A2006C4EF00CCDDA0 /* PBXTargetDependency */,
+				F55F4F2C2006C4EF00CCDDA0 /* PBXTargetDependency */,
+				F55F4F2E2006C4EF00CCDDA0 /* PBXTargetDependency */,
+			);
+			name = XestiMonitors;
+			productName = XestiMonitors;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		3549BB501DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3549BB511DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3549BB521DA38A2100C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3549BB531DA38A2200C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3549BB661DA38ADB00C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* XestiMonitors.framework */; };
+		3549BB751DA38AEF00C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB481DA389F300C63030 /* XestiMonitors.framework */; };
+		3549BB841DA38B0000C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* XestiMonitors.framework */; };
+		F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
+		F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
+		F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
+		F50693992007BFBE0031754B /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
+		F506939A2007BFC00031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
+		F506939B2007BFC00031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
+		F506939C2007BFC00031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
+		F506939D2007BFC00031754B /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
+		F506939E2007BFC60031754B /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */; };
+		F506939F2007BFC60031754B /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029920067A40005BC04A /* StatusBarMonitor.swift */; };
+		F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
+		F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */; };
+		F50693A22007BFC80031754B /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
+		F50693A32007BFC80031754B /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */; };
+		F50693A42007BFC80031754B /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */; };
+		F50693A52007BFC80031754B /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029920067A40005BC04A /* StatusBarMonitor.swift */; };
+		F50693A62007BFC80031754B /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029A20067A40005BC04A /* TimeMonitor.swift */; };
+		F50693A72007BFCA0031754B /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
+		F50693A82007BFCA0031754B /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */; };
+		F50693A92007BFCA0031754B /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
+		F50693AA2007BFCA0031754B /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */; };
+		F50693AB2007BFCA0031754B /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */; };
+		F50693AC2007BFCA0031754B /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029920067A40005BC04A /* StatusBarMonitor.swift */; };
+		F50693AD2007BFCA0031754B /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029A20067A40005BC04A /* TimeMonitor.swift */; };
+		F50693AE2007BFD90031754B /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
+		F50693AF2007BFD90031754B /* AltimeterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029D20067A40005BC04A /* AltimeterInjection.swift */; };
+		F50693B02007BFD90031754B /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
+		F50693B12007BFD90031754B /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029F20067A40005BC04A /* DeviceInjection.swift */; };
+		F50693B22007BFD90031754B /* MotionActivityManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */; };
+		F50693B32007BFD90031754B /* MotionManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A120067A40005BC04A /* MotionManagerInjection.swift */; };
+		F50693B42007BFD90031754B /* PedometerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A420067A40005BC04A /* PedometerInjection.swift */; };
+		F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029D20067A40005BC04A /* AltimeterInjection.swift */; };
+		F50693B62007BFDA0031754B /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029F20067A40005BC04A /* DeviceInjection.swift */; };
+		F50693B72007BFDA0031754B /* MotionActivityManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */; };
+		F50693B82007BFDA0031754B /* MotionManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A120067A40005BC04A /* MotionManagerInjection.swift */; };
+		F50693B92007BFDA0031754B /* PedometerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A420067A40005BC04A /* PedometerInjection.swift */; };
+		F50693BA2007BFDB0031754B /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
+		F50693BB2007BFDB0031754B /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
+		F50693BC2007BFDB0031754B /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029F20067A40005BC04A /* DeviceInjection.swift */; };
+		F50693BD2007BFDB0031754B /* NetworkReachabilityInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */; };
+		F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B320067A40005BC04A /* BatteryMonitor.swift */; };
+		F50693BF2007BFDF0031754B /* OrientationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B420067A40005BC04A /* OrientationMonitor.swift */; };
+		F50693C02007BFDF0031754B /* ProximityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B520067A40005BC04A /* ProximityMonitor.swift */; };
+		F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B320067A40005BC04A /* BatteryMonitor.swift */; };
+		F50693C22007BFE00031754B /* OrientationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B420067A40005BC04A /* OrientationMonitor.swift */; };
+		F50693C32007BFE00031754B /* ProximityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B520067A40005BC04A /* ProximityMonitor.swift */; };
+		F50693C42007BFE10031754B /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B320067A40005BC04A /* BatteryMonitor.swift */; };
+		F50693C52007BFE10031754B /* OrientationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B420067A40005BC04A /* OrientationMonitor.swift */; };
+		F50693C62007BFE10031754B /* ProximityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B520067A40005BC04A /* ProximityMonitor.swift */; };
+		F50693C72007BFE50031754B /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */; };
+		F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */; };
+		F50693C92007BFE70031754B /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */; };
+		F50693CA2007BFF00031754B /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
+		F50693CB2007BFF00031754B /* AltimeterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */; };
+		F50693CC2007BFF00031754B /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */; };
+		F50693CD2007BFF00031754B /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */; };
+		F50693CE2007BFF00031754B /* MagnetometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */; };
+		F50693CF2007BFF00031754B /* MotionActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */; };
+		F50693D02007BFF00031754B /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B120067A40005BC04A /* PedometerMonitor.swift */; };
+		F50693D12007BFF20031754B /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
+		F50693D22007BFF20031754B /* AltimeterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */; };
+		F50693D32007BFF20031754B /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */; };
+		F50693D42007BFF20031754B /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */; };
+		F50693D52007BFF20031754B /* MagnetometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */; };
+		F50693D62007BFF20031754B /* MotionActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */; };
+		F50693D72007BFF20031754B /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B120067A40005BC04A /* PedometerMonitor.swift */; };
+		F50693D82007BFF80031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
+		F50693D92007BFF90031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
+		F50693DA2007BFFD0031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
+		F50693DB2007BFFD0031754B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
+		F50693DC2007BFFD0031754B /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */; };
+		F54553502006AB3100D63955 /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036720067AA3005BC04A /* MockApplication.swift */; };
+		F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */; };
+		F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */; };
+		F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */; };
+		F55F4F062006ABA700CCDDA0 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035520067AA3005BC04A /* TimeMonitorTests.swift */; };
+		F55F4F082006B35000CCDDA0 /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
+		F55F4F092006B35400CCDDA0 /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
+		F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
+		F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */; };
+		F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */; };
+		F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
+		F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
+		F5E1DE3A2006A64800C43E8D /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
+		F5E1DE3B2006A64C00C43E8D /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */; };
+		F5E1DE3C2006A65000C43E8D /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */; };
+		F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029A20067A40005BC04A /* TimeMonitor.swift */; };
+		F5F302B620067A40005BC04A /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
+		F5F302BA20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
+		F5F302BB20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
+		F5F302BC20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
+		F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F5F302BF20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F5F302C020067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F5F302C220067A40005BC04A /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */; };
+		F5F302C620067A40005BC04A /* BaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029020067A40005BC04A /* BaseMonitor.swift */; };
+		F5F302C720067A40005BC04A /* BaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029020067A40005BC04A /* BaseMonitor.swift */; };
+		F5F302C820067A40005BC04A /* BaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029020067A40005BC04A /* BaseMonitor.swift */; };
+		F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029020067A40005BC04A /* BaseMonitor.swift */; };
+		F5F302CA20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */; };
+		F5F302CB20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */; };
+		F5F302CC20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */; };
+		F5F302CD20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */; };
+		F5F302CE20067A40005BC04A /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029220067A40005BC04A /* Monitor.swift */; };
+		F5F302CF20067A40005BC04A /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029220067A40005BC04A /* Monitor.swift */; };
+		F5F302D020067A40005BC04A /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029220067A40005BC04A /* Monitor.swift */; };
+		F5F302D120067A40005BC04A /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029220067A40005BC04A /* Monitor.swift */; };
+		F5F302D220067A40005BC04A /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
+		F5F302D620067A40005BC04A /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */; };
+		F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
+		F5F302DE20067A40005BC04A /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */; };
+		F5F302E220067A40005BC04A /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */; };
+		F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029920067A40005BC04A /* StatusBarMonitor.swift */; };
+		F5F302EA20067A40005BC04A /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029A20067A40005BC04A /* TimeMonitor.swift */; };
+		F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
+		F5F302F220067A40005BC04A /* AltimeterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029D20067A40005BC04A /* AltimeterInjection.swift */; };
+		F5F302F520067A40005BC04A /* AltimeterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029D20067A40005BC04A /* AltimeterInjection.swift */; };
+		F5F302F620067A40005BC04A /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
+		F5F302FA20067A40005BC04A /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029F20067A40005BC04A /* DeviceInjection.swift */; };
+		F5F302FE20067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */; };
+		F5F3030120067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */; };
+		F5F3030220067A40005BC04A /* MotionManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A120067A40005BC04A /* MotionManagerInjection.swift */; };
+		F5F3030520067A40005BC04A /* MotionManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A120067A40005BC04A /* MotionManagerInjection.swift */; };
+		F5F3030620067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */; };
+		F5F3030720067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */; };
+		F5F3030820067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */; };
+		F5F3030A20067A40005BC04A /* NotificationCenterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */; };
+		F5F3030B20067A40005BC04A /* NotificationCenterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */; };
+		F5F3030C20067A40005BC04A /* NotificationCenterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */; };
+		F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */; };
+		F5F3030E20067A40005BC04A /* PedometerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A420067A40005BC04A /* PedometerInjection.swift */; };
+		F5F3031120067A40005BC04A /* PedometerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A420067A40005BC04A /* PedometerInjection.swift */; };
+		F5F3031220067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
+		F5F3031420067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
+		F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
+		F5F3031820067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
+		F5F3031A20067A40005BC04A /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
+		F5F3031E20067A40005BC04A /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
+		F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
+		F5F3032520067A40005BC04A /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
+		F5F3032620067A40005BC04A /* AltimeterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */; };
+		F5F3032920067A40005BC04A /* AltimeterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */; };
+		F5F3032A20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */; };
+		F5F3032D20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */; };
+		F5F3032E20067A40005BC04A /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */; };
+		F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */; };
+		F5F3033220067A40005BC04A /* MagnetometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */; };
+		F5F3033520067A40005BC04A /* MagnetometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */; };
+		F5F3033620067A40005BC04A /* MotionActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */; };
+		F5F3033920067A40005BC04A /* MotionActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */; };
+		F5F3033A20067A40005BC04A /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B120067A40005BC04A /* PedometerMonitor.swift */; };
+		F5F3033D20067A40005BC04A /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B120067A40005BC04A /* PedometerMonitor.swift */; };
+		F5F3033E20067A40005BC04A /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B320067A40005BC04A /* BatteryMonitor.swift */; };
+		F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B420067A40005BC04A /* OrientationMonitor.swift */; };
+		F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302B520067A40005BC04A /* ProximityMonitor.swift */; };
+		F5F3037120067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034B20067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift */; };
+		F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034B20067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift */; };
+		F5F3037420067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034C20067AA3005BC04A /* AccessibilityElementMonitorTests.swift */; };
+		F5F3037620067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034C20067AA3005BC04A /* AccessibilityElementMonitorTests.swift */; };
+		F5F3037720067AA3005BC04A /* AccessibilityStatusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */; };
+		F5F3037A20067AA3005BC04A /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */; };
+		F5F3037D20067AA3005BC04A /* BackgroundRefreshMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035020067AA3005BC04A /* BackgroundRefreshMonitorTests.swift */; };
+		F5F3038020067AA3005BC04A /* MemoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */; };
+		F5F3038320067AA3005BC04A /* ProtectedDataMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */; };
+		F5F3038620067AA3005BC04A /* ScreenshotMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */; };
+		F5F3038920067AA3005BC04A /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035420067AA3005BC04A /* StatusBarMonitorTests.swift */; };
+		F5F3038C20067AA3005BC04A /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035520067AA3005BC04A /* TimeMonitorTests.swift */; };
+		F5F3038F20067AA3005BC04A /* AccelerometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035720067AA3005BC04A /* AccelerometerMonitorTests.swift */; };
+		F5F3039220067AA3005BC04A /* AltimeterMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035820067AA3005BC04A /* AltimeterMonitorTests.swift */; };
+		F5F3039520067AA3005BC04A /* DeviceMotionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035920067AA3005BC04A /* DeviceMotionMonitorTests.swift */; };
+		F5F3039820067AA3005BC04A /* GyroscopeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035A20067AA3005BC04A /* GyroscopeMonitorTests.swift */; };
+		F5F3039B20067AA3005BC04A /* MagnetometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035B20067AA3005BC04A /* MagnetometerMonitorTests.swift */; };
+		F5F3039E20067AA3005BC04A /* MotionActivityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035C20067AA3005BC04A /* MotionActivityMonitorTests.swift */; };
+		F5F303A120067AA3005BC04A /* PedometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035D20067AA3005BC04A /* PedometerMonitorTests.swift */; };
+		F5F303A420067AA3005BC04A /* CMAccelerationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035F20067AA3005BC04A /* CMAccelerationExtensionsTests.swift */; };
+		F5F303A720067AA3005BC04A /* BatteryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036120067AA3005BC04A /* BatteryMonitorTests.swift */; };
+		F5F303AA20067AA3005BC04A /* OrientationMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036220067AA3005BC04A /* OrientationMonitorTests.swift */; };
+		F5F303AD20067AA3005BC04A /* ProximityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036320067AA3005BC04A /* ProximityMonitorTests.swift */; };
+		F5F303B020067AA3005BC04A /* MockAccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */; };
+		F5F303B320067AA3005BC04A /* MockAltimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036620067AA3005BC04A /* MockAltimeter.swift */; };
+		F5F303B620067AA3005BC04A /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036720067AA3005BC04A /* MockApplication.swift */; };
+		F5F303B920067AA3005BC04A /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036820067AA3005BC04A /* MockDevice.swift */; };
+		F5F303BC20067AA3005BC04A /* MockMotionActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */; };
+		F5F303BF20067AA3005BC04A /* MockMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036A20067AA3005BC04A /* MockMotionManager.swift */; };
+		F5F303C220067AA3005BC04A /* MockNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */; };
+		F5F303C320067AA3005BC04A /* MockNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */; };
+		F5F303C420067AA3005BC04A /* MockNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */; };
+		F5F303C520067AA3005BC04A /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */; };
+		F5F303C620067AA3005BC04A /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */; };
+		F5F303C720067AA3005BC04A /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */; };
+		F5F303C820067AA3005BC04A /* MockPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036D20067AA3005BC04A /* MockPedometer.swift */; };
+		F5F303CB20067AA3005BC04A /* KeyboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */; };
+		F5F303CE20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */; };
+		F5F303CF20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */; };
+		F5F303D020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3549BB671DA38ADB00C63030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB201DA389CD00C63030;
+			remoteInfo = "XestiMonitors-iOS";
+		};
+		3549BB761DA38AEF00C63030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB471DA389F300C63030;
+			remoteInfo = "XestiMonitors-tvOS";
+		};
+		3549BB851DA38B0000C63030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB3A1DA389E800C63030;
+			remoteInfo = "XestiMonitors-macOS";
+		};
+		F55F4F272006C4EF00CCDDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB201DA389CD00C63030;
+			remoteInfo = "XestiMonitors-iOS";
+		};
+		F55F4F292006C4EF00CCDDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB3A1DA389E800C63030;
+			remoteInfo = "XestiMonitors-macOS";
+		};
+		F55F4F2B2006C4EF00CCDDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB471DA389F300C63030;
+			remoteInfo = "XestiMonitors-tvOS";
+		};
+		F55F4F2D2006C4EF00CCDDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3549BB2D1DA389DB00C63030;
+			remoteInfo = "XestiMonitors-watchOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35B7422C1F82A2C700829B21 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35B742331F82A60600829B21 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35B7423A1F82A63600829B21 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3549BB181DA3890B00C63030 /* XestiMonitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XestiMonitors.h; sourceTree = "<group>"; };
+		3549BB211DA389CD00C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB2E1DA389DB00C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB3B1DA389E800C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB481DA389F300C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB551DA38A5E00C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		3549BB571DA38A8800C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		3549BB581DA38A8800C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3549BB611DA38ADB00C63030 /* XestiMonitorsTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB701DA38AEF00C63030 /* XestiMonitorsTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50693DD2007C8BC0031754B /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
+		F50BE8D52006C7FE0027A36C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
+		F5F3028B20067A40005BC04A /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
+		F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+DeviceOrientation.swift"; sourceTree = "<group>"; };
+		F5F3029020067A40005BC04A /* BaseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMonitor.swift; sourceTree = "<group>"; };
+		F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationMonitor.swift; sourceTree = "<group>"; };
+		F5F3029220067A40005BC04A /* Monitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monitor.swift; sourceTree = "<group>"; };
+		F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationStateMonitor.swift; sourceTree = "<group>"; };
+		F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshMonitor.swift; sourceTree = "<group>"; };
+		F5F3029620067A40005BC04A /* MemoryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryMonitor.swift; sourceTree = "<group>"; };
+		F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitor.swift; sourceTree = "<group>"; };
+		F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitor.swift; sourceTree = "<group>"; };
+		F5F3029920067A40005BC04A /* StatusBarMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
+		F5F3029A20067A40005BC04A /* TimeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
+		F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusInjection.swift; sourceTree = "<group>"; };
+		F5F3029D20067A40005BC04A /* AltimeterInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltimeterInjection.swift; sourceTree = "<group>"; };
+		F5F3029E20067A40005BC04A /* ApplicationInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInjection.swift; sourceTree = "<group>"; };
+		F5F3029F20067A40005BC04A /* DeviceInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInjection.swift; sourceTree = "<group>"; };
+		F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivityManagerInjection.swift; sourceTree = "<group>"; };
+		F5F302A120067A40005BC04A /* MotionManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManagerInjection.swift; sourceTree = "<group>"; };
+		F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityInjection.swift; sourceTree = "<group>"; };
+		F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterInjection.swift; sourceTree = "<group>"; };
+		F5F302A420067A40005BC04A /* PedometerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerInjection.swift; sourceTree = "<group>"; };
+		F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityAnnouncementMonitor.swift; sourceTree = "<group>"; };
+		F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityElementMonitor.swift; sourceTree = "<group>"; };
+		F5F302A820067A40005BC04A /* AccessibilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatus.swift; sourceTree = "<group>"; };
+		F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusMonitor.swift; sourceTree = "<group>"; };
+		F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerMonitor.swift; sourceTree = "<group>"; };
+		F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltimeterMonitor.swift; sourceTree = "<group>"; };
+		F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceMotionMonitor.swift; sourceTree = "<group>"; };
+		F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GyroscopeMonitor.swift; sourceTree = "<group>"; };
+		F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetometerMonitor.swift; sourceTree = "<group>"; };
+		F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivityMonitor.swift; sourceTree = "<group>"; };
+		F5F302B120067A40005BC04A /* PedometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitor.swift; sourceTree = "<group>"; };
+		F5F302B320067A40005BC04A /* BatteryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		F5F302B420067A40005BC04A /* OrientationMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationMonitor.swift; sourceTree = "<group>"; };
+		F5F302B520067A40005BC04A /* ProximityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityMonitor.swift; sourceTree = "<group>"; };
+		F5F3034B20067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityAnnouncementMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3034C20067AA3005BC04A /* AccessibilityElementMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityElementMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationStateMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035020067AA3005BC04A /* BackgroundRefreshMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035420067AA3005BC04A /* StatusBarMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035520067AA3005BC04A /* TimeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035720067AA3005BC04A /* AccelerometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035820067AA3005BC04A /* AltimeterMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltimeterMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035920067AA3005BC04A /* DeviceMotionMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceMotionMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035A20067AA3005BC04A /* GyroscopeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GyroscopeMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035B20067AA3005BC04A /* MagnetometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetometerMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035C20067AA3005BC04A /* MotionActivityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivityMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035D20067AA3005BC04A /* PedometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3035F20067AA3005BC04A /* CMAccelerationExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMAccelerationExtensionsTests.swift; sourceTree = "<group>"; };
+		F5F3036120067AA3005BC04A /* BatteryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3036220067AA3005BC04A /* OrientationMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3036320067AA3005BC04A /* ProximityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAccessibilityStatus.swift; sourceTree = "<group>"; };
+		F5F3036620067AA3005BC04A /* MockAltimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAltimeter.swift; sourceTree = "<group>"; };
+		F5F3036720067AA3005BC04A /* MockApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockApplication.swift; sourceTree = "<group>"; };
+		F5F3036820067AA3005BC04A /* MockDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDevice.swift; sourceTree = "<group>"; };
+		F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMotionActivityManager.swift; sourceTree = "<group>"; };
+		F5F3036A20067AA3005BC04A /* MockMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMotionManager.swift; sourceTree = "<group>"; };
+		F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkReachability.swift; sourceTree = "<group>"; };
+		F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
+		F5F3036D20067AA3005BC04A /* MockPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPedometer.swift; sourceTree = "<group>"; };
+		F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitorTests.swift; sourceTree = "<group>"; };
+		F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitorTests.swift; sourceTree = "<group>"; };
+		F5F303D420067B79005BC04A /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F5F303D520067B79005BC04A /* XestiMonitors.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XestiMonitors.podspec; sourceTree = "<group>"; };
+		F5F303D620067B79005BC04A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		F5F303D720067B79005BC04A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F5F303D820067C7E005BC04A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F5F303D920067C7E005BC04A /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		F5F303DA20067C7E005BC04A /* generate-docs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-docs.sh"; sourceTree = "<group>"; };
+		F5F303DB20067C7E005BC04A /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		F5F303DC20067C7E005BC04A /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
+		F5F303DD20067C7E005BC04A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3549BB1D1DA389CD00C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB2A1DA389DB00C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB371DA389E800C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB441DA389F300C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB5E1DA38ADB00C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB661DA38ADB00C63030 /* XestiMonitors.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB6D1DA38AEF00C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB751DA38AEF00C63030 /* XestiMonitors.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB7C1DA38B0000C63030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB841DA38B0000C63030 /* XestiMonitors.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3549BAFB1DA387DB00C63030 = {
+			isa = PBXGroup;
+			children = (
+				F5F303D320067B52005BC04A /* Configuration */,
+				F5F303D120067B1F005BC04A /* Metadata */,
+				3549BB161DA3890B00C63030 /* Sources */,
+				3549BB191DA3890B00C63030 /* Tests */,
+				3549BB061DA387DB00C63030 /* Products */,
+				357D954B1DA3F2B400AEC55F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3549BB061DA387DB00C63030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3549BB211DA389CD00C63030 /* XestiMonitors.framework */,
+				3549BB2E1DA389DB00C63030 /* XestiMonitors.framework */,
+				3549BB3B1DA389E800C63030 /* XestiMonitors.framework */,
+				3549BB481DA389F300C63030 /* XestiMonitors.framework */,
+				3549BB611DA38ADB00C63030 /* XestiMonitorsTests-iOS.xctest */,
+				3549BB701DA38AEF00C63030 /* XestiMonitorsTests-tvOS.xctest */,
+				3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3549BB161DA3890B00C63030 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				359649011FB18CBF00FC7ADC /* Core */,
+				3549BB541DA38A4000C63030 /* Supporting Files */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3549BB191DA3890B00C63030 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3034A20067AA3005BC04A /* Accessibility */,
+				F5F3034E20067AA3005BC04A /* Application */,
+				F5F3036020067AA3005BC04A /* Device */,
+				F5F3035E20067AA3005BC04A /* Miscellaneous */,
+				F5F3036420067AA3005BC04A /* Mock */,
+				F5F3035620067AA3005BC04A /* Motion */,
+				F5F3036E20067AA3005BC04A /* Other */,
+				3549BB5B1DA38A8C00C63030 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3549BB541DA38A4000C63030 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3549BB181DA3890B00C63030 /* XestiMonitors.h */,
+				3549BB171DA3890B00C63030 /* Info.plist */,
+				3549BB551DA38A5E00C63030 /* Info-tvOS.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3549BB5B1DA38A8C00C63030 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3549BB581DA38A8800C63030 /* Info.plist */,
+				3549BB571DA38A8800C63030 /* Info-tvOS.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		357D954B1DA3F2B400AEC55F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		359649011FB18CBF00FC7ADC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F5F302A520067A40005BC04A /* Accessibility */,
+				F5F3029320067A40005BC04A /* Application */,
+				F5F3028F20067A40005BC04A /* Base */,
+				F5F3029B20067A40005BC04A /* DependencyInjection */,
+				F5F302B220067A40005BC04A /* Device */,
+				F5F3028D20067A40005BC04A /* Extensions */,
+				F5F302AA20067A40005BC04A /* Motion */,
+				F5F3028920067A40005BC04A /* Other */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F5F3028920067A40005BC04A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
+				F5F3028B20067A40005BC04A /* NetworkReachability.swift */,
+				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F5F3028D20067A40005BC04A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5F3028F20067A40005BC04A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3029020067A40005BC04A /* BaseMonitor.swift */,
+				F5F3029120067A40005BC04A /* BaseNotificationMonitor.swift */,
+				F5F3029220067A40005BC04A /* Monitor.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F5F3029320067A40005BC04A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */,
+				F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */,
+				F5F3029620067A40005BC04A /* MemoryMonitor.swift */,
+				F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */,
+				F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */,
+				F5F3029920067A40005BC04A /* StatusBarMonitor.swift */,
+				F5F3029A20067A40005BC04A /* TimeMonitor.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F5F3029B20067A40005BC04A /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */,
+				F5F3029D20067A40005BC04A /* AltimeterInjection.swift */,
+				F5F3029E20067A40005BC04A /* ApplicationInjection.swift */,
+				F5F3029F20067A40005BC04A /* DeviceInjection.swift */,
+				F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */,
+				F5F302A120067A40005BC04A /* MotionManagerInjection.swift */,
+				F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */,
+				F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */,
+				F5F302A420067A40005BC04A /* PedometerInjection.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		F5F302A520067A40005BC04A /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */,
+				F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */,
+				F5F302A820067A40005BC04A /* AccessibilityStatus.swift */,
+				F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		F5F302AA20067A40005BC04A /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */,
+				F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */,
+				F5F302AD20067A40005BC04A /* DeviceMotionMonitor.swift */,
+				F5F302AE20067A40005BC04A /* GyroscopeMonitor.swift */,
+				F5F302AF20067A40005BC04A /* MagnetometerMonitor.swift */,
+				F5F302B020067A40005BC04A /* MotionActivityMonitor.swift */,
+				F5F302B120067A40005BC04A /* PedometerMonitor.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
+		F5F302B220067A40005BC04A /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				F5F302B320067A40005BC04A /* BatteryMonitor.swift */,
+				F5F302B420067A40005BC04A /* OrientationMonitor.swift */,
+				F5F302B520067A40005BC04A /* ProximityMonitor.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		F5F3034A20067AA3005BC04A /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3034B20067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift */,
+				F5F3034C20067AA3005BC04A /* AccessibilityElementMonitorTests.swift */,
+				F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		F5F3034E20067AA3005BC04A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */,
+				F5F3035020067AA3005BC04A /* BackgroundRefreshMonitorTests.swift */,
+				F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */,
+				F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */,
+				F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */,
+				F5F3035420067AA3005BC04A /* StatusBarMonitorTests.swift */,
+				F5F3035520067AA3005BC04A /* TimeMonitorTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F5F3035620067AA3005BC04A /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3035720067AA3005BC04A /* AccelerometerMonitorTests.swift */,
+				F5F3035820067AA3005BC04A /* AltimeterMonitorTests.swift */,
+				F5F3035920067AA3005BC04A /* DeviceMotionMonitorTests.swift */,
+				F5F3035A20067AA3005BC04A /* GyroscopeMonitorTests.swift */,
+				F5F3035B20067AA3005BC04A /* MagnetometerMonitorTests.swift */,
+				F5F3035C20067AA3005BC04A /* MotionActivityMonitorTests.swift */,
+				F5F3035D20067AA3005BC04A /* PedometerMonitorTests.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
+		F5F3035E20067AA3005BC04A /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3035F20067AA3005BC04A /* CMAccelerationExtensionsTests.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		F5F3036020067AA3005BC04A /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3036120067AA3005BC04A /* BatteryMonitorTests.swift */,
+				F5F3036220067AA3005BC04A /* OrientationMonitorTests.swift */,
+				F5F3036320067AA3005BC04A /* ProximityMonitorTests.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		F5F3036420067AA3005BC04A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */,
+				F5F3036620067AA3005BC04A /* MockAltimeter.swift */,
+				F5F3036720067AA3005BC04A /* MockApplication.swift */,
+				F5F3036820067AA3005BC04A /* MockDevice.swift */,
+				F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */,
+				F5F3036A20067AA3005BC04A /* MockMotionManager.swift */,
+				F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */,
+				F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */,
+				F5F3036D20067AA3005BC04A /* MockPedometer.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		F5F3036E20067AA3005BC04A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
+				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F5F303D120067B1F005BC04A /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				F5F303D420067B79005BC04A /* CHANGELOG.md */,
+				F5F303D620067B79005BC04A /* LICENSE.md */,
+				F5F303D720067B79005BC04A /* README.md */,
+				F50BE8D52006C7FE0027A36C /* Package.swift */,
+				F5F303D520067B79005BC04A /* XestiMonitors.podspec */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
+		F5F303D320067B52005BC04A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F50693DD2007C8BC0031754B /* .codecov.yml */,
+				F5F303DD20067C7E005BC04A /* .gitignore */,
+				F5F303DC20067C7E005BC04A /* .jazzy.yaml */,
+				F5F303DB20067C7E005BC04A /* .swift-version */,
+				F5F303D820067C7E005BC04A /* .swiftlint.yml */,
+				F5F303D920067C7E005BC04A /* .travis.yml */,
+				F5F303DA20067C7E005BC04A /* generate-docs.sh */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3549BB1E1DA389CD00C63030 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB501DA38A2000C63030 /* XestiMonitors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB2B1DA389DB00C63030 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB521DA38A2100C63030 /* XestiMonitors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB381DA389E800C63030 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB531DA38A2200C63030 /* XestiMonitors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB451DA389F300C63030 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3549BB511DA38A2000C63030 /* XestiMonitors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3549BB201DA389CD00C63030 /* XestiMonitors-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-iOS" */;
+			buildPhases = (
+				3549BB1C1DA389CD00C63030 /* Sources */,
+				3549BB1D1DA389CD00C63030 /* Frameworks */,
+				3549BB1E1DA389CD00C63030 /* Headers */,
+				3549BB1F1DA389CD00C63030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XestiMonitors-iOS";
+			productName = "XestiMonitors-iOS";
+			productReference = 3549BB211DA389CD00C63030 /* XestiMonitors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3549BB2D1DA389DB00C63030 /* XestiMonitors-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-watchOS" */;
+			buildPhases = (
+				3549BB291DA389DB00C63030 /* Sources */,
+				3549BB2A1DA389DB00C63030 /* Frameworks */,
+				3549BB2B1DA389DB00C63030 /* Headers */,
+				3549BB2C1DA389DB00C63030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XestiMonitors-watchOS";
+			productName = "XestiMonitors-watchOS";
+			productReference = 3549BB2E1DA389DB00C63030 /* XestiMonitors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3549BB3A1DA389E800C63030 /* XestiMonitors-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-macOS" */;
+			buildPhases = (
+				3549BB361DA389E800C63030 /* Sources */,
+				3549BB371DA389E800C63030 /* Frameworks */,
+				3549BB381DA389E800C63030 /* Headers */,
+				3549BB391DA389E800C63030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XestiMonitors-macOS";
+			productName = "XestiMonitors-macOS";
+			productReference = 3549BB3B1DA389E800C63030 /* XestiMonitors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3549BB471DA389F300C63030 /* XestiMonitors-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-tvOS" */;
+			buildPhases = (
+				3549BB431DA389F300C63030 /* Sources */,
+				3549BB441DA389F300C63030 /* Frameworks */,
+				3549BB451DA389F300C63030 /* Headers */,
+				3549BB461DA389F300C63030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XestiMonitors-tvOS";
+			productName = "XestiMonitors-tvOS";
+			productReference = 3549BB481DA389F300C63030 /* XestiMonitors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3549BB601DA38ADB00C63030 /* XestiMonitorsTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB691DA38ADB00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-iOS" */;
+			buildPhases = (
+				3549BB5D1DA38ADB00C63030 /* Sources */,
+				3549BB5E1DA38ADB00C63030 /* Frameworks */,
+				3549BB5F1DA38ADB00C63030 /* Resources */,
+				35B7422C1F82A2C700829B21 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3549BB681DA38ADB00C63030 /* PBXTargetDependency */,
+			);
+			name = "XestiMonitorsTests-iOS";
+			productName = "XestiMonitorsTests-iOS";
+			productReference = 3549BB611DA38ADB00C63030 /* XestiMonitorsTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3549BB6F1DA38AEF00C63030 /* XestiMonitorsTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB781DA38AEF00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-tvOS" */;
+			buildPhases = (
+				3549BB6C1DA38AEF00C63030 /* Sources */,
+				3549BB6D1DA38AEF00C63030 /* Frameworks */,
+				3549BB6E1DA38AEF00C63030 /* Resources */,
+				35B7423A1F82A63600829B21 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3549BB771DA38AEF00C63030 /* PBXTargetDependency */,
+			);
+			name = "XestiMonitorsTests-tvOS";
+			productName = "XestiMonitorsTests-tvOS";
+			productReference = 3549BB701DA38AEF00C63030 /* XestiMonitorsTests-tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3549BB7E1DA38B0000C63030 /* XestiMonitorsTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-macOS" */;
+			buildPhases = (
+				3549BB7B1DA38B0000C63030 /* Sources */,
+				3549BB7C1DA38B0000C63030 /* Frameworks */,
+				3549BB7D1DA38B0000C63030 /* Resources */,
+				35B742331F82A60600829B21 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3549BB861DA38B0000C63030 /* PBXTargetDependency */,
+			);
+			name = "XestiMonitorsTests-macOS";
+			productName = "XestiMonitorsTests-macOS";
+			productReference = 3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3549BAFC1DA387DB00C63030 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Xesticode;
+				TargetAttributes = {
+					3549BB201DA389CD00C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3549BB2D1DA389DB00C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = "";
+						ProvisioningStyle = Automatic;
+					};
+					3549BB3A1DA389E800C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3549BB471DA389F300C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3549BB601DA38ADB00C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3549BB6F1DA38AEF00C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3549BB7E1DA38B0000C63030 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					F55F4F232006C4E600CCDDA0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3549BAFF1DA387DB00C63030 /* Build configuration list for PBXProject "XestiMonitors" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3549BAFB1DA387DB00C63030;
+			productRefGroup = 3549BB061DA387DB00C63030 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3549BB201DA389CD00C63030 /* XestiMonitors-iOS */,
+				3549BB601DA38ADB00C63030 /* XestiMonitorsTests-iOS */,
+				3549BB3A1DA389E800C63030 /* XestiMonitors-macOS */,
+				3549BB7E1DA38B0000C63030 /* XestiMonitorsTests-macOS */,
+				3549BB471DA389F300C63030 /* XestiMonitors-tvOS */,
+				3549BB6F1DA38AEF00C63030 /* XestiMonitorsTests-tvOS */,
+				3549BB2D1DA389DB00C63030 /* XestiMonitors-watchOS */,
+				F55F4F232006C4E600CCDDA0 /* XestiMonitors */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3549BB1F1DA389CD00C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB2C1DA389DB00C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB391DA389E800C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB461DA389F300C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB5F1DA38ADB00C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB6E1DA38AEF00C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB7D1DA38B0000C63030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3549BB1C1DA389CD00C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F3033A20067A40005BC04A /* PedometerMonitor.swift in Sources */,
+				F5F302E220067A40005BC04A /* ScreenshotMonitor.swift in Sources */,
+				F5F302EA20067A40005BC04A /* TimeMonitor.swift in Sources */,
+				F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
+				F5F302FE20067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */,
+				F5F3033220067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
+				F5F302DE20067A40005BC04A /* ProtectedDataMonitor.swift in Sources */,
+				F5F3030620067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
+				F5F302F620067A40005BC04A /* ApplicationInjection.swift in Sources */,
+				F5F302B620067A40005BC04A /* KeyboardMonitor.swift in Sources */,
+				F5F3030220067A40005BC04A /* MotionManagerInjection.swift in Sources */,
+				F5F3031E20067A40005BC04A /* AccessibilityStatusMonitor.swift in Sources */,
+				F5F302CE20067A40005BC04A /* Monitor.swift in Sources */,
+				F5F3031A20067A40005BC04A /* AccessibilityStatus.swift in Sources */,
+				F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */,
+				F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */,
+				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
+				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
+				F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */,
+				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
+				F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */,
+				F5F302CA20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
+				F5F3032A20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */,
+				F5F3032E20067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
+				F5F302C620067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5F3030A20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
+				F5F302D220067A40005BC04A /* ApplicationStateMonitor.swift in Sources */,
+				F5F3033620067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
+				F5F302C220067A40005BC04A /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5F302F220067A40005BC04A /* AltimeterInjection.swift in Sources */,
+				F5F302FA20067A40005BC04A /* DeviceInjection.swift in Sources */,
+				F5F3031220067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F5F3032620067A40005BC04A /* AltimeterMonitor.swift in Sources */,
+				F5F302BA20067A40005BC04A /* NetworkReachability.swift in Sources */,
+				F5F302D620067A40005BC04A /* BackgroundRefreshMonitor.swift in Sources */,
+				F5F3033E20067A40005BC04A /* BatteryMonitor.swift in Sources */,
+				F5F3030E20067A40005BC04A /* PedometerInjection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB291DA389DB00C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50693AB2007BFCA0031754B /* ScreenshotMonitor.swift in Sources */,
+				F5F3033D20067A40005BC04A /* PedometerMonitor.swift in Sources */,
+				F5F3030120067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */,
+				F50693AD2007BFCA0031754B /* TimeMonitor.swift in Sources */,
+				F5F3033520067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
+				F50693BD2007BFDB0031754B /* NetworkReachabilityInjection.swift in Sources */,
+				F5F3030520067A40005BC04A /* MotionManagerInjection.swift in Sources */,
+				F50693C52007BFE10031754B /* OrientationMonitor.swift in Sources */,
+				F5F302D120067A40005BC04A /* Monitor.swift in Sources */,
+				F5F3032520067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
+				F5F302CD20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
+				F50693DA2007BFFD0031754B /* KeyboardMonitor.swift in Sources */,
+				F50693A92007BFCA0031754B /* MemoryMonitor.swift in Sources */,
+				F50693C42007BFE10031754B /* BatteryMonitor.swift in Sources */,
+				F5F3032D20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */,
+				F50693AA2007BFCA0031754B /* ProtectedDataMonitor.swift in Sources */,
+				F50693BB2007BFDB0031754B /* ApplicationInjection.swift in Sources */,
+				F50693C92007BFE70031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
+				F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
+				F5F3033920067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
+				F50693BA2007BFDB0031754B /* AccessibilityStatusInjection.swift in Sources */,
+				F50693DB2007BFFD0031754B /* NetworkReachability.swift in Sources */,
+				F50693DC2007BFFD0031754B /* NetworkReachabilityMonitor.swift in Sources */,
+				F506939C2007BFC00031754B /* AccessibilityStatus.swift in Sources */,
+				F506939A2007BFC00031754B /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F50693C62007BFE10031754B /* ProximityMonitor.swift in Sources */,
+				F5F302F520067A40005BC04A /* AltimeterInjection.swift in Sources */,
+				F50693AC2007BFCA0031754B /* StatusBarMonitor.swift in Sources */,
+				F50693BC2007BFDB0031754B /* DeviceInjection.swift in Sources */,
+				F506939D2007BFC00031754B /* AccessibilityStatusMonitor.swift in Sources */,
+				F5F3032920067A40005BC04A /* AltimeterMonitor.swift in Sources */,
+				F50693A82007BFCA0031754B /* BackgroundRefreshMonitor.swift in Sources */,
+				F50693A72007BFCA0031754B /* ApplicationStateMonitor.swift in Sources */,
+				F5F3031120067A40005BC04A /* PedometerInjection.swift in Sources */,
+				F506939B2007BFC00031754B /* AccessibilityElementMonitor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB361DA389E800C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50693CE2007BFF00031754B /* MagnetometerMonitor.swift in Sources */,
+				F50693CA2007BFF00031754B /* AccelerometerMonitor.swift in Sources */,
+				F5F302BF20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
+				F50693CC2007BFF00031754B /* DeviceMotionMonitor.swift in Sources */,
+				F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */,
+				F5F3030720067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
+				F50693A32007BFC80031754B /* ProtectedDataMonitor.swift in Sources */,
+				F50693A52007BFC80031754B /* StatusBarMonitor.swift in Sources */,
+				F50693B02007BFD90031754B /* ApplicationInjection.swift in Sources */,
+				F50693D82007BFF80031754B /* KeyboardMonitor.swift in Sources */,
+				F50693B22007BFD90031754B /* MotionActivityManagerInjection.swift in Sources */,
+				F50693D02007BFF00031754B /* PedometerMonitor.swift in Sources */,
+				F5F302CF20067A40005BC04A /* Monitor.swift in Sources */,
+				F50693992007BFBE0031754B /* AccessibilityStatusMonitor.swift in Sources */,
+				F50693B42007BFD90031754B /* PedometerInjection.swift in Sources */,
+				F50693BF2007BFDF0031754B /* OrientationMonitor.swift in Sources */,
+				F50693CD2007BFF00031754B /* GyroscopeMonitor.swift in Sources */,
+				F50693C72007BFE50031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */,
+				F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */,
+				F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */,
+				F50693CF2007BFF00031754B /* MotionActivityMonitor.swift in Sources */,
+				F50693C02007BFDF0031754B /* ProximityMonitor.swift in Sources */,
+				F50693B32007BFD90031754B /* MotionManagerInjection.swift in Sources */,
+				F50693A42007BFC80031754B /* ScreenshotMonitor.swift in Sources */,
+				F50693B12007BFD90031754B /* DeviceInjection.swift in Sources */,
+				F50693AE2007BFD90031754B /* AccessibilityStatusInjection.swift in Sources */,
+				F50693A22007BFC80031754B /* MemoryMonitor.swift in Sources */,
+				F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */,
+				F5F302CB20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
+				F50693A62007BFC80031754B /* TimeMonitor.swift in Sources */,
+				F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F5F302C720067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F50693AF2007BFD90031754B /* AltimeterInjection.swift in Sources */,
+				F50693CB2007BFF00031754B /* AltimeterMonitor.swift in Sources */,
+				F5F3030B20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
+				F5F302BB20067A40005BC04A /* NetworkReachability.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB431DA389F300C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50693D52007BFF20031754B /* MagnetometerMonitor.swift in Sources */,
+				F50693D12007BFF20031754B /* AccelerometerMonitor.swift in Sources */,
+				F55F4F082006B35000CCDDA0 /* AccessibilityStatus.swift in Sources */,
+				F50693D32007BFF20031754B /* DeviceMotionMonitor.swift in Sources */,
+				F5F302C020067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
+				F5F3030820067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
+				F5F302D020067A40005BC04A /* Monitor.swift in Sources */,
+				F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */,
+				F55F4F092006B35400CCDDA0 /* AccessibilityStatusMonitor.swift in Sources */,
+				F50693D92007BFF90031754B /* KeyboardMonitor.swift in Sources */,
+				F50693B72007BFDA0031754B /* MotionActivityManagerInjection.swift in Sources */,
+				F50693D72007BFF20031754B /* PedometerMonitor.swift in Sources */,
+				F5F3031820067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */,
+				F5E1DE3A2006A64800C43E8D /* MemoryMonitor.swift in Sources */,
+				F50693B92007BFDA0031754B /* PedometerInjection.swift in Sources */,
+				F50693C22007BFE00031754B /* OrientationMonitor.swift in Sources */,
+				F50693D42007BFF20031754B /* GyroscopeMonitor.swift in Sources */,
+				F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */,
+				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
+				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,
+				F50693D62007BFF20031754B /* MotionActivityMonitor.swift in Sources */,
+				F50693C32007BFE00031754B /* ProximityMonitor.swift in Sources */,
+				F50693B82007BFDA0031754B /* MotionManagerInjection.swift in Sources */,
+				F5E1DE3C2006A65000C43E8D /* ScreenshotMonitor.swift in Sources */,
+				F50693B62007BFDA0031754B /* DeviceInjection.swift in Sources */,
+				F5F302CC20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
+				F5E1DE3B2006A64C00C43E8D /* ProtectedDataMonitor.swift in Sources */,
+				F5F302C820067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */,
+				F506939E2007BFC60031754B /* BackgroundRefreshMonitor.swift in Sources */,
+				F5F3030C20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
+				F5F3031420067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */,
+				F50693D22007BFF20031754B /* AltimeterMonitor.swift in Sources */,
+				F506939F2007BFC60031754B /* StatusBarMonitor.swift in Sources */,
+				F5F302BC20067A40005BC04A /* NetworkReachability.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB5D1DA38ADB00C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F3038620067AA3005BC04A /* ScreenshotMonitorTests.swift in Sources */,
+				F5F3038320067AA3005BC04A /* ProtectedDataMonitorTests.swift in Sources */,
+				F5F303A120067AA3005BC04A /* PedometerMonitorTests.swift in Sources */,
+				F5F303AA20067AA3005BC04A /* OrientationMonitorTests.swift in Sources */,
+				F5F303B920067AA3005BC04A /* MockDevice.swift in Sources */,
+				F5F3039E20067AA3005BC04A /* MotionActivityMonitorTests.swift in Sources */,
+				F5F3038F20067AA3005BC04A /* AccelerometerMonitorTests.swift in Sources */,
+				F5F303C520067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F5F3037420067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
+				F5F3039220067AA3005BC04A /* AltimeterMonitorTests.swift in Sources */,
+				F5F303C220067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
+				F5F303BF20067AA3005BC04A /* MockMotionManager.swift in Sources */,
+				F5F3038920067AA3005BC04A /* StatusBarMonitorTests.swift in Sources */,
+				F5F303CB20067AA3005BC04A /* KeyboardMonitorTests.swift in Sources */,
+				F5F3037A20067AA3005BC04A /* ApplicationStateMonitorTests.swift in Sources */,
+				F5F303A720067AA3005BC04A /* BatteryMonitorTests.swift in Sources */,
+				F5F303C820067AA3005BC04A /* MockPedometer.swift in Sources */,
+				F5F303A420067AA3005BC04A /* CMAccelerationExtensionsTests.swift in Sources */,
+				F5F3037120067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
+				F5F3039820067AA3005BC04A /* GyroscopeMonitorTests.swift in Sources */,
+				F5F303B620067AA3005BC04A /* MockApplication.swift in Sources */,
+				F5F3038020067AA3005BC04A /* MemoryMonitorTests.swift in Sources */,
+				F5F303CE20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F5F3037D20067AA3005BC04A /* BackgroundRefreshMonitorTests.swift in Sources */,
+				F5F3039B20067AA3005BC04A /* MagnetometerMonitorTests.swift in Sources */,
+				F5F3037720067AA3005BC04A /* AccessibilityStatusMonitorTests.swift in Sources */,
+				F5F303B020067AA3005BC04A /* MockAccessibilityStatus.swift in Sources */,
+				F5F3038C20067AA3005BC04A /* TimeMonitorTests.swift in Sources */,
+				F5F303AD20067AA3005BC04A /* ProximityMonitorTests.swift in Sources */,
+				F5F303B320067AA3005BC04A /* MockAltimeter.swift in Sources */,
+				F5F303BC20067AA3005BC04A /* MockMotionActivityManager.swift in Sources */,
+				F5F3039520067AA3005BC04A /* DeviceMotionMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB6C1DA38AEF00C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */,
+				F54553502006AB3100D63955 /* MockApplication.swift in Sources */,
+				F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */,
+				F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */,
+				F55F4F062006ABA700CCDDA0 /* TimeMonitorTests.swift in Sources */,
+				F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */,
+				F5F303C720067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F5F3037620067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
+				F5F303C420067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
+				F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
+				F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */,
+				F5F303D020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3549BB7B1DA38B0000C63030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F303C620067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F5F303C320067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
+				F5F303CF20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3549BB681DA38ADB00C63030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB201DA389CD00C63030 /* XestiMonitors-iOS */;
+			targetProxy = 3549BB671DA38ADB00C63030 /* PBXContainerItemProxy */;
+		};
+		3549BB771DA38AEF00C63030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB471DA389F300C63030 /* XestiMonitors-tvOS */;
+			targetProxy = 3549BB761DA38AEF00C63030 /* PBXContainerItemProxy */;
+		};
+		3549BB861DA38B0000C63030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB3A1DA389E800C63030 /* XestiMonitors-macOS */;
+			targetProxy = 3549BB851DA38B0000C63030 /* PBXContainerItemProxy */;
+		};
+		F55F4F282006C4EF00CCDDA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB201DA389CD00C63030 /* XestiMonitors-iOS */;
+			targetProxy = F55F4F272006C4EF00CCDDA0 /* PBXContainerItemProxy */;
+		};
+		F55F4F2A2006C4EF00CCDDA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB3A1DA389E800C63030 /* XestiMonitors-macOS */;
+			targetProxy = F55F4F292006C4EF00CCDDA0 /* PBXContainerItemProxy */;
+		};
+		F55F4F2C2006C4EF00CCDDA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB471DA389F300C63030 /* XestiMonitors-tvOS */;
+			targetProxy = F55F4F2B2006C4EF00CCDDA0 /* PBXContainerItemProxy */;
+		};
+		F55F4F2E2006C4EF00CCDDA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3549BB2D1DA389DB00C63030 /* XestiMonitors-watchOS */;
+			targetProxy = F55F4F2D2006C4EF00CCDDA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3549BB0B1DA387DB00C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3549BB0C1DA387DB00C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3549BB271DA389CD00C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3549BB281DA389CD00C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3549BB341DA389DB00C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3549BB351DA389DB00C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		3549BB411DA389E800C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3549BB421DA389E800C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3549BB4E1DA389F300C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		3549BB4F1DA389F300C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		3549BB6A1DA38ADB00C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3549BB6B1DA38ADB00C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3549BB791DA38AEF00C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		3549BB7A1DA38AEF00C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		3549BB881DA38B0000C63030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3549BB891DA38B0000C63030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F55F4F242006C4E600CCDDA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F55F4F252006C4E600CCDDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3549BAFF1DA387DB00C63030 /* Build configuration list for PBXProject "XestiMonitors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB0B1DA387DB00C63030 /* Debug */,
+				3549BB0C1DA387DB00C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB271DA389CD00C63030 /* Debug */,
+				3549BB281DA389CD00C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB341DA389DB00C63030 /* Debug */,
+				3549BB351DA389DB00C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB411DA389E800C63030 /* Debug */,
+				3549BB421DA389E800C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "XestiMonitors-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB4E1DA389F300C63030 /* Debug */,
+				3549BB4F1DA389F300C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB691DA38ADB00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB6A1DA38ADB00C63030 /* Debug */,
+				3549BB6B1DA38ADB00C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB781DA38AEF00C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB791DA38AEF00C63030 /* Debug */,
+				3549BB7A1DA38AEF00C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "XestiMonitorsTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3549BB881DA38B0000C63030 /* Debug */,
+				3549BB891DA38B0000C63030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F55F4F262006C4E600CCDDA0 /* Build configuration list for PBXAggregateTarget "XestiMonitors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55F4F242006C4E600CCDDA0 /* Debug */,
+				F55F4F252006C4E600CCDDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3549BAFC1DA387DB00C63030 /* Project object */;
+}

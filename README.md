@@ -1,11 +1,16 @@
 # XestiMonitors
 
-[![Build Status](https://travis-ci.org/eBardX/XestiMonitors.svg?branch=master)](https://travis-ci.org/eBardX/XestiMonitors)
-[![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
-[![Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)](https://developer.apple.com/swift/)
+[![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+
+[![Build Status](https://img.shields.io/travis/eBardX/XestiMonitors/master.svg)](https://travis-ci.org/eBardX/XestiMonitors)
+[![Code Coverage](https://img.shields.io/codecov/c/github/eBardX/XestiMonitors/master.svg)](https://codecov.io/github/eBardX/XestiMonitors)
 [![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
+
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage)
+[![CocoaPod Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
 * [Overview](#overview)
 * [Reference Documentation](#reference_documentation)
@@ -24,12 +29,12 @@
 ## <a name="overview">Overview</a>
 
 The XestiMonitors framework provides nearly two dozen fully-functional monitor
-classes right out of the box that make it easy for your iOS app to detect and
+classes right out of the box that make it easy for your app to detect and
 respond to many common system-generated events.
 
 Among other things, you can think of XestiMonitors as a better way to manage
-the most common iOS notifications. At present, XestiMonitors provides
-“wrappers” around many `UIKit` notifications:
+the most common notifications (primarily on iOS). At present, XestiMonitors
+provides “wrappers” around many `UIKit` notifications:
 
 * **Accessibility-related**
 
@@ -95,7 +100,7 @@ the most common iOS notifications. At present, XestiMonitors provides
 
     See [Other Monitors](#other_monitors) for details.
 
-XestiMonitors also provides a “wrapper” around `CMMotionManager` to
+XestiMonitors also provides a “wrapper” around the Core Motion framework to
 make it easier for your app to obtain both raw and processed motion
 measurements from the device. See [Motion Monitors](#motion_monitors) for
 details.
@@ -104,8 +109,8 @@ XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to ma
 it super easy for your app to determine the reachability of a target host. See
 [Other Monitors](#other_monitors) for details.
 
-Additional monitors targeting even more parts of iOS will be rolled out in
-future releases of XestiMonitor!
+Additional monitors targeting more parts of all four platforms will be rolled
+out in future releases of XestiMonitors!
 
 Finally, XestiMonitors is *extensible*—you can easily create your own *custom*
 monitors. See [Custom Monitors](#custom_monitors) for details.
@@ -116,17 +121,75 @@ Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 
 ## <a name="requirements">Requirements</a>
 
-* iOS 9.0+
+* iOS 9.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
 * Xcode 9.0+
 * Swift 4.0+
 
 ## <a name="installation">Installation</a>
 
-XestiMonitors is available through [CocoaPods][cocoapods]. To install it,
-simply add the following line to your Podfile:
+### CocoaPods
+
+[CocoaPods][cocoapods] is a dependency manager for Cocoa projects. You can
+install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate XestiMonitors into your Xcode project using CocoaPods, specify it
+in your `Podfile`:
 
 ```ruby
-pod 'XestiMonitors'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'XestiMonitors'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Carthage
+
+[Carthage][carthage] is a decentralized dependency manager that builds your
+dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew][homebrew] using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate XestiMonitors into your Xcode project using Carthage, specify it
+in your `Cartfile`:
+
+```ogdl
+github "eBardX/XestiMonitors"
+```
+
+Run `carthage update` to build the framework and drag the built
+`XestiMonitors.framework` into your Xcode project.
+
+### Swift Package Manager
+
+The [Swift Package Manager][spm] is a tool for automating the distribution of
+Swift code and is integrated into the swift compiler. It is in early
+development, but XestiMonitors does support its use on supported platforms.
+
+Once you have your Swift package set up, adding XestiMonitors as a dependency
+is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .Package(url: "https://github.com/eBardX/XestiMonitors.git")
+]
 ```
 
 ## <a name="usage">Usage</a>
@@ -173,24 +236,25 @@ override func viewWillDisappear(_ animated: Bool) {
 
 Easy peasy!
 
-### <a name="application_monitors">Application Monitors</a>
+### <a name="application_monitors">Application Monitors </a>
 
 XestiMonitors provides seven monitor classes that you can use to observe common
 events generated by the system about the app:
 
 * [ApplicationStateMonitor][application_state_monitor] to monitor the app for
-  changes to its runtime state.
+  changes to its runtime state. *(iOS, tvOS)*
 * [BackgroundRefreshMonitor][background_refresh_monitor] to monitor the app for
-  changes to its status for downloading content in the background.
+  changes to its status for downloading content in the background. *(iOS)*
 * [MemoryMonitor][memory_monitor] to monitor the app for memory warnings from
-  the operating system.
+  the operating system. *(iOS, tvOS)*
 * [ProtectedDataMonitor][protected_data_monitor] to monitor the app for changes
-  to the accessibility of protected files.
+  to the accessibility of protected files. *(iOS, tvOS)*
 * [ScreenshotMonitor][screenshot_monitor] to monitor the app for screenshots.
+  *(iOS, tvOS)*
 * [StatusBarMonitor][status_bar_monitor] to monitor the app for changes to the
-  orientation of its user interface or to the frame of the status bar.
+  orientation of its user interface or to the frame of the status bar. *(iOS)*
 * [TimeMonitor][time_monitor] to monitor the app for significant changes in
-  time.
+  time. *(iOS, tvOS)*
 
 ### <a name="device_monitors">Device Monitors</a>
 
@@ -198,11 +262,11 @@ XestiMonitors provides three monitor classes that you can use to detect changes
 in the characteristics of the device:
 
 * [BatteryMonitor][battery_monitor] to monitor the device for changes to the
-  charge state and charge level of its battery.
+  charge state and charge level of its battery. *(iOS)*
 * [OrientationMonitor][orientation_monitor] to monitor the device for changes
-  to its physical orientation.
+  to its physical orientation. *(iOS)*
 * [ProximityMonitor][proximity_monitor] to monitor the device for changes to
-  the state of its proximity sensor.
+  the state of its proximity sensor. *(iOS)*
 
 ### <a name="motion_monitors">Motion Monitors</a>
 
@@ -211,21 +275,22 @@ processed motion measurements from the device:
 
 * [AccelerometerMonitor][accelerometer_monitor] to monitor the device’s
   accelerometer for periodic raw measurements of the acceleration along the
-  three spatial axes.
+  three spatial axes. *(iOS, watchOS)*
 * [AltimeterMonitor][altimeter_monitor] to monitor the device for changes in
-  relative altitude.
+  relative altitude. *(iOS, watchOS)*
 * [DeviceMotionMonitor][device_motion_monitor] to monitor the device’s
   accelerometer, gyroscope, and magnetometer for periodic raw measurements
-  which are processed into device motion measurements.
+  which are processed into device motion measurements. *(iOS, watchOS)*
 * [GyroscopeMonitor][gyroscope_monitor] to monitor the device’s gyroscope for
   periodic raw measurements of the rotation rate around the three spatial axes.
+  *(iOS, watchOS)*
 * [MagnetometerMonitor][magnetometer_monitor] to monitor the device’s
   magnetometer for periodic raw measurements of the magnetic field around the
-  three spatial axes.
-* [MotionActivityMonitor][motion_activity_monitor] to provide access to the
-  motion data stored by the device.
-* [PedometerMonitor][pedometer_monitor] to monitor the device to fetch
-  pedestrian-related data.
+  three spatial axes. *(iOS, watchOS)*
+* [MotionActivityMonitor][motion_activity_monitor] to monitor the device for
+  live and historic motion data. *(iOS, watchOS)*
+* [PedometerMonitor][pedometer_monitor] to monitor the device for live and
+  historic walking data. *(iOS, watchOS)*
 
 ### <a name="accessibility_monitors">Accessibility Monitors</a>
 
@@ -234,20 +299,22 @@ accessibility events generated by the system:
 
 * [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor] to
   monitor the system for accessibility announcements that VoiceOver has
-  finished outputting.
+  finished outputting. *(iOS, tvOS)*
 * [AccessibilityElementMonitor][accessibility_element_monitor] to monitor the
-  system for changes to element focus by an assistive technology.
+  system for changes to element focus by an assistive technology. *(iOS, tvOS)*
 * [AccessibilityStatusMonitor][accessibility_status_monitor] to monitor the
   system for changes to the status of various accessibility settings.
+  *(iOS, tvOS)*
 
 ### <a name="other_monitors">Other Monitors</a>
 
 In addition, XestiMonitors provides two other monitors:
 
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
-  its visibility or to its frame.
+  its visibility or to its frame. *(iOS)*
 * [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
   network node name or address for changes to its reachability.
+  *(iOS, macOS, tvOS)*
 
 [KeyboardMonitor][keyboard_monitor] is especially handy in removing lots of
 boilerplate code from your app. This is how keyboard monitoring is typically
@@ -468,10 +535,13 @@ J. G. Pusey (ebardx@gmail.com)
 
 XestiMonitors is available under [the MIT license][license].
 
+[carthage]:     https://github.com/Carthage/Carthage
 [cocoapods]:    http://cocoapods.org
+[homebrew]:     http://brew.sh/
 [jazzy]:        https://github.com/realm/jazzy
 [license]:      https://github.com/eBardX/XestiMonitors/blob/master/LICENSE.md
 [refdoc]:       https://eBardX.github.io/XestiMonitors/
+[spm]:          https://swift.org/package-manager/
 
 [accelerometer_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html
 [accessibility_announcement_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html

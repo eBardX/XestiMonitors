@@ -1,6 +1,0 @@
-framework module XestiMonitors {
-  umbrella header "XestiMonitors-umbrella.h"
-
-  export *
-  module * { export * }
-}
