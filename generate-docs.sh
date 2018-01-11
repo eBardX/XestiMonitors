@@ -13,4 +13,4 @@ fi
 jazzy --clean                                                                   \
       --github-file-prefix "https://github.com/eBardX/XestiMonitors/tree/$REF"  \
       --module-version "$VERSION"                                               \
-      --xcodebuild-arguments "-workspace,Example/XestiMonitors.xcworkspace,-scheme,XestiMonitors"
+      --xcodebuild-arguments "-project,XestiMonitors.xcodeproj,-scheme,XestiMonitors-iOS"
