@@ -29,12 +29,12 @@
 ## <a name="overview">Overview</a>
 
 The XestiMonitors framework provides nearly two dozen fully-functional monitor
-classes right out of the box that make it easy for your iOS app to detect and
+classes right out of the box that make it easy for your app to detect and
 respond to many common system-generated events.
 
 Among other things, you can think of XestiMonitors as a better way to manage
-the most common iOS notifications. At present, XestiMonitors provides
-“wrappers” around many `UIKit` notifications:
+the most common notifications (primarily on iOS). At present, XestiMonitors
+provides “wrappers” around many `UIKit` notifications:
 
 * **Accessibility-related**
 
@@ -100,7 +100,7 @@ the most common iOS notifications. At present, XestiMonitors provides
 
     See [Other Monitors](#other_monitors) for details.
 
-XestiMonitors also provides a “wrapper” around `CMMotionManager` to
+XestiMonitors also provides a “wrapper” around the Core Motion framework to
 make it easier for your app to obtain both raw and processed motion
 measurements from the device. See [Motion Monitors](#motion_monitors) for
 details.
@@ -109,8 +109,8 @@ XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to ma
 it super easy for your app to determine the reachability of a target host. See
 [Other Monitors](#other_monitors) for details.
 
-Additional monitors targeting even more parts of iOS will be rolled out in
-future releases of XestiMonitor!
+Additional monitors targeting more parts of all four platforms will be rolled
+out in future releases of XestiMonitors!
 
 Finally, XestiMonitors is *extensible*—you can easily create your own *custom*
 monitors. See [Custom Monitors](#custom_monitors) for details.
