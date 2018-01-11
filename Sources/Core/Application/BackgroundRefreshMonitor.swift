@@ -8,10 +8,10 @@
 //
 
 #if os(iOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `BackgroundRefreshMonitor` instance monitors the app for changes to its
     /// status for downloading content in the background.
@@ -27,7 +27,7 @@
             ///
             case statusDidChange(UIBackgroundRefreshStatus)
         }
-        
+
         ///
         /// Initializes a new `BackgroundRefreshMonitor`.
         ///
@@ -40,10 +40,10 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         ///
         /// Whether the app can be launched into the background to handle
         /// background behaviors.
@@ -51,18 +51,18 @@
         public var status: UIBackgroundRefreshStatus {
             return application.backgroundRefreshStatus
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIApplicationBackgroundRefreshStatusDidChange) { [unowned self] _ in
                 self.handler(.statusDidChange(self.status))
             }
         }
     }
-    
+
     extension BackgroundRefreshMonitor: ApplicationInjected {}
-    
+
 #endif

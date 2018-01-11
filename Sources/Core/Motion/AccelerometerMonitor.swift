@@ -11,7 +11,7 @@
 
     import CoreMotion
     import Foundation
-    
+
     ///
     /// An `AccelerometerMonitor` instance monitors the device’s accelerometer for
     /// periodic raw measurements of the acceleration along the three spatial axes.
@@ -27,7 +27,7 @@
             ///
             case didUpdate(Info)
         }
-        
+
         ///
         /// Encapsulates the measurement of the acceleration along the three
         /// spatial axes at a moment of time.
@@ -37,19 +37,19 @@
             /// The acceleration measurement.
             ///
             case data(CMAccelerometerData)
-            
+
             ///
             /// The error encountered in attempting to obtain the acceleration
             /// measurement.
             ///
             case error(Error)
-            
+
             ///
             /// No acceleration measurement is available.
             ///
             case unknown
         }
-        
+
         ///
         /// Initializes a new `AccelerometerMonitor`.
         ///
@@ -69,7 +69,7 @@
             self.interval = interval
             self.queue = queue
         }
-        
+
         ///
         /// The latest acceleration measurement available.
         ///
@@ -77,10 +77,10 @@
             guard
                 let data = motionManager.accelerometerData
                 else { return .unknown }
-            
+
             return .data(data)
         }
-        
+
         ///
         /// A Boolean value indicating whether an accelerometer is available on the
         /// device.
@@ -88,25 +88,25 @@
         public var isAvailable: Bool {
             return motionManager.isAccelerometerAvailable
         }
-        
+
         private let handler: (Event) -> Void
         private let interval: TimeInterval
         private let queue: OperationQueue
-        
+
         public override final func cleanupMonitor() {
             motionManager.stopAccelerometerUpdates()
-            
+
             super.cleanupMonitor()
         }
-        
+
         public override final func configureMonitor() {
             super.configureMonitor()
-            
+
             motionManager.accelerometerUpdateInterval = interval
-            
+
             motionManager.startAccelerometerUpdates(to: queue) { [unowned self] data, error in
                 var info: Info
-                
+
                 if let error = error {
                     info = .error(error)
                 } else if let data = data {
@@ -114,12 +114,12 @@
                 } else {
                     info = .unknown
                 }
-                
+
                 self.handler(.didUpdate(info))
             }
         }
     }
-    
+
     extension AccelerometerMonitor: MotionManagerInjected {}
-    
+
 #endif

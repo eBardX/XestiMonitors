@@ -8,10 +8,10 @@
 //
 
 #if os(iOS)
-    
+
     import CoreMotion
     import UIKit
-    
+
     public extension CMAcceleration {
         ///
         /// Returns the device orientation as calculated from the 3-axis
@@ -28,31 +28,31 @@
             if z > 0.8 {
                 return .faceDown
             }
-            
+
             if z < -0.8 {
                 return .faceUp
             }
-            
+
             let angle = atan2(y, -x)
-            
+
             if (angle >= -2.0) && (angle <= -1.0) {
                 return .portrait
             }
-            
+
             if (angle >= -0.5) && (angle <= 0.5) {
                 return .landscapeLeft
             }
-            
+
             if (angle >= 1.0) && (angle <= 2.0) {
                 return .portraitUpsideDown
             }
-            
+
             if (angle <= -2.5) || (angle >= 2.5) {
                 return .landscapeRight
             }
-            
+
             return .unknown
         }
     }
-    
+
 #endif

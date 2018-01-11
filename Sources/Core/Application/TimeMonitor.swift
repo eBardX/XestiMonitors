@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(tvOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `TimeMonitor` instance monitors the app for significant changes in time.
     ///
@@ -25,7 +25,7 @@
             ///
             case significantChange
         }
-        
+
         ///
         /// Initializes a new `TimeMonitor`.
         ///
@@ -38,19 +38,19 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIApplicationSignificantTimeChange) { [unowned self] _ in
                 self.handler(.significantChange)
             }
         }
     }
-    
+
 #endif

@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(watchOS)
-    
+
     import CoreMotion
     import Foundation
-    
+
     ///
     /// A `GyroscopeMonitor` instance monitors the device’s gyroscope for periodic
     /// raw measurements of the rotation rate around the three spatial axes.
@@ -27,7 +27,7 @@
             ///
             case didUpdate(Info)
         }
-        
+
         ///
         /// Encapsulates the measurement of the rotation rate around the three
         /// spatial axes at a moment of time.
@@ -37,19 +37,19 @@
             /// The rotation rate measurement.
             ///
             case data(CMGyroData)
-            
+
             ///
             /// The error encountered in attempting to obtain the rotation rate
             /// measurement.
             ///
             case error(Error)
-            
+
             ///
             /// No rotation rate measurement is available.
             ///
             case unknown
         }
-        
+
         ///
         /// Initializes a new `GyroscopeMonitor`.
         ///
@@ -69,7 +69,7 @@
             self.interval = interval
             self.queue = queue
         }
-        
+
         ///
         /// The latest rotation rate measurement available.
         ///
@@ -77,10 +77,10 @@
             guard
                 let data = motionManager.gyroData
                 else { return .unknown }
-            
+
             return .data(data)
         }
-        
+
         ///
         /// A Boolean value indicating whether a gyroscope is available on the
         /// device.
@@ -88,25 +88,25 @@
         public var isAvailable: Bool {
             return motionManager.isGyroAvailable
         }
-        
+
         private let handler: (Event) -> Void
         private let interval: TimeInterval
         private let queue: OperationQueue
-        
+
         public override final func cleanupMonitor() {
             motionManager.stopGyroUpdates()
-            
+
             super.cleanupMonitor()
         }
-        
+
         public override final func configureMonitor() {
             super.configureMonitor()
-            
+
             motionManager.gyroUpdateInterval = interval
-            
+
             motionManager.startGyroUpdates(to: queue) { [unowned self] data, error in
                 var info: Info
-                
+
                 if let error = error {
                     info = .error(error)
                 } else if let data = data {
@@ -114,12 +114,12 @@
                 } else {
                     info = .unknown
                 }
-                
+
                 self.handler(.didUpdate(info))
             }
         }
     }
-    
+
     extension GyroscopeMonitor: MotionManagerInjected {}
-    
+
 #endif

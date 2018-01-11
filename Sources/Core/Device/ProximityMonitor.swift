@@ -8,10 +8,10 @@
 //
 
 #if os(iOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `ProximityMonitor` instance monitors the device for changes to the state
     /// of its proximity sensor.
@@ -26,7 +26,7 @@
             ///
             case stateDidChange(Bool)
         }
-        
+
         ///
         /// Initializes a new `ProximityMonitor`.
         ///
@@ -39,24 +39,24 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         ///
         /// A Boolean value indicating whether proximity monitoring is available on
         /// the device (`true`) or not (`false`).
         ///
         public lazy var isAvailable: Bool = {
             let oldValue = self.device.isProximityMonitoringEnabled
-            
+
             defer { self.device.isProximityMonitoringEnabled = oldValue }
-            
+
             self.device.isProximityMonitoringEnabled = true
-            
+
             return self.device.isProximityMonitoringEnabled
         }()
-        
+
         ///
         /// A Boolean value indicating whether the proximity sensor is close to the
         /// user (`true`) or not (`false`).
@@ -64,26 +64,26 @@
         public var state: Bool {
             return device.proximityState
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
                 self.handler(.stateDidChange(self.device.proximityState))
             }
-            
+
             device.isProximityMonitoringEnabled = true
         }
-        
+
         public override func removeNotificationObservers() {
             device.isProximityMonitoringEnabled = false
-            
+
             super.removeNotificationObservers()
         }
     }
-    
+
     extension ProximityMonitor: DeviceInjected {}
-    
+
 #endif

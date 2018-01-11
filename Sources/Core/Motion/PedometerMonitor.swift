@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(watchOS)
-    
+
     import CoreMotion
     import Foundation
-    
+
     ///
     /// A `PedometerMonitor` instance monitors the device for live and historic
     /// walking data. You can retrieve step counts and other information about the
@@ -26,13 +26,13 @@
             /// The historic walking data query has completed.
             ///
             case didQuery(Info)
-            
+
             ///
             /// The live walking data has been updated.
             ///
             case didUpdate(Info)
         }
-        
+
         ///
         /// Encapsulates information about the distance traveled by the user on
         /// foot.
@@ -42,19 +42,19 @@
             /// Information about the distance traveled by the user on foot.
             ///
             case data(CMPedometerData)
-            
+
             ///
             /// The error encountered in attempting to obtain information about the
             // distance traveled.
             ///
             case error(Error)
-            
+
             ///
             /// No walking data is available.
             ///
             case unknown
         }
-        
+
         ///
         /// Initializes a new `PedometerMonitor`.
         ///
@@ -68,7 +68,7 @@
             self.handler = handler
             self.queue = queue
         }
-        
+
         ///
         /// A Boolean value indicating whether cadence information is available on
         /// the device.
@@ -76,7 +76,7 @@
         public var isCadenceAvailable: Bool {
             return type(of: pedometer).isCadenceAvailable()
         }
-        
+
         ///
         /// A Boolean value indicating whether distance estimation is available on
         /// the device.
@@ -84,7 +84,7 @@
         public var isDistanceAvailable: Bool {
             return type(of: pedometer).isDistanceAvailable()
         }
-        
+
         ///
         /// A Boolean value indicating whether floor counting is available on the
         /// device.
@@ -92,7 +92,7 @@
         public var isFloorCountingAvailable: Bool {
             return type(of: pedometer).isFloorCountingAvailable()
         }
-        
+
         ///
         /// A Boolean value indicating whether pace information is available on the
         /// device.
@@ -100,7 +100,7 @@
         public var isPaceAvailable: Bool {
             return type(of: pedometer).isPaceAvailable()
         }
-        
+
         ///
         /// A Boolean value indicating whether step counting is available on the
         /// device.
@@ -108,7 +108,7 @@
         public var isStepCountingAvailable: Bool {
             return type(of: pedometer).isStepCountingAvailable()
         }
-        
+
         ///
         /// Retrieves the historical walking data for the specified time period.
         ///
@@ -121,7 +121,7 @@
             pedometer.queryPedometerData(from: start,
                                          to: end) { [unowned self] data, error in
                                             var info: Info
-                                            
+
                                             if let error = error {
                                                 info = .error(error)
                                             } else if let data = data {
@@ -129,28 +129,28 @@
                                             } else {
                                                 info = .unknown
                                             }
-                                            
+
                                             self.queue.addOperation {
                                                 self.handler(.didQuery(info))
                                             }
             }
         }
-        
+
         private let handler: (Event) -> Void
         private let queue: OperationQueue
-        
+
         public override final func cleanupMonitor() {
             pedometer.stopUpdates()
-            
+
             super.cleanupMonitor()
         }
-        
+
         public override final func configureMonitor() {
             super.configureMonitor()
-            
+
             pedometer.startUpdates(from: Date()) { [unowned self] data, error in
                 var info: Info
-                
+
                 if let error = error {
                     info = .error(error)
                 } else if let data = data {
@@ -158,12 +158,12 @@
                 } else {
                     info = .unknown
                 }
-                
+
                 self.queue.addOperation { self.handler(.didUpdate(info)) }
             }
         }
     }
-    
+
     extension PedometerMonitor: PedometerInjected {}
-    
+
 #endif

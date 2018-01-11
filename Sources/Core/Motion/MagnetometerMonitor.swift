@@ -124,4 +124,3 @@
     extension MagnetometerMonitor: MotionManagerInjected {}
 
 #endif
-

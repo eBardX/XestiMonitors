@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(tvOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `ScreenshotMonitor` instance monitors the app for screenshots.
     ///
@@ -26,7 +26,7 @@
             ///
             case userDidTake
         }
-        
+
         ///
         /// Initializes a new `ScreenshotMonitor`.
         ///
@@ -39,19 +39,19 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in
                 self.handler(.userDidTake)
             }
         }
     }
-    
+
 #endif

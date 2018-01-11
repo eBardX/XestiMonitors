@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(watchOS)
-    
+
     import CoreMotion
     import Foundation
-    
+
     ///
     /// A `MotionActivityMonitor` instance monitors the device for live and
     /// historic motion data. Motion data reflects whether the user is walking,
@@ -26,13 +26,13 @@
             /// The historic motion data query has completed.
             ///
             case didQuery(Info)
-            
+
             ///
             /// The live motion data has been updated.
             ///
             case didUpdate(Info)
         }
-        
+
         ///
         /// Encapsulates the type (or types) of motion for the device.
         ///
@@ -42,24 +42,24 @@
             /// for the device that occurred during the queried time period.
             ///
             case activities([CMMotionActivity])
-            
+
             ///
             /// The motion activity object that defines the current type of motion
             /// for the device.
             ///
             case activity(CMMotionActivity)
-            
+
             ///
             /// The error encountered in attempting to obtain the motion data.
             ///
             case error(Error)
-            
+
             ///
             /// No motion data is available.
             ///
             case unknown
         }
-        
+
         ///
         /// Initializes a new `MotionActivityMonitor`.
         ///
@@ -73,7 +73,7 @@
             self.handler = handler
             self.queue = queue
         }
-        
+
         ///
         /// A Boolean value indicating whether motion data is available on the
         /// device.
@@ -81,7 +81,7 @@
         public var isAvailable: Bool {
             return type(of: motionActivityManager).isActivityAvailable()
         }
-        
+
         ///
         /// Retrieves historical motion data for the specified time period.
         ///
@@ -95,7 +95,7 @@
                                                         to: end,
                                                         to: queue) { [unowned self] activities, error in
                                                             var info: Info
-                                                            
+
                                                             if let error = error {
                                                                 info = .error(error)
                                                             } else if let activities = activities {
@@ -103,37 +103,37 @@
                                                             } else {
                                                                 info = .unknown
                                                             }
-                                                            
+
                                                             self.handler(.didQuery(info))
             }
         }
-        
+
         private let handler: (Event) -> Void
         private let queue: OperationQueue
-        
+
         public override final func cleanupMonitor() {
             motionActivityManager.stopActivityUpdates()
-            
+
             super.cleanupMonitor()
         }
-        
+
         public override final func configureMonitor() {
             super.configureMonitor()
-            
+
             motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
                 var info: Info
-                
+
                 if let activity = activity {
                     info = .activity(activity)
                 } else {
                     info = .unknown
                 }
-                
+
                 self.handler(.didUpdate(info))
             }
         }
     }
-    
+
     extension MotionActivityMonitor: MotionActivityManagerInjected {}
-    
+
 #endif

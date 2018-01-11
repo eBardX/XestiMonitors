@@ -8,28 +8,28 @@
 //
 
 #if os(iOS) || os(watchOS)
-    
+
     import CoreMotion
-    
+
     internal protocol AltimeterProtocol: class {
         static func isRelativeAltitudeAvailable() -> Bool
-        
+
         func startRelativeAltitudeUpdates(to queue: OperationQueue,
                                           withHandler handler: @escaping CMAltitudeHandler)
-        
+
         func stopRelativeAltitudeUpdates()
     }
-    
+
     extension CMAltimeter: AltimeterProtocol {}
-    
+
     internal protocol AltimeterInjected {}
-    
+
     internal struct AltimeterInjector {
         static var altimeter: AltimeterProtocol = CMAltimeter()
     }
-    
+
     internal extension AltimeterInjected {
         var altimeter: AltimeterProtocol { return AltimeterInjector.altimeter }
     }
-    
+
 #endif

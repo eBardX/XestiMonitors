@@ -8,10 +8,10 @@
 //
 
 #if os(iOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `KeyboardMonitor` instance monitors the keyboard for changes to its
     /// visibility or to its frame.
@@ -26,33 +26,33 @@
             /// The frame of the keyboard has changed.
             ///
             case didChangeFrame(Info)
-            
+
             ///
             /// The keyboard has been dismissed.
             ///
             case didHide(Info)
-            
+
             ///
             /// The keyboard has been displayed.
             ///
             case didShow(Info)
-            
+
             ///
             /// The frame of the keyboard is about to change.
             ///
             case willChangeFrame(Info)
-            
+
             ///
             /// The keyboard is about to be dismissed.
             ///
             case willHide(Info)
-            
+
             ///
             /// The keyboard is about to be displayed.
             ///
             case willShow(Info)
         }
-        
+
         ///
         /// Encapsulates information associated with a keyboard monitor event.
         ///
@@ -61,12 +61,12 @@
             /// Defines how the keyboard will be animated onto or off the screen.
             ///
             public let animationCurve: UIViewAnimationCurve
-            
+
             ///
             /// The duration of the animation onto or off the screen in seconds.
             ///
             public let animationDuration: TimeInterval
-            
+
             ///
             /// The start frame of the keyboard in screen coordinates. These
             /// coordinates do not take into account any rotation factors applied
@@ -75,7 +75,7 @@
             /// coordinates or to view coordinates before using it.
             ///
             public let frameBegin: CGRect
-            
+
             ///
             /// The end frame of the keyboard in screen coordinates. These
             /// coordinates do not take into account any rotation factors applied
@@ -84,7 +84,7 @@
             /// coordinates or to view coordinates (before using it.
             ///
             public let frameEnd: CGRect
-            
+
             ///
             /// Whether the keyboard belongs to the current app. With multitasking
             /// on iPad, all visible apps are notified when the keyboard appears
@@ -92,35 +92,35 @@
             /// appear and `false` for any other apps.
             ///
             public let isLocal: Bool
-            
+
             internal init (_ notification: Notification) {
                 let userInfo = notification.userInfo
-                
+
                 if let rawValue = (userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue,
                     let value = UIViewAnimationCurve(rawValue: rawValue) {
                     self.animationCurve = value
                 } else {
                     self.animationCurve = .easeInOut
                 }
-                
+
                 if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
                     self.animationDuration = value
                 } else {
                     self.animationDuration = 0.0
                 }
-                
+
                 if let value = (userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                     self.frameBegin = value
                 } else {
                     self.frameBegin = .zero
                 }
-                
+
                 if let value = (userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                     self.frameEnd = value
                 } else {
                     self.frameEnd = .zero
                 }
-                
+
                 if let value = (userInfo?[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue {
                     self.isLocal = value
                 } else {
@@ -128,7 +128,7 @@
                 }
             }
         }
-        
+
         ///
         /// Specifies which events to monitor.
         ///
@@ -137,32 +137,32 @@
             /// Monitor `didChangeFrame` events.
             ///
             public static let didChangeFrame = Options(rawValue: 1 << 0)
-            
+
             ///
             /// Monitor `didHide` events.
             ///
             public static let didHide = Options(rawValue: 1 << 1)
-            
+
             ///
             /// Monitor `didShow` events.
             ///
             public static let didShow = Options(rawValue: 1 << 2)
-            
+
             ///
             /// Monitor `willChangeFrame` events.
             ///
             public static let willChangeFrame = Options(rawValue: 1 << 3)
-            
+
             ///
             /// Monitor `willHide` events.
             ///
             public static let willHide = Options(rawValue: 1 << 4)
-            
+
             ///
             /// Monitor `willShow` events.
             ///
             public static let willShow = Options(rawValue: 1 << 5)
-            
+
             ///
             /// Monitor all events.
             ///
@@ -172,16 +172,16 @@
                                               .willChangeFrame,
                                               .willHide,
                                               .willShow]
-            
+
             /// :nodoc:
             public init(rawValue: UInt) {
                 self.rawValue = rawValue
             }
-            
+
             /// :nodoc:
             public let rawValue: UInt
         }
-        
+
         ///
         /// Initializes a new `KeyboardMonitor`.
         ///
@@ -199,46 +199,46 @@
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.options = options
-            
+
             super.init(queue: queue)
         }
-        
+
         private let handler: (Event) -> Void
         private let options: Options
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             if options.contains(.didChangeFrame) {
                 observe(.UIKeyboardDidChangeFrame) { [unowned self] in
                     self.handler(.didChangeFrame(Info($0)))
                 }
             }
-            
+
             if options.contains(.didHide) {
                 observe(.UIKeyboardDidHide) { [unowned self] in
                     self.handler(.didHide(Info($0)))
                 }
             }
-            
+
             if options.contains(.didShow) {
                 observe(.UIKeyboardDidShow) { [unowned self] in
                     self.handler(.didShow(Info($0)))
                 }
             }
-            
+
             if options.contains(.willChangeFrame) {
                 observe(.UIKeyboardWillChangeFrame) { [unowned self] in
                     self.handler(.willChangeFrame(Info($0)))
                 }
             }
-            
+
             if options.contains(.willHide) {
                 observe(.UIKeyboardWillHide) { [unowned self] in
                     self.handler(.willHide(Info($0)))
                 }
             }
-            
+
             if options.contains(.willShow) {
                 observe(.UIKeyboardWillShow) { [unowned self] in
                     self.handler(.willShow(Info($0)))
@@ -246,5 +246,5 @@
             }
         }
     }
-    
+
 #endif

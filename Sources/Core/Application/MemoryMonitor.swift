@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(tvOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// A `MemoryMonitor` instance monitors the app for memory warnings from the
     /// operating system.
@@ -27,7 +27,7 @@
             ///
             case didReceiveWarning
         }
-        
+
         ///
         /// Initializes a new `MemoryMonitor`.
         ///
@@ -40,19 +40,19 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIApplicationDidReceiveMemoryWarning) { [unowned self] _ in
                 self.handler(.didReceiveWarning)
             }
         }
     }
-    
+
 #endif

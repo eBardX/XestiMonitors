@@ -97,7 +97,7 @@ internal class MockAccessibilityStatus: AccessibilityStatusProtocol {
     func isSwitchControlRunning() -> Bool {
         return mockIsSwitchControlRunning
     }
-    
+
     func isVoiceOverRunning() -> Bool {
         return mockIsVoiceOverRunning
     }

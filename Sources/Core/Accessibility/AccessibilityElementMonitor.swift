@@ -8,10 +8,10 @@
 //
 
 #if os(iOS) || os(tvOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// An `AccessibilityElementMonitor` instance monitors the system for changes
     /// to element focus by an assistive technology.
@@ -26,7 +26,7 @@
             ///
             case didFocus(Info)
         }
-        
+
         ///
         /// Encapsulates information associated with an element focus change by an
         /// assistive technology.
@@ -36,27 +36,27 @@
             /// The identifier of the assistive technology.
             ///
             public let assistiveTechnology: String?
-            
+
             ///
             /// The element that is now focused by the assistive technology.
             ///
             public let focusedElement: Any?
-            
+
             ///
             /// The element that was previously focused by the assistive
             /// technology.
             ///
             public let unfocusedElement: Any?
-            
+
             internal init (_ notification: Notification) {
                 let userInfo = notification.userInfo
-                
+
                 self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
                 self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
                 self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
             }
         }
-        
+
         ///
         /// Initializes a new `AccessibilityElementMonitor`.
         ///
@@ -69,19 +69,19 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIAccessibilityElementFocused) { [unowned self] in
                 self.handler(.didFocus(Info($0)))
             }
         }
     }
-    
+
 #endif

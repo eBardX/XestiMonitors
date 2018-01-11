@@ -8,10 +8,10 @@
 //
 
 #if os(iOS)
-    
+
     import Foundation
     import UIKit
-    
+
     ///
     /// An `OrientationMonitor` instance monitors the device for changes to its
     /// physical orientation.
@@ -26,7 +26,7 @@
             ///
             case didChange(UIDeviceOrientation)
         }
-        
+
         ///
         /// Initializes a new `OrientationMonitor`.
         ///
@@ -39,36 +39,36 @@
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
-            
+
             super.init(queue: queue)
         }
-        
+
         ///
         /// The physical orientation of the device.
         ///
         public var orientation: UIDeviceOrientation {
             return device.orientation
         }
-        
+
         private let handler: (Event) -> Void
-        
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
                 self.handler(.didChange(self.device.orientation))
             }
-            
+
             device.beginGeneratingDeviceOrientationNotifications()
         }
-        
+
         public override func removeNotificationObservers() {
             device.endGeneratingDeviceOrientationNotifications()
-            
+
             super.removeNotificationObservers()
         }
     }
-    
+
     extension OrientationMonitor: DeviceInjected {}
-    
+
 #endif

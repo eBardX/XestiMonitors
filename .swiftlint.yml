@@ -51,12 +51,12 @@ opt_in_rules:
 # - no_grouping_extension
 
 included:
-  - XestiMonitorsDemo-iOS
+  - XestiMonitorsDemo-iOS/XestiMonitorsDemo
   - ../../Sources
   - ../../Tests
 
 excluded:
-  - Example/Pods
+  - XestiMonitorsDemo-iOS/Pods
 
 reporter: "xcode"
 
@@ -85,6 +85,8 @@ function_body_length:
 function_parameter_count:
   warning: 5
   error: 8
+identifier_name:
+  min_length: 2
 large_tuple:
   warning: 3
   error: 4
