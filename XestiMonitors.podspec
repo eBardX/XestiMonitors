@@ -16,13 +16,15 @@ Pod::Spec.new do |s|
                             :watchos => '2.0' }
 
   s.requires_arc        = true
+
+  s.ios.frameworks      = 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.osx.frameworks      = 'Foundation', 'SystemConfiguration'
+  s.tvos.frameworks     = 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.watchos.frameworks  = 'CoreMotion', 'Foundation'
+
   s.default_subspec     = 'Core'
 
   s.subspec 'Core' do |ss|
-    ss.ios.frameworks       = 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
-    ss.osx.frameworks       = 'Foundation', 'SystemConfiguration'
-    ss.tvos.frameworks      = 'Foundation', 'SystemConfiguration', 'UIKit'
-    ss.watchos.frameworks   = 'CoreMotion', 'Foundation'
     ss.source_files         = 'Sources/**/*.swift'
   end
 end
