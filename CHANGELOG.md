@@ -1,6 +1,20 @@
+# 2.0.0 (2018-01-11)
+
+Major rewrite.
+
+* Adds support for Swift 4 as well as macOS, tvOS, and watchOS platforms.
+* Adds support for installation with Carthage and Swift Package Manager.
+* Adds support for three new monitor classes: `AltimeterMonitor`,
+`MotionActivityMonitor`, and `PedometerMonitor`.
+* Adds unit tests for all public classes.
+
+**NOTE:** Developers using older versions of XestiMonitors will need to manually conform
+to the new APIs introduced in this version. There is _no_ deprecation path. Sorry! Life is too
+short.
+
 # 1.3.0 (2017-01-18)
 
-Adds support for three new accessibility classes:
+Adds support for three new monitor classes:
 `AccessibilityAnnouncementMonitor`, `AccessibilityElementMonitor`, and
 `AccessibilityStatusMonitor`.
 
