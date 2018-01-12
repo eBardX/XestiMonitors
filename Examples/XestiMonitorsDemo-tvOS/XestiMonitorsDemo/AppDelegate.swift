@@ -2,9 +2,9 @@
 //  AppDelegate.swift
 //  XestiMonitors
 //
-//  Created by J. G. Pusey on 2016-11-23.
+//  Created by J. G. Pusey on 2018-01-11.
 //
-//  © 2016 J. G. Pusey (see LICENSE.md)
+//  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
 import UIKit
