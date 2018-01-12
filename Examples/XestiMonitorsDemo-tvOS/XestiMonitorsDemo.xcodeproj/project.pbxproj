@@ -110,7 +110,6 @@
 				F50693E5200832FC0031754B /* Resources */,
 				846EC4776FB25F5E54C1E0FD /* [CP] Embed Pods Frameworks */,
 				E4A881A016625BFBDF886175 /* [CP] Copy Pods Resources */,
-				F5FFFE9D20092C6100A8E59B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -199,21 +198,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5FFFE9D20092C6100A8E59B /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CONFIG_DIR=$(unset CDPATH && cd \"${SRCROOT}\"/../.. &>/dev/null && pwd)\nCONFIG_FILE=\"${CONFIG_DIR}\"/.swiftlint.yml\n\"${PODS_ROOT}\"/SwiftLint/swiftlint autocorrect --config \"${CONFIG_FILE}\"\n\"${PODS_ROOT}\"/SwiftLint/swiftlint lint --config \"${CONFIG_FILE}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FCC5182925BFD1137E276FB2 /* [CP] Check Pods Manifest.lock */ = {
