@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :tvos, '9.0'
+
+use_frameworks!
+
+target 'XestiMonitorsDemo' do
+
+    pod 'SwiftLint',     '~> 0.24.2'
+    pod 'XestiMonitors', :path => '../../'
+
+end
