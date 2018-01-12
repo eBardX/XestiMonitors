@@ -51,12 +51,13 @@ opt_in_rules:
 # - no_grouping_extension
 
 included:
-  - XestiMonitorsDemo-iOS/XestiMonitorsDemo
-  - ../../Sources
-  - ../../Tests
+  - Examples
+  - Sources
+  - Tests
 
 excluded:
-  - XestiMonitorsDemo-iOS/Pods
+- Examples/XestiMonitorsDemo-iOS/Pods
+- Examples/XestiMonitorsDemo-tvOS/Pods
 
 reporter: "xcode"
 
