@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		481061E63B2D45A23289D8BE /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4335B7DA1D05581B11E144 /* Pods_XestiMonitorsDemo.framework */; };
 		F50693EB200832FC0031754B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693EA200832FC0031754B /* AppDelegate.swift */; };
-		F50693ED200832FC0031754B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693EC200832FC0031754B /* ViewController.swift */; };
 		F50693F0200832FC0031754B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50693EE200832FC0031754B /* Main.storyboard */; };
 		F50693F2200832FD0031754B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50693F1200832FD0031754B /* Assets.xcassets */; };
+		F50693FE2008374C0031754B /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */; };
+		F50693FF2008374C0031754B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FA2008374C0031754B /* Formatters.swift */; };
+		F50694002008374C0031754B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FB2008374C0031754B /* MasterViewController.swift */; };
+		F50694012008374C0031754B /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */; };
+		F50694022008374C0031754B /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FD2008374C0031754B /* OtherDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +24,14 @@
 		B5DDFB222B1A3C81776FEC15 /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F50693E7200832FC0031754B /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50693EA200832FC0031754B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F50693EC200832FC0031754B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F50693EF200832FC0031754B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F50693F1200832FD0031754B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F50693F3200832FD0031754B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
+		F50693FA2008374C0031754B /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		F50693FB2008374C0031754B /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
+		F50693FD2008374C0031754B /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +84,14 @@
 		F50693E9200832FC0031754B /* XestiMonitorsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */,
 				F50693EA200832FC0031754B /* AppDelegate.swift */,
-				F50693EC200832FC0031754B /* ViewController.swift */,
-				F50693EE200832FC0031754B /* Main.storyboard */,
+				F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */,
 				F50693F1200832FD0031754B /* Assets.xcassets */,
+				F50693FA2008374C0031754B /* Formatters.swift */,
+				F50693FB2008374C0031754B /* MasterViewController.swift */,
+				F50693FD2008374C0031754B /* OtherDetailViewController.swift */,
+				F50693EE200832FC0031754B /* Main.storyboard */,
 				F50693F3200832FD0031754B /* Info.plist */,
 			);
 			path = XestiMonitorsDemo;
@@ -213,7 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50693ED200832FC0031754B /* ViewController.swift in Sources */,
+				F50694002008374C0031754B /* MasterViewController.swift in Sources */,
+				F50694022008374C0031754B /* OtherDetailViewController.swift in Sources */,
+				F50694012008374C0031754B /* ApplicationDetailViewController.swift in Sources */,
+				F50693FE2008374C0031754B /* AccessibilityDetailViewController.swift in Sources */,
+				F50693FF2008374C0031754B /* Formatters.swift in Sources */,
 				F50693EB200832FC0031754B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

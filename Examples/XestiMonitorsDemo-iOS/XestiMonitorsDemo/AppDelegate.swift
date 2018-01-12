@@ -16,7 +16,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
 
     public var window: UIWindow?
 
-    // MARK: Public Instance Methods
+    // MARK: UIApplicationDelegate Methods
 
     public func application(_ application: UIApplication,
                             didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -51,7 +51,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
     public func applicationWillTerminate(_ application: UIApplication) {
     }
 
-    // UISplitViewControllerDelegate Methods
+    // MARK: UISplitViewControllerDelegate Methods
 
     public func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
         return .allVisible
