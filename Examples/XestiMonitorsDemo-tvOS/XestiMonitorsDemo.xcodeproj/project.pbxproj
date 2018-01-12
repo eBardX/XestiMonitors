@@ -84,14 +84,14 @@
 		F50693E9200832FC0031754B /* XestiMonitorsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F50693F1200832FD0031754B /* Assets.xcassets */,
+				F50693EE200832FC0031754B /* Main.storyboard */,
 				F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */,
 				F50693EA200832FC0031754B /* AppDelegate.swift */,
 				F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */,
-				F50693F1200832FD0031754B /* Assets.xcassets */,
 				F50693FA2008374C0031754B /* Formatters.swift */,
 				F50693FB2008374C0031754B /* MasterViewController.swift */,
 				F50693FD2008374C0031754B /* OtherDetailViewController.swift */,
-				F50693EE200832FC0031754B /* Main.storyboard */,
 				F50693F3200832FD0031754B /* Info.plist */,
 			);
 			path = XestiMonitorsDemo;
@@ -110,6 +110,7 @@
 				F50693E5200832FC0031754B /* Resources */,
 				846EC4776FB25F5E54C1E0FD /* [CP] Embed Pods Frameworks */,
 				E4A881A016625BFBDF886175 /* [CP] Copy Pods Resources */,
+				F5FFFE9D20092C6100A8E59B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -200,6 +201,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F5FFFE9D20092C6100A8E59B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "CONFIG_DIR=$(unset CDPATH && cd \"${SRCROOT}\"/../.. &>/dev/null && pwd)\nCONFIG_FILE=\"${CONFIG_DIR}\"/.swiftlint.yml\n\"${PODS_ROOT}\"/SwiftLint/swiftlint autocorrect --config \"${CONFIG_FILE}\"\n\"${PODS_ROOT}\"/SwiftLint/swiftlint lint --config \"${CONFIG_FILE}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FCC5182925BFD1137E276FB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -308,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -26,7 +26,6 @@ public class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet private weak var statusDarkenColorsLabel: UILabel!
     @IBOutlet private weak var statusGrayscaleLabel: UILabel!
     @IBOutlet private weak var statusGuidedAccessLabel: UILabel!
-    @IBOutlet private weak var statusHearingDeviceLabel: UILabel!
     @IBOutlet private weak var statusInvertColorsLabel: UILabel!
     @IBOutlet private weak var statusMonoAudioLabel: UILabel!
     @IBOutlet private weak var statusReduceMotionLabel: UILabel!
