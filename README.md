@@ -1,6 +1,6 @@
 # XestiMonitors
 
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)](https://developer.apple.com/swift/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
@@ -8,9 +8,9 @@
 [![Code Coverage](https://img.shields.io/codecov/c/github/eBardX/XestiMonitors/master.svg)](https://codecov.io/github/eBardX/XestiMonitors)
 [![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
 
-[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage)
-[![CocoaPod Version](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![CocoaPods](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
+[![Carthage](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
 
 * [Overview](#overview)
 * [Reference Documentation](#reference_documentation)
