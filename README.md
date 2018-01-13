@@ -4,13 +4,13 @@
 [![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
-[![Build Status](https://img.shields.io/travis/eBardX/XestiMonitors/master.svg)](https://travis-ci.org/eBardX/XestiMonitors)
-[![Code Coverage](https://img.shields.io/codecov/c/github/eBardX/XestiMonitors/master.svg)](https://codecov.io/github/eBardX/XestiMonitors)
-[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg)](http://ebardx.github.io/XestiMonitors/)
+[![Build Status](https://img.shields.io/travis/eBardX/XestiMonitors/master.svg?colorB=4BC51D)](https://travis-ci.org/eBardX/XestiMonitors)
+[![Code Coverage](https://img.shields.io/codecov/c/github/eBardX/XestiMonitors/master.svg?colorB=4BC51D)](https://codecov.io/github/eBardX/XestiMonitors)
+[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/XestiMonitors.svg?colorB=4BC51D)](http://ebardx.github.io/XestiMonitors/)
 
-[![CocoaPods](https://img.shields.io/cocoapods/v/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
-[![Carthage](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift Package Manager](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
+[![CocoaPods](https://img.shields.io/cocoapods/v/XestiMonitors.svg?colorB=4BC51D)](http://cocoapods.org/pods/XestiMonitors)
+[![Carthage](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 * [Overview](#overview)
 * [Reference Documentation](#reference_documentation)

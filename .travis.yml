@@ -12,7 +12,7 @@ env:
   matrix:
     - DESTINATION="OS=11.2,name=iPhone X"                   SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES"
     - DESTINATION="arch=x86_64"                             SCHEME="$OSX_FRAMEWORK_SCHEME"     RUN_TESTS="YES"
-    - DESTINATION="OS=11.2,name=Apple TV 1080p"             SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES"
+    - DESTINATION="OS=11.2,name=Apple TV 4K (at 1080p)"     SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES"
     - DESTINATION="OS=4.2,name=Apple Watch Series 2 - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"
 script:
   - set -o pipefail
