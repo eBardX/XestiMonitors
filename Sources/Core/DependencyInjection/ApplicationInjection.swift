@@ -29,14 +29,8 @@
 
     extension UIApplication: ApplicationProtocol {}
 
-    internal protocol ApplicationInjected {}
-
     internal struct ApplicationInjector {
-        static var application: ApplicationProtocol = UIApplication.shared
-    }
-
-    internal extension ApplicationInjected {
-        var application: ApplicationProtocol { return ApplicationInjector.application }
+        internal static var inject: () -> ApplicationProtocol = { return UIApplication.shared }
     }
 
 #endif

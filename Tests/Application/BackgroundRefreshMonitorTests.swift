@@ -18,11 +18,11 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        ApplicationInjector.application = application
+        ApplicationInjector.inject = { return self.application }
 
         application.backgroundRefreshStatus = .restricted
 
-        NotificationCenterInjector.notificationCenter = notificationCenter
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_statusDidChange() {

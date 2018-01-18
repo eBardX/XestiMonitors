@@ -71,6 +71,7 @@
                     handler: @escaping (Event) -> Void) throws {
             self.handler = handler
             self.innerQueue = .main
+            self.networkReachability = NetworkReachabilityInjector.inject()
             self.queue = queue
             self.unsafePreviousFlags = []
 
@@ -105,6 +106,7 @@
                     handler: @escaping (Event) -> Void) throws {
             self.handler = handler
             self.innerQueue = .main
+            self.networkReachability = NetworkReachabilityInjector.inject()
             self.queue = queue
             self.unsafePreviousFlags = []
 
@@ -158,6 +160,7 @@
 
         private let handler: (Event) -> Void
         private let innerQueue: DispatchQueue
+        private let networkReachability: NetworkReachabilityProtocol
         private let queue: OperationQueue
 
         private var currentFlags: SCNetworkReachabilityFlags? {
@@ -235,7 +238,5 @@
             }
         }
     }
-
-    extension NetworkReachabilityMonitor: NetworkReachabilityInjected {}
 
 #endif

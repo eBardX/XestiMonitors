@@ -76,6 +76,7 @@
         public init(queue: OperationQueue = .main,
                     options: Options = .all,
                     handler: @escaping (Event) -> Void) {
+            self.device = DeviceInjector.inject()
             self.handler = handler
             self.options = options
 
@@ -96,6 +97,7 @@
             return device.batteryState
         }
 
+        private let device: DeviceProtocol
         private let handler: (Event) -> Void
         private let options: Options
 
@@ -123,7 +125,5 @@
             super.removeNotificationObservers()
         }
     }
-
-    extension BatteryMonitor: DeviceInjected {}
 
 #endif

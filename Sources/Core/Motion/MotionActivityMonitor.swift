@@ -71,6 +71,7 @@
         public init(queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
+            self.motionActivityManager = MotionActivityManagerInjector.inject()
             self.queue = queue
         }
 
@@ -109,6 +110,7 @@
         }
 
         private let handler: (Event) -> Void
+        private let motionActivityManager: MotionActivityManagerProtocol
         private let queue: OperationQueue
 
         public override final func cleanupMonitor() {
@@ -133,7 +135,5 @@
             }
         }
     }
-
-    extension MotionActivityMonitor: MotionActivityManagerInjected {}
 
 #endif

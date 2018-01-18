@@ -58,6 +58,7 @@
         ///
         public init(queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
+            self.altimeter = AltimeterInjector.inject()
             self.handler = handler
             self.queue = queue
         }
@@ -70,6 +71,7 @@
             return type(of: altimeter).isRelativeAltitudeAvailable()
         }
 
+        private let altimeter: AltimeterProtocol
         private let handler: (Event) -> Void
         private let queue: OperationQueue
 
@@ -97,7 +99,5 @@
             }
         }
     }
-
-    extension AltimeterMonitor: AltimeterInjected {}
 
 #endif

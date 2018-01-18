@@ -28,14 +28,10 @@
 
     extension NetworkReachability: NetworkReachabilityProtocol {}
 
-    internal protocol NetworkReachabilityInjected {}
-
     internal struct NetworkReachabilityInjector {
-        static var networkReachability: NetworkReachabilityProtocol = NetworkReachability()
-    }
+        internal static var inject: () -> NetworkReachabilityProtocol = { return shared }
 
-    internal extension NetworkReachabilityInjected {
-        var networkReachability: NetworkReachabilityProtocol { return NetworkReachabilityInjector.networkReachability }
+        private static let shared: NetworkReachabilityProtocol = NetworkReachability()
     }
 
 #endif

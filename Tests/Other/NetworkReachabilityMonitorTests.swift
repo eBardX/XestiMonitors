@@ -17,7 +17,7 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NetworkReachabilityInjector.networkReachability = networkReachability
+        NetworkReachabilityInjector.inject = { return self.networkReachability }
 
         networkReachability.updateFlags(nil)
     }

@@ -69,6 +69,7 @@
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.interval = interval
+            self.motionManager = MotionManagerInjector.inject()
             self.queue = queue
             self.referenceFrame = referenceFrame
         }
@@ -94,6 +95,7 @@
 
         private let handler: (Event) -> Void
         private let interval: TimeInterval
+        private let motionManager: MotionManagerProtocol
         private let queue: OperationQueue
         private let referenceFrame: CMAttitudeReferenceFrame
 
@@ -124,7 +126,5 @@
             }
         }
     }
-
-    extension DeviceMotionMonitor: MotionManagerInjected {}
 
 #endif

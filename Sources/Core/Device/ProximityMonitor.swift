@@ -38,6 +38,7 @@
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
+            self.device = DeviceInjector.inject()
             self.handler = handler
 
             super.init(queue: queue)
@@ -65,6 +66,7 @@
             return device.proximityState
         }
 
+        private let device: DeviceProtocol
         private let handler: (Event) -> Void
 
         public override func addNotificationObservers() {
@@ -83,7 +85,5 @@
             super.removeNotificationObservers()
         }
     }
-
-    extension ProximityMonitor: DeviceInjected {}
 
 #endif

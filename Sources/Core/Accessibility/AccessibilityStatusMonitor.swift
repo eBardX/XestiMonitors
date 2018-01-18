@@ -256,6 +256,7 @@
         public init(queue: OperationQueue = .main,
                     options: Options = .all,
                     handler: @escaping (Event) -> Void) {
+            self.accessibilityStatus = AccessibilityStatusInjector.inject()
             self.handler = handler
             self.options = options
 
@@ -395,6 +396,7 @@
             return accessibilityStatus.isVoiceOverRunning()
         }
 
+        private let accessibilityStatus: AccessibilityStatusProtocol
         private let handler: (Event) -> Void
         private let options: Options
 
@@ -511,7 +513,5 @@
             }
         }
     }
-
-    extension AccessibilityStatusMonitor: AccessibilityStatusInjected {}
 
 #endif

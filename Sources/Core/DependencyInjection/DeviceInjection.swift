@@ -31,14 +31,8 @@
 
     extension UIDevice: DeviceProtocol {}
 
-    internal protocol DeviceInjected {}
-
     internal struct DeviceInjector {
-        static var device: DeviceProtocol = UIDevice.current
-    }
-
-    internal extension DeviceInjected {
-        var device: DeviceProtocol { return DeviceInjector.device }
+        internal static var inject: () -> DeviceProtocol = { return UIDevice.current }
     }
 
 #endif

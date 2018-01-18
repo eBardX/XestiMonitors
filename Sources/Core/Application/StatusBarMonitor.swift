@@ -99,6 +99,7 @@
         public init(queue: OperationQueue = .main,
                     options: Options = .all,
                     handler: @escaping (Event) -> Void) {
+            self.application = ApplicationInjector.inject()
             self.handler = handler
             self.options = options
 
@@ -119,6 +120,7 @@
             return application.statusBarOrientation
         }
 
+        private let application: ApplicationProtocol
         private let handler: (Event) -> Void
         private let options: Options
 
@@ -167,7 +169,5 @@
             }
         }
     }
-
-    extension StatusBarMonitor: ApplicationInjected {}
 
 #endif

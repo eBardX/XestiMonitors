@@ -18,7 +18,7 @@ internal class MemoryMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.notificationCenter = notificationCenter
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_didReceiveWarning() {
