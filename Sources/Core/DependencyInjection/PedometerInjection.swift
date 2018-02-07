@@ -34,14 +34,8 @@
 
     extension CMPedometer: PedometerProtocol {}
 
-    internal protocol PedometerInjected {}
-
     internal struct PedometerInjector {
-        static var pedometer: PedometerProtocol = CMPedometer()
-    }
-
-    internal extension PedometerInjected {
-        var pedometer: PedometerProtocol { return PedometerInjector.pedometer }
+        internal static var inject: () -> PedometerProtocol = { return CMPedometer() }
     }
 
 #endif

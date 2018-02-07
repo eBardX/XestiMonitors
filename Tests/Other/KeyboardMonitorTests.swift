@@ -19,7 +19,7 @@ internal class KeyboardMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.notificationCenter = notificationCenter
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_didChangeFrame() {

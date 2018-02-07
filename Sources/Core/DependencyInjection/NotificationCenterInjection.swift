@@ -20,12 +20,6 @@ internal protocol NotificationCenterProtocol: class {
 
 extension NotificationCenter: NotificationCenterProtocol {}
 
-internal protocol NotificationCenterInjected {}
-
 internal struct NotificationCenterInjector {
-    static var notificationCenter: NotificationCenterProtocol = NotificationCenter.`default`
-}
-
-internal extension NotificationCenterInjected {
-    var notificationCenter: NotificationCenterProtocol { return NotificationCenterInjector.notificationCenter }
+    internal static var inject: () -> NotificationCenterProtocol = { return NotificationCenter.`default` }
 }

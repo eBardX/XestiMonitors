@@ -18,12 +18,12 @@ internal class BatteryMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        DeviceInjector.device = device
+        DeviceInjector.inject = { return self.device }
 
         device.batteryLevel = 0
         device.batteryState = .unknown
 
-        NotificationCenterInjector.notificationCenter = notificationCenter
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testLevel() {

@@ -39,6 +39,7 @@
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
+            self.application = ApplicationInjector.inject()
             self.handler = handler
 
             super.init(queue: queue)
@@ -52,6 +53,7 @@
             return application.backgroundRefreshStatus
         }
 
+        private let application: ApplicationProtocol
         private let handler: (Event) -> Void
 
         public override func addNotificationObservers() {
@@ -62,7 +64,5 @@
             }
         }
     }
-
-    extension BackgroundRefreshMonitor: ApplicationInjected {}
 
 #endif

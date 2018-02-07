@@ -60,14 +60,10 @@
 
     extension CMMotionManager: MotionManagerProtocol {}
 
-    internal protocol MotionManagerInjected {}
-
     internal struct MotionManagerInjector {
-        static var motionManager: MotionManagerProtocol = CMMotionManager()
-    }
+        internal static var inject: () -> MotionManagerProtocol = { return shared }
 
-    internal extension MotionManagerInjected {
-        var motionManager: MotionManagerProtocol { return MotionManagerInjector.motionManager }
+        private static let shared: MotionManagerProtocol = CMMotionManager()
     }
 
 #endif

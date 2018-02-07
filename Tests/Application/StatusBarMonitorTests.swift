@@ -18,12 +18,12 @@ internal class StatusBarMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        ApplicationInjector.application = application
+        ApplicationInjector.inject = { return self.application }
 
         application.statusBarFrame = .zero
         application.statusBarOrientation = .unknown
 
-        NotificationCenterInjector.notificationCenter = notificationCenter
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testFrame() {

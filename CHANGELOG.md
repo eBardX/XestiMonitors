@@ -1,3 +1,7 @@
+# 2.0.1 (2018-01-18)
+
+Makes dependency injection both simpler and more flexible.
+
 # 2.0.0 (2018-01-11)
 
 Major rewrite.

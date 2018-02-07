@@ -17,7 +17,7 @@ internal class MotionActivityMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        MotionActivityManagerInjector.motionActivityManager = motionActivityManager
+        MotionActivityManagerInjector.inject = { return self.motionActivityManager }
     }
 
     func testIsAvailable_false() {

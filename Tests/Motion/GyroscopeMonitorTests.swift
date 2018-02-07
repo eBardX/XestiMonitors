@@ -17,7 +17,7 @@ internal class GyroscopeMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        MotionManagerInjector.motionManager = motionManager
+        MotionManagerInjector.inject = { return self.motionManager }
     }
 
     func testInfo_data() {

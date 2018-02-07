@@ -47,6 +47,7 @@ open class BaseNotificationMonitor: BaseMonitor {
     ///   - queue:  The operation queue on which notification blocks execute.
     ///
     public init(queue: OperationQueue) {
+        self.notificationCenter = NotificationCenterInjector.inject()
         self.queue = queue
     }
 
@@ -73,6 +74,7 @@ open class BaseNotificationMonitor: BaseMonitor {
         observers.append(observer)
     }
 
+    private let notificationCenter: NotificationCenterProtocol
     private let queue: OperationQueue
 
     private var observers: [NSObjectProtocol] = []
@@ -89,5 +91,3 @@ open class BaseNotificationMonitor: BaseMonitor {
         addNotificationObservers()
     }
 }
-
-extension BaseNotificationMonitor: NotificationCenterInjected {}

@@ -27,14 +27,8 @@
 
     extension CMMotionActivityManager: MotionActivityManagerProtocol {}
 
-    internal protocol MotionActivityManagerInjected {}
-
     internal struct MotionActivityManagerInjector {
-        static var motionActivityManager: MotionActivityManagerProtocol = CMMotionActivityManager()
-    }
-
-    internal extension MotionActivityManagerInjected {
-        var motionActivityManager: MotionActivityManagerProtocol { return MotionActivityManagerInjector.motionActivityManager }
+        internal static var inject: () -> MotionActivityManagerProtocol = { return CMMotionActivityManager() }
     }
 
 #endif

@@ -22,14 +22,8 @@
 
     extension CMAltimeter: AltimeterProtocol {}
 
-    internal protocol AltimeterInjected {}
-
     internal struct AltimeterInjector {
-        static var altimeter: AltimeterProtocol = CMAltimeter()
-    }
-
-    internal extension AltimeterInjected {
-        var altimeter: AltimeterProtocol { return AltimeterInjector.altimeter }
+        internal static var inject: () -> AltimeterProtocol = { return CMAltimeter() }
     }
 
 #endif

@@ -51,14 +51,10 @@
 
     extension AccessibilityStatus: AccessibilityStatusProtocol {}
 
-    internal protocol AccessibilityStatusInjected {}
-
     internal struct AccessibilityStatusInjector {
-        static var accessibilityStatus: AccessibilityStatusProtocol = AccessibilityStatus()
-    }
+        internal static var inject: () -> AccessibilityStatusProtocol = { return shared }
 
-    internal extension AccessibilityStatusInjected {
-        var accessibilityStatus: AccessibilityStatusProtocol { return AccessibilityStatusInjector.accessibilityStatus }
+        private static let shared: AccessibilityStatusProtocol = AccessibilityStatus()
     }
 
 #endif

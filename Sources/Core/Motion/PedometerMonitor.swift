@@ -66,6 +66,7 @@
         public init(queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
+            self.pedometer = PedometerInjector.inject()
             self.queue = queue
         }
 
@@ -137,6 +138,7 @@
         }
 
         private let handler: (Event) -> Void
+        private let pedometer: PedometerProtocol
         private let queue: OperationQueue
 
         public override final func cleanupMonitor() {
@@ -163,7 +165,5 @@
             }
         }
     }
-
-    extension PedometerMonitor: PedometerInjected {}
 
 #endif

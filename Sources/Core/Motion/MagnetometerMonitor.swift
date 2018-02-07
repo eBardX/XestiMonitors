@@ -68,6 +68,7 @@
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.interval = interval
+            self.motionManager = MotionManagerInjector.inject()
             self.queue = queue
         }
 
@@ -92,6 +93,7 @@
 
         private let handler: (Event) -> Void
         private let interval: TimeInterval
+        private let motionManager: MotionManagerProtocol
         private let queue: OperationQueue
 
         public override final func cleanupMonitor() {
@@ -120,7 +122,5 @@
             }
         }
     }
-
-    extension MagnetometerMonitor: MotionManagerInjected {}
 
 #endif
