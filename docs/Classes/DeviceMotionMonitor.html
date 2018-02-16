@@ -234,6 +234,12 @@
             <a href="../Other Monitor Classes.html">Other Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor.html">DocumentStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -310,7 +316,7 @@ processed into device motion measurements.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L24-L29">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L24-L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -341,11 +347,234 @@ processed into device motion measurements.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L34-L50">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L34-L50">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors19DeviceMotionMonitorCACSd8interval_SC24CMAttitudeReferenceFrameV5usingSo14OperationQueueC5queueyAC5EventOc7handlertcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(interval:using:queue:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorCACSd8interval_SC24CMAttitudeReferenceFrameV5usingSo14OperationQueueC5queueyAC5EventOc7handlertcfc">init(interval:using:queue:handler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>DeviceMotionMonitor</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span>
+            <span class="n">using</span> <span class="nv">referenceFrame</span><span class="p">:</span> <span class="kt">CMAttitudeReferenceFrame</span><span class="p">,</span>
+            <span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span><span class="p">,</span>
+            <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/DeviceMotionMonitor/Event.html">Event</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>interval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The interval, in seconds, for providing device
+            motion measurements to the handler.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>referenceFrame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reference frame to use for device motion
+            measurements.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The operation queue on which the handler executes.
+            Because the events might arrive at a high rate,
+            using the main operation queue is not recommended.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The handler to call periodically when a new device
+            motion measurement is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L66-L75">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC4infoAC4InfoOv"></a>
+                    <a name="//apple_ref/swift/Property/info" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC4infoAC4InfoOv">info</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The latest device motion measurement available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">info</span><span class="p">:</span> <span class="kt"><a href="../Classes/DeviceMotionMonitor/Info.html">Info</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L80-L86">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC11isAvailableSbv"></a>
+                    <a name="//apple_ref/swift/Property/isAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC11isAvailableSbv">isAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether device motion measuring is available
+on the device.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isAvailable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L92-L94">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC07cleanupE0yyF"></a>
+                    <a name="//apple_ref/swift/Method/cleanupMonitor()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC07cleanupE0yyF">cleanupMonitor()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L102-L106">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC09configureE0yyF"></a>
+                    <a name="//apple_ref/swift/Method/configureMonitor()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC09configureE0yyF">configureMonitor()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L108-L127">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Deprecated"></a>
+                <a name="//apple_ref/swift/Section/Deprecated" class="dashAnchor"></a>
+                <a href="#/Deprecated">
+                  <h3 class="section-name">Deprecated</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -360,6 +589,12 @@ processed into device motion measurements.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>DeviceMotionMonitor</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Deprecated. Use <code>init(interval:using:queue:handler)</code>
+        instead.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -385,9 +620,10 @@ processed into device motion measurements.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The operation queue on which the handler executes.
-            Because the events might arrive at a high rate,
-            using the main operation queue is not recommended.</p>
+                                  <p>The operation queue on which the handler
+            executes. Because the events might arrive at a
+            high rate, using the main operation queue is
+            not recommended.</p>
                                 </div>
                               </td>
                             </tr>
@@ -425,8 +661,8 @@ processed into device motion measurements.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The handler to call periodically when a new device
-            motion measurement is available.</p>
+                                  <p>The handler to call periodically when a new
+            device motion measurement is available.</p>
                                 </div>
                               </td>
                             </tr>
@@ -434,126 +670,7 @@ processed into device motion measurements.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L66-L74">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC4infoAC4InfoOv"></a>
-                    <a name="//apple_ref/swift/Property/info" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC4infoAC4InfoOv">info</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The latest device motion measurement available.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">info</span><span class="p">:</span> <span class="kt"><a href="../Classes/DeviceMotionMonitor/Info.html">Info</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L79-L85">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC11isAvailableSbv"></a>
-                    <a name="//apple_ref/swift/Property/isAvailable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC11isAvailableSbv">isAvailable</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether device motion measuring is available
-on the device.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isAvailable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L91-L93">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC07cleanupE0yyF"></a>
-                    <a name="//apple_ref/swift/Method/cleanupMonitor()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC07cleanupE0yyF">cleanupMonitor()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L100-L104">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors19DeviceMotionMonitorC09configureE0yyF"></a>
-                    <a name="//apple_ref/swift/Method/configureMonitor()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors19DeviceMotionMonitorC09configureE0yyF">configureMonitor()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Motion/DeviceMotionMonitor.swift#L106-L125">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Motion/DeviceMotionMonitor.swift#L150-L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

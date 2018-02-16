@@ -22,9 +22,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
 
     func testInfo_data() {
         let expectedData = CMDeviceMotion()
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { _ in }
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { _ in }
 
         motionManager.updateDeviceMotion(data: expectedData)
 
@@ -36,9 +36,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     }
 
     func testInfo_unknown() {
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { _ in }
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { _ in }
 
         motionManager.updateDeviceMotion(data: nil)
 
@@ -49,9 +49,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { _ in }
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { _ in }
 
         motionManager.updateDeviceMotion(available: false)
 
@@ -59,9 +59,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { _ in }
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { _ in }
 
         motionManager.updateDeviceMotion(available: true)
 
@@ -72,9 +72,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMDeviceMotion()
         var expectedEvent: DeviceMotionMonitor.Event?
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { event in
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -98,9 +98,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: DeviceMotionMonitor.Event?
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { event in
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -122,9 +122,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: DeviceMotionMonitor.Event?
-        let monitor = DeviceMotionMonitor(queue: .main,
-                                          interval: 1,
-                                          using: .xArbitraryZVertical) { event in
+        let monitor = DeviceMotionMonitor(interval: 1,
+                                          using: .xArbitraryZVertical,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }

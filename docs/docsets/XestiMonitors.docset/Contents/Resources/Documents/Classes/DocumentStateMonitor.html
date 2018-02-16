@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DocumentStateMonitor Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DocumentStateMonitor" class="dashAnchor"></a>
+    <a title="DocumentStateMonitor Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">XestiMonitors Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/eBardX/XestiMonitors"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">XestiMonitors Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DocumentStateMonitor Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Monitor.html">Monitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Base Monitor Classes.html">Base Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BaseMonitor.html">BaseMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Accessibility Monitor Classes.html">Accessibility Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityAnnouncementMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityElementMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityElementMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccessibilityStatusMonitor/Options.html">– Options</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Application Monitor Classes.html">Application Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationStateMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BackgroundRefreshMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemoryMonitor.html">MemoryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemoryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProtectedDataMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProtectedDataMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ScreenshotMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatusBarMonitor.html">StatusBarMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatusBarMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatusBarMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TimeMonitor.html">TimeMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TimeMonitor/Event.html">– Event</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Device Monitor Classes.html">Device Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BatteryMonitor.html">BatteryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BatteryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BatteryMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrientationMonitor.html">OrientationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrientationMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProximityMonitor.html">ProximityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProximityMonitor/Event.html">– Event</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Motion Monitor Classes.html">Motion Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccelerometerMonitor.html">AccelerometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccelerometerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccelerometerMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AltimeterMonitor.html">AltimeterMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AltimeterMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AltimeterMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceMotionMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceMotionMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GyroscopeMonitor.html">GyroscopeMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GyroscopeMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GyroscopeMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MagnetometerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MagnetometerMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MotionActivityMonitor.html">MotionActivityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MotionActivityMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MotionActivityMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PedometerMonitor.html">PedometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PedometerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PedometerMonitor/Info.html">– Info</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Monitor Classes.html">Other Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor.html">DocumentStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KeyboardMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkReachabilityMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkReachabilityMonitor/Status.html">– Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/CMAcceleration.html">CMAcceleration</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DocumentStateMonitor</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DocumentStateMonitor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code>DocumentStateMonitor</code> instance monitors a document for changes to
+its state.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors20DocumentStateMonitorC5EventO"></a>
+                    <a name="//apple_ref/swift/Enum/Event" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors20DocumentStateMonitorC5EventO">Event</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encapsulates changes to the state of the document.</p>
+
+                        <a href="../Classes/DocumentStateMonitor/Event.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Event</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Other/DocumentStateMonitor.swift#L22-L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors20DocumentStateMonitorCACSo10UIDocumentC8document_So14OperationQueueC5queueyAC5EventOc7handlertcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(document:queue:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors20DocumentStateMonitorCACSo10UIDocumentC8document_So14OperationQueueC5queueyAC5EventOc7handlertcfc">init(document:queue:handler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>DocumentStateMonitor</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt">UIDocument</span><span class="p">,</span>
+            <span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span> <span class="o">=</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span>
+            <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/DocumentStateMonitor/Event.html">Event</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document to monitor.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The operation queue on which the handler executes. By
+        default, the main operation queue is used.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The handler to call when the state of the document
+        changes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Other/DocumentStateMonitor.swift#L39-L46">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors20DocumentStateMonitorC8documentSo10UIDocumentCv"></a>
+                    <a name="//apple_ref/swift/Property/document" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors20DocumentStateMonitorC8documentSo10UIDocumentCv">document</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The document being monitored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">document</span><span class="p">:</span> <span class="kt">UIDocument</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Other/DocumentStateMonitor.swift#L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors20DocumentStateMonitorC24addNotificationObserversyyF"></a>
+                    <a name="//apple_ref/swift/Method/addNotificationObservers()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors20DocumentStateMonitorC24addNotificationObserversyyF">addNotificationObservers()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/125ad8acce8f7e9ab316322a14a00d3876c60ea6/Sources/Core/Other/DocumentStateMonitor.swift#L55-L64">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016–2018 J. G. Pusey</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

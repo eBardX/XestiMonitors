@@ -1,3 +1,8 @@
+# 2.1.0 (2018-02-16)
+
+* Adds support for new monitor class: `DocumentStateMonitor`.
+* Corrects the initializer parameter order for a few motion monitor classes.
+
 # 2.0.1 (2018-01-18)
 
 Makes dependency injection both simpler and more flexible.

@@ -39,6 +39,7 @@ custom_categories:
       - PedometerMonitor
   - name: Other Monitor Classes
     children:
+      - DocumentStateMonitor
       - KeyboardMonitor
       - NetworkReachabilityMonitor
   - name: Extensions

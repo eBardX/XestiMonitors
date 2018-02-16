@@ -114,6 +114,12 @@
 		F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
 		F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */; };
 		F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */; };
+		F56FAB6620373C3B006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */; };
+		F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB732037531C006FAB7B /* MockDocument.swift */; };
 		F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
 		F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
 		F5E1DE3A2006A64800C43E8D /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
@@ -330,6 +336,9 @@
 		3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50693DD2007C8BC0031754B /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		F50BE8D52006C7FE0027A36C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
+		F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
+		F56FAB732037531C006FAB7B /* MockDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDocument.swift; sourceTree = "<group>"; };
 		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
 		F5F3028B20067A40005BC04A /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
@@ -561,6 +570,7 @@
 		F5F3028920067A40005BC04A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */,
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
 				F5F3028B20067A40005BC04A /* NetworkReachability.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
@@ -714,6 +724,7 @@
 				F5F3036620067AA3005BC04A /* MockAltimeter.swift */,
 				F5F3036720067AA3005BC04A /* MockApplication.swift */,
 				F5F3036820067AA3005BC04A /* MockDevice.swift */,
+				F56FAB732037531C006FAB7B /* MockDocument.swift */,
 				F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */,
 				F5F3036A20067AA3005BC04A /* MockMotionManager.swift */,
 				F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */,
@@ -726,6 +737,7 @@
 		F5F3036E20067AA3005BC04A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */,
 				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
 			);
@@ -1094,6 +1106,7 @@
 				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
 				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
 				F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */,
+				F56FAB6620373C3B006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
 				F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */,
 				F5F302CA20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
@@ -1138,6 +1151,7 @@
 				F50693BB2007BFDB0031754B /* ApplicationInjection.swift in Sources */,
 				F50693C92007BFE70031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
+				F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */,
 				F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
 				F5F3033920067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
@@ -1182,6 +1196,7 @@
 				F50693CD2007BFF00031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C72007BFE50031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */,
+				F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */,
 				F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */,
 				F50693CF2007BFF00031754B /* MotionActivityMonitor.swift in Sources */,
@@ -1226,6 +1241,7 @@
 				F50693D42007BFF20031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */,
+				F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
 				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,
 				F50693D62007BFF20031754B /* MotionActivityMonitor.swift in Sources */,
@@ -1257,8 +1273,10 @@
 				F5F303AA20067AA3005BC04A /* OrientationMonitorTests.swift in Sources */,
 				F5F303B920067AA3005BC04A /* MockDevice.swift in Sources */,
 				F5F3039E20067AA3005BC04A /* MotionActivityMonitorTests.swift in Sources */,
+				F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */,
 				F5F3038F20067AA3005BC04A /* AccelerometerMonitorTests.swift in Sources */,
 				F5F303C520067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */,
 				F5F3037420067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
 				F5F3039220067AA3005BC04A /* AltimeterMonitorTests.swift in Sources */,
 				F5F303C220067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
@@ -1641,10 +1659,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1658,10 +1673,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1674,10 +1686,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1693,10 +1702,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1712,10 +1718,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1732,10 +1735,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

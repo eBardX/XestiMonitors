@@ -22,8 +22,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
 
     func testInfo_data() {
         let expectedData = CMMagnetometerData()
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { _ in }
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { _ in }
 
         motionManager.updateMagnetometer(data: expectedData)
 
@@ -35,8 +35,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
     }
 
     func testInfo_unknown() {
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { _ in }
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { _ in }
 
         motionManager.updateMagnetometer(data: nil)
 
@@ -47,8 +47,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { _ in }
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { _ in }
 
         motionManager.updateMagnetometer(available: false)
 
@@ -56,8 +56,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { _ in }
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { _ in }
 
         motionManager.updateMagnetometer(available: true)
 
@@ -68,8 +68,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMMagnetometerData()
         var expectedEvent: MagnetometerMonitor.Event?
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { event in
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -93,8 +93,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: MagnetometerMonitor.Event?
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { event in
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -116,8 +116,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MagnetometerMonitor.Event?
-        let monitor = MagnetometerMonitor(queue: .main,
-                                          interval: 1) { event in
+        let monitor = MagnetometerMonitor(interval: 1,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }

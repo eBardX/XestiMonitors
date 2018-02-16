@@ -22,8 +22,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
 
     func testInfo_data() {
         let expectedData = CMGyroData()
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { _ in }
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { _ in }
 
         motionManager.updateGyroscope(data: expectedData)
 
@@ -35,8 +35,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
     }
 
     func testInfo_unknown() {
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { _ in }
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { _ in }
 
         motionManager.updateGyroscope(data: nil)
 
@@ -47,8 +47,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { _ in }
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { _ in }
 
         motionManager.updateGyroscope(available: false)
 
@@ -56,8 +56,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { _ in }
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { _ in }
 
         motionManager.updateGyroscope(available: true)
 
@@ -68,8 +68,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMGyroData()
         var expectedEvent: GyroscopeMonitor.Event?
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { event in
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { event in
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -93,8 +93,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: GyroscopeMonitor.Event?
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { event in
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { event in
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -116,8 +116,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: GyroscopeMonitor.Event?
-        let monitor = GyroscopeMonitor(queue: .main,
-                                       interval: 1) { event in
+        let monitor = GyroscopeMonitor(interval: 1,
+                                       queue: .main) { event in
                                         expectedEvent = event
                                         expectation.fulfill()
         }
