@@ -54,7 +54,7 @@
         private let device: DeviceProtocol
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
@@ -64,7 +64,7 @@
             device.beginGeneratingDeviceOrientationNotifications()
         }
 
-        public override func removeNotificationObservers() {
+        override public func removeNotificationObservers() {
             device.endGeneratingDeviceOrientationNotifications()
 
             super.removeNotificationObservers()

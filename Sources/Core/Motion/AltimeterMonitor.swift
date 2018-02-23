@@ -75,13 +75,13 @@
         private let handler: (Event) -> Void
         private let queue: OperationQueue
 
-        public override final func cleanupMonitor() {
+        override public final func cleanupMonitor() {
             altimeter.stopRelativeAltitudeUpdates()
 
             super.cleanupMonitor()
         }
 
-        public override final func configureMonitor() {
+        override public final func configureMonitor() {
             super.configureMonitor()
 
             altimeter.startRelativeAltitudeUpdates(to: .main) { [unowned self] data, error in

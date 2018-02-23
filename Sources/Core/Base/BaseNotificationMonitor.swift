@@ -79,13 +79,13 @@ open class BaseNotificationMonitor: BaseMonitor {
 
     private var observers: [NSObjectProtocol] = []
 
-    public override final func cleanupMonitor() {
+    override public final func cleanupMonitor() {
         removeNotificationObservers()
 
         super.cleanupMonitor()
     }
 
-    public override final func configureMonitor() {
+    override public final func configureMonitor() {
         super.configureMonitor()
 
         addNotificationObservers()

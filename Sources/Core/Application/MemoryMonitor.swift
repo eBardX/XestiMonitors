@@ -46,7 +46,7 @@
 
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIApplicationDidReceiveMemoryWarning) { [unowned self] _ in

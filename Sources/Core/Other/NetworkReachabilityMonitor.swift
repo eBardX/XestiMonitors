@@ -206,14 +206,14 @@
             return .reachableViaWiFi
         }
 
-        public override final func cleanupMonitor() {
+        override public final func cleanupMonitor() {
             networkReachability.setDispatchQueue(nil)
             networkReachability.setCallback(nil, nil)
 
             super.cleanupMonitor()
         }
 
-        public override final func configureMonitor() {
+        override public final func configureMonitor() {
             super.configureMonitor()
 
             var context = SCNetworkReachabilityContext()

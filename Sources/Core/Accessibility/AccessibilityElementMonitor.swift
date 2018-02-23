@@ -75,7 +75,7 @@
 
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIAccessibilityElementFocused) { [unowned self] in

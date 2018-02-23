@@ -16,7 +16,7 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
 
     @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
-    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor { [unowned self] in
+    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
         self.displayNetworkReachability($0)
     }
 

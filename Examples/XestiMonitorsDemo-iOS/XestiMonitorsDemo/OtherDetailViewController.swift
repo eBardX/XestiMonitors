@@ -23,11 +23,12 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var keyboardTextField: UITextField!
     @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
-    private lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
+    private lazy var keyboardMonitor = KeyboardMonitor(options: .all,
+                                                       queue: .main) { [unowned self] in
         self.displayKeyboard($0)
     }
 
-    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor { [unowned self] in
+    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
         self.displayNetworkReachability($0)
     }
 

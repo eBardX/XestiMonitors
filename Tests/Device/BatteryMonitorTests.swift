@@ -28,7 +28,8 @@ internal class BatteryMonitorTests: XCTestCase {
 
     func testLevel() {
         let expectedLevel: Float = 75
-        let monitor = BatteryMonitor(queue: .main) { _ in }
+        let monitor = BatteryMonitor(options: .levelDidChange,
+                                     queue: .main) { _ in }
 
         simulateLevelDidChange(to: expectedLevel)
 
@@ -39,9 +40,10 @@ internal class BatteryMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedLevel: Float = 50
         var expectedEvent: BatteryMonitor.Event?
-        let monitor = BatteryMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = BatteryMonitor(options: .levelDidChange,
+                                     queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -61,9 +63,10 @@ internal class BatteryMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedState: UIDeviceBatteryState = .charging
         var expectedEvent: BatteryMonitor.Event?
-        let monitor = BatteryMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = BatteryMonitor(options: .stateDidChange,
+                                     queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -81,7 +84,8 @@ internal class BatteryMonitorTests: XCTestCase {
 
     func testState() {
         let expectedState: UIDeviceBatteryState = .full
-        let monitor = BatteryMonitor(queue: .main) { _ in }
+        let monitor = BatteryMonitor(options: .stateDidChange,
+                                     queue: .main) { _ in }
 
         simulateStateDidChange(to: expectedState)
 

@@ -113,13 +113,13 @@
         private let motionActivityManager: MotionActivityManagerProtocol
         private let queue: OperationQueue
 
-        public override final func cleanupMonitor() {
+        override public final func cleanupMonitor() {
             motionActivityManager.stopActivityUpdates()
 
             super.cleanupMonitor()
         }
 
-        public override final func configureMonitor() {
+        override public final func configureMonitor() {
             super.configureMonitor()
 
             motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in

@@ -95,13 +95,13 @@
         private let motionManager: MotionManagerProtocol
         private let queue: OperationQueue
 
-        public override final func cleanupMonitor() {
+        override public final func cleanupMonitor() {
             motionManager.stopAccelerometerUpdates()
 
             super.cleanupMonitor()
         }
 
-        public override final func configureMonitor() {
+        override public final func configureMonitor() {
             super.configureMonitor()
 
             motionManager.accelerometerUpdateInterval = interval

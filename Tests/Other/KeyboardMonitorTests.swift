@@ -30,9 +30,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
         let expectedIsLocal = true
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .didChangeFrame,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -64,9 +65,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
         let expectedIsLocal = false
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .didChangeFrame,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -99,9 +101,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 52, y: 62, width: 72, height: 82)
         let expectedIsLocal = false
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .didHide,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -133,9 +136,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 53, y: 63, width: 73, height: 83)
         let expectedIsLocal = true
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .didShow,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -167,9 +171,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 54, y: 64, width: 74, height: 84)
         let expectedIsLocal = false
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .willChangeFrame,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -201,9 +206,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 55, y: 65, width: 75, height: 85)
         let expectedIsLocal = true
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .willHide,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -235,9 +241,10 @@ internal class KeyboardMonitorTests: XCTestCase {
         let expectedFrameEnd = CGRect(x: 56, y: 66, width: 76, height: 86)
         let expectedIsLocal = false
         var expectedEvent: KeyboardMonitor.Event?
-        let monitor = KeyboardMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = KeyboardMonitor(options: .willShow,
+                                      queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()

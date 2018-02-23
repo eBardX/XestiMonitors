@@ -69,7 +69,7 @@
         private let device: DeviceProtocol
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
@@ -79,7 +79,7 @@
             device.isProximityMonitoringEnabled = true
         }
 
-        public override func removeNotificationObservers() {
+        override public func removeNotificationObservers() {
             device.isProximityMonitoringEnabled = false
 
             super.removeNotificationObservers()
