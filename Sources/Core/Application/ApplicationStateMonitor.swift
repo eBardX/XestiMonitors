@@ -141,37 +141,43 @@
             super.addNotificationObservers()
 
             if options.contains(.didBecomeActive) {
-                observe(.UIApplicationDidBecomeActive) { [unowned self] _ in
+                observe(.UIApplicationDidBecomeActive,
+                        object: application) { [unowned self] _ in
                     self.handler(.didBecomeActive)
                 }
             }
 
             if options.contains(.didEnterBackground) {
-                observe(.UIApplicationDidEnterBackground) { [unowned self] _ in
+                observe(.UIApplicationDidEnterBackground,
+                        object: application) { [unowned self] _ in
                     self.handler(.didEnterBackground)
                 }
             }
 
             if options.contains(.didFinishLaunching) {
-                observe(.UIApplicationDidFinishLaunching) { [unowned self] in
+                observe(.UIApplicationDidFinishLaunching,
+                        object: application) { [unowned self] in
                     self.handler(.didFinishLaunching($0.userInfo))
                 }
             }
 
             if options.contains(.willEnterForeground) {
-                observe(.UIApplicationWillEnterForeground) { [unowned self] _ in
+                observe(.UIApplicationWillEnterForeground,
+                        object: application) { [unowned self] _ in
                     self.handler(.willEnterForeground)
                 }
             }
 
             if options.contains(.willResignActive) {
-                observe(.UIApplicationWillResignActive) { [unowned self] _ in
+                observe(.UIApplicationWillResignActive,
+                        object: application) { [unowned self] _ in
                     self.handler(.willResignActive)
                 }
             }
 
             if options.contains(.willTerminate) {
-                observe(.UIApplicationWillTerminate) { [unowned self] _ in
+                observe(.UIApplicationWillTerminate,
+                        object: application) { [unowned self] _ in
                     self.handler(.willTerminate)
                 }
             }

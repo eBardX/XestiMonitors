@@ -93,7 +93,7 @@
             ///
             public let isLocal: Bool
 
-            internal init (_ notification: Notification) {
+            fileprivate init(_ notification: Notification) {
                 let userInfo = notification.userInfo
 
                 if let rawValue = (userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue,

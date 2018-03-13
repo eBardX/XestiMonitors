@@ -57,7 +57,8 @@
         override public func addNotificationObservers() {
             super.addNotificationObservers()
 
-            observe(.UIDeviceOrientationDidChange) { [unowned self] _ in
+            observe(.UIDeviceOrientationDidChange,
+                    object: device) { [unowned self] _ in
                 self.handler(.didChange(self.device.orientation))
             }
 

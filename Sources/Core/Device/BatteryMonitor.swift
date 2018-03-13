@@ -105,13 +105,15 @@
             super.addNotificationObservers()
 
             if options.contains(.levelDidChange) {
-                observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
+                observe(.UIDeviceBatteryLevelDidChange,
+                        object: device) { [unowned self] _ in
                     self.handler(.levelDidChange(self.level))
                 }
             }
 
             if options.contains(.stateDidChange) {
-                observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
+                observe(.UIDeviceBatteryStateDidChange,
+                        object: device) { [unowned self] _ in
                     self.handler(.stateDidChange(self.state))
                 }
             }

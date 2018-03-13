@@ -145,25 +145,29 @@
             super.addNotificationObservers()
 
             if options.contains(.didChangeFrame) {
-                observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
+                observe(.UIApplicationDidChangeStatusBarFrame,
+                        object: application) { [unowned self] in
                     self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
                 }
             }
 
             if options.contains(.didChangeOrientation) {
-                observe(.UIApplicationDidChangeStatusBarOrientation) { [unowned self] in
+                observe(.UIApplicationDidChangeStatusBarOrientation,
+                        object: application) { [unowned self] in
                     self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
                 }
             }
 
             if options.contains(.willChangeFrame) {
-                observe(.UIApplicationWillChangeStatusBarFrame) { [unowned self] in
+                observe(.UIApplicationWillChangeStatusBarFrame,
+                        object: application) { [unowned self] in
                     self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
                 }
             }
 
             if options.contains(.willChangeOrientation) {
-                observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
+                observe(.UIApplicationWillChangeStatusBarOrientation,
+                        object: application) { [unowned self] in
                     self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
                 }
             }

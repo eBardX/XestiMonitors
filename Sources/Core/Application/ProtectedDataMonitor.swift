@@ -100,13 +100,15 @@
             super.addNotificationObservers()
 
             if options.contains(.didBecomeAvailable) {
-                observe(.UIApplicationProtectedDataDidBecomeAvailable) { [unowned self] _ in
+                observe(.UIApplicationProtectedDataDidBecomeAvailable,
+                        object: application) { [unowned self] _ in
                     self.handler(.didBecomeAvailable)
                 }
             }
 
             if options.contains(.willBecomeUnavailable) {
-                observe(.UIApplicationProtectedDataWillBecomeUnavailable) { [unowned self] _ in
+                observe(.UIApplicationProtectedDataWillBecomeUnavailable,
+                        object: application) { [unowned self] _ in
                     self.handler(.willBecomeUnavailable)
                 }
             }

@@ -44,7 +44,7 @@
             ///
             public let wasSuccessful: Bool
 
-            internal init (_ notification: Notification) {
+            fileprivate init(_ notification: Notification) {
                 let userInfo = notification.userInfo
 
                 if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {

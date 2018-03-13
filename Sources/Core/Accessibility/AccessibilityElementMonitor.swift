@@ -48,7 +48,7 @@
             ///
             public let unfocusedElement: Any?
 
-            internal init (_ notification: Notification) {
+            fileprivate init(_ notification: Notification) {
                 let userInfo = notification.userInfo
 
                 self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String

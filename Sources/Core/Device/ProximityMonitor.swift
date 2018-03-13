@@ -72,7 +72,8 @@
         override public func addNotificationObservers() {
             super.addNotificationObservers()
 
-            observe(.UIDeviceProximityStateDidChange) { [unowned self] _ in
+            observe(.UIDeviceProximityStateDidChange,
+                    object: device) { [unowned self] _ in
                 self.handler(.stateDidChange(self.device.proximityState))
             }
 

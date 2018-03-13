@@ -59,8 +59,9 @@
         override public func addNotificationObservers() {
             super.addNotificationObservers()
 
-            observe(.UIApplicationBackgroundRefreshStatusDidChange) { [unowned self] _ in
-                self.handler(.statusDidChange(self.status))
+            observe(.UIApplicationBackgroundRefreshStatusDidChange,
+                    object: application) { [unowned self] _ in
+                        self.handler(.statusDidChange(self.status))
             }
         }
     }

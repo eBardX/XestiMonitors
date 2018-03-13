@@ -57,8 +57,8 @@
 
             observe(.UIDocumentStateChanged,
                     object: document) { [unowned self] in
-                        if let doc = $0.object as? UIDocument {
-                            self.handler(.didChange(doc))
+                        if let document = $0.object as? UIDocument {
+                            self.handler(.didChange(document))
                         }
             }
         }

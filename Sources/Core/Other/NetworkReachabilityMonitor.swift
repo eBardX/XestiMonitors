@@ -84,7 +84,7 @@
 
             try withUnsafePointer(to: &address) {
                 try $0.withMemoryRebound(to: sockaddr.self,
-                                         capacity: MemoryLayout<sockaddr_in>.size) {
+                                         capacity: 1) {
                                             try networkReachability.listen(to: $0)
                 }
             }
@@ -151,7 +151,7 @@
         /// The reachability of the network node name or address.
         ///
         public var status: Status {
-            if let flags = self.currentFlags {
+            if let flags = currentFlags {
                 return statusFromFlags(flags)
             } else {
                 return .unknown

@@ -18,6 +18,8 @@ internal class TimeMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        ApplicationInjector.inject = { return self.application }
+
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
