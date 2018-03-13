@@ -42,6 +42,7 @@ custom_categories:
       - DocumentStateMonitor
       - FileSystemObjectMonitor
       - KeyboardMonitor
+      - MetadataQueryMonitor
       - NetworkReachabilityMonitor
   - name: Extensions
     children:

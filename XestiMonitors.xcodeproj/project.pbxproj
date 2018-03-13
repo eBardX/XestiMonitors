@@ -131,6 +131,9 @@
 		F54498CB203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */; };
 		F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */; };
 		F54553502006AB3100D63955 /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036720067AA3005BC04A /* MockApplication.swift */; };
+		F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
+		F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
+		F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
 		F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */; };
 		F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */; };
 		F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */; };
@@ -155,6 +158,10 @@
 		F5EC1B0E20408A610056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
 		F5EC1B0F20408A620056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
 		F5EC1B1020408A630056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5EC1B122040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B132040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B142040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B152040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
 		F5F302B620067A40005BC04A /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
 		F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
 		F5F302BF20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
@@ -369,10 +376,12 @@
 		F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitorTests.swift; sourceTree = "<group>"; };
 		F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystem.swift; sourceTree = "<group>"; };
 		F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystemObject.swift; sourceTree = "<group>"; };
+		F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitorTests.swift; sourceTree = "<group>"; };
 		F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
 		F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
 		F56FAB732037531C006FAB7B /* MockDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDocument.swift; sourceTree = "<group>"; };
 		F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
+		F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitor.swift; sourceTree = "<group>"; };
 		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
 		F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
 		F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+DeviceOrientation.swift"; sourceTree = "<group>"; };
@@ -605,6 +614,7 @@
 				F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */,
 				F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */,
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
+				F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
 			);
 			path = Other;
@@ -778,6 +788,7 @@
 				F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */,
 				F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */,
 				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
+				F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
 			);
 			path = Other;
@@ -1149,6 +1160,7 @@
 				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
 				F54498A9203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */,
+				F5EC1B122040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F5F302CA20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
 				F5F3032A20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */,
 				F5F3032E20067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
@@ -1198,6 +1210,7 @@
 				F54498B6203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5EC1B152040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
 				F5F3033920067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
 				F54498BB203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
@@ -1247,6 +1260,7 @@
 				F54498B4203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */,
+				F5EC1B132040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */,
 				F50693CF2007BFF00031754B /* MotionActivityMonitor.swift in Sources */,
 				F54498B9203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
@@ -1296,6 +1310,7 @@
 				F54498B5203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
 				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,
+				F5EC1B142040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F50693D62007BFF20031754B /* MotionActivityMonitor.swift in Sources */,
 				F50693C32007BFE00031754B /* ProximityMonitor.swift in Sources */,
 				F54498BA203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
@@ -1322,6 +1337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
 				F5F3038620067AA3005BC04A /* ScreenshotMonitorTests.swift in Sources */,
 				F5F3038320067AA3005BC04A /* ProtectedDataMonitorTests.swift in Sources */,
 				F5F303A120067AA3005BC04A /* PedometerMonitorTests.swift in Sources */,
@@ -1380,6 +1396,7 @@
 				F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
 				F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */,
 				F5F303D020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
 				F54498CB203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
 				F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */,
 			);
@@ -1392,6 +1409,7 @@
 				F54498C2203E2A0F00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F5F303C620067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
 				F54498CA203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
+				F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
 				F5F303C320067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
 				F54498C7203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
 				F5F303CF20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
