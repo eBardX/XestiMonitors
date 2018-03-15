@@ -131,6 +131,9 @@
 		F54498CB203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */; };
 		F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */; };
 		F54553502006AB3100D63955 /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036720067AA3005BC04A /* MockApplication.swift */; };
+		F55AE5552059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
+		F55AE5562059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
+		F55AE5572059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
 		F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
 		F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
 		F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
@@ -148,7 +151,25 @@
 		F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
 		F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */; };
 		F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB732037531C006FAB7B /* MockDocument.swift */; };
+		F5913FC32059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC42059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC52059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC62059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FCE2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FCF2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FD02059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FD12059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
+		F5913FD22059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
+		F5913FD32059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
 		F594069A203B3F6400922B67 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5C7B6332057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6342057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6352057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6362057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6372057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B6382057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B6392057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B63A2057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
 		F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
 		F5E1DE3A2006A64800C43E8D /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
@@ -376,11 +397,17 @@
 		F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitorTests.swift; sourceTree = "<group>"; };
 		F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystem.swift; sourceTree = "<group>"; };
 		F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystemObject.swift; sourceTree = "<group>"; };
+		F55AE5542059D43300B81D31 /* MockFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
 		F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitorTests.swift; sourceTree = "<group>"; };
 		F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
 		F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
 		F56FAB732037531C006FAB7B /* MockDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDocument.swift; sourceTree = "<group>"; };
+		F5913FC22059BA7700335200 /* FileManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerInjection.swift; sourceTree = "<group>"; };
+		F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitorTests.swift; sourceTree = "<group>"; };
+		F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
+		F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
+		F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
 		F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitor.swift; sourceTree = "<group>"; };
 		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
 		F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
@@ -616,6 +643,8 @@
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
 				F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
+				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
+				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -660,6 +689,7 @@
 				F5F3029D20067A40005BC04A /* AltimeterInjection.swift */,
 				F5F3029E20067A40005BC04A /* ApplicationInjection.swift */,
 				F5F3029F20067A40005BC04A /* DeviceInjection.swift */,
+				F5913FC22059BA7700335200 /* FileManagerInjection.swift */,
 				F54498AD203E128200D91E3B /* FileSystem.swift */,
 				F54498B2203E152E00D91E3B /* FileSystemInjection.swift */,
 				F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */,
@@ -771,6 +801,7 @@
 				F5F3036720067AA3005BC04A /* MockApplication.swift */,
 				F5F3036820067AA3005BC04A /* MockDevice.swift */,
 				F56FAB732037531C006FAB7B /* MockDocument.swift */,
+				F55AE5542059D43300B81D31 /* MockFileManager.swift */,
 				F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */,
 				F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */,
 				F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */,
@@ -790,6 +821,8 @@
 				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
 				F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
+				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
+				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1143,6 +1176,7 @@
 				F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
 				F5F302FE20067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */,
 				F5F3033220067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
+				F5C7B6332057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5F302DE20067A40005BC04A /* ProtectedDataMonitor.swift in Sources */,
 				F5F3030620067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5F302F620067A40005BC04A /* ApplicationInjection.swift in Sources */,
@@ -1156,6 +1190,7 @@
 				F54498AE203E128200D91E3B /* FileSystem.swift in Sources */,
 				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
 				F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */,
+				F5C7B6372057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F56FAB6620373C3B006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
 				F54498A9203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
@@ -1176,6 +1211,7 @@
 				F54498B3203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F5F3031220067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
 				F5F3032620067A40005BC04A /* AltimeterMonitor.swift in Sources */,
+				F5913FC32059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F5F302D620067A40005BC04A /* BackgroundRefreshMonitor.swift in Sources */,
 				F5F3033E20067A40005BC04A /* BatteryMonitor.swift in Sources */,
 				F5F3030E20067A40005BC04A /* PedometerInjection.swift in Sources */,
@@ -1193,6 +1229,7 @@
 				F50693AD2007BFCA0031754B /* TimeMonitor.swift in Sources */,
 				F5F3033520067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
 				F50693BD2007BFDB0031754B /* NetworkReachabilityInjection.swift in Sources */,
+				F5C7B6362057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5F3030520067A40005BC04A /* MotionManagerInjection.swift in Sources */,
 				F54498AC203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F50693C52007BFE10031754B /* OrientationMonitor.swift in Sources */,
@@ -1206,6 +1243,7 @@
 				F50693AA2007BFCA0031754B /* ProtectedDataMonitor.swift in Sources */,
 				F50693BB2007BFDB0031754B /* ApplicationInjection.swift in Sources */,
 				F50693C92007BFE70031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5C7B63A2057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
 				F54498B6203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */,
@@ -1226,6 +1264,7 @@
 				F5F3032920067A40005BC04A /* AltimeterMonitor.swift in Sources */,
 				F5EC1B1020408A630056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F50693A82007BFCA0031754B /* BackgroundRefreshMonitor.swift in Sources */,
+				F5913FC62059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F50693A72007BFCA0031754B /* ApplicationStateMonitor.swift in Sources */,
 				F5F3031120067A40005BC04A /* PedometerInjection.swift in Sources */,
 				F54498A8203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
@@ -1243,6 +1282,7 @@
 				F50693CC2007BFF00031754B /* DeviceMotionMonitor.swift in Sources */,
 				F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */,
 				F5F3030720067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
+				F5C7B6342057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F50693A32007BFC80031754B /* ProtectedDataMonitor.swift in Sources */,
 				F54498AA203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F50693A52007BFC80031754B /* StatusBarMonitor.swift in Sources */,
@@ -1256,6 +1296,7 @@
 				F50693BF2007BFDF0031754B /* OrientationMonitor.swift in Sources */,
 				F50693CD2007BFF00031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C72007BFE50031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5C7B6382057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */,
 				F54498B4203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */,
@@ -1276,6 +1317,7 @@
 				F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */,
 				F5EC1B0E20408A610056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F5F302C720067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5913FC42059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F50693AF2007BFD90031754B /* AltimeterInjection.swift in Sources */,
 				F50693CB2007BFF00031754B /* AltimeterMonitor.swift in Sources */,
 				F54498A6203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
@@ -1293,6 +1335,7 @@
 				F5F302C020067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
 				F5F3030820067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5F302D020067A40005BC04A /* Monitor.swift in Sources */,
+				F5C7B6352057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */,
 				F54498AB203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F55F4F092006B35400CCDDA0 /* AccessibilityStatusMonitor.swift in Sources */,
@@ -1306,6 +1349,7 @@
 				F50693D42007BFF20031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */,
+				F5C7B6392057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F54498B5203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
@@ -1326,6 +1370,7 @@
 				F5F3030C20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
 				F5EC1B0F20408A620056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F5F3031420067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F5913FC52059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */,
 				F50693D22007BFF20031754B /* AltimeterMonitor.swift in Sources */,
 				F54498A7203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
@@ -1338,6 +1383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
+				F55AE5552059D43300B81D31 /* MockFileManager.swift in Sources */,
 				F5F3038620067AA3005BC04A /* ScreenshotMonitorTests.swift in Sources */,
 				F5F3038320067AA3005BC04A /* ProtectedDataMonitorTests.swift in Sources */,
 				F5F303A120067AA3005BC04A /* PedometerMonitorTests.swift in Sources */,
@@ -1365,9 +1411,11 @@
 				F5F303CE20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
 				F5F3037D20067AA3005BC04A /* BackgroundRefreshMonitorTests.swift in Sources */,
 				F54498C6203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
+				F5913FD12059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				F5F3039B20067AA3005BC04A /* MagnetometerMonitorTests.swift in Sources */,
 				F5F3037720067AA3005BC04A /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F54498C9203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
+				F5913FCE2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				F54498C3203E2A1100D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F5F303B020067AA3005BC04A /* MockAccessibilityStatus.swift in Sources */,
 				F5F3038C20067AA3005BC04A /* TimeMonitorTests.swift in Sources */,
@@ -1386,14 +1434,17 @@
 				F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */,
 				F54553502006AB3100D63955 /* MockApplication.swift in Sources */,
 				F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */,
+				F5913FD02059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F55F4F062006ABA700CCDDA0 /* TimeMonitorTests.swift in Sources */,
 				F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */,
 				F5F303C720067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F55AE5572059D43300B81D31 /* MockFileManager.swift in Sources */,
 				F54498C8203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
 				F5F3037620067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
 				F5F303C420067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
 				F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
+				F5913FD32059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */,
 				F5F303D020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
 				F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
@@ -1412,7 +1463,10 @@
 				F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
 				F5F303C320067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
 				F54498C7203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
+				F5913FD22059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
+				F5913FCF2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				F5F303CF20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F55AE5562059D43300B81D31 /* MockFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
