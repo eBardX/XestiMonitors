@@ -1,9 +1,10 @@
 //
 //  MockPasteboard.swift
-//  XestiMonitorsTests-iOS
+//  XestiMonitorsTests
 //
-//  Created by Paul nyondo on 15/03/2018.
-//  Copyright © 2018 Xesticode. All rights reserved.
+//  Created by Paul Nyondo on 2018-03-15.
+//
+//  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
 import UIKit
