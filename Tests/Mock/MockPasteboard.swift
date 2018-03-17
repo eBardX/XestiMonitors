@@ -10,11 +10,8 @@
 import UIKit
 @testable import XestiMonitors
 
-
 internal class MockPasteboard: UIPasteboard {
     override init() {
          super.init()
     }
 }
-
-

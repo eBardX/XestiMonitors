@@ -650,9 +650,9 @@
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
 				F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
+				1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */,
 				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
 				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
-				1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -830,9 +830,9 @@
 				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
 				F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
+				1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */,
 				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
-				1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";

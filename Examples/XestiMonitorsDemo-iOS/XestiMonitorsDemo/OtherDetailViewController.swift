@@ -14,6 +14,8 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
 
     // MARK: Private Instance Properties
 
+    private let pasteboard: UIPasteboard = .general
+
     @IBOutlet private weak var keyboardActionLabel: UILabel!
     @IBOutlet private weak var keyboardAnimationCurveLabel: UILabel!
     @IBOutlet private weak var keyboardAnimationDurationLabel: UILabel!
@@ -22,59 +24,30 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var keyboardIsLocalLabel: UILabel!
     @IBOutlet private weak var keyboardTextField: UITextField!
     @IBOutlet private weak var networkReachabilityLabel: UILabel!
-
+    @IBOutlet private weak var pasteboardActionLabel: UILabel!
     @IBOutlet private weak var pasteboardTypesAddedLabel: UILabel!
     @IBOutlet private weak var pasteboardTypesRemovedLabel: UILabel!
-    
-    
+
     private lazy var keyboardMonitor = KeyboardMonitor(options: .all,
                                                        queue: .main) { [unowned self] in
-        self.displayKeyboard($0)
+                                                        self.displayKeyboard($0)
     }
 
     private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
         self.displayNetworkReachability($0)
     }
-    
-    var pasteboard = UIPasteboard.general
-    
-//    pastebo
-//    pas
-    
-    private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: UIPasteboard()) { [unowned self] in
-        self.displayPasteboard($0)
+
+    private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: pasteboard,
+                                                           options: .all,
+                                                           queue: .main) { [unowned self] in
+                                                            self.displayPasteboard($0)
     }
-    
+
     private lazy var monitors: [Monitor] = [self.keyboardMonitor,
                                             self.networkReachabilityMonitor,
                                             self.pasteboardMonitor]
 
     // MARK: Private Instance Methods
-    
-    private func displayPasteboard(_ event: PasteboardMonitor.Event?) {
-        if let event = event {
-            switch event {
-            case let .didChange(info):
-                displayPasteboard(info: info)
-                
-            case let .didRemove(info):
-                displayPasteboard(info: info)
-                
-            }
-        } else {
-            displayPasteboard(info: nil)
-        }
-    }
-    
-    private func displayPasteboard(info: PasteboardMonitor.Info?) {
-        if let info = info {
-            pasteboardTypesAddedLabel.text = info.typesAdded
-            pasteboardTypesRemovedLabel.text = info.typesRemoved
-        } else {
-            pasteboardTypesRemovedLabel.text = " "
-            pasteboardTypesAddedLabel.text = " "
-        }
-    }
 
     private func displayKeyboard(_ event: KeyboardMonitor.Event?) {
         if let event = event {
@@ -150,18 +123,45 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         }
     }
 
+    private func displayPasteboard(_ event: PasteboardMonitor.Event?) {
+        if let event = event {
+            switch event {
+            case let .didChange(info):
+                displayPasteboard("Did change", info)
+
+            case let .didRemove(info):
+                displayPasteboard("Did remove", info)
+            }
+        } else {
+            displayPasteboard(" ", nil)
+        }
+    }
+
+    private func displayPasteboard(_ action: String,
+                                   _ info: PasteboardMonitor.Info?) {
+        if let info = info {
+            pasteboardTypesAddedLabel.text = info.typesAdded.joined(separator: ", ")
+
+            pasteboardTypesRemovedLabel.text = info.typesRemoved.joined(separator: ", ")
+        } else {
+            pasteboardTypesRemovedLabel.text = " "
+
+            pasteboardTypesAddedLabel.text = " "
+        }
+
+        pasteboardActionLabel.text = action
+    }
+
     // MARK: Overridden UIViewController Methods
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         keyboardTextField.delegate = self
-        
-        pasteboard.string = "Test String"
-        
+
         displayKeyboard(nil)
         displayNetworkReachability(nil)
-        displayPasteboard(info: nil)
+        displayPasteboard(nil)
     }
 
     override public func viewWillAppear(_ animated: Bool) {
