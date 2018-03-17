@@ -23,6 +23,10 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var keyboardTextField: UITextField!
     @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
+    @IBOutlet private weak var pasteboardTypesAddedLabel: UILabel!
+    @IBOutlet private weak var pasteboardTypesRemovedLabel: UILabel!
+    
+    
     private lazy var keyboardMonitor = KeyboardMonitor(options: .all,
                                                        queue: .main) { [unowned self] in
         self.displayKeyboard($0)
@@ -31,11 +35,46 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
         self.displayNetworkReachability($0)
     }
-
+    
+    var pasteboard = UIPasteboard.general
+    
+//    pastebo
+//    pas
+    
+    private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: UIPasteboard()) { [unowned self] in
+        self.displayPasteboard($0)
+    }
+    
     private lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                            self.networkReachabilityMonitor]
+                                            self.networkReachabilityMonitor,
+                                            self.pasteboardMonitor]
 
     // MARK: Private Instance Methods
+    
+    private func displayPasteboard(_ event: PasteboardMonitor.Event?) {
+        if let event = event {
+            switch event {
+            case let .didChange(info):
+                displayPasteboard(info: info)
+                
+            case let .didRemove(info):
+                displayPasteboard(info: info)
+                
+            }
+        } else {
+            displayPasteboard(info: nil)
+        }
+    }
+    
+    private func displayPasteboard(info: PasteboardMonitor.Info?) {
+        if let info = info {
+            pasteboardTypesAddedLabel.text = info.typesAdded
+            pasteboardTypesRemovedLabel.text = info.typesRemoved
+        } else {
+            pasteboardTypesRemovedLabel.text = " "
+            pasteboardTypesAddedLabel.text = " "
+        }
+    }
 
     private func displayKeyboard(_ event: KeyboardMonitor.Event?) {
         if let event = event {
@@ -117,9 +156,12 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         super.viewDidLoad()
 
         keyboardTextField.delegate = self
-
+        
+        pasteboard.string = "Test String"
+        
         displayKeyboard(nil)
         displayNetworkReachability(nil)
+        displayPasteboard(info: nil)
     }
 
     override public func viewWillAppear(_ animated: Bool) {

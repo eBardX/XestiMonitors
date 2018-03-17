@@ -25,6 +25,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
+		13904053205AAB4B0013A5E0 /* MockPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13904052205AAB4B0013A5E0 /* MockPasteboard.swift */; };
+		13904055205AB39E0013A5E0 /* PasteboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */; };
 		3549BB501DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB521DA38A2100C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -375,6 +378,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
+		1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitorTests.swift; sourceTree = "<group>"; };
+		13904052205AAB4B0013A5E0 /* MockPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasteboard.swift; sourceTree = "<group>"; };
 		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB181DA3890B00C63030 /* XestiMonitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XestiMonitors.h; sourceTree = "<group>"; };
 		3549BB211DA389CD00C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -646,6 +652,7 @@
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
 				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
 				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
+				1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -810,6 +817,7 @@
 				F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */,
 				F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */,
 				F5F3036D20067AA3005BC04A /* MockPedometer.swift */,
+				13904052205AAB4B0013A5E0 /* MockPasteboard.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -824,6 +832,7 @@
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
 				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
+				1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1188,6 +1197,7 @@
 				F5F302CE20067A40005BC04A /* Monitor.swift in Sources */,
 				F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */,
 				F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */,
+				1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */,
 				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
 				F54498AE203E128200D91E3B /* FileSystem.swift in Sources */,
 				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
@@ -1418,12 +1428,14 @@
 				F5F3037720067AA3005BC04A /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F54498C9203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
 				F5913FCE2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
+				13904055205AB39E0013A5E0 /* PasteboardMonitorTests.swift in Sources */,
 				F54498C3203E2A1100D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F5F303B020067AA3005BC04A /* MockAccessibilityStatus.swift in Sources */,
 				F5F3038C20067AA3005BC04A /* TimeMonitorTests.swift in Sources */,
 				F5F303AD20067AA3005BC04A /* ProximityMonitorTests.swift in Sources */,
 				F5F303B320067AA3005BC04A /* MockAltimeter.swift in Sources */,
 				F5F303BC20067AA3005BC04A /* MockMotionActivityManager.swift in Sources */,
+				13904053205AAB4B0013A5E0 /* MockPasteboard.swift in Sources */,
 				F5F3039520067AA3005BC04A /* DeviceMotionMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
