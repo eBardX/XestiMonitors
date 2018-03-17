@@ -26,8 +26,9 @@ internal class PasteboardMonitorTests: XCTestCase {
     func testMonitor_contentsDidChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
-        let expectedTypesAdded: String = "Added"
-        let monitor = PasteboardMonitor(options: .didChange,
+        let expectedTypesAdded = "String"
+        let monitor = PasteboardMonitor(pasteboard: pasteboard,
+                                        options: .didChange,
                                         queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
@@ -47,8 +48,8 @@ internal class PasteboardMonitorTests: XCTestCase {
     func testMonitor_contentsDidRemove() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
-        let expectedTypesRemoved: String = "Removed"
-        let monitor = PasteboardMonitor(options: .didRemove,
+        let expectedTypesRemoved = "String"
+        let monitor = PasteboardMonitor(pasteboard: pasteboard,options: .didRemove,
                                         queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
@@ -69,7 +70,7 @@ internal class PasteboardMonitorTests: XCTestCase {
     private func simulateDidChange(contents: String) {
         let userInfo: [AnyHashable: Any]?
         
-        userInfo = makeUserInfo(typesAdded: "Added", typesRemoved: "")
+        userInfo = makeUserInfo(typesAdded: contents, typesRemoved: "")
         
         notificationCenter.post(name: .UIPasteboardChanged,
                                 object: pasteboard,

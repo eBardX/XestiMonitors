@@ -31,19 +31,23 @@
             
         }
         
+        ///
+        /// UserInfo dispatched with `UIPasteboard` notifications.
+        ///
         public struct Info {
             ///
             ///  The added representation types stored as an array
             ///  in the notification’s userInfo dictionary
             ///
-            public let typesAdded: String
+            public var typesAdded: String
             ///
             ///  The removed representation types stored as an array
             ///  in the notification’s userInfo dictionary
             ///
-            public let typesRemoved: String
+            public var typesRemoved: String
             
             fileprivate init(_ notification: Notification) {
+                
                 let userInfo = notification.userInfo
                 
                 if let rawValue = (userInfo?[UIPasteboardChangedTypesAddedKey]) as? String {
@@ -55,12 +59,15 @@
                 if let rawValue = (userInfo?[UIPasteboardChangedTypesRemovedKey]) as? String {
                     self.typesRemoved = rawValue
                 } else {
-                    self.typesRemoved = ""
+                    self.typesRemoved = " "
                 }
             }
             
         }
         
+        ///
+        /// Options containing `UIPasteboard` events.
+        ///
         public struct Options: OptionSet {
             ///
             /// Monitor `PasteboardChanged` events.
@@ -98,13 +105,19 @@
         ///                 default, the main operation queue is used.
         ///   - handler:    The handler to call when the state of the document
         ///                 changes.
+        ///   - options:    The options that specify which events to monitor. By default
+        ///                 all events are monitored
         ///
         
-        public init(options: Options = .all,
+        public init(pasteboard: UIPasteboard,
+                    options: Options = .all,
                     queue: OperationQueue = .main,
                     handler: @escaping(Event) -> Void) {
-            self.options = options
+            
             self.handler = handler
+            self.options = options
+            self.pasteboard = pasteboard
+            
             
             super.init(queue: queue)
         }
@@ -113,6 +126,7 @@
         /// The pasteboard being monitored.
         ///
         private let options: Options
+        private let pasteboard: UIPasteboard
         
         private let handler: (Event) -> Void
         
