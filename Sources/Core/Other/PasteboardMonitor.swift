@@ -23,12 +23,12 @@
             ///
             ///  Contents of the pasteboard object have changed.
             ///
-            case didChange(Info)
+            case changed(Info)
 
             ///
             ///  Contents of the pasteboard object have been removed.
             ///
-            case didRemove(Info)
+            case removed(UIPasteboard)
         }
 
         ///
@@ -73,18 +73,18 @@
             ///
             /// Monitor `didChange` events.
             ///
-            public static let didChange = Options(rawValue: 1 << 0)
+            public static let changed = Options(rawValue: 1 << 0)
 
             ///
             /// Monitor `didRemove` events.
             ///
-            public static let didRemove = Options(rawValue: 1 << 1)
+            public static let removed = Options(rawValue: 1 << 1)
 
             ///
             /// Monitor all events.
             ///
-            public static let all: Options = [.didChange,
-                                              .didRemove]
+            public static let all: Options = [.changed,
+                                              .removed]
 
             /// :nodoc:
             public init(rawValue: UInt) {
@@ -129,20 +129,20 @@
         override public func addNotificationObservers() {
             super.addNotificationObservers()
 
-            if options.contains(.didChange) {
+            if options.contains(.changed) {
                 observe(.UIPasteboardChanged,
                         object: pasteboard) { [unowned self] in
                             if let info = Info($0) {
-                                self.handler(.didChange(info))
+                                self.handler(.changed(info))
                             }
                 }
             }
 
-            if options.contains(.didRemove) {
+            if options.contains(.removed) {
                 observe(.UIPasteboardRemoved,
                         object: pasteboard) { [unowned self] in
-                            if let info = Info($0) {
-                                self.handler(.didRemove(info))
+                            if let pasteboard = $0.object as? UIPasteboard {
+                                self.handler(.removed(pasteboard))
                             }
                 }
             }

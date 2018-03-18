@@ -23,55 +23,55 @@ internal class PasteboardMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitor_contentsDidChange() {
+    func testMonitor_contentsChanged() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
         let expectedTypesAdded = ["String"]
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
-                                        options: .didChange,
+                                        options: .changed,
                                         queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
 
         monitor.startMonitoring()
-        simulateDidChange(contents: expectedTypesAdded)
+        simulateChanged(contents: expectedTypesAdded)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(info) = event {
+            case let .changed(info) = event {
             XCTAssertEqual(info.typesAdded, expectedTypesAdded)
         } else {
             XCTFail("Unexpected Event")
         }
     }
 
-    func testMonitor_contentsDidRemove() {
+    func testMonitor_contentsRemoved() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
         let expectedTypesRemoved = ["String"]
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
-                                        options: .didRemove,
+                                        options: .removed,
                                         queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
 
         monitor.startMonitoring()
-        simulateDidRemove(contents: expectedTypesRemoved)
+        simulateRemoved(contents: expectedTypesRemoved)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didRemove(info) = event {
-            XCTAssertEqual(info.typesRemoved, expectedTypesRemoved)
+            case let .removed(board) = event {
+            XCTAssertEqual(board, pasteboard)
         } else {
             XCTFail("Unexpected Event")
         }
     }
 
-    private func simulateDidChange(contents: [String]) {
+    private func simulateChanged(contents: [String]) {
         let userInfo: [AnyHashable: Any]?
 
         userInfo = makeUserInfo(typesAdded: contents,
@@ -82,7 +82,7 @@ internal class PasteboardMonitorTests: XCTestCase {
                                 userInfo: userInfo)
     }
 
-    private func simulateDidRemove(contents: [String]) {
+    private func simulateRemoved(contents: [String]) {
         let userInfo: [AnyHashable: Any]?
 
         userInfo = makeUserInfo(typesAdded: nil,
