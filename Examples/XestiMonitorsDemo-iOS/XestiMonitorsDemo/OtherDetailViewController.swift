@@ -126,11 +126,11 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     private func displayPasteboard(_ event: PasteboardMonitor.Event?) {
         if let event = event {
             switch event {
-            case let .didChange(info):
+            case let .changed(info):
                 displayPasteboard("Did change", info)
 
-            case let .didRemove(info):
-                displayPasteboard("Did remove", info)
+            case .removed(_):
+                displayPasteboard("Did remove", nil)
             }
         } else {
             displayPasteboard(" ", nil)
