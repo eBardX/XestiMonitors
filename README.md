@@ -98,6 +98,8 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIKeyboardWillChangeFrame`
     * `UIKeyboardWillHide`
     * `UIKeyboardWillShow`
+    * `UIPasteboardChanged`
+    * `UIPasteboardRemoved`
 
     See [Other Monitors](#other_monitors) for details.
 
@@ -322,6 +324,8 @@ In addition, XestiMonitors provides seven other monitors:
 * [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
   network node name or address for changes to its reachability.
   *(iOS, macOS, tvOS)*
+* [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
+  to its contents or for its removal from the app. *(iOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*
@@ -576,6 +580,7 @@ XestiMonitors is available under [the MIT license][license].
 [motion_activity_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MotionActivityMonitor.html
 [network_reachability_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
 [orientation_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
+[pasteboard_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
 [pedometer_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
