@@ -129,7 +129,7 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
             case let .changed(_, changes):
                 displayPasteboard("Did change", changes)
 
-            case .removed(_):
+            case .removed:
                 displayPasteboard("Did remove")
             }
         } else {

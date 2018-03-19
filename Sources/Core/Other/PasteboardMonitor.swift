@@ -33,7 +33,7 @@
             ///
             public let typesRemoved: [String]
 
-            fileprivate init(_ userInfo: [AnyHashable : Any]?) {
+            fileprivate init(_ userInfo: [AnyHashable: Any]?) {
                 self.typesAdded = userInfo?[UIPasteboardChangedTypesAddedKey] as? [String] ?? []
                 self.typesRemoved = userInfo?[UIPasteboardChangedTypesRemovedKey] as? [String] ?? []
             }
