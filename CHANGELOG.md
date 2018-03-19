@@ -1,3 +1,7 @@
+# 2.4.0 (2018-03-19)
+
+Adds support for new monitor class: `PasteboardMonitor`.
+
 # 2.3.0 (2018-03-15)
 
 Adds support for three new monitor classes: `MetadataQueryMonitor`,
