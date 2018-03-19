@@ -50,7 +50,6 @@ internal class PasteboardMonitorTests: XCTestCase {
     func testMonitor_contentsRemoved() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
-        let expectedTypesRemoved = ["String"]
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
                                         options: .removed,
                                         queue: .main) { event in
@@ -59,7 +58,7 @@ internal class PasteboardMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateRemoved(contents: expectedTypesRemoved)
+        simulateRemoved()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -82,15 +81,10 @@ internal class PasteboardMonitorTests: XCTestCase {
                                 userInfo: userInfo)
     }
 
-    private func simulateRemoved(contents: [String]) {
-        let userInfo: [AnyHashable: Any]?
-
-        userInfo = makeUserInfo(typesAdded: nil,
-                                typesRemoved: contents)
-
+    private func simulateRemoved() {
         notificationCenter.post(name: .UIPasteboardRemoved,
                                 object: pasteboard,
-                                userInfo: userInfo)
+                                userInfo: nil)
     }
 
     private func makeUserInfo(typesAdded: [String]?,
