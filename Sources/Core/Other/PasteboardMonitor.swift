@@ -13,57 +13,45 @@
 
     ///
     /// A `PasteboardMonitor` instance monitors a pasteboard for changes to
-    /// its state.
+    /// its contents or for its removal from the app.
     ///
     public class PasteboardMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the contents of the pasteboard.
-        ///
-        public enum Event {
-            ///
-            ///  Contents of the pasteboard object have changed.
-            ///
-            case changed(Info)
-
-            ///
-            ///  Contents of the pasteboard object have been removed.
-            ///
-            case removed(UIPasteboard)
-        }
-
-        ///
         /// Encapsulates information associated with a pasteboard monitor
-        /// event.
+        /// `changed` event.
         ///
-        public struct Info {
+        public struct Changes {
             ///
-            ///
-            ///
-            public let pasteboard: UIPasteboard
-
-            ///
-            /// The added representation types stored as an array
-            /// in the notification’s userInfo dictionary
+            /// The representation types of items that have been added to the
+            /// pasteboard.
             ///
             public let typesAdded: [String]
 
             ///
-            /// The removed representation types stored as an array
-            /// in the notification’s userInfo dictionary
+            /// The representation types of items that have been removed from
+            /// the pasteboard.
             ///
             public let typesRemoved: [String]
 
-            fileprivate init?(_ notification: Notification) {
-                guard
-                    let pasteboard = notification.object as? UIPasteboard
-                    else { return nil }
-
-                let userInfo = notification.userInfo
-
-                self.pasteboard = pasteboard
+            fileprivate init(_ userInfo: [AnyHashable : Any]?) {
                 self.typesAdded = userInfo?[UIPasteboardChangedTypesAddedKey] as? [String] ?? []
                 self.typesRemoved = userInfo?[UIPasteboardChangedTypesRemovedKey] as? [String] ?? []
             }
+        }
+
+        ///
+        /// Encapsulates changes to the pasteboard and its contents.
+        ///
+        public enum Event {
+            ///
+            /// The contents of the pasteboard have changed.
+            ///
+            case changed(UIPasteboard, Changes)
+
+            ///
+            /// The pasteboard has been removed from the app.
+            ///
+            case removed(UIPasteboard)
         }
 
         ///
@@ -71,12 +59,12 @@
         ///
         public struct Options: OptionSet {
             ///
-            /// Monitor `didChange` events.
+            /// Monitor `changed` events.
             ///
             public static let changed = Options(rawValue: 1 << 0)
 
             ///
-            /// Monitor `didRemove` events.
+            /// Monitor `removed` events.
             ///
             public static let removed = Options(rawValue: 1 << 1)
 
@@ -100,12 +88,12 @@
         ///
         /// - Parameters:
         ///   - pasteboard: The pasteboard to monitor.
-        ///   - options:    The options that specify which events to monitor. By default
-        ///                 all events are monitored
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the state of the document
-        ///                 changes.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default all events are monitored
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the pasteboard is removed
+        ///                 from the app, or its contents change.
         ///
         public init(pasteboard: UIPasteboard,
                     options: Options = .all,
@@ -132,8 +120,8 @@
             if options.contains(.changed) {
                 observe(.UIPasteboardChanged,
                         object: pasteboard) { [unowned self] in
-                            if let info = Info($0) {
-                                self.handler(.changed(info))
+                            if let pasteboard = $0.object as? UIPasteboard {
+                                self.handler(.changed(pasteboard, Changes($0.userInfo)))
                             }
                 }
             }

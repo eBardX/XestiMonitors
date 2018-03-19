@@ -12,8 +12,8 @@ import XCTest
 @testable import XestiMonitors
 
 internal class PasteboardMonitorTests: XCTestCase {
-    let pasteboard = MockPasteboard()
     let notificationCenter = MockNotificationCenter()
+    let pasteboard = MockPasteboard()
 
     override func setUp() {
         super.setUp()
@@ -23,10 +23,11 @@ internal class PasteboardMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitor_contentsChanged() {
+    func testMonitor_changed1() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
-        let expectedTypesAdded = ["String"]
+        let expectedTypesAdded = ["a", "b", "c"]
+        let expectedTypesRemoved = ["d", "e"]
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
                                         options: .changed,
                                         queue: .main) { event in
@@ -35,19 +36,48 @@ internal class PasteboardMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateChanged(contents: expectedTypesAdded)
+        simulateChanged(typesAdded: expectedTypesAdded,
+                        typesRemoved: expectedTypesRemoved)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .changed(info) = event {
-            XCTAssertEqual(info.typesAdded, expectedTypesAdded)
+            case let .changed(pb, changes) = event {
+            XCTAssertEqual(pb, pasteboard)
+            XCTAssertEqual(changes.typesAdded, expectedTypesAdded)
+            XCTAssertEqual(changes.typesRemoved, expectedTypesRemoved)
         } else {
             XCTFail("Unexpected Event")
         }
     }
 
-    func testMonitor_contentsRemoved() {
+    func testMonitor_changed2() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: PasteboardMonitor.Event?
+        let monitor = PasteboardMonitor(pasteboard: pasteboard,
+                                        options: .changed,
+                                        queue: .main) { event in
+                                            expectedEvent = event
+                                            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateChanged(typesAdded: nil,
+                        typesRemoved: nil)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .changed(pb, changes) = event {
+            XCTAssertEqual(pb, pasteboard)
+            XCTAssertEqual(changes.typesAdded, [])
+            XCTAssertEqual(changes.typesRemoved, [])
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+
+    func testMonitor_removed() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PasteboardMonitor.Event?
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
@@ -63,28 +93,11 @@ internal class PasteboardMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .removed(board) = event {
-            XCTAssertEqual(board, pasteboard)
+            case let .removed(pb) = event {
+            XCTAssertEqual(pb, pasteboard)
         } else {
             XCTFail("Unexpected Event")
         }
-    }
-
-    private func simulateChanged(contents: [String]) {
-        let userInfo: [AnyHashable: Any]?
-
-        userInfo = makeUserInfo(typesAdded: contents,
-                                typesRemoved: nil)
-
-        notificationCenter.post(name: .UIPasteboardChanged,
-                                object: pasteboard,
-                                userInfo: userInfo)
-    }
-
-    private func simulateRemoved() {
-        notificationCenter.post(name: .UIPasteboardRemoved,
-                                object: pasteboard,
-                                userInfo: nil)
     }
 
     private func makeUserInfo(typesAdded: [String]?,
@@ -100,5 +113,21 @@ internal class PasteboardMonitorTests: XCTestCase {
         }
 
         return userInfo
+    }
+
+    private func simulateChanged(typesAdded: [String]?,
+                                 typesRemoved: [String]?) {
+        let userInfo = makeUserInfo(typesAdded: typesAdded,
+                                    typesRemoved: typesRemoved)
+
+        notificationCenter.post(name: .UIPasteboardChanged,
+                                object: pasteboard,
+                                userInfo: userInfo)
+    }
+
+    private func simulateRemoved() {
+        notificationCenter.post(name: .UIPasteboardRemoved,
+                                object: pasteboard,
+                                userInfo: nil)
     }
 }
