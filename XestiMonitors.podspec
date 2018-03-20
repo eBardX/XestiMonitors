@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'XestiMonitors'
-  s.version             = '2.0.1'
+  s.version             = '2.4.0'
   s.authors             = { 'J. G. Pusey' => 'ebardx@gmail.com' }
   s.license             = { :type => 'MIT',
                             :file => 'LICENSE.md' }

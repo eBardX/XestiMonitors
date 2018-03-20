@@ -25,6 +25,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
+		13904053205AAB4B0013A5E0 /* MockPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13904052205AAB4B0013A5E0 /* MockPasteboard.swift */; };
+		13904055205AB39E0013A5E0 /* PasteboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */; };
 		3549BB501DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB521DA38A2100C63030 /* XestiMonitors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* XestiMonitors.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,11 +40,9 @@
 		5B57C2C02061812C00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
 		F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
-		F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
 		F50693992007BFBE0031754B /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
 		F506939A2007BFC00031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F506939B2007BFC00031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
-		F506939C2007BFC00031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
 		F506939D2007BFC00031754B /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
 		F506939E2007BFC60031754B /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029520067A40005BC04A /* BackgroundRefreshMonitor.swift */; };
 		F506939F2007BFC60031754B /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029920067A40005BC04A /* StatusBarMonitor.swift */; };
@@ -104,29 +105,91 @@
 		F50693D82007BFF80031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
 		F50693D92007BFF90031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
 		F50693DA2007BFFD0031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
-		F50693DB2007BFFD0031754B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
 		F50693DC2007BFFD0031754B /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F54498A5203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
+		F54498A6203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
+		F54498A7203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
+		F54498A8203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
+		F54498A9203E11CE00D91E3B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A4203E11CE00D91E3B /* NetworkReachability.swift */; };
+		F54498AA203E11CE00D91E3B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A4203E11CE00D91E3B /* NetworkReachability.swift */; };
+		F54498AB203E11CE00D91E3B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A4203E11CE00D91E3B /* NetworkReachability.swift */; };
+		F54498AC203E11CE00D91E3B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A4203E11CE00D91E3B /* NetworkReachability.swift */; };
+		F54498AE203E128200D91E3B /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498AD203E128200D91E3B /* FileSystem.swift */; };
+		F54498AF203E128200D91E3B /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498AD203E128200D91E3B /* FileSystem.swift */; };
+		F54498B0203E128200D91E3B /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498AD203E128200D91E3B /* FileSystem.swift */; };
+		F54498B1203E128200D91E3B /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498AD203E128200D91E3B /* FileSystem.swift */; };
+		F54498B3203E152E00D91E3B /* FileSystemInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B2203E152E00D91E3B /* FileSystemInjection.swift */; };
+		F54498B4203E152E00D91E3B /* FileSystemInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B2203E152E00D91E3B /* FileSystemInjection.swift */; };
+		F54498B5203E152E00D91E3B /* FileSystemInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B2203E152E00D91E3B /* FileSystemInjection.swift */; };
+		F54498B6203E152E00D91E3B /* FileSystemInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B2203E152E00D91E3B /* FileSystemInjection.swift */; };
+		F54498B8203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */; };
+		F54498B9203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */; };
+		F54498BA203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */; };
+		F54498BB203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */; };
+		F54498C1203E2A0D00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */; };
+		F54498C2203E2A0F00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */; };
+		F54498C3203E2A1100D91E3B /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */; };
+		F54498C6203E2A7D00D91E3B /* MockFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */; };
+		F54498C7203E2A7D00D91E3B /* MockFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */; };
+		F54498C8203E2A7D00D91E3B /* MockFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */; };
+		F54498C9203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */; };
+		F54498CA203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */; };
+		F54498CB203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */; };
 		F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034F20067AA3005BC04A /* ApplicationStateMonitorTests.swift */; };
 		F54553502006AB3100D63955 /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036720067AA3005BC04A /* MockApplication.swift */; };
+		F55AE5552059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
+		F55AE5562059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
+		F55AE5572059D43300B81D31 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AE5542059D43300B81D31 /* MockFileManager.swift */; };
+		F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
+		F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
+		F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */; };
 		F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035120067AA3005BC04A /* MemoryMonitorTests.swift */; };
 		F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035220067AA3005BC04A /* ProtectedDataMonitorTests.swift */; };
 		F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035320067AA3005BC04A /* ScreenshotMonitorTests.swift */; };
 		F55F4F062006ABA700CCDDA0 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3035520067AA3005BC04A /* TimeMonitorTests.swift */; };
-		F55F4F082006B35000CCDDA0 /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
 		F55F4F092006B35400CCDDA0 /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
 		F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */; };
 		F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3036520067AA3005BC04A /* MockAccessibilityStatus.swift */; };
 		F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3034D20067AA3005BC04A /* AccessibilityStatusMonitorTests.swift */; };
+		F56FAB6620373C3B006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
+		F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */; };
+		F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB732037531C006FAB7B /* MockDocument.swift */; };
+		F5913FC32059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC42059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC52059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FC62059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
+		F5913FCE2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FCF2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FD02059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */; };
+		F5913FD12059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
+		F5913FD22059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
+		F5913FD32059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */; };
+		F594069A203B3F6400922B67 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5C7B6332057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6342057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6352057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6362057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */; };
+		F5C7B6372057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B6382057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B6392057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
+		F5C7B63A2057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029E20067A40005BC04A /* ApplicationInjection.swift */; };
 		F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029420067A40005BC04A /* ApplicationStateMonitor.swift */; };
 		F5E1DE3A2006A64800C43E8D /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029620067A40005BC04A /* MemoryMonitor.swift */; };
 		F5E1DE3B2006A64C00C43E8D /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029720067A40005BC04A /* ProtectedDataMonitor.swift */; };
 		F5E1DE3C2006A65000C43E8D /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029820067A40005BC04A /* ScreenshotMonitor.swift */; };
 		F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3029A20067A40005BC04A /* TimeMonitor.swift */; };
+		F5EC1B0E20408A610056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5EC1B0F20408A620056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5EC1B1020408A630056CAD9 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */; };
+		F5EC1B122040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B132040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B142040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
+		F5EC1B152040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */; };
 		F5F302B620067A40005BC04A /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
-		F5F302BA20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
-		F5F302BB20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
-		F5F302BC20067A40005BC04A /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028B20067A40005BC04A /* NetworkReachability.swift */; };
 		F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
 		F5F302BF20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
 		F5F302C020067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
@@ -172,7 +235,6 @@
 		F5F3031420067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
 		F5F3031820067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
-		F5F3031A20067A40005BC04A /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
 		F5F3031E20067A40005BC04A /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
 		F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
 		F5F3032520067A40005BC04A /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */; };
@@ -319,6 +381,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
+		1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitorTests.swift; sourceTree = "<group>"; };
+		13904052205AAB4B0013A5E0 /* MockPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasteboard.swift; sourceTree = "<group>"; };
 		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB181DA3890B00C63030 /* XestiMonitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XestiMonitors.h; sourceTree = "<group>"; };
 		3549BB211DA389CD00C63030 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,10 +398,30 @@
 		3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitor.swift; sourceTree = "<group>"; };
 		5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitorTests.swift; sourceTree = "<group>"; };
+		F50334F4205ADDBB00A35568 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		F50693DD2007C8BC0031754B /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		F50BE8D52006C7FE0027A36C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatus.swift; sourceTree = "<group>"; };
+		F54498A4203E11CE00D91E3B /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		F54498AD203E128200D91E3B /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		F54498B2203E152E00D91E3B /* FileSystemInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemInjection.swift; sourceTree = "<group>"; };
+		F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectInjection.swift; sourceTree = "<group>"; };
+		F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitorTests.swift; sourceTree = "<group>"; };
+		F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystem.swift; sourceTree = "<group>"; };
+		F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystemObject.swift; sourceTree = "<group>"; };
+		F55AE5542059D43300B81D31 /* MockFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
+		F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitorTests.swift; sourceTree = "<group>"; };
+		F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
+		F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
+		F56FAB732037531C006FAB7B /* MockDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDocument.swift; sourceTree = "<group>"; };
+		F5913FC22059BA7700335200 /* FileManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerInjection.swift; sourceTree = "<group>"; };
+		F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitorTests.swift; sourceTree = "<group>"; };
+		F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
+		F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
+		F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
+		F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
+		F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitor.swift; sourceTree = "<group>"; };
 		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
-		F5F3028B20067A40005BC04A /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
 		F5F3028E20067A40005BC04A /* CMAcceleration+DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+DeviceOrientation.swift"; sourceTree = "<group>"; };
 		F5F3029020067A40005BC04A /* BaseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMonitor.swift; sourceTree = "<group>"; };
@@ -360,7 +445,6 @@
 		F5F302A420067A40005BC04A /* PedometerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerInjection.swift; sourceTree = "<group>"; };
 		F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityAnnouncementMonitor.swift; sourceTree = "<group>"; };
 		F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityElementMonitor.swift; sourceTree = "<group>"; };
-		F5F302A820067A40005BC04A /* AccessibilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatus.swift; sourceTree = "<group>"; };
 		F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusMonitor.swift; sourceTree = "<group>"; };
 		F5F302AB20067A40005BC04A /* AccelerometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerMonitor.swift; sourceTree = "<group>"; };
 		F5F302AC20067A40005BC04A /* AltimeterMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltimeterMonitor.swift; sourceTree = "<group>"; };
@@ -566,10 +650,15 @@
 		F5F3028920067A40005BC04A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */,
+				F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */,
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
-				F5F3028B20067A40005BC04A /* NetworkReachability.swift */,
+				F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
 				5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */,
+				1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */,
+				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
+				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -609,12 +698,18 @@
 		F5F3029B20067A40005BC04A /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */,
 				F5F3029C20067A40005BC04A /* AccessibilityStatusInjection.swift */,
 				F5F3029D20067A40005BC04A /* AltimeterInjection.swift */,
 				F5F3029E20067A40005BC04A /* ApplicationInjection.swift */,
 				F5F3029F20067A40005BC04A /* DeviceInjection.swift */,
+				F5913FC22059BA7700335200 /* FileManagerInjection.swift */,
+				F54498AD203E128200D91E3B /* FileSystem.swift */,
+				F54498B2203E152E00D91E3B /* FileSystemInjection.swift */,
+				F54498B7203E193C00D91E3B /* FileSystemObjectInjection.swift */,
 				F5F302A020067A40005BC04A /* MotionActivityManagerInjection.swift */,
 				F5F302A120067A40005BC04A /* MotionManagerInjection.swift */,
+				F54498A4203E11CE00D91E3B /* NetworkReachability.swift */,
 				F5F302A220067A40005BC04A /* NetworkReachabilityInjection.swift */,
 				F5F302A320067A40005BC04A /* NotificationCenterInjection.swift */,
 				F5F302A420067A40005BC04A /* PedometerInjection.swift */,
@@ -627,7 +722,6 @@
 			children = (
 				F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */,
 				F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */,
-				F5F302A820067A40005BC04A /* AccessibilityStatus.swift */,
 				F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */,
 			);
 			path = Accessibility;
@@ -720,11 +814,16 @@
 				F5F3036620067AA3005BC04A /* MockAltimeter.swift */,
 				F5F3036720067AA3005BC04A /* MockApplication.swift */,
 				F5F3036820067AA3005BC04A /* MockDevice.swift */,
+				F56FAB732037531C006FAB7B /* MockDocument.swift */,
+				F55AE5542059D43300B81D31 /* MockFileManager.swift */,
+				F54498C4203E2A7D00D91E3B /* MockFileSystem.swift */,
+				F54498C5203E2A7D00D91E3B /* MockFileSystemObject.swift */,
 				F5F3036920067AA3005BC04A /* MockMotionActivityManager.swift */,
 				F5F3036A20067AA3005BC04A /* MockMotionManager.swift */,
 				F5F3036B20067AA3005BC04A /* MockNetworkReachability.swift */,
 				F5F3036C20067AA3005BC04A /* MockNotificationCenter.swift */,
 				F5F3036D20067AA3005BC04A /* MockPedometer.swift */,
+				13904052205AAB4B0013A5E0 /* MockPasteboard.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -732,9 +831,15 @@
 		F5F3036E20067AA3005BC04A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */,
+				F54498BC203E29D900D91E3B /* FileSystemObjectMonitorTests.swift */,
 				F5F3036F20067AA3005BC04A /* KeyboardMonitorTests.swift */,
+				F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
 				5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */,
+				1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */,
+				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
+				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -743,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				F5F303D420067B79005BC04A /* CHANGELOG.md */,
+				F50334F4205ADDBB00A35568 /* CODE_OF_CONDUCT.md */,
 				F5F303D620067B79005BC04A /* LICENSE.md */,
 				F5F303D720067B79005BC04A /* README.md */,
 				F50BE8D52006C7FE0027A36C /* Package.swift */,
@@ -1088,6 +1194,7 @@
 				F5F302BE20067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
 				F5F302FE20067A40005BC04A /* MotionActivityManagerInjection.swift in Sources */,
 				F5F3033220067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
+				F5C7B6332057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5F302DE20067A40005BC04A /* ProtectedDataMonitor.swift in Sources */,
 				F5F3030620067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5F302F620067A40005BC04A /* ApplicationInjection.swift in Sources */,
@@ -1095,15 +1202,20 @@
 				F5F3030220067A40005BC04A /* MotionManagerInjection.swift in Sources */,
 				F5F3031E20067A40005BC04A /* AccessibilityStatusMonitor.swift in Sources */,
 				F5F302CE20067A40005BC04A /* Monitor.swift in Sources */,
-				F5F3031A20067A40005BC04A /* AccessibilityStatus.swift in Sources */,
 				F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */,
 				F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */,
+				1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */,
 				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
+				F54498AE203E128200D91E3B /* FileSystem.swift in Sources */,
 				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
 				5B57C2B82060F75A00B794F2 /* WindowMonitor.swift in Sources */,
 				F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */,
+				F5C7B6372057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
+				F56FAB6620373C3B006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
+				F54498A9203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */,
+				F5EC1B122040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F5F302CA20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
 				F5F3032A20067A40005BC04A /* DeviceMotionMonitor.swift in Sources */,
 				F5F3032E20067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
@@ -1111,15 +1223,19 @@
 				F5F3030A20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
 				F5F302D220067A40005BC04A /* ApplicationStateMonitor.swift in Sources */,
 				F5F3033620067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
+				F54498A5203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
 				F5F302C220067A40005BC04A /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F54498B8203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
 				F5F302F220067A40005BC04A /* AltimeterInjection.swift in Sources */,
 				F5F302FA20067A40005BC04A /* DeviceInjection.swift in Sources */,
+				F54498B3203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F5F3031220067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
 				F5F3032620067A40005BC04A /* AltimeterMonitor.swift in Sources */,
-				F5F302BA20067A40005BC04A /* NetworkReachability.swift in Sources */,
+				F5913FC32059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F5F302D620067A40005BC04A /* BackgroundRefreshMonitor.swift in Sources */,
 				F5F3033E20067A40005BC04A /* BatteryMonitor.swift in Sources */,
 				F5F3030E20067A40005BC04A /* PedometerInjection.swift in Sources */,
+				F594069A203B3F6400922B67 /* FileSystemObjectMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1133,7 +1249,9 @@
 				F50693AD2007BFCA0031754B /* TimeMonitor.swift in Sources */,
 				F5F3033520067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
 				F50693BD2007BFDB0031754B /* NetworkReachabilityInjection.swift in Sources */,
+				F5C7B6362057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5F3030520067A40005BC04A /* MotionManagerInjection.swift in Sources */,
+				F54498AC203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F50693C52007BFE10031754B /* OrientationMonitor.swift in Sources */,
 				F5F302D120067A40005BC04A /* Monitor.swift in Sources */,
 				F5F3032520067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
@@ -1145,24 +1263,31 @@
 				F50693AA2007BFCA0031754B /* ProtectedDataMonitor.swift in Sources */,
 				F50693BB2007BFDB0031754B /* ApplicationInjection.swift in Sources */,
 				F50693C92007BFE70031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5C7B63A2057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
+				F54498B6203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
+				F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5EC1B152040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
 				F5F3033920067A40005BC04A /* MotionActivityMonitor.swift in Sources */,
+				F54498BB203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
 				F50693BA2007BFDB0031754B /* AccessibilityStatusInjection.swift in Sources */,
-				F50693DB2007BFFD0031754B /* NetworkReachability.swift in Sources */,
 				F50693DC2007BFFD0031754B /* NetworkReachabilityMonitor.swift in Sources */,
-				F506939C2007BFC00031754B /* AccessibilityStatus.swift in Sources */,
 				F506939A2007BFC00031754B /* AccessibilityAnnouncementMonitor.swift in Sources */,
 				F50693C62007BFE10031754B /* ProximityMonitor.swift in Sources */,
+				F54498B1203E128200D91E3B /* FileSystem.swift in Sources */,
 				F5F302F520067A40005BC04A /* AltimeterInjection.swift in Sources */,
 				F50693AC2007BFCA0031754B /* StatusBarMonitor.swift in Sources */,
 				F50693BC2007BFDB0031754B /* DeviceInjection.swift in Sources */,
 				F506939D2007BFC00031754B /* AccessibilityStatusMonitor.swift in Sources */,
 				F5F3032920067A40005BC04A /* AltimeterMonitor.swift in Sources */,
+				F5EC1B1020408A630056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F50693A82007BFCA0031754B /* BackgroundRefreshMonitor.swift in Sources */,
+				F5913FC62059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F50693A72007BFCA0031754B /* ApplicationStateMonitor.swift in Sources */,
 				F5F3031120067A40005BC04A /* PedometerInjection.swift in Sources */,
+				F54498A8203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
 				F506939B2007BFC00031754B /* AccessibilityElementMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1177,7 +1302,9 @@
 				F50693CC2007BFF00031754B /* DeviceMotionMonitor.swift in Sources */,
 				F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */,
 				F5F3030720067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
+				F5C7B6342057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F50693A32007BFC80031754B /* ProtectedDataMonitor.swift in Sources */,
+				F54498AA203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F50693A52007BFC80031754B /* StatusBarMonitor.swift in Sources */,
 				F50693B02007BFD90031754B /* ApplicationInjection.swift in Sources */,
 				F50693D82007BFF80031754B /* KeyboardMonitor.swift in Sources */,
@@ -1189,25 +1316,32 @@
 				F50693BF2007BFDF0031754B /* OrientationMonitor.swift in Sources */,
 				F50693CD2007BFF00031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C72007BFE50031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				F5C7B6382057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */,
+				F54498B4203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
+				F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */,
+				F5EC1B132040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */,
 				F50693CF2007BFF00031754B /* MotionActivityMonitor.swift in Sources */,
+				F54498B9203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
 				F50693C02007BFDF0031754B /* ProximityMonitor.swift in Sources */,
 				F50693B32007BFD90031754B /* MotionManagerInjection.swift in Sources */,
 				F50693A42007BFC80031754B /* ScreenshotMonitor.swift in Sources */,
 				F50693B12007BFD90031754B /* DeviceInjection.swift in Sources */,
+				F54498AF203E128200D91E3B /* FileSystem.swift in Sources */,
 				F50693AE2007BFD90031754B /* AccessibilityStatusInjection.swift in Sources */,
 				F50693A22007BFC80031754B /* MemoryMonitor.swift in Sources */,
-				F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */,
 				F5F302CB20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
 				F50693A62007BFC80031754B /* TimeMonitor.swift in Sources */,
 				F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F5EC1B0E20408A610056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F5F302C720067A40005BC04A /* BaseMonitor.swift in Sources */,
+				F5913FC42059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F50693AF2007BFD90031754B /* AltimeterInjection.swift in Sources */,
 				F50693CB2007BFF00031754B /* AltimeterMonitor.swift in Sources */,
+				F54498A6203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
 				F5F3030B20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
-				F5F302BB20067A40005BC04A /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1217,12 +1351,13 @@
 			files = (
 				F50693D52007BFF20031754B /* MagnetometerMonitor.swift in Sources */,
 				F50693D12007BFF20031754B /* AccelerometerMonitor.swift in Sources */,
-				F55F4F082006B35000CCDDA0 /* AccessibilityStatus.swift in Sources */,
 				F50693D32007BFF20031754B /* DeviceMotionMonitor.swift in Sources */,
 				F5F302C020067A40005BC04A /* NetworkReachabilityMonitor.swift in Sources */,
 				F5F3030820067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5F302D020067A40005BC04A /* Monitor.swift in Sources */,
+				F5C7B6352057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
 				F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */,
+				F54498AB203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				F55F4F092006B35400CCDDA0 /* AccessibilityStatusMonitor.swift in Sources */,
 				F50693D92007BFF90031754B /* KeyboardMonitor.swift in Sources */,
 				F50693B72007BFDA0031754B /* MotionActivityManagerInjection.swift in Sources */,
@@ -1235,24 +1370,32 @@
 				F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				5B57C2C02061812C00B794F2 /* WindowMonitor.swift in Sources */,
 				F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */,
+				F5C7B6392057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
+				F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */,
+				F54498B5203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
 				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,
+				F5EC1B142040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F50693D62007BFF20031754B /* MotionActivityMonitor.swift in Sources */,
 				F50693C32007BFE00031754B /* ProximityMonitor.swift in Sources */,
+				F54498BA203E193C00D91E3B /* FileSystemObjectInjection.swift in Sources */,
 				F50693B82007BFDA0031754B /* MotionManagerInjection.swift in Sources */,
 				F5E1DE3C2006A65000C43E8D /* ScreenshotMonitor.swift in Sources */,
 				F50693B62007BFDA0031754B /* DeviceInjection.swift in Sources */,
 				F5F302CC20067A40005BC04A /* BaseNotificationMonitor.swift in Sources */,
+				F54498B0203E128200D91E3B /* FileSystem.swift in Sources */,
 				F5E1DE3B2006A64C00C43E8D /* ProtectedDataMonitor.swift in Sources */,
 				F5F302C820067A40005BC04A /* BaseMonitor.swift in Sources */,
 				F5E1DE372006A59600C43E8D /* ApplicationInjection.swift in Sources */,
 				F506939E2007BFC60031754B /* BackgroundRefreshMonitor.swift in Sources */,
 				F5F3030C20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
+				F5EC1B0F20408A620056CAD9 /* FileSystemObjectMonitor.swift in Sources */,
 				F5F3031420067A40005BC04A /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				F5913FC52059BA7700335200 /* FileManagerInjection.swift in Sources */,
 				F55F4F0A2006B3BC00CCDDA0 /* AccessibilityStatusInjection.swift in Sources */,
 				F50693D22007BFF20031754B /* AltimeterMonitor.swift in Sources */,
+				F54498A7203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */,
 				F506939F2007BFC60031754B /* StatusBarMonitor.swift in Sources */,
-				F5F302BC20067A40005BC04A /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,14 +1403,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55D72622040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
+				F55AE5552059D43300B81D31 /* MockFileManager.swift in Sources */,
 				F5F3038620067AA3005BC04A /* ScreenshotMonitorTests.swift in Sources */,
 				F5F3038320067AA3005BC04A /* ProtectedDataMonitorTests.swift in Sources */,
 				F5F303A120067AA3005BC04A /* PedometerMonitorTests.swift in Sources */,
 				F5F303AA20067AA3005BC04A /* OrientationMonitorTests.swift in Sources */,
 				F5F303B920067AA3005BC04A /* MockDevice.swift in Sources */,
 				F5F3039E20067AA3005BC04A /* MotionActivityMonitorTests.swift in Sources */,
+				F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */,
 				F5F3038F20067AA3005BC04A /* AccelerometerMonitorTests.swift in Sources */,
 				F5F303C520067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */,
 				F5F3037420067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
 				F5F3039220067AA3005BC04A /* AltimeterMonitorTests.swift in Sources */,
 				F5F303C220067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
@@ -1285,13 +1432,20 @@
 				F5F303CE20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
 				F5F3037D20067AA3005BC04A /* BackgroundRefreshMonitorTests.swift in Sources */,
 				5B57C2BB2061119D00B794F2 /* WindowMonitorTests.swift in Sources */,
+				F54498C6203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
+				F5913FD12059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				F5F3039B20067AA3005BC04A /* MagnetometerMonitorTests.swift in Sources */,
 				F5F3037720067AA3005BC04A /* AccessibilityStatusMonitorTests.swift in Sources */,
+				F54498C9203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
+				F5913FCE2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
+				13904055205AB39E0013A5E0 /* PasteboardMonitorTests.swift in Sources */,
+				F54498C3203E2A1100D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F5F303B020067AA3005BC04A /* MockAccessibilityStatus.swift in Sources */,
 				F5F3038C20067AA3005BC04A /* TimeMonitorTests.swift in Sources */,
 				F5F303AD20067AA3005BC04A /* ProximityMonitorTests.swift in Sources */,
 				F5F303B320067AA3005BC04A /* MockAltimeter.swift in Sources */,
 				F5F303BC20067AA3005BC04A /* MockMotionActivityManager.swift in Sources */,
+				13904053205AAB4B0013A5E0 /* MockPasteboard.swift in Sources */,
 				F5F3039520067AA3005BC04A /* DeviceMotionMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1300,18 +1454,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54498C1203E2A0D00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */,
 				F54553502006AB3100D63955 /* MockApplication.swift in Sources */,
 				F55F4F0B2006B56A00CCDDA0 /* MockAccessibilityStatus.swift in Sources */,
+				F5913FD02059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				F55F4F0C2006B57100CCDDA0 /* AccessibilityStatusMonitorTests.swift in Sources */,
 				F55F4F062006ABA700CCDDA0 /* TimeMonitorTests.swift in Sources */,
 				F55F4F042006ABA700CCDDA0 /* ProtectedDataMonitorTests.swift in Sources */,
 				F5F303C720067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F55AE5572059D43300B81D31 /* MockFileManager.swift in Sources */,
+				F54498C8203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
 				F5F3037620067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
 				F5F303C420067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
 				F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
+				F5913FD32059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				F55F4F052006ABA700CCDDA0 /* ScreenshotMonitorTests.swift in Sources */,
 				F5F303D020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F55D72642040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
+				F54498CB203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
 				F54553492006AAFA00D63955 /* ApplicationStateMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1320,9 +1481,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54498C2203E2A0F00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F5F303C620067AA3005BC04A /* MockNotificationCenter.swift in Sources */,
+				F54498CA203E2A7D00D91E3B /* MockFileSystemObject.swift in Sources */,
+				F55D72632040C818009CD29C /* MetadataQueryMonitorTests.swift in Sources */,
 				F5F303C320067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
+				F54498C7203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
+				F5913FD22059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
+				F5913FCF2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				F5F303CF20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				F55AE5562059D43300B81D31 /* MockFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1651,10 +1819,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1668,10 +1833,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1684,10 +1846,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1703,10 +1862,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
@@ -1722,10 +1878,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1742,10 +1895,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

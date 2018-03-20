@@ -28,9 +28,10 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     func testMonitor_didBecomeAvailable() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
-        let monitor = ProtectedDataMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ProtectedDataMonitor(options: .didBecomeAvailable,
+                                           queue: .main) { event in
+                                            expectedEvent = event
+                                            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -47,7 +48,8 @@ internal class ProtectedDataMonitorTests: XCTestCase {
 
     func testIsContentAccessible() {
         let expectedIsContentAccessible: Bool = true
-        let monitor = ProtectedDataMonitor(queue: .main) { _ in }
+        let monitor = ProtectedDataMonitor(options: .all,
+                                           queue: .main) { _ in }
 
         application.isProtectedDataAvailable = true
 
@@ -57,9 +59,10 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     func testMonitor_willBecomeUnavailable() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ProtectedDataMonitor.Event?
-        let monitor = ProtectedDataMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ProtectedDataMonitor(options: .willBecomeUnavailable,
+                                           queue: .main) { event in
+                                            expectedEvent = event
+                                            expectation.fulfill()
         }
 
         monitor.startMonitoring()

@@ -44,7 +44,7 @@
             ///
             public let wasSuccessful: Bool
 
-            internal init (_ notification: Notification) {
+            fileprivate init(_ notification: Notification) {
                 let userInfo = notification.userInfo
 
                 if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
@@ -79,7 +79,7 @@
 
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in

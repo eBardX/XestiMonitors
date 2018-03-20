@@ -1,3 +1,24 @@
+# 2.4.0 (2018-03-19)
+
+Adds support for new monitor class: `PasteboardMonitor`.
+
+# 2.3.0 (2018-03-15)
+
+Adds support for three new monitor classes: `MetadataQueryMonitor`,
+`UbiquitousKeyValueStoreMonitor`, and `UbiquityIdentityMonitor`.
+
+# 2.2.0 (2018-02-23)
+
+* Adds support for new monitor class: `FileSystemObjectMonitor`.
+* Changes the initializer parameter order for several monitor classes for
+  consistency. (The old initializers have been deprecated, but are still
+  available.)
+
+# 2.1.0 (2018-02-16)
+
+* Adds support for new monitor class: `DocumentStateMonitor`.
+* Corrects the initializer parameter order for a few motion monitor classes.
+
 # 2.0.1 (2018-01-18)
 
 Makes dependency injection both simpler and more flexible.
@@ -9,7 +30,7 @@ Major rewrite.
 * Adds support for Swift 4 as well as macOS, tvOS, and watchOS platforms.
 * Adds support for installation with Carthage and Swift Package Manager.
 * Adds support for three new monitor classes: `AltimeterMonitor`,
-`MotionActivityMonitor`, and `PedometerMonitor`.
+  `MotionActivityMonitor`, and `PedometerMonitor`.
 * Adds unit tests for all public classes.
 
 **NOTE:** Developers using older versions of XestiMonitors will need to

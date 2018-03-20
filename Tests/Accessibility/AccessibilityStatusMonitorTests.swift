@@ -51,19 +51,21 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     #if os(iOS)
     @available(iOS 10.0, *)
     func testHearingDevicePairedEar() {
-    let expectedValue: UIAccessibilityHearingDeviceEar = .left
-    let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let expectedValue: UIAccessibilityHearingDeviceEar = .left
+        let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
+                                                 queue: .main) { _ in }
 
-    simulateHearingDevicePairedEarDidChange(to: expectedValue)
+        simulateHearingDevicePairedEarDidChange(to: expectedValue)
 
-    XCTAssertEqual(monitor.hearingDevicePairedEar, expectedValue)
+        XCTAssertEqual(monitor.hearingDevicePairedEar, expectedValue)
     }
     #endif
 
     @available(iOS 10.0, tvOS 10.0, *)
     func testIsAssistiveTouchEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateAssistiveTouchStatusDidChange(to: expectedValue)
 
@@ -72,7 +74,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsBoldTextEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .boldTextStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateBoldTextStatusDidChange(to: expectedValue)
 
@@ -81,7 +84,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsClosedCaptioningEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .closedCaptioningStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateClosedCaptioningStatusDidChange(to: expectedValue)
 
@@ -90,7 +94,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsDarkenColorsEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .darkenColorsStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateDarkenColorsStatusDidChange(to: expectedValue)
 
@@ -99,7 +104,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsGrayscaleEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .grayscaleStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateGrayscaleStatusDidChange(to: expectedValue)
 
@@ -108,7 +114,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsGuidedAccessEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .guidedAccessStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateGuidedAccessStatusDidChange(to: expectedValue)
 
@@ -117,7 +124,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsInvertColorsEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .invertColorsStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateInvertColorsStatusDidChange(to: expectedValue)
 
@@ -126,7 +134,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsMonoAudioEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .monoAudioStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateMonoAudioStatusDidChange(to: expectedValue)
 
@@ -135,7 +144,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsReduceMotionEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .reduceMotionStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateReduceMotionStatusDidChange(to: expectedValue)
 
@@ -144,7 +154,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsReduceTransparencyEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .reduceTransparencyStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateReduceTransparencyStatusDidChange(to: expectedValue)
 
@@ -153,7 +164,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsShakeToUndoEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .shakeToUndoStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateShakeToUndoStatusDidChange(to: expectedValue)
 
@@ -162,7 +174,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsSpeakScreenEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .speakScreenStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateSpeakScreenStatusDidChange(to: expectedValue)
 
@@ -171,7 +184,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsSpeakSelectionEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .speakSelectionStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateSpeakSelectionStatusDidChange(to: expectedValue)
 
@@ -180,7 +194,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsSwitchControlEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .switchControlStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateSwitchControlStatusDidChange(to: expectedValue)
 
@@ -189,7 +204,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
 
     func testIsVoiceOverEnabled() {
         let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(queue: .main) { _ in }
+        let monitor = AccessibilityStatusMonitor(options: .voiceOverStatusDidChange,
+                                                 queue: .main) { _ in }
 
         simulateVoiceOverStatusDidChange(to: expectedValue)
 
@@ -201,9 +217,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -223,9 +240,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .boldTextStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -245,9 +263,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .closedCaptioningStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -267,9 +286,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .darkenColorsStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -289,9 +309,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .grayscaleStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -311,9 +332,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .guidedAccessStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -332,25 +354,26 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     #if os(iOS)
     @available(iOS 10.0, *)
     func testMonitor_hearingDevicePairedEarDidChange() {
-    let expectation = self.expectation(description: "Handler called")
-    let expectedValue: UIAccessibilityHearingDeviceEar = .right
-    var expectedEvent: AccessibilityStatusMonitor.Event?
-    let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-    expectedEvent = event
-    expectation.fulfill()
-    }
+        let expectation = self.expectation(description: "Handler called")
+        let expectedValue: UIAccessibilityHearingDeviceEar = .right
+        var expectedEvent: AccessibilityStatusMonitor.Event?
+        let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
+        }
 
-    monitor.startMonitoring()
-    simulateHearingDevicePairedEarDidChange(to: expectedValue)
-    waitForExpectations(timeout: 1)
-    monitor.stopMonitoring()
+        monitor.startMonitoring()
+        simulateHearingDevicePairedEarDidChange(to: expectedValue)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
 
-    if let event = expectedEvent,
-    case let .hearingDevicePairedEarDidChange(value) = event {
-    XCTAssertEqual(value, expectedValue)
-    } else {
-    XCTFail("Unexpected event")
-    }
+        if let event = expectedEvent,
+            case let .hearingDevicePairedEarDidChange(value) = event {
+            XCTAssertEqual(value, expectedValue)
+        } else {
+            XCTFail("Unexpected event")
+        }
     }
     #endif
 
@@ -358,9 +381,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .invertColorsStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -380,9 +404,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .monoAudioStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -402,9 +427,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .reduceMotionStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -424,9 +450,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .reduceTransparencyStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -446,9 +473,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .shakeToUndoStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -468,9 +496,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .speakScreenStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -490,9 +519,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .speakSelectionStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -512,9 +542,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .switchControlStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -534,9 +565,10 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedValue: Bool = true
         var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = AccessibilityStatusMonitor(options: .voiceOverStatusDidChange,
+                                                 queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()

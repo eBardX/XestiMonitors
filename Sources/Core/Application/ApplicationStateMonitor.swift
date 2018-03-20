@@ -109,15 +109,15 @@
         /// Initializes a new `ApplicationStateMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
         ///   - options:    The options that specify which events to monitor. By
         ///                 default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
         ///   - handler:    The handler to call when the app changes its runtime
         ///                 state or is about to change its runtime state.
         ///
-        public init(queue: OperationQueue = .main,
-                    options: Options = .all,
+        public init(options: Options = .all,
+                    queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.application = ApplicationInjector.inject()
             self.handler = handler
@@ -137,44 +137,76 @@
         private let handler: (Event) -> Void
         private let options: Options
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             if options.contains(.didBecomeActive) {
-                observe(.UIApplicationDidBecomeActive) { [unowned self] _ in
+                observe(.UIApplicationDidBecomeActive,
+                        object: application) { [unowned self] _ in
                     self.handler(.didBecomeActive)
                 }
             }
 
             if options.contains(.didEnterBackground) {
-                observe(.UIApplicationDidEnterBackground) { [unowned self] _ in
+                observe(.UIApplicationDidEnterBackground,
+                        object: application) { [unowned self] _ in
                     self.handler(.didEnterBackground)
                 }
             }
 
             if options.contains(.didFinishLaunching) {
-                observe(.UIApplicationDidFinishLaunching) { [unowned self] in
+                observe(.UIApplicationDidFinishLaunching,
+                        object: application) { [unowned self] in
                     self.handler(.didFinishLaunching($0.userInfo))
                 }
             }
 
             if options.contains(.willEnterForeground) {
-                observe(.UIApplicationWillEnterForeground) { [unowned self] _ in
+                observe(.UIApplicationWillEnterForeground,
+                        object: application) { [unowned self] _ in
                     self.handler(.willEnterForeground)
                 }
             }
 
             if options.contains(.willResignActive) {
-                observe(.UIApplicationWillResignActive) { [unowned self] _ in
+                observe(.UIApplicationWillResignActive,
+                        object: application) { [unowned self] _ in
                     self.handler(.willResignActive)
                 }
             }
 
             if options.contains(.willTerminate) {
-                observe(.UIApplicationWillTerminate) { [unowned self] _ in
+                observe(.UIApplicationWillTerminate,
+                        object: application) { [unowned self] _ in
                     self.handler(.willTerminate)
                 }
             }
+        }
+
+        // MARK: Deprecated
+
+        ///
+        /// Initializes a new `ApplicationStateMonitor`.
+        ///
+        /// - Parameters:
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor. By
+        ///                 default, all events are monitored.
+        ///   - handler:    The handler to call when the app changes its runtime
+        ///                 state or is about to change its runtime state.
+        ///
+        /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
+        ///
+        @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
+        public init(queue: OperationQueue = .main,
+                    options: Options = .all,
+                    handler: @escaping (Event) -> Void) {
+            self.application = ApplicationInjector.inject()
+            self.handler = handler
+            self.options = options
+
+            super.init(queue: queue)
         }
     }
 

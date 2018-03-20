@@ -15,15 +15,16 @@ public class DeviceDetailViewController: UITableViewController {
     @IBOutlet private weak var orientationLabel: UILabel!
     @IBOutlet private weak var proximityLabel: UILabel!
 
-    private lazy var batteryMonitor = BatteryMonitor { [unowned self] in
+    private lazy var batteryMonitor = BatteryMonitor(options: .all,
+                                                     queue: .main) { [unowned self] in
         self.displayBattery($0)
     }
 
-    private lazy var orientationMonitor = OrientationMonitor { [unowned self] in
+    private lazy var orientationMonitor = OrientationMonitor(queue: .main) { [unowned self] in
         self.displayOrientation($0)
     }
 
-    private lazy var proximityMonitor = ProximityMonitor { [unowned self] in
+    private lazy var proximityMonitor = ProximityMonitor(queue: .main) { [unowned self] in
         self.displayProximity($0)
     }
 

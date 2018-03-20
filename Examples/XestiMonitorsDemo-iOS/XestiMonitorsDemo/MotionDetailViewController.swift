@@ -50,8 +50,8 @@ public class MotionDetailViewController: UITableViewController {
     @IBOutlet private weak var pedometerNumberOfStepsLabel: UILabel!
     @IBOutlet private weak var pedometerStartDateLabel: UILabel!
 
-    private lazy var accelerometerMonitor = AccelerometerMonitor(queue: .main,
-                                                                 interval: 1) { [unowned self] in
+    private lazy var accelerometerMonitor = AccelerometerMonitor(interval: 1,
+                                                                 queue: .main) { [unowned self] in
                                                                     self.displayAccelerometer($0)
     }
 
@@ -59,19 +59,19 @@ public class MotionDetailViewController: UITableViewController {
         self.displayAltimeter($0)
     }
 
-    private lazy var deviceMotionMonitor = DeviceMotionMonitor(queue: .main,
-                                                               interval: 1,
-                                                               using: .xArbitraryZVertical) { [unowned self] in
+    private lazy var deviceMotionMonitor = DeviceMotionMonitor(interval: 1,
+                                                               using: .xArbitraryZVertical,
+                                                               queue: .main) { [unowned self] in
                                                                 self.displayDeviceMotion($0)
     }
 
-    private lazy var gyroscopeMonitor = GyroscopeMonitor(queue: .main,
-                                                         interval: 0.5) { [unowned self] in
+    private lazy var gyroscopeMonitor = GyroscopeMonitor(interval: 1,
+                                                         queue: .main) { [unowned self] in
                                                             self.displayGyroscope($0)
     }
 
-    private lazy var magnetometerMonitor = MagnetometerMonitor(queue: .main,
-                                                               interval: 1) { [unowned self] in
+    private lazy var magnetometerMonitor = MagnetometerMonitor(interval: 1,
+                                                               queue: .main) { [unowned self] in
                                                                 self.displayMagnetometer($0)
     }
 

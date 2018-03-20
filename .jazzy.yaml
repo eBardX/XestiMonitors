@@ -39,8 +39,14 @@ custom_categories:
       - PedometerMonitor
   - name: Other Monitor Classes
     children:
+      - DocumentStateMonitor
+      - FileSystemObjectMonitor
       - KeyboardMonitor
+      - MetadataQueryMonitor
       - NetworkReachabilityMonitor
+      - PasteboardMonitor
+      - UbiquitousKeyValueStoreMonitor
+      - UbiquityIdentityMonitor
   - name: Extensions
     children:
       - CMAcceleration

@@ -66,15 +66,15 @@
         /// Initializes a new `BatteryMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
         ///   - options:    The options that specify which events to monitor. By
         ///                 default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
         ///   - handler:    The handler to call when the battery state or battery
         ///                 level of the device changes.
         ///
-        public init(queue: OperationQueue = .main,
-                    options: Options = .all,
+        public init(options: Options = .all,
+                    queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.device = DeviceInjector.inject()
             self.handler = handler
@@ -101,17 +101,19 @@
         private let handler: (Event) -> Void
         private let options: Options
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             if options.contains(.levelDidChange) {
-                observe(.UIDeviceBatteryLevelDidChange) { [unowned self] _ in
+                observe(.UIDeviceBatteryLevelDidChange,
+                        object: device) { [unowned self] _ in
                     self.handler(.levelDidChange(self.level))
                 }
             }
 
             if options.contains(.stateDidChange) {
-                observe(.UIDeviceBatteryStateDidChange) { [unowned self] _ in
+                observe(.UIDeviceBatteryStateDidChange,
+                        object: device) { [unowned self] _ in
                     self.handler(.stateDidChange(self.state))
                 }
             }
@@ -119,10 +121,36 @@
             device.isBatteryMonitoringEnabled = true
         }
 
-        public override func removeNotificationObservers() {
+        override public func removeNotificationObservers() {
             device.isBatteryMonitoringEnabled = false
 
             super.removeNotificationObservers()
+        }
+
+        // MARK: Deprecated
+
+        ///
+        /// Initializes a new `BatteryMonitor`.
+        ///
+        /// - Parameters:
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor. By
+        ///                 default, all events are monitored.
+        ///   - handler:    The handler to call when the battery state or battery
+        ///                 level of the device changes.
+        ///
+        /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
+        ///
+        @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
+        public init(queue: OperationQueue = .main,
+                    options: Options = .all,
+                    handler: @escaping (Event) -> Void) {
+            self.device = DeviceInjector.inject()
+            self.handler = handler
+            self.options = options
+
+            super.init(queue: queue)
         }
     }
 

@@ -28,9 +28,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_didBecomeActive() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .didBecomeActive,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -48,9 +49,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_didEnterBackground() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .didEnterBackground,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -68,9 +70,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_didFinishLaunching() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .didFinishLaunching,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -89,9 +92,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_willEnterForeground() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .willEnterForeground,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -109,9 +113,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_willResignActive() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .willResignActive,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -129,9 +134,10 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testMonitor_willTerminate() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ApplicationStateMonitor.Event?
-        let monitor = ApplicationStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = ApplicationStateMonitor(options: .willTerminate,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -148,7 +154,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
 
     func testState() {
         let expectedState: UIApplicationState = .background
-        let monitor = ApplicationStateMonitor(queue: .main) { _ in }
+        let monitor = ApplicationStateMonitor(options: .didEnterBackground,
+                                              queue: .main) { _ in }
 
         simulateDidEnterBackground()
 

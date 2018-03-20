@@ -22,8 +22,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
 
     func testInfo_data() {
         let expectedData = CMAccelerometerData()
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { _ in }
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { _ in }
 
         motionManager.updateAccelerometer(data: expectedData)
 
@@ -35,8 +35,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
     }
 
     func testInfo_unknown() {
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { _ in }
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { _ in }
 
         motionManager.updateAccelerometer(data: nil)
 
@@ -47,8 +47,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { _ in }
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { _ in }
 
         motionManager.updateAccelerometer(available: false)
 
@@ -56,8 +56,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { _ in }
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { _ in }
 
         motionManager.updateAccelerometer(available: true)
 
@@ -68,8 +68,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedData = CMAccelerometerData()
         var expectedEvent: AccelerometerMonitor.Event?
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { event in
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -93,8 +93,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
         let expectedError = NSError(domain: CMErrorDomain,
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: AccelerometerMonitor.Event?
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { event in
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -116,8 +116,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
     func testMonitor_unknown() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: AccelerometerMonitor.Event?
-        let monitor = AccelerometerMonitor(queue: .main,
-                                           interval: 1) { event in
+        let monitor = AccelerometerMonitor(interval: 1,
+                                           queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }

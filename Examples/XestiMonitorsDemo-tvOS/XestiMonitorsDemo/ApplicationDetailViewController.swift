@@ -21,23 +21,25 @@ public class ApplicationDetailViewController: UITableViewController {
     @IBOutlet private weak var screenshotLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
 
-    private lazy var applicationStateMonitor = ApplicationStateMonitor { [unowned self] in
+    private lazy var applicationStateMonitor = ApplicationStateMonitor(options: .all,
+                                                                       queue: .main) { [unowned self] in
         self.displayApplicationState($0)
     }
 
-    private lazy var memoryMonitor = MemoryMonitor { [unowned self] in
+    private lazy var memoryMonitor = MemoryMonitor(queue: .main) { [unowned self] in
         self.displayMemory($0)
     }
 
-    private lazy var protectedDataMonitor = ProtectedDataMonitor { [unowned self] in
+    private lazy var protectedDataMonitor = ProtectedDataMonitor(options: .all,
+                                                                 queue: .main) { [unowned self] in
         self.displayProtectedData($0)
     }
 
-    private lazy var screenshotMonitor = ScreenshotMonitor { [unowned self] in
+    private lazy var screenshotMonitor = ScreenshotMonitor(queue: .main) { [unowned self] in
         self.displayScreenshot($0)
     }
 
-    private lazy var timeMonitor = TimeMonitor { [unowned self] in
+    private lazy var timeMonitor = TimeMonitor(queue: .main) { [unowned self] in
         self.displayTime($0)
     }
 

@@ -88,16 +88,16 @@
         /// Initializes a new `StatusBarMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
         ///   - options:    The options that specify which events to monitor. By
         ///                 default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
         ///   - handler:    The handler to call when the orientation of the app’s
         ///                 user interface or the frame of the status bar changes
         ///                 or is about to change.
         ///
-        public init(queue: OperationQueue = .main,
-                    options: Options = .all,
+        public init(options: Options = .all,
+                    queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
             self.application = ApplicationInjector.inject()
             self.handler = handler
@@ -141,32 +141,63 @@
             return .unknown
         }
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             if options.contains(.didChangeFrame) {
-                observe(.UIApplicationDidChangeStatusBarFrame) { [unowned self] in
+                observe(.UIApplicationDidChangeStatusBarFrame,
+                        object: application) { [unowned self] in
                     self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
                 }
             }
 
             if options.contains(.didChangeOrientation) {
-                observe(.UIApplicationDidChangeStatusBarOrientation) { [unowned self] in
+                observe(.UIApplicationDidChangeStatusBarOrientation,
+                        object: application) { [unowned self] in
                     self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
                 }
             }
 
             if options.contains(.willChangeFrame) {
-                observe(.UIApplicationWillChangeStatusBarFrame) { [unowned self] in
+                observe(.UIApplicationWillChangeStatusBarFrame,
+                        object: application) { [unowned self] in
                     self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
                 }
             }
 
             if options.contains(.willChangeOrientation) {
-                observe(.UIApplicationWillChangeStatusBarOrientation) { [unowned self] in
+                observe(.UIApplicationWillChangeStatusBarOrientation,
+                        object: application) { [unowned self] in
                     self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
                 }
             }
+        }
+
+        // MARK: Deprecated
+
+        ///
+        /// Initializes a new `StatusBarMonitor`.
+        ///
+        /// - Parameters:
+        ///   - queue:      The operation queue on which the handler executes. By
+        ///                 default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor. By
+        ///                 default, all events are monitored.
+        ///   - handler:    The handler to call when the orientation of the app’s
+        ///                 user interface or the frame of the status bar changes
+        ///                 or is about to change.
+        ///
+        /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
+        ///
+        @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
+        public init(queue: OperationQueue = .main,
+                    options: Options = .all,
+                    handler: @escaping (Event) -> Void) {
+            self.application = ApplicationInjector.inject()
+            self.handler = handler
+            self.options = options
+
+            super.init(queue: queue)
         }
     }
 

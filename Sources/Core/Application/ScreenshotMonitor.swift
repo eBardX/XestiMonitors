@@ -38,17 +38,20 @@
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
+            self.application = ApplicationInjector.inject()
             self.handler = handler
 
             super.init(queue: queue)
         }
 
+        private let application: ApplicationProtocol
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
-            observe(.UIApplicationUserDidTakeScreenshot) { [unowned self] _ in
+            observe(.UIApplicationUserDidTakeScreenshot,
+                    object: application) { [unowned self] _ in
                 self.handler(.userDidTake)
             }
         }

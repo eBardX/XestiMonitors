@@ -28,7 +28,8 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     func testFrame() {
         let expectedFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
-        let monitor = StatusBarMonitor(queue: .main) { _ in }
+        let monitor = StatusBarMonitor(options: .didChangeFrame,
+                                       queue: .main) { _ in }
 
         simulateDidChangeFrame(to: expectedFrame)
 
@@ -39,9 +40,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedFrame = CGRect(x: 1, y: 2, width: 3, height: 4)
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .didChangeFrame,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -61,9 +63,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIInterfaceOrientation = .portraitUpsideDown
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .didChangeOrientation,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -83,9 +86,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedFrame = CGRect(x: 4, y: 3, width: 2, height: 1)
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .willChangeFrame,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -105,9 +109,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedFrame = CGRect(x: 4, y: 3, width: 2, height: 1)
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .willChangeFrame,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -128,9 +133,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .willChangeOrientation,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -150,9 +156,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
         var expectedEvent: StatusBarMonitor.Event?
-        let monitor = StatusBarMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = StatusBarMonitor(options: .willChangeOrientation,
+                                       queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -171,7 +178,8 @@ internal class StatusBarMonitorTests: XCTestCase {
 
     func testOrientation() {
         let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
-        let monitor = StatusBarMonitor(queue: .main) { _ in }
+        let monitor = StatusBarMonitor(options: .didChangeOrientation,
+                                       queue: .main) { _ in }
 
         simulateDidChangeOrientation(to: expectedOrientation)
 

@@ -37,15 +37,16 @@ public class AccessibilityDetailViewController: UITableViewController {
     @IBOutlet private weak var statusSwitchControlLabel: UILabel!
     @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
-    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
+    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor(queue: .main) { [unowned self] in
         self.displayAnnouncement($0)
     }
 
-    private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
+    private lazy var elementMonitor = AccessibilityElementMonitor(queue: .main) { [unowned self] in
         self.displayElement($0)
     }
 
-    private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
+    private lazy var statusMonitor = AccessibilityStatusMonitor(options: .all,
+                                                                queue: .main) { [unowned self] in
         self.displayStatus($0)
     }
 

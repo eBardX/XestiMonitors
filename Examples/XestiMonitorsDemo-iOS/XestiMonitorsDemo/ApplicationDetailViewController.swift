@@ -25,31 +25,34 @@ public class ApplicationDetailViewController: UITableViewController {
     @IBOutlet private weak var statusBarOrientationLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
 
-    private lazy var applicationStateMonitor = ApplicationStateMonitor { [unowned self] in
+    private lazy var applicationStateMonitor = ApplicationStateMonitor(options: .all,
+                                                                       queue: .main) { [unowned self] in
         self.displayApplicationState($0)
     }
 
-    private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor { [unowned self] in
+    private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor(queue: .main) { [unowned self] in
         self.displayBackgroundRefresh($0)
     }
 
-    private lazy var memoryMonitor = MemoryMonitor { [unowned self] in
+    private lazy var memoryMonitor = MemoryMonitor(queue: .main) { [unowned self] in
         self.displayMemory($0)
     }
 
-    private lazy var protectedDataMonitor = ProtectedDataMonitor { [unowned self] in
+    private lazy var protectedDataMonitor = ProtectedDataMonitor(options: .all,
+                                                                 queue: .main) { [unowned self] in
         self.displayProtectedData($0)
     }
 
-    private lazy var screenshotMonitor = ScreenshotMonitor { [unowned self] in
+    private lazy var screenshotMonitor = ScreenshotMonitor(queue: .main) { [unowned self] in
         self.displayScreenshot($0)
     }
 
-    private lazy var statusBarMonitor = StatusBarMonitor { [unowned self] in
+    private lazy var statusBarMonitor = StatusBarMonitor(options: .all,
+                                                         queue: .main) { [unowned self] in
         self.displayStatusBar($0)
     }
 
-    private lazy var timeMonitor = TimeMonitor { [unowned self] in
+    private lazy var timeMonitor = TimeMonitor(queue: .main) { [unowned self] in
         self.displayTime($0)
     }
 

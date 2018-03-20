@@ -39,7 +39,6 @@ opt_in_rules:
   - single_test_class
   - sorted_first_last
   - sorted_imports
-  - strict_fileprivate
   - switch_case_on_newline
   - trailing_closure
   - unneeded_parentheses_in_closure_argument
@@ -49,6 +48,7 @@ opt_in_rules:
 # - explicit_type_interface
 # - no_extension_access_modifier
 # - no_grouping_extension
+# - strict_fileprivate
 
 included:
   - Examples

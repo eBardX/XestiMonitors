@@ -48,7 +48,7 @@
             ///
             public let unfocusedElement: Any?
 
-            internal init (_ notification: Notification) {
+            fileprivate init(_ notification: Notification) {
                 let userInfo = notification.userInfo
 
                 self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
@@ -75,7 +75,7 @@
 
         private let handler: (Event) -> Void
 
-        public override func addNotificationObservers() {
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
 
             observe(.UIAccessibilityElementFocused) { [unowned self] in

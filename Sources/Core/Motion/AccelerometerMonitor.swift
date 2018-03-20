@@ -54,16 +54,16 @@
         /// Initializes a new `AccelerometerMonitor`.
         ///
         /// - Parameters:
+        ///   - interval:       The interval, in seconds, for providing
+        ///                     acceleration measurements to the handler.
         ///   - queue:          The operation queue on which the handler executes.
         ///                     Because the events might arrive at a high rate,
         ///                     using the main operation queue is not recommended.
-        ///   - interval:       The interval, in seconds, for providing
-        ///                     acceleration measurements to the handler.
         ///   - handler:        The handler to call periodically when a new
         ///                     acceleration measurement is available.
         ///
-        public init(queue: OperationQueue,
-                    interval: TimeInterval,
+        public init(interval: TimeInterval,
+                    queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.interval = interval
@@ -95,13 +95,13 @@
         private let motionManager: MotionManagerProtocol
         private let queue: OperationQueue
 
-        public override final func cleanupMonitor() {
+        override public final func cleanupMonitor() {
             motionManager.stopAccelerometerUpdates()
 
             super.cleanupMonitor()
         }
 
-        public override final func configureMonitor() {
+        override public final func configureMonitor() {
             super.configureMonitor()
 
             motionManager.accelerometerUpdateInterval = interval
@@ -119,6 +119,32 @@
 
                 self.handler(.didUpdate(info))
             }
+        }
+
+        // MARK: Deprecated
+
+        ///
+        /// Initializes a new `AccelerometerMonitor`.
+        ///
+        /// - Parameters:
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 Because the events might arrive at a high rate,
+        ///                 using the main operation queue is not recommended.
+        ///   - interval:   The interval, in seconds, for providing
+        ///                 acceleration measurements to the handler.
+        ///   - handler:    The handler to call periodically when a new
+        ///                 acceleration measurement is available.
+        ///
+        /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
+        ///
+        @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
+        public init(queue: OperationQueue,
+                    interval: TimeInterval,
+                    handler: @escaping (Event) -> Void) {
+            self.handler = handler
+            self.interval = interval
+            self.motionManager = MotionManagerInjector.inject()
+            self.queue = queue
         }
     }
 

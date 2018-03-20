@@ -234,6 +234,21 @@
             <a href="../Other Monitor Classes.html">Other Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor.html">DocumentStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DocumentStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileSystemObjectMonitor.html">FileSystemObjectMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileSystemObjectMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileSystemObjectMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/KeyboardMonitor.html">KeyboardMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -246,6 +261,18 @@
                 <a href="../Classes/KeyboardMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MetadataQueryMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MetadataQueryMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MetadataQueryMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -253,6 +280,33 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NetworkReachabilityMonitor/Status.html">– Status</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PasteboardMonitor.html">PasteboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PasteboardMonitor/Changes.html">– Changes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PasteboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PasteboardMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UbiquitousKeyValueStoreMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UbiquitousKeyValueStoreMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UbiquityIdentityMonitor/Event.html">– Event</a>
               </li>
             </ul>
           </li>
@@ -310,7 +364,7 @@ settings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L24-L107">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L24-L107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -341,11 +395,624 @@ settings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L112-L243">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L112-L243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorCA2C7OptionsV7options_So14OperationQueueC5queueyAC5EventOc7handlertcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(options:queue:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorCA2C7OptionsV7options_So14OperationQueueC5queueyAC5EventOc7handlertcfc">init(options:queue:handler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>AccessibilityStatusMonitor</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Classes/AccessibilityStatusMonitor/Options.html">Options</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">all</span><span class="p">,</span>
+            <span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span> <span class="o">=</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span>
+            <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/AccessibilityStatusMonitor/Event.html">Event</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The options that specify which events to monitor. By
+        default, all events are monitored.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The operation queue on which the handler executes. By
+        default, the main operation queue is used.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The handler to call when the status of a system
+        accessibility setting changes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L256-L264">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC22hearingDevicePairedEarSC022UIAccessibilityHearinggI0Vv"></a>
+                    <a name="//apple_ref/swift/Property/hearingDevicePairedEar" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC22hearingDevicePairedEarSC022UIAccessibilityHearinggI0Vv">hearingDevicePairedEar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current hearing device pairing options.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hearingDevicePairedEar</span><span class="p">:</span> <span class="kt">UIAccessibilityHearingDeviceEar</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L272-L274">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC23isAssistiveTouchEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isAssistiveTouchEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC23isAssistiveTouchEnabledSbv">isAssistiveTouchEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled AssistiveTouch
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isAssistiveTouchEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L283-L285">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC17isBoldTextEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isBoldTextEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC17isBoldTextEnabledSbv">isBoldTextEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Bold Text in
+Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isBoldTextEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L291-L293">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC25isClosedCaptioningEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isClosedCaptioningEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC25isClosedCaptioningEnabledSbv">isClosedCaptioningEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Closed
+Captioning in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isClosedCaptioningEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L299-L301">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isDarkenColorsEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isDarkenColorsEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isDarkenColorsEnabledSbv">isDarkenColorsEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Darken Colors
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isDarkenColorsEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L307-L309">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isGrayscaleEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isGrayscaleEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isGrayscaleEnabledSbv">isGrayscaleEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Grayscale in
+Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isGrayscaleEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L315-L317">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isGuidedAccessEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isGuidedAccessEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isGuidedAccessEnabledSbv">isGuidedAccessEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Guided Access
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isGuidedAccessEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L323-L325">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isInvertColorsEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isInvertColorsEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isInvertColorsEnabledSbv">isInvertColorsEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Invert Colors
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInvertColorsEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L331-L333">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isMonoAudioEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isMonoAudioEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isMonoAudioEnabledSbv">isMonoAudioEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Mono Audio in
+Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isMonoAudioEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L339-L341">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isReduceMotionEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isReduceMotionEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isReduceMotionEnabledSbv">isReduceMotionEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Reduce Motion
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isReduceMotionEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L347-L349">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC27isReduceTransparencyEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isReduceTransparencyEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC27isReduceTransparencyEnabledSbv">isReduceTransparencyEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Reduce
+Transparency in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isReduceTransparencyEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L355-L357">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC20isShakeToUndoEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isShakeToUndoEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC20isShakeToUndoEnabledSbv">isShakeToUndoEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Shake to Undo
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isShakeToUndoEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L363-L365">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC20isSpeakScreenEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isSpeakScreenEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC20isSpeakScreenEnabledSbv">isSpeakScreenEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Speak Screen in
+Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSpeakScreenEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L371-L373">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC23isSpeakSelectionEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isSpeakSelectionEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC23isSpeakSelectionEnabledSbv">isSpeakSelectionEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Speak Selection
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSpeakSelectionEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L379-L381">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC22isSwitchControlEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isSwitchControlEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC22isSwitchControlEnabledSbv">isSwitchControlEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled Switch Control
+in Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSwitchControlEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L387-L389">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isVoiceOverEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isVoiceOverEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isVoiceOverEnabledSbv">isVoiceOverEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the user has enabled VoiceOver in
+Settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isVoiceOverEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L395-L397">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC24addNotificationObserversyyF"></a>
+                    <a name="//apple_ref/swift/Method/addNotificationObservers()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC24addNotificationObserversyyF">addNotificationObservers()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L404-L514">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Deprecated"></a>
+                <a name="//apple_ref/swift/Section/Deprecated" class="dashAnchor"></a>
+                <a href="#/Deprecated">
+                  <h3 class="section-name">Deprecated</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -360,6 +1027,11 @@ settings.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>AccessibilityStatusMonitor</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Deprecated. Use <code>init(options:queue:handler)</code> instead.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -419,531 +1091,7 @@ settings.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L256-L263">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC22hearingDevicePairedEarSC022UIAccessibilityHearinggI0Vv"></a>
-                    <a name="//apple_ref/swift/Property/hearingDevicePairedEar" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC22hearingDevicePairedEarSC022UIAccessibilityHearinggI0Vv">hearingDevicePairedEar</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The current hearing device pairing options.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hearingDevicePairedEar</span><span class="p">:</span> <span class="kt">UIAccessibilityHearingDeviceEar</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L270-L272">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC23isAssistiveTouchEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isAssistiveTouchEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC23isAssistiveTouchEnabledSbv">isAssistiveTouchEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled AssistiveTouch
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isAssistiveTouchEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L280-L282">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC17isBoldTextEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isBoldTextEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC17isBoldTextEnabledSbv">isBoldTextEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Bold Text in
-Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isBoldTextEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L288-L290">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC25isClosedCaptioningEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isClosedCaptioningEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC25isClosedCaptioningEnabledSbv">isClosedCaptioningEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Closed
-Captioning in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isClosedCaptioningEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L296-L298">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isDarkenColorsEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isDarkenColorsEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isDarkenColorsEnabledSbv">isDarkenColorsEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Darken Colors
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isDarkenColorsEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L304-L306">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isGrayscaleEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isGrayscaleEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isGrayscaleEnabledSbv">isGrayscaleEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Grayscale in
-Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isGrayscaleEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L312-L314">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isGuidedAccessEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isGuidedAccessEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isGuidedAccessEnabledSbv">isGuidedAccessEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Guided Access
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isGuidedAccessEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L320-L322">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isInvertColorsEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isInvertColorsEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isInvertColorsEnabledSbv">isInvertColorsEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Invert Colors
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInvertColorsEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L328-L330">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isMonoAudioEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isMonoAudioEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isMonoAudioEnabledSbv">isMonoAudioEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Mono Audio in
-Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isMonoAudioEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L336-L338">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC21isReduceMotionEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isReduceMotionEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC21isReduceMotionEnabledSbv">isReduceMotionEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Reduce Motion
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isReduceMotionEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L344-L346">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC27isReduceTransparencyEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isReduceTransparencyEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC27isReduceTransparencyEnabledSbv">isReduceTransparencyEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Reduce
-Transparency in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isReduceTransparencyEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L352-L354">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC20isShakeToUndoEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isShakeToUndoEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC20isShakeToUndoEnabledSbv">isShakeToUndoEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Shake to Undo
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isShakeToUndoEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L360-L362">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC20isSpeakScreenEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isSpeakScreenEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC20isSpeakScreenEnabledSbv">isSpeakScreenEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Speak Screen in
-Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSpeakScreenEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L368-L370">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC23isSpeakSelectionEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isSpeakSelectionEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC23isSpeakSelectionEnabledSbv">isSpeakSelectionEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Speak Selection
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSpeakSelectionEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L376-L378">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC22isSwitchControlEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isSwitchControlEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC22isSwitchControlEnabledSbv">isSwitchControlEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled Switch Control
-in Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSwitchControlEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L384-L386">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC18isVoiceOverEnabledSbv"></a>
-                    <a name="//apple_ref/swift/Property/isVoiceOverEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC18isVoiceOverEnabledSbv">isVoiceOverEnabled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A Boolean value indicating whether the user has enabled VoiceOver in
-Settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isVoiceOverEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L392-L394">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13XestiMonitors26AccessibilityStatusMonitorC24addNotificationObserversyyF"></a>
-                    <a name="//apple_ref/swift/Method/addNotificationObservers()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13XestiMonitors26AccessibilityStatusMonitorC24addNotificationObserversyyF">addNotificationObservers()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/454704531e2af4482edc4542ca2fe350dc4a19f5/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L400-L510">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/a26c9c5468d8b79b2b3d952ac7e9887cd508d96a/Sources/Core/Accessibility/AccessibilityStatusMonitor.swift#L532-L540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
