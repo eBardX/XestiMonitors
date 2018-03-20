@@ -422,6 +422,7 @@
 		F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		F5940699203B3F6400922B67 /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
 		F59B5ED92061BAC000FA31A7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		F59B5EDA2061C29E00FA31A7 /* issue_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = issue_template.md; path = .github/issue_template.md; sourceTree = "<group>"; };
 		F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
 		F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
 		F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitor.swift; sourceTree = "<group>"; };
@@ -854,9 +855,10 @@
 				F5F303D420067B79005BC04A /* CHANGELOG.md */,
 				F50334F4205ADDBB00A35568 /* CODE_OF_CONDUCT.md */,
 				F59B5ED92061BAC000FA31A7 /* CONTRIBUTING.md */,
+				F59B5EDA2061C29E00FA31A7 /* issue_template.md */,
 				F5F303D620067B79005BC04A /* LICENSE.md */,
-				F5F303D720067B79005BC04A /* README.md */,
 				F50BE8D52006C7FE0027A36C /* Package.swift */,
+				F5F303D720067B79005BC04A /* README.md */,
 				F5F303D520067B79005BC04A /* XestiMonitors.podspec */,
 			);
 			name = Metadata;
