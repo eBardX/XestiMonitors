@@ -34,6 +34,7 @@
 		3549BB841DA38B0000C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* XestiMonitors.framework */; };
 		5B57C2B82060F75A00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
 		5B57C2BB2061119D00B794F2 /* WindowMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */; };
+		5B57C2C02061812C00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
 		F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
 		F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
@@ -1232,6 +1233,7 @@
 				F50693C22007BFE00031754B /* OrientationMonitor.swift in Sources */,
 				F50693D42007BFF20031754B /* GyroscopeMonitor.swift in Sources */,
 				F50693C82007BFE60031754B /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				5B57C2C02061812C00B794F2 /* WindowMonitor.swift in Sources */,
 				F50693C12007BFE00031754B /* BatteryMonitor.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
 				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,

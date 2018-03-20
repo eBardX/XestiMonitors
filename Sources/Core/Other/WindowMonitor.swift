@@ -2,11 +2,13 @@
 //  WindowMonitor.swift
 //  XestiMonitors-iOS
 //
-//  Created by Martin Mungai on 20/03/2018.
+//  Created by Martin Mungai on 2018-03-20.
 //
 //  © 2016 J. G. Pusey (see LICENSE.md)
+//
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
+
     import Foundation
     import UIKit
 
@@ -22,29 +24,28 @@
         ///
         public enum Event {
             
-            case didBecomeVisible(UIWindow)
             case didBecomeHidden(UIWindow)
             case didBecomeKey(UIWindow)
+            case didBecomeVisible(UIWindow)
             case didResignKey(UIWindow)
         }
         
         public struct Options: OptionSet {
             
             ///
-            /// Monitor `didBecomeVisible` events
-            ///
-            public static let didBecomeVisible = Options(rawValue: 1 << 0)
-            
-            
-            ///
             /// Monitor `didBecomeHidden` events
             ///
-            public static let didBecomeHidden = Options(rawValue: 1 << 1)
+            public static let didBecomeHidden = Options(rawValue: 1 << 0)
             
             ///
             /// Monitor `didBecomeKey` events
             ///
-            public static let didBecomeKey = Options(rawValue: 1 << 2)
+            public static let didBecomeKey = Options(rawValue: 1 << 1)
+            
+            ///
+            /// Monitor `didBecomeVisible` events
+            ///
+            public static let didBecomeVisible = Options(rawValue: 1 << 2)
             
             ///
             /// Monitor `didResignKey` events
@@ -54,9 +55,9 @@
             ///
             /// Monitor all events
             ///
-            public static let all: Options = [.didBecomeVisible,
-                                              .didBecomeHidden,
+            public static let all: Options = [.didBecomeHidden,
                                               .didBecomeKey,
+                                              .didBecomeVisible,
                                               .didResignKey]
             
             public init(rawValue: UInt) {
@@ -79,20 +80,22 @@
         ///                 change.
         ///
         
-        public init(queue: OperationQueue = .main,
-                    window: UIWindow,
+        public init(window: UIWindow,
                     options: Options = .all,
+                    queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.options = options
             self.window = window
+            self.options = options
+            self.handler = handler
             
             super.init(queue: queue)
         }
         
-        public let handler: (Event) -> Void
-        public let options: Options
+        // Window object whose the observer wants to receive.
         public let window: UIWindow
+        
+        private let options: Options
+        private let handler: (Event) -> Void
         
         public override func addNotificationObservers() {
             super.addNotificationObservers()
