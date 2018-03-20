@@ -3,7 +3,7 @@
 XestiMonitors is an extensible monitoring framework written in Swift. Pull
 requests are welcome.
 
-#### [Code of Conduct](https://github.com/eBardX/XestiMonitors/blob/master/CODE_OF_CONDUCT.md)
+#### Code of Conduct
 
 We have adopted a
 [Code of Conduct](https://github.com/eBardX/XestiMonitors/blob/master/CODE_OF_CONDUCT.md)
@@ -14,7 +14,7 @@ that you understand what actions will and will not be tolerated.
 
 There are many ways to contribute to XestiMonitors. Here are a few ideas:
 
-* Look through
+* Look through the
   [open issues](https://github.com/eBardX/XestiMonitors/issues?q=is%3Aopen+is%3Aissue). Provide workarounds, ask for clarification, or suggest labels.
 * Simply start using XestiMonitors. Go through the
   [reference documentation](https://ebardx.github.io/XestiMonitors/).
