@@ -1,10 +1,10 @@
 //
 //  WindowMonitor.swift
-//  XestiMonitors-iOS
+//  XestiMonitors
 //
 //  Created by Martin Mungai on 2018-03-20.
 //
-//  © 2016 J. G. Pusey (see LICENSE.md)
+//  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
 #if os(iOS) || os(tvOS)
@@ -13,45 +13,60 @@
     import UIKit
 
     ///
-    /// A `WindowMonitor` instance monitors the window for changes to its
-    /// visibility or to its frame.
+    /// A `WindowMonitor` instance monitors a window for changes to its
+    /// visibility or to its key status.
     ///
-    
     public class WindowMonitor: BaseNotificationMonitor {
         ///
         /// Encapsulates changes to the visibility of the window and to the frame
         /// of the window.
         ///
         public enum Event {
-            
+            ///
+            /// The window has become hidden.
+            ///
             case didBecomeHidden(UIWindow)
+
+            ///
+            /// The window has become the key window.
+            ///
             case didBecomeKey(UIWindow)
+
+            ///
+            /// The window has become visible.
+            ///
             case didBecomeVisible(UIWindow)
+
+            ///
+            /// The window has resigned its status as key window.
+            ///
             case didResignKey(UIWindow)
         }
-        
+
+        ///
+        /// Specifies which events to monitor.
+        ///
         public struct Options: OptionSet {
-            
             ///
             /// Monitor `didBecomeHidden` events
             ///
             public static let didBecomeHidden = Options(rawValue: 1 << 0)
-            
+
             ///
             /// Monitor `didBecomeKey` events
             ///
             public static let didBecomeKey = Options(rawValue: 1 << 1)
-            
+
             ///
             /// Monitor `didBecomeVisible` events
             ///
             public static let didBecomeVisible = Options(rawValue: 1 << 2)
-            
+
             ///
             /// Monitor `didResignKey` events
             ///
             public static let didResignKey = Options(rawValue: 1 << 3)
-            
+
             ///
             /// Monitor all events
             ///
@@ -59,72 +74,85 @@
                                               .didBecomeKey,
                                               .didBecomeVisible,
                                               .didResignKey]
-            
+
+            /// :nodoc:
             public init(rawValue: UInt) {
                 self.rawValue = rawValue
             }
-            
+
+            /// :nodoc:
             public let rawValue: UInt
         }
-        
+
         ///
         /// Initializes a new `WindowMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - handler:    The handler to call when the visibility of the keyboard
-        ///                 or the frame of the keyboard changes or is about to
-        ///                 change.
+        ///   - window:     The window to monitor.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the visibility of the
+        ///                 window or the key status of the window changes.
         ///
-        
         public init(window: UIWindow,
                     options: Options = .all,
                     queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
-            self.window = window
-            self.options = options
             self.handler = handler
-            
+            self.options = options
+            self.window = window
+
             super.init(queue: queue)
         }
-        
-        // Window object whose the observer wants to receive.
+
+        ///
+        /// The window being monitored.
+        ///
         public let window: UIWindow
-        
-        private let options: Options
+
         private let handler: (Event) -> Void
-        
+        private let options: Options
+
         public override func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             if options.contains(.didBecomeHidden) {
-                observe(.UIWindowDidBecomeHidden, object: window) { _ in
-                    self.handler(.didBecomeHidden(self.window))
+                observe(.UIWindowDidBecomeHidden,
+                        object: window) { [unowned self] in
+                            if let window = $0.object as? UIWindow {
+                                self.handler(.didBecomeHidden(window))
+                            }
                 }
             }
-            
+
             if options.contains(.didBecomeKey) {
-                observe(.UIWindowDidBecomeKey, object: window) { _ in
-                    self.handler(.didBecomeKey(self.window))
+                observe(.UIWindowDidBecomeKey,
+                        object: window) { [unowned self] in
+                            if let window = $0.object as? UIWindow {
+                                self.handler(.didBecomeKey(window))
+                            }
                 }
             }
-            
+
             if options.contains(.didBecomeVisible) {
-                observe(.UIWindowDidBecomeVisible, object: window) { _ in
-                    self.handler(.didBecomeVisible(self.window))
+                observe(.UIWindowDidBecomeVisible,
+                        object: window) { [unowned self] in
+                            if let window = $0.object as? UIWindow {
+                                self.handler(.didBecomeVisible(window))
+                            }
                 }
             }
-            
+
             if options.contains(.didResignKey) {
-                observe(.UIWindowDidResignKey, object: window) { _ in
-                    self.handler(.didResignKey(self.window))
+                observe(.UIWindowDidResignKey,
+                        object: window) { [unowned self] in
+                            if let window = $0.object as? UIWindow {
+                                self.handler(.didResignKey(window))
+                            }
                 }
             }
-            
-           
         }
     }
 
