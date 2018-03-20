@@ -47,6 +47,7 @@ custom_categories:
       - PasteboardMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
+      - WindowMonitor
   - name: Extensions
     children:
       - CMAcceleration

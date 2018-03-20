@@ -14,12 +14,12 @@
 
     ///
     /// A `WindowMonitor` instance monitors a window for changes to its
-    /// visibility or to its key status.
+    /// visibility or its key status.
     ///
     public class WindowMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the visibility of the window and to the frame
-        /// of the window.
+        /// Encapsulates changes to the visibility and key status of the
+        /// window.
         ///
         public enum Event {
             ///
@@ -93,8 +93,8 @@
         ///                 By default, all events are monitored.
         ///   - queue:      The operation queue on which the handler executes.
         ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the visibility of the
-        ///                 window or the key status of the window changes.
+        ///   - handler:    The handler to call when the visibility or the key
+        ///                 status of the window changes.
         ///
         public init(window: UIWindow,
                     options: Options = .all,
