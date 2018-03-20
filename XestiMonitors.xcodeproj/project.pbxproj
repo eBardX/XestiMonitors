@@ -32,6 +32,7 @@
 		3549BB661DA38ADB00C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* XestiMonitors.framework */; };
 		3549BB751DA38AEF00C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB481DA389F300C63030 /* XestiMonitors.framework */; };
 		3549BB841DA38B0000C63030 /* XestiMonitors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* XestiMonitors.framework */; };
+		5B57C2B82060F75A00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
 		F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
 		F50693982007BFBE0031754B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A820067A40005BC04A /* AccessibilityStatus.swift */; };
@@ -328,6 +329,7 @@
 		3549BB611DA38ADB00C63030 /* XestiMonitorsTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB701DA38AEF00C63030 /* XestiMonitorsTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitor.swift; sourceTree = "<group>"; };
 		F50693DD2007C8BC0031754B /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		F50BE8D52006C7FE0027A36C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */,
 				F5F3028B20067A40005BC04A /* NetworkReachability.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
+				5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1093,6 +1096,7 @@
 				F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */,
 				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
 				F5F302EE20067A40005BC04A /* AccessibilityStatusInjection.swift in Sources */,
+				5B57C2B82060F75A00B794F2 /* WindowMonitor.swift in Sources */,
 				F5F302E620067A40005BC04A /* StatusBarMonitor.swift in Sources */,
 				F5F3032220067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
 				F5F3034220067A40005BC04A /* OrientationMonitor.swift in Sources */,
