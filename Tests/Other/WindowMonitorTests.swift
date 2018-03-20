@@ -40,13 +40,79 @@ internal class WindowMonitorTests: XCTestCase {
         } else {
             XCTFail("Unexpected Event")
         }
-        
-        
+    }
+    
+    func testMonitorDidBecomeHidden() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: WindowMonitor.Event?
+        let monitor = WindowMonitor(queue: .main, window: self.window, options: .didBecomeHidden) { event in
+            expectedEvent = event
+            expectation.fulfill()
+        }
+        monitor.startMonitoring()
+        simulateDidBecomeHidden()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+        if let event = expectedEvent,
+            case let .didBecomeHidden(test) = event {
+            XCTAssertEqual(test, window)
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+    
+    func testMonitorDidBecomeKey() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: WindowMonitor.Event?
+        let monitor = WindowMonitor(queue: .main, window: self.window, options: .didBecomeKey) { event in
+            expectedEvent = event
+            expectation.fulfill()
+        }
+        monitor.startMonitoring()
+        simulateDidBecomeKey()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+        if let event = expectedEvent,
+            case let .didBecomeKey(test) = event {
+            XCTAssertEqual(test, window)
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+    
+    func testMonitorDidResignKey() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: WindowMonitor.Event?
+        let monitor = WindowMonitor(queue: .main, window: self.window, options: .didResignKey) { event in
+            expectedEvent = event
+            expectation.fulfill()
+        }
+        monitor.startMonitoring()
+        simulateDidResignKey()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+        if let event = expectedEvent,
+            case let .didResignKey(test) = event {
+            XCTAssertEqual(test, window)
+        } else {
+            XCTFail("Unexpected Event")
+        }
     }
     
     private func simulateDidBecomeVisible() {
-        
         notificationCenter.post(name: .UIWindowDidBecomeVisible, object: self.window)
+    }
+    
+    private func simulateDidBecomeHidden() {
+        notificationCenter.post(name: .UIWindowDidBecomeHidden, object: self.window)
+    }
+    
+    private func simulateDidBecomeKey() {
+        notificationCenter.post(name: .UIWindowDidBecomeKey, object: self.window)
+    }
+    
+    private func simulateDidResignKey() {
+        notificationCenter.post(name: .UIWindowDidResignKey, object: self.window)
     }
     
     
