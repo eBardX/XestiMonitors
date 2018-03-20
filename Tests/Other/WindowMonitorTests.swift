@@ -23,12 +23,14 @@ internal class WindowMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitorDidBecomeHidden() {
+    func testMonitor_didBecomeHidden() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: WindowMonitor.Event?
-        let monitor = WindowMonitor(window: self.window, options: .didBecomeHidden, queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = WindowMonitor(window: self.window,
+                                    options: .didBecomeHidden,
+                                    queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -44,12 +46,14 @@ internal class WindowMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitorDidBecomeKey() {
+    func testMonitor_didBecomeKey() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: WindowMonitor.Event?
-        let monitor = WindowMonitor(window: self.window, options: .didBecomeKey, queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = WindowMonitor(window: self.window,
+                                    options: .didBecomeKey,
+                                    queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -65,12 +69,14 @@ internal class WindowMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitorDidBecomeVisible() {
+    func testMonitor_didBecomeVisible() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: WindowMonitor.Event?
-        let monitor = WindowMonitor(window: self.window, options: .didBecomeVisible, queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = WindowMonitor(window: self.window,
+                                    options: .didBecomeVisible,
+                                    queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -86,12 +92,14 @@ internal class WindowMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitorDidResignKey() {
+    func testMonitor_didResignKey() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: WindowMonitor.Event?
-        let monitor = WindowMonitor(window: self.window, options: .didResignKey, queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+        let monitor = WindowMonitor(window: self.window,
+                                    options: .didResignKey,
+                                    queue: .main) { event in
+                                        expectedEvent = event
+                                        expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -107,19 +115,23 @@ internal class WindowMonitorTests: XCTestCase {
         }
     }
 
-    private func simulateDidBecomeVisible() {
-        notificationCenter.post(name: .UIWindowDidBecomeVisible, object: self.window)
-    }
-
     private func simulateDidBecomeHidden() {
-        notificationCenter.post(name: .UIWindowDidBecomeHidden, object: self.window)
+        notificationCenter.post(name: .UIWindowDidBecomeHidden,
+                                object: window)
     }
 
     private func simulateDidBecomeKey() {
-        notificationCenter.post(name: .UIWindowDidBecomeKey, object: self.window)
+        notificationCenter.post(name: .UIWindowDidBecomeKey,
+                                object: window)
+    }
+
+    private func simulateDidBecomeVisible() {
+        notificationCenter.post(name: .UIWindowDidBecomeVisible,
+                                object: window)
     }
 
     private func simulateDidResignKey() {
-        notificationCenter.post(name: .UIWindowDidResignKey, object: self.window)
+        notificationCenter.post(name: .UIWindowDidResignKey,
+                                object: window)
     }
 }
