@@ -23,9 +23,9 @@ internal class MetadataQueryMonitorTests: XCTestCase {
 
     func testMonitor_didFinishGathering() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAddedItems: [Any] = []
-        let expectedChangedItems: [Any] = []
-        let expectedRemovedItems: [Any] = []
+        let expectedAddedItems: [Any] = [1]
+        let expectedChangedItems: [Any] = [2, 3]
+        let expectedRemovedItems: [Any] = [4]
         var expectedEvent: MetadataQueryMonitor.Event?
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .didFinishGathering,
@@ -54,9 +54,9 @@ internal class MetadataQueryMonitorTests: XCTestCase {
 
     func testMonitor_didStartGathering() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAddedItems: [Any] = []
+        let expectedAddedItems: [Any] = [1, 2]
         let expectedChangedItems: [Any] = []
-        let expectedRemovedItems: [Any] = []
+        let expectedRemovedItems: [Any] = [3, 4]
         var expectedEvent: MetadataQueryMonitor.Event?
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .didStartGathering,
@@ -86,7 +86,7 @@ internal class MetadataQueryMonitorTests: XCTestCase {
     func testMonitor_didUpdate() {
         let expectation = self.expectation(description: "Handler called")
         let expectedAddedItems: [Any] = []
-        let expectedChangedItems: [Any] = []
+        let expectedChangedItems: [Any] = [1, 2, 3]
         let expectedRemovedItems: [Any] = []
         var expectedEvent: MetadataQueryMonitor.Event?
         let monitor = MetadataQueryMonitor(query: query,
@@ -148,8 +148,8 @@ internal class MetadataQueryMonitorTests: XCTestCase {
     private func compare(_ items1: [Any],
                          _ items2: [Any]) -> Bool {
         guard
-            let items1 = items1 as? [UInt],
-            let items2 = items2 as? [UInt]
+            let items1 = items1 as? [Int],
+            let items2 = items2 as? [Int]
             else { return false }
 
         return items1 == items2
@@ -157,10 +157,26 @@ internal class MetadataQueryMonitorTests: XCTestCase {
 
     private func makeUserInfo(addedItems: [Any],
                               changedItems: [Any],
-                              removedItems: [Any]) -> [AnyHashable: Any] {
-        return [NSMetadataQueryUpdateAddedItemsKey: addedItems,
-                NSMetadataQueryUpdateChangedItemsKey: changedItems,
-                NSMetadataQueryUpdateRemovedItemsKey: removedItems]
+                              removedItems: [Any]) -> [AnyHashable: Any]? {
+        if addedItems.isEmpty && changedItems.isEmpty && removedItems.isEmpty {
+            return nil
+        }
+
+        var userInfo: [AnyHashable: Any] = [:]
+
+        if !addedItems.isEmpty {
+            userInfo[NSMetadataQueryUpdateAddedItemsKey] = addedItems
+        }
+
+        if !changedItems.isEmpty {
+            userInfo[NSMetadataQueryUpdateChangedItemsKey] = changedItems
+        }
+
+        if !removedItems.isEmpty {
+            userInfo[NSMetadataQueryUpdateRemovedItemsKey] = removedItems
+        }
+
+        return userInfo
     }
 
     private func simulateDidFinishGathering(addedItems: [Any],
