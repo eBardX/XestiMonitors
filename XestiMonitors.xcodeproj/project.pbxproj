@@ -417,6 +417,7 @@
 		F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
 		F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
 		F56FAB732037531C006FAB7B /* MockDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDocument.swift; sourceTree = "<group>"; };
+		F57E02B32062B6D00083CAF7 /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = pull_request_template.md; path = .github/pull_request_template.md; sourceTree = "<group>"; };
 		F5913FC22059BA7700335200 /* FileManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerInjection.swift; sourceTree = "<group>"; };
 		F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitorTests.swift; sourceTree = "<group>"; };
 		F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
@@ -858,6 +859,7 @@
 				F59B5EDA2061C29E00FA31A7 /* issue_template.md */,
 				F5F303D620067B79005BC04A /* LICENSE.md */,
 				F50BE8D52006C7FE0027A36C /* Package.swift */,
+				F57E02B32062B6D00083CAF7 /* pull_request_template.md */,
 				F5F303D720067B79005BC04A /* README.md */,
 				F5F303D520067B79005BC04A /* XestiMonitors.podspec */,
 			);
