@@ -307,6 +307,15 @@
               <li class="nav-group-task">
                 <a href="Classes/UbiquityIdentityMonitor/Event.html">– Event</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/WindowMonitor.html">WindowMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/WindowMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/WindowMonitor/Options.html">– Options</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -434,6 +443,10 @@ provides “wrappers” around many <code>UIKit</code> notifications:</p>
 <li><code>UIKeyboardWillShow</code></li>
 <li><code>UIPasteboardChanged</code></li>
 <li><code>UIPasteboardRemoved</code></li>
+<li><code>UIWindowDidBecomeHidden</code></li>
+<li><code>UIWindowDidBecomeKey</code></li>
+<li><code>UIWindowDidBecomeVisible</code></li>
+<li><code>UIWindowDidResignKey</code></li>
 </ul>
 
 <p>See <a href="#other_monitors">Other Monitors</a> for details.</p></li>
@@ -629,7 +642,7 @@ system for changes to the status of various accessibility settings.
 </ul>
 <h3 id='a-name-other_monitors-other-monitors-a' class='heading'><a name="other_monitors">Other Monitors</a></h3>
 
-<p>In addition, XestiMonitors provides eight other monitors:</p>
+<p>In addition, XestiMonitors provides nine other monitors:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html">DocumentStateMonitor</a> to monitor a document for
@@ -650,6 +663,8 @@ monitor the iCloud (“ubiquitous”) key-value store for changes due to incomin
 data pushed from iCloud. <em>(iOS, macOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a> to monitor the system
 for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html">WindowMonitor</a> to monitor a window for changes to its
+visibility or key status. <em>(iOS, tvOS)</em></li>
 </ul>
 
 <p><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> is especially handy in removing lots of

@@ -1,11 +1,18 @@
+# 2.5.0 (2018-03-21)
+
+* Adds support for new monitor class: `WindowMonitor`.
+* Adds contributing guidelines.
+* Adds issue template and pull request template.
+
 # 2.4.0 (2018-03-19)
 
 Adds support for new monitor class: `PasteboardMonitor`.
 
 # 2.3.0 (2018-03-15)
 
-Adds support for three new monitor classes: `MetadataQueryMonitor`,
-`UbiquitousKeyValueStoreMonitor`, and `UbiquityIdentityMonitor`.
+* Adds support for three new monitor classes: `MetadataQueryMonitor`,
+  `UbiquitousKeyValueStoreMonitor`, and `UbiquityIdentityMonitor`.
+* Adds code of conduct document.
 
 # 2.2.0 (2018-02-23)
 
