@@ -1,13 +1,16 @@
-<!--- Provide a general summary of your changes in the Title above -->
+<!-- Provide a general summary of your changes in the Title above -->
 
-#### What does this PR do?
-<!--- Briefly explain what this pull request does and include screenshots (if applicable) -->
+#### What is the purpose of this pull request?
+
+<!-- Briefly explain your changes and include screenshots (if applicable) -->
 
 #### Background
-<!---  Add a link to the github issue this pull request addresses (if applicable) -->
+
+<!-- Add a link to the github issue this pull request addresses (if applicable) -->
 
 #### Checklist
-<!--- What types of changes does your code introduce? Put an `x` in all boxes that apply: -->
+
+<!-- Please put an `x` (e.g. [x] **without spaces**) in all boxes that apply: -->
 
 - [ ] Bug fix (non-breaking change which fixes an issue).
 - [ ] New feature (non-breaking change which adds functionality).
@@ -18,3 +21,5 @@
 - [ ] I have documented all my changes.
 - [ ] I have added tests to cover my changes.
 - [ ] All new and existing tests pass.
+
+<!-- Please remove all comments (including this one) before submitting -->
