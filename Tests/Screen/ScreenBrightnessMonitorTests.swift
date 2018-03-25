@@ -2,7 +2,7 @@
 //  ScreenBrightnessMonitorTests.swift
 //  XestiMonitors
 //
-+//  Created by Paul Nyondo on 2018-03-25.
+//  Created by Paul Nyondo on 2018-03-25.
 //
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
