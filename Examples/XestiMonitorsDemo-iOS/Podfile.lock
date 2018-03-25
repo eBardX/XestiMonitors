@@ -1,7 +1,7 @@
 PODS:
-  - XestiMonitors (2.3.0):
-    - XestiMonitors/Core (= 2.3.0)
-  - XestiMonitors/Core (2.3.0)
+  - XestiMonitors (2.5.0):
+    - XestiMonitors/Core (= 2.5.0)
+  - XestiMonitors/Core (2.5.0)
 
 DEPENDENCIES:
   - XestiMonitors (from `../../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  XestiMonitors: 9aafe7918fb8d06387a00ec7240c332987f04f9a
+  XestiMonitors: 5ae68a7264134e3d66620d0ca1840bf0e78a36d8
 
 PODFILE CHECKSUM: af967f85b3de0f1060583f21837d6381de340343
 
