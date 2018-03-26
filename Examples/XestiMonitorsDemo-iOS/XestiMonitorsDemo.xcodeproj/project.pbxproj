@@ -103,8 +103,8 @@
 				F50BE9012006CAEB0027A36C /* MasterViewController.swift */,
 				F50BE8F92006CAEB0027A36C /* MotionDetailViewController.swift */,
 				F50BE8FA2006CAEB0027A36C /* OtherDetailViewController.swift */,
-				F50BE8EE2006CA0B0027A36C /* Info.plist */,
 				1350D6B6206810F80050FD11 /* ScreenDetailViewController.swift */,
+				F50BE8EE2006CA0B0027A36C /* Info.plist */,
 			);
 			path = XestiMonitorsDemo;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZAU58TE88U;
+				DEVELOPMENT_TEAM = 7688PWZMS6;
 				INFOPLIST_FILE = XestiMonitorsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;
@@ -407,7 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZAU58TE88U;
+				DEVELOPMENT_TEAM = 7688PWZMS6;
 				INFOPLIST_FILE = XestiMonitorsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;

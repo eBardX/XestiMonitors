@@ -8,6 +8,7 @@
 //
 
 #if os(iOS) || os(tvOS)
+
     import UIKit
     
     ///
@@ -24,6 +25,7 @@
             ///
             case didChange(UIScreen)
         }
+
         ///
         /// Initializes a new `ScreenBrightnessMonitor`.
         ///
@@ -34,7 +36,6 @@
         ///   - handler:    The handler to call when the brightness of the screen
         ///                 changes.
         ///
-        
         public  init(screen: UIScreen,
                      queue: OperationQueue = .main,
                      handler: @escaping (Event) -> Void) {
@@ -44,13 +45,14 @@
             super.init(queue: queue)
         }
         
-        private let handler: (Event) -> Void
         ///
         /// The screen being monitored.
         ///
         public let screen: UIScreen
-        
-        public override func addNotificationObservers() {
+
+        private let handler: (Event) -> Void
+
+        override public func addNotificationObservers() {
             super.addNotificationObservers()
             
             observe(.UIScreenBrightnessDidChange,
@@ -61,6 +63,5 @@
             }
         }
     }
-
 
 #endif

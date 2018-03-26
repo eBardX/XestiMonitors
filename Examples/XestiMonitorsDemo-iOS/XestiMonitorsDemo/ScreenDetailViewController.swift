@@ -14,14 +14,15 @@ class ScreenDetailViewController: UITableViewController {
 
     @IBOutlet private weak var brightnessSlider: UISlider!
     @IBOutlet private weak var brightnessAction: UILabel!
+
     @IBAction func changeBrightness(_ sender: UISlider) {
-        screen.brightness = CGFloat(sender.value)
+        mainScreen.brightness = CGFloat(sender.value)
     }
     
-    private let screen: UIScreen = .main
+    private let mainScreen: UIScreen = .main
     
     private lazy var screenBrightnessMonitor =
-        ScreenBrightnessMonitor(screen: screen,
+        ScreenBrightnessMonitor(screen: mainScreen,
                                 queue: .main){ [unowned self] in
                                     self.displayScreenBrightness($0)
     }
@@ -30,8 +31,10 @@ class ScreenDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        brightnessSlider.value = Float(screen.brightness)
-        displayScreenBrightness(" ")
+
+        brightnessSlider.value = Float(mainScreen.brightness)
+
+        displayScreenBrightness(nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,12 +50,11 @@ class ScreenDetailViewController: UITableViewController {
     }
     
     private func displayScreenBrightness(_ event: ScreenBrightnessMonitor.Event?) {
-        if let _ = event {
-            displayScreenBrightness("Did Change")
+        if let event = event,
+            case let .didChange(screen) = event {
+            brightnessAction.text = formatPercentage(Float(screen.brightness))
+        } else {
+            brightnessAction.text = formatPercentage(Float(mainScreen.brightness))
         }
     }
-    
-    private func displayScreenBrightness(_ action: String) {
-        brightnessAction.text = action
     }
-}
