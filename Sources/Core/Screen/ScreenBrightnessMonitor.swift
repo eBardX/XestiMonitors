@@ -10,7 +10,7 @@
 #if os(iOS) || os(tvOS)
 
     import UIKit
-    
+
     ///
     /// A `ScreenBrightnessMonitor` instance monitors a screen for changes to
     /// its brightness.
@@ -41,10 +41,10 @@
                     handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.screen = screen
-            
+
             super.init(queue: queue)
         }
-        
+
         ///
         /// The screen being monitored.
         ///
@@ -54,7 +54,7 @@
 
         override public func addNotificationObservers() {
             super.addNotificationObservers()
-            
+
             observe(.UIScreenBrightnessDidChange,
                     object: screen) { [unowned self] in
                         if let screen = $0.object as? UIScreen {

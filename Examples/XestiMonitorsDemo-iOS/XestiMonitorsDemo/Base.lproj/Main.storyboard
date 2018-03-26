@@ -2407,14 +2407,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Pz-oDi">
-                                                    <rect key="frame" x="16" y="10" width="49" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Pz-oDi">
+                                                    <rect key="frame" x="16" y="10" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="EEx-qy-IZt" firstAttribute="leading" secondItem="yMG-Pz-oDi" secondAttribute="trailing" constant="154" id="DOo-AT-FVV"/>
                                                 <constraint firstItem="yMG-Pz-oDi" firstAttribute="top" secondItem="A5Y-Tl-YOP" secondAttribute="top" constant="10" id="Opq-AT-WTg"/>
                                                 <constraint firstItem="EEx-qy-IZt" firstAttribute="top" secondItem="A5Y-Tl-YOP" secondAttribute="top" constant="11" id="SSU-86-eCv"/>
                                                 <constraint firstAttribute="trailing" secondItem="EEx-qy-IZt" secondAttribute="trailing" constant="16" id="jcJ-LX-SUG"/>
@@ -2453,7 +2454,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Screen Monitors" id="G4S-0n-hlW"/>
                     <connections>
-                        <outlet property="brightnessAction" destination="EEx-qy-IZt" id="BF6-8B-Agr"/>
+                        <outlet property="brightnessLevel" destination="EEx-qy-IZt" id="bnQ-ZJ-EzT"/>
                         <outlet property="brightnessSlider" destination="ZuH-bC-ng7" id="Nsc-B4-nUW"/>
                     </connections>
                 </tableViewController>

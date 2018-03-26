@@ -11,32 +11,32 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
-internal class ScreenBrightnessMonitorTests:XCTestCase {
-    
+internal class ScreenBrightnessMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let screen = MockScreen()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         NotificationCenterInjector.inject = {
             return self.notificationCenter
         }
     }
-    
-    func testMonitor_brightnessDidChange() {
+
+    func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ScreenBrightnessMonitor.Event?
         let monitor = ScreenBrightnessMonitor(screen: screen,
-                                              queue: .main){ event  in
+                                              queue: .main) { event  in
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
+
         monitor.startMonitoring()
         simulateDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .didChange(uiscreen) = event {
             XCTAssertEqual(uiscreen, screen)
@@ -44,12 +44,9 @@ internal class ScreenBrightnessMonitorTests:XCTestCase {
             XCTFail("Unexpected event")
         }
     }
-    
+
     private func simulateDidChange() {
         notificationCenter.post(name: .UIScreenBrightnessDidChange,
                                 object: screen)
     }
-    
-    
 }
-
