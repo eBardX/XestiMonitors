@@ -38,6 +38,11 @@
 		5B57C2B82060F75A00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
 		5B57C2BB2061119D00B794F2 /* WindowMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */; };
 		5B57C2C02061812C00B794F2 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */; };
+		C85F48672069A3800089E052 /* TextViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F48662069A3800089E052 /* TextViewMonitor.swift */; };
+		C85F48692069A3800089E052 /* TextViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F48662069A3800089E052 /* TextViewMonitor.swift */; };
+		C85F486C2069B6440089E052 /* TextViewMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F486B2069B6440089E052 /* TextViewMonitorTests.swift */; };
+		C85F486D2069BCD30089E052 /* TextViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F48662069A3800089E052 /* TextViewMonitor.swift */; };
+		C85F486E2069BCD70089E052 /* TextViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F48662069A3800089E052 /* TextViewMonitor.swift */; };
 		F50693962007BFBE0031754B /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A620067A40005BC04A /* AccessibilityAnnouncementMonitor.swift */; };
 		F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A720067A40005BC04A /* AccessibilityElementMonitor.swift */; };
 		F50693992007BFBE0031754B /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F302A920067A40005BC04A /* AccessibilityStatusMonitor.swift */; };
@@ -401,6 +406,8 @@
 		3549BB7F1DA38B0000C63030 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitor.swift; sourceTree = "<group>"; };
 		5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitorTests.swift; sourceTree = "<group>"; };
+		C85F48662069A3800089E052 /* TextViewMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewMonitor.swift; sourceTree = "<group>"; };
+		C85F486B2069B6440089E052 /* TextViewMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewMonitorTests.swift; sourceTree = "<group>"; };
 		F50334F4205ADDBB00A35568 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		F50693DD2007C8BC0031754B /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		F50BE8D52006C7FE0027A36C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -665,6 +672,7 @@
 				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
 				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
 				5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */,
+				C85F48662069A3800089E052 /* TextViewMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -846,6 +854,7 @@
 				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
 				5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */,
+				C85F486B2069B6440089E052 /* TextViewMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1213,6 +1222,7 @@
 				F5F302CE20067A40005BC04A /* Monitor.swift in Sources */,
 				F5F3031620067A40005BC04A /* AccessibilityElementMonitor.swift in Sources */,
 				F5F302DA20067A40005BC04A /* MemoryMonitor.swift in Sources */,
+				C85F48672069A3800089E052 /* TextViewMonitor.swift in Sources */,
 				1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */,
 				F5F3034620067A40005BC04A /* ProximityMonitor.swift in Sources */,
 				F54498AE203E128200D91E3B /* FileSystem.swift in Sources */,
@@ -1276,6 +1286,7 @@
 				F5F3033120067A40005BC04A /* GyroscopeMonitor.swift in Sources */,
 				F54498B6203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */,
+				C85F486E2069BCD70089E052 /* TextViewMonitor.swift in Sources */,
 				F5F302C920067A40005BC04A /* BaseMonitor.swift in Sources */,
 				F5EC1B152040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F5F3030D20067A40005BC04A /* NotificationCenterInjection.swift in Sources */,
@@ -1330,6 +1341,7 @@
 				F50693BE2007BFDF0031754B /* BatteryMonitor.swift in Sources */,
 				F54498B4203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
 				F56FAB6720373C3F006FAB7B /* DocumentStateMonitor.swift in Sources */,
+				C85F486D2069BCD30089E052 /* TextViewMonitor.swift in Sources */,
 				F50693A02007BFC80031754B /* ApplicationStateMonitor.swift in Sources */,
 				F5EC1B132040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
 				F50693A12007BFC80031754B /* BackgroundRefreshMonitor.swift in Sources */,
@@ -1384,6 +1396,7 @@
 				F5C7B6392057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				F56FAB6820373C40006FAB7B /* DocumentStateMonitor.swift in Sources */,
 				F54498B5203E152E00D91E3B /* FileSystemInjection.swift in Sources */,
+				C85F48692069A3800089E052 /* TextViewMonitor.swift in Sources */,
 				F50693B52007BFDA0031754B /* AltimeterInjection.swift in Sources */,
 				F5E1DE382006A64000C43E8D /* ApplicationStateMonitor.swift in Sources */,
 				F5EC1B142040AD4B0056CAD9 /* MetadataQueryMonitor.swift in Sources */,
@@ -1441,6 +1454,7 @@
 				F5F303B620067AA3005BC04A /* MockApplication.swift in Sources */,
 				F5F3038020067AA3005BC04A /* MemoryMonitorTests.swift in Sources */,
 				F5F303CE20067AA3005BC04A /* NetworkReachabilityMonitorTests.swift in Sources */,
+				C85F486C2069B6440089E052 /* TextViewMonitorTests.swift in Sources */,
 				F5F3037D20067AA3005BC04A /* BackgroundRefreshMonitorTests.swift in Sources */,
 				5B57C2BB2061119D00B794F2 /* WindowMonitorTests.swift in Sources */,
 				F54498C6203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
