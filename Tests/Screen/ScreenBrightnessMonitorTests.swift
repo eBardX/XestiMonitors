@@ -18,9 +18,7 @@ internal class ScreenBrightnessMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.inject = {
-            return self.notificationCenter
-        }
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_didChange() {
@@ -38,8 +36,8 @@ internal class ScreenBrightnessMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(uiscreen) = event {
-            XCTAssertEqual(uiscreen, screen)
+            case let .didChange(test) = event {
+            XCTAssertEqual(test, screen)
         } else {
             XCTFail("Unexpected event")
         }

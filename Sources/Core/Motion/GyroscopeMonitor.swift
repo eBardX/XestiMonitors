@@ -13,13 +13,14 @@
     import Foundation
 
     ///
-    /// A `GyroscopeMonitor` instance monitors the device’s gyroscope for periodic
-    /// raw measurements of the rotation rate around the three spatial axes.
+    /// A `GyroscopeMonitor` instance monitors the device’s gyroscope for
+    /// periodic raw measurements of the rotation rate around the three spatial
+    /// axes.
     ///
     public class GyroscopeMonitor: BaseMonitor {
         ///
-        /// Encapsulates updates to the measurement of the rotation rate around the
-        /// three spatial axes.
+        /// Encapsulates updates to the measurement of the rotation rate around
+        /// the three spatial axes.
         ///
         public enum Event {
             ///
@@ -54,13 +55,13 @@
         /// Initializes a new `GyroscopeMonitor`.
         ///
         /// - Parameters:
-        ///   - interval:       The interval, in seconds, for providing rotation
-        ///                     rate measurements to the handler.
-        ///   - queue:          The operation queue on which the handler executes.
-        ///                     Because the events might arrive at a high rate,
-        ///                     using the main operation queue is not recommended.
-        ///   - handler:        The handler to call periodically when a new
-        ///                     rotation rate measurement is available.
+        ///   - interval:   The interval, in seconds, for providing rotation
+        ///                 rate measurements to the handler.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 Because the events might arrive at a high rate,
+        ///                 using the main operation queue is not recommended.
+        ///   - handler:    The handler to call periodically when a new
+        ///                 rotation rate measurement is available.
         ///
         public init(interval: TimeInterval,
                     queue: OperationQueue,

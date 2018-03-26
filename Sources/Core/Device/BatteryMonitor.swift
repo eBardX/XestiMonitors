@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// A `BatteryMonitor` instance monitors the device for changes to the charge
-    /// state and charge level of its battery.
+    /// A `BatteryMonitor` instance monitors the device for changes to the
+    /// charge state and charge level of its battery.
     ///
     public class BatteryMonitor: BaseNotificationMonitor {
         ///
@@ -66,12 +66,12 @@
         /// Initializes a new `BatteryMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the battery state or battery
-        ///                 level of the device changes.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the battery state or
+        ///                 battery level of the device changes.
         ///
         public init(options: Options = .all,
                     queue: OperationQueue = .main,
@@ -133,12 +133,12 @@
         /// Initializes a new `BatteryMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - handler:    The handler to call when the battery state or battery
-        ///                 level of the device changes.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - handler:    The handler to call when the battery state or
+        ///                 battery level of the device changes.
         ///
         /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
         ///

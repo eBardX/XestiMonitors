@@ -66,13 +66,14 @@
         /// Initializes a new `ProtectedDataMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when protected files become
-        ///                 available for your code to access, or shortly before
-        ///                 protected files are locked down and become inaccessible.
+        ///                 available for your code to access, or shortly
+        ///                 before protected files are locked down and become
+        ///                 inaccessible.
         ///
         public init(options: Options = .all,
                     queue: OperationQueue = .main,
@@ -85,8 +86,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether content is accessible for protected
-        /// files.
+        /// A Boolean value indicating whether content is accessible for
+        /// protected files.
         ///
         public var isContentAccessible: Bool {
             return application.isProtectedDataAvailable
@@ -120,13 +121,14 @@
         /// Initializes a new `ProtectedDataMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
         ///   - handler:    The handler to call when protected files become
-        ///                 available for your code to access, or shortly before
-        ///                 protected files are locked down and become inaccessible.
+        ///                 available for your code to access, or shortly
+        ///                 before protected files are locked down and become
+        ///                 inaccessible.
         ///
         /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
         ///

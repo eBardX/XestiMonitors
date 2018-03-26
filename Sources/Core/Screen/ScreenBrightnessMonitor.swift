@@ -7,21 +7,21 @@
 //  © 2018 J. G. Pusey (see LICENSE.md).
 //
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 
     import UIKit
 
     ///
     /// A `ScreenBrightnessMonitor` instance monitors a screen for changes to
-    /// its brightness.
+    /// its brightness level.
     ///
     public class ScreenBrightnessMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the brightness of the screen.
+        /// Encapsulates changes to the brightness level of the screen.
         ///
         public enum Event {
             ///
-            /// The brightness of the screen has changed.
+            /// The brightness level of the screen has changed.
             ///
             case didChange(UIScreen)
         }
@@ -31,10 +31,10 @@
         ///
         /// - Parameters:
         ///   - screen:     The screen to monitor.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the brightness of the screen
-        ///                 changes.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the brightness level of
+        ///                 the screen changes.
         ///
         public init(screen: UIScreen,
                     queue: OperationQueue = .main,

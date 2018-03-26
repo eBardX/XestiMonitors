@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// An `AccessibilityStatusMonitor` instance monitors the system for changes to
-    /// the status of various accessibility settings.
+    /// An `AccessibilityStatusMonitor` instance monitors the system for
+    /// changes to the status of various accessibility settings.
     ///
     public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         ///
@@ -246,10 +246,10 @@
         /// Initializes a new `AccessibilityStatusMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the status of a system
         ///                 accessibility setting changes.
         ///
@@ -276,8 +276,8 @@
         #endif
 
         ///
-        /// A Boolean value indicating whether the user has enabled AssistiveTouch
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled
+        /// AssistiveTouch in Settings.
         ///
         @available(iOS 10.0, tvOS 10.0, *)
         public var isAssistiveTouchEnabled: Bool {
@@ -285,8 +285,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Bold Text in
-        /// Settings.
+        /// A Boolean value indicating whether the user has enabled Bold Text
+        /// in Settings.
         ///
         public var isBoldTextEnabled: Bool {
             return accessibilityStatus.isBoldTextEnabled()
@@ -301,48 +301,48 @@
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Darken Colors
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Darken
+        /// Colors in Settings.
         ///
         public var isDarkenColorsEnabled: Bool {
             return accessibilityStatus.darkerSystemColorsEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Grayscale in
-        /// Settings.
+        /// A Boolean value indicating whether the user has enabled Grayscale
+        /// in Settings.
         ///
         public var isGrayscaleEnabled: Bool {
             return accessibilityStatus.isGrayscaleEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Guided Access
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Guided
+        /// Access in Settings.
         ///
         public var isGuidedAccessEnabled: Bool {
             return accessibilityStatus.isGuidedAccessEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Invert Colors
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Invert
+        /// Colors in Settings.
         ///
         public var isInvertColorsEnabled: Bool {
             return accessibilityStatus.isInvertColorsEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Mono Audio in
-        /// Settings.
+        /// A Boolean value indicating whether the user has enabled Mono Audio
+        /// in Settings.
         ///
         public var isMonoAudioEnabled: Bool {
             return accessibilityStatus.isMonoAudioEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Reduce Motion
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Reduce
+        /// Motion in Settings.
         ///
         public var isReduceMotionEnabled: Bool {
             return accessibilityStatus.isReduceMotionEnabled()
@@ -357,40 +357,40 @@
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Shake to Undo
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Shake to
+        /// Undo in Settings.
         ///
         public var isShakeToUndoEnabled: Bool {
             return accessibilityStatus.isShakeToUndoEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Speak Screen in
-        /// Settings.
+        /// A Boolean value indicating whether the user has enabled Speak
+        /// Screen in Settings.
         ///
         public var isSpeakScreenEnabled: Bool {
             return accessibilityStatus.isSpeakScreenEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Speak Selection
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Speak
+        /// Selection in Settings.
         ///
         public var isSpeakSelectionEnabled: Bool {
             return accessibilityStatus.isSpeakSelectionEnabled()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled Switch Control
-        /// in Settings.
+        /// A Boolean value indicating whether the user has enabled Switch
+        /// Control in Settings.
         ///
         public var isSwitchControlEnabled: Bool {
             return accessibilityStatus.isSwitchControlRunning()
         }
 
         ///
-        /// A Boolean value indicating whether the user has enabled VoiceOver in
-        /// Settings.
+        /// A Boolean value indicating whether the user has enabled VoiceOver
+        /// in Settings.
         ///
         public var isVoiceOverEnabled: Bool {
             return accessibilityStatus.isVoiceOverRunning()
@@ -519,10 +519,10 @@
         /// Initializes a new `AccessibilityStatusMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
         ///   - handler:    The handler to call when the status of a system
         ///                 accessibility setting changes.
         ///

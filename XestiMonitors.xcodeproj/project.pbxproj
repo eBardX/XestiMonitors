@@ -30,7 +30,6 @@
 		1350D6B12068008D0050FD11 /* MockScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6AF206800800050FD11 /* MockScreen.swift */; };
 		1350D6B22068008F0050FD11 /* MockScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6AF206800800050FD11 /* MockScreen.swift */; };
 		1350D6B42068054F0050FD11 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6B32068054F0050FD11 /* ScreenBrightnessMonitorTests.swift */; };
-		1350D6B52068054F0050FD11 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6B32068054F0050FD11 /* ScreenBrightnessMonitorTests.swift */; };
 		1390404E205A72CF0013A5E0 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
 		13904053205AAB4B0013A5E0 /* MockPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13904052205AAB4B0013A5E0 /* MockPasteboard.swift */; };
 		13904055205AB39E0013A5E0 /* PasteboardMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */; };
@@ -163,6 +162,11 @@
 		F56FAB6920373C41006FAB7B /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB6520373C3B006FAB7B /* DocumentStateMonitor.swift */; };
 		F56FAB7220375097006FAB7B /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB7120375097006FAB7B /* DocumentStateMonitorTests.swift */; };
 		F56FAB742037531C006FAB7B /* MockDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB732037531C006FAB7B /* MockDocument.swift */; };
+		F5890D3E20697F0A0066F9E7 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6AB2067BB820050FD11 /* ScreenBrightnessMonitor.swift */; };
+		F5890D3F20697F0C0066F9E7 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6AB2067BB820050FD11 /* ScreenBrightnessMonitor.swift */; };
+		F5890D4020697F150066F9E7 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
+		F5890D4120697F150066F9E7 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
+		F5890D4220697F170066F9E7 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */; };
 		F5913FC32059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
 		F5913FC42059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
 		F5913FC52059BA7700335200 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5913FC22059BA7700335200 /* FileManagerInjection.swift */; };
@@ -1288,8 +1292,10 @@
 				F5F3033520067A40005BC04A /* MagnetometerMonitor.swift in Sources */,
 				F50693BD2007BFDB0031754B /* NetworkReachabilityInjection.swift in Sources */,
 				F5C7B6362057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
+				F5890D4220697F170066F9E7 /* PasteboardMonitor.swift in Sources */,
 				F5F3030520067A40005BC04A /* MotionManagerInjection.swift in Sources */,
 				F54498AC203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
+				F5890D3F20697F0C0066F9E7 /* ScreenBrightnessMonitor.swift in Sources */,
 				F50693C52007BFE10031754B /* OrientationMonitor.swift in Sources */,
 				F5F302D120067A40005BC04A /* Monitor.swift in Sources */,
 				F5F3032520067A40005BC04A /* AccelerometerMonitor.swift in Sources */,
@@ -1342,8 +1348,10 @@
 				F50693972007BFBE0031754B /* AccessibilityElementMonitor.swift in Sources */,
 				F5F3030720067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5C7B6342057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
+				F5890D4020697F150066F9E7 /* PasteboardMonitor.swift in Sources */,
 				F50693A32007BFC80031754B /* ProtectedDataMonitor.swift in Sources */,
 				F54498AA203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
+				F5890D3E20697F0A0066F9E7 /* ScreenBrightnessMonitor.swift in Sources */,
 				F50693A52007BFC80031754B /* StatusBarMonitor.swift in Sources */,
 				F50693B02007BFD90031754B /* ApplicationInjection.swift in Sources */,
 				F50693D82007BFF80031754B /* KeyboardMonitor.swift in Sources */,
@@ -1396,6 +1404,7 @@
 				F5F3030820067A40005BC04A /* NetworkReachabilityInjection.swift in Sources */,
 				F5F302D020067A40005BC04A /* Monitor.swift in Sources */,
 				F5C7B6352057282A00799B14 /* UbiquityIdentityMonitor.swift in Sources */,
+				F5890D4120697F150066F9E7 /* PasteboardMonitor.swift in Sources */,
 				F5E1DE3D2006A65300C43E8D /* TimeMonitor.swift in Sources */,
 				F54498AB203E11CE00D91E3B /* NetworkReachability.swift in Sources */,
 				1350D6AD2067BBB30050FD11 /* ScreenBrightnessMonitor.swift in Sources */,
@@ -1497,7 +1506,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1350D6B52068054F0050FD11 /* ScreenBrightnessMonitorTests.swift in Sources */,
 				F54498C1203E2A0D00D91E3B /* FileSystemObjectMonitorTests.swift in Sources */,
 				F55F4F032006ABA700CCDDA0 /* MemoryMonitorTests.swift in Sources */,
 				F54553502006AB3100D63955 /* MockApplication.swift in Sources */,

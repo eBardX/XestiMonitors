@@ -18,8 +18,8 @@
     ///
     public class KeyboardMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the visibility of the keyboard and to the frame
-        /// of the keyboard.
+        /// Encapsulates changes to the visibility of the keyboard and to the
+        /// frame of the keyboard.
         ///
         public enum Event {
             ///
@@ -58,38 +58,42 @@
         ///
         public struct Info {
             ///
-            /// Defines how the keyboard will be animated onto or off the screen.
+            /// Defines how the keyboard will be animated onto or off the
+            /// screen.
             ///
             public let animationCurve: UIViewAnimationCurve
 
             ///
-            /// The duration of the animation onto or off the screen in seconds.
+            /// The duration of the animation onto or off the screen in
+            /// seconds.
             ///
             public let animationDuration: TimeInterval
 
             ///
             /// The start frame of the keyboard in screen coordinates. These
-            /// coordinates do not take into account any rotation factors applied
-            /// to the window’s contents as a result of interface orientation
-            /// changes. Thus, you may need to convert the rectangle to window
-            /// coordinates or to view coordinates before using it.
+            /// coordinates do not take into account any rotation factors
+            /// applied to the window’s contents as a result of interface
+            /// orientation changes. Thus, you may need to convert the
+            /// rectangle to window coordinates or to view coordinates before
+            /// using it.
             ///
             public let frameBegin: CGRect
 
             ///
             /// The end frame of the keyboard in screen coordinates. These
-            /// coordinates do not take into account any rotation factors applied
-            /// to the window’s contents as a result of interface orientation
-            /// changes. Thus, you may need to convert the rectangle to window
-            /// coordinates or to view coordinates (before using it.
+            /// coordinates do not take into account any rotation factors
+            /// applied to the window’s contents as a result of interface
+            /// orientation changes. Thus, you may need to convert the
+            /// rectangle to window coordinates or to view coordinates before
+            /// using it.
             ///
             public let frameEnd: CGRect
 
             ///
-            /// Whether the keyboard belongs to the current app. With multitasking
-            /// on iPad, all visible apps are notified when the keyboard appears
-            /// and disappears. `true` for the app that caused the keyboard to
-            /// appear and `false` for any other apps.
+            /// Whether the keyboard belongs to the current app. With
+            /// multitasking on iPad, all visible apps are notified when the
+            /// keyboard appears and disappears. `true` for the app that caused
+            /// the keyboard to appear and `false` for any other apps.
             ///
             public let isLocal: Bool
 
@@ -186,13 +190,13 @@
         /// Initializes a new `KeyboardMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the visibility of the keyboard
-        ///                 or the frame of the keyboard changes or is about to
-        ///                 change.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the visibility of the
+        ///                 keyboard or the frame of the keyboard changes or is
+        ///                 about to change.
         ///
         public init(options: Options = .all,
                     queue: OperationQueue = .main,
@@ -252,13 +256,13 @@
         /// Initializes a new `KeyboardMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - handler:    The handler to call when the visibility of the keyboard
-        ///                 or the frame of the keyboard changes or is about to
-        ///                 change.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - handler:    The handler to call when the visibility of the
+        ///                 keyboard or the frame of the keyboard changes or is
+        ///                 about to change.
         ///
         /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
         ///

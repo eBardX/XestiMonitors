@@ -89,6 +89,12 @@ provides “wrappers” around many `UIKit` notifications:
 
     See [Device Monitors](#device_monitors) for details.
 
+* **Screen-related**
+
+    * `UIScreenBrightnessDidChange`
+
+    See [Screen Monitors](#screen_monitors) for details.
+
 * **Miscellaneous**
 
     * `UIDocumentStateChanged`
@@ -298,6 +304,14 @@ processed motion measurements from the device:
   live and historic motion data. *(iOS, watchOS)*
 * [PedometerMonitor][pedometer_monitor] to monitor the device for live and
   historic walking data. *(iOS, watchOS)*
+
+### <a name="screen_monitors">Screen Monitors</a>
+
+XestiMonitors provides one monitor class *(with more to come)* that you can use
+to detect changes in the properties associated with a screen:
+
+* [ScreenBrightnessMonitor][screen_brightness_monitor] to monitor a screen for
+  changes to its brightness level. *(iOS)*
 
 ### <a name="accessibility_monitors">Accessibility Monitors</a>
 
@@ -590,6 +604,7 @@ XestiMonitors is available under [the MIT license][license].
 [pedometer_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
+[screen_brightness_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html

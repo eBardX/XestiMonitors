@@ -31,8 +31,8 @@
         ///
         /// - Parameters:
         ///   - document:   The document to monitor.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the state of the document
         ///                 changes.
         ///

@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// A `MemoryMonitor` instance monitors the app for memory warnings from the
-    /// operating system.
+    /// A `MemoryMonitor` instance monitors the app for memory warnings from
+    /// the operating system.
     ///
     public class MemoryMonitor: BaseNotificationMonitor {
         ///
@@ -32,10 +32,11 @@
         /// Initializes a new `MemoryMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the app receives a warning
-        ///                 from the operating system about low memory availability.
+        ///                 from the operating system about low memory
+        ///                 availability.
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {

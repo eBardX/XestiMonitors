@@ -13,8 +13,8 @@
     import Foundation
 
     ///
-    /// An `AltimeterMonitor` instance monitors the device for changes in relative
-    /// altitude.
+    /// An `AltimeterMonitor` instance monitors the device for changes in
+    /// relative altitude.
     ///
     public class AltimeterMonitor: BaseMonitor {
         ///
@@ -37,8 +37,8 @@
             case data(CMAltitudeData)
 
             ///
-            /// The error encountered in attempting to obtain the relative change
-            /// in altitude.
+            /// The error encountered in attempting to obtain the relative
+            /// change in altitude.
             ///
             case error(Error)
 
@@ -64,8 +64,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether the device supports generating data
-        /// for relative altitude changes.
+        /// A Boolean value indicating whether the device supports generating
+        /// data for relative altitude changes.
         ///
         public var isAvailable: Bool {
             return type(of: altimeter).isRelativeAltitudeAvailable()

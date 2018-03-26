@@ -16,10 +16,9 @@ public class ScreenDetailViewController: UITableViewController {
 
     @IBOutlet private weak var brightnessLevelLabel: UILabel!
 
-    private lazy var screenBrightnessMonitor =
-        ScreenBrightnessMonitor(screen: .main,
-                                queue: .main) { [unowned self] in
-                                    self.displayScreenBrightness($0)
+    private lazy var screenBrightnessMonitor = ScreenBrightnessMonitor(screen: .main,
+                                                                       queue: .main) { [unowned self] in
+                                                                        self.displayScreenBrightness($0)
     }
 
     private lazy var monitors: [Monitor] = [self.screenBrightnessMonitor]

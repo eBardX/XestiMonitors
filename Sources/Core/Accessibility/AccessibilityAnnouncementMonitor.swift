@@ -18,19 +18,20 @@
     ///
     public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates accessibility announcements that VoiceOver has finished
-        /// outputting.
+        /// Encapsulates accessibility announcements that VoiceOver has
+        /// finished outputting.
         ///
         public enum Event {
             ///
-            /// VoiceOver has finished outputting an accessibility announcement.
+            /// VoiceOver has finished outputting an accessibility
+            /// announcement.
             ///
             case didFinish(Info)
         }
 
         ///
-        /// Encapsulates information associated with an accessibility announcement
-        /// that VoiceOver has finished outputting.
+        /// Encapsulates information associated with an accessibility
+        /// announcement that VoiceOver has finished outputting.
         ///
         public struct Info {
             ///
@@ -65,10 +66,10 @@
         /// Initializes a new `AccessibilityAnnouncementMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when VoiceOver finishes outputting
-        ///                 an announcement.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when VoiceOver finishes
+        ///                 outputting an announcement.
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
