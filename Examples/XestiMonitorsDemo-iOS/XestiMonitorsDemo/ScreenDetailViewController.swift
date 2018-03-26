@@ -11,27 +11,34 @@ import UIKit
 import XestiMonitors
 
 public class ScreenDetailViewController: UITableViewController {
-    @IBOutlet private weak var brightnessSlider: UISlider!
-    @IBOutlet private weak var brightnessLevel: UILabel!
 
-    @IBAction private func changeBrightness(_ sender: UISlider) {
-        mainScreen.brightness = CGFloat(sender.value)
-    }
+    // MARK: Private Instance Properties
 
-    private let mainScreen: UIScreen = .main
+    @IBOutlet private weak var brightnessLevelLabel: UILabel!
 
     private lazy var screenBrightnessMonitor =
-        ScreenBrightnessMonitor(screen: mainScreen,
+        ScreenBrightnessMonitor(screen: .main,
                                 queue: .main) { [unowned self] in
-                                self.displayScreenBrightness($0)
-        }
+                                    self.displayScreenBrightness($0)
+    }
 
     private lazy var monitors: [Monitor] = [self.screenBrightnessMonitor]
 
+    // MARK: Private Instance Methods
+
+    private func displayScreenBrightness(_ event: ScreenBrightnessMonitor.Event?) {
+        if let event = event,
+            case let .didChange(screen) = event {
+            brightnessLevelLabel.text = formatPercentage(Float(screen.brightness))
+        } else {
+            brightnessLevelLabel.text = formatPercentage(Float(UIScreen.main.brightness))
+        }
+    }
+
+    // MARK: Overridden UIViewController Methods
+
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        brightnessSlider.value = Float(mainScreen.brightness)
 
         displayScreenBrightness(nil)
     }
@@ -47,15 +54,4 @@ public class ScreenDetailViewController: UITableViewController {
 
         monitors.forEach { $0.stopMonitoring() }
     }
-
-    private func displayScreenBrightness(_ event: ScreenBrightnessMonitor.Event?) {
-        if let event = event,
-            case let .didChange(screen) = event {
-            brightnessLevel.text = formatPercentage(Float(screen.brightness))
-
-            brightnessSlider.value = Float(screen.brightness)
-        } else {
-            brightnessLevel.text = formatPercentage(Float(mainScreen.brightness))
-        }
-    }
-    }
+}

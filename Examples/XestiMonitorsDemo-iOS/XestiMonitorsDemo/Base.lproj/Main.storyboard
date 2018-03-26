@@ -2390,58 +2390,28 @@
                         <sections>
                             <tableViewSection headerTitle="Screen Brightness Monitor" id="i2x-fk-vtO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="79o-LD-JB8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6Om-eo-CrX" detailTextLabel="NFF-ad-UHs" style="IBUITableViewCellStyleValue1" id="79o-LD-JB8">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79o-LD-JB8" id="A5Y-Tl-YOP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEx-qy-IZt">
-                                                    <rect key="frame" x="252" y="11" width="107" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="67P-49-u01"/>
-                                                        <constraint firstAttribute="width" constant="107" id="q4F-pj-wE1"/>
-                                                    </constraints>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Om-eo-CrX">
+                                                    <rect key="frame" x="16" y="12" width="82" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Pz-oDi">
-                                                    <rect key="frame" x="16" y="10" width="82" height="21"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NFF-ad-UHs">
+                                                    <rect key="frame" x="350.5" y="12" width="8.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="EEx-qy-IZt" firstAttribute="leading" secondItem="yMG-Pz-oDi" secondAttribute="trailing" constant="154" id="DOo-AT-FVV"/>
-                                                <constraint firstItem="yMG-Pz-oDi" firstAttribute="top" secondItem="A5Y-Tl-YOP" secondAttribute="top" constant="10" id="Opq-AT-WTg"/>
-                                                <constraint firstItem="EEx-qy-IZt" firstAttribute="top" secondItem="A5Y-Tl-YOP" secondAttribute="top" constant="11" id="SSU-86-eCv"/>
-                                                <constraint firstAttribute="trailing" secondItem="EEx-qy-IZt" secondAttribute="trailing" constant="16" id="jcJ-LX-SUG"/>
-                                                <constraint firstItem="yMG-Pz-oDi" firstAttribute="leading" secondItem="A5Y-Tl-YOP" secondAttribute="leading" constant="16" id="yd1-Q5-dcG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="I7x-9T-iDE">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7x-9T-iDE" id="bFC-t4-OTy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-bC-ng7">
-                                                    <rect key="frame" x="14" y="7" width="347" height="31"/>
-                                                    <connections>
-                                                        <action selector="changeBrightness:" destination="eYu-4D-Ce7" eventType="valueChanged" id="7yo-SA-EWW"/>
-                                                    </connections>
-                                                </slider>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ZuH-bC-ng7" firstAttribute="leading" secondItem="bFC-t4-OTy" secondAttribute="leading" constant="16" id="S7o-nC-aRJ"/>
-                                                <constraint firstItem="ZuH-bC-ng7" firstAttribute="top" secondItem="bFC-t4-OTy" secondAttribute="top" constant="7" id="cQF-Kf-Net"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZuH-bC-ng7" secondAttribute="trailing" constant="16" id="lzV-Kk-uFI"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -2454,8 +2424,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Screen Monitors" id="G4S-0n-hlW"/>
                     <connections>
-                        <outlet property="brightnessLevel" destination="EEx-qy-IZt" id="bnQ-ZJ-EzT"/>
-                        <outlet property="brightnessSlider" destination="ZuH-bC-ng7" id="Nsc-B4-nUW"/>
+                        <outlet property="brightnessLevelLabel" destination="NFF-ad-UHs" id="iOE-Tt-U8e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDC-4Y-GLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
