@@ -28,9 +28,9 @@
 
 ## <a name="overview">Overview</a>
 
-The XestiMonitors framework provides nearly two dozen fully-functional monitor
-classes right out of the box that make it easy for your app to detect and
-respond to many common system-generated events.
+The XestiMonitors framework provides more than two dozen fully-functional
+monitor classes right out of the box that make it easy for your app to detect
+and respond to many common system-generated events.
 
 Among other things, you can think of XestiMonitors as a better way to manage
 the most common notifications (primarily on iOS). At present, XestiMonitors
