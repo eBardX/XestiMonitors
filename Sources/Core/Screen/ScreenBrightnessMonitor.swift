@@ -36,9 +36,9 @@
         ///   - handler:    The handler to call when the brightness of the screen
         ///                 changes.
         ///
-        public  init(screen: UIScreen,
-                     queue: OperationQueue = .main,
-                     handler: @escaping (Event) -> Void) {
+        public init(screen: UIScreen,
+                    queue: OperationQueue = .main,
+                    handler: @escaping (Event) -> Void) {
             self.handler = handler
             self.screen = screen
             

@@ -53,6 +53,8 @@ class ScreenDetailViewController: UITableViewController {
         if let event = event,
             case let .didChange(screen) = event {
             brightnessAction.text = formatPercentage(Float(screen.brightness))
+
+            brightnessSlider.value = Float(screen.brightness)
         } else {
             brightnessAction.text = formatPercentage(Float(mainScreen.brightness))
         }
