@@ -37,8 +37,8 @@
             case notReachable
 
             ///
-            /// The network node name or address can be reached via a non-cellular
-            /// connection.
+            /// The network node name or address can be reached via a
+            /// non-cellular connection.
             ///
             case reachableViaWiFi
 
@@ -58,12 +58,12 @@
         }
 
         ///
-        /// Initializes a new `NetworkReachabilityMonitor` for the network address
-        /// `0.0.0.0` (meaning “any IPv4 address at all”).
+        /// Initializes a new `NetworkReachabilityMonitor` for the network
+        /// address `0.0.0.0` (meaning “any IPv4 address at all”).
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the reachability of the
         ///                 network node address changes.
         ///
@@ -96,8 +96,8 @@
         ///
         /// - Parameters:
         ///   - name:       The network node name of the desired host.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the reachability of the
         ///                 network node name changes.
         ///
@@ -116,8 +116,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether the network node name or address can
-        /// be reached (`true`) or not (`false`).
+        /// A Boolean value indicating whether the network node name or address
+        /// can be reached (`true`) or not (`false`).
         ///
         public var isReachable: Bool {
             #if os(iOS)
@@ -128,8 +128,9 @@
         }
 
         ///
-        /// A Boolean value indicating whether the network node name or address can
-        /// be reached via a non-cellular connection (`true`) or not (`false`).
+        /// A Boolean value indicating whether the network node name or address
+        /// can be reached via a non-cellular connection (`true`) or not
+        /// (`false`).
         ///
         public var isReachableViaWiFi: Bool {
             return status == .reachableViaWiFi
@@ -138,8 +139,8 @@
         #if os(iOS)
 
         ///
-        /// A Boolean value indicating whether the network node name or address can
-        /// be reached via a cellular connection (`true`) or not (`false`).
+        /// A Boolean value indicating whether the network node name or address
+        /// can be reached via a cellular connection (`true`) or not (`false`).
         ///
         public var isReachableViaWWAN: Bool {
             return status == .reachableViaWWAN

@@ -13,13 +13,14 @@
     import Foundation
 
     ///
-    /// An `AccelerometerMonitor` instance monitors the device’s accelerometer for
-    /// periodic raw measurements of the acceleration along the three spatial axes.
+    /// An `AccelerometerMonitor` instance monitors the device’s accelerometer
+    /// for periodic raw measurements of the acceleration along the three
+    /// spatial axes.
     ///
     public class AccelerometerMonitor: BaseMonitor {
         ///
-        /// Encapsulates updates to the measurement of the acceleration along the
-        /// three spatial axes.
+        /// Encapsulates updates to the measurement of the acceleration along
+        /// the three spatial axes.
         ///
         public enum Event {
             ///
@@ -54,13 +55,13 @@
         /// Initializes a new `AccelerometerMonitor`.
         ///
         /// - Parameters:
-        ///   - interval:       The interval, in seconds, for providing
-        ///                     acceleration measurements to the handler.
-        ///   - queue:          The operation queue on which the handler executes.
-        ///                     Because the events might arrive at a high rate,
-        ///                     using the main operation queue is not recommended.
-        ///   - handler:        The handler to call periodically when a new
-        ///                     acceleration measurement is available.
+        ///   - interval:   The interval, in seconds, for providing
+        ///                 acceleration measurements to the handler.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 Because the events might arrive at a high rate,
+        ///                 using the main operation queue is not recommended.
+        ///   - handler:    The handler to call periodically when a new
+        ///                 acceleration measurement is available.
         ///
         public init(interval: TimeInterval,
                     queue: OperationQueue,
@@ -83,8 +84,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether an accelerometer is available on the
-        /// device.
+        /// A Boolean value indicating whether an accelerometer is available on
+        /// the device.
         ///
         public var isAvailable: Bool {
             return motionManager.isAccelerometerAvailable

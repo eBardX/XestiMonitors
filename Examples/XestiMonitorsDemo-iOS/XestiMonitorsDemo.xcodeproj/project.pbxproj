@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1350D6B7206810F80050FD11 /* ScreenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350D6B6206810F80050FD11 /* ScreenDetailViewController.swift */; };
 		6443D82B001E5B7B629C23D9 /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7A64E66AB0F551B9231FD5 /* Pods_XestiMonitorsDemo.framework */; };
 		F50BE9032006CAEB0027A36C /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE8F52006CAEB0027A36C /* ApplicationDetailViewController.swift */; };
 		F50BE9042006CAEB0027A36C /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE8F62006CAEB0027A36C /* DeviceDetailViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		01C35A1603CB9F3E714E8B6D /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		1350D6B6206810F80050FD11 /* ScreenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDetailViewController.swift; sourceTree = "<group>"; };
 		AA7A64E66AB0F551B9231FD5 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50BE8DF2006CA0B0027A36C /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50BE8EE2006CA0B0027A36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				F50BE9012006CAEB0027A36C /* MasterViewController.swift */,
 				F50BE8F92006CAEB0027A36C /* MotionDetailViewController.swift */,
 				F50BE8FA2006CAEB0027A36C /* OtherDetailViewController.swift */,
+				1350D6B6206810F80050FD11 /* ScreenDetailViewController.swift */,
 				F50BE8EE2006CA0B0027A36C /* Info.plist */,
 			);
 			path = XestiMonitorsDemo;
@@ -239,6 +242,7 @@
 				F50BE90D2006CAEB0027A36C /* AppDelegate.swift in Sources */,
 				F50BE9052006CAEB0027A36C /* Formatters.swift in Sources */,
 				F50BE9042006CAEB0027A36C /* DeviceDetailViewController.swift in Sources */,
+				1350D6B7206810F80050FD11 /* ScreenDetailViewController.swift in Sources */,
 				F50BE9082006CAEB0027A36C /* OtherDetailViewController.swift in Sources */,
 				F50BE9072006CAEB0027A36C /* MotionDetailViewController.swift in Sources */,
 				F50BE9092006CAEB0027A36C /* AccessibilityDetailViewController.swift in Sources */,

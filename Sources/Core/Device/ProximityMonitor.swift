@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// A `ProximityMonitor` instance monitors the device for changes to the state
-    /// of its proximity sensor.
+    /// A `ProximityMonitor` instance monitors the device for changes to the
+    /// state of its proximity sensor.
     ///
     public class ProximityMonitor: BaseNotificationMonitor {
         ///
@@ -31,8 +31,8 @@
         /// Initializes a new `ProximityMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the state of the proximity
         ///                 sensor changes.
         ///
@@ -45,8 +45,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether proximity monitoring is available on
-        /// the device (`true`) or not (`false`).
+        /// A Boolean value indicating whether proximity monitoring is
+        /// available on the device (`true`) or not (`false`).
         ///
         public lazy var isAvailable: Bool = {
             let oldValue = self.device.isProximityMonitoringEnabled
@@ -59,8 +59,8 @@
         }()
 
         ///
-        /// A Boolean value indicating whether the proximity sensor is close to the
-        /// user (`true`) or not (`false`).
+        /// A Boolean value indicating whether the proximity sensor is close to
+        /// the user (`true`) or not (`false`).
         ///
         public var state: Bool {
             return device.proximityState

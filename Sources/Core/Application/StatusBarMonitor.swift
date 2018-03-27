@@ -18,8 +18,8 @@
     ///
     public class StatusBarMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the orientation of the app’s user interface and
-        /// to the frame of the status bar.
+        /// Encapsulates changes to the orientation of the app’s user interface
+        /// and to the frame of the status bar.
         ///
         public enum Event {
             ///
@@ -88,13 +88,13 @@
         /// Initializes a new `StatusBarMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the orientation of the app’s
-        ///                 user interface or the frame of the status bar changes
-        ///                 or is about to change.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the orientation of the
+        ///                 app’s user interface or the frame of the status bar
+        ///                 changes or is about to change.
         ///
         public init(options: Options = .all,
                     queue: OperationQueue = .main,
@@ -179,13 +179,13 @@
         /// Initializes a new `StatusBarMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - handler:    The handler to call when the orientation of the app’s
-        ///                 user interface or the frame of the status bar changes
-        ///                 or is about to change.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - handler:    The handler to call when the orientation of the
+        ///                 app’s user interface or the frame of the status bar
+        ///                 changes or is about to change.
         ///
         /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
         ///

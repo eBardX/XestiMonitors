@@ -57,11 +57,12 @@
         ///                     motion measurements to the handler.
         ///   - referenceFrame: The reference frame to use for device motion
         ///                     measurements.
-        ///   - queue:          The operation queue on which the handler executes.
-        ///                     Because the events might arrive at a high rate,
-        ///                     using the main operation queue is not recommended.
-        ///   - handler:        The handler to call periodically when a new device
-        ///                     motion measurement is available.
+        ///   - queue:          The operation queue on which the handler
+        ///                     executes. Because the events might arrive at a
+        ///                     high rate, using the main operation queue is
+        ///                     not recommended.
+        ///   - handler:        The handler to call periodically when a new
+        ///                     device motion measurement is available.
         ///
         public init(interval: TimeInterval,
                     using referenceFrame: CMAttitudeReferenceFrame,
@@ -86,8 +87,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether device motion measuring is available
-        /// on the device.
+        /// A Boolean value indicating whether device motion measuring is
+        /// available on the device.
         ///
         public var isAvailable: Bool {
             return motionManager.isDeviceMotionAvailable

@@ -17,8 +17,8 @@
     ///
     public class ScreenshotMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates screenshots taken when the user presses the Home and Lock
-        /// buttons.
+        /// Encapsulates screenshots taken when the user presses the Home and
+        /// Lock buttons.
         ///
         public enum Event {
             ///
@@ -31,10 +31,10 @@
         /// Initializes a new `ScreenshotMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the user presses the Home and
-        ///                 Lock buttons to take a screenshot.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the user presses the Home
+        ///                 and Lock buttons to take a screenshot.
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
