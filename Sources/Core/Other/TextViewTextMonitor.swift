@@ -1,5 +1,5 @@
 //
-//  TextViewMonitor.swift
+//  TextViewTextMonitor.swift
 //  XestiMonitors
 //
 //  Created by kayeli dennis on 2018-03-27.
@@ -16,26 +16,25 @@
     /// An `TextViewMonitor` instance monitors a text view for
     /// editing-related messages.
     ///
-
-    internal class TextViewMonitor: BaseNotificationMonitor {
+    internal class TextViewTextMonitor: BaseNotificationMonitor {
         ///
         /// Encapsulates changes to the state of the text view.
         ///
         public enum Event {
             ///
-            /// editing of the text view has begun.
+            /// Editing of the text view has begun.
             ///
             case didBeginEditing(UITextView)
 
             ///
-            /// editing of the text view has ended.
+            /// The state of the text view has changed.
             ///
-            case didEndEditing(UITextView)
+            case didChange(UITextView)
 
             ///
-            /// the state of the text view has changed.
+            /// Editing of the text view has ended.
             ///
-            case textDidChange(UITextView)
+            case didEndEditing(UITextView)
         }
 
         ///
@@ -48,22 +47,22 @@
             public static let didBeginEditing = Options(rawValue: 1 << 0)
 
             ///
-            /// Monitor `didEndEditing` events.
-            ///
-            public static let didEndEditing = Options(rawValue: 1 << 1)
-
-            ///
             /// Monitor `textDidChange` events.
             ///
-            public static let textDidChange = Options(rawValue: 1 << 2)
+            public static let didChange = Options(rawValue: 1 << 1)
+
+            ///
+            /// Monitor `didEndEditing` events.
+            ///
+            public static let didEndEditing = Options(rawValue: 1 << 2)
 
 
             ///
             /// Monitor all events.
             ///
             public static let all: Options = [.didBeginEditing,
-                                              .didEndEditing,
-                                              .textDidChange]
+                                              .didChange,
+                                              .didEndEditing]
 
             /// :nodoc:
             public init(rawValue: UInt) {
@@ -84,11 +83,11 @@
         ///   - handler:    The handler to call when the state of the text view
         ///                 changes.
         ///
-        public init(textview: UITextView,
+        public init(textView: UITextView,
                     options: Options = .all,
                     queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {
-            self.textview = textview
+            self.textView = textView
             self.options = options
             self.handler = handler
 
@@ -98,7 +97,7 @@
         ///
         /// The text view being monitored.
         ///
-        public let textview: UITextView
+        public let textView: UITextView
 
         private let handler: (Event) -> Void
         private let options: Options
@@ -108,30 +107,31 @@
 
             if options.contains(.didBeginEditing) {
                 observe(.UITextViewTextDidBeginEditing,
-                        object: textview) { [unowned self] in
-                            if let textview = $0.object as? UITextView {
-                                self.handler(.didBeginEditing(textview))
+                        object: textView) { [unowned self] in
+                            if let textView = $0.object as? UITextView {
+                                self.handler(.didBeginEditing(textView))
+                            }
+                }
+            }
+
+            if options.contains(.didChange) {
+                observe(.UITextViewTextDidChange,
+                        object: textView) { [unowned self] in
+                            if let textView = $0.object as? UITextView {
+                                self.handler(.didChange(textView))
                             }
                 }
             }
 
             if options.contains(.didEndEditing) {
                 observe(.UITextViewTextDidEndEditing,
-                        object: textview) { [unowned self] in
-                            if let textview = $0.object as? UITextView {
-                                self.handler(.didEndEditing(textview))
-                            }
-                }
-            }
-
-            if options.contains(.textDidChange) {
-                observe(.UITextViewTextDidChange,
-                        object: textview) { [unowned self] in
-                            if let textview = $0.object as? UITextView {
-                                self.handler(.textDidChange(textview))
+                        object: textView) { [unowned self] in
+                            if let textView = $0.object as? UITextView {
+                                self.handler(.didEndEditing(textView))
                             }
                 }
             }
         }
     }
 #endif
+
