@@ -7,92 +7,92 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481061E63B2D45A23289D8BE /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4335B7DA1D05581B11E144 /* Pods_XestiMonitorsDemo.framework */; };
-		F50693EB200832FC0031754B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693EA200832FC0031754B /* AppDelegate.swift */; };
-		F50693F0200832FC0031754B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50693EE200832FC0031754B /* Main.storyboard */; };
-		F50693F2200832FD0031754B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50693F1200832FD0031754B /* Assets.xcassets */; };
-		F50693FE2008374C0031754B /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */; };
-		F50693FF2008374C0031754B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FA2008374C0031754B /* Formatters.swift */; };
-		F50694002008374C0031754B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FB2008374C0031754B /* MasterViewController.swift */; };
-		F50694012008374C0031754B /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */; };
-		F50694022008374C0031754B /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50693FD2008374C0031754B /* OtherDetailViewController.swift */; };
+		1F8EAD8B18A642617449A1EF994B7ACF /* AccessibilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E93A1E9BCC8EF979BC1D868FE781D27 /* AccessibilityDetailViewController.swift */; };
+		025D0B955844FCF09C3B987D21161724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC3E3B7775D0EAB11F53F12CFBBC255 /* AppDelegate.swift */; };
+		ED3E1C658986CAEC2CA4904E2D8523FF /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6686FB9920C0A759BD0A7ABD66ABC739 /* ApplicationDetailViewController.swift */; };
+		23335732524A514E157682414512FFBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7480CAE2F92D9528DB49B809D477CC37 /* Assets.xcassets */; };
+		F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */; };
+		A0D7A65493AD0E2F9F20F99D8DC47941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */; };
+		78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */; };
+		C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */; };
+		91F28858E31923ED9C160A865BF3A277 /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D4335B7DA1D05581B11E144 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DB90A27EDB4EDA81E2C8E99 /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B5DDFB222B1A3C81776FEC15 /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F50693E7200832FC0031754B /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F50693EA200832FC0031754B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F50693EF200832FC0031754B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F50693F1200832FD0031754B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F50693F3200832FD0031754B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
-		F50693FA2008374C0031754B /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		F50693FB2008374C0031754B /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
-		F50693FD2008374C0031754B /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
+		8E93A1E9BCC8EF979BC1D868FE781D27 /* AccessibilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityDetailViewController.swift; sourceTree = "<group>"; };
+		FCC3E3B7775D0EAB11F53F12CFBBC255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6686FB9920C0A759BD0A7ABD66ABC739 /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
+		7480CAE2F92D9528DB49B809D477CC37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A2662E030E32BD408D4091D852D603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		996B7977F641C5B43260A498BCAE3468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
+		146D5C435C5EF80E4A3B33AD70CD99AA /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6DD4E577B466C769847B43EB9039E6CF /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F50693E4200832FC0031754B /* Frameworks */ = {
+		EEE6F4BB0BC7B8C6E7436FBBC8538E3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				481061E63B2D45A23289D8BE /* Pods_XestiMonitorsDemo.framework in Frameworks */,
+				91F28858E31923ED9C160A865BF3A277 /* Pods_XestiMonitorsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45DD7EF4425B0824B32E7E75 /* Frameworks */ = {
+		E4D358B910AACB6F73855D22B4EC6F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D4335B7DA1D05581B11E144 /* Pods_XestiMonitorsDemo.framework */,
+				129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		98D59A32E349512BAE1AA5D6 /* Pods */ = {
+		F5487A57A86C1145DA0CF0B9B2FB08A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8DB90A27EDB4EDA81E2C8E99 /* Pods-XestiMonitorsDemo.debug.xcconfig */,
-				B5DDFB222B1A3C81776FEC15 /* Pods-XestiMonitorsDemo.release.xcconfig */,
+				146D5C435C5EF80E4A3B33AD70CD99AA /* Pods-XestiMonitorsDemo.debug.xcconfig */,
+				6DD4E577B466C769847B43EB9039E6CF /* Pods-XestiMonitorsDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F50693DE200832FC0031754B = {
+		1D139E126DAB3C91D8365E36956B8E5F = {
 			isa = PBXGroup;
 			children = (
-				F50693E9200832FC0031754B /* XestiMonitorsDemo */,
-				F50693E8200832FC0031754B /* Products */,
-				98D59A32E349512BAE1AA5D6 /* Pods */,
-				45DD7EF4425B0824B32E7E75 /* Frameworks */,
+				E4D358B910AACB6F73855D22B4EC6F66 /* Frameworks */,
+				F5487A57A86C1145DA0CF0B9B2FB08A3 /* Pods */,
+				2157C90740C2A8F958B883CA12A039AA /* Products */,
+				699D7260A1BAAD2835E46AEE2EA8EDAD /* XestiMonitorsDemo */,
 			);
 			sourceTree = "<group>";
 		};
-		F50693E8200832FC0031754B /* Products */ = {
+		2157C90740C2A8F958B883CA12A039AA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F50693E7200832FC0031754B /* XestiMonitorsDemo.app */,
+				92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F50693E9200832FC0031754B /* XestiMonitorsDemo */ = {
+		699D7260A1BAAD2835E46AEE2EA8EDAD /* XestiMonitorsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F50693F1200832FD0031754B /* Assets.xcassets */,
-				F50693EE200832FC0031754B /* Main.storyboard */,
-				F50693F92008374C0031754B /* AccessibilityDetailViewController.swift */,
-				F50693EA200832FC0031754B /* AppDelegate.swift */,
-				F50693FC2008374C0031754B /* ApplicationDetailViewController.swift */,
-				F50693FA2008374C0031754B /* Formatters.swift */,
-				F50693FB2008374C0031754B /* MasterViewController.swift */,
-				F50693FD2008374C0031754B /* OtherDetailViewController.swift */,
-				F50693F3200832FD0031754B /* Info.plist */,
+				8E93A1E9BCC8EF979BC1D868FE781D27 /* AccessibilityDetailViewController.swift */,
+				FCC3E3B7775D0EAB11F53F12CFBBC255 /* AppDelegate.swift */,
+				6686FB9920C0A759BD0A7ABD66ABC739 /* ApplicationDetailViewController.swift */,
+				7480CAE2F92D9528DB49B809D477CC37 /* Assets.xcassets */,
+				E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */,
+				996B7977F641C5B43260A498BCAE3468 /* Info.plist */,
+				2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */,
+				129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */,
+				091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */,
 			);
 			path = XestiMonitorsDemo;
 			sourceTree = "<group>";
@@ -100,16 +100,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F50693E6200832FC0031754B /* XestiMonitorsDemo */ = {
+		1DA964FAE5CEDB2B43F3B3AA1557CD73 /* XestiMonitorsDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F50693F6200832FD0031754B /* Build configuration list for PBXNativeTarget "XestiMonitorsDemo" */;
+			buildConfigurationList = E66C34364525F6ECFCB78AC091297905 /* Build configuration list for PBXNativeTarget "XestiMonitorsDemo" */;
 			buildPhases = (
-				FCC5182925BFD1137E276FB2 /* [CP] Check Pods Manifest.lock */,
-				F50693E3200832FC0031754B /* Sources */,
-				F50693E4200832FC0031754B /* Frameworks */,
-				F50693E5200832FC0031754B /* Resources */,
-				846EC4776FB25F5E54C1E0FD /* [CP] Embed Pods Frameworks */,
-				E4A881A016625BFBDF886175 /* [CP] Copy Pods Resources */,
+				A2AD097F09172752B342449DFEF2F813 /* [CP] Check Pods Manifest.lock */,
+				3264F9A8C33AACD7E1755001B277D462 /* Sources */,
+				EEE6F4BB0BC7B8C6E7436FBBC8538E3F /* Frameworks */,
+				B888D89D170C240B8495EA107AB9730A /* Resources */,
+				5D06AE0FE1909CA6226749564191856D /* [CP] Embed Pods Frameworks */,
+				D0B7D632B9C811B3A17B4D2EB25BF38B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,26 +117,26 @@
 			);
 			name = XestiMonitorsDemo;
 			productName = XestiMonitorsDemo;
-			productReference = F50693E7200832FC0031754B /* XestiMonitorsDemo.app */;
+			productReference = 92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F50693DF200832FC0031754B /* Project object */ = {
+		0F6B96A7D7E539C07BEDE87801FAF727 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Xesticode;
 				TargetAttributes = {
-					F50693E6200832FC0031754B = {
+					1DA964FAE5CEDB2B43F3B3AA1557CD73 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = F50693E2200832FC0031754B /* Build configuration list for PBXProject "XestiMonitorsDemo" */;
+			buildConfigurationList = AE75299D844C056AF569D3C54E63BE32 /* Build configuration list for PBXProject "XestiMonitorsDemo" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,30 +144,30 @@
 				en,
 				Base,
 			);
-			mainGroup = F50693DE200832FC0031754B;
-			productRefGroup = F50693E8200832FC0031754B /* Products */;
+			mainGroup = 1D139E126DAB3C91D8365E36956B8E5F;
+			productRefGroup = 2157C90740C2A8F958B883CA12A039AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F50693E6200832FC0031754B /* XestiMonitorsDemo */,
+				1DA964FAE5CEDB2B43F3B3AA1557CD73 /* XestiMonitorsDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F50693E5200832FC0031754B /* Resources */ = {
+		B888D89D170C240B8495EA107AB9730A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50693F2200832FD0031754B /* Assets.xcassets in Resources */,
-				F50693F0200832FC0031754B /* Main.storyboard in Resources */,
+				23335732524A514E157682414512FFBD /* Assets.xcassets in Resources */,
+				A0D7A65493AD0E2F9F20F99D8DC47941 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		846EC4776FB25F5E54C1E0FD /* [CP] Embed Pods Frameworks */ = {
+		5D06AE0FE1909CA6226749564191856D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -185,7 +185,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E4A881A016625BFBDF886175 /* [CP] Copy Pods Resources */ = {
+		D0B7D632B9C811B3A17B4D2EB25BF38B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,7 +200,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCC5182925BFD1137E276FB2 /* [CP] Check Pods Manifest.lock */ = {
+		A2AD097F09172752B342449DFEF2F813 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,26 +221,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F50693E3200832FC0031754B /* Sources */ = {
+		3264F9A8C33AACD7E1755001B277D462 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50694002008374C0031754B /* MasterViewController.swift in Sources */,
-				F50694022008374C0031754B /* OtherDetailViewController.swift in Sources */,
-				F50694012008374C0031754B /* ApplicationDetailViewController.swift in Sources */,
-				F50693FE2008374C0031754B /* AccessibilityDetailViewController.swift in Sources */,
-				F50693FF2008374C0031754B /* Formatters.swift in Sources */,
-				F50693EB200832FC0031754B /* AppDelegate.swift in Sources */,
+				1F8EAD8B18A642617449A1EF994B7ACF /* AccessibilityDetailViewController.swift in Sources */,
+				025D0B955844FCF09C3B987D21161724 /* AppDelegate.swift in Sources */,
+				ED3E1C658986CAEC2CA4904E2D8523FF /* ApplicationDetailViewController.swift in Sources */,
+				F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */,
+				78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */,
+				C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F50693EE200832FC0031754B /* Main.storyboard */ = {
+		2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F50693EF200832FC0031754B /* Base */,
+				3A2662E030E32BD408D4091D852D603F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F50693F4200832FD0031754B /* Debug */ = {
+		B9965CBA600A083C1215B004A7303D98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -305,7 +305,7 @@
 			};
 			name = Debug;
 		};
-		F50693F5200832FD0031754B /* Release */ = {
+		3DB9C1006E69DF915D09C9F1E68FFC68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,9 +355,9 @@
 			};
 			name = Release;
 		};
-		F50693F7200832FD0031754B /* Debug */ = {
+		892FB47E0418A8DD452D3F677A995ED2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DB90A27EDB4EDA81E2C8E99 /* Pods-XestiMonitorsDemo.debug.xcconfig */;
+			baseConfigurationReference = 146D5C435C5EF80E4A3B33AD70CD99AA /* Pods-XestiMonitorsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -373,9 +373,9 @@
 			};
 			name = Debug;
 		};
-		F50693F8200832FD0031754B /* Release */ = {
+		9C9024D0B8E7C6E25D38F7BB31659794 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5DDFB222B1A3C81776FEC15 /* Pods-XestiMonitorsDemo.release.xcconfig */;
+			baseConfigurationReference = 6DD4E577B466C769847B43EB9039E6CF /* Pods-XestiMonitorsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -394,25 +394,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F50693E2200832FC0031754B /* Build configuration list for PBXProject "XestiMonitorsDemo" */ = {
+		AE75299D844C056AF569D3C54E63BE32 /* Build configuration list for PBXProject "XestiMonitorsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F50693F4200832FD0031754B /* Debug */,
-				F50693F5200832FD0031754B /* Release */,
+				B9965CBA600A083C1215B004A7303D98 /* Debug */,
+				3DB9C1006E69DF915D09C9F1E68FFC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F50693F6200832FD0031754B /* Build configuration list for PBXNativeTarget "XestiMonitorsDemo" */ = {
+		E66C34364525F6ECFCB78AC091297905 /* Build configuration list for PBXNativeTarget "XestiMonitorsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F50693F7200832FD0031754B /* Debug */,
-				F50693F8200832FD0031754B /* Release */,
+				892FB47E0418A8DD452D3F677A995ED2 /* Debug */,
+				9C9024D0B8E7C6E25D38F7BB31659794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F50693DF200832FC0031754B /* Project object */;
+	rootObject = 0F6B96A7D7E539C07BEDE87801FAF727 /* Project object */;
 }

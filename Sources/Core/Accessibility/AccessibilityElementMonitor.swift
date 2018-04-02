@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// An `AccessibilityElementMonitor` instance monitors the system for changes
-    /// to element focus by an assistive technology.
+    /// An `AccessibilityElementMonitor` instance monitors the system for
+    /// changes to element focus by an assistive technology.
     ///
     public class AccessibilityElementMonitor: BaseNotificationMonitor {
         ///
@@ -28,8 +28,8 @@
         }
 
         ///
-        /// Encapsulates information associated with an element focus change by an
-        /// assistive technology.
+        /// Encapsulates information associated with an element focus change by
+        /// an assistive technology.
         ///
         public struct Info {
             ///
@@ -61,8 +61,8 @@
         /// Initializes a new `AccessibilityElementMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when an assistive technology
         ///                 changes element focus.
         ///

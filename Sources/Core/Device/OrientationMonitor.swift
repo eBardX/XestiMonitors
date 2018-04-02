@@ -31,10 +31,10 @@
         /// Initializes a new `OrientationMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the physical orientation of
-        ///                 the device changes.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the physical orientation
+        ///                 of the device changes.
         ///
         public init(queue: OperationQueue = .main,
                     handler: @escaping (Event) -> Void) {

@@ -37,6 +37,9 @@ custom_categories:
       - MagnetometerMonitor
       - MotionActivityMonitor
       - PedometerMonitor
+  - name: Screen Monitor Classes
+    children:
+      - ScreenBrightnessMonitor
   - name: Other Monitor Classes
     children:
       - DocumentStateMonitor

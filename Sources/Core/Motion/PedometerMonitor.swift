@@ -14,8 +14,8 @@
 
     ///
     /// A `PedometerMonitor` instance monitors the device for live and historic
-    /// walking data. You can retrieve step counts and other information about the
-    /// distance traveled and the number of floors ascended or descended.
+    /// walking data. You can retrieve step counts and other information about
+    /// the distance traveled and the number of floors ascended or descended.
     ///
     public class PedometerMonitor: BaseMonitor {
         ///
@@ -44,8 +44,8 @@
             case data(CMPedometerData)
 
             ///
-            /// The error encountered in attempting to obtain information about the
-            // distance traveled.
+            /// The error encountered in attempting to obtain information about
+            /// the distance traveled.
             ///
             case error(Error)
 
@@ -60,8 +60,9 @@
         ///
         /// - Parameters:
         ///   - queue:      The operation queue on which the handler executes.
-        ///   - handler:    The handler to call when new walking data is available
-        ///                 or when a query for historical walking data completes.
+        ///   - handler:    The handler to call when new walking data is
+        ///                 available or when a query for historical walking
+        ///                 data completes.
         ///
         public init(queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
@@ -71,47 +72,48 @@
         }
 
         ///
-        /// A Boolean value indicating whether cadence information is available on
-        /// the device.
+        /// A Boolean value indicating whether cadence information is available
+        /// on the device.
         ///
         public var isCadenceAvailable: Bool {
             return type(of: pedometer).isCadenceAvailable()
         }
 
         ///
-        /// A Boolean value indicating whether distance estimation is available on
-        /// the device.
+        /// A Boolean value indicating whether distance estimation is available
+        /// on the device.
         ///
         public var isDistanceAvailable: Bool {
             return type(of: pedometer).isDistanceAvailable()
         }
 
         ///
-        /// A Boolean value indicating whether floor counting is available on the
-        /// device.
+        /// A Boolean value indicating whether floor counting is available on
+        /// the device.
         ///
         public var isFloorCountingAvailable: Bool {
             return type(of: pedometer).isFloorCountingAvailable()
         }
 
         ///
-        /// A Boolean value indicating whether pace information is available on the
-        /// device.
+        /// A Boolean value indicating whether pace information is available on
+        /// the device.
         ///
         public var isPaceAvailable: Bool {
             return type(of: pedometer).isPaceAvailable()
         }
 
         ///
-        /// A Boolean value indicating whether step counting is available on the
-        /// device.
+        /// A Boolean value indicating whether step counting is available on
+        /// the device.
         ///
         public var isStepCountingAvailable: Bool {
             return type(of: pedometer).isStepCountingAvailable()
         }
 
         ///
-        /// Retrieves the historical walking data for the specified time period.
+        /// Retrieves the historical walking data for the specified time
+        /// period.
         ///
         /// - Parameters:
         ///   - start:  The start time to use when gathering walking data.

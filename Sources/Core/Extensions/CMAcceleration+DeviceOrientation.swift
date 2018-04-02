@@ -17,12 +17,12 @@
         /// Returns the device orientation as calculated from the 3-axis
         /// acceleration data.
         ///
-        /// This property allows you to determine the physical orientation of the
-        /// device from an acceleration measurement provided by an
-        /// `AccelerometerMonitor` instance. There is one important case where you
-        /// might choose to use this technique rather than directly monitor device
-        /// orientation changes with an `OrientationMonitor` instance—when rotation
-        /// is locked on the device.
+        /// This property allows you to determine the physical orientation of
+        /// the device from an acceleration measurement provided by an
+        /// `AccelerometerMonitor` instance. There is one important case where
+        /// you might choose to use this technique rather than directly monitor
+        /// device orientation changes with an `OrientationMonitor`
+        /// instance—when rotation is locked on the device.
         ///
         var deviceOrientation: UIDeviceOrientation {
             if z > 0.8 {

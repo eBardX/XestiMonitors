@@ -14,13 +14,13 @@
 
     ///
     /// A `MagnetometerMonitor` instance monitors the device’s magnetometer for
-    /// periodic raw measurements of the magnetic field around the three spatial
-    /// axes.
+    /// periodic raw measurements of the magnetic field around the three
+    /// spatial axes.
     ///
     public class MagnetometerMonitor: BaseMonitor {
         ///
-        /// Encapsulates updates to the measurement of the magnetic field around
-        /// the three spatial axes.
+        /// Encapsulates updates to the measurement of the magnetic field
+        /// around the three spatial axes.
         ///
         public enum Event {
             ///
@@ -40,8 +40,8 @@
             case data(CMMagnetometerData)
 
             ///
-            /// The error encountered in attempting to obtain the magnetic field
-            /// measurement.
+            /// The error encountered in attempting to obtain the magnetic
+            /// field measurement.
             ///
             case error(Error)
 
@@ -55,13 +55,13 @@
         /// Initializes a new `MagnetometerMonitor`.
         ///
         /// - Parameters:
-        ///   - interval:       The interval, in seconds, for providing magnetic
-        ///                     field measurements to the handler.
-        ///   - queue:          The operation queue on which the handler executes.
-        ///                     Because the events might arrive at a high rate,
-        ///                     using the main operation queue is not recommended.
-        ///   - handler:        The handler to call periodically when a new
-        ///                     magnetic field measurement is available.
+        ///   - interval:   The interval, in seconds, for providing magnetic
+        ///                 field measurements to the handler.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 Because the events might arrive at a high rate,
+        ///                 using the main operation queue is not recommended.
+        ///   - handler:    The handler to call periodically when a new
+        ///                 magnetic field measurement is available.
         ///
         public init(interval: TimeInterval,
                     queue: OperationQueue,
@@ -84,8 +84,8 @@
         }
 
         ///
-        /// A Boolean value indicating whether a magnetometer is available on the
-        /// device.
+        /// A Boolean value indicating whether a magnetometer is available on
+        /// the device.
         ///
         public var isAvailable: Bool {
             return motionManager.isMagnetometerAvailable

@@ -12,8 +12,8 @@
     import  UIKit
 
     ///
-    /// A `PasteboardMonitor` instance monitors a pasteboard for changes to
-    /// its contents or for its removal from the app.
+    /// A `PasteboardMonitor` instance monitors a pasteboard for changes to its
+    /// contents or for its removal from the app.
     ///
     public class PasteboardMonitor: BaseNotificationMonitor {
         ///

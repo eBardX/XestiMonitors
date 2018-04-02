@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name                = 'XestiMonitors'
   s.version             = '2.6.0'
+  s.swift_version       = '4.0'
   s.authors             = { 'J. G. Pusey' => 'ebardx@gmail.com' }
   s.license             = { :type => 'MIT',
                             :file => 'LICENSE.md' }
@@ -10,10 +11,10 @@ Pod::Spec.new do |s|
   s.summary             = 'An extensible monitoring framework written in Swift.'
   s.documentation_url   = 'https://ebardx.github.io/XestiMonitors/'
 
-  s.platforms           = { :ios => '9.0',
-                            :osx => '10.10',
-                            :tvos => '9.0',
-                            :watchos => '2.0' }
+  s.ios.deployment_target       = '9.0'
+  s.osx.deployment_target       = '10.10'
+  s.tvos.deployment_target      = '9.0'
+  s.watchos.deployment_target   = '2.0'
 
   s.requires_arc        = true
 

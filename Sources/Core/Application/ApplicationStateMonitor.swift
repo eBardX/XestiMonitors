@@ -13,8 +13,8 @@
     import UIKit
 
     ///
-    /// An `ApplicationStateMonitor` instance monitors the app for changes to its
-    /// runtime state.
+    /// An `ApplicationStateMonitor` instance monitors the app for changes to
+    /// its runtime state.
     ///
     public class ApplicationStateMonitor: BaseNotificationMonitor {
         ///
@@ -109,12 +109,13 @@
         /// Initializes a new `ApplicationStateMonitor`.
         ///
         /// - Parameters:
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the app changes its runtime
-        ///                 state or is about to change its runtime state.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the app changes its
+        ///                 runtime state or is about to change its runtime
+        ///                 state.
         ///
         public init(options: Options = .all,
                     queue: OperationQueue = .main,
@@ -189,12 +190,13 @@
         /// Initializes a new `ApplicationStateMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor. By
-        ///                 default, all events are monitored.
-        ///   - handler:    The handler to call when the app changes its runtime
-        ///                 state or is about to change its runtime state.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - handler:    The handler to call when the app changes its
+        ///                 runtime state or is about to change its runtime
+        ///                 state.
         ///
         /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
         ///

@@ -13,13 +13,13 @@
     import UIKit
 
     ///
-    /// A `BackgroundRefreshMonitor` instance monitors the app for changes to its
-    /// status for downloading content in the background.
+    /// A `BackgroundRefreshMonitor` instance monitors the app for changes to
+    /// its status for downloading content in the background.
     ///
     public class BackgroundRefreshMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the app’s status for downloading content in the
-        /// background.
+        /// Encapsulates changes to the app’s status for downloading content in
+        /// the background.
         ///
         public enum Event {
             ///
@@ -32,8 +32,8 @@
         /// Initializes a new `BackgroundRefreshMonitor`.
         ///
         /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
         ///   - handler:    The handler to call when the app’s status for
         ///                 downloading content in the background changes.
         ///

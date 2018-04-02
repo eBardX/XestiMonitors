@@ -38,14 +38,15 @@
         ///
         public enum Info {
             ///
-            /// An array of motion activity objects that define the types of motion
-            /// for the device that occurred during the queried time period.
+            /// An array of motion activity objects that define the types of
+            /// motion for the device that occurred during the queried time
+            /// period.
             ///
             case activities([CMMotionActivity])
 
             ///
-            /// The motion activity object that defines the current type of motion
-            /// for the device.
+            /// The motion activity object that defines the current type of
+            /// motion for the device.
             ///
             case activity(CMMotionActivity)
 
@@ -65,8 +66,9 @@
         ///
         /// - Parameters:
         ///   - queue:      The operation queue on which the handler executes.
-        ///   - handler:    The handler to call when new motion data is available
-        ///                 or when a query for historical motion data completes.
+        ///   - handler:    The handler to call when new motion data is
+        ///                 available or when a query for historical motion
+        ///                 data completes.
         ///
         public init(queue: OperationQueue,
                     handler: @escaping (Event) -> Void) {
