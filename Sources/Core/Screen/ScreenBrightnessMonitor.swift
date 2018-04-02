@@ -1,6 +1,6 @@
 //
 //  ScreenBrightnessMonitor.swift
-//  XestiMonitors-iOS
+//  XestiMonitors
 //
 //  Created by Paul Nyondo on 2018-03-23.
 //

@@ -1,12 +1,11 @@
 //
 //  ScreenModeMonitorTests.swift
-//  XestiMonitors-iOS
+//  XestiMonitorsTests
 //
 //  Created by Paul Nyondo on 2018-03-31.
 //
 //  © 2018 J. G. Pusey (see LICENSE.md).
 //
-
 
 import UIKit
 import XCTest
@@ -15,13 +14,13 @@ import XCTest
 internal class ScreenModeMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let screen = MockScreen()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
-    
+
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ScreenModeMonitor.Event?
@@ -30,12 +29,12 @@ internal class ScreenModeMonitorTests: XCTestCase {
                                             expectedEvent = event
                                             expectation.fulfill()
         }
-        
+
         monitor.startMonitoring()
         simulateDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .didChange(test) = event {
             XCTAssertEqual(test, screen)
@@ -43,7 +42,7 @@ internal class ScreenModeMonitorTests: XCTestCase {
             XCTFail("Unexpected event")
         }
     }
-    
+
     private func simulateDidChange() {
         notificationCenter.post(name: .UIScreenModeDidChange,
                                 object: screen)
