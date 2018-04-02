@@ -262,12 +262,12 @@
 		371149974AD77D4DE413A4CAA41EB50C /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		E95C144614AFE5DC306209A09D3C7182 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
-		C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
-		DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
-		9FBF0776991AE5841E09EE2C58322979 /* ScreenModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */; };
+		C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
+		DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		69C2B33146CD1BBE1735C29C94E614A6 /* ScreenModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */; };
+		9FBF0776991AE5841E09EE2C58322979 /* ScreenModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */; };
 		A39570D1A3C3A1D2160165F1611318D5 /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
 		B864D4B65AD338A64BA35D25F9933178 /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
 		BB6F62248E96C5BC4164A3BA22CEACBC /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
