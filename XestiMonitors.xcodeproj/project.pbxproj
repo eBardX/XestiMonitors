@@ -279,6 +279,12 @@
 		59D21820077675068635238F673DAAA9 /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2A4CE7DDC5B082C9E9CB32C7C4962 /* StatusBarMonitor.swift */; };
 		860DE82DAB9628D7F5901A0918C3C42D /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2A4CE7DDC5B082C9E9CB32C7C4962 /* StatusBarMonitor.swift */; };
 		868025947C1C3224DCF37A525A738D48 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1A9B7623BC599C4725B62E1AEE6CB /* StatusBarMonitorTests.swift */; };
+		23753EDE8F8CABA7B2EC4330903FD563 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */; };
+		89D43CC26107F59C6A61FDDF0CC51BE7 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */; };
+		1F05F41C0B657E59C57327D607284748 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */; };
+		468D8E1C4869E1089BF7BF40DE5C12CD /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */; };
+		1591C61DC717A61C270F2B86257C61B5 /* TextViewTextMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF8A8BB2E88A370B62C168CDCC5FDFA /* TextViewTextMonitorTests.swift */; };
+		A72B6CA48107A2737BA7019D29ACBE4D /* TextViewTextMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF8A8BB2E88A370B62C168CDCC5FDFA /* TextViewTextMonitorTests.swift */; };
 		33A38E10687C87A8A05A003735CF3AA8 /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F88A1C4CB442C8E723F4D3B3850C9 /* TimeMonitor.swift */; };
 		9F07209CEF34F99D0B38F4D2C0864A8C /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F88A1C4CB442C8E723F4D3B3850C9 /* TimeMonitor.swift */; };
 		AA21ED0CD26AC1413D4E86EC101D00D8 /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F88A1C4CB442C8E723F4D3B3850C9 /* TimeMonitor.swift */; };
@@ -505,6 +511,8 @@
 		8E96A8A329664439584FA58077A843A5 /* ScreenshotMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitorTests.swift; sourceTree = "<group>"; };
 		02F2A4CE7DDC5B082C9E9CB32C7C4962 /* StatusBarMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
 		EDC1A9B7623BC599C4725B62E1AEE6CB /* StatusBarMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitorTests.swift; sourceTree = "<group>"; };
+		FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitor.swift; sourceTree = "<group>"; };
+		FFF8A8BB2E88A370B62C168CDCC5FDFA /* TextViewTextMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitorTests.swift; sourceTree = "<group>"; };
 		F71F88A1C4CB442C8E723F4D3B3850C9 /* TimeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
 		5E0C778E0509BD07455BE31B173C2838 /* TimeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitorTests.swift; sourceTree = "<group>"; };
 		761E1DE02934BAFC37EBF4135716C8CF /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
@@ -870,6 +878,7 @@
 				23E8B168ABFEFEFE881E10D515827AC5 /* MetadataQueryMonitorTests.swift */,
 				1E94A9CB9F5D4360C939D40E28029CF6 /* NetworkReachabilityMonitorTests.swift */,
 				5920E883ED89F6B80CBB11D07FCCEF57 /* PasteboardMonitorTests.swift */,
+				FFF8A8BB2E88A370B62C168CDCC5FDFA /* TextViewTextMonitorTests.swift */,
 				DB2C261C75BD4B35131C9D73B8D11E29 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */,
 				5B5EEB432A05CAE7783F58C96D0E3A94 /* WindowMonitorTests.swift */,
@@ -911,6 +920,7 @@
 				5808668E6663E5B9DEFFA4F3943D97B0 /* MetadataQueryMonitor.swift */,
 				D8CB9A5E0F91D708737917D4A8BBEA7C /* NetworkReachabilityMonitor.swift */,
 				507A2A25275695E1193AE0A4748E2586 /* PasteboardMonitor.swift */,
+				FC8D590D9FBA666ED9DDFE264D8D8618 /* TextViewTextMonitor.swift */,
 				761E1DE02934BAFC37EBF4135716C8CF /* UbiquitousKeyValueStoreMonitor.swift */,
 				37E4CE41C34B0C9481924D385AC90B2F /* UbiquityIdentityMonitor.swift */,
 				8CE7BECB42FE63FBDA46216D8F75E39C /* WindowMonitor.swift */,
@@ -1289,6 +1299,7 @@
 				5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */,
 				B864D4B65AD338A64BA35D25F9933178 /* ScreenshotMonitor.swift in Sources */,
 				0A5E2E462525E355A1928983D0C44524 /* StatusBarMonitor.swift in Sources */,
+				468D8E1C4869E1089BF7BF40DE5C12CD /* TextViewTextMonitor.swift in Sources */,
 				AA21ED0CD26AC1413D4E86EC101D00D8 /* TimeMonitor.swift in Sources */,
 				4D1B3209173A8BD16F336AAE59EDA670 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				8BCEF5E1485E96F99824802E8260555B /* UbiquityIdentityMonitor.swift in Sources */,
@@ -1343,6 +1354,7 @@
 				9FBF0776991AE5841E09EE2C58322979 /* ScreenModeMonitorTests.swift in Sources */,
 				019594B81CB8A3407CB6E63177CA8915 /* ScreenshotMonitorTests.swift in Sources */,
 				868025947C1C3224DCF37A525A738D48 /* StatusBarMonitorTests.swift in Sources */,
+				1591C61DC717A61C270F2B86257C61B5 /* TextViewTextMonitorTests.swift in Sources */,
 				0EFF5F77D470F02CCBD0F3E8D9F3D55D /* TimeMonitorTests.swift in Sources */,
 				2946BF8F405D9146A8146EBD519AE8A5 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				E3EAA1F5880DAA7DBB9BF01497B7E6FB /* UbiquityIdentityMonitorTests.swift in Sources */,
@@ -1373,6 +1385,7 @@
 				67C25C11E935124690D9D33997084C1F /* ProtectedDataMonitorTests.swift in Sources */,
 				69C2B33146CD1BBE1735C29C94E614A6 /* ScreenModeMonitorTests.swift in Sources */,
 				2DBE24092B695CD1777579FCB49E47A6 /* ScreenshotMonitorTests.swift in Sources */,
+				A72B6CA48107A2737BA7019D29ACBE4D /* TextViewTextMonitorTests.swift in Sources */,
 				A7CD2842A8171A1BA89F0C251EF6F512 /* TimeMonitorTests.swift in Sources */,
 				959E1A4563DF38B91F24095DA59782A9 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				D3E1080CBC068EE3D52F3B5426310F02 /* UbiquityIdentityMonitorTests.swift in Sources */,
@@ -1430,6 +1443,7 @@
 				11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */,
 				A39570D1A3C3A1D2160165F1611318D5 /* ScreenshotMonitor.swift in Sources */,
 				860DE82DAB9628D7F5901A0918C3C42D /* StatusBarMonitor.swift in Sources */,
+				1F05F41C0B657E59C57327D607284748 /* TextViewTextMonitor.swift in Sources */,
 				33A38E10687C87A8A05A003735CF3AA8 /* TimeMonitor.swift in Sources */,
 				7CE31033DE6144BED3836B60637C36B9 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				AE2D4341B43CA9025231BCD3FCA5A5A1 /* UbiquityIdentityMonitor.swift in Sources */,
@@ -1487,6 +1501,7 @@
 				C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */,
 				BB6F62248E96C5BC4164A3BA22CEACBC /* ScreenshotMonitor.swift in Sources */,
 				0BE26FBB60FF6CD68108C6A399FCCBDA /* StatusBarMonitor.swift in Sources */,
+				23753EDE8F8CABA7B2EC4330903FD563 /* TextViewTextMonitor.swift in Sources */,
 				9F07209CEF34F99D0B38F4D2C0864A8C /* TimeMonitor.swift in Sources */,
 				3D8C4F339CA8A675A7E3706625921725 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				310865B228CA44EF09FA0D96E9634489 /* UbiquityIdentityMonitor.swift in Sources */,
@@ -1561,6 +1576,7 @@
 				DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */,
 				DA74B3F921C11F0AA258FFB92FB6C7D1 /* ScreenshotMonitor.swift in Sources */,
 				59D21820077675068635238F673DAAA9 /* StatusBarMonitor.swift in Sources */,
+				89D43CC26107F59C6A61FDDF0CC51BE7 /* TextViewTextMonitor.swift in Sources */,
 				BBE0CCD1B2A8A73311BB2EF7156CE668 /* TimeMonitor.swift in Sources */,
 				5D8836F7C594712BEB34B68418E0FAA6 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				7222BC5E774836176799E341D84A5365 /* UbiquityIdentityMonitor.swift in Sources */,

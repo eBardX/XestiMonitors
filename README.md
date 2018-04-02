@@ -108,6 +108,9 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIKeyboardWillShow`
     * `UIPasteboardChanged`
     * `UIPasteboardRemoved`
+    * `UITextViewTextDidBeginEditing`
+    * `UITextViewTextDidChange`
+    * `UITextViewTextDidEndEditing`
     * `UIWindowDidBecomeHidden`
     * `UIWindowDidBecomeKey`
     * `UIWindowDidBecomeVisible`
@@ -333,7 +336,7 @@ use to detect changes in the properties associated with a screen:
 
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides nine other monitors:
+In addition, XestiMonitors provides ten other monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
@@ -348,6 +351,8 @@ In addition, XestiMonitors provides nine other monitors:
   *(iOS, macOS, tvOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
+* [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
+  changes to its text. *(iOS, tvOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*
@@ -612,6 +617,7 @@ XestiMonitors is available under [the MIT license][license].
 [screen_mode_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
