@@ -2,7 +2,6 @@
 
 opt_in_rules:
   - array_init
-  - attributes
   - closure_end_indentation
   - closure_spacing
   - conditional_returns_on_newline
@@ -45,6 +44,7 @@ opt_in_rules:
   - vertical_parameter_alignment_on_call
 
 # NOT opted in:
+# - attributes -- BROKEN IN LATEST
 # - explicit_type_interface
 # - no_extension_access_modifier
 # - no_grouping_extension

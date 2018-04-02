@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB3A1DA389E800C63030"
+               BlueprintIdentifier = "7843705D5B2FBE666972254A07C8BEDC"
                BuildableName = "XestiMonitors.framework"
                BlueprintName = "XestiMonitors-macOS"
                ReferencedContainer = "container:XestiMonitors.xcodeproj">
@@ -26,15 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB7E1DA38B0000C63030"
+               BlueprintIdentifier = "C01A258892F4E8ECE5BB90BA5335D931"
                BuildableName = "XestiMonitorsTests-macOS.xctest"
                BlueprintName = "XestiMonitorsTests-macOS"
                ReferencedContainer = "container:XestiMonitors.xcodeproj">
@@ -44,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB3A1DA389E800C63030"
+            BlueprintIdentifier = "7843705D5B2FBE666972254A07C8BEDC"
             BuildableName = "XestiMonitors.framework"
             BlueprintName = "XestiMonitors-macOS"
             ReferencedContainer = "container:XestiMonitors.xcodeproj">
@@ -57,7 +56,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -67,7 +65,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB3A1DA389E800C63030"
+            BlueprintIdentifier = "7843705D5B2FBE666972254A07C8BEDC"
             BuildableName = "XestiMonitors.framework"
             BlueprintName = "XestiMonitors-macOS"
             ReferencedContainer = "container:XestiMonitors.xcodeproj">
@@ -85,7 +83,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB3A1DA389E800C63030"
+            BlueprintIdentifier = "7843705D5B2FBE666972254A07C8BEDC"
             BuildableName = "XestiMonitors.framework"
             BlueprintName = "XestiMonitors-macOS"
             ReferencedContainer = "container:XestiMonitors.xcodeproj">

@@ -37,8 +37,13 @@ internal class MockFileSystem: FileSystemProtocol {
             let path = filePath
             else { return -1 }
 
+        #if swift(>=4.1)
+        ptr.copyMemory(from: path,
+                       byteCount: String(cString: path).count)
+        #else
         ptr.copyBytes(from: path,
                       count: String(cString: path).count)
+        #endif
 
         return 0
     }
