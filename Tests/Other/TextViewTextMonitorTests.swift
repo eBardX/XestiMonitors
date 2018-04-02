@@ -11,16 +11,14 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
-class TextViewTextMonitorTests: XCTestCase {
+internal class TextViewTextMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let textView = UITextView()
 
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.inject = {
-            return self.notificationCenter
-        }
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_didBeginEditing() {
@@ -107,4 +105,3 @@ class TextViewTextMonitorTests: XCTestCase {
                                 object: textView)
     }
 }
-

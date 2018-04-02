@@ -111,6 +111,7 @@
 		F50693D92007BFF90031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
 		F50693DA2007BFFD0031754B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028A20067A40005BC04A /* KeyboardMonitor.swift */; };
 		F50693DC2007BFFD0031754B /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */; };
+		F522A76720726A52000BD6C0 /* TextViewTextMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85F486B2069B6440089E052 /* TextViewTextMonitorTests.swift */; };
 		F54498A5203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
 		F54498A6203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
 		F54498A7203E11CE00D91E3B /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54498A3203E11CE00D91E3B /* AccessibilityStatus.swift */; };
@@ -669,10 +670,10 @@
 				F5EC1B112040AD4B0056CAD9 /* MetadataQueryMonitor.swift */,
 				F5F3028C20067A40005BC04A /* NetworkReachabilityMonitor.swift */,
 				1390404D205A72CF0013A5E0 /* PasteboardMonitor.swift */,
+				C85F48662069A3800089E052 /* TextViewTextMonitor.swift */,
 				F5C7B6322057282A00799B14 /* UbiquitousKeyValueStoreMonitor.swift */,
 				F5C7B6312057282A00799B14 /* UbiquityIdentityMonitor.swift */,
 				5B57C2B72060F75A00B794F2 /* WindowMonitor.swift */,
-				C85F48662069A3800089E052 /* TextViewTextMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -851,10 +852,10 @@
 				F55D72612040C818009CD29C /* MetadataQueryMonitorTests.swift */,
 				F5F3037020067AA3005BC04A /* NetworkReachabilityMonitorTests.swift */,
 				1390404F205AAA340013A5E0 /* PasteboardMonitorTests.swift */,
+				C85F486B2069B6440089E052 /* TextViewTextMonitorTests.swift */,
 				F5913FCD2059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				F5913FCC2059C1BA00335200 /* UbiquityIdentityMonitorTests.swift */,
 				5B57C2B920610FC800B794F2 /* WindowMonitorTests.swift */,
-				C85F486B2069B6440089E052 /* TextViewTextMonitorTests.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1492,6 +1493,7 @@
 				F55AE5572059D43300B81D31 /* MockFileManager.swift in Sources */,
 				F54498C8203E2A7D00D91E3B /* MockFileSystem.swift in Sources */,
 				F5F3037620067AA3005BC04A /* AccessibilityElementMonitorTests.swift in Sources */,
+				F522A76720726A52000BD6C0 /* TextViewTextMonitorTests.swift in Sources */,
 				F5F303C420067AA3005BC04A /* MockNetworkReachability.swift in Sources */,
 				F5F3037320067AA3005BC04A /* AccessibilityAnnouncementMonitorTests.swift in Sources */,
 				F5913FD32059C1BA00335200 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,

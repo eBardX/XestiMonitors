@@ -13,32 +13,32 @@
     import UIKit
 
     ///
-    /// An `TextViewMonitor` instance monitors a text view for
-    /// editing-related messages.
+    /// A `TextViewMonitor` instance monitors a text view for changes to its
+    /// text.
     ///
     internal class TextViewTextMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the state of the text view.
+        /// Encapsulates changes to the text of the text view.
         ///
         public enum Event {
             ///
-            /// Editing of the text view has begun.
+            /// An editing session has begun for the text view.
             ///
             case didBeginEditing(UITextView)
 
             ///
-            /// The state of the text view has changed.
+            /// The text in the text view has changed.
             ///
             case didChange(UITextView)
 
             ///
-            /// Editing of the text view has ended.
+            /// The editing session has ended for the text view.
             ///
             case didEndEditing(UITextView)
         }
 
         ///
-        /// Specifies which events to monitor
+        /// Specifies which events to monitor.
         ///
         public struct Options: OptionSet {
             ///
@@ -47,7 +47,7 @@
             public static let didBeginEditing = Options(rawValue: 1 << 0)
 
             ///
-            /// Monitor `textDidChange` events.
+            /// Monitor `didChange` events.
             ///
             public static let didChange = Options(rawValue: 1 << 1)
 
@@ -55,7 +55,6 @@
             /// Monitor `didEndEditing` events.
             ///
             public static let didEndEditing = Options(rawValue: 1 << 2)
-
 
             ///
             /// Monitor all events.
@@ -78,9 +77,11 @@
         ///
         /// - Parameters:
         ///   - textview:   The text view to monitor.
-        ///   - queue:      The operation queue on which the handler executes. By
-        ///                 default, the main operation queue is used.
-        ///   - handler:    The handler to call when the state of the text view
+        ///   - options:    The options that specify which events to monitor.
+        ///                 By default, all events are monitored.
+        ///   - queue:      The operation queue on which the handler executes.
+        ///                 By default, the main operation queue is used.
+        ///   - handler:    The handler to call when the text of the text view
         ///                 changes.
         ///
         public init(textView: UITextView,
@@ -134,4 +135,3 @@
         }
     }
 #endif
-
