@@ -1,6 +1,6 @@
 //
 //  TextViewTextMonitorTests.swift
-//  XestiMonitorsTests-iOS
+//  XestiMonitorsTests
 //
 //  Created by kayeli dennis on 2018-03-27.
 //

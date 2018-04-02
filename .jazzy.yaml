@@ -48,6 +48,7 @@ custom_categories:
       - MetadataQueryMonitor
       - NetworkReachabilityMonitor
       - PasteboardMonitor
+      - TextViewTextMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - WindowMonitor
