@@ -40,6 +40,7 @@ custom_categories:
   - name: Screen Monitor Classes
     children:
       - ScreenBrightnessMonitor
+      - ScreenModeMonitor
   - name: Other Monitor Classes
     children:
       - DocumentStateMonitor

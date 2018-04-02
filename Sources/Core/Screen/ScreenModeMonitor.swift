@@ -1,40 +1,40 @@
 //
-//  ScreenBrightnessMonitor.swift
+//  ScreenModeMonitor.swift
 //  XestiMonitors
 //
-//  Created by Paul Nyondo on 2018-03-23.
+//  Created by Paul Nyondo on 2018-03-31.
 //
 //  © 2018 J. G. Pusey (see LICENSE.md).
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 
     import UIKit
 
     ///
-    /// A `ScreenBrightnessMonitor` instance monitors a screen for changes to
-    /// its brightness level.
+    /// A `ScreenModeMonitor` instance monitors a screen for changes to its
+    /// current mode.
     ///
-    public class ScreenBrightnessMonitor: BaseNotificationMonitor {
+    public class ScreenModeMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the brightness level of the screen.
+        /// Encapsulates changes to the current mode of the screen.
         ///
         public enum Event {
             ///
-            /// The brightness level of the screen has changed.
+            /// The current mode of the screen has changed.
             ///
             case didChange(UIScreen)
         }
 
         ///
-        /// Initializes a new `ScreenBrightnessMonitor`.
+        /// Initializes a new `ScreenModeMonitor`.
         ///
         /// - Parameters:
         ///   - screen:     The screen to monitor.
         ///   - queue:      The operation queue on which the handler executes.
         ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the brightness level of
-        ///                 the screen changes.
+        ///   - handler:    The handler to call when the current mode of the
+        ///                 screen changes.
         ///
         public init(screen: UIScreen,
                     queue: OperationQueue = .main,
@@ -52,16 +52,14 @@
 
         private let handler: (Event) -> Void
 
-        override public func addNotificationObservers() {
+        public override func addNotificationObservers() {
             super.addNotificationObservers()
 
-            observe(.UIScreenBrightnessDidChange,
-                    object: screen) { [unowned self] in
-                        if let screen = $0.object as? UIScreen {
-                            self.handler(.didChange(screen))
-                        }
+            observe(.UIScreenModeDidChange, object: screen) { [unowned self] in
+                if let screen = $0.object as? UIScreen {
+                    self.handler(.didChange(screen))
+                }
             }
         }
     }
-
 #endif

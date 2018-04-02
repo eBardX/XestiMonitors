@@ -262,6 +262,12 @@
 		371149974AD77D4DE413A4CAA41EB50C /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		E95C144614AFE5DC306209A09D3C7182 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
+		11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
+		5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
+		C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
+		DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
+		69C2B33146CD1BBE1735C29C94E614A6 /* ScreenModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */; };
+		9FBF0776991AE5841E09EE2C58322979 /* ScreenModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */; };
 		A39570D1A3C3A1D2160165F1611318D5 /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
 		B864D4B65AD338A64BA35D25F9933178 /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
 		BB6F62248E96C5BC4164A3BA22CEACBC /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */; };
@@ -499,6 +505,8 @@
 		AAFD123FAECF1E4A576BA95FA6478FEA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenBrightnessMonitor.swift; sourceTree = "<group>"; };
 		991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightnessMonitorTests.swift; sourceTree = "<group>"; };
+		4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModeMonitor.swift; sourceTree = "<group>"; };
+		ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModeMonitorTests.swift; sourceTree = "<group>"; };
 		7356F6218223851B3953FBA8D56091C6 /* ScreenshotMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitor.swift; sourceTree = "<group>"; };
 		8E96A8A329664439584FA58077A843A5 /* ScreenshotMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitorTests.swift; sourceTree = "<group>"; };
 		02F2A4CE7DDC5B082C9E9CB32C7C4962 /* StatusBarMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
@@ -728,6 +736,7 @@
 			isa = PBXGroup;
 			children = (
 				991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */,
+				ABF8B833CBFDDF160DA0A98749A0F1C9 /* ScreenModeMonitorTests.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -762,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */,
+				4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1286,6 +1296,7 @@
 				807C9DB58916546529FF9253BB61AF8C /* ProtectedDataMonitor.swift in Sources */,
 				163BA0614767E73B5F0AAC937C6612FF /* ProximityMonitor.swift in Sources */,
 				1AC08F9350E3F797362AF49AC3BCF452 /* ScreenBrightnessMonitor.swift in Sources */,
+				5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */,
 				B864D4B65AD338A64BA35D25F9933178 /* ScreenshotMonitor.swift in Sources */,
 				0A5E2E462525E355A1928983D0C44524 /* StatusBarMonitor.swift in Sources */,
 				468D8E1C4869E1089BF7BF40DE5C12CD /* TextViewTextMonitor.swift in Sources */,
@@ -1340,6 +1351,7 @@
 				4E2FFCB9BB61498671224E4E46B8EE22 /* ProtectedDataMonitorTests.swift in Sources */,
 				96077CA63D4D1758FAD6C76D978A3F1C /* ProximityMonitorTests.swift in Sources */,
 				6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */,
+				9FBF0776991AE5841E09EE2C58322979 /* ScreenModeMonitorTests.swift in Sources */,
 				019594B81CB8A3407CB6E63177CA8915 /* ScreenshotMonitorTests.swift in Sources */,
 				868025947C1C3224DCF37A525A738D48 /* StatusBarMonitorTests.swift in Sources */,
 				1591C61DC717A61C270F2B86257C61B5 /* TextViewTextMonitorTests.swift in Sources */,
@@ -1371,6 +1383,7 @@
 				90DBE621151CABB8991127F76402D664 /* MockScreen.swift in Sources */,
 				6178BB0FF93E9A608DDEEE778773AE44 /* NetworkReachabilityMonitorTests.swift in Sources */,
 				67C25C11E935124690D9D33997084C1F /* ProtectedDataMonitorTests.swift in Sources */,
+				69C2B33146CD1BBE1735C29C94E614A6 /* ScreenModeMonitorTests.swift in Sources */,
 				2DBE24092B695CD1777579FCB49E47A6 /* ScreenshotMonitorTests.swift in Sources */,
 				A72B6CA48107A2737BA7019D29ACBE4D /* TextViewTextMonitorTests.swift in Sources */,
 				A7CD2842A8171A1BA89F0C251EF6F512 /* TimeMonitorTests.swift in Sources */,
@@ -1427,6 +1440,7 @@
 				9452F16F3DED6B75DF7E278F1E217AE9 /* ProtectedDataMonitor.swift in Sources */,
 				2DC8F7D8E6FAD0049A6DD0F0DAD53658 /* ProximityMonitor.swift in Sources */,
 				0B6A8E07BDD9EFCBA6799B565CF39B1D /* ScreenBrightnessMonitor.swift in Sources */,
+				11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */,
 				A39570D1A3C3A1D2160165F1611318D5 /* ScreenshotMonitor.swift in Sources */,
 				860DE82DAB9628D7F5901A0918C3C42D /* StatusBarMonitor.swift in Sources */,
 				1F05F41C0B657E59C57327D607284748 /* TextViewTextMonitor.swift in Sources */,
@@ -1484,6 +1498,7 @@
 				6E3D860E963AF14A9191BA3A61216836 /* ProtectedDataMonitor.swift in Sources */,
 				B455E83CBA05197968F62135B1A9FB2F /* ProximityMonitor.swift in Sources */,
 				E95C144614AFE5DC306209A09D3C7182 /* ScreenBrightnessMonitor.swift in Sources */,
+				C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */,
 				BB6F62248E96C5BC4164A3BA22CEACBC /* ScreenshotMonitor.swift in Sources */,
 				0BE26FBB60FF6CD68108C6A399FCCBDA /* StatusBarMonitor.swift in Sources */,
 				23753EDE8F8CABA7B2EC4330903FD563 /* TextViewTextMonitor.swift in Sources */,
@@ -1558,6 +1573,7 @@
 				91B7B2FE14D66681F07BD619F6F983D4 /* ProtectedDataMonitor.swift in Sources */,
 				40D42BD871C55E0B39DC37BBED16123E /* ProximityMonitor.swift in Sources */,
 				371149974AD77D4DE413A4CAA41EB50C /* ScreenBrightnessMonitor.swift in Sources */,
+				DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */,
 				DA74B3F921C11F0AA258FFB92FB6C7D1 /* ScreenshotMonitor.swift in Sources */,
 				59D21820077675068635238F673DAAA9 /* StatusBarMonitor.swift in Sources */,
 				89D43CC26107F59C6A61FDDF0CC51BE7 /* TextViewTextMonitor.swift in Sources */,
