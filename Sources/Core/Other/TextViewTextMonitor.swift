@@ -13,10 +13,10 @@
     import UIKit
 
     ///
-    /// A `TextViewMonitor` instance monitors a text view for changes to its
-    /// text.
+    /// A `TextViewTextMonitor` instance monitors a text view for changes to
+    /// its text.
     ///
-    internal class TextViewTextMonitor: BaseNotificationMonitor {
+    public class TextViewTextMonitor: BaseNotificationMonitor {
         ///
         /// Encapsulates changes to the text of the text view.
         ///
@@ -73,7 +73,7 @@
         }
 
         ///
-        /// Initializes a new `TextViewMonitor`.
+        /// Initializes a new `TextViewTextMonitor`.
         ///
         /// - Parameters:
         ///   - textview:   The text view to monitor.

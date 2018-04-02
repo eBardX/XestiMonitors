@@ -1,3 +1,8 @@
+# 2.6.0 (2018-04-02)
+
+Adds support for three new monitor classes: `ScreenBrightnessMonitor`,
+`ScreenModeMonitor`, and `TextViewTextMonitor`.
+
 # 2.5.0 (2018-03-21)
 
 * Adds support for new monitor class: `WindowMonitor`.
