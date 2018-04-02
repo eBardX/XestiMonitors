@@ -13,15 +13,15 @@
 
     ///
     /// A `ScreenModeMonitor` instance monitors a screen for changes to its
-    /// mode.
+    /// current mode.
     ///
     public class ScreenModeMonitor: BaseNotificationMonitor {
         ///
-        /// Encapsulates changes to the screen mode.
+        /// Encapsulates changes to the current mode of the screen.
         ///
         public enum Event {
             ///
-            /// The screen mode has changed.
+            /// The current mode of the screen has changed.
             ///
             case didChange(UIScreen)
         }
@@ -33,7 +33,8 @@
         ///   - screen:     The screen to monitor.
         ///   - queue:      The operation queue on which the handler executes.
         ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the screen mode changes.
+        ///   - handler:    The handler to call when the current mode of the
+        ///                 screen changes.
         ///
         public init(screen: UIScreen,
                     queue: OperationQueue = .main,
