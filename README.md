@@ -109,6 +109,9 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIKeyboardWillShow`
     * `UIPasteboardChanged`
     * `UIPasteboardRemoved`
+    * `UITextFieldTextDidBeginEditing`
+    * `UITextFieldTextDidChange`
+    * `UITextFieldTextDidEndEditing`
     * `UITextViewTextDidBeginEditing`
     * `UITextViewTextDidChange`
     * `UITextViewTextDidEndEditing`
@@ -363,7 +366,7 @@ use to detect changes in the properties associated with a screen:
 
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides ten other monitors:
+In addition, XestiMonitors provides eleven other monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
@@ -378,6 +381,8 @@ In addition, XestiMonitors provides ten other monitors:
   *(iOS, macOS, tvOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
+* [TextFieldTextMonitor][text_field_text_monitor] to monitor a text field for
+  changes to its text. *(iOS, tvOS)*
 * [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
   changes to its text. *(iOS, tvOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
@@ -650,6 +655,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[text_field_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
