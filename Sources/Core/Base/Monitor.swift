@@ -14,7 +14,7 @@
 public protocol Monitor {
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
-    /// monitor is active (`true`) or not (`false`).
+    /// monitor is active.
     ///
     var isMonitoring: Bool { get }
 

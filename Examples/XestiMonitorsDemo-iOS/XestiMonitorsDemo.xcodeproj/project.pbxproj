@@ -14,6 +14,7 @@
 		7B53F00CC9D0507246196CBA76100637 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5D6F4D8AD8AEB10D92DF186E9E07E /* DeviceDetailViewController.swift */; };
 		F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */; };
 		90CBB5EE0F6840815570CA2592CBB8C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF94CE17E3CC3ACD3A84C3CD36447C2 /* LaunchScreen.storyboard */; };
+		699759279CFF5C5CA0C6AA30EDCD8B12 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */; };
 		A0D7A65493AD0E2F9F20F99D8DC47941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */; };
 		78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */; };
 		937785761C438A37295555A9D4559A1B /* MotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0FDF42633DD3FBD9FFB601F445B99E /* MotionDetailViewController.swift */; };
@@ -32,6 +33,7 @@
 		63A5D6F4D8AD8AEB10D92DF186E9E07E /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		996B7977F641C5B43260A498BCAE3468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		FB0FDF42633DD3FBD9FFB601F445B99E /* MotionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetailViewController.swift; sourceTree = "<group>"; };
 		091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */,
 				996B7977F641C5B43260A498BCAE3468 /* Info.plist */,
 				BEF94CE17E3CC3ACD3A84C3CD36447C2 /* LaunchScreen.storyboard */,
+				3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */,
 				2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */,
 				129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */,
 				FB0FDF42633DD3FBD9FFB601F445B99E /* MotionDetailViewController.swift */,
@@ -146,6 +149,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -244,6 +252,7 @@
 				ED3E1C658986CAEC2CA4904E2D8523FF /* ApplicationDetailViewController.swift in Sources */,
 				7B53F00CC9D0507246196CBA76100637 /* DeviceDetailViewController.swift in Sources */,
 				F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */,
+				699759279CFF5C5CA0C6AA30EDCD8B12 /* LocationDetailViewController.swift in Sources */,
 				78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */,
 				937785761C438A37295555A9D4559A1B /* MotionDetailViewController.swift in Sources */,
 				C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */,
@@ -339,7 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -356,7 +365,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

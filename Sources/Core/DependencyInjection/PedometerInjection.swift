@@ -9,33 +9,33 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
+import CoreMotion
 
-    internal protocol PedometerProtocol: class {
-        static func isCadenceAvailable() -> Bool
+internal protocol PedometerProtocol: class {
+    static func isCadenceAvailable() -> Bool
 
-        static func isDistanceAvailable() -> Bool
+    static func isDistanceAvailable() -> Bool
 
-        static func isFloorCountingAvailable() -> Bool
+    static func isFloorCountingAvailable() -> Bool
 
-        static func isPaceAvailable() -> Bool
+    static func isPaceAvailable() -> Bool
 
-        static func isStepCountingAvailable() -> Bool
+    static func isStepCountingAvailable() -> Bool
 
-        func queryPedometerData(from start: Date,
-                                to end: Date,
-                                withHandler handler: @escaping CMPedometerHandler)
+    func queryPedometerData(from start: Date,
+                            to end: Date,
+                            withHandler handler: @escaping CMPedometerHandler)
 
-        func startUpdates(from start: Date,
-                          withHandler handler: @escaping CMPedometerHandler)
+    func startUpdates(from start: Date,
+                      withHandler handler: @escaping CMPedometerHandler)
 
-        func stopUpdates()
-    }
+    func stopUpdates()
+}
 
-    extension CMPedometer: PedometerProtocol {}
+extension CMPedometer: PedometerProtocol {}
 
-    internal struct PedometerInjector {
-        internal static var inject: () -> PedometerProtocol = { return CMPedometer() }
-    }
+internal struct PedometerInjector {
+    internal static var inject: () -> PedometerProtocol = { return CMPedometer() }
+}
 
 #endif

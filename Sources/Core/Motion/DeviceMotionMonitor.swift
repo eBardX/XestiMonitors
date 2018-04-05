@@ -9,155 +9,155 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
-    import Foundation
+import CoreMotion
+import Foundation
+
+///
+/// A `DeviceMotionMonitor` instance monitors the device’s accelerometer,
+/// gyroscope, and magnetometer for periodic raw measurements which are
+/// processed into device motion measurements.
+///
+public class DeviceMotionMonitor: BaseMonitor {
+    ///
+    /// Encapsulates updates to the measurement of device motion.
+    ///
+    public enum Event {
+        ///
+        /// The device motion measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
 
     ///
-    /// A `DeviceMotionMonitor` instance monitors the device’s accelerometer,
-    /// gyroscope, and magnetometer for periodic raw measurements which are
-    /// processed into device motion measurements.
+    /// Encapsulates the measurement of device motion.
     ///
-    public class DeviceMotionMonitor: BaseMonitor {
+    public enum Info {
         ///
-        /// Encapsulates updates to the measurement of device motion.
+        /// The device motion measurement at a moment of time.
         ///
-        public enum Event {
-            ///
-            /// The device motion measurement has been updated.
-            ///
-            case didUpdate(Info)
-        }
+        case data(CMDeviceMotion)
 
         ///
-        /// Encapsulates the measurement of device motion.
+        /// The error encountered in attempting to obtain the device motion
+        /// measurement.
         ///
-        public enum Info {
-            ///
-            /// The device motion measurement at a moment of time.
-            ///
-            case data(CMDeviceMotion)
-
-            ///
-            /// The error encountered in attempting to obtain the device motion
-            /// measurement.
-            ///
-            case error(Error)
-
-            ///
-            /// No device motion measurement is available.
-            ///
-            case unknown
-        }
+        case error(Error)
 
         ///
-        /// Initializes a new `DeviceMotionMonitor`.
+        /// No device motion measurement is available.
         ///
-        /// - Parameters:
-        ///   - interval:       The interval, in seconds, for providing device
-        ///                     motion measurements to the handler.
-        ///   - referenceFrame: The reference frame to use for device motion
-        ///                     measurements.
-        ///   - queue:          The operation queue on which the handler
-        ///                     executes. Because the events might arrive at a
-        ///                     high rate, using the main operation queue is
-        ///                     not recommended.
-        ///   - handler:        The handler to call periodically when a new
-        ///                     device motion measurement is available.
-        ///
-        public init(interval: TimeInterval,
-                    using referenceFrame: CMAttitudeReferenceFrame,
-                    queue: OperationQueue,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
-            self.referenceFrame = referenceFrame
-        }
+        case unknown
+    }
 
-        ///
-        /// The latest device motion measurement available.
-        ///
-        public var info: Info {
-            guard
-                let data = motionManager.deviceMotion
-                else { return .unknown }
+    ///
+    /// Initializes a new `DeviceMotionMonitor`.
+    ///
+    /// - Parameters:
+    ///   - interval:       The interval, in seconds, for providing device
+    ///                     motion measurements to the handler.
+    ///   - referenceFrame: The reference frame to use for device motion
+    ///                     measurements.
+    ///   - queue:          The operation queue on which the handler
+    ///                     executes. Because the events might arrive at a
+    ///                     high rate, using the main operation queue is
+    ///                     not recommended.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     device motion measurement is available.
+    ///
+    public init(interval: TimeInterval,
+                using referenceFrame: CMAttitudeReferenceFrame,
+                queue: OperationQueue,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+        self.referenceFrame = referenceFrame
+    }
 
-            return .data(data)
-        }
+    ///
+    /// The latest device motion measurement available.
+    ///
+    public var info: Info {
+        guard
+            let data = motionManager.deviceMotion
+            else { return .unknown }
 
-        ///
-        /// A Boolean value indicating whether device motion measuring is
-        /// available on the device.
-        ///
-        public var isAvailable: Bool {
-            return motionManager.isDeviceMotionAvailable
-        }
+        return .data(data)
+    }
 
-        private let handler: (Event) -> Void
-        private let interval: TimeInterval
-        private let motionManager: MotionManagerProtocol
-        private let queue: OperationQueue
-        private let referenceFrame: CMAttitudeReferenceFrame
+    ///
+    /// A Boolean value indicating whether device motion measuring is
+    /// available on the device.
+    ///
+    public var isAvailable: Bool {
+        return motionManager.isDeviceMotionAvailable
+    }
 
-        override public final func cleanupMonitor() {
-            motionManager.stopDeviceMotionUpdates()
+    private let handler: (Event) -> Void
+    private let interval: TimeInterval
+    private let motionManager: MotionManagerProtocol
+    private let queue: OperationQueue
+    private let referenceFrame: CMAttitudeReferenceFrame
 
-            super.cleanupMonitor()
-        }
+    override public func cleanupMonitor() {
+        motionManager.stopDeviceMotionUpdates()
 
-        override public final func configureMonitor() {
-            super.configureMonitor()
+        super.cleanupMonitor()
+    }
 
-            motionManager.deviceMotionUpdateInterval = interval
+    override public func configureMonitor() {
+        super.configureMonitor()
 
-            motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
-                                                   to: queue) { [unowned self] data, error in
-                                                    var info: Info
+        motionManager.deviceMotionUpdateInterval = interval
 
-                                                    if let error = error {
-                                                        info = .error(error)
-                                                    } else if let data = data {
-                                                        info = .data(data)
-                                                    } else {
-                                                        info = .unknown
-                                                    }
+        motionManager.startDeviceMotionUpdates(using: self.referenceFrame,
+                                               to: queue) { [unowned self] data, error in
+                                                var info: Info
 
-                                                    self.handler(.didUpdate(info))
-            }
-        }
+                                                if let error = error {
+                                                    info = .error(error)
+                                                } else if let data = data {
+                                                    info = .data(data)
+                                                } else {
+                                                    info = .unknown
+                                                }
 
-        // MARK: Deprecated
-
-        ///
-        /// Initializes a new `DeviceMotionMonitor`.
-        ///
-        /// - Parameters:
-        ///   - queue:          The operation queue on which the handler
-        ///                     executes. Because the events might arrive at a
-        ///                     high rate, using the main operation queue is
-        ///                     not recommended.
-        ///   - interval:       The interval, in seconds, for providing device
-        ///                     motion measurements to the handler.
-        ///   - referenceFrame: The reference frame to use for device motion
-        ///                     measurements.
-        ///   - handler:        The handler to call periodically when a new
-        ///                     device motion measurement is available.
-        ///
-        /// - Warning:  Deprecated. Use `init(interval:using:queue:handler)`
-        ///             instead.
-        ///
-        @available(*, deprecated, message: "Use `init(interval:using:queue:handler)` instead.")
-        public init(queue: OperationQueue,
-                    interval: TimeInterval,
-                    using referenceFrame: CMAttitudeReferenceFrame,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
-            self.referenceFrame = referenceFrame
+                                                self.handler(.didUpdate(info))
         }
     }
+
+    // MARK: Deprecated
+
+    ///
+    /// Initializes a new `DeviceMotionMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:          The operation queue on which the handler
+    ///                     executes. Because the events might arrive at a
+    ///                     high rate, using the main operation queue is
+    ///                     not recommended.
+    ///   - interval:       The interval, in seconds, for providing device
+    ///                     motion measurements to the handler.
+    ///   - referenceFrame: The reference frame to use for device motion
+    ///                     measurements.
+    ///   - handler:        The handler to call periodically when a new
+    ///                     device motion measurement is available.
+    ///
+    /// - Warning:  Deprecated. Use `init(interval:using:queue:handler)`
+    ///             instead.
+    ///
+    @available(*, deprecated, message: "Use `init(interval:using:queue:handler)` instead.")
+    public init(queue: OperationQueue,
+                interval: TimeInterval,
+                using referenceFrame: CMAttitudeReferenceFrame,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+        self.referenceFrame = referenceFrame
+    }
+}
 
 #endif

@@ -20,6 +20,7 @@
     * [Accessibility Monitors](#accessibility_monitors)
     * [Application Monitors](#application_monitors)
     * [Device Monitors](#device_monitors)
+    * [Location Monitors](#location_monitors)
     * [Motion Monitors](#motion_monitors)
     * [Screen Monitors](#screen_monitors)
     * [Other Monitors](#other_monitors)
@@ -29,7 +30,7 @@
 
 ## <a name="overview">Overview</a>
 
-The XestiMonitors framework provides more than two dozen fully-functional
+The XestiMonitors framework provides more than three dozen fully-functional
 monitor classes right out of the box that make it easy for your app to detect
 and respond to many common system-generated events.
 
@@ -118,14 +119,17 @@ provides “wrappers” around many `UIKit` notifications:
 
     See [Other Monitors](#other_monitors) for details.
 
-XestiMonitors also provides a “wrapper” around the Core Motion framework to
-make it easier for your app to obtain both raw and processed motion
-measurements from the device. See [Motion Monitors](#motion_monitors) for
-details.
+XestiMonitors also provides convenient “wrappers” around several frameworks and
+programming interfaces to make them easier for your app to use:
 
-XestiMonitors also provides a “wrapper” around `SCNetworkReachability` to make
-it super easy for your app to determine the reachability of a target host. See
-[Other Monitors](#other_monitors) for details.
+* It wraps the Core Location framework to make it easier for your app to ...
+  See [Location Monitors](#location_monitors) for details.
+* It wraps the Core Motion framework to make it easier for your app to obtain
+  both raw and processed motion measurements from the device. See
+  [Motion Monitors](#motion_monitors) for details.
+* It wraps the `SCNetworkReachability` programming interface to make it super
+  easy for your app to determine the reachability of a target host. See
+  [Other Monitors](#other_monitors) for details.
 
 Additional monitors targeting more parts of all four platforms will be rolled
 out in future releases of XestiMonitors!
@@ -299,6 +303,29 @@ in the characteristics of the device:
   to its physical orientation. *(iOS)*
 * [ProximityMonitor][proximity_monitor] to monitor the device for changes to
   the state of its proximity sensor. *(iOS)*
+
+### <a name="location_monitors">Location Monitors</a>
+
+XestiMonitors provides seven monitor classes that you can use to determine the
+device’s geographic location, altitude, orientation, or position relative to a
+nearby iBeacon:
+
+* [BeaconRangingMonitor][beacon_ranging_monitor] to monitor a region for
+  changes to the ranges (*i.e.,* the relative proximity) to the Bluetooth
+  low-energy beacons within. *(iOS)*
+* [HeadingMonitor][heading_monitor] to monitor the device for changes to its
+  current heading. *(iOS)*
+* [LocationAuthorizationMonitor][location_authorization_monitor] to monitor the
+  app for updates to its authorization to use location services. *(iOS, macOS,
+  tvOS, watchOS)*
+* [RegionMonitor][region_monitor] to monitor a region for changes to its state
+  (which indicate boundary transitions). *(iOS, macOS)*
+* [SignificantLocationMonitor][significant_location_monitor] to monitor the
+  device for *significant* changes to its current location. *(iOS, macOS)*
+* [StandardLocationMonitor][standard_location_monitor] to monitor the device
+  for changes to its current location. *(iOS, macOS, tvOS, watchOS)*
+* [VisitMonitor][visit_monitor] to monitor for locations that the user stops at
+  for a “noteworthy” amount of time. *(iOS)*
 
 ### <a name="motion_monitors">Motion Monitors</a>
 
@@ -598,11 +625,14 @@ XestiMonitors is available under [the MIT license][license].
 [base_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html
 [base_notification_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html
 [battery_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
+[beacon_ranging_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
 [device_motion_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [file_system_object_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
 [gyroscope_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
+[heading_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
 [keyboard_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
+[location_authorization_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
 [magnetometer_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
 [memory_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
@@ -613,14 +643,18 @@ XestiMonitors is available under [the MIT license][license].
 [pedometer_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
+[region_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
 [screen_brightness_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
 [screen_mode_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
+[significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
+[standard_location_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
+[visit_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 
 [p_monitor]:    https://eBardX.github.io/XestiMonitors/Protocols/Monitor.html

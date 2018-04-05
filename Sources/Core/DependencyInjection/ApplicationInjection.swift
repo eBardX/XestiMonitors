@@ -9,28 +9,28 @@
 
 #if os(iOS) || os(tvOS)
 
-    import UIKit
+import UIKit
 
-    internal protocol ApplicationProtocol: class {
-        var applicationState: UIApplicationState { get }
+internal protocol ApplicationProtocol: class {
+    var applicationState: UIApplicationState { get }
 
-        #if os(iOS)
-        var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
-        #endif
+    #if os(iOS)
+    var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
+    #endif
 
-        var isProtectedDataAvailable: Bool { get }
+    var isProtectedDataAvailable: Bool { get }
 
-        #if os(iOS)
-        var statusBarFrame: CGRect { get }
+    #if os(iOS)
+    var statusBarFrame: CGRect { get }
 
-        var statusBarOrientation: UIInterfaceOrientation { get }
-        #endif
-    }
+    var statusBarOrientation: UIInterfaceOrientation { get }
+    #endif
+}
 
-    extension UIApplication: ApplicationProtocol {}
+extension UIApplication: ApplicationProtocol {}
 
-    internal struct ApplicationInjector {
-        internal static var inject: () -> ApplicationProtocol = { return UIApplication.shared }
-    }
+internal struct ApplicationInjector {
+    internal static var inject: () -> ApplicationProtocol = { return UIApplication.shared }
+}
 
 #endif

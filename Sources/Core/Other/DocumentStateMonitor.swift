@@ -9,59 +9,59 @@
 
 #if os(iOS)
 
-    import UIKit
+import UIKit
+
+///
+/// A `DocumentStateMonitor` instance monitors a document for changes to
+/// its state.
+///
+public class DocumentStateMonitor: BaseNotificationMonitor {
+    ///
+    /// Encapsulates changes to the state of the document.
+    ///
+    public enum Event {
+        ///
+        /// The state of the document has changed.
+        ///
+        case didChange(UIDocument)
+    }
 
     ///
-    /// A `DocumentStateMonitor` instance monitors a document for changes to
-    /// its state.
+    /// Initializes a new `DocumentStateMonitor`.
     ///
-    public class DocumentStateMonitor: BaseNotificationMonitor {
-        ///
-        /// Encapsulates changes to the state of the document.
-        ///
-        public enum Event {
-            ///
-            /// The state of the document has changed.
-            ///
-            case didChange(UIDocument)
-        }
+    /// - Parameters:
+    ///   - document:   The document to monitor.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 By default, the main operation queue is used.
+    ///   - handler:    The handler to call when the state of the document
+    ///                 changes.
+    ///
+    public init(document: UIDocument,
+                queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.document = document
+        self.handler = handler
 
-        ///
-        /// Initializes a new `DocumentStateMonitor`.
-        ///
-        /// - Parameters:
-        ///   - document:   The document to monitor.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the state of the document
-        ///                 changes.
-        ///
-        public init(document: UIDocument,
-                    queue: OperationQueue = .main,
-                    handler: @escaping (Event) -> Void) {
-            self.document = document
-            self.handler = handler
+        super.init(queue: queue)
+    }
 
-            super.init(queue: queue)
-        }
+    ///
+    /// The document being monitored.
+    ///
+    public let document: UIDocument
 
-        ///
-        /// The document being monitored.
-        ///
-        public let document: UIDocument
+    private let handler: (Event) -> Void
 
-        private let handler: (Event) -> Void
+    override public func addNotificationObservers() {
+        super.addNotificationObservers()
 
-        override public func addNotificationObservers() {
-            super.addNotificationObservers()
-
-            observe(.UIDocumentStateChanged,
-                    object: document) { [unowned self] in
-                        if let document = $0.object as? UIDocument {
-                            self.handler(.didChange(document))
-                        }
-            }
+        observe(.UIDocumentStateChanged,
+                object: document) { [unowned self] in
+                    if let document = $0.object as? UIDocument {
+                        self.handler(.didChange(document))
+                    }
         }
     }
+}
 
 #endif

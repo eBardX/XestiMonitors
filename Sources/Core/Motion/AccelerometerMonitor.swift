@@ -9,144 +9,144 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
-    import Foundation
+import CoreMotion
+import Foundation
+
+///
+/// An `AccelerometerMonitor` instance monitors the device’s accelerometer
+/// for periodic raw measurements of the acceleration along the three
+/// spatial axes.
+///
+public class AccelerometerMonitor: BaseMonitor {
+    ///
+    /// Encapsulates updates to the measurement of the acceleration along
+    /// the three spatial axes.
+    ///
+    public enum Event {
+        ///
+        /// The acceleration measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
 
     ///
-    /// An `AccelerometerMonitor` instance monitors the device’s accelerometer
-    /// for periodic raw measurements of the acceleration along the three
-    /// spatial axes.
+    /// Encapsulates the measurement of the acceleration along the three
+    /// spatial axes at a moment of time.
     ///
-    public class AccelerometerMonitor: BaseMonitor {
+    public enum Info {
         ///
-        /// Encapsulates updates to the measurement of the acceleration along
-        /// the three spatial axes.
+        /// The acceleration measurement.
         ///
-        public enum Event {
-            ///
-            /// The acceleration measurement has been updated.
-            ///
-            case didUpdate(Info)
-        }
+        case data(CMAccelerometerData)
 
         ///
-        /// Encapsulates the measurement of the acceleration along the three
-        /// spatial axes at a moment of time.
+        /// The error encountered in attempting to obtain the acceleration
+        /// measurement.
         ///
-        public enum Info {
-            ///
-            /// The acceleration measurement.
-            ///
-            case data(CMAccelerometerData)
-
-            ///
-            /// The error encountered in attempting to obtain the acceleration
-            /// measurement.
-            ///
-            case error(Error)
-
-            ///
-            /// No acceleration measurement is available.
-            ///
-            case unknown
-        }
+        case error(Error)
 
         ///
-        /// Initializes a new `AccelerometerMonitor`.
+        /// No acceleration measurement is available.
         ///
-        /// - Parameters:
-        ///   - interval:   The interval, in seconds, for providing
-        ///                 acceleration measurements to the handler.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 acceleration measurement is available.
-        ///
-        public init(interval: TimeInterval,
-                    queue: OperationQueue,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
-        }
+        case unknown
+    }
 
-        ///
-        /// The latest acceleration measurement available.
-        ///
-        public var info: Info {
-            guard
-                let data = motionManager.accelerometerData
-                else { return .unknown }
+    ///
+    /// Initializes a new `AccelerometerMonitor`.
+    ///
+    /// - Parameters:
+    ///   - interval:   The interval, in seconds, for providing
+    ///                 acceleration measurements to the handler.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 acceleration measurement is available.
+    ///
+    public init(interval: TimeInterval,
+                queue: OperationQueue,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
 
-            return .data(data)
-        }
+    ///
+    /// The latest acceleration measurement available.
+    ///
+    public var info: Info {
+        guard
+            let data = motionManager.accelerometerData
+            else { return .unknown }
 
-        ///
-        /// A Boolean value indicating whether an accelerometer is available on
-        /// the device.
-        ///
-        public var isAvailable: Bool {
-            return motionManager.isAccelerometerAvailable
-        }
+        return .data(data)
+    }
 
-        private let handler: (Event) -> Void
-        private let interval: TimeInterval
-        private let motionManager: MotionManagerProtocol
-        private let queue: OperationQueue
+    ///
+    /// A Boolean value indicating whether an accelerometer is available on
+    /// the device.
+    ///
+    public var isAvailable: Bool {
+        return motionManager.isAccelerometerAvailable
+    }
 
-        override public final func cleanupMonitor() {
-            motionManager.stopAccelerometerUpdates()
+    private let handler: (Event) -> Void
+    private let interval: TimeInterval
+    private let motionManager: MotionManagerProtocol
+    private let queue: OperationQueue
 
-            super.cleanupMonitor()
-        }
+    override public func cleanupMonitor() {
+        motionManager.stopAccelerometerUpdates()
 
-        override public final func configureMonitor() {
-            super.configureMonitor()
+        super.cleanupMonitor()
+    }
 
-            motionManager.accelerometerUpdateInterval = interval
+    override public func configureMonitor() {
+        super.configureMonitor()
 
-            motionManager.startAccelerometerUpdates(to: queue) { [unowned self] data, error in
-                var info: Info
+        motionManager.accelerometerUpdateInterval = interval
 
-                if let error = error {
-                    info = .error(error)
-                } else if let data = data {
-                    info = .data(data)
-                } else {
-                    info = .unknown
-                }
+        motionManager.startAccelerometerUpdates(to: queue) { [unowned self] data, error in
+            var info: Info
 
-                self.handler(.didUpdate(info))
+            if let error = error {
+                info = .error(error)
+            } else if let data = data {
+                info = .data(data)
+            } else {
+                info = .unknown
             }
-        }
 
-        // MARK: Deprecated
-
-        ///
-        /// Initializes a new `AccelerometerMonitor`.
-        ///
-        /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - interval:   The interval, in seconds, for providing
-        ///                 acceleration measurements to the handler.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 acceleration measurement is available.
-        ///
-        /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
-        ///
-        @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
-        public init(queue: OperationQueue,
-                    interval: TimeInterval,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
+            self.handler(.didUpdate(info))
         }
     }
+
+    // MARK: Deprecated
+
+    ///
+    /// Initializes a new `AccelerometerMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - interval:   The interval, in seconds, for providing
+    ///                 acceleration measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 acceleration measurement is available.
+    ///
+    /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
+    ///
+    @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
+    public init(queue: OperationQueue,
+                interval: TimeInterval,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
+}
 
 #endif

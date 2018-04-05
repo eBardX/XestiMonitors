@@ -13,7 +13,7 @@ import XCTest
 
 internal class ScreenModeMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let screen = MockScreen()
+    let screen = UIScreen()
 
     override func setUp() {
         super.setUp()

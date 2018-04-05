@@ -259,13 +259,13 @@ public class FileSystemObjectMonitor: BaseMonitor {
 
         fileSystemObject.setEventHandler(qos: .unspecified,
                                          flags: []) { [weak self] in
-            self?.invokeHandler(fileSystemObject.data,
-                                fileDescriptor)
+                                            self?.invokeHandler(fileSystemObject.data,
+                                                                fileDescriptor)
         }
 
         fileSystemObject.setCancelHandler(qos: .unspecified,
                                           flags: []) { [weak self] in
-            self?.fileSystem.close(fileDescriptor)
+                                            self?.fileSystem.close(fileDescriptor)
         }
 
         self.fileSystemObject = fileSystemObject

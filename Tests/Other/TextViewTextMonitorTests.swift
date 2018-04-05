@@ -37,8 +37,8 @@ internal class TextViewTextMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didBeginEditing(view) = event {
-            XCTAssertEqual(view, textView)
+            case let .didBeginEditing(test) = event {
+            XCTAssertEqual(test, textView)
         } else {
             XCTFail("Unexpected Event")
         }

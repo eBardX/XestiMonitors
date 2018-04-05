@@ -39,7 +39,7 @@ open class BaseMonitor: Monitor {
 
     ///
     /// A Boolean value indicating whether monitoring of events specific to the
-    /// monitor is active (`true`) or not (`false`).
+    /// monitor is active.
     ///
     public private(set) final var isMonitoring = false
 

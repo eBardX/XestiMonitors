@@ -9,144 +9,144 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
-    import Foundation
+import CoreMotion
+import Foundation
+
+///
+/// A `GyroscopeMonitor` instance monitors the device’s gyroscope for
+/// periodic raw measurements of the rotation rate around the three spatial
+/// axes.
+///
+public class GyroscopeMonitor: BaseMonitor {
+    ///
+    /// Encapsulates updates to the measurement of the rotation rate around
+    /// the three spatial axes.
+    ///
+    public enum Event {
+        ///
+        /// The rotation rate measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
 
     ///
-    /// A `GyroscopeMonitor` instance monitors the device’s gyroscope for
-    /// periodic raw measurements of the rotation rate around the three spatial
-    /// axes.
+    /// Encapsulates the measurement of the rotation rate around the three
+    /// spatial axes at a moment of time.
     ///
-    public class GyroscopeMonitor: BaseMonitor {
+    public enum Info {
         ///
-        /// Encapsulates updates to the measurement of the rotation rate around
-        /// the three spatial axes.
+        /// The rotation rate measurement.
         ///
-        public enum Event {
-            ///
-            /// The rotation rate measurement has been updated.
-            ///
-            case didUpdate(Info)
-        }
+        case data(CMGyroData)
 
         ///
-        /// Encapsulates the measurement of the rotation rate around the three
-        /// spatial axes at a moment of time.
+        /// The error encountered in attempting to obtain the rotation rate
+        /// measurement.
         ///
-        public enum Info {
-            ///
-            /// The rotation rate measurement.
-            ///
-            case data(CMGyroData)
-
-            ///
-            /// The error encountered in attempting to obtain the rotation rate
-            /// measurement.
-            ///
-            case error(Error)
-
-            ///
-            /// No rotation rate measurement is available.
-            ///
-            case unknown
-        }
+        case error(Error)
 
         ///
-        /// Initializes a new `GyroscopeMonitor`.
+        /// No rotation rate measurement is available.
         ///
-        /// - Parameters:
-        ///   - interval:   The interval, in seconds, for providing rotation
-        ///                 rate measurements to the handler.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 rotation rate measurement is available.
-        ///
-        public init(interval: TimeInterval,
-                    queue: OperationQueue,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
-        }
+        case unknown
+    }
 
-        ///
-        /// The latest rotation rate measurement available.
-        ///
-        public var info: Info {
-            guard
-                let data = motionManager.gyroData
-                else { return .unknown }
+    ///
+    /// Initializes a new `GyroscopeMonitor`.
+    ///
+    /// - Parameters:
+    ///   - interval:   The interval, in seconds, for providing rotation
+    ///                 rate measurements to the handler.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 rotation rate measurement is available.
+    ///
+    public init(interval: TimeInterval,
+                queue: OperationQueue,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
 
-            return .data(data)
-        }
+    ///
+    /// The latest rotation rate measurement available.
+    ///
+    public var info: Info {
+        guard
+            let data = motionManager.gyroData
+            else { return .unknown }
 
-        ///
-        /// A Boolean value indicating whether a gyroscope is available on the
-        /// device.
-        ///
-        public var isAvailable: Bool {
-            return motionManager.isGyroAvailable
-        }
+        return .data(data)
+    }
 
-        private let handler: (Event) -> Void
-        private let interval: TimeInterval
-        private let motionManager: MotionManagerProtocol
-        private let queue: OperationQueue
+    ///
+    /// A Boolean value indicating whether a gyroscope is available on the
+    /// device.
+    ///
+    public var isAvailable: Bool {
+        return motionManager.isGyroAvailable
+    }
 
-        override public final func cleanupMonitor() {
-            motionManager.stopGyroUpdates()
+    private let handler: (Event) -> Void
+    private let interval: TimeInterval
+    private let motionManager: MotionManagerProtocol
+    private let queue: OperationQueue
 
-            super.cleanupMonitor()
-        }
+    override public func cleanupMonitor() {
+        motionManager.stopGyroUpdates()
 
-        override public final func configureMonitor() {
-            super.configureMonitor()
+        super.cleanupMonitor()
+    }
 
-            motionManager.gyroUpdateInterval = interval
+    override public func configureMonitor() {
+        super.configureMonitor()
 
-            motionManager.startGyroUpdates(to: queue) { [unowned self] data, error in
-                var info: Info
+        motionManager.gyroUpdateInterval = interval
 
-                if let error = error {
-                    info = .error(error)
-                } else if let data = data {
-                    info = .data(data)
-                } else {
-                    info = .unknown
-                }
+        motionManager.startGyroUpdates(to: queue) { [unowned self] data, error in
+            var info: Info
 
-                self.handler(.didUpdate(info))
+            if let error = error {
+                info = .error(error)
+            } else if let data = data {
+                info = .data(data)
+            } else {
+                info = .unknown
             }
-        }
 
-        // MARK: Deprecated
-
-        ///
-        /// Initializes a new `GyroscopeMonitor`.
-        ///
-        /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - interval:   The interval, in seconds, for providing rotation
-        ///                 rate measurements to the handler.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 rotation rate measurement is available.
-        ///
-        /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
-        ///
-        @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
-        public init(queue: OperationQueue,
-                    interval: TimeInterval,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
+            self.handler(.didUpdate(info))
         }
     }
+
+    // MARK: Deprecated
+
+    ///
+    /// Initializes a new `GyroscopeMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - interval:   The interval, in seconds, for providing rotation
+    ///                 rate measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 rotation rate measurement is available.
+    ///
+    /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
+    ///
+    @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
+    public init(queue: OperationQueue,
+                interval: TimeInterval,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
+}
 
 #endif

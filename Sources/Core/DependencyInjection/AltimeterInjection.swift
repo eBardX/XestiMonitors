@@ -9,21 +9,21 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
+import CoreMotion
 
-    internal protocol AltimeterProtocol: class {
-        static func isRelativeAltitudeAvailable() -> Bool
+internal protocol AltimeterProtocol: class {
+    static func isRelativeAltitudeAvailable() -> Bool
 
-        func startRelativeAltitudeUpdates(to queue: OperationQueue,
-                                          withHandler handler: @escaping CMAltitudeHandler)
+    func startRelativeAltitudeUpdates(to queue: OperationQueue,
+                                      withHandler handler: @escaping CMAltitudeHandler)
 
-        func stopRelativeAltitudeUpdates()
-    }
+    func stopRelativeAltitudeUpdates()
+}
 
-    extension CMAltimeter: AltimeterProtocol {}
+extension CMAltimeter: AltimeterProtocol {}
 
-    internal struct AltimeterInjector {
-        internal static var inject: () -> AltimeterProtocol = { return CMAltimeter() }
-    }
+internal struct AltimeterInjector {
+    internal static var inject: () -> AltimeterProtocol = { return CMAltimeter() }
+}
 
 #endif

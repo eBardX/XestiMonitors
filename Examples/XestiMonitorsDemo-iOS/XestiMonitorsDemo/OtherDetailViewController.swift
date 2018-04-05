@@ -1,6 +1,6 @@
 //
 //  OtherDetailViewController.swift
-//  XestiMonitors
+//  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-11-23.
 //

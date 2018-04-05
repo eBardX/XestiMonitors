@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'XestiMonitors'
-  s.version             = '2.6.0'
+  s.version             = '2.7.0'
   s.swift_version       = '4.0'
   s.authors             = { 'J. G. Pusey' => 'ebardx@gmail.com' }
   s.license             = { :type => 'MIT',
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 
   s.requires_arc        = true
 
-  s.ios.frameworks      = 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
-  s.osx.frameworks      = 'Foundation', 'SystemConfiguration'
-  s.tvos.frameworks     = 'Foundation', 'SystemConfiguration', 'UIKit'
-  s.watchos.frameworks  = 'CoreMotion', 'Foundation'
+  s.ios.frameworks      = 'CoreLocation', 'CoreMotion', 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.osx.frameworks      = 'CoreLocation', 'Foundation', 'SystemConfiguration'
+  s.tvos.frameworks     = 'CoreLocation', 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.watchos.frameworks  = 'CoreLocation', 'CoreMotion', 'Foundation'
 
   s.default_subspec     = 'Core'
 

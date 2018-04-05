@@ -12,6 +12,7 @@
 		ED3E1C658986CAEC2CA4904E2D8523FF /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6686FB9920C0A759BD0A7ABD66ABC739 /* ApplicationDetailViewController.swift */; };
 		23335732524A514E157682414512FFBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7480CAE2F92D9528DB49B809D477CC37 /* Assets.xcassets */; };
 		F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */; };
+		699759279CFF5C5CA0C6AA30EDCD8B12 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */; };
 		A0D7A65493AD0E2F9F20F99D8DC47941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */; };
 		78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */; };
 		C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */; };
@@ -26,6 +27,7 @@
 		3A2662E030E32BD408D4091D852D603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		996B7977F641C5B43260A498BCAE3468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
 		146D5C435C5EF80E4A3B33AD70CD99AA /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				7480CAE2F92D9528DB49B809D477CC37 /* Assets.xcassets */,
 				E2FC050D9D272F9F9583129B94FA87F5 /* Formatters.swift */,
 				996B7977F641C5B43260A498BCAE3468 /* Info.plist */,
+				3C319FA8DFDB41910F5B3482BFB776D2 /* LocationDetailViewController.swift */,
 				2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */,
 				129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */,
 				091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */,
@@ -229,6 +232,7 @@
 				025D0B955844FCF09C3B987D21161724 /* AppDelegate.swift in Sources */,
 				ED3E1C658986CAEC2CA4904E2D8523FF /* ApplicationDetailViewController.swift in Sources */,
 				F15148FC2E190DD4724011C6F92E2DAA /* Formatters.swift in Sources */,
+				699759279CFF5C5CA0C6AA30EDCD8B12 /* LocationDetailViewController.swift in Sources */,
 				78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */,
 				C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */,
 			);
@@ -312,7 +316,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -330,7 +334,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};

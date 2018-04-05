@@ -12,7 +12,7 @@ import XCTest
 @testable import XestiMonitors
 
 internal class DocumentStateMonitorTests: XCTestCase {
-    let document = MockDocument()
+    let document = UIDocument(fileURL: Bundle.main.bundleURL)
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {

@@ -13,7 +13,7 @@ import XCTest
 
 internal class PasteboardMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let pasteboard = MockPasteboard()
+    let pasteboard = UIPasteboard()
 
     override func setUp() {
         super.setUp()

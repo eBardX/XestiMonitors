@@ -13,7 +13,7 @@ import XCTest
 
 internal class ScreenBrightnessMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let screen = MockScreen()
+    let screen = UIScreen()
 
     override func setUp() {
         super.setUp()

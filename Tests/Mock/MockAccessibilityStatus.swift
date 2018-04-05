@@ -39,7 +39,7 @@ internal class MockAccessibilityStatus: AccessibilityStatusProtocol {
     #if os(iOS)
     @available(iOS 10.0, *)
     func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar {
-    return mockHearingDevicePairedEar as! UIAccessibilityHearingDeviceEar
+        return mockHearingDevicePairedEar as! UIAccessibilityHearingDeviceEar
     }
     #endif
 

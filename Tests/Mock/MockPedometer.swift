@@ -62,9 +62,7 @@ internal class MockPedometer: PedometerProtocol {
     }
 
     func updatePedometer(data: CMPedometerData?) {
-        if let handler = pedometerHandler {
-            handler(data, nil)
-        }
+        pedometerHandler?(data, nil)
     }
 
     func updatePedometer(distanceAvailable: Bool) {
@@ -72,9 +70,7 @@ internal class MockPedometer: PedometerProtocol {
     }
 
     func updatePedometer(error: Error) {
-        if let handler = pedometerHandler {
-            handler(nil, error)
-        }
+        pedometerHandler?(nil, error)
     }
 
     func updatePedometer(floorCountingAvailable: Bool) {

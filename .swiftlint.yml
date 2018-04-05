@@ -87,7 +87,8 @@ function_parameter_count:
   warning: 5
   error: 8
 identifier_name:
-  min_length: 2
+  max_length: 50
+  min_length: 1
 large_tuple:
   warning: 3
   error: 4
@@ -157,7 +158,7 @@ custom_rules:
     message: "Remove the 'return' when returning from a single line closure."
     severity: warning
   space_before_comment:
-    regex: '\n[ ]{0}[^\/ \n][^\n]*\n[ ]{0}\/\/|\n[ ]{4}[^\/ \n][^\n]*\n[ ]{4}\/\/|\n[ ]{8}[^\/ \n][^\n]*\n[ ]{8}\/\/|\n[ ]{16}[^\/ \n][^\n]*\n[ ]{16}\/\/|\n[ ]{20}[^\/ \n][^\n]*\n[ ]{20}\/\/|\n[ ]{24}[^\/ \n][^\n]*\n[ ]{24}\/\/'
+    regex: '\n[ ]{0}[^\/ \n#][^\n]*\n[ ]{0}\/\/|\n[ ]{4}[^\/ \n#][^\n]*\n[ ]{4}\/\/|\n[ ]{8}[^\/ \n#][^\n]*\n[ ]{8}\/\/|\n[ ]{16}[^\/ \n#][^\n]*\n[ ]{16}\/\/|\n[ ]{20}[^\/ \n#][^\n]*\n[ ]{20}\/\/|\n[ ]{24}[^\/ \n#][^\n]*\n[ ]{24}\/\/'
     name: "Space Before Comment"
     message: "Always put a space line before a comment line and always comment code beforehand."
     severity: warning

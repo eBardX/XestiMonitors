@@ -35,14 +35,10 @@ internal class MockAltimeter: AltimeterProtocol {
     }
 
     func updateAltimeter(data: CMAltitudeData?) {
-        if let handler = altimeterHandler {
-            handler(data, nil)
-        }
+        altimeterHandler?(data, nil)
     }
 
     func updateAltimeter(error: Error) {
-        if let handler = altimeterHandler {
-            handler(nil, error)
-        }
+        altimeterHandler?(nil, error)
     }
 }

@@ -43,9 +43,7 @@ internal class MockMotionActivityManager: MotionActivityManagerProtocol {
     }
 
     func updateMotionActivity(data: CMMotionActivity?) {
-        if let handler = motionActivityHandler {
-            handler(data)
-        }
+        motionActivityHandler?(data)
     }
 
     func updateMotionActivity(queryData: [CMMotionActivity]?) {

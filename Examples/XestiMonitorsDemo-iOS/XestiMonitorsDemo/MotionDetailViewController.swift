@@ -1,6 +1,6 @@
 //
 //  MotionDetailViewController.swift
-//  XestiMonitors
+//  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-12-18.
 //

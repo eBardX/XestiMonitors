@@ -9,57 +9,57 @@
 
 #if os(iOS) || os(tvOS)
 
-    import UIKit
+import UIKit
+
+///
+/// A `ScreenModeMonitor` instance monitors a screen for changes to its
+/// current mode.
+///
+public class ScreenModeMonitor: BaseNotificationMonitor {
+    ///
+    /// Encapsulates changes to the current mode of the screen.
+    ///
+    public enum Event {
+        ///
+        /// The current mode of the screen has changed.
+        ///
+        case didChange(UIScreen)
+    }
 
     ///
-    /// A `ScreenModeMonitor` instance monitors a screen for changes to its
-    /// current mode.
+    /// Initializes a new `ScreenModeMonitor`.
     ///
-    public class ScreenModeMonitor: BaseNotificationMonitor {
-        ///
-        /// Encapsulates changes to the current mode of the screen.
-        ///
-        public enum Event {
-            ///
-            /// The current mode of the screen has changed.
-            ///
-            case didChange(UIScreen)
-        }
+    /// - Parameters:
+    ///   - screen:     The screen to monitor.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 By default, the main operation queue is used.
+    ///   - handler:    The handler to call when the current mode of the
+    ///                 screen changes.
+    ///
+    public init(screen: UIScreen,
+                queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.screen = screen
 
-        ///
-        /// Initializes a new `ScreenModeMonitor`.
-        ///
-        /// - Parameters:
-        ///   - screen:     The screen to monitor.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the current mode of the
-        ///                 screen changes.
-        ///
-        public init(screen: UIScreen,
-                    queue: OperationQueue = .main,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.screen = screen
+        super.init(queue: queue)
+    }
 
-            super.init(queue: queue)
-        }
+    ///
+    /// The screen being monitored.
+    ///
+    public let screen: UIScreen
 
-        ///
-        /// The screen being monitored.
-        ///
-        public let screen: UIScreen
+    private let handler: (Event) -> Void
 
-        private let handler: (Event) -> Void
+    public override func addNotificationObservers() {
+        super.addNotificationObservers()
 
-        public override func addNotificationObservers() {
-            super.addNotificationObservers()
-
-            observe(.UIScreenModeDidChange, object: screen) { [unowned self] in
-                if let screen = $0.object as? UIScreen {
-                    self.handler(.didChange(screen))
-                }
+        observe(.UIScreenModeDidChange, object: screen) { [unowned self] in
+            if let screen = $0.object as? UIScreen {
+                self.handler(.didChange(screen))
             }
         }
     }
+}
 #endif

@@ -28,6 +28,15 @@ custom_categories:
       - BatteryMonitor
       - OrientationMonitor
       - ProximityMonitor
+  - name: Location Monitor Classes
+    children:
+      - BeaconRangingMonitor
+      - HeadingMonitor
+      - LocationAuthorizationMonitor
+      - RegionMonitor
+      - SignificantLocationMonitor
+      - StandardLocationMonitor
+      - VisitMonitor
   - name: Motion Monitor Classes
     children:
       - AccelerometerMonitor

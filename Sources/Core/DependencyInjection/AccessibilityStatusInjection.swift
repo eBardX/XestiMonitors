@@ -9,52 +9,52 @@
 
 #if os(iOS) || os(tvOS)
 
-    import UIKit
+import UIKit
 
-    internal protocol AccessibilityStatusProtocol: class {
-        func darkerSystemColorsEnabled() -> Bool
+internal protocol AccessibilityStatusProtocol: class {
+    func darkerSystemColorsEnabled() -> Bool
 
-        #if os(iOS)
-        @available(iOS 10.0, *)
-        func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar
-        #endif
+    #if os(iOS)
+    @available(iOS 10.0, *)
+    func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar
+    #endif
 
-        @available(iOS 10.0, tvOS 10.0, *)
-        func isAssistiveTouchRunning() -> Bool
+    @available(iOS 10.0, tvOS 10.0, *)
+    func isAssistiveTouchRunning() -> Bool
 
-        func isBoldTextEnabled() -> Bool
+    func isBoldTextEnabled() -> Bool
 
-        func isClosedCaptioningEnabled() -> Bool
+    func isClosedCaptioningEnabled() -> Bool
 
-        func isGrayscaleEnabled() -> Bool
+    func isGrayscaleEnabled() -> Bool
 
-        func isGuidedAccessEnabled() -> Bool
+    func isGuidedAccessEnabled() -> Bool
 
-        func isInvertColorsEnabled() -> Bool
+    func isInvertColorsEnabled() -> Bool
 
-        func isMonoAudioEnabled() -> Bool
+    func isMonoAudioEnabled() -> Bool
 
-        func isReduceMotionEnabled() -> Bool
+    func isReduceMotionEnabled() -> Bool
 
-        func isReduceTransparencyEnabled() -> Bool
+    func isReduceTransparencyEnabled() -> Bool
 
-        func isShakeToUndoEnabled() -> Bool
+    func isShakeToUndoEnabled() -> Bool
 
-        func isSpeakScreenEnabled() -> Bool
+    func isSpeakScreenEnabled() -> Bool
 
-        func isSpeakSelectionEnabled() -> Bool
+    func isSpeakSelectionEnabled() -> Bool
 
-        func isSwitchControlRunning() -> Bool
+    func isSwitchControlRunning() -> Bool
 
-        func isVoiceOverRunning() -> Bool
-    }
+    func isVoiceOverRunning() -> Bool
+}
 
-    extension AccessibilityStatus: AccessibilityStatusProtocol {}
+extension AccessibilityStatus: AccessibilityStatusProtocol {}
 
-    internal struct AccessibilityStatusInjector {
-        internal static var inject: () -> AccessibilityStatusProtocol = { return shared }
+internal struct AccessibilityStatusInjector {
+    internal static var inject: () -> AccessibilityStatusProtocol = { return shared }
 
-        private static let shared: AccessibilityStatusProtocol = AccessibilityStatus()
-    }
+    private static let shared: AccessibilityStatusProtocol = AccessibilityStatus()
+}
 
 #endif

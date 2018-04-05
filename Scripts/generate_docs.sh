@@ -3,7 +3,7 @@
 set -e
 
 if (( $# != 0 )); then
-echo "Usage: generate-docs.sh" 1>&2
+echo "Usage: generate_docs.sh" 1>&2
 exit 1
 fi
 

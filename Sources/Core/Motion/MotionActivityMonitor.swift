@@ -9,133 +9,133 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
-    import Foundation
+import CoreMotion
+import Foundation
+
+///
+/// A `MotionActivityMonitor` instance monitors the device for live and
+/// historic motion data. Motion data reflects whether the user is walking,
+/// running, in a vehicle, or stationary for periods of time.
+///
+public class MotionActivityMonitor: BaseMonitor {
+    ///
+    /// Encapsulates updates to and queries about the motion data.
+    ///
+    public enum Event {
+        ///
+        /// The historic motion data query has completed.
+        ///
+        case didQuery(Info)
+
+        ///
+        /// The live motion data has been updated.
+        ///
+        case didUpdate(Info)
+    }
 
     ///
-    /// A `MotionActivityMonitor` instance monitors the device for live and
-    /// historic motion data. Motion data reflects whether the user is walking,
-    /// running, in a vehicle, or stationary for periods of time.
+    /// Encapsulates the type (or types) of motion for the device.
     ///
-    public class MotionActivityMonitor: BaseMonitor {
+    public enum Info {
         ///
-        /// Encapsulates updates to and queries about the motion data.
+        /// An array of motion activity objects that define the types of
+        /// motion for the device that occurred during the queried time
+        /// period.
         ///
-        public enum Event {
-            ///
-            /// The historic motion data query has completed.
-            ///
-            case didQuery(Info)
-
-            ///
-            /// The live motion data has been updated.
-            ///
-            case didUpdate(Info)
-        }
+        case activities([CMMotionActivity])
 
         ///
-        /// Encapsulates the type (or types) of motion for the device.
+        /// The motion activity object that defines the current type of
+        /// motion for the device.
         ///
-        public enum Info {
-            ///
-            /// An array of motion activity objects that define the types of
-            /// motion for the device that occurred during the queried time
-            /// period.
-            ///
-            case activities([CMMotionActivity])
-
-            ///
-            /// The motion activity object that defines the current type of
-            /// motion for the device.
-            ///
-            case activity(CMMotionActivity)
-
-            ///
-            /// The error encountered in attempting to obtain the motion data.
-            ///
-            case error(Error)
-
-            ///
-            /// No motion data is available.
-            ///
-            case unknown
-        }
+        case activity(CMMotionActivity)
 
         ///
-        /// Initializes a new `MotionActivityMonitor`.
+        /// The error encountered in attempting to obtain the motion data.
         ///
-        /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes.
-        ///   - handler:    The handler to call when new motion data is
-        ///                 available or when a query for historical motion
-        ///                 data completes.
-        ///
-        public init(queue: OperationQueue,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.motionActivityManager = MotionActivityManagerInjector.inject()
-            self.queue = queue
-        }
+        case error(Error)
 
         ///
-        /// A Boolean value indicating whether motion data is available on the
-        /// device.
+        /// No motion data is available.
         ///
-        public var isAvailable: Bool {
-            return type(of: motionActivityManager).isActivityAvailable()
-        }
+        case unknown
+    }
 
-        ///
-        /// Retrieves historical motion data for the specified time period.
-        ///
-        /// - Parameters:
-        ///   - start:  The start time to use when gathering motion data.
-        ///   - end:    The end time to use when gathering motion data.
-        ///
-        public func query(from start: Date,
-                          to end: Date) {
-            motionActivityManager.queryActivityStarting(from: start,
-                                                        to: end,
-                                                        to: queue) { [unowned self] activities, error in
-                                                            var info: Info
+    ///
+    /// Initializes a new `MotionActivityMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes.
+    ///   - handler:    The handler to call when new motion data is
+    ///                 available or when a query for historical motion
+    ///                 data completes.
+    ///
+    public init(queue: OperationQueue,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.motionActivityManager = MotionActivityManagerInjector.inject()
+        self.queue = queue
+    }
 
-                                                            if let error = error {
-                                                                info = .error(error)
-                                                            } else if let activities = activities {
-                                                                info = .activities(activities)
-                                                            } else {
-                                                                info = .unknown
-                                                            }
+    ///
+    /// A Boolean value indicating whether motion data is available on the
+    /// device.
+    ///
+    public var isAvailable: Bool {
+        return type(of: motionActivityManager).isActivityAvailable()
+    }
 
-                                                            self.handler(.didQuery(info))
-            }
-        }
+    ///
+    /// Retrieves historical motion data for the specified time period.
+    ///
+    /// - Parameters:
+    ///   - start:  The start time to use when gathering motion data.
+    ///   - end:    The end time to use when gathering motion data.
+    ///
+    public func query(from start: Date,
+                      to end: Date) {
+        motionActivityManager.queryActivityStarting(from: start,
+                                                    to: end,
+                                                    to: queue) { [unowned self] activities, error in
+                                                        var info: Info
 
-        private let handler: (Event) -> Void
-        private let motionActivityManager: MotionActivityManagerProtocol
-        private let queue: OperationQueue
+                                                        if let error = error {
+                                                            info = .error(error)
+                                                        } else if let activities = activities {
+                                                            info = .activities(activities)
+                                                        } else {
+                                                            info = .unknown
+                                                        }
 
-        override public final func cleanupMonitor() {
-            motionActivityManager.stopActivityUpdates()
-
-            super.cleanupMonitor()
-        }
-
-        override public final func configureMonitor() {
-            super.configureMonitor()
-
-            motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
-                var info: Info
-
-                if let activity = activity {
-                    info = .activity(activity)
-                } else {
-                    info = .unknown
-                }
-
-                self.handler(.didUpdate(info))
-            }
+                                                        self.handler(.didQuery(info))
         }
     }
+
+    private let handler: (Event) -> Void
+    private let motionActivityManager: MotionActivityManagerProtocol
+    private let queue: OperationQueue
+
+    override public func cleanupMonitor() {
+        motionActivityManager.stopActivityUpdates()
+
+        super.cleanupMonitor()
+    }
+
+    override public func configureMonitor() {
+        super.configureMonitor()
+
+        motionActivityManager.startActivityUpdates(to: queue) { [unowned self] activity in
+            var info: Info
+
+            if let activity = activity {
+                info = .activity(activity)
+            } else {
+                info = .unknown
+            }
+
+            self.handler(.didUpdate(info))
+        }
+    }
+}
 
 #endif

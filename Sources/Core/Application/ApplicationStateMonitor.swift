@@ -9,207 +9,207 @@
 
 #if os(iOS) || os(tvOS)
 
-    import Foundation
-    import UIKit
+import Foundation
+import UIKit
+
+///
+/// An `ApplicationStateMonitor` instance monitors the app for changes to
+/// its runtime state.
+///
+public class ApplicationStateMonitor: BaseNotificationMonitor {
+    ///
+    /// Encapsulates changes to the runtime state of the app.
+    ///
+    public enum Event {
+        ///
+        /// The app has entered the active state.
+        ///
+        case didBecomeActive
+
+        ///
+        /// The app has entered the background state.
+        ///
+        case didEnterBackground
+
+        ///
+        /// The app has finished launching.
+        ///
+        case didFinishLaunching([AnyHashable: Any]?)
+
+        ///
+        /// The app is about to leave the background state.
+        ///
+        case willEnterForeground
+
+        ///
+        /// The app is about to leave the active state.
+        ///
+        case willResignActive
+
+        ///
+        /// The app is about to terminate.
+        ///
+        case willTerminate
+    }
 
     ///
-    /// An `ApplicationStateMonitor` instance monitors the app for changes to
-    /// its runtime state.
+    /// Specifies which events to monitor.
     ///
-    public class ApplicationStateMonitor: BaseNotificationMonitor {
+    public struct Options: OptionSet {
         ///
-        /// Encapsulates changes to the runtime state of the app.
+        /// Monitor `didBecomeActive` events.
         ///
-        public enum Event {
-            ///
-            /// The app has entered the active state.
-            ///
-            case didBecomeActive
+        public static let didBecomeActive = Options(rawValue: 1 << 0)
 
-            ///
-            /// The app has entered the background state.
-            ///
-            case didEnterBackground
+        ///
+        /// Monitor `didEnterBackground` events.
+        ///
+        public static let didEnterBackground = Options(rawValue: 1 << 1)
 
-            ///
-            /// The app has finished launching.
-            ///
-            case didFinishLaunching([AnyHashable: Any]?)
+        ///
+        /// Monitor `didFinishLaunching` events.
+        ///
+        public static let didFinishLaunching = Options(rawValue: 1 << 2)
 
-            ///
-            /// The app is about to leave the background state.
-            ///
-            case willEnterForeground
+        ///
+        /// Monitor `willEnterForeground` events.
+        ///
+        public static let willEnterForeground = Options(rawValue: 1 << 3)
 
-            ///
-            /// The app is about to leave the active state.
-            ///
-            case willResignActive
+        ///
+        /// Monitor `willResignActive` events.
+        ///
+        public static let willResignActive = Options(rawValue: 1 << 4)
 
-            ///
-            /// The app is about to terminate.
-            ///
-            case willTerminate
+        ///
+        /// Monitor `willTerminate` events.
+        ///
+        public static let willTerminate = Options(rawValue: 1 << 5)
+
+        ///
+        /// Monitor all events.
+        ///
+        public static let all: Options = [.didBecomeActive,
+                                          .didEnterBackground,
+                                          .didFinishLaunching,
+                                          .willEnterForeground,
+                                          .willResignActive,
+                                          .willTerminate]
+
+        /// :nodoc:
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
         }
 
-        ///
-        /// Specifies which events to monitor.
-        ///
-        public struct Options: OptionSet {
-            ///
-            /// Monitor `didBecomeActive` events.
-            ///
-            public static let didBecomeActive = Options(rawValue: 1 << 0)
+        /// :nodoc:
+        public let rawValue: UInt
+    }
 
-            ///
-            /// Monitor `didEnterBackground` events.
-            ///
-            public static let didEnterBackground = Options(rawValue: 1 << 1)
+    ///
+    /// Initializes a new `ApplicationStateMonitor`.
+    ///
+    /// - Parameters:
+    ///   - options:    The options that specify which events to monitor.
+    ///                 By default, all events are monitored.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 By default, the main operation queue is used.
+    ///   - handler:    The handler to call when the app changes its
+    ///                 runtime state or is about to change its runtime
+    ///                 state.
+    ///
+    public init(options: Options = .all,
+                queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.application = ApplicationInjector.inject()
+        self.handler = handler
+        self.options = options
 
-            ///
-            /// Monitor `didFinishLaunching` events.
-            ///
-            public static let didFinishLaunching = Options(rawValue: 1 << 2)
+        super.init(queue: queue)
+    }
 
-            ///
-            /// Monitor `willEnterForeground` events.
-            ///
-            public static let willEnterForeground = Options(rawValue: 1 << 3)
+    ///
+    /// The runtime state of the app.
+    ///
+    public var state: UIApplicationState {
+        return application.applicationState
+    }
 
-            ///
-            /// Monitor `willResignActive` events.
-            ///
-            public static let willResignActive = Options(rawValue: 1 << 4)
+    private let application: ApplicationProtocol
+    private let handler: (Event) -> Void
+    private let options: Options
 
-            ///
-            /// Monitor `willTerminate` events.
-            ///
-            public static let willTerminate = Options(rawValue: 1 << 5)
+    override public func addNotificationObservers() {
+        super.addNotificationObservers()
 
-            ///
-            /// Monitor all events.
-            ///
-            public static let all: Options = [.didBecomeActive,
-                                              .didEnterBackground,
-                                              .didFinishLaunching,
-                                              .willEnterForeground,
-                                              .willResignActive,
-                                              .willTerminate]
-
-            /// :nodoc:
-            public init(rawValue: UInt) {
-                self.rawValue = rawValue
-            }
-
-            /// :nodoc:
-            public let rawValue: UInt
-        }
-
-        ///
-        /// Initializes a new `ApplicationStateMonitor`.
-        ///
-        /// - Parameters:
-        ///   - options:    The options that specify which events to monitor.
-        ///                 By default, all events are monitored.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 By default, the main operation queue is used.
-        ///   - handler:    The handler to call when the app changes its
-        ///                 runtime state or is about to change its runtime
-        ///                 state.
-        ///
-        public init(options: Options = .all,
-                    queue: OperationQueue = .main,
-                    handler: @escaping (Event) -> Void) {
-            self.application = ApplicationInjector.inject()
-            self.handler = handler
-            self.options = options
-
-            super.init(queue: queue)
-        }
-
-        ///
-        /// The runtime state of the app.
-        ///
-        public var state: UIApplicationState {
-            return application.applicationState
-        }
-
-        private let application: ApplicationProtocol
-        private let handler: (Event) -> Void
-        private let options: Options
-
-        override public func addNotificationObservers() {
-            super.addNotificationObservers()
-
-            if options.contains(.didBecomeActive) {
-                observe(.UIApplicationDidBecomeActive,
-                        object: application) { [unowned self] _ in
-                    self.handler(.didBecomeActive)
-                }
-            }
-
-            if options.contains(.didEnterBackground) {
-                observe(.UIApplicationDidEnterBackground,
-                        object: application) { [unowned self] _ in
-                    self.handler(.didEnterBackground)
-                }
-            }
-
-            if options.contains(.didFinishLaunching) {
-                observe(.UIApplicationDidFinishLaunching,
-                        object: application) { [unowned self] in
-                    self.handler(.didFinishLaunching($0.userInfo))
-                }
-            }
-
-            if options.contains(.willEnterForeground) {
-                observe(.UIApplicationWillEnterForeground,
-                        object: application) { [unowned self] _ in
-                    self.handler(.willEnterForeground)
-                }
-            }
-
-            if options.contains(.willResignActive) {
-                observe(.UIApplicationWillResignActive,
-                        object: application) { [unowned self] _ in
-                    self.handler(.willResignActive)
-                }
-            }
-
-            if options.contains(.willTerminate) {
-                observe(.UIApplicationWillTerminate,
-                        object: application) { [unowned self] _ in
-                    self.handler(.willTerminate)
-                }
+        if options.contains(.didBecomeActive) {
+            observe(.UIApplicationDidBecomeActive,
+                    object: application) { [unowned self] _ in
+                        self.handler(.didBecomeActive)
             }
         }
 
-        // MARK: Deprecated
+        if options.contains(.didEnterBackground) {
+            observe(.UIApplicationDidEnterBackground,
+                    object: application) { [unowned self] _ in
+                        self.handler(.didEnterBackground)
+            }
+        }
 
-        ///
-        /// Initializes a new `ApplicationStateMonitor`.
-        ///
-        /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 By default, the main operation queue is used.
-        ///   - options:    The options that specify which events to monitor.
-        ///                 By default, all events are monitored.
-        ///   - handler:    The handler to call when the app changes its
-        ///                 runtime state or is about to change its runtime
-        ///                 state.
-        ///
-        /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
-        ///
-        @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
-        public init(queue: OperationQueue = .main,
-                    options: Options = .all,
-                    handler: @escaping (Event) -> Void) {
-            self.application = ApplicationInjector.inject()
-            self.handler = handler
-            self.options = options
+        if options.contains(.didFinishLaunching) {
+            observe(.UIApplicationDidFinishLaunching,
+                    object: application) { [unowned self] in
+                        self.handler(.didFinishLaunching($0.userInfo))
+            }
+        }
 
-            super.init(queue: queue)
+        if options.contains(.willEnterForeground) {
+            observe(.UIApplicationWillEnterForeground,
+                    object: application) { [unowned self] _ in
+                        self.handler(.willEnterForeground)
+            }
+        }
+
+        if options.contains(.willResignActive) {
+            observe(.UIApplicationWillResignActive,
+                    object: application) { [unowned self] _ in
+                        self.handler(.willResignActive)
+            }
+        }
+
+        if options.contains(.willTerminate) {
+            observe(.UIApplicationWillTerminate,
+                    object: application) { [unowned self] _ in
+                        self.handler(.willTerminate)
+            }
         }
     }
+
+    // MARK: Deprecated
+
+    ///
+    /// Initializes a new `ApplicationStateMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 By default, the main operation queue is used.
+    ///   - options:    The options that specify which events to monitor.
+    ///                 By default, all events are monitored.
+    ///   - handler:    The handler to call when the app changes its
+    ///                 runtime state or is about to change its runtime
+    ///                 state.
+    ///
+    /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
+    ///
+    @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
+    public init(queue: OperationQueue = .main,
+                options: Options = .all,
+                handler: @escaping (Event) -> Void) {
+        self.application = ApplicationInjector.inject()
+        self.handler = handler
+        self.options = options
+
+        super.init(queue: queue)
+    }
+}
 
 #endif

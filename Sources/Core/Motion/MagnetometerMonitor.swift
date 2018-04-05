@@ -9,144 +9,144 @@
 
 #if os(iOS) || os(watchOS)
 
-    import CoreMotion
-    import Foundation
+import CoreMotion
+import Foundation
+
+///
+/// A `MagnetometerMonitor` instance monitors the device’s magnetometer for
+/// periodic raw measurements of the magnetic field around the three
+/// spatial axes.
+///
+public class MagnetometerMonitor: BaseMonitor {
+    ///
+    /// Encapsulates updates to the measurement of the magnetic field
+    /// around the three spatial axes.
+    ///
+    public enum Event {
+        ///
+        /// The magnetic field measurement has been updated.
+        ///
+        case didUpdate(Info)
+    }
 
     ///
-    /// A `MagnetometerMonitor` instance monitors the device’s magnetometer for
-    /// periodic raw measurements of the magnetic field around the three
+    /// Encapsulates the measurement of the magnetic field around the three
     /// spatial axes.
     ///
-    public class MagnetometerMonitor: BaseMonitor {
+    public enum Info {
         ///
-        /// Encapsulates updates to the measurement of the magnetic field
-        /// around the three spatial axes.
+        /// The magnetic field measurement.
         ///
-        public enum Event {
-            ///
-            /// The magnetic field measurement has been updated.
-            ///
-            case didUpdate(Info)
-        }
+        case data(CMMagnetometerData)
 
         ///
-        /// Encapsulates the measurement of the magnetic field around the three
-        /// spatial axes.
+        /// The error encountered in attempting to obtain the magnetic
+        /// field measurement.
         ///
-        public enum Info {
-            ///
-            /// The magnetic field measurement.
-            ///
-            case data(CMMagnetometerData)
-
-            ///
-            /// The error encountered in attempting to obtain the magnetic
-            /// field measurement.
-            ///
-            case error(Error)
-
-            ///
-            /// No magnetic field measurement is available.
-            ///
-            case unknown
-        }
+        case error(Error)
 
         ///
-        /// Initializes a new `MagnetometerMonitor`.
+        /// No magnetic field measurement is available.
         ///
-        /// - Parameters:
-        ///   - interval:   The interval, in seconds, for providing magnetic
-        ///                 field measurements to the handler.
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 magnetic field measurement is available.
-        ///
-        public init(interval: TimeInterval,
-                    queue: OperationQueue,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
-        }
+        case unknown
+    }
 
-        ///
-        /// The latest magnetic field measurement available.
-        ///
-        public var info: Info {
-            guard
-                let data = motionManager.magnetometerData
-                else { return .unknown }
+    ///
+    /// Initializes a new `MagnetometerMonitor`.
+    ///
+    /// - Parameters:
+    ///   - interval:   The interval, in seconds, for providing magnetic
+    ///                 field measurements to the handler.
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 magnetic field measurement is available.
+    ///
+    public init(interval: TimeInterval,
+                queue: OperationQueue,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
 
-            return .data(data)
-        }
+    ///
+    /// The latest magnetic field measurement available.
+    ///
+    public var info: Info {
+        guard
+            let data = motionManager.magnetometerData
+            else { return .unknown }
 
-        ///
-        /// A Boolean value indicating whether a magnetometer is available on
-        /// the device.
-        ///
-        public var isAvailable: Bool {
-            return motionManager.isMagnetometerAvailable
-        }
+        return .data(data)
+    }
 
-        private let handler: (Event) -> Void
-        private let interval: TimeInterval
-        private let motionManager: MotionManagerProtocol
-        private let queue: OperationQueue
+    ///
+    /// A Boolean value indicating whether a magnetometer is available on
+    /// the device.
+    ///
+    public var isAvailable: Bool {
+        return motionManager.isMagnetometerAvailable
+    }
 
-        override public final func cleanupMonitor() {
-            motionManager.stopMagnetometerUpdates()
+    private let handler: (Event) -> Void
+    private let interval: TimeInterval
+    private let motionManager: MotionManagerProtocol
+    private let queue: OperationQueue
 
-            super.cleanupMonitor()
-        }
+    override public func cleanupMonitor() {
+        motionManager.stopMagnetometerUpdates()
 
-        override public final func configureMonitor() {
-            super.configureMonitor()
+        super.cleanupMonitor()
+    }
 
-            motionManager.magnetometerUpdateInterval = interval
+    override public func configureMonitor() {
+        super.configureMonitor()
 
-            motionManager.startMagnetometerUpdates(to: queue) { [unowned self] data, error in
-                var info: Info
+        motionManager.magnetometerUpdateInterval = interval
 
-                if let error = error {
-                    info = .error(error)
-                } else if let data = data {
-                    info = .data(data)
-                } else {
-                    info = .unknown
-                }
+        motionManager.startMagnetometerUpdates(to: queue) { [unowned self] data, error in
+            var info: Info
 
-                self.handler(.didUpdate(info))
+            if let error = error {
+                info = .error(error)
+            } else if let data = data {
+                info = .data(data)
+            } else {
+                info = .unknown
             }
-        }
 
-        // MARK: Deprecated
-
-        ///
-        /// Initializes a new `MagnetometerMonitor`.
-        ///
-        /// - Parameters:
-        ///   - queue:      The operation queue on which the handler executes.
-        ///                 Because the events might arrive at a high rate,
-        ///                 using the main operation queue is not recommended.
-        ///   - interval:   The interval, in seconds, for providing magnetic
-        ///                 field measurements to the handler.
-        ///   - handler:    The handler to call periodically when a new
-        ///                 magnetic field measurement is available.
-        ///
-        /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
-        ///
-        @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
-        public init(queue: OperationQueue,
-                    interval: TimeInterval,
-                    handler: @escaping (Event) -> Void) {
-            self.handler = handler
-            self.interval = interval
-            self.motionManager = MotionManagerInjector.inject()
-            self.queue = queue
+            self.handler(.didUpdate(info))
         }
     }
+
+    // MARK: Deprecated
+
+    ///
+    /// Initializes a new `MagnetometerMonitor`.
+    ///
+    /// - Parameters:
+    ///   - queue:      The operation queue on which the handler executes.
+    ///                 Because the events might arrive at a high rate,
+    ///                 using the main operation queue is not recommended.
+    ///   - interval:   The interval, in seconds, for providing magnetic
+    ///                 field measurements to the handler.
+    ///   - handler:    The handler to call periodically when a new
+    ///                 magnetic field measurement is available.
+    ///
+    /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
+    ///
+    @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
+    public init(queue: OperationQueue,
+                interval: TimeInterval,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.interval = interval
+        self.motionManager = MotionManagerInjector.inject()
+        self.queue = queue
+    }
+}
 
 #endif

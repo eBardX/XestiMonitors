@@ -9,30 +9,30 @@
 
 #if os(iOS)
 
-    import UIKit
+import UIKit
 
-    internal protocol DeviceProtocol: class {
-        var batteryLevel: Float { get }
+internal protocol DeviceProtocol: class {
+    var batteryLevel: Float { get }
 
-        var batteryState: UIDeviceBatteryState { get }
+    var batteryState: UIDeviceBatteryState { get }
 
-        var isBatteryMonitoringEnabled: Bool { get set }
+    var isBatteryMonitoringEnabled: Bool { get set }
 
-        var isProximityMonitoringEnabled: Bool { get set }
+    var isProximityMonitoringEnabled: Bool { get set }
 
-        var orientation: UIDeviceOrientation { get }
+    var orientation: UIDeviceOrientation { get }
 
-        var proximityState: Bool { get }
+    var proximityState: Bool { get }
 
-        func beginGeneratingDeviceOrientationNotifications()
+    func beginGeneratingDeviceOrientationNotifications()
 
-        func endGeneratingDeviceOrientationNotifications()
-    }
+    func endGeneratingDeviceOrientationNotifications()
+}
 
-    extension UIDevice: DeviceProtocol {}
+extension UIDevice: DeviceProtocol {}
 
-    internal struct DeviceInjector {
-        internal static var inject: () -> DeviceProtocol = { return UIDevice.current }
-    }
+internal struct DeviceInjector {
+    internal static var inject: () -> DeviceProtocol = { return UIDevice.current }
+}
 
 #endif

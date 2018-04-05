@@ -87,17 +87,13 @@ internal class MockMotionManager: MotionManagerProtocol {
     func updateAccelerometer(data: CMAccelerometerData?) {
         accelerometerData = data
 
-        if let handler = accelerometerHandler {
-            handler(data, nil)
-        }
+        accelerometerHandler?(data, nil)
     }
 
     func updateAccelerometer(error: Error) {
         accelerometerData = nil
 
-        if let handler = accelerometerHandler {
-            handler(nil, error)
-        }
+        accelerometerHandler?(nil, error)
     }
 
     func updateDeviceMotion(available: Bool) {
@@ -107,17 +103,13 @@ internal class MockMotionManager: MotionManagerProtocol {
     func updateDeviceMotion(data: CMDeviceMotion?) {
         deviceMotion = data
 
-        if let handler = deviceMotionHandler {
-            handler(data, nil)
-        }
+        deviceMotionHandler?(data, nil)
     }
 
     func updateDeviceMotion(error: Error) {
         deviceMotion = nil
 
-        if let handler = deviceMotionHandler {
-            handler(nil, error)
-        }
+        deviceMotionHandler?(nil, error)
     }
 
     func updateGyroscope(available: Bool) {
@@ -127,17 +119,13 @@ internal class MockMotionManager: MotionManagerProtocol {
     func updateGyroscope(data: CMGyroData?) {
         gyroData = data
 
-        if let handler = gyroscopeHandler {
-            handler(data, nil)
-        }
+        gyroscopeHandler?(data, nil)
     }
 
     func updateGyroscope(error: Error) {
         gyroData = nil
 
-        if let handler = gyroscopeHandler {
-            handler(nil, error)
-        }
+        gyroscopeHandler?(nil, error)
     }
 
     func updateMagnetometer(available: Bool) {
@@ -147,16 +135,12 @@ internal class MockMotionManager: MotionManagerProtocol {
     func updateMagnetometer(data: CMMagnetometerData?) {
         magnetometerData = data
 
-        if let handler = magnetometerHandler {
-            handler(data, nil)
-        }
+        magnetometerHandler?(data, nil)
     }
 
     func updateMagnetometer(error: Error) {
         magnetometerData = nil
 
-        if let handler = magnetometerHandler {
-            handler(nil, error)
-        }
+        magnetometerHandler?(nil, error)
     }
 }
