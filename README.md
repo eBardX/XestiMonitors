@@ -655,7 +655,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
-[text_field_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
+[text_field_text_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
