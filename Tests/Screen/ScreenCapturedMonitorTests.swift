@@ -1,6 +1,6 @@
 //
 //  ScreenCapturedMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Paul Nyondo on 2018-04-06.
 //
@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
+// swiftlint:disable explicit_top_level_acl
+
 @available(iOS 11.0, tvOS 11.0, *)
 internal class ScreenCapturedMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
@@ -18,9 +20,8 @@ internal class ScreenCapturedMonitorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        NotificationCenterInjector.inject = {
-            return self.notificationCenter
-        }
+
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_didChange() {

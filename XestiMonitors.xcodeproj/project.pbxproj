@@ -294,8 +294,10 @@
 		6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
 		039333D29AD767EC0785358011057D95 /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
 		5B2C6D06180FE3A2044EB2276F413AA2 /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
-		ADD4672F2C13702977616C285BC1F1AF /* ScreenCapturedMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76573264DB084CF868389A8AA751C8C1 /* ScreenCapturedMonitorTests.swift */; };
+		5EF1E574BCB97D9EAFD6E346EFE7F37E /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
+		A153C92B65C725B4645C25B9C5A8E2A8 /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
 		5A25E1AF661912B3FC55C8977AC01F7C /* ScreenCapturedMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76573264DB084CF868389A8AA751C8C1 /* ScreenCapturedMonitorTests.swift */; };
+		ADD4672F2C13702977616C285BC1F1AF /* ScreenCapturedMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76573264DB084CF868389A8AA751C8C1 /* ScreenCapturedMonitorTests.swift */; };
 		11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
@@ -1402,6 +1404,7 @@
 				163BA0614767E73B5F0AAC937C6612FF /* ProximityMonitor.swift in Sources */,
 				8B496A195346A0273D59994E79C45C90 /* RegionMonitor.swift in Sources */,
 				1AC08F9350E3F797362AF49AC3BCF452 /* ScreenBrightnessMonitor.swift in Sources */,
+				A153C92B65C725B4645C25B9C5A8E2A8 /* ScreenCapturedMonitor.swift in Sources */,
 				5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */,
 				B864D4B65AD338A64BA35D25F9933178 /* ScreenshotMonitor.swift in Sources */,
 				C96351C75B0A4704EFD36D8B621A3BAE /* SignificantLocationMonitor.swift in Sources */,
@@ -1722,6 +1725,7 @@
 				40D42BD871C55E0B39DC37BBED16123E /* ProximityMonitor.swift in Sources */,
 				A7B34CD6776FDD16DF96A2DA50CC5072 /* RegionMonitor.swift in Sources */,
 				371149974AD77D4DE413A4CAA41EB50C /* ScreenBrightnessMonitor.swift in Sources */,
+				5EF1E574BCB97D9EAFD6E346EFE7F37E /* ScreenCapturedMonitor.swift in Sources */,
 				DD647CEA2BD436F6E5B5B3301AEA8D32 /* ScreenModeMonitor.swift in Sources */,
 				DA74B3F921C11F0AA258FFB92FB6C7D1 /* ScreenshotMonitor.swift in Sources */,
 				CBC1137123C64CFE752DF2EE01111AD3 /* SignificantLocationMonitor.swift in Sources */,

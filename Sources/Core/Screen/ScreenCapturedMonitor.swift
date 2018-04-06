@@ -9,11 +9,11 @@
 
 #if os(iOS) || os(tvOS)
 
-    import UIKit
+import UIKit
 
 ///
-/// A `ScreenCapturedMonitor` instance monitors a screen for changes to
-/// its captured status.
+/// A `ScreenCapturedMonitor` instance monitors a screen for changes to its
+/// captured status.
 ///
 @available(iOS 11.0, tvOS 11.0, *)
 public class ScreenCapturedMonitor: BaseNotificationMonitor {
@@ -34,14 +34,14 @@ public class ScreenCapturedMonitor: BaseNotificationMonitor {
     ///   - screen:     The screen to monitor.
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the captured status of
-    ///                 the screen changes.
+    ///   - handler:    The handler to call when the captured status of the
+    ///                 screen changes.
     ///
     public init(screen: UIScreen,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.screen = screen
         self.handler = handler
+        self.screen = screen
 
         super.init(queue: queue)
     }
