@@ -1,6 +1,6 @@
 //
 //  WindowMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Martin Mungai on 2018-03-20.
 //

@@ -12,6 +12,7 @@ import XCTest
 @testable import XestiMonitors
 
 // swiftlint:disable file_length type_body_length
+
 internal class AccessibilityStatusMonitorTests: XCTestCase {
     let accessibilityStatus = MockAccessibilityStatus()
     let notificationCenter = MockNotificationCenter()
@@ -705,3 +706,5 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         }
     }
 }
+
+// swiftlint:enable file_length type_body_length

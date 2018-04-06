@@ -126,38 +126,6 @@ public class DeviceMotionMonitor: BaseMonitor {
                                                 self.handler(.didUpdate(info))
         }
     }
-
-    // MARK: Deprecated
-
-    ///
-    /// Initializes a new `DeviceMotionMonitor`.
-    ///
-    /// - Parameters:
-    ///   - queue:          The operation queue on which the handler
-    ///                     executes. Because the events might arrive at a
-    ///                     high rate, using the main operation queue is
-    ///                     not recommended.
-    ///   - interval:       The interval, in seconds, for providing device
-    ///                     motion measurements to the handler.
-    ///   - referenceFrame: The reference frame to use for device motion
-    ///                     measurements.
-    ///   - handler:        The handler to call periodically when a new
-    ///                     device motion measurement is available.
-    ///
-    /// - Warning:  Deprecated. Use `init(interval:using:queue:handler)`
-    ///             instead.
-    ///
-    @available(*, deprecated, message: "Use `init(interval:using:queue:handler)` instead.")
-    public init(queue: OperationQueue,
-                interval: TimeInterval,
-                using referenceFrame: CMAttitudeReferenceFrame,
-                handler: @escaping (Event) -> Void) {
-        self.handler = handler
-        self.interval = interval
-        self.motionManager = MotionManagerInjector.inject()
-        self.queue = queue
-        self.referenceFrame = referenceFrame
-    }
 }
 
 #endif

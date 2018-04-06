@@ -121,32 +121,6 @@ public class GyroscopeMonitor: BaseMonitor {
             self.handler(.didUpdate(info))
         }
     }
-
-    // MARK: Deprecated
-
-    ///
-    /// Initializes a new `GyroscopeMonitor`.
-    ///
-    /// - Parameters:
-    ///   - queue:      The operation queue on which the handler executes.
-    ///                 Because the events might arrive at a high rate,
-    ///                 using the main operation queue is not recommended.
-    ///   - interval:   The interval, in seconds, for providing rotation
-    ///                 rate measurements to the handler.
-    ///   - handler:    The handler to call periodically when a new
-    ///                 rotation rate measurement is available.
-    ///
-    /// - Warning:  Deprecated. Use `init(interval:queue:handler)` instead.
-    ///
-    @available(*, deprecated, message: "Use `init(interval:queue:handler)` instead.")
-    public init(queue: OperationQueue,
-                interval: TimeInterval,
-                handler: @escaping (Event) -> Void) {
-        self.handler = handler
-        self.interval = interval
-        self.motionManager = MotionManagerInjector.inject()
-        self.queue = queue
-    }
 }
 
 #endif
