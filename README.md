@@ -94,6 +94,7 @@ provides “wrappers” around many `UIKit` notifications:
 * **Screen-related**
 
     * `UIScreenBrightnessDidChange`
+    * `UIScreenCapturedDidChange`
     * `UIScreenModeDidChange`
 
     See [Screen Monitors](#screen_monitors) for details.
@@ -353,11 +354,13 @@ processed motion measurements from the device:
 
 ### <a name="screen_monitors">Screen Monitors</a>
 
-XestiMonitors provides two monitor classes *(with more to come)* that you can
-use to detect changes in the properties associated with a screen:
+XestiMonitors provides three monitor classes that you can use to detect changes
+in the properties associated with a screen:
 
 * [ScreenBrightnessMonitor][screen_brightness_monitor] to monitor a screen for
   changes to its brightness level. *(iOS)*
+* [ScreenCapturedMonitor][screen_captured_monitor] to monitor a screen for
+  changes to its captured status. *(iOS, tvOS)*
 * [ScreenModeMonitor][screen_mode_monitor] to monitor a screen for changes to
   its current mode. *(iOS, tvOS)*
 
@@ -645,6 +648,7 @@ XestiMonitors is available under [the MIT license][license].
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
 [region_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
 [screen_brightness_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
+[screen_captured_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html
 [screen_mode_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
