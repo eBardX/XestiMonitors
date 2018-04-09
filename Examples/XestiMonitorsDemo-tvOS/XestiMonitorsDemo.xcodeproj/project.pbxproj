@@ -17,6 +17,7 @@
 		78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */; };
 		C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */; };
 		91F28858E31923ED9C160A865BF3A277 /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */; };
+		8A6F112FCA539DEEBA2BD5D3AB57D2F6 /* TextDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		146D5C435C5EF80E4A3B33AD70CD99AA /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6DD4E577B466C769847B43EB9039E6CF /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailViewController.swift; sourceTree = "<group>"; };
 		92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				2AD0226A9C6446EDC8243E944E8D5A80 /* Main.storyboard */,
 				129A1F7B59643EE023BDD2C0445E4236 /* MasterViewController.swift */,
 				091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */,
+				7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */,
 			);
 			path = XestiMonitorsDemo;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				699759279CFF5C5CA0C6AA30EDCD8B12 /* LocationDetailViewController.swift in Sources */,
 				78D035EA283D48BB3FD29294C8F0C5F6 /* MasterViewController.swift in Sources */,
 				C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */,
+				8A6F112FCA539DEEBA2BD5D3AB57D2F6 /* TextDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

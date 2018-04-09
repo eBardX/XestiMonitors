@@ -184,7 +184,7 @@ public class AccessibilityDetailViewController: UITableViewController {
         }
     }
 
-    @IBAction private func announcementButtonTapped() {
+    @IBAction private func announcementButtonPressed() {
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -213,5 +213,18 @@ public class AccessibilityDetailViewController: UITableViewController {
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
+    }
+
+    // MARK: - UITableViewDelegate
+
+    override public func tableView(_ tableView: UITableView,
+                                   canFocusRowAt indexPath: IndexPath) -> Bool {
+        if let cell = tableView.cellForRow(at: indexPath),
+            let abSuperview = announcementButton?.superview,
+            cell.contentView == abSuperview {
+            return false
+        }
+
+        return true
     }
 }

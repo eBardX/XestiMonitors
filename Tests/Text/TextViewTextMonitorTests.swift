@@ -1,8 +1,8 @@
 //
-//  TextFieldTextMonitorTests.swift
-//  XestiMonitors
+//  TextViewTextMonitorTests.swift
+//  XestiMonitorsTests
 //
-//  Created by Angie Mugo on 2018-04-04.
+//  Created by kayeli dennis on 2018-03-27.
 //
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
@@ -11,9 +11,9 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
-internal class TextFieldTextMonitorTests: XCTestCase {
+internal class TextViewTextMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let textField = UITextField()
+    let textView = UITextView()
 
     override func setUp() {
         super.setUp()
@@ -23,10 +23,10 @@ internal class TextFieldTextMonitorTests: XCTestCase {
 
     func testMonitor_didBeginEditing() {
         let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: TextFieldTextMonitor.Event?
-        let monitor = TextFieldTextMonitor(textField: self.textField,
-                                           options: .didBeginEditing,
-                                           queue: .main) { event in
+        var expectedEvent: TextViewTextMonitor.Event?
+        let monitor = TextViewTextMonitor(textView: self.textView,
+                                          options: .didBeginEditing,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -37,19 +37,19 @@ internal class TextFieldTextMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didBeginEditing(view) = event {
-            XCTAssertEqual(view, textField)
+            case let .didBeginEditing(test) = event {
+            XCTAssertEqual(test, textView)
         } else {
-            XCTFail("Unexpected event")
+            XCTFail("Unexpected Event")
         }
     }
 
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: TextFieldTextMonitor.Event?
-        let monitor = TextFieldTextMonitor(textField: self.textField,
-                                           options: .didChange,
-                                           queue: .main) { event in
+        var expectedEvent: TextViewTextMonitor.Event?
+        let monitor = TextViewTextMonitor(textView: self.textView,
+                                          options: .didChange,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -61,18 +61,18 @@ internal class TextFieldTextMonitorTests: XCTestCase {
 
         if let event = expectedEvent,
             case let .didChange(view) = event {
-            XCTAssertEqual(view, textField)
+            XCTAssertEqual(view, textView)
         } else {
-            XCTFail("Unexpected event")
+            XCTFail("Unexpected Event")
         }
     }
 
     func testMonitor_didEndEditing() {
         let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: TextFieldTextMonitor.Event?
-        let monitor = TextFieldTextMonitor(textField: textField,
-                                           options: .didEndEditing,
-                                           queue: .main) { event in
+        var expectedEvent: TextViewTextMonitor.Event?
+        let monitor = TextViewTextMonitor(textView: self.textView,
+                                          options: .didEndEditing,
+                                          queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -84,24 +84,24 @@ internal class TextFieldTextMonitorTests: XCTestCase {
 
         if let event = expectedEvent,
             case let .didEndEditing(view) = event {
-            XCTAssertEqual(view, textField)
+            XCTAssertEqual(view, textView)
         } else {
-            XCTFail("Unexpected event")
+            XCTFail("Unexpected Event")
         }
     }
 
     private func simulateDidBeginEditing() {
-        notificationCenter.post(name: .UITextFieldTextDidBeginEditing,
-                                object: textField)
+        notificationCenter.post(name: .UITextViewTextDidBeginEditing,
+                                object: textView)
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UITextFieldTextDidChange,
-                                object: textField)
+        notificationCenter.post(name: .UITextViewTextDidChange,
+                                object: textView)
     }
 
     private func simulateDidEndEditing() {
-        notificationCenter.post(name: .UITextFieldTextDidEndEditing,
-                                object: textField)
+        notificationCenter.post(name: .UITextViewTextDidEndEditing,
+                                object: textView)
     }
 }

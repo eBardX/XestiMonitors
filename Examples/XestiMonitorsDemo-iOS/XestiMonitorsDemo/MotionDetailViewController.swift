@@ -83,13 +83,13 @@ public class MotionDetailViewController: UITableViewController {
         self.displayPedometer($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.accelerometerMonitor,
-                                            self.altimeterMonitor,
-                                            self.deviceMotionMonitor,
-                                            self.gyroscopeMonitor,
-                                            self.magnetometerMonitor,
-                                            self.motionActivityMonitor,
-                                            self.pedometerMonitor]
+    private lazy var monitors: [Monitor] = [accelerometerMonitor,
+                                            altimeterMonitor,
+                                            deviceMotionMonitor,
+                                            gyroscopeMonitor,
+                                            magnetometerMonitor,
+                                            motionActivityMonitor,
+                                            pedometerMonitor]
 
     // MARK: Private Instance Methods
 

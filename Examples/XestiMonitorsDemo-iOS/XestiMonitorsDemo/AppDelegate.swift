@@ -21,7 +21,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
     public func application(_ application: UIApplication,
                             didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard
-            let svc = self.window?.rootViewController as? UISplitViewController
+            let svc = window?.rootViewController as? UISplitViewController
             else { return false }
 
         svc.delegate = self

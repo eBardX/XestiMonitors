@@ -51,6 +51,11 @@ custom_categories:
       - ScreenBrightnessMonitor
       - ScreenCapturedMonitor
       - ScreenModeMonitor
+  - name: Text Monitor Classes
+    children:
+      - TextFieldTextMonitor
+      - TextInputModeMonitor
+      - TextViewTextMonitor
   - name: Other Monitor Classes
     children:
       - DocumentStateMonitor
@@ -59,8 +64,6 @@ custom_categories:
       - MetadataQueryMonitor
       - NetworkReachabilityMonitor
       - PasteboardMonitor
-      - TextFieldTextMonitor
-      - TextViewTextMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - WindowMonitor
