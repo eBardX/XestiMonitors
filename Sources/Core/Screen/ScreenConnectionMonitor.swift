@@ -12,25 +12,23 @@
 import UIKit
 
 ///
-/// A `ScreenConnectionMonitor` instance monitors a device for when a new
-/// screen is connected or disconnected
+/// A `ScreenConnectionMonitor` instance monitors the device for screen
+/// connections and disconnections.
 ///
 public class ScreenConnectionMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes when a user connects or disconnects
-    /// a screen
+    /// Encapsulates screen connections to or screen disconnections from the
+    /// device.
     ///
     public enum Event {
         ///
-        /// A new screen is connected to the device.
+        /// A new screen has been connected to the device.
         ///
-
         case didConnect(UIScreen)
 
         ///
-        /// The screen is disconnected from the device.
+        /// A screen has been disconnected from the device.
         ///
-
         case didDisconnect(UIScreen)
     }
 
@@ -46,7 +44,6 @@ public class ScreenConnectionMonitor: BaseNotificationMonitor {
         ///
         /// Monitor `didDisconnect` events.
         ///
-
         public static let didDisconnect = Options(rawValue: 1 << 1)
 
         ///
@@ -70,8 +67,8 @@ public class ScreenConnectionMonitor: BaseNotificationMonitor {
     ///   - options:    The options that specify which events to monitor.
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the user connects or
-    ///                 disconnects a screen.
+    ///   - handler:    The handler to call when a screen is connected to or
+    ///                 disconnected from the device.
     ///
     public init(options: Options = .all,
                 queue: OperationQueue = .main,
