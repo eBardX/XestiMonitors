@@ -17,7 +17,7 @@ public class DeviceDetailViewController: UITableViewController {
 
     private lazy var batteryMonitor = BatteryMonitor(options: .all,
                                                      queue: .main) { [unowned self] in
-        self.displayBattery($0)
+                                                        self.displayBattery($0)
     }
 
     private lazy var orientationMonitor = OrientationMonitor(queue: .main) { [unowned self] in
@@ -28,9 +28,9 @@ public class DeviceDetailViewController: UITableViewController {
         self.displayProximity($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.batteryMonitor,
-                                            self.orientationMonitor,
-                                            self.proximityMonitor]
+    private lazy var monitors: [Monitor] = [batteryMonitor,
+                                            orientationMonitor,
+                                            proximityMonitor]
 
     // MARK: Private Instance Methods
 

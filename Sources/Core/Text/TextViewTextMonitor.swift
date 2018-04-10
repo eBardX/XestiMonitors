@@ -88,9 +88,9 @@ public class TextViewTextMonitor: BaseNotificationMonitor {
                 options: Options = .all,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.textView = textView
-        self.options = options
         self.handler = handler
+        self.options = options
+        self.textView = textView
 
         super.init(queue: queue)
     }

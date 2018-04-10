@@ -7,7 +7,7 @@
 //  © 2018 J. G. Pusey (see LICENSE.md).
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 
 import UIKit
 

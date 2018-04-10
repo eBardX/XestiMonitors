@@ -84,13 +84,13 @@ public class LocationDetailViewController: UITableViewController {
         self.displayVisit($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.beaconRangingMonitor,
-                                            self.headingMonitor,
-                                            self.locationAuthorizationMonitor,
-                                            self.regionMonitor,
-                                            self.significantLocationMonitor,
-                                            self.standardLocationMonitor,
-                                            self.visitMonitor]
+    private lazy var monitors: [Monitor] = [beaconRangingMonitor,
+                                            headingMonitor,
+                                            locationAuthorizationMonitor,
+                                            regionMonitor,
+                                            significantLocationMonitor,
+                                            standardLocationMonitor,
+                                            visitMonitor]
 
     // MARK: Private Instance Methods
 

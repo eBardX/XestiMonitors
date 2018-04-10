@@ -114,34 +114,6 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
             }
         }
     }
-
-    // MARK: Deprecated
-
-    ///
-    /// Initializes a new `ProtectedDataMonitor`.
-    ///
-    /// - Parameters:
-    ///   - queue:      The operation queue on which the handler executes.
-    ///                 By default, the main operation queue is used.
-    ///   - options:    The options that specify which events to monitor.
-    ///                 By default, all events are monitored.
-    ///   - handler:    The handler to call when protected files become
-    ///                 available for your code to access, or shortly
-    ///                 before protected files are locked down and become
-    ///                 inaccessible.
-    ///
-    /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
-    ///
-    @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
-    public init(queue: OperationQueue = .main,
-                options: Options = .all,
-                handler: @escaping (Event) -> Void) {
-        self.application = ApplicationInjector.inject()
-        self.handler = handler
-        self.options = options
-
-        super.init(queue: queue)
-    }
 }
 
 #endif

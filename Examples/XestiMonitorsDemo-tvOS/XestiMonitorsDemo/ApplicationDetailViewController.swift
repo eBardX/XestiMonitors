@@ -122,7 +122,7 @@ public class ApplicationDetailViewController: UITableViewController {
         timeLabel.text = formatInteger(timeCount)
     }
 
-    @IBAction private func memoryButtonTapped() {
+    @IBAction private func memoryButtonPressed() {
         UIControl().sendAction(Selector(("_performMemoryWarning")),
                                to: UIApplication.shared,
                                for: nil)
@@ -150,5 +150,18 @@ public class ApplicationDetailViewController: UITableViewController {
         monitors.forEach { $0.stopMonitoring() }
 
         super.viewWillDisappear(animated)
+    }
+
+    // MARK: - UITableViewDelegate
+
+    override public func tableView(_ tableView: UITableView,
+                                   canFocusRowAt indexPath: IndexPath) -> Bool {
+        if let cell = tableView.cellForRow(at: indexPath),
+            let mbSuperview = memoryButton?.superview,
+            cell.contentView == mbSuperview {
+            return false
+        }
+
+        return true
     }
 }

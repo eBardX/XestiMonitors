@@ -27,7 +27,7 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private lazy var applicationStateMonitor = ApplicationStateMonitor(options: .all,
                                                                        queue: .main) { [unowned self] in
-        self.displayApplicationState($0)
+                                                                        self.displayApplicationState($0)
     }
 
     private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor(queue: .main) { [unowned self] in
@@ -40,7 +40,7 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private lazy var protectedDataMonitor = ProtectedDataMonitor(options: .all,
                                                                  queue: .main) { [unowned self] in
-        self.displayProtectedData($0)
+                                                                    self.displayProtectedData($0)
     }
 
     private lazy var screenshotMonitor = ScreenshotMonitor(queue: .main) { [unowned self] in
@@ -49,20 +49,20 @@ public class ApplicationDetailViewController: UITableViewController {
 
     private lazy var statusBarMonitor = StatusBarMonitor(options: .all,
                                                          queue: .main) { [unowned self] in
-        self.displayStatusBar($0)
+                                                            self.displayStatusBar($0)
     }
 
     private lazy var timeMonitor = TimeMonitor(queue: .main) { [unowned self] in
         self.displayTime($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.applicationStateMonitor,
-                                            self.backgroundRefreshMonitor,
-                                            self.memoryMonitor,
-                                            self.protectedDataMonitor,
-                                            self.screenshotMonitor,
-                                            self.statusBarMonitor,
-                                            self.timeMonitor]
+    private lazy var monitors: [Monitor] = [applicationStateMonitor,
+                                            backgroundRefreshMonitor,
+                                            memoryMonitor,
+                                            protectedDataMonitor,
+                                            screenshotMonitor,
+                                            statusBarMonitor,
+                                            timeMonitor]
 
     private var memoryCount = 0
     private var screenshotCount = 0

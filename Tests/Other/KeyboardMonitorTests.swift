@@ -383,3 +383,5 @@ internal class KeyboardMonitorTests: XCTestCase {
                                 userInfo: userInfo)
     }
 }
+
+// swiftlint:enable type_body_length

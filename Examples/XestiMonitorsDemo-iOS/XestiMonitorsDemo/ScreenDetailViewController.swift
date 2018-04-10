@@ -21,7 +21,7 @@ public class ScreenDetailViewController: UITableViewController {
                                                                         self.displayScreenBrightness($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.screenBrightnessMonitor]
+    private lazy var monitors: [Monitor] = [screenBrightnessMonitor]
 
     // MARK: Private Instance Methods
 

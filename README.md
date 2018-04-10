@@ -1,6 +1,6 @@
 # XestiMonitors
 
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)](https://developer.apple.com/swift/)
+[![Swift 4.x](https://img.shields.io/badge/Swift-4.x-orange.svg)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/cocoapods/l/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 [![Platform](https://img.shields.io/cocoapods/p/XestiMonitors.svg)](http://cocoapods.org/pods/XestiMonitors)
 
@@ -23,6 +23,7 @@
     * [Location Monitors](#location_monitors)
     * [Motion Monitors](#motion_monitors)
     * [Screen Monitors](#screen_monitors)
+    * [Text Monitors](#text_monitors)
     * [Other Monitors](#other_monitors)
     * [Custom Monitors](#custom_monitors)
 * [Credits](#credits)
@@ -94,9 +95,22 @@ provides “wrappers” around many `UIKit` notifications:
 * **Screen-related**
 
     * `UIScreenBrightnessDidChange`
+    * `UIScreenCapturedDidChange`
     * `UIScreenModeDidChange`
 
     See [Screen Monitors](#screen_monitors) for details.
+
+* **Text-related**
+
+    * `UITextFieldTextDidBeginEditing`
+    * `UITextFieldTextDidChange`
+    * `UITextFieldTextDidEndEditing`
+    * `UITextInputCurrentInputModeDidChange`
+    * `UITextViewTextDidBeginEditing`
+    * `UITextViewTextDidChange`
+    * `UITextViewTextDidEndEditing`
+
+    See [Text Monitors](#text_monitors) for details.
 
 * **Miscellaneous**
 
@@ -109,9 +123,6 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIKeyboardWillShow`
     * `UIPasteboardChanged`
     * `UIPasteboardRemoved`
-    * `UITextViewTextDidBeginEditing`
-    * `UITextViewTextDidChange`
-    * `UITextViewTextDidEndEditing`
     * `UIWindowDidBecomeHidden`
     * `UIWindowDidBecomeKey`
     * `UIWindowDidBecomeVisible`
@@ -353,17 +364,31 @@ processed motion measurements from the device:
 
 ### <a name="screen_monitors">Screen Monitors</a>
 
-XestiMonitors provides two monitor classes *(with more to come)* that you can
-use to detect changes in the properties associated with a screen:
+XestiMonitors provides three monitor classes that you can use to detect changes
+in the properties associated with a screen:
 
 * [ScreenBrightnessMonitor][screen_brightness_monitor] to monitor a screen for
-  changes to its brightness level. *(iOS)*
+  changes to its brightness level. *(iOS, tvOS)*
+* [ScreenCapturedMonitor][screen_captured_monitor] to monitor a screen for
+  changes to its captured status. *(iOS, tvOS)*
 * [ScreenModeMonitor][screen_mode_monitor] to monitor a screen for changes to
   its current mode. *(iOS, tvOS)*
 
+### <a name="text_monitors">Text Monitors</a>
+
+XestiMonitors provides three monitor classes that you can use to detect changes
+in text input mode and content:
+
+* [TextFieldTextMonitor][text_field_text_monitor] to monitor a text field for
+  changes to its text. *(iOS, tvOS)*
+* [TextInputModeMonitor][text_input_mode_monitor] to monitor the responder
+  chain for changes to the current input mode. *(iOS, tvOS)*
+* [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
+  changes to its text. *(iOS, tvOS)*
+
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides ten other monitors:
+In addition, XestiMonitors provides nine other monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
@@ -378,8 +403,6 @@ In addition, XestiMonitors provides ten other monitors:
   *(iOS, macOS, tvOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
-* [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
-  changes to its text. *(iOS, tvOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*
@@ -645,11 +668,14 @@ XestiMonitors is available under [the MIT license][license].
 [proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
 [region_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
 [screen_brightness_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
+[screen_captured_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html
 [screen_mode_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
 [screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[text_field_text_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
+[text_input_mode_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
 [text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html

@@ -172,33 +172,6 @@ public class StatusBarMonitor: BaseNotificationMonitor {
             }
         }
     }
-
-    // MARK: Deprecated
-
-    ///
-    /// Initializes a new `StatusBarMonitor`.
-    ///
-    /// - Parameters:
-    ///   - queue:      The operation queue on which the handler executes.
-    ///                 By default, the main operation queue is used.
-    ///   - options:    The options that specify which events to monitor.
-    ///                 By default, all events are monitored.
-    ///   - handler:    The handler to call when the orientation of the
-    ///                 app’s user interface or the frame of the status bar
-    ///                 changes or is about to change.
-    ///
-    /// - Warning:  Deprecated. Use `init(options:queue:handler)` instead.
-    ///
-    @available(*, deprecated, message: "Use `init(options:queue:handler)` instead.")
-    public init(queue: OperationQueue = .main,
-                options: Options = .all,
-                handler: @escaping (Event) -> Void) {
-        self.application = ApplicationInjector.inject()
-        self.handler = handler
-        self.options = options
-
-        super.init(queue: queue)
-    }
 }
 
 #endif

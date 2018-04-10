@@ -43,9 +43,9 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
                                                             self.displayPasteboard($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                            self.networkReachabilityMonitor,
-                                            self.pasteboardMonitor]
+    private lazy var monitors: [Monitor] = [keyboardMonitor,
+                                            networkReachabilityMonitor,
+                                            pasteboardMonitor]
 
     // MARK: Private Instance Methods
 
@@ -127,10 +127,10 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         if let event = event {
             switch event {
             case let .changed(_, changes):
-                displayPasteboard("Did change", changes)
+                displayPasteboard("Changed", changes)
 
             case .removed:
-                displayPasteboard("Did remove")
+                displayPasteboard("Removed")
             }
         } else {
             displayPasteboard(" ", nil)

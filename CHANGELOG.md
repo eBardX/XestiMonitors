@@ -1,3 +1,14 @@
+# 2.7.0 (2018-04-09)
+
+* Adds support for ten new monitor classes: `BeaconRangingMonitor`,
+  `HeadingMonitor`, `LocationAuthorizationMonitor`, `RegionMonitor`,
+  `ScreenCapturedMonitor`, `SignificantLocationMonitor`,
+  `StandardLocationMonitor`, `TextFieldTextMonitor`, `TextInputModeMonitor`,
+  and `VisitMonitor`.
+* Removes deprecated initializers for several monitor classes.
+* Improves code coverage.
+* Enhances iOS and tvOS demo apps.
+
 # 2.6.0 (2018-04-02)
 
 Adds support for three new monitor classes: `ScreenBrightnessMonitor`,

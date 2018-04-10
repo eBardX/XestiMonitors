@@ -21,6 +21,7 @@
 		C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */; };
 		91F28858E31923ED9C160A865BF3A277 /* Pods_XestiMonitorsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */; };
 		079CF84D08E4E652FC129C6A74134D8D /* ScreenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F23C29BBC9BDCB66C6C42D62494F /* ScreenDetailViewController.swift */; };
+		8A6F112FCA539DEEBA2BD5D3AB57D2F6 /* TextDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		6DD4E577B466C769847B43EB9039E6CF /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitorsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		129D515958E64AA58BD4445444C16400 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C1F23C29BBC9BDCB66C6C42D62494F /* ScreenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDetailViewController.swift; sourceTree = "<group>"; };
+		7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailViewController.swift; sourceTree = "<group>"; };
 		92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				FB0FDF42633DD3FBD9FFB601F445B99E /* MotionDetailViewController.swift */,
 				091C3212D8F84F4E317559FB7C2768EB /* OtherDetailViewController.swift */,
 				E4C1F23C29BBC9BDCB66C6C42D62494F /* ScreenDetailViewController.swift */,
+				7839B851BB651C1C5E2E8F7A69C1F361 /* TextDetailViewController.swift */,
 			);
 			path = XestiMonitorsDemo;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				937785761C438A37295555A9D4559A1B /* MotionDetailViewController.swift in Sources */,
 				C1BF74418843FA6FDA88FAC4B9AF1E85 /* OtherDetailViewController.swift in Sources */,
 				079CF84D08E4E652FC129C6A74134D8D /* ScreenDetailViewController.swift in Sources */,
+				8A6F112FCA539DEEBA2BD5D3AB57D2F6 /* TextDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

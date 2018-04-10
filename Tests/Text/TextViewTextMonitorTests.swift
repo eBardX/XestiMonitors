@@ -44,6 +44,29 @@ internal class TextViewTextMonitorTests: XCTestCase {
         }
     }
 
+    func testMonitor_didChange() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: TextViewTextMonitor.Event?
+        let monitor = TextViewTextMonitor(textView: self.textView,
+                                          options: .didChange,
+                                          queue: .main) { event in
+                                            expectedEvent = event
+                                            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        simulateDidChange()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+            case let .didChange(view) = event {
+            XCTAssertEqual(view, textView)
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+
     func testMonitor_didEndEditing() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: TextViewTextMonitor.Event?
@@ -67,41 +90,18 @@ internal class TextViewTextMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitor_textDidChange() {
-        let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: TextViewTextMonitor.Event?
-        let monitor = TextViewTextMonitor(textView: self.textView,
-                                          options: .didChange,
-                                          queue: .main) { event in
-                                            expectedEvent = event
-                                            expectation.fulfill()
-        }
-
-        monitor.startMonitoring()
-        simulateDidChange()
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
-
-        if let event = expectedEvent,
-            case let .didChange(view) = event {
-            XCTAssertEqual(view, textView)
-        } else {
-            XCTFail("Unexpected Event")
-        }
-    }
-
     private func simulateDidBeginEditing() {
         notificationCenter.post(name: .UITextViewTextDidBeginEditing,
                                 object: textView)
     }
 
-    private func simulateDidEndEditing() {
-        notificationCenter.post(name: .UITextViewTextDidEndEditing,
+    private func simulateDidChange() {
+        notificationCenter.post(name: .UITextViewTextDidChange,
                                 object: textView)
     }
 
-    private func simulateDidChange() {
-        notificationCenter.post(name: .UITextViewTextDidChange,
+    private func simulateDidEndEditing() {
+        notificationCenter.post(name: .UITextViewTextDidEndEditing,
                                 object: textView)
     }
 }
