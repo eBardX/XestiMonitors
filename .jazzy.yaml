@@ -50,6 +50,7 @@ custom_categories:
     children:
       - ScreenBrightnessMonitor
       - ScreenCapturedMonitor
+      - ScreenConnectionMonitor
       - ScreenModeMonitor
   - name: Text Monitor Classes
     children:
