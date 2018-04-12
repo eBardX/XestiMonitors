@@ -51,3 +51,5 @@ internal class ScreenCapturedMonitorTests: XCTestCase {
                                 object: screen)
     }
 }
+
+// swiftlint:enable explicit_top_level_acl

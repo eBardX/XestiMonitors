@@ -43,11 +43,11 @@ public class ApplicationDetailViewController: UITableViewController {
         self.displayTime($0)
     }
 
-    private lazy var monitors: [Monitor] = [self.applicationStateMonitor,
-                                            self.memoryMonitor,
-                                            self.protectedDataMonitor,
-                                            self.screenshotMonitor,
-                                            self.timeMonitor]
+    private lazy var monitors: [Monitor] = [applicationStateMonitor,
+                                            memoryMonitor,
+                                            protectedDataMonitor,
+                                            screenshotMonitor,
+                                            timeMonitor]
 
     private var memoryCount = 0
     private var screenshotCount = 0

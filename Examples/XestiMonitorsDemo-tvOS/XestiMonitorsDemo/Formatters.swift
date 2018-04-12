@@ -93,6 +93,51 @@ public func formatFloor(_ value: CLFloor?) -> String {
     }
 }
 
+public func formatFocusHeading(_ value: UIFocusHeading) -> String {
+    var headings: [String] = []
+
+    if value.contains(.down) {
+        headings.append("Down")
+    }
+
+    if value.contains(.left) {
+        headings.append("Left")
+    }
+
+    if value.contains(.next) {
+        headings.append("Next")
+    }
+
+    if value.contains(.previous) {
+        headings.append("Previous")
+    }
+
+    if value.contains(.right) {
+        headings.append("Right")
+    }
+
+    if value.contains(.up) {
+        headings.append("Up")
+    }
+
+    if headings.isEmpty {
+        return "Unknown"
+    }
+
+    return headings.joined(separator: ", ")
+}
+
+@available(tvOS 10.0, *)
+public func formatFocusItem(_ item: UIFocusItem) -> String {
+    if let object = item as? NSObject {
+        return String(format: "%1$@:%2$p",
+                      NSStringFromClass(type(of: item)),
+                      object)
+    } else {
+        return NSStringFromClass(type(of: item))
+    }
+}
+
 public func formatHeadingComponentValues(_ x: CLHeadingComponentValue,
                                          _ y: CLHeadingComponentValue,
                                          _ z: CLHeadingComponentValue) -> String {

@@ -392,12 +392,14 @@ in text input mode and content:
 
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides nine other monitors:
+In addition, XestiMonitors provides ten other monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
 * [FileSystemObjectMonitor][file_system_object_monitor] to monitor a
   file-system object for changes. *(iOS, macOS, tvOS, watchOS)*
+* [FocusMonitor][focus_monitor] to monitor the app for changes to the current
+  focus in the view hierarchy. *(iOS, tvOS)*
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
   its visibility or to its frame. *(iOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
@@ -656,6 +658,7 @@ XestiMonitors is available under [the MIT license][license].
 [device_motion_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [file_system_object_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
+[focus_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
 [gyroscope_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [heading_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
 [keyboard_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html

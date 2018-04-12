@@ -140,6 +140,12 @@
 		13D4D30F599B5FB7AB7A0FADCE49C7D1 /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC64DF70179D357235513523559DF528 /* FileSystemObjectMonitorTests.swift */; };
 		C03DBD18AB67C3FC572DBB54D9C4DB8B /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC64DF70179D357235513523559DF528 /* FileSystemObjectMonitorTests.swift */; };
 		C63411CB3198F02F2817154E64E640FB /* FileSystemObjectMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC64DF70179D357235513523559DF528 /* FileSystemObjectMonitorTests.swift */; };
+		7182DDB8C32F5E4E7888F463C1590AC4 /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */; };
+		85C8B30EB85FE94AA5E75EB6E84556BE /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */; };
+		C8121EB4F5EFB4CB6191AA9BE8D32E86 /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */; };
+		E90ED8DECA8D664620E602A1AB7BC76B /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */; };
+		0A434A369C0B795986784522C763764C /* FocusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9EC2D4580C52E2CEC5CEC537D266 /* FocusMonitorTests.swift */; };
+		8896C515EF664B6C58DE9E580C7CA1C9 /* FocusMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9EC2D4580C52E2CEC5CEC537D266 /* FocusMonitorTests.swift */; };
 		3BF1B72223773963C2113D92F5C634AA /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038960EB6E86E5419D84F43E61D5A3EA /* GyroscopeMonitor.swift */; };
 		71CB8A6A4EFFD4C354E8BF0051F92ABB /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038960EB6E86E5419D84F43E61D5A3EA /* GyroscopeMonitor.swift */; };
 		A4D88F6AA29A83755C06161926FAF49C /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038960EB6E86E5419D84F43E61D5A3EA /* GyroscopeMonitor.swift */; };
@@ -291,8 +297,8 @@
 		1AC08F9350E3F797362AF49AC3BCF452 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		371149974AD77D4DE413A4CAA41EB50C /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
 		E95C144614AFE5DC306209A09D3C7182 /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7A8B1CDFFA2BD17AD347B40A6BABE /* ScreenBrightnessMonitor.swift */; };
-		6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
 		0F20050489897F74AA9400632AAEFC34 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
+		6B19E02E1C49708D6A80E99BCFB903A6 /* ScreenBrightnessMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991911372B3AF146AB8737295E5B9ADE /* ScreenBrightnessMonitorTests.swift */; };
 		039333D29AD767EC0785358011057D95 /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
 		5B2C6D06180FE3A2044EB2276F413AA2 /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
 		5EF1E574BCB97D9EAFD6E346EFE7F37E /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F179EEA00163FF2A7F090B00A4DC5E /* ScreenCapturedMonitor.swift */; };
@@ -523,6 +529,8 @@
 		620DFEDB04E52F41D6AF3AF3203E48D5 /* FileSystemObjectInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectInjection.swift; sourceTree = "<group>"; };
 		464C305C2751EFFDABC95F97FE81D53E /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
 		EC64DF70179D357235513523559DF528 /* FileSystemObjectMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitorTests.swift; sourceTree = "<group>"; };
+		D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusMonitor.swift; sourceTree = "<group>"; };
+		1B1E9EC2D4580C52E2CEC5CEC537D266 /* FocusMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusMonitorTests.swift; sourceTree = "<group>"; };
 		038960EB6E86E5419D84F43E61D5A3EA /* GyroscopeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GyroscopeMonitor.swift; sourceTree = "<group>"; };
 		01CA494A8DE9680C12F75D06ED944EC4 /* GyroscopeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GyroscopeMonitorTests.swift; sourceTree = "<group>"; };
 		83A76D74D5A2D1DF49356BFD3A29A934 /* HeadingMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingMonitor.swift; sourceTree = "<group>"; };
@@ -1023,6 +1031,7 @@
 			children = (
 				DE5BFB0C7005E164A485449CE6750CD5 /* DocumentStateMonitorTests.swift */,
 				EC64DF70179D357235513523559DF528 /* FileSystemObjectMonitorTests.swift */,
+				1B1E9EC2D4580C52E2CEC5CEC537D266 /* FocusMonitorTests.swift */,
 				327258EEF2AC77A98CD94536CF4CBDBC /* KeyboardMonitorTests.swift */,
 				23E8B168ABFEFEFE881E10D515827AC5 /* MetadataQueryMonitorTests.swift */,
 				1E94A9CB9F5D4360C939D40E28029CF6 /* NetworkReachabilityMonitorTests.swift */,
@@ -1064,6 +1073,7 @@
 			children = (
 				84A4E1F9695DB259CFFFC00D9594C669 /* DocumentStateMonitor.swift */,
 				464C305C2751EFFDABC95F97FE81D53E /* FileSystemObjectMonitor.swift */,
+				D082FF0E9BE024BDB953B6FEE180D61E /* FocusMonitor.swift */,
 				D38D14EEDE7AC024AA6FA48C44BF909D /* KeyboardMonitor.swift */,
 				5808668E6663E5B9DEFFA4F3943D97B0 /* MetadataQueryMonitor.swift */,
 				D8CB9A5E0F91D708737917D4A8BBEA7C /* NetworkReachabilityMonitor.swift */,
@@ -1424,6 +1434,7 @@
 				F90478CF538B6C77FA8664345A1D1822 /* FileSystemInjection.swift in Sources */,
 				67E7082CA29D8114965B03FC9A51917A /* FileSystemObjectInjection.swift in Sources */,
 				DE130B2716844D12685096527A720E84 /* FileSystemObjectMonitor.swift in Sources */,
+				85C8B30EB85FE94AA5E75EB6E84556BE /* FocusMonitor.swift in Sources */,
 				A4D88F6AA29A83755C06161926FAF49C /* GyroscopeMonitor.swift in Sources */,
 				B970D5F85F655FCA48D0AA6965116261 /* HeadingMonitor.swift in Sources */,
 				8FC8E14AA9B538394B71657D1A1748F4 /* KeyboardMonitor.swift in Sources */,
@@ -1483,6 +1494,7 @@
 				543172ECCE4C7E1B342806771F18ACEA /* DeviceMotionMonitorTests.swift in Sources */,
 				59DE325A20BC214165C65D7652C76C0E /* DocumentStateMonitorTests.swift in Sources */,
 				C63411CB3198F02F2817154E64E640FB /* FileSystemObjectMonitorTests.swift in Sources */,
+				0A434A369C0B795986784522C763764C /* FocusMonitorTests.swift in Sources */,
 				B1230D844F7144B35BC319F37A2E8C36 /* GyroscopeMonitorTests.swift in Sources */,
 				5B2728B1B35C888B63FA18150E5535DB /* HeadingMonitorTests.swift in Sources */,
 				4CFE0F90C0D84D78363C9E0B32409975 /* KeyboardMonitorTests.swift in Sources */,
@@ -1539,6 +1551,7 @@
 				2DF697D449C1C011D4AF410EC2D0B50F /* AccessibilityStatusMonitorTests.swift in Sources */,
 				037B3A8E426F102FBA020FA11384CF81 /* ApplicationStateMonitorTests.swift in Sources */,
 				C03DBD18AB67C3FC572DBB54D9C4DB8B /* FileSystemObjectMonitorTests.swift in Sources */,
+				8896C515EF664B6C58DE9E580C7CA1C9 /* FocusMonitorTests.swift in Sources */,
 				F0C7F9342D155641F0BCE0DB9A35F5AC /* LocationAuthorizationMonitorTests.swift in Sources */,
 				25C7909FBAC8883C3739058F9B52C4CA /* MemoryMonitorTests.swift in Sources */,
 				4B2826765A58D680B1E3A7A8F2A9F273 /* MetadataQueryMonitorTests.swift in Sources */,
@@ -1596,6 +1609,7 @@
 				84BF2AE336F6E7CE681E0986EAF18DBE /* FileSystemInjection.swift in Sources */,
 				C6DB9BC2294B75DB696D494657DF335C /* FileSystemObjectInjection.swift in Sources */,
 				639CF4EE633FBEAB445B083403A1B375 /* FileSystemObjectMonitor.swift in Sources */,
+				E90ED8DECA8D664620E602A1AB7BC76B /* FocusMonitor.swift in Sources */,
 				71CB8A6A4EFFD4C354E8BF0051F92ABB /* GyroscopeMonitor.swift in Sources */,
 				4201CCFD14A193EFBB3935E6A8A74364 /* HeadingMonitor.swift in Sources */,
 				A0F663214C04D8D66EA72F7B86E85291 /* KeyboardMonitor.swift in Sources */,
@@ -1667,6 +1681,7 @@
 				3238E96B73171273EAC9486F0D04AE4F /* FileSystemInjection.swift in Sources */,
 				E7BE74278F2C5D8C078D9E3F26A59BDF /* FileSystemObjectInjection.swift in Sources */,
 				3849AF21F95021AD51F65702D097AC9A /* FileSystemObjectMonitor.swift in Sources */,
+				C8121EB4F5EFB4CB6191AA9BE8D32E86 /* FocusMonitor.swift in Sources */,
 				3BF1B72223773963C2113D92F5C634AA /* GyroscopeMonitor.swift in Sources */,
 				675A7C6CB4D64CE3453C7D7CEE5BDFF5 /* HeadingMonitor.swift in Sources */,
 				E5414954795829DA4F15817812356CEC /* KeyboardMonitor.swift in Sources */,
@@ -1760,6 +1775,7 @@
 				32F7CAEB80C5BB8D9A0250680F41E0B8 /* FileSystemInjection.swift in Sources */,
 				382656F26DA8ED0FA5F3BAEEF9391C94 /* FileSystemObjectInjection.swift in Sources */,
 				A46ED2A28B6994DA6A2B90499B2B314B /* FileSystemObjectMonitor.swift in Sources */,
+				7182DDB8C32F5E4E7888F463C1590AC4 /* FocusMonitor.swift in Sources */,
 				D136A75FC7D0472E9493FE8A1C7EC356 /* GyroscopeMonitor.swift in Sources */,
 				1A6A9832AAB8D4AB325D2098F9DC08B3 /* HeadingMonitor.swift in Sources */,
 				5AB5E0EE6158B602063FDB3012C5C4F8 /* KeyboardMonitor.swift in Sources */,
