@@ -307,8 +307,8 @@
 		ADD4672F2C13702977616C285BC1F1AF /* ScreenCapturedMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76573264DB084CF868389A8AA751C8C1 /* ScreenCapturedMonitorTests.swift */; };
 		68D217A81ECB6D5EF06A975EFBF643C6 /* ScreenConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE5CAC790AC42FB9A2D46CFF87F719 /* ScreenConnectionMonitor.swift */; };
 		F6C03AC928003C243151B3C7C9AFB252 /* ScreenConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE5CAC790AC42FB9A2D46CFF87F719 /* ScreenConnectionMonitor.swift */; };
-		B01EA41D437B1500F2C113B9AF676CBF /* ScreenConnectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61003AFDDA700E3973A4C335D5CF6FC9 /* ScreenConnectionMonitorTests.swift */; };
 		97A213A67652C729C71C4EA126835A54 /* ScreenConnectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61003AFDDA700E3973A4C335D5CF6FC9 /* ScreenConnectionMonitorTests.swift */; };
+		B01EA41D437B1500F2C113B9AF676CBF /* ScreenConnectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61003AFDDA700E3973A4C335D5CF6FC9 /* ScreenConnectionMonitorTests.swift */; };
 		11849D16589D686DD7E13AA0BDD86475 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		5B77877777B564EDFBA3475DB5E01C36 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
 		C15FE7959F598833A21BFF7BAAC066E3 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB170A78FB31CDB14EAEA6484BF6414 /* ScreenModeMonitor.swift */; };
@@ -485,6 +485,7 @@
 /* Begin PBXFileReference section */
 		916090533BA5343BBC5C249A76244A88 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		FE0A8437B98292232C0B4861E6082A3E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		65319AE47F05717763952962ED653620 /* .hound.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .hound.yml; sourceTree = "<group>"; };
 		814B4DFD0A9A3207B5D75468B12D4308 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 		0FBBF4F04980C395C826D200C67A3865 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		5FF71EB1B0F3619F6C8660509F6A74AF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -887,6 +888,7 @@
 			children = (
 				916090533BA5343BBC5C249A76244A88 /* .codecov.yml */,
 				FE0A8437B98292232C0B4861E6082A3E /* .gitignore */,
+				65319AE47F05717763952962ED653620 /* .hound.yml */,
 				814B4DFD0A9A3207B5D75468B12D4308 /* .jazzy.yaml */,
 				0FBBF4F04980C395C826D200C67A3865 /* .swift-version */,
 				5FF71EB1B0F3619F6C8660509F6A74AF /* .swiftlint.yml */,
