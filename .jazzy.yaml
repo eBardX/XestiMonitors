@@ -63,6 +63,7 @@ custom_categories:
       - FileSystemObjectMonitor
       - FocusMonitor
       - KeyboardMonitor
+      - MenuControllerMonitor
       - MetadataQueryMonitor
       - NetworkReachabilityMonitor
       - PasteboardMonitor

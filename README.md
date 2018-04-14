@@ -123,6 +123,11 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIKeyboardWillChangeFrame`
     * `UIKeyboardWillHide`
     * `UIKeyboardWillShow`
+    * `UIMenuControllerDidHideMenu`
+    * `UIMenuControllerDidShowMenu`
+    * `UIMenuControllerMenuFrameDidChange`
+    * `UIMenuControllerWillHideMenu`
+    * `UIMenuControllerWillShowMenu`
     * `UIPasteboardChanged`
     * `UIPasteboardRemoved`
     * `UIWindowDidBecomeHidden`
@@ -402,6 +407,9 @@ In addition, XestiMonitors provides ten other monitors:
   focus in the view hierarchy. *(iOS, tvOS)*
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
   its visibility or to its frame. *(iOS)*
+* [MenuControllerMonitor][menu_controller_monitor] to monitor the menu
+  controller for changes to the visibility of the editing menu or to the frame
+  of the editing menu. *(iOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
@@ -665,6 +673,7 @@ XestiMonitors is available under [the MIT license][license].
 [location_authorization_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
 [magnetometer_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
 [memory_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
+[menu_controller_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MenuControllerMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [motion_activity_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MotionActivityMonitor.html
 [network_reachability_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
