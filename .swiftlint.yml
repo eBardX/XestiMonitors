@@ -121,6 +121,8 @@ trailing_whitespace:
 type_body_length:
   warning: 200
   error: 300
+type_name:
+  max_length: 50
 unused_optional_binding:
   ignore_optional_try: false
 vertical_whitespace:
