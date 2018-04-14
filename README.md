@@ -130,6 +130,7 @@ provides “wrappers” around many `UIKit` notifications:
     * `UIMenuControllerWillShowMenu`
     * `UIPasteboardChanged`
     * `UIPasteboardRemoved`
+    * `UIViewControllerShowDetailTargetDidChange`
     * `UIWindowDidBecomeHidden`
     * `UIWindowDidBecomeKey`
     * `UIWindowDidBecomeVisible`
@@ -397,7 +398,7 @@ in text input mode and content:
 
 ### <a name="other_monitors">Other Monitors</a>
 
-In addition, XestiMonitors provides ten other monitors:
+In addition, XestiMonitors provides twelve other monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
@@ -422,6 +423,9 @@ In addition, XestiMonitors provides ten other monitors:
   data pushed from iCloud. *(iOS, macOS, tvOS)*
 * [UbiquityIdentityMonitor][ubiquity_identity_monitor] to monitor the system
   for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
+* [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
+  to monitor the app for changes to a split view controller’s display mode in
+  the view hierarchy. *(iOS, tvOS)*
 * [WindowMonitor][window_monitor] to monitor a window for changes to its
   visibility or key status. *(iOS, tvOS)*
 
@@ -697,6 +701,7 @@ XestiMonitors is available under [the MIT license][license].
 [time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
+[view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 

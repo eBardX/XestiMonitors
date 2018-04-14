@@ -379,6 +379,12 @@
 		89BAD454C93EFC4CEB7F0CA12848ED8E /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */; };
 		D3E1080CBC068EE3D52F3B5426310F02 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */; };
 		E3EAA1F5880DAA7DBB9BF01497B7E6FB /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */; };
+		268166CCB351284244C4070B7C0AD5F6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */; };
+		450AAEAC5E2CACC9132A818B94E418AC /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */; };
+		495678E47F260F0F6BE124F8D661C67E /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */; };
+		AE2B385EF019230DB448A03AF698901F /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */; };
+		FE46D8476C72596717D134BED41DE09F /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11411484190ABFC0986E2195B06D0163 /* ViewControllerShowDetailTargetMonitorTests.swift */; };
+		1D1FCE752641A792C062C2B2C0AE0C6D /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11411484190ABFC0986E2195B06D0163 /* ViewControllerShowDetailTargetMonitorTests.swift */; };
 		5AB48C26466A173F721E5DB2944DB536 /* VisitMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF899C64EB950DEC607D05BAFDA5DB /* VisitMonitor.swift */; };
 		616CDC88B888D1054222D4AB3A3BF8ED /* VisitMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF899C64EB950DEC607D05BAFDA5DB /* VisitMonitor.swift */; };
 		70B32D9CD04E875E23E6154B55BC21D0 /* VisitMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF899C64EB950DEC607D05BAFDA5DB /* VisitMonitor.swift */; };
@@ -623,6 +629,8 @@
 		DB2C261C75BD4B35131C9D73B8D11E29 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		37E4CE41C34B0C9481924D385AC90B2F /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
 		AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitorTests.swift; sourceTree = "<group>"; };
+		923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerShowDetailTargetMonitor.swift; sourceTree = "<group>"; };
+		11411484190ABFC0986E2195B06D0163 /* ViewControllerShowDetailTargetMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerShowDetailTargetMonitorTests.swift; sourceTree = "<group>"; };
 		08CF899C64EB950DEC607D05BAFDA5DB /* VisitMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitMonitor.swift; sourceTree = "<group>"; };
 		7FD4E04DDEA7EB009AB02FFE1CADCC27 /* VisitMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitMonitorTests.swift; sourceTree = "<group>"; };
 		8CE7BECB42FE63FBDA46216D8F75E39C /* WindowMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowMonitor.swift; sourceTree = "<group>"; };
@@ -1045,6 +1053,7 @@
 				5920E883ED89F6B80CBB11D07FCCEF57 /* PasteboardMonitorTests.swift */,
 				DB2C261C75BD4B35131C9D73B8D11E29 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				AD588150C2DFD986BFA959C6C9F5E032 /* UbiquityIdentityMonitorTests.swift */,
+				11411484190ABFC0986E2195B06D0163 /* ViewControllerShowDetailTargetMonitorTests.swift */,
 				5B5EEB432A05CAE7783F58C96D0E3A94 /* WindowMonitorTests.swift */,
 			);
 			path = Other;
@@ -1088,6 +1097,7 @@
 				507A2A25275695E1193AE0A4748E2586 /* PasteboardMonitor.swift */,
 				761E1DE02934BAFC37EBF4135716C8CF /* UbiquitousKeyValueStoreMonitor.swift */,
 				37E4CE41C34B0C9481924D385AC90B2F /* UbiquityIdentityMonitor.swift */,
+				923250A57A846E872FBD4A21FD86357A /* ViewControllerShowDetailTargetMonitor.swift */,
 				8CE7BECB42FE63FBDA46216D8F75E39C /* WindowMonitor.swift */,
 			);
 			path = Other;
@@ -1480,6 +1490,7 @@
 				AA21ED0CD26AC1413D4E86EC101D00D8 /* TimeMonitor.swift in Sources */,
 				4D1B3209173A8BD16F336AAE59EDA670 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				8BCEF5E1485E96F99824802E8260555B /* UbiquityIdentityMonitor.swift in Sources */,
+				AE2B385EF019230DB448A03AF698901F /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				83F6655B1C73C189D0F462F633FD040D /* VisitMonitor.swift in Sources */,
 				77CA0B6BF02425514F75226F087F6A9A /* WindowMonitor.swift in Sources */,
 			);
@@ -1546,6 +1557,7 @@
 				0EFF5F77D470F02CCBD0F3E8D9F3D55D /* TimeMonitorTests.swift in Sources */,
 				2946BF8F405D9146A8146EBD519AE8A5 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				E3EAA1F5880DAA7DBB9BF01497B7E6FB /* UbiquityIdentityMonitorTests.swift in Sources */,
+				FE46D8476C72596717D134BED41DE09F /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */,
 				E95440C376B7ED8B782247734CF78645 /* VisitMonitorTests.swift in Sources */,
 				C24B422D24449B1D1F10752BFFA2E8F3 /* WindowMonitorTests.swift in Sources */,
 			);
@@ -1586,6 +1598,7 @@
 				A7CD2842A8171A1BA89F0C251EF6F512 /* TimeMonitorTests.swift in Sources */,
 				959E1A4563DF38B91F24095DA59782A9 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				D3E1080CBC068EE3D52F3B5426310F02 /* UbiquityIdentityMonitorTests.swift in Sources */,
+				1D1FCE752641A792C062C2B2C0AE0C6D /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */,
 				043E5C8EAF05BDDBF1E4311DB4E4A7B2 /* WindowMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1657,6 +1670,7 @@
 				33A38E10687C87A8A05A003735CF3AA8 /* TimeMonitor.swift in Sources */,
 				7CE31033DE6144BED3836B60637C36B9 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				AE2D4341B43CA9025231BCD3FCA5A5A1 /* UbiquityIdentityMonitor.swift in Sources */,
+				450AAEAC5E2CACC9132A818B94E418AC /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				70B32D9CD04E875E23E6154B55BC21D0 /* VisitMonitor.swift in Sources */,
 				724535BC01707AEC283028B80A100A16 /* WindowMonitor.swift in Sources */,
 			);
@@ -1730,6 +1744,7 @@
 				9F07209CEF34F99D0B38F4D2C0864A8C /* TimeMonitor.swift in Sources */,
 				3D8C4F339CA8A675A7E3706625921725 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				310865B228CA44EF09FA0D96E9634489 /* UbiquityIdentityMonitor.swift in Sources */,
+				495678E47F260F0F6BE124F8D661C67E /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				5AB48C26466A173F721E5DB2944DB536 /* VisitMonitor.swift in Sources */,
 				5A3B75250C266B05B559DB757C7F691B /* WindowMonitor.swift in Sources */,
 			);
@@ -1823,6 +1838,7 @@
 				BBE0CCD1B2A8A73311BB2EF7156CE668 /* TimeMonitor.swift in Sources */,
 				5D8836F7C594712BEB34B68418E0FAA6 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				7222BC5E774836176799E341D84A5365 /* UbiquityIdentityMonitor.swift in Sources */,
+				268166CCB351284244C4070B7C0AD5F6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				616CDC88B888D1054222D4AB3A3BF8ED /* VisitMonitor.swift in Sources */,
 				C57D9DA0C486B66B5A464975935BE7DF /* WindowMonitor.swift in Sources */,
 			);

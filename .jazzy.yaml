@@ -69,6 +69,7 @@ custom_categories:
       - PasteboardMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
+      - ViewControllerShowDetailTargetMonitor
       - WindowMonitor
   - name: Extensions
     children:

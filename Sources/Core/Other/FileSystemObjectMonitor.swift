@@ -54,8 +54,8 @@ public class FileSystemObjectMonitor: BaseMonitor {
 
         ///
         /// The file-system object was renamed in the namespace. The first URL
-        /// in the associated value contains the *original* file path, the
-        /// second contains the *renamed* file path.
+        /// in the associated value is the *original* file path, the second is
+        /// the *renamed* file path.
         ///
         case wasRenamed(URL, URL)
     }
