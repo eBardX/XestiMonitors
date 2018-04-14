@@ -8,40 +8,41 @@
 //
 
 #if os(iOS)
+
 import UIKit
 
 ///
-/// A `MenuControllerMonitor` instance monitors the UIMenuController for changes to the
-/// visibility of its menu or its menu frame
+/// A `MenuControllerMonitor` instance monitors the menu controller for changes
+/// to the visibility of the editing menu or to the frame of the editing menu.
 ///
 public class MenuControllerMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the visibility of the menu and to the
-    /// frame of the menu.
+    /// Encapsulates changes to the visibility of the editing menu and to the
+    /// frame of the editing menu.
     ///
     public enum Event {
         ///
-        /// The menu controller has hidden its menu.
+        /// The editing menu has been dismissed.
         ///
         case didHideMenu(UIMenuController)
 
         ///
-        /// The menu controller has shown its menu.
+        /// The editing menu has been displayed.
         ///
         case didShowMenu(UIMenuController)
 
         ///
-        /// The frame of the visible menu has changed.
+        /// The frame of the editing menu has changed.
         ///
         case menuFrameDidChange(UIMenuController)
 
         ///
-        /// The menu controller will hide its menu.
+        /// The editing menu is about to be dismissed.
         ///
         case willHideMenu(UIMenuController)
 
         ///
-        /// The menu controller will show its menu.
+        /// The editing menu is about to be displayed.
         ///
         case willShowMenu(UIMenuController)
     }
@@ -100,9 +101,9 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
     ///                 By default, all events are monitored.
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the visibility of the MenuController
-    ///                 or the frame of the MenuController changes
-    ///
+    ///   - handler:    The handler to call when the visibility of the editing
+    ///                 menu or the frame of the editing menu changes or is
+    ///                 about to change.
     ///
     public init(options: Options = .all,
                 queue: OperationQueue = .main,
