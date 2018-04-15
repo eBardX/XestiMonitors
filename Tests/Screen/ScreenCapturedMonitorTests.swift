@@ -11,9 +11,6 @@ import UIKit
 import XCTest
 @testable import XestiMonitors
 
-// swiftlint:disable explicit_top_level_acl
-
-@available(iOS 11.0, tvOS 11.0, *)
 internal class ScreenCapturedMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let screen = UIScreen()
@@ -25,31 +22,33 @@ internal class ScreenCapturedMonitorTests: XCTestCase {
     }
 
     func testMonitor_didChange() {
-        let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: ScreenCapturedMonitor.Event?
-        let monitor = ScreenCapturedMonitor(screen: screen,
-                                            queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
-        }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+            let expectation = self.expectation(description: "Handler called")
+            var expectedEvent: ScreenCapturedMonitor.Event?
+            let monitor = ScreenCapturedMonitor(screen: screen,
+                                                queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
+            }
 
-        monitor.startMonitoring()
-        simulateDidChange()
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
+            monitor.startMonitoring()
+            simulateDidChange()
+            waitForExpectations(timeout: 1)
+            monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .didChange(test) = event {
-            XCTAssertEqual(test, screen)
-        } else {
-            XCTFail("Unexpected event")
+            if let event = expectedEvent,
+                case let .didChange(test) = event {
+                XCTAssertEqual(test, screen)
+            } else {
+                XCTFail("Unexpected event")
+            }
         }
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UIScreenCapturedDidChange,
-                                object: screen)
+        if #available(iOS 11.0, tvOS 11.0, *) {
+            notificationCenter.post(name: .UIScreenCapturedDidChange,
+                                    object: screen)
+        }
     }
 }
-
-// swiftlint:enable explicit_top_level_acl

@@ -23,26 +23,28 @@ internal class StandardLocationMonitorTests: XCTestCase {
     }
 
     #if os(iOS) || os(watchOS)
-    @available(watchOS 4.0, *)
     func testActivityType_get() {
-        let expectedActivityType: CLActivityType = .automotiveNavigation
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(watchOS 4.0, *) {
+            let expectedActivityType: CLActivityType = .automotiveNavigation
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        locationManager.activityType = expectedActivityType
+            locationManager.activityType = expectedActivityType
 
-        XCTAssertEqual(monitor.activityType, expectedActivityType)
+            XCTAssertEqual(monitor.activityType, expectedActivityType)
+        }
     }
     #endif
 
     #if os(iOS) || os(watchOS)
-    @available(watchOS 4.0, *)
     func testActivityType_set() {
-        let expectedActivityType: CLActivityType = .fitness
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(watchOS 4.0, *) {
+            let expectedActivityType: CLActivityType = .fitness
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        monitor.activityType = expectedActivityType
+            monitor.activityType = expectedActivityType
 
-        XCTAssertEqual(locationManager.activityType, expectedActivityType)
+            XCTAssertEqual(locationManager.activityType, expectedActivityType)
+        }
     }
     #endif
 
@@ -59,24 +61,26 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #endif
 
     #if os(iOS) || os(watchOS)
-    @available(watchOS 4.0, *)
     func testAllowsBackgroundLocationUpdates_get() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(watchOS 4.0, *) {
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        locationManager.allowsBackgroundLocationUpdates = true
+            locationManager.allowsBackgroundLocationUpdates = true
 
-        XCTAssertTrue(monitor.allowsBackgroundLocationUpdates)
+            XCTAssertTrue(monitor.allowsBackgroundLocationUpdates)
+        }
     }
     #endif
 
     #if os(iOS) || os(watchOS)
-    @available(watchOS 4.0, *)
     func testAllowsBackgroundLocationUpdates_set() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(watchOS 4.0, *) {
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        monitor.allowsBackgroundLocationUpdates = true
+            monitor.allowsBackgroundLocationUpdates = true
 
-        XCTAssertTrue(locationManager.allowsBackgroundLocationUpdates)
+            XCTAssertTrue(locationManager.allowsBackgroundLocationUpdates)
+        }
     }
     #endif
 
@@ -357,24 +361,26 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #endif
 
     #if os(iOS)
-    @available(iOS 11.0, *)
     func testShowsBackgroundLocationIndicator_get() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(iOS 11.0, *) {
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        locationManager.showsBackgroundLocationIndicator = true
+            locationManager.showsBackgroundLocationIndicator = true
 
-        XCTAssertTrue(monitor.showsBackgroundLocationIndicator)
+            XCTAssertTrue(monitor.showsBackgroundLocationIndicator)
+        }
     }
     #endif
 
     #if os(iOS)
-    @available(iOS 11.0, *)
     func testShowsBackgroundLocationIndicator_set() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        if #available(iOS 11.0, *) {
+            let monitor = StandardLocationMonitor(queue: .main) { _ in }
 
-        monitor.showsBackgroundLocationIndicator = true
+            monitor.showsBackgroundLocationIndicator = true
 
-        XCTAssertTrue(locationManager.showsBackgroundLocationIndicator)
+            XCTAssertTrue(locationManager.showsBackgroundLocationIndicator)
+        }
     }
     #endif
 

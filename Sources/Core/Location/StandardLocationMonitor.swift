@@ -75,33 +75,21 @@ public class StandardLocationMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0)))
-        }
+        self.adapter.didFail = handleDidFail
 
         #if os(iOS) || os(macOS)
-        self.adapter.didFinishDeferredUpdates = { [unowned self] in
-            self.handler(.didFinishDeferredUpdates($0))
-        }
+        self.adapter.didFinishDeferredUpdates = handleDidFinishDeferredUpdates
         #endif
 
         #if os(iOS)
-        self.adapter.didPauseLocationUpdates = { [unowned self] in
-            self.handler(.didPauseUpdates)
-        }
+        self.adapter.didPauseLocationUpdates = handleDidPauseLocationUpdates
         #endif
 
         #if os(iOS)
-        self.adapter.didResumeLocationUpdates = { [unowned self] in
-            self.handler(.didResumeUpdates)
-        }
+        self.adapter.didResumeLocationUpdates = handleDidResumeLocationUpdates
         #endif
 
-        self.adapter.didUpdateLocations = { [unowned self] in
-            if let location = $0.first {
-                self.handler(.didUpdate(.location(location)))
-            }
-        }
+        self.adapter.didUpdateLocations = handleDidUpdateLocations
 
         self.locationManager.delegate = self.adapter
     }
@@ -230,6 +218,34 @@ public class StandardLocationMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error)))
+    }
+
+    #if os(iOS) || os(macOS)
+    private func handleDidFinishDeferredUpdates(_ error: Error?) {
+        handler(.didFinishDeferredUpdates(error))
+    }
+    #endif
+
+    #if os(iOS)
+    private func handleDidPauseLocationUpdates() {
+        handler(.didPauseUpdates)
+    }
+    #endif
+
+    #if os(iOS)
+    private func handleDidResumeLocationUpdates() {
+        handler(.didResumeUpdates)
+    }
+    #endif
+
+    private func handleDidUpdateLocations(_ locations: [CLLocation]) {
+        if let location = locations.first {
+            handler(.didUpdate(.location(location)))
+        }
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopUpdatingLocation()

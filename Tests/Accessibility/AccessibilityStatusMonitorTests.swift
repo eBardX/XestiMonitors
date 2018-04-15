@@ -50,27 +50,29 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     }
 
     #if os(iOS)
-    @available(iOS 10.0, *)
     func testHearingDevicePairedEar() {
-        let expectedValue: UIAccessibilityHearingDeviceEar = .left
-        let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
-                                                 queue: .main) { _ in }
+        if #available(iOS 10.0, *) {
+            let expectedValue: UIAccessibilityHearingDeviceEar = .left
+            let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
+                                                     queue: .main) { _ in }
 
-        simulateHearingDevicePairedEarDidChange(to: expectedValue)
+            simulateHearingDevicePairedEarDidChange(to: expectedValue)
 
-        XCTAssertEqual(monitor.hearingDevicePairedEar, expectedValue)
+            XCTAssertEqual(monitor.hearingDevicePairedEar, expectedValue)
+        }
     }
     #endif
 
-    @available(iOS 10.0, tvOS 10.0, *)
     func testIsAssistiveTouchEnabled() {
-        let expectedValue: Bool = true
-        let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
-                                                 queue: .main) { _ in }
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            let expectedValue: Bool = true
+            let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
+                                                     queue: .main) { _ in }
 
-        simulateAssistiveTouchStatusDidChange(to: expectedValue)
+            simulateAssistiveTouchStatusDidChange(to: expectedValue)
 
-        XCTAssertEqual(monitor.isAssistiveTouchEnabled, expectedValue)
+            XCTAssertEqual(monitor.isAssistiveTouchEnabled, expectedValue)
+        }
     }
 
     func testIsBoldTextEnabled() {
@@ -213,27 +215,28 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         XCTAssertEqual(monitor.isVoiceOverEnabled, expectedValue)
     }
 
-    @available(iOS 10.0, tvOS 11.0, *)
     func testMonitor_assistiveTouchStatusDidChange() {
-        let expectation = self.expectation(description: "Handler called")
-        let expectedValue: Bool = true
-        var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
-                                                 queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
-        }
+        if #available(iOS 10.0, tvOS 11.0, *) {
+            let expectation = self.expectation(description: "Handler called")
+            let expectedValue: Bool = true
+            var expectedEvent: AccessibilityStatusMonitor.Event?
+            let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
+                                                     queue: .main) { event in
+                                                        expectedEvent = event
+                                                        expectation.fulfill()
+            }
 
-        monitor.startMonitoring()
-        simulateAssistiveTouchStatusDidChange(to: expectedValue)
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
+            monitor.startMonitoring()
+            simulateAssistiveTouchStatusDidChange(to: expectedValue)
+            waitForExpectations(timeout: 1)
+            monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .assistiveTouchStatusDidChange(value) = event {
-            XCTAssertEqual(value, expectedValue)
-        } else {
-            XCTFail("Unexpected event")
+            if let event = expectedEvent,
+                case let .assistiveTouchStatusDidChange(value) = event {
+                XCTAssertEqual(value, expectedValue)
+            } else {
+                XCTFail("Unexpected event")
+            }
         }
     }
 
@@ -353,27 +356,28 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     }
 
     #if os(iOS)
-    @available(iOS 10.0, *)
     func testMonitor_hearingDevicePairedEarDidChange() {
-        let expectation = self.expectation(description: "Handler called")
-        let expectedValue: UIAccessibilityHearingDeviceEar = .right
-        var expectedEvent: AccessibilityStatusMonitor.Event?
-        let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
-                                                 queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
-        }
+        if #available(iOS 10.0, *) {
+            let expectation = self.expectation(description: "Handler called")
+            let expectedValue: UIAccessibilityHearingDeviceEar = .right
+            var expectedEvent: AccessibilityStatusMonitor.Event?
+            let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
+                                                     queue: .main) { event in
+                                                        expectedEvent = event
+                                                        expectation.fulfill()
+            }
 
-        monitor.startMonitoring()
-        simulateHearingDevicePairedEarDidChange(to: expectedValue)
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
+            monitor.startMonitoring()
+            simulateHearingDevicePairedEarDidChange(to: expectedValue)
+            waitForExpectations(timeout: 1)
+            monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .hearingDevicePairedEarDidChange(value) = event {
-            XCTAssertEqual(value, expectedValue)
-        } else {
-            XCTFail("Unexpected event")
+            if let event = expectedEvent,
+                case let .hearingDevicePairedEarDidChange(value) = event {
+                XCTAssertEqual(value, expectedValue)
+            } else {
+                XCTFail("Unexpected event")
+            }
         }
     }
     #endif
@@ -585,12 +589,13 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         }
     }
 
-    @available(iOS 10.0, tvOS 10.0, *)
     private func simulateAssistiveTouchStatusDidChange(to value: Bool) {
-        accessibilityStatus.mockIsAssistiveTouchRunning = value
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            accessibilityStatus.mockIsAssistiveTouchRunning = value
 
-        notificationCenter.post(name: .UIAccessibilityAssistiveTouchStatusDidChange,
-                                object: nil)
+            notificationCenter.post(name: .UIAccessibilityAssistiveTouchStatusDidChange,
+                                    object: nil)
+        }
     }
 
     private func simulateBoldTextStatusDidChange(to value: Bool) {

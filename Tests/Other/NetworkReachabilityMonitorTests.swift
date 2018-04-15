@@ -22,10 +22,18 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         networkReachability.updateFlags(nil)
     }
 
-    func testIsReachable_false() throws {
+    func testIsReachable_false1() throws {
         let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
 
         simulateStatusDidChange(to: .notReachable)
+
+        XCTAssertFalse(monitor.isReachable)
+    }
+
+    func testIsReachable_false2() throws {
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+
+        simulateNoStatus()
 
         XCTAssertFalse(monitor.isReachable)
     }
@@ -221,6 +229,10 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
                 return nil
             }
         #endif
+    }
+
+    private func simulateNoStatus() {
+        networkReachability.clearFlags()
     }
 
     private func simulateStatusDidChange(to status: NetworkReachabilityMonitor.Status,

@@ -59,17 +59,9 @@ public class HeadingMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0)))
-        }
-
-        self.adapter.didUpdateHeading = { [unowned self] in
-            self.handler(.didUpdate(.heading($0)))
-        }
-
-        self.adapter.shouldDisplayHeadingCalibration = { [unowned self] in
-            return self.shouldDisplayCalibration
-        }
+        self.adapter.didFail = handleDidFail
+        self.adapter.didUpdateHeading = handleDidUpdateHeading
+        self.adapter.shouldDisplayHeadingCalibration = handleShouldDisplayHeadingCalibration
 
         self.locationManager.delegate = self.adapter
     }
@@ -126,6 +118,18 @@ public class HeadingMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error)))
+    }
+
+    private func handleDidUpdateHeading(_ heading: CLHeading) {
+        handler(.didUpdate(.heading(heading)))
+    }
+
+    private func handleShouldDisplayHeadingCalibration() -> Bool {
+        return shouldDisplayCalibration
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopUpdatingHeading()

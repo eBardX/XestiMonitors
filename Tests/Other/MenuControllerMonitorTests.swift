@@ -1,6 +1,6 @@
 //
 //  MenuControllerMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Paul Nyondo on 2018-04-13.
 //

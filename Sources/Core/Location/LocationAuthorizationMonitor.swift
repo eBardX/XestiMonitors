@@ -58,13 +58,8 @@ public class LocationAuthorizationMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0)))
-        }
-
-        self.adapter.didChangeAuthorization = { [unowned self] in
-            self.handler(.didUpdate(.status($0)))
-        }
+        self.adapter.didChangeAuthorization = handleDidChangeAuthorization
+        self.adapter.didFail = handleDidFail
 
         self.locationManager.delegate = self.adapter
     }
@@ -109,4 +104,12 @@ public class LocationAuthorizationMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidChangeAuthorization(_ status: CLAuthorizationStatus) {
+        handler(.didUpdate(.status(status)))
+    }
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error)))
+    }
 }

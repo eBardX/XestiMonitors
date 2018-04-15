@@ -64,21 +64,9 @@ public class BeaconRangingMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0, self.region)))
-        }
-
-        self.adapter.didRangeBeacons = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.beacons($1, self.region)))
-            }
-        }
-
-        self.adapter.rangingBeaconsDidFail = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.error($1, self.region)))
-            }
-        }
+        self.adapter.didFail = handleDidFail
+        self.adapter.didRangeBeacons = handleDidRangeBeacons
+        self.adapter.rangingBeaconsDidFail = handleRangingBeaconsDidFail
 
         self.locationManager.delegate = self.adapter
     }
@@ -110,6 +98,24 @@ public class BeaconRangingMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error, region)))
+    }
+
+    private func handleDidRangeBeacons(_ region: CLBeaconRegion,
+                                       _ beacons: [CLBeacon]) {
+        if self.region == region {
+            self.handler(.didUpdate(.beacons(beacons, region)))
+        }
+    }
+
+    private func handleRangingBeaconsDidFail(_ region: CLBeaconRegion,
+                                             _ error: Error) {
+        if self.region == region {
+            self.handler(.didUpdate(.error(error, region)))
+        }
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopRangingBeacons(in: region)

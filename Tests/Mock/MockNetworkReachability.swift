@@ -48,6 +48,10 @@ internal class MockNetworkReachability: NetworkReachabilityProtocol {
 
     // MARK: -
 
+    func clearFlags() {
+        self.flags = []
+    }
+
     func updateFlags(_ flags: SCNetworkReachabilityFlags?) {
         self.flags = flags
 

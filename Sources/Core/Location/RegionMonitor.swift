@@ -65,43 +65,12 @@ public class RegionMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didDetermineState = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.regionState($1, self.region)))
-            }
-        }
-
-        self.adapter.didEnterRegion = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.regionState(.inside, self.region)))
-            }
-        }
-
-        self.adapter.didExitRegion = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.regionState(.outside, self.region)))
-            }
-        }
-
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0, self.region)))
-        }
-
-        self.adapter.didStartMonitoring = { [unowned self] in
-            if self.region == $0 {
-                self.handler(.didUpdate(.regionState(.unknown, self.region)))
-            }
-        }
-
-        self.adapter.monitoringDidFail = { [unowned self] in
-            if let tmpRegion = $0 {
-                if tmpRegion == self.region {
-                    self.handler(.didUpdate(.error($1, self.region)))
-                }
-            } else {
-                self.handler(.didUpdate(.error($1, self.region)))
-            }
-        }
+        self.adapter.didDetermineState = handleDidDetermineState
+        self.adapter.didEnterRegion = handleDidEnterRegion
+        self.adapter.didExitRegion = handleDidExitRegion
+        self.adapter.didFail = handleDidFail
+        self.adapter.didStartMonitoring = handleDidStartMonitoring
+        self.adapter.monitoringDidFail = handleMonitoringDidFail
 
         self.locationManager.delegate = self.adapter
     }
@@ -147,6 +116,46 @@ public class RegionMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidDetermineState(_ region: CLRegion,
+                                         _ state: CLRegionState) {
+        if self.region == region {
+            handler(.didUpdate(.regionState(state, region)))
+        }
+    }
+
+    private func handleDidEnterRegion(_ region: CLRegion) {
+        if self.region == region {
+            handler(.didUpdate(.regionState(.inside, region)))
+        }
+    }
+
+    private func handleDidExitRegion(_ region: CLRegion) {
+        if self.region == region {
+            handler(.didUpdate(.regionState(.outside, region)))
+        }
+    }
+
+    private func handleDidFail(_ error: Error) {
+        self.handler(.didUpdate(.error(error, region)))
+    }
+
+    private func handleDidStartMonitoring(_ region: CLRegion) {
+        if self.region == region {
+            handler(.didUpdate(.regionState(.unknown, region)))
+        }
+    }
+
+    private func handleMonitoringDidFail(_ region: CLRegion?,
+                                         _ error: Error) {
+        if let tmpRegion = region {
+            if tmpRegion == self.region {
+                handler(.didUpdate(.error(error, self.region)))
+            }
+        } else {
+            handler(.didUpdate(.error(error, self.region)))
+        }
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopMonitoring(for: region)

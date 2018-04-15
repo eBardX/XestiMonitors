@@ -62,15 +62,8 @@ public class SignificantLocationMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0)))
-        }
-
-        self.adapter.didUpdateLocations = { [unowned self] in
-            if let location = $0.first {
-                self.handler(.didUpdate(.location(location)))
-            }
-        }
+        self.adapter.didFail = handleDidFail
+        self.adapter.didUpdateLocations = handleDidUpdateLocations
 
         self.locationManager.delegate = self.adapter
     }
@@ -87,6 +80,16 @@ public class SignificantLocationMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error)))
+    }
+
+    private func handleDidUpdateLocations(_ locations: [CLLocation]) {
+        if let location = locations.first {
+            handler(.didUpdate(.location(location)))
+        }
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopMonitoringSignificantLocationChanges()

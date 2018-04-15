@@ -62,13 +62,8 @@ public class VisitMonitor: BaseMonitor {
 
         super.init()
 
-        self.adapter.didFail = { [unowned self] in
-            self.handler(.didUpdate(.error($0)))
-        }
-
-        self.adapter.didVisit = { [unowned self] in
-            self.handler(.didUpdate(.visit($0)))
-        }
+        self.adapter.didFail = handleDidFail
+        self.adapter.didVisit = handleDidVisit
 
         self.locationManager.delegate = self.adapter
     }
@@ -77,6 +72,14 @@ public class VisitMonitor: BaseMonitor {
     private let handler: (Event) -> Void
     private let locationManager: LocationManagerProtocol
     private let queue: OperationQueue
+
+    private func handleDidFail(_ error: Error) {
+        handler(.didUpdate(.error(error)))
+    }
+
+    private func handleDidVisit(_ visit: CLVisit) {
+        handler(.didUpdate(.visit(visit)))
+    }
 
     override public func cleanupMonitor() {
         locationManager.stopMonitoringVisits()
