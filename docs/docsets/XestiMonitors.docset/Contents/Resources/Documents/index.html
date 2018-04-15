@@ -4,453 +4,527 @@
     <title>XestiMonitors  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
+
+
     <a title="XestiMonitors  Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="index.html">XestiMonitors Docs</a> (100% documented)</p>
-        <p class="header-right"><a href="https://github.com/eBardX/XestiMonitors"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="index.html">XestiMonitors Reference</a>
-        <img id="carat" src="img/carat.png" />
-        XestiMonitors  Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          XestiMonitors Docs
+        </a>
+         (100% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/eBardX/XestiMonitors">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2FeBardX%2Egithub%2Eio%2FXestiMonitors%2Freference%2Fdocsets%2FXestiMonitors%2Exml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">XestiMonitors Reference</a>
+      <img class="carat" src="img/carat.png" />
+      XestiMonitors  Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/Monitor.html">Monitor</a>
+                <a class="nav-group-task-link" href="Protocols/Monitor.html">Monitor</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Base Monitor Classes.html">Base Monitor Classes</a>
+            <a class="nav-group-name-link" href="Base Monitor Classes.html">Base Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/BaseMonitor.html">BaseMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BaseMonitor.html">BaseMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Accessibility Monitor Classes.html">Accessibility Monitor Classes</a>
+            <a class="nav-group-name-link" href="Core Location Monitor Classes.html">Core Location Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BeaconRangingMonitor.html">BeaconRangingMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityAnnouncementMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/BeaconRangingMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/BeaconRangingMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
+                <a class="nav-group-task-link" href="Classes/HeadingMonitor.html">HeadingMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityElementMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/HeadingMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityElementMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/HeadingMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
+                <a class="nav-group-task-link" href="Classes/LocationAuthorizationMonitor.html">LocationAuthorizationMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/LocationAuthorizationMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccessibilityStatusMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/LocationAuthorizationMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RegionMonitor.html">RegionMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RegionMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RegionMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SignificantLocationMonitor.html">SignificantLocationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SignificantLocationMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SignificantLocationMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/StandardLocationMonitor.html">StandardLocationMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/StandardLocationMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/StandardLocationMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/VisitMonitor.html">VisitMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/VisitMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/VisitMonitor/Info.html">– Info</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Application Monitor Classes.html">Application Monitor Classes</a>
+            <a class="nav-group-name-link" href="Core Motion Monitor Classes.html">Core Motion Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AccelerometerMonitor.html">AccelerometerMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ApplicationStateMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/AccelerometerMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ApplicationStateMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/AccelerometerMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AltimeterMonitor.html">AltimeterMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BackgroundRefreshMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/AltimeterMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MemoryMonitor.html">MemoryMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AltimeterMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MemoryMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
+                <a class="nav-group-task-link" href="Classes/DeviceMotionMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ProtectedDataMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/DeviceMotionMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ProtectedDataMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/GyroscopeMonitor.html">GyroscopeMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
+                <a class="nav-group-task-link" href="Classes/GyroscopeMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenshotMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/GyroscopeMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StatusBarMonitor.html">StatusBarMonitor</a>
+                <a class="nav-group-task-link" href="Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StatusBarMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/MagnetometerMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StatusBarMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/MagnetometerMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TimeMonitor.html">TimeMonitor</a>
+                <a class="nav-group-task-link" href="Classes/MotionActivityMonitor.html">MotionActivityMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TimeMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/MotionActivityMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MotionActivityMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PedometerMonitor.html">PedometerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PedometerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PedometerMonitor/Info.html">– Info</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Device Monitor Classes.html">Device Monitor Classes</a>
+            <a class="nav-group-name-link" href="Foundation Monitor Classes.html">Foundation Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/BatteryMonitor.html">BatteryMonitor</a>
+                <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BatteryMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BatteryMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/OrientationMonitor.html">OrientationMonitor</a>
+                <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/OrientationMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ProximityMonitor.html">ProximityMonitor</a>
+                <a class="nav-group-task-link" href="Classes/UbiquitousKeyValueStoreMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ProximityMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/UbiquitousKeyValueStoreMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UbiquityIdentityMonitor/Event.html">– Event</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Location Monitor Classes.html">Location Monitor Classes</a>
+            <a class="nav-group-name-link" href="UIKit Accessibility Monitor Classes.html">UIKit Accessibility Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/BeaconRangingMonitor.html">BeaconRangingMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BeaconRangingMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityAnnouncementMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/BeaconRangingMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityAnnouncementMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/HeadingMonitor.html">HeadingMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/HeadingMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityElementMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/HeadingMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityElementMonitor/Info.html">– Info</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocationAuthorizationMonitor.html">LocationAuthorizationMonitor</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocationAuthorizationMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityStatusMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocationAuthorizationMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RegionMonitor.html">RegionMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RegionMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RegionMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SignificantLocationMonitor.html">SignificantLocationMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SignificantLocationMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SignificantLocationMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/StandardLocationMonitor.html">StandardLocationMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/StandardLocationMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/StandardLocationMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/VisitMonitor.html">VisitMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/VisitMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/VisitMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/AccessibilityStatusMonitor/Options.html">– Options</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Motion Monitor Classes.html">Motion Monitor Classes</a>
+            <a class="nav-group-name-link" href="UIKit Application Monitor Classes.html">UIKit Application Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/AccelerometerMonitor.html">AccelerometerMonitor</a>
+                <a class="nav-group-task-link" href="Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccelerometerMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ApplicationStateMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AccelerometerMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/ApplicationStateMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AltimeterMonitor.html">AltimeterMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AltimeterMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/BackgroundRefreshMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AltimeterMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/MemoryMonitor.html">MemoryMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/DeviceMotionMonitor.html">DeviceMotionMonitor</a>
+                <a class="nav-group-task-link" href="Classes/MemoryMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/DeviceMotionMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/DeviceMotionMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/ProtectedDataMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/GyroscopeMonitor.html">GyroscopeMonitor</a>
+                <a class="nav-group-task-link" href="Classes/ProtectedDataMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/GyroscopeMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ScreenshotMonitor.html">ScreenshotMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/GyroscopeMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/ScreenshotMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MagnetometerMonitor.html">MagnetometerMonitor</a>
+                <a class="nav-group-task-link" href="Classes/StatusBarMonitor.html">StatusBarMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MagnetometerMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/StatusBarMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MagnetometerMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/StatusBarMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MotionActivityMonitor.html">MotionActivityMonitor</a>
+                <a class="nav-group-task-link" href="Classes/TimeMonitor.html">TimeMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MotionActivityMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MotionActivityMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PedometerMonitor.html">PedometerMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PedometerMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PedometerMonitor/Info.html">– Info</a>
+                <a class="nav-group-task-link" href="Classes/TimeMonitor/Event.html">– Event</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Screen Monitor Classes.html">Screen Monitor Classes</a>
+            <a class="nav-group-name-link" href="UIKit Device Monitor Classes.html">UIKit Device Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/ScreenBrightnessMonitor.html">ScreenBrightnessMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BatteryMonitor.html">BatteryMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenBrightnessMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/BatteryMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenCapturedMonitor.html">ScreenCapturedMonitor</a>
+                <a class="nav-group-task-link" href="Classes/BatteryMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenCapturedMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/OrientationMonitor.html">OrientationMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenModeMonitor.html">ScreenModeMonitor</a>
+                <a class="nav-group-task-link" href="Classes/OrientationMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ScreenModeMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ProximityMonitor.html">ProximityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ProximityMonitor/Event.html">– Event</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Text Monitor Classes.html">Text Monitor Classes</a>
+            <a class="nav-group-name-link" href="UIKit Screen Monitor Classes.html">UIKit Screen Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/TextFieldTextMonitor.html">TextFieldTextMonitor</a>
+                <a class="nav-group-task-link" href="Classes/ScreenBrightnessMonitor.html">ScreenBrightnessMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextFieldTextMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ScreenBrightnessMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextFieldTextMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/ScreenCapturedMonitor.html">ScreenCapturedMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextInputModeMonitor.html">TextInputModeMonitor</a>
+                <a class="nav-group-task-link" href="Classes/ScreenCapturedMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextInputModeMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ScreenConnectionMonitor.html">ScreenConnectionMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextViewTextMonitor.html">TextViewTextMonitor</a>
+                <a class="nav-group-task-link" href="Classes/ScreenConnectionMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextViewTextMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/ScreenConnectionMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TextViewTextMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/ScreenModeMonitor.html">ScreenModeMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ScreenModeMonitor/Event.html">– Event</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Other Monitor Classes.html">Other Monitor Classes</a>
+            <a class="nav-group-name-link" href="UIKit Text Monitor Classes.html">UIKit Text Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/DocumentStateMonitor.html">DocumentStateMonitor</a>
+                <a class="nav-group-task-link" href="Classes/TextFieldTextMonitor.html">TextFieldTextMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/DocumentStateMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/TextFieldTextMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FileSystemObjectMonitor.html">FileSystemObjectMonitor</a>
+                <a class="nav-group-task-link" href="Classes/TextFieldTextMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FileSystemObjectMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/TextInputModeMonitor.html">TextInputModeMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FileSystemObjectMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/TextInputModeMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+                <a class="nav-group-task-link" href="Classes/TextViewTextMonitor.html">TextViewTextMonitor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/KeyboardMonitor/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="Classes/TextViewTextMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/KeyboardMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/KeyboardMonitor/Options.html">– Options</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MetadataQueryMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MetadataQueryMonitor/Info.html">– Info</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MetadataQueryMonitor/Options.html">– Options</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NetworkReachabilityMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NetworkReachabilityMonitor/Status.html">– Status</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PasteboardMonitor.html">PasteboardMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PasteboardMonitor/Changes.html">– Changes</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PasteboardMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PasteboardMonitor/Options.html">– Options</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/UbiquitousKeyValueStoreMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/UbiquitousKeyValueStoreMonitor/Options.html">– Options</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/UbiquityIdentityMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/WindowMonitor.html">WindowMonitor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/WindowMonitor/Event.html">– Event</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/WindowMonitor/Options.html">– Options</a>
+                <a class="nav-group-task-link" href="Classes/TextViewTextMonitor/Options.html">– Options</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
+            <a class="nav-group-name-link" href="Other UIKit Monitor Classes.html">Other UIKit Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/CMAcceleration.html">CMAcceleration</a>
+                <a class="nav-group-task-link" href="Classes/DocumentStateMonitor.html">DocumentStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/DocumentStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FocusMonitor.html">FocusMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FocusMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FocusMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FocusMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/KeyboardMonitor.html">KeyboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/KeyboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/KeyboardMonitor/Info.html">– Info</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/KeyboardMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MenuControllerMonitor.html">MenuControllerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MenuControllerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MenuControllerMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PasteboardMonitor.html">PasteboardMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PasteboardMonitor/Changes.html">– Changes</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PasteboardMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PasteboardMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ViewControllerShowDetailTargetMonitor.html">ViewControllerShowDetailTargetMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ViewControllerShowDetailTargetMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/WindowMonitor.html">WindowMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/WindowMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/WindowMonitor/Options.html">– Options</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Monitor Classes.html">Other Monitor Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FileSystemObjectMonitor.html">FileSystemObjectMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FileSystemObjectMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FileSystemObjectMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/NetworkReachabilityMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/NetworkReachabilityMonitor/Status.html">– Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/CMAcceleration.html">CMAcceleration</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             
             <h1 id='xestimonitors' class='heading'>XestiMonitors</h1>
 
@@ -474,13 +548,19 @@
 <li><a href="#usage">Usage</a>
 
 <ul>
+<li><a href="#core_location_monitors">Core Location Monitors</a></li>
+<li><a href="#core_motion_monitors">Core Motion Monitors</a></li>
+<li><a href="#foundation_monitors">Foundation Monitors</a></li>
+<li><a href="#uikit_monitors">UIKit Monitors</a>
+
+<ul>
 <li><a href="#accessibility_monitors">Accessibility Monitors</a></li>
 <li><a href="#application_monitors">Application Monitors</a></li>
 <li><a href="#device_monitors">Device Monitors</a></li>
-<li><a href="#location_monitors">Location Monitors</a></li>
-<li><a href="#motion_monitors">Motion Monitors</a></li>
 <li><a href="#screen_monitors">Screen Monitors</a></li>
 <li><a href="#text_monitors">Text Monitors</a></li>
+<li><a href="#other_uikit_monitors">Other UIKit Monitors</a></li>
+</ul></li>
 <li><a href="#other_monitors">Other Monitors</a></li>
 <li><a href="#custom_monitors">Custom Monitors</a></li>
 </ul></li>
@@ -494,118 +574,22 @@ monitor classes right out of the box that make it easy for your app to detect
 and respond to many common system-generated events.</p>
 
 <p>Among other things, you can think of XestiMonitors as a better way to manage
-the most common notifications (primarily on iOS). At present, XestiMonitors
-provides “wrappers” around many <code>UIKit</code> notifications:</p>
-
-<ul>
-<li><p><strong>Accessibility-related</strong></p>
-
-<ul>
-<li><code>UIAccessibilityAnnouncementDidFinish</code></li>
-<li><code>UIAccessibilityAssistiveTouchStatusDidChange</code></li>
-<li><code>UIAccessibilityBoldTextStatusDidChange</code></li>
-<li><code>UIAccessibilityClosedCaptioningStatusDidChange</code></li>
-<li><code>UIAccessibilityDarkerSystemColorsStatusDidChange</code></li>
-<li><code>UIAccessibilityElementFocused</code></li>
-<li><code>UIAccessibilityGrayscaleStatusDidChange</code></li>
-<li><code>UIAccessibilityGuidedAccessStatusDidChange</code></li>
-<li><code>UIAccessibilityHearingDevicePairedEarDidChange</code></li>
-<li><code>UIAccessibilityInvertColorsStatusDidChange</code></li>
-<li><code>UIAccessibilityMonoAudioStatusDidChange</code></li>
-<li><code>UIAccessibilityReduceMotionStatusDidChange</code></li>
-<li><code>UIAccessibilityReduceTransparencyStatusDidChange</code></li>
-<li><code>UIAccessibilityShakeToUndoDidChange</code></li>
-<li><code>UIAccessibilitySpeakScreenStatusDidChange</code></li>
-<li><code>UIAccessibilitySpeakSelectionStatusDidChange</code></li>
-<li><code>UIAccessibilitySwitchControlStatusDidChange</code></li>
-<li><code>UIAccessibilityVoiceOverStatusDidChange</code></li>
-</ul>
-
-<p>See <a href="#accessibility_monitors">Accessibility Monitors</a> for details.</p></li>
-<li><p><strong>Application-related</strong></p>
-
-<ul>
-<li><code>UIApplicationBackgroundRefreshStatusDidChange</code></li>
-<li><code>UIApplicationDidBecomeActive</code></li>
-<li><code>UIApplicationDidChangeStatusBarFrame</code></li>
-<li><code>UIApplicationDidChangeStatusBarOrientation</code></li>
-<li><code>UIApplicationDidEnterBackground</code></li>
-<li><code>UIApplicationDidFinishLaunching</code></li>
-<li><code>UIApplicationDidReceiveMemoryWarning</code></li>
-<li><code>UIApplicationProtectedDataDidBecomeAvailable</code></li>
-<li><code>UIApplicationProtectedDataWillBecomeUnavailable</code></li>
-<li><code>UIApplicationSignificantTimeChange</code></li>
-<li><code>UIApplicationUserDidTakeScreenshot</code></li>
-<li><code>UIApplicationWillChangeStatusBarFrame</code></li>
-<li><code>UIApplicationWillChangeStatusBarOrientation</code></li>
-<li><code>UIApplicationWillEnterForeground</code></li>
-<li><code>UIApplicationWillResignActive</code></li>
-<li><code>UIApplicationWillTerminate</code></li>
-</ul>
-
-<p>See <a href="#application_monitors">Application Monitors</a> for details.</p></li>
-<li><p><strong>Device-related</strong></p>
-
-<ul>
-<li><code>UIDeviceBatteryLevelDidChange</code></li>
-<li><code>UIDeviceBatteryStateDidChange</code></li>
-<li><code>UIDeviceOrientationDidChange</code></li>
-<li><code>UIDeviceProximityStateDidChange</code></li>
-</ul>
-
-<p>See <a href="#device_monitors">Device Monitors</a> for details.</p></li>
-<li><p><strong>Screen-related</strong></p>
-
-<ul>
-<li><code>UIScreenBrightnessDidChange</code></li>
-<li><code>UIScreenCapturedDidChange</code></li>
-<li><code>UIScreenModeDidChange</code></li>
-</ul>
-
-<p>See <a href="#screen_monitors">Screen Monitors</a> for details.</p></li>
-<li><p><strong>Text-related</strong></p>
-
-<ul>
-<li><code>UITextFieldTextDidBeginEditing</code></li>
-<li><code>UITextFieldTextDidChange</code></li>
-<li><code>UITextFieldTextDidEndEditing</code></li>
-<li><code>UITextInputCurrentInputModeDidChange</code></li>
-<li><code>UITextViewTextDidBeginEditing</code></li>
-<li><code>UITextViewTextDidChange</code></li>
-<li><code>UITextViewTextDidEndEditing</code></li>
-</ul>
-
-<p>See <a href="#text_monitors">Text Monitors</a> for details.</p></li>
-<li><p><strong>Miscellaneous</strong></p>
-
-<ul>
-<li><code>UIDocumentStateChanged</code></li>
-<li><code>UIKeyboardDidChangeFrame</code></li>
-<li><code>UIKeyboardDidHide</code></li>
-<li><code>UIKeyboardDidShow</code></li>
-<li><code>UIKeyboardWillChangeFrame</code></li>
-<li><code>UIKeyboardWillHide</code></li>
-<li><code>UIKeyboardWillShow</code></li>
-<li><code>UIPasteboardChanged</code></li>
-<li><code>UIPasteboardRemoved</code></li>
-<li><code>UIWindowDidBecomeHidden</code></li>
-<li><code>UIWindowDidBecomeKey</code></li>
-<li><code>UIWindowDidBecomeVisible</code></li>
-<li><code>UIWindowDidResignKey</code></li>
-</ul>
-
-<p>See <a href="#other_monitors">Other Monitors</a> for details.</p></li>
-</ul>
+the most common notifications (primarily on iOS and tvOS). At present,
+XestiMonitors provides “wrappers” around most <code>UIKit</code> notifications (see
+<a href="#uikit_monitors">UIKit Monitors</a>) and some <code>Foundation</code> notifications (see
+<a href="#foundation_monitors">Foundation Monitors</a>).</p>
 
 <p>XestiMonitors also provides convenient “wrappers” around several frameworks and
 programming interfaces to make them easier for your app to use:</p>
 
 <ul>
-<li>It wraps the Core Location framework to make it easier for your app to &hellip;
-See <a href="#location_monitors">Location Monitors</a> for details.</li>
+<li>It wraps the Core Location framework to make it easier for your app to make
+easier for your app to determine the device’s geographic location, altitude,
+or orientation; or its position relative to a nearby iBeacon. See
+<a href="#core_location_monitors">Core Location Monitors</a> for details.</li>
 <li>It wraps the Core Motion framework to make it easier for your app to obtain
 both raw and processed motion measurements from the device. See
-<a href="#motion_monitors">Motion Monitors</a> for details.</li>
+<a href="#core_motion_monitors">Core Motion Monitors</a> for details.</li>
 <li>It wraps the <code>SCNetworkReachability</code> programming interface to make it super
 easy for your app to determine the reachability of a target host. See
 <a href="#other_monitors">Other Monitors</a> for details.</li>
@@ -697,9 +681,9 @@ these monitors:</p>
 <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">orientationMonitor</span> <span class="o">=</span> <span class="kt">OrientationMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
     <span class="c1">// do something…</span>
 <span class="p">}</span>
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">keyboardMonitor</span><span class="p">,</span>
-                                <span class="k">self</span><span class="o">.</span><span class="n">memoryMonitor</span><span class="p">,</span>
-                                <span class="k">self</span><span class="o">.</span><span class="n">orientationMonitor</span><span class="p">]</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">keyboardMonitor</span><span class="p">,</span>
+                                <span class="n">memoryMonitor</span><span class="p">,</span>
+                                <span class="n">orientationMonitor</span><span class="p">]</span>
 </code></pre>
 
 <p>Then, in the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can
@@ -716,60 +700,11 @@ simply start or stop all these monitors with a single line of code:</p>
 </code></pre>
 
 <p>Easy peasy!</p>
-<h3 id='a-name-accessibility_monitors-accessibility-monitors-a' class='heading'><a name="accessibility_monitors">Accessibility Monitors</a></h3>
+<h3 id='a-name-core_location_monitors-core-location-monitors-a' class='heading'><a name="core_location_monitors">Core Location Monitors</a></h3>
 
-<p>XestiMonitors provides three monitor classes that you can use to observe
-accessibility events generated by the system:</p>
-
-<ul>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a> to
-monitor the system for accessibility announcements that VoiceOver has
-finished outputting. <em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a> to monitor the
-system for changes to element focus by an assistive technology. <em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a> to monitor the
-system for changes to the status of various accessibility settings.
-<em>(iOS, tvOS)</em></li>
-</ul>
-<h3 id='a-name-application_monitors-application-monitors-a' class='heading'><a name="application_monitors">Application Monitors </a></h3>
-
-<p>XestiMonitors provides seven monitor classes that you can use to observe common
-events generated by the system about the app:</p>
-
-<ul>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a> to monitor the app for
-changes to its runtime state. <em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a> to monitor the app for
-changes to its status for downloading content in the background. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html">MemoryMonitor</a> to monitor the app for memory warnings from
-the operating system. <em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a> to monitor the app for changes
-to the accessibility of protected files. <em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html">ScreenshotMonitor</a> to monitor the app for screenshots.
-<em>(iOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html">StatusBarMonitor</a> to monitor the app for changes to the
-orientation of its user interface or to the frame of the status bar. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html">TimeMonitor</a> to monitor the app for significant changes in
-time. <em>(iOS, tvOS)</em></li>
-</ul>
-<h3 id='a-name-device_monitors-device-monitors-a' class='heading'><a name="device_monitors">Device Monitors</a></h3>
-
-<p>XestiMonitors provides three monitor classes that you can use to detect changes
-in the characteristics of the device:</p>
-
-<ul>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html">BatteryMonitor</a> to monitor the device for changes to the
-charge state and charge level of its battery. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html">OrientationMonitor</a> to monitor the device for changes
-to its physical orientation. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html">ProximityMonitor</a> to monitor the device for changes to
-the state of its proximity sensor. <em>(iOS)</em></li>
-</ul>
-<h3 id='a-name-location_monitors-location-monitors-a' class='heading'><a name="location_monitors">Location Monitors</a></h3>
-
-<p>XestiMonitors provides seven monitor classes that you can use to determine the
-device’s geographic location, altitude, orientation, or position relative to a
-nearby iBeacon:</p>
+<p>XestiMonitors provides seven monitor classes wrapping the Core Location
+framework that you can use to determine the device’s geographic location,
+altitude, or orientation; or its position relative to a nearby iBeacon:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html">BeaconRangingMonitor</a> to monitor a region for
@@ -789,10 +724,11 @@ for changes to its current location. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html">VisitMonitor</a> to monitor for locations that the user stops at
 for a “noteworthy” amount of time. <em>(iOS)</em></li>
 </ul>
-<h3 id='a-name-motion_monitors-motion-monitors-a' class='heading'><a name="motion_monitors">Motion Monitors</a></h3>
+<h3 id='a-name-core_motion_monitors-core-motion-monitors-a' class='heading'><a name="core_motion_monitors">Core Motion Monitors</a></h3>
 
-<p>XestiMonitors provides seven monitor classes that you can use to obtain raw and
-processed motion measurements from the device:</p>
+<p>XestiMonitors provides seven monitor classes wrapping the Core Motion framework
+that you can use to obtain raw and processed motion measurements from the
+device:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html">AccelerometerMonitor</a> to monitor the device’s
@@ -814,9 +750,183 @@ live and historic motion data. <em>(iOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html">PedometerMonitor</a> to monitor the device for live and
 historic walking data. <em>(iOS, watchOS)</em></li>
 </ul>
-<h3 id='a-name-screen_monitors-screen-monitors-a' class='heading'><a name="screen_monitors">Screen Monitors</a></h3>
+<h3 id='a-name-foundation_monitors-foundation-monitors-a' class='heading'><a name="foundation_monitors">Foundation Monitors</a></h3>
+
+<p>XestiMonitors provides three monitors wrapping <code>Foundation</code> notifications:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a> to monitor a metadata query
+for changes to its results. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a> to
+monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
+data pushed from iCloud. <em>(iOS, macOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a> to monitor the system
+for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+</ul>
+<h3 id='a-name-uikit_monitors-uikit-monitors-a' class='heading'><a name="uikit_monitors">UIKit Monitors</a></h3>
+
+<p>XestiMonitors provides numerous monitors wrapping the following <code>UIKit</code>
+notifications:</p>
+
+<ul>
+<li><p><strong>Accessibility-related</strong></p>
+
+<ul>
+<li><code>UIAccessibilityAnnouncementDidFinish</code></li>
+<li><code>UIAccessibilityAssistiveTouchStatusDidChange</code></li>
+<li><code>UIAccessibilityBoldTextStatusDidChange</code></li>
+<li><code>UIAccessibilityClosedCaptioningStatusDidChange</code></li>
+<li><code>UIAccessibilityDarkerSystemColorsStatusDidChange</code></li>
+<li><code>UIAccessibilityElementFocused</code></li>
+<li><code>UIAccessibilityGrayscaleStatusDidChange</code></li>
+<li><code>UIAccessibilityGuidedAccessStatusDidChange</code></li>
+<li><code>UIAccessibilityHearingDevicePairedEarDidChange</code></li>
+<li><code>UIAccessibilityInvertColorsStatusDidChange</code></li>
+<li><code>UIAccessibilityMonoAudioStatusDidChange</code></li>
+<li><code>UIAccessibilityReduceMotionStatusDidChange</code></li>
+<li><code>UIAccessibilityReduceTransparencyStatusDidChange</code></li>
+<li><code>UIAccessibilityShakeToUndoDidChange</code></li>
+<li><code>UIAccessibilitySpeakScreenStatusDidChange</code></li>
+<li><code>UIAccessibilitySpeakSelectionStatusDidChange</code></li>
+<li><code>UIAccessibilitySwitchControlStatusDidChange</code></li>
+<li><code>UIAccessibilityVoiceOverStatusDidChange</code></li>
+</ul>
+
+<p>See <a href="#accessibility_monitors">Accessibility Monitors</a> for details.</p></li>
+<li><p><strong>Application-related</strong></p>
+
+<ul>
+<li><code>UIApplicationBackgroundRefreshStatusDidChange</code></li>
+<li><code>UIApplicationDidBecomeActive</code></li>
+<li><code>UIApplicationDidChangeStatusBarFrame</code></li>
+<li><code>UIApplicationDidChangeStatusBarOrientation</code></li>
+<li><code>UIApplicationDidEnterBackground</code></li>
+<li><code>UIApplicationDidFinishLaunching</code></li>
+<li><code>UIApplicationDidReceiveMemoryWarning</code></li>
+<li><code>UIApplicationProtectedDataDidBecomeAvailable</code></li>
+<li><code>UIApplicationProtectedDataWillBecomeUnavailable</code></li>
+<li><code>UIApplicationSignificantTimeChange</code></li>
+<li><code>UIApplicationUserDidTakeScreenshot</code></li>
+<li><code>UIApplicationWillChangeStatusBarFrame</code></li>
+<li><code>UIApplicationWillChangeStatusBarOrientation</code></li>
+<li><code>UIApplicationWillEnterForeground</code></li>
+<li><code>UIApplicationWillResignActive</code></li>
+<li><code>UIApplicationWillTerminate</code></li>
+</ul>
+
+<p>See <a href="#application_monitors">Application Monitors</a> for details.</p></li>
+<li><p><strong>Device-related</strong></p>
+
+<ul>
+<li><code>UIDeviceBatteryLevelDidChange</code></li>
+<li><code>UIDeviceBatteryStateDidChange</code></li>
+<li><code>UIDeviceOrientationDidChange</code></li>
+<li><code>UIDeviceProximityStateDidChange</code></li>
+</ul>
+
+<p>See <a href="#device_monitors">Device Monitors</a> for details.</p></li>
+<li><p><strong>Screen-related</strong></p>
+
+<ul>
+<li><code>UIScreenBrightnessDidChange</code></li>
+<li><code>UIScreenCapturedDidChange</code></li>
+<li><code>UIScreenDidConnect</code></li>
+<li><code>UIScreenDidDisconnect</code></li>
+<li><code>UIScreenModeDidChange</code></li>
+</ul>
+
+<p>See <a href="#screen_monitors">Screen Monitors</a> for details.</p></li>
+<li><p><strong>Text-related</strong></p>
+
+<ul>
+<li><code>UITextFieldTextDidBeginEditing</code></li>
+<li><code>UITextFieldTextDidChange</code></li>
+<li><code>UITextFieldTextDidEndEditing</code></li>
+<li><code>UITextInputCurrentInputModeDidChange</code></li>
+<li><code>UITextViewTextDidBeginEditing</code></li>
+<li><code>UITextViewTextDidChange</code></li>
+<li><code>UITextViewTextDidEndEditing</code></li>
+</ul>
+
+<p>See <a href="#text_monitors">Text Monitors</a> for details.</p></li>
+<li><p><strong>Miscellaneous</strong></p>
+
+<ul>
+<li><code>UIDocumentStateChanged</code></li>
+<li><code>UIKeyboardDidChangeFrame</code></li>
+<li><code>UIKeyboardDidHide</code></li>
+<li><code>UIKeyboardDidShow</code></li>
+<li><code>UIKeyboardWillChangeFrame</code></li>
+<li><code>UIKeyboardWillHide</code></li>
+<li><code>UIKeyboardWillShow</code></li>
+<li><code>UIMenuControllerDidHideMenu</code></li>
+<li><code>UIMenuControllerDidShowMenu</code></li>
+<li><code>UIMenuControllerMenuFrameDidChange</code></li>
+<li><code>UIMenuControllerWillHideMenu</code></li>
+<li><code>UIMenuControllerWillShowMenu</code></li>
+<li><code>UIPasteboardChanged</code></li>
+<li><code>UIPasteboardRemoved</code></li>
+<li><code>UIViewControllerShowDetailTargetDidChange</code></li>
+<li><code>UIWindowDidBecomeHidden</code></li>
+<li><code>UIWindowDidBecomeKey</code></li>
+<li><code>UIWindowDidBecomeVisible</code></li>
+<li><code>UIWindowDidResignKey</code></li>
+</ul>
+
+<p>See <a href="#other_uikit_monitors">Other UIKit Monitors</a> for details.</p></li>
+</ul>
+<h4 id='a-name-accessibility_monitors-accessibility-monitors-a' class='heading'><a name="accessibility_monitors">Accessibility Monitors</a></h4>
+
+<p>XestiMonitors provides three monitor classes that you can use to observe
+accessibility events generated by the system:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html">AccessibilityAnnouncementMonitor</a> to
+monitor the system for accessibility announcements that VoiceOver has
+finished outputting. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html">AccessibilityElementMonitor</a> to monitor the
+system for changes to element focus by an assistive technology. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html">AccessibilityStatusMonitor</a> to monitor the
+system for changes to the status of various accessibility settings.
+<em>(iOS, tvOS)</em></li>
+</ul>
+<h4 id='a-name-application_monitors-application-monitors-a' class='heading'><a name="application_monitors">Application Monitors </a></h4>
+
+<p>XestiMonitors provides seven monitor classes that you can use to observe common
+events generated by the system about the app:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html">ApplicationStateMonitor</a> to monitor the app for
+changes to its runtime state. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html">BackgroundRefreshMonitor</a> to monitor the app for
+changes to its status for downloading content in the background. <em>(iOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html">MemoryMonitor</a> to monitor the app for memory warnings from
+the operating system. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html">ProtectedDataMonitor</a> to monitor the app for changes
+to the accessibility of protected files. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html">ScreenshotMonitor</a> to monitor the app for screenshots.
+<em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html">StatusBarMonitor</a> to monitor the app for changes to the
+orientation of its user interface or to the frame of the status bar. <em>(iOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html">TimeMonitor</a> to monitor the app for significant changes in
+time. <em>(iOS, tvOS)</em></li>
+</ul>
+<h4 id='a-name-device_monitors-device-monitors-a' class='heading'><a name="device_monitors">Device Monitors</a></h4>
 
 <p>XestiMonitors provides three monitor classes that you can use to detect changes
+in the characteristics of the device:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html">BatteryMonitor</a> to monitor the device for changes to the
+charge state and charge level of its battery. <em>(iOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html">OrientationMonitor</a> to monitor the device for changes
+to its physical orientation. <em>(iOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html">ProximityMonitor</a> to monitor the device for changes to
+the state of its proximity sensor. <em>(iOS)</em></li>
+</ul>
+<h4 id='a-name-screen_monitors-screen-monitors-a' class='heading'><a name="screen_monitors">Screen Monitors</a></h4>
+
+<p>XestiMonitors provides four monitor classes that you can use to detect changes
 in the properties associated with a screen:</p>
 
 <ul>
@@ -824,10 +934,12 @@ in the properties associated with a screen:</p>
 changes to its brightness level. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html">ScreenCapturedMonitor</a> to monitor a screen for
 changes to its captured status. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenConnectionMonitor.html">ScreenConnectionMonitor</a> to monitor the device
+for screen connections and disconnections. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html">ScreenModeMonitor</a> to monitor a screen for changes to
 its current mode. <em>(iOS, tvOS)</em></li>
 </ul>
-<h3 id='a-name-text_monitors-text-monitors-a' class='heading'><a name="text_monitors">Text Monitors</a></h3>
+<h4 id='a-name-text_monitors-text-monitors-a' class='heading'><a name="text_monitors">Text Monitors</a></h4>
 
 <p>XestiMonitors provides three monitor classes that you can use to detect changes
 in text input mode and content:</p>
@@ -840,29 +952,25 @@ chain for changes to the current input mode. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html">TextViewTextMonitor</a> to monitor a text view for
 changes to its text. <em>(iOS, tvOS)</em></li>
 </ul>
-<h3 id='a-name-other_monitors-other-monitors-a' class='heading'><a name="other_monitors">Other Monitors</a></h3>
+<h4 id='a-name-other_uikit_monitors-other-uikit-monitors-a' class='heading'><a name="other_uikit_monitors">Other UIKit Monitors</a></h4>
 
-<p>In addition, XestiMonitors provides nine other monitors:</p>
+<p>In addition, XestiMonitors provides seven other <code>UIKit</code> monitors:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html">DocumentStateMonitor</a> to monitor a document for
 changes to its state. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html">FileSystemObjectMonitor</a> to monitor a
-file-system object for changes. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html">FocusMonitor</a> to monitor the app for changes to the current
+focus in the view hierarchy. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> to monitor the keyboard for changes to
 its visibility or to its frame. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a> to monitor a metadata query
-for changes to its results. <em>(iOS, macOS, tvOS, watchOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a> to monitor a
-network node name or address for changes to its reachability.
-<em>(iOS, macOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/MenuControllerMonitor.html">MenuControllerMonitor</a> to monitor the menu
+controller for changes to the visibility of the editing menu or to the frame
+of the editing menu. <em>(iOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html">PasteboardMonitor</a> to monitor a pasteboard for changes
 to its contents or for its removal from the app. <em>(iOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a> to
-monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
-data pushed from iCloud. <em>(iOS, macOS, tvOS)</em></li>
-<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a> to monitor the system
-for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html">ViewControllerShowDetailTargetMonitor</a>
+to monitor the app for changes to a split view controller’s display mode in
+the view hierarchy. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html">WindowMonitor</a> to monitor a window for changes to its
 visibility or key status. <em>(iOS, tvOS)</em></li>
 </ul>
@@ -947,6 +1055,17 @@ handled in a custom view controller:</p>
 </code></pre>
 
 <p>What’s in <em>your</em> wallet?</p>
+<h3 id='a-name-other_monitors-other-monitors-a' class='heading'><a name="other_monitors">Other Monitors</a></h3>
+
+<p>In addition, XestiMonitors provides two other monitors:</p>
+
+<ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html">FileSystemObjectMonitor</a> to monitor a
+file-system object for changes. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html">NetworkReachabilityMonitor</a> to monitor a
+network node name or address for changes to its reachability.
+<em>(iOS, macOS, tvOS)</em></li>
+</ul>
 <h3 id='a-name-custom_monitors-custom-monitors-a' class='heading'><a name="custom_monitors">Custom Monitors</a></h3>
 
 <p>Best of all, the XestiMonitors framework provides several ways to create your
@@ -1070,14 +1189,16 @@ overrides.</p>
 
 <p>XestiMonitors is available under <a href="https://github.com/eBardX/XestiMonitors/blob/master/LICENSE.md">the MIT license</a>.</p>
 
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>© 2016–2018 J. G. Pusey</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
+
       </article>
     </div>
+    <section class="footer">
+      <p>© 2016–2018 J. G. Pusey</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

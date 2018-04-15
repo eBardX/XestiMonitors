@@ -17,13 +17,16 @@
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
-    * [Accessibility Monitors](#accessibility_monitors)
-    * [Application Monitors](#application_monitors)
-    * [Device Monitors](#device_monitors)
-    * [Location Monitors](#location_monitors)
-    * [Motion Monitors](#motion_monitors)
-    * [Screen Monitors](#screen_monitors)
-    * [Text Monitors](#text_monitors)
+    * [Core Location Monitors](#core_location_monitors)
+    * [Core Motion Monitors](#core_motion_monitors)
+    * [Foundation Monitors](#foundation_monitors)
+    * [UIKit Monitors](#uikit_monitors)
+        * [Accessibility Monitors](#accessibility_monitors)
+        * [Application Monitors](#application_monitors)
+        * [Device Monitors](#device_monitors)
+        * [Screen Monitors](#screen_monitors)
+        * [Text Monitors](#text_monitors)
+        * [Other UIKit Monitors](#other_uikit_monitors)
     * [Other Monitors](#other_monitors)
     * [Custom Monitors](#custom_monitors)
 * [Credits](#credits)
@@ -36,116 +39,21 @@ monitor classes right out of the box that make it easy for your app to detect
 and respond to many common system-generated events.
 
 Among other things, you can think of XestiMonitors as a better way to manage
-the most common notifications (primarily on iOS). At present, XestiMonitors
-provides “wrappers” around many `UIKit` notifications:
-
-* **Accessibility-related**
-
-    * `UIAccessibilityAnnouncementDidFinish`
-    * `UIAccessibilityAssistiveTouchStatusDidChange`
-    * `UIAccessibilityBoldTextStatusDidChange`
-    * `UIAccessibilityClosedCaptioningStatusDidChange`
-    * `UIAccessibilityDarkerSystemColorsStatusDidChange`
-    * `UIAccessibilityElementFocused`
-    * `UIAccessibilityGrayscaleStatusDidChange`
-    * `UIAccessibilityGuidedAccessStatusDidChange`
-    * `UIAccessibilityHearingDevicePairedEarDidChange`
-    * `UIAccessibilityInvertColorsStatusDidChange`
-    * `UIAccessibilityMonoAudioStatusDidChange`
-    * `UIAccessibilityReduceMotionStatusDidChange`
-    * `UIAccessibilityReduceTransparencyStatusDidChange`
-    * `UIAccessibilityShakeToUndoDidChange`
-    * `UIAccessibilitySpeakScreenStatusDidChange`
-    * `UIAccessibilitySpeakSelectionStatusDidChange`
-    * `UIAccessibilitySwitchControlStatusDidChange`
-    * `UIAccessibilityVoiceOverStatusDidChange`
-
-    See [Accessibility Monitors](#accessibility_monitors) for details.
-
-* **Application-related**
-
-    * `UIApplicationBackgroundRefreshStatusDidChange`
-    * `UIApplicationDidBecomeActive`
-    * `UIApplicationDidChangeStatusBarFrame`
-    * `UIApplicationDidChangeStatusBarOrientation`
-    * `UIApplicationDidEnterBackground`
-    * `UIApplicationDidFinishLaunching`
-    * `UIApplicationDidReceiveMemoryWarning`
-    * `UIApplicationProtectedDataDidBecomeAvailable`
-    * `UIApplicationProtectedDataWillBecomeUnavailable`
-    * `UIApplicationSignificantTimeChange`
-    * `UIApplicationUserDidTakeScreenshot`
-    * `UIApplicationWillChangeStatusBarFrame`
-    * `UIApplicationWillChangeStatusBarOrientation`
-    * `UIApplicationWillEnterForeground`
-    * `UIApplicationWillResignActive`
-    * `UIApplicationWillTerminate`
-
-    See [Application Monitors](#application_monitors) for details.
-
-* **Device-related**
-
-    * `UIDeviceBatteryLevelDidChange`
-    * `UIDeviceBatteryStateDidChange`
-    * `UIDeviceOrientationDidChange`
-    * `UIDeviceProximityStateDidChange`
-
-    See [Device Monitors](#device_monitors) for details.
-
-* **Screen-related**
-
-    * `UIScreenBrightnessDidChange`
-    * `UIScreenCapturedDidChange`
-    * `UIScreenDidConnect`
-    * `UIScreenDidDisconnect`
-    * `UIScreenModeDidChange`
-
-    See [Screen Monitors](#screen_monitors) for details.
-
-* **Text-related**
-
-    * `UITextFieldTextDidBeginEditing`
-    * `UITextFieldTextDidChange`
-    * `UITextFieldTextDidEndEditing`
-    * `UITextInputCurrentInputModeDidChange`
-    * `UITextViewTextDidBeginEditing`
-    * `UITextViewTextDidChange`
-    * `UITextViewTextDidEndEditing`
-
-    See [Text Monitors](#text_monitors) for details.
-
-* **Miscellaneous**
-
-    * `UIDocumentStateChanged`
-    * `UIKeyboardDidChangeFrame`
-    * `UIKeyboardDidHide`
-    * `UIKeyboardDidShow`
-    * `UIKeyboardWillChangeFrame`
-    * `UIKeyboardWillHide`
-    * `UIKeyboardWillShow`
-    * `UIMenuControllerDidHideMenu`
-    * `UIMenuControllerDidShowMenu`
-    * `UIMenuControllerMenuFrameDidChange`
-    * `UIMenuControllerWillHideMenu`
-    * `UIMenuControllerWillShowMenu`
-    * `UIPasteboardChanged`
-    * `UIPasteboardRemoved`
-    * `UIViewControllerShowDetailTargetDidChange`
-    * `UIWindowDidBecomeHidden`
-    * `UIWindowDidBecomeKey`
-    * `UIWindowDidBecomeVisible`
-    * `UIWindowDidResignKey`
-
-    See [Other Monitors](#other_monitors) for details.
+the most common notifications (primarily on iOS and tvOS). At present,
+XestiMonitors provides “wrappers” around most `UIKit` notifications (see
+[UIKit Monitors](#uikit_monitors)) and some `Foundation` notifications (see
+[Foundation Monitors](#foundation_monitors)).
 
 XestiMonitors also provides convenient “wrappers” around several frameworks and
 programming interfaces to make them easier for your app to use:
 
-* It wraps the Core Location framework to make it easier for your app to ...
-  See [Location Monitors](#location_monitors) for details.
+* It wraps the Core Location framework to make it easier for your app to make
+  easier for your app to determine the device’s geographic location, altitude,
+  or orientation; or its position relative to a nearby iBeacon. See
+  [Core Location Monitors](#core_location_monitors) for details.
 * It wraps the Core Motion framework to make it easier for your app to obtain
   both raw and processed motion measurements from the device. See
-  [Motion Monitors](#motion_monitors) for details.
+  [Core Motion Monitors](#core_motion_monitors) for details.
 * It wraps the `SCNetworkReachability` programming interface to make it super
   easy for your app to determine the reachability of a target host. See
   [Other Monitors](#other_monitors) for details.
@@ -255,9 +163,9 @@ lazy var memoryMonitor = MemoryMonitor { [unowned self] in
 lazy var orientationMonitor = OrientationMonitor { [unowned self] in
     // do something…
 }
-lazy var monitors: [Monitor] = [self.keyboardMonitor,
-                                self.memoryMonitor,
-                                self.orientationMonitor]
+lazy var monitors: [Monitor] = [keyboardMonitor,
+                                memoryMonitor,
+                                orientationMonitor]
 ```
 
 Then, in the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can
@@ -277,57 +185,11 @@ override func viewWillDisappear(_ animated: Bool) {
 
 Easy peasy!
 
-### <a name="accessibility_monitors">Accessibility Monitors</a>
+### <a name="core_location_monitors">Core Location Monitors</a>
 
-XestiMonitors provides three monitor classes that you can use to observe
-accessibility events generated by the system:
-
-* [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor] to
-  monitor the system for accessibility announcements that VoiceOver has
-  finished outputting. *(iOS, tvOS)*
-* [AccessibilityElementMonitor][accessibility_element_monitor] to monitor the
-  system for changes to element focus by an assistive technology. *(iOS, tvOS)*
-* [AccessibilityStatusMonitor][accessibility_status_monitor] to monitor the
-  system for changes to the status of various accessibility settings.
-  *(iOS, tvOS)*
-
-### <a name="application_monitors">Application Monitors </a>
-
-XestiMonitors provides seven monitor classes that you can use to observe common
-events generated by the system about the app:
-
-* [ApplicationStateMonitor][application_state_monitor] to monitor the app for
-  changes to its runtime state. *(iOS, tvOS)*
-* [BackgroundRefreshMonitor][background_refresh_monitor] to monitor the app for
-  changes to its status for downloading content in the background. *(iOS)*
-* [MemoryMonitor][memory_monitor] to monitor the app for memory warnings from
-  the operating system. *(iOS, tvOS)*
-* [ProtectedDataMonitor][protected_data_monitor] to monitor the app for changes
-  to the accessibility of protected files. *(iOS, tvOS)*
-* [ScreenshotMonitor][screenshot_monitor] to monitor the app for screenshots.
-  *(iOS, tvOS)*
-* [StatusBarMonitor][status_bar_monitor] to monitor the app for changes to the
-  orientation of its user interface or to the frame of the status bar. *(iOS)*
-* [TimeMonitor][time_monitor] to monitor the app for significant changes in
-  time. *(iOS, tvOS)*
-
-### <a name="device_monitors">Device Monitors</a>
-
-XestiMonitors provides three monitor classes that you can use to detect changes
-in the characteristics of the device:
-
-* [BatteryMonitor][battery_monitor] to monitor the device for changes to the
-  charge state and charge level of its battery. *(iOS)*
-* [OrientationMonitor][orientation_monitor] to monitor the device for changes
-  to its physical orientation. *(iOS)*
-* [ProximityMonitor][proximity_monitor] to monitor the device for changes to
-  the state of its proximity sensor. *(iOS)*
-
-### <a name="location_monitors">Location Monitors</a>
-
-XestiMonitors provides seven monitor classes that you can use to determine the
-device’s geographic location, altitude, orientation, or position relative to a
-nearby iBeacon:
+XestiMonitors provides seven monitor classes wrapping the Core Location
+framework that you can use to determine the device’s geographic location,
+altitude, or orientation; or its position relative to a nearby iBeacon:
 
 * [BeaconRangingMonitor][beacon_ranging_monitor] to monitor a region for
   changes to the ranges (*i.e.,* the relative proximity) to the Bluetooth
@@ -346,10 +208,11 @@ nearby iBeacon:
 * [VisitMonitor][visit_monitor] to monitor for locations that the user stops at
   for a “noteworthy” amount of time. *(iOS)*
 
-### <a name="motion_monitors">Motion Monitors</a>
+### <a name="core_motion_monitors">Core Motion Monitors</a>
 
-XestiMonitors provides seven monitor classes that you can use to obtain raw and
-processed motion measurements from the device:
+XestiMonitors provides seven monitor classes wrapping the Core Motion framework
+that you can use to obtain raw and processed motion measurements from the
+device:
 
 * [AccelerometerMonitor][accelerometer_monitor] to monitor the device’s
   accelerometer for periodic raw measurements of the acceleration along the
@@ -370,7 +233,169 @@ processed motion measurements from the device:
 * [PedometerMonitor][pedometer_monitor] to monitor the device for live and
   historic walking data. *(iOS, watchOS)*
 
-### <a name="screen_monitors">Screen Monitors</a>
+### <a name="foundation_monitors">Foundation Monitors</a>
+
+XestiMonitors provides three monitors wrapping `Foundation` notifications:
+
+* [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
+  for changes to its results. *(iOS, macOS, tvOS, watchOS)*
+* [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
+  monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
+  data pushed from iCloud. *(iOS, macOS, tvOS)*
+* [UbiquityIdentityMonitor][ubiquity_identity_monitor] to monitor the system
+  for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
+
+### <a name="uikit_monitors">UIKit Monitors</a>
+
+XestiMonitors provides numerous monitors wrapping the following `UIKit`
+notifications:
+
+* **Accessibility-related**
+
+    * `UIAccessibilityAnnouncementDidFinish`
+    * `UIAccessibilityAssistiveTouchStatusDidChange`
+    * `UIAccessibilityBoldTextStatusDidChange`
+    * `UIAccessibilityClosedCaptioningStatusDidChange`
+    * `UIAccessibilityDarkerSystemColorsStatusDidChange`
+    * `UIAccessibilityElementFocused`
+    * `UIAccessibilityGrayscaleStatusDidChange`
+    * `UIAccessibilityGuidedAccessStatusDidChange`
+    * `UIAccessibilityHearingDevicePairedEarDidChange`
+    * `UIAccessibilityInvertColorsStatusDidChange`
+    * `UIAccessibilityMonoAudioStatusDidChange`
+    * `UIAccessibilityReduceMotionStatusDidChange`
+    * `UIAccessibilityReduceTransparencyStatusDidChange`
+    * `UIAccessibilityShakeToUndoDidChange`
+    * `UIAccessibilitySpeakScreenStatusDidChange`
+    * `UIAccessibilitySpeakSelectionStatusDidChange`
+    * `UIAccessibilitySwitchControlStatusDidChange`
+    * `UIAccessibilityVoiceOverStatusDidChange`
+
+    See [Accessibility Monitors](#accessibility_monitors) for details.
+
+* **Application-related**
+
+    * `UIApplicationBackgroundRefreshStatusDidChange`
+    * `UIApplicationDidBecomeActive`
+    * `UIApplicationDidChangeStatusBarFrame`
+    * `UIApplicationDidChangeStatusBarOrientation`
+    * `UIApplicationDidEnterBackground`
+    * `UIApplicationDidFinishLaunching`
+    * `UIApplicationDidReceiveMemoryWarning`
+    * `UIApplicationProtectedDataDidBecomeAvailable`
+    * `UIApplicationProtectedDataWillBecomeUnavailable`
+    * `UIApplicationSignificantTimeChange`
+    * `UIApplicationUserDidTakeScreenshot`
+    * `UIApplicationWillChangeStatusBarFrame`
+    * `UIApplicationWillChangeStatusBarOrientation`
+    * `UIApplicationWillEnterForeground`
+    * `UIApplicationWillResignActive`
+    * `UIApplicationWillTerminate`
+
+    See [Application Monitors](#application_monitors) for details.
+
+* **Device-related**
+
+    * `UIDeviceBatteryLevelDidChange`
+    * `UIDeviceBatteryStateDidChange`
+    * `UIDeviceOrientationDidChange`
+    * `UIDeviceProximityStateDidChange`
+
+    See [Device Monitors](#device_monitors) for details.
+
+* **Screen-related**
+
+    * `UIScreenBrightnessDidChange`
+    * `UIScreenCapturedDidChange`
+    * `UIScreenDidConnect`
+    * `UIScreenDidDisconnect`
+    * `UIScreenModeDidChange`
+
+    See [Screen Monitors](#screen_monitors) for details.
+
+* **Text-related**
+
+    * `UITextFieldTextDidBeginEditing`
+    * `UITextFieldTextDidChange`
+    * `UITextFieldTextDidEndEditing`
+    * `UITextInputCurrentInputModeDidChange`
+    * `UITextViewTextDidBeginEditing`
+    * `UITextViewTextDidChange`
+    * `UITextViewTextDidEndEditing`
+
+    See [Text Monitors](#text_monitors) for details.
+
+* **Miscellaneous**
+
+    * `UIDocumentStateChanged`
+    * `UIKeyboardDidChangeFrame`
+    * `UIKeyboardDidHide`
+    * `UIKeyboardDidShow`
+    * `UIKeyboardWillChangeFrame`
+    * `UIKeyboardWillHide`
+    * `UIKeyboardWillShow`
+    * `UIMenuControllerDidHideMenu`
+    * `UIMenuControllerDidShowMenu`
+    * `UIMenuControllerMenuFrameDidChange`
+    * `UIMenuControllerWillHideMenu`
+    * `UIMenuControllerWillShowMenu`
+    * `UIPasteboardChanged`
+    * `UIPasteboardRemoved`
+    * `UIViewControllerShowDetailTargetDidChange`
+    * `UIWindowDidBecomeHidden`
+    * `UIWindowDidBecomeKey`
+    * `UIWindowDidBecomeVisible`
+    * `UIWindowDidResignKey`
+
+    See [Other UIKit Monitors](#other_uikit_monitors) for details.
+
+#### <a name="accessibility_monitors">Accessibility Monitors</a>
+
+XestiMonitors provides three monitor classes that you can use to observe
+accessibility events generated by the system:
+
+* [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor] to
+  monitor the system for accessibility announcements that VoiceOver has
+  finished outputting. *(iOS, tvOS)*
+* [AccessibilityElementMonitor][accessibility_element_monitor] to monitor the
+  system for changes to element focus by an assistive technology. *(iOS, tvOS)*
+* [AccessibilityStatusMonitor][accessibility_status_monitor] to monitor the
+  system for changes to the status of various accessibility settings.
+  *(iOS, tvOS)*
+
+#### <a name="application_monitors">Application Monitors </a>
+
+XestiMonitors provides seven monitor classes that you can use to observe common
+events generated by the system about the app:
+
+* [ApplicationStateMonitor][application_state_monitor] to monitor the app for
+  changes to its runtime state. *(iOS, tvOS)*
+* [BackgroundRefreshMonitor][background_refresh_monitor] to monitor the app for
+  changes to its status for downloading content in the background. *(iOS)*
+* [MemoryMonitor][memory_monitor] to monitor the app for memory warnings from
+  the operating system. *(iOS, tvOS)*
+* [ProtectedDataMonitor][protected_data_monitor] to monitor the app for changes
+  to the accessibility of protected files. *(iOS, tvOS)*
+* [ScreenshotMonitor][screenshot_monitor] to monitor the app for screenshots.
+  *(iOS, tvOS)*
+* [StatusBarMonitor][status_bar_monitor] to monitor the app for changes to the
+  orientation of its user interface or to the frame of the status bar. *(iOS)*
+* [TimeMonitor][time_monitor] to monitor the app for significant changes in
+  time. *(iOS, tvOS)*
+
+#### <a name="device_monitors">Device Monitors</a>
+
+XestiMonitors provides three monitor classes that you can use to detect changes
+in the characteristics of the device:
+
+* [BatteryMonitor][battery_monitor] to monitor the device for changes to the
+  charge state and charge level of its battery. *(iOS)*
+* [OrientationMonitor][orientation_monitor] to monitor the device for changes
+  to its physical orientation. *(iOS)*
+* [ProximityMonitor][proximity_monitor] to monitor the device for changes to
+  the state of its proximity sensor. *(iOS)*
+
+#### <a name="screen_monitors">Screen Monitors</a>
 
 XestiMonitors provides four monitor classes that you can use to detect changes
 in the properties associated with a screen:
@@ -384,7 +409,7 @@ in the properties associated with a screen:
 * [ScreenModeMonitor][screen_mode_monitor] to monitor a screen for changes to
   its current mode. *(iOS, tvOS)*
 
-### <a name="text_monitors">Text Monitors</a>
+#### <a name="text_monitors">Text Monitors</a>
 
 XestiMonitors provides three monitor classes that you can use to detect changes
 in text input mode and content:
@@ -396,14 +421,12 @@ in text input mode and content:
 * [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
   changes to its text. *(iOS, tvOS)*
 
-### <a name="other_monitors">Other Monitors</a>
+#### <a name="other_uikit_monitors">Other UIKit Monitors</a>
 
-In addition, XestiMonitors provides twelve other monitors:
+In addition, XestiMonitors provides seven other `UIKit` monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
-* [FileSystemObjectMonitor][file_system_object_monitor] to monitor a
-  file-system object for changes. *(iOS, macOS, tvOS, watchOS)*
 * [FocusMonitor][focus_monitor] to monitor the app for changes to the current
   focus in the view hierarchy. *(iOS, tvOS)*
 * [KeyboardMonitor][keyboard_monitor] to monitor the keyboard for changes to
@@ -411,18 +434,8 @@ In addition, XestiMonitors provides twelve other monitors:
 * [MenuControllerMonitor][menu_controller_monitor] to monitor the menu
   controller for changes to the visibility of the editing menu or to the frame
   of the editing menu. *(iOS)*
-* [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
-  for changes to its results. *(iOS, macOS, tvOS, watchOS)*
-* [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
-  network node name or address for changes to its reachability.
-  *(iOS, macOS, tvOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
-* [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
-  monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
-  data pushed from iCloud. *(iOS, macOS, tvOS)*
-* [UbiquityIdentityMonitor][ubiquity_identity_monitor] to monitor the system
-  for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
 * [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
   to monitor the app for changes to a split view controller’s display mode in
   the view hierarchy. *(iOS, tvOS)*
@@ -513,6 +526,16 @@ override func viewWillDisappear(_ animated: Bool) {
 ```
 
 What’s in *your* wallet?
+
+### <a name="other_monitors">Other Monitors</a>
+
+In addition, XestiMonitors provides two other monitors:
+
+* [FileSystemObjectMonitor][file_system_object_monitor] to monitor a
+  file-system object for changes. *(iOS, macOS, tvOS, watchOS)*
+* [NetworkReachabilityMonitor][network_reachability_monitor] to monitor a
+  network node name or address for changes to its reachability.
+  *(iOS, macOS, tvOS)*
 
 ### <a name="custom_monitors">Custom Monitors</a>
 

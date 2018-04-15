@@ -9,26 +9,7 @@ custom_categories:
     children:
       - BaseMonitor
       - BaseNotificationMonitor
-  - name: Accessibility Monitor Classes
-    children:
-      - AccessibilityAnnouncementMonitor
-      - AccessibilityElementMonitor
-      - AccessibilityStatusMonitor
-  - name: Application Monitor Classes
-    children:
-      - ApplicationStateMonitor
-      - BackgroundRefreshMonitor
-      - MemoryMonitor
-      - ProtectedDataMonitor
-      - ScreenshotMonitor
-      - StatusBarMonitor
-      - TimeMonitor
-  - name: Device Monitor Classes
-    children:
-      - BatteryMonitor
-      - OrientationMonitor
-      - ProximityMonitor
-  - name: Location Monitor Classes
+  - name: Core Location Monitor Classes
     children:
       - BeaconRangingMonitor
       - HeadingMonitor
@@ -37,7 +18,7 @@ custom_categories:
       - SignificantLocationMonitor
       - StandardLocationMonitor
       - VisitMonitor
-  - name: Motion Monitor Classes
+  - name: Core Motion Monitor Classes
     children:
       - AccelerometerMonitor
       - AltimeterMonitor
@@ -46,31 +27,54 @@ custom_categories:
       - MagnetometerMonitor
       - MotionActivityMonitor
       - PedometerMonitor
-  - name: Screen Monitor Classes
+  - name: Foundation Monitor Classes
+    children:
+      - MetadataQueryMonitor
+      - UbiquitousKeyValueStoreMonitor
+      - UbiquityIdentityMonitor
+  - name: UIKit Accessibility Monitor Classes
+    children:
+      - AccessibilityAnnouncementMonitor
+      - AccessibilityElementMonitor
+      - AccessibilityStatusMonitor
+  - name: UIKit Application Monitor Classes
+    children:
+      - ApplicationStateMonitor
+      - BackgroundRefreshMonitor
+      - MemoryMonitor
+      - ProtectedDataMonitor
+      - ScreenshotMonitor
+      - StatusBarMonitor
+      - TimeMonitor
+  - name: UIKit Device Monitor Classes
+    children:
+      - BatteryMonitor
+      - OrientationMonitor
+      - ProximityMonitor
+  - name: UIKit Screen Monitor Classes
     children:
       - ScreenBrightnessMonitor
       - ScreenCapturedMonitor
       - ScreenConnectionMonitor
       - ScreenModeMonitor
-  - name: Text Monitor Classes
+  - name: UIKit Text Monitor Classes
     children:
       - TextFieldTextMonitor
       - TextInputModeMonitor
       - TextViewTextMonitor
-  - name: Other Monitor Classes
+  - name: Other UIKit Monitor Classes
     children:
       - DocumentStateMonitor
-      - FileSystemObjectMonitor
       - FocusMonitor
       - KeyboardMonitor
       - MenuControllerMonitor
-      - MetadataQueryMonitor
-      - NetworkReachabilityMonitor
       - PasteboardMonitor
-      - UbiquitousKeyValueStoreMonitor
-      - UbiquityIdentityMonitor
       - ViewControllerShowDetailTargetMonitor
       - WindowMonitor
+  - name: Other Monitor Classes
+    children:
+      - FileSystemObjectMonitor
+      - NetworkReachabilityMonitor
   - name: Extensions
     children:
       - CMAcceleration
@@ -80,4 +84,4 @@ module: XestiMonitors
 readme: README.md
 root_url: https://eBardX.github.io/XestiMonitors/reference/
 sdk: iphoneos
-theme: apple
+theme: fullwidth

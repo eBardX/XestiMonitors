@@ -1,3 +1,11 @@
+# 2.8.0 (2018-04-15)
+
+* Adds support for four new monitor classes: `FocusMonitor`,
+  `MenuControllerMonitor`, `ScreenConnectionMonitor`, and
+  `ViewControllerShowDetailTargetMonitor`.
+* Improves code coverage.
+* Reorganizes README and reference documentation.
+
 # 2.7.0 (2018-04-09)
 
 * Adds support for ten new monitor classes: `BeaconRangingMonitor`,
