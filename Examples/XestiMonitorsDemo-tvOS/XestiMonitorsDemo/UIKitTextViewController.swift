@@ -1,5 +1,5 @@
 //
-//  TextDetailViewController.swift
+//  UIKitTextViewController.swift
 //  XestiMonitorsDemo-tvOS
 //
 //  Created by J. G. Pusey on 2018-04-08.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class TextDetailViewController: UITableViewController {
+public class UIKitTextViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

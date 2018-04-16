@@ -1,5 +1,5 @@
 //
-//  LocationDetailViewController.swift
+//  CoreLocationViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2018-03-24.
@@ -13,7 +13,7 @@ import XestiMonitors
 
 // swiftlint:disable type_body_length
 
-public class LocationDetailViewController: UITableViewController {
+public class CoreLocationViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

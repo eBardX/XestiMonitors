@@ -1,5 +1,5 @@
 //
-//  OtherDetailViewController.swift
+//  UIKitOtherViewController.swift
 //  XestiMonitorsDemo-tvOS
 //
 //  Created by J. G. Pusey on 2018-01-11.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
+public class UIKitOtherViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: Private Instance Properties
 
@@ -18,22 +18,16 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var focusHeadingLabel: UILabel!
     @IBOutlet private weak var focusNextItemLabel: UILabel!
     @IBOutlet private weak var focusPrevItemLabel: UILabel!
-    @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
     @available(tvOS 11.0, *)
     private lazy var focusMonitor = FocusMonitor(queue: .main) { [unowned self] in
         self.displayFocus($0)
     }
 
-    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
-        self.displayNetworkReachability($0)
-    }
-
     @available(tvOS 11.0, *)
-    private lazy var monitors: [Monitor] = [focusMonitor,
-                                            networkReachabilityMonitor]
+    private lazy var monitors: [Monitor] = [focusMonitor]
 
-    private lazy var oldMonitors: [Monitor] = [networkReachabilityMonitor]
+    private lazy var oldMonitors: [Monitor] = []
 
     // MARK: Private Instance Methods
 
@@ -82,24 +76,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         }
     }
 
-    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
-        if let event = event,
-            case let .statusDidChange(status) = event {
-            switch status {
-            case .notReachable:
-                networkReachabilityLabel.text = "Not reachable"
-
-            case .reachableViaWiFi:
-                networkReachabilityLabel.text = "Reachable via Wi-Fi"
-
-            default :
-                networkReachabilityLabel.text = "Unknown"
-            }
-        } else {
-            networkReachabilityLabel.text = "Unknown"
-        }
-    }
-
     // MARK: Overridden UIViewController Methods
 
     override public func viewDidLoad() {
@@ -108,8 +84,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         if #available(tvOS 11.0, *) {
             displayFocus(nil)
         }
-
-        displayNetworkReachability(nil)
     }
 
     override public func viewWillAppear(_ animated: Bool) {

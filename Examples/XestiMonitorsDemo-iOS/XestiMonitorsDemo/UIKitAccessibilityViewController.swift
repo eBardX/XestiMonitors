@@ -1,5 +1,5 @@
 //
-//  AccessibilityDetailViewController.swift
+//  UIKitAccessibilityViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-11-23.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class AccessibilityDetailViewController: UITableViewController {
+public class UIKitAccessibilityViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

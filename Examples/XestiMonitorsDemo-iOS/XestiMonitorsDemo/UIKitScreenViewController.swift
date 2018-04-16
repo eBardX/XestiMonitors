@@ -1,5 +1,5 @@
 //
-//  ScreenDetailViewController.swift
+//  UIKitScreenViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by Paul Nyondo on 2018-03-23.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class ScreenDetailViewController: UITableViewController {
+public class UIKitScreenViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

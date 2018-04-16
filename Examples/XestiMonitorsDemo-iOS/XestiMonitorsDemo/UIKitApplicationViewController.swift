@@ -1,5 +1,5 @@
 //
-//  ApplicationDetailViewController.swift
+//  UIKitApplicationViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-11-23.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class ApplicationDetailViewController: UITableViewController {
+public class UIKitApplicationViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

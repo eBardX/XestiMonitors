@@ -1,5 +1,5 @@
 //
-//  OtherDetailViewController.swift
+//  UIKitOtherViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-11-23.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class OtherDetailViewController: UITableViewController, UITextFieldDelegate {
+public class UIKitOtherViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: Private Instance Properties
 
@@ -23,7 +23,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     @IBOutlet private weak var keyboardFrameEndLabel: UILabel!
     @IBOutlet private weak var keyboardIsLocalLabel: UILabel!
     @IBOutlet private weak var keyboardTextField: UITextField!
-    @IBOutlet private weak var networkReachabilityLabel: UILabel!
     @IBOutlet private weak var pasteboardActionLabel: UILabel!
     @IBOutlet private weak var pasteboardTypesAddedLabel: UILabel!
     @IBOutlet private weak var pasteboardTypesRemovedLabel: UILabel!
@@ -33,10 +32,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
                                                         self.displayKeyboard($0)
     }
 
-    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
-        self.displayNetworkReachability($0)
-    }
-
     private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: pasteboard,
                                                            options: .all,
                                                            queue: .main) { [unowned self] in
@@ -44,7 +39,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
     }
 
     private lazy var monitors: [Monitor] = [keyboardMonitor,
-                                            networkReachabilityMonitor,
                                             pasteboardMonitor]
 
     // MARK: Private Instance Methods
@@ -102,27 +96,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         keyboardActionLabel.text = action
     }
 
-    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
-        if let event = event,
-            case let .statusDidChange(status) = event {
-            switch status {
-            case .notReachable:
-                networkReachabilityLabel.text = "Not reachable"
-
-            case .reachableViaWiFi:
-                networkReachabilityLabel.text = "Reachable via Wi-Fi"
-
-            case .reachableViaWWAN:
-                networkReachabilityLabel.text = "Reachable via WWAN"
-
-            default :
-                networkReachabilityLabel.text = "Unknown"
-            }
-        } else {
-            networkReachabilityLabel.text = "Unknown"
-        }
-    }
-
     private func displayPasteboard(_ event: PasteboardMonitor.Event?) {
         if let event = event {
             switch event {
@@ -160,7 +133,6 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         keyboardTextField.delegate = self
 
         displayKeyboard(nil)
-        displayNetworkReachability(nil)
         displayPasteboard(nil)
     }
 

@@ -1,5 +1,5 @@
 //
-//  DeviceDetailViewController.swift
+//  UIKitDeviceViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-11-23.
@@ -10,7 +10,7 @@
 import UIKit
 import XestiMonitors
 
-public class DeviceDetailViewController: UITableViewController {
+public class UIKitDeviceViewController: UITableViewController {
     @IBOutlet private weak var batteryLabel: UILabel!
     @IBOutlet private weak var orientationLabel: UILabel!
     @IBOutlet private weak var proximityLabel: UILabel!

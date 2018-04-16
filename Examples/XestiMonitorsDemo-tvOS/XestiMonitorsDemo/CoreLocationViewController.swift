@@ -1,5 +1,5 @@
 //
-//  LocationDetailViewController.swift
+//  CoreLocationViewController.swift
 //  XestiMonitorsDemo-tvOS
 //
 //  Created by J. G. Pusey on 2018-03-29.
@@ -11,7 +11,7 @@ import CoreLocation
 import UIKit
 import XestiMonitors
 
-public class LocationDetailViewController: UITableViewController {
+public class CoreLocationViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 

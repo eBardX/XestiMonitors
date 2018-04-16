@@ -1,5 +1,5 @@
 //
-//  MotionDetailViewController.swift
+//  CoreMotionViewController.swift
 //  XestiMonitorsDemo-iOS
 //
 //  Created by J. G. Pusey on 2016-12-18.
@@ -12,7 +12,8 @@ import UIKit
 import XestiMonitors
 
 // swiftlint:disable type_body_length
-public class MotionDetailViewController: UITableViewController {
+
+public class CoreMotionViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 
