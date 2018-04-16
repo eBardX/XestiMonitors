@@ -58,7 +58,7 @@ public class OtherDetailViewController: UITableViewController, UITextFieldDelega
         focusActionLabel.text = action
 
         if let info = info {
-            let context = info.updateContext
+            let context = info.context
 
             focusHeadingLabel.text = formatFocusHeading(context.focusHeading)
 
