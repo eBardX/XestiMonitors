@@ -235,7 +235,8 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides three monitors wrapping `Foundation` notifications:
+XestiMonitors provides three monitors wrapping `Foundation`
+[notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
@@ -247,107 +248,8 @@ XestiMonitors provides three monitors wrapping `Foundation` notifications:
 
 ### <a name="uikit_monitors">UIKit Monitors</a>
 
-XestiMonitors provides numerous monitors wrapping the following `UIKit`
-notifications:
-
-* **Accessibility-related**
-
-    * `UIAccessibilityAnnouncementDidFinish`
-    * `UIAccessibilityAssistiveTouchStatusDidChange`
-    * `UIAccessibilityBoldTextStatusDidChange`
-    * `UIAccessibilityClosedCaptioningStatusDidChange`
-    * `UIAccessibilityDarkerSystemColorsStatusDidChange`
-    * `UIAccessibilityElementFocused`
-    * `UIAccessibilityGrayscaleStatusDidChange`
-    * `UIAccessibilityGuidedAccessStatusDidChange`
-    * `UIAccessibilityHearingDevicePairedEarDidChange`
-    * `UIAccessibilityInvertColorsStatusDidChange`
-    * `UIAccessibilityMonoAudioStatusDidChange`
-    * `UIAccessibilityReduceMotionStatusDidChange`
-    * `UIAccessibilityReduceTransparencyStatusDidChange`
-    * `UIAccessibilityShakeToUndoDidChange`
-    * `UIAccessibilitySpeakScreenStatusDidChange`
-    * `UIAccessibilitySpeakSelectionStatusDidChange`
-    * `UIAccessibilitySwitchControlStatusDidChange`
-    * `UIAccessibilityVoiceOverStatusDidChange`
-
-    See [Accessibility Monitors](#accessibility_monitors) for details.
-
-* **Application-related**
-
-    * `UIApplicationBackgroundRefreshStatusDidChange`
-    * `UIApplicationDidBecomeActive`
-    * `UIApplicationDidChangeStatusBarFrame`
-    * `UIApplicationDidChangeStatusBarOrientation`
-    * `UIApplicationDidEnterBackground`
-    * `UIApplicationDidFinishLaunching`
-    * `UIApplicationDidReceiveMemoryWarning`
-    * `UIApplicationProtectedDataDidBecomeAvailable`
-    * `UIApplicationProtectedDataWillBecomeUnavailable`
-    * `UIApplicationSignificantTimeChange`
-    * `UIApplicationUserDidTakeScreenshot`
-    * `UIApplicationWillChangeStatusBarFrame`
-    * `UIApplicationWillChangeStatusBarOrientation`
-    * `UIApplicationWillEnterForeground`
-    * `UIApplicationWillResignActive`
-    * `UIApplicationWillTerminate`
-
-    See [Application Monitors](#application_monitors) for details.
-
-* **Device-related**
-
-    * `UIDeviceBatteryLevelDidChange`
-    * `UIDeviceBatteryStateDidChange`
-    * `UIDeviceOrientationDidChange`
-    * `UIDeviceProximityStateDidChange`
-
-    See [Device Monitors](#device_monitors) for details.
-
-* **Screen-related**
-
-    * `UIScreenBrightnessDidChange`
-    * `UIScreenCapturedDidChange`
-    * `UIScreenDidConnect`
-    * `UIScreenDidDisconnect`
-    * `UIScreenModeDidChange`
-
-    See [Screen Monitors](#screen_monitors) for details.
-
-* **Text-related**
-
-    * `UITextFieldTextDidBeginEditing`
-    * `UITextFieldTextDidChange`
-    * `UITextFieldTextDidEndEditing`
-    * `UITextInputCurrentInputModeDidChange`
-    * `UITextViewTextDidBeginEditing`
-    * `UITextViewTextDidChange`
-    * `UITextViewTextDidEndEditing`
-
-    See [Text Monitors](#text_monitors) for details.
-
-* **Miscellaneous**
-
-    * `UIDocumentStateChanged`
-    * `UIKeyboardDidChangeFrame`
-    * `UIKeyboardDidHide`
-    * `UIKeyboardDidShow`
-    * `UIKeyboardWillChangeFrame`
-    * `UIKeyboardWillHide`
-    * `UIKeyboardWillShow`
-    * `UIMenuControllerDidHideMenu`
-    * `UIMenuControllerDidShowMenu`
-    * `UIMenuControllerMenuFrameDidChange`
-    * `UIMenuControllerWillHideMenu`
-    * `UIMenuControllerWillShowMenu`
-    * `UIPasteboardChanged`
-    * `UIPasteboardRemoved`
-    * `UIViewControllerShowDetailTargetDidChange`
-    * `UIWindowDidBecomeHidden`
-    * `UIWindowDidBecomeKey`
-    * `UIWindowDidBecomeVisible`
-    * `UIWindowDidResignKey`
-
-    See [Other UIKit Monitors](#other_uikit_monitors) for details.
+XestiMonitors provides numerous monitors wrapping `UIKit`
+[notifications][wrapped_uikit_notifications].
 
 #### <a name="accessibility_monitors">Accessibility Monitors</a>
 
@@ -679,54 +581,57 @@ XestiMonitors is available under [the MIT license][license].
 [refdoc]:       https://eBardX.github.io/XestiMonitors/
 [spm]:          https://swift.org/package-manager/
 
-[accelerometer_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html
-[accessibility_announcement_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html
-[accessibility_element_monitor]:        https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html
-[accessibility_status_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html
-[altimeter_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/AltimeterMonitor.html
-[application_state_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html
-[background_refresh_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html
-[base_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html
-[base_notification_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html
-[battery_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
-[beacon_ranging_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
-[device_motion_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
-[document_state_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
-[file_system_object_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
-[focus_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
-[gyroscope_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
-[heading_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
-[keyboard_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
-[location_authorization_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
-[magnetometer_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
-[memory_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
-[menu_controller_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MenuControllerMonitor.html
-[metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
-[motion_activity_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/MotionActivityMonitor.html
-[network_reachability_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
-[orientation_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
-[pasteboard_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
-[pedometer_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
-[protected_data_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
-[proximity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
-[region_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
-[screen_brightness_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
-[screen_captured_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html
-[screen_connection_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/ScreenConnectionMonitor.html
-[screen_mode_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
-[screenshot_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
-[significant_location_monitor]:         https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
-[standard_location_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
-[status_bar_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
-[text_field_text_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
-[text_input_mode_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
-[text_view_text_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
-[time_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
-[ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
-[ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
+[wrapped_foundation_notifications]: https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md
+[wrapped_uikit_notifications]:      https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-uikit-notifications.md
+
+[accelerometer_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/AccelerometerMonitor.html
+[accessibility_announcement_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html
+[accessibility_element_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html
+[accessibility_status_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html
+[altimeter_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/AltimeterMonitor.html
+[application_state_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html
+[background_refresh_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html
+[base_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html
+[base_notification_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html
+[battery_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
+[beacon_ranging_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
+[device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
+[document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
+[file_system_object_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
+[focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
+[gyroscope_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
+[heading_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
+[keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
+[location_authorization_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
+[magnetometer_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
+[memory_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/MemoryMonitor.html
+[menu_controller_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/MenuControllerMonitor.html
+[metadata_query_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
+[motion_activity_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/MotionActivityMonitor.html
+[network_reachability_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/NetworkReachabilityMonitor.html
+[orientation_monitor]:                          https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
+[pasteboard_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
+[pedometer_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
+[protected_data_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
+[proximity_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
+[region_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
+[screen_brightness_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
+[screen_captured_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html
+[screen_connection_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ScreenConnectionMonitor.html
+[screen_mode_monitor]:                          https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
+[screenshot_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
+[significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
+[standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
+[status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
+[text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
+[text_view_text_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
+[time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
+[ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
+[ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
-[visit_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
-[window_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
+[visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
+[window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 
 [p_monitor]:    https://eBardX.github.io/XestiMonitors/Protocols/Monitor.html
 
