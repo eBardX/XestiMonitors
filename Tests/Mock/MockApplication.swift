@@ -17,6 +17,7 @@ internal class MockApplication: ApplicationProtocol {
             self.backgroundRefreshStatus = .restricted
         #endif
         self.isProtectedDataAvailable = false
+        self.preferredContentSizeCategory = .medium
         #if os(iOS)
             self.statusBarFrame = .zero
             self.statusBarOrientation = .unknown
@@ -28,6 +29,7 @@ internal class MockApplication: ApplicationProtocol {
     var backgroundRefreshStatus: UIBackgroundRefreshStatus
     #endif
     var isProtectedDataAvailable: Bool
+    var preferredContentSizeCategory: UIContentSizeCategory
     #if os(iOS)
     var statusBarFrame: CGRect
     var statusBarOrientation: UIInterfaceOrientation

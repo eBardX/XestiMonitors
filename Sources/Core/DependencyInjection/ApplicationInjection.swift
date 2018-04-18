@@ -20,6 +20,8 @@ internal protocol ApplicationProtocol: class {
 
     var isProtectedDataAvailable: Bool { get }
 
+    var preferredContentSizeCategory: UIContentSizeCategory { get }
+
     #if os(iOS)
     var statusBarFrame: CGRect { get }
 
