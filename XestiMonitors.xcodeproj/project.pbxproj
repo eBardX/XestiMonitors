@@ -654,6 +654,7 @@
 		649E4A743CE6B4E1F047487649FDCC3C /* XestiMonitorsTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBBA140EE3559DDC98DF9EF73CA4F43 /* generate_docs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_docs.sh; sourceTree = "<group>"; };
 		02B99E3B50A1FCBF4D13E86586BDB271 /* issue_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = issue_template.md; path = .github/issue_template.md; sourceTree = "<group>"; };
+		CB7233EA1D77ECE72DCF14AB4DD69226 /* other-wrapped-notifications.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "other-wrapped-notifications.md"; sourceTree = "<group>"; };
 		F27B4A414F8542A3B02BE746C6A13DCD /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = pull_request_template.md; path = .github/pull_request_template.md; sourceTree = "<group>"; };
 		0728E987EF7674FE7380D7E5AFA0775E /* uniquify_projects.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = uniquify_projects.sh; sourceTree = "<group>"; };
 		B9C5A1549065C747609D00DC05A6561A /* wrapped-foundation-notifications.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "wrapped-foundation-notifications.md"; sourceTree = "<group>"; };
@@ -1030,6 +1031,7 @@
 		AD40948243291BDC0AA8CAC1979B4E71 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				CB7233EA1D77ECE72DCF14AB4DD69226 /* other-wrapped-notifications.md */,
 				B9C5A1549065C747609D00DC05A6561A /* wrapped-foundation-notifications.md */,
 				3526BBE9F0991E340D00544E7D1547EA /* wrapped-uikit-notifications.md */,
 			);

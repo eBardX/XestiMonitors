@@ -5,6 +5,8 @@ notifications:
 
 Notification Name                                  | Platform(s) | Monitor
 :------------------------------------------------- |:----------- |:-------
+`NSTextStorageDidProcessEditing`                   | iOS, tvOS   | _Not yet implemented_
+`NSTextStorageWillProcessEditing`                  | iOS, tvOS   | _Not yet implemented_
 `UIAccessibilityAnnouncementDidFinish`             | iOS, tvOS   | [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor]
 `UIAccessibilityAssistiveTouchStatusDidChange`     | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
 `UIAccessibilityBoldTextStatusDidChange`           | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
