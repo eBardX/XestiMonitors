@@ -30,23 +30,23 @@ Notification Name                                           | Platform(s)       
 `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
 `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [UbiquityIdentityMonitor][ubiquity_identity_monitor]
-`NSUndoManagerCheckpoint`                                   | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerDidCloseUndoGroup`                            | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerDidOpenUndoGroup`                             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerDidRedoChange`                                | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerDidUndoChange`                                | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`NSUndoManagerCheckpoint`                                   | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerDidCloseUndoGroup`                            | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerDidOpenUndoGroup`                             | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerDidRedoChange`                                | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerDidUndoChange`                                | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
 `NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | _Not yet implemented_
-`UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | _Not yet implemented_
-`UserDefaults.didChangeNotification`                        | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`UserDefaults.noCloudAccountNotification`                   | iOS,        tvOS, watchOS | _Not yet implemented_
-`UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | _Not yet implemented_
+`UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
+`UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
+`UserDefaults.didChangeNotification`                        | iOS, macOS, tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
+`UserDefaults.noCloudAccountNotification`                   | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
+`UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
 
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html

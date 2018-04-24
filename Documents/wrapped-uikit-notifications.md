@@ -5,8 +5,8 @@ notifications:
 
 Notification Name                                  | Platform(s) | Monitor
 :------------------------------------------------- |:----------- |:-------
-`NSTextStorageDidProcessEditing`                   | iOS, tvOS   | _Not yet implemented_
-`NSTextStorageWillProcessEditing`                  | iOS, tvOS   | _Not yet implemented_
+`NSTextStorageDidProcessEditing`                   | iOS, tvOS   | TextStoreMonitor (_see_ [#43](https://github.com/eBardX/XestiMonitors/issues/43))
+`NSTextStorageWillProcessEditing`                  | iOS, tvOS   | TextStoreMonitor (_see_ [#43](https://github.com/eBardX/XestiMonitors/issues/43))
 `UIAccessibilityAnnouncementDidFinish`             | iOS, tvOS   | [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor]
 `UIAccessibilityAssistiveTouchStatusDidChange`     | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
 `UIAccessibilityBoldTextStatusDidChange`           | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
@@ -41,7 +41,7 @@ Notification Name                                  | Platform(s) | Monitor
 `UIApplicationWillEnterForeground`                 | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
 `UIApplicationWillResignActive`                    | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
 `UIApplicationWillTerminate`                       | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
-`UIContentSizeCategoryDidChange`                   | iOS, tvOS   | _Not yet implemented_
+`UIContentSizeCategoryDidChange`                   | iOS, tvOS   | ContentSizeCategoryMonitor (_see_ [#13](https://github.com/eBardX/XestiMonitors/issues/13))
 `UIDeviceBatteryLevelDidChange`                    | iOS         | [BatteryMonitor][battery_monitor]
 `UIDeviceBatteryStateDidChange`                    | iOS         | [BatteryMonitor][battery_monitor]
 `UIDeviceOrientationDidChange`                     | iOS         | [OrientationMonitor][orientation_monitor]
@@ -67,7 +67,7 @@ Notification Name                                  | Platform(s) | Monitor
 `UIScreenDidConnect`                               | iOS, tvOS   | [ScreenConnectionMonitor][screen_connection_monitor]
 `UIScreenDidDisconnect`                            | iOS, tvOS   | [ScreenConnectionMonitor][screen_connection_monitor]
 `UIScreenModeDidChange`                            | iOS, tvOS   | [ScreenModeMonitor][screen_mode_monitor]
-`UITableViewSelectionDidChange`                    | iOS, tvOS   | _Not yet implemented_
+`UITableViewSelectionDidChange`                    | iOS, tvOS   | TableViewSelectionMonitor (_see_ [#20](https://github.com/eBardX/XestiMonitors/issues/20))
 `UITextFieldTextDidBeginEditing`                   | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
 `UITextFieldTextDidChange`                         | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
 `UITextFieldTextDidEndEditing`                     | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
