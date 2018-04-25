@@ -123,7 +123,6 @@
 		BDD79C39EC160D102A6C598C591B866C /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4753DA906CAAC43AA95E1CF6AC622AA /* DocumentStateMonitor.swift */; };
 		CF7869DFFFA2FF0445DC4DA6B6D33566 /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4753DA906CAAC43AA95E1CF6AC622AA /* DocumentStateMonitor.swift */; };
 		CFB7376E05C361DEEB6F1F24D5880AD2 /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650D5F1A9FF403E7779526361A70B01 /* DocumentStateMonitorTests.swift */; };
-		B9E9389C82EFDCDD50CA99CE41B17602 /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = 5ACFE6A7C6A7A80209B33B4555252CDE /* Examples */; };
 		60E0B8F558E3D06563E22B8D681A1A63 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
 		6C0BAFE42C6853B95BC61CE8BD861482 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
 		7B8D1EF03BE7596811604326CF31E9E9 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
@@ -550,7 +549,6 @@
 		B1BB3960DDF9944CD04586B55ED05E4C /* DeviceMotionMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceMotionMonitorTests.swift; sourceTree = "<group>"; };
 		D4753DA906CAAC43AA95E1CF6AC622AA /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
 		8650D5F1A9FF403E7779526361A70B01 /* DocumentStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitorTests.swift; sourceTree = "<group>"; };
-		5ACFE6A7C6A7A80209B33B4555252CDE /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerInjection.swift; sourceTree = "<group>"; };
 		82C9331AB380B54C9AAABCB74EEC612E /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
 		4B9B8D0E4053444BF0BAA06556AE04C0 /* FileSystemInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemInjection.swift; sourceTree = "<group>"; };
@@ -905,7 +903,6 @@
 			children = (
 				84CE8A7F448E552FA28483E7F9690E20 /* Configuration */,
 				AD40948243291BDC0AA8CAC1979B4E71 /* Documents */,
-				5ACFE6A7C6A7A80209B33B4555252CDE /* Examples */,
 				F07DCB7A0BC26A1D2669D9F29666B89B /* Frameworks */,
 				9D74444BDF985C26CC0764389085350B /* Metadata */,
 				DEBF25BEAAE4B4E3FEB630B4474933CE /* Pods */,
@@ -1130,6 +1127,21 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		DEBF25BEAAE4B4E3FEB630B4474933CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9DDA1F3C7499DF224DA12555A7C3930 /* Pods-XestiMonitors-iOS.debug.xcconfig */,
+				D00CC09D177FE1E4F54DA18F1172707E /* Pods-XestiMonitors-iOS.release.xcconfig */,
+				702E5D1B7E9E67B08A67E477F5AABC81 /* Pods-XestiMonitors-macOS.debug.xcconfig */,
+				6711FBACD9FE448E6FA3B5A0DDEDA366 /* Pods-XestiMonitors-macOS.release.xcconfig */,
+				1ED98C6AF1962E903CE01E1D091379FB /* Pods-XestiMonitors-tvOS.debug.xcconfig */,
+				6BD3AB9905ED88FDF487D7BF2D7EAB66 /* Pods-XestiMonitors-tvOS.release.xcconfig */,
+				4E37F5C02A397A1D1115D1903E080E74 /* Pods-XestiMonitors-watchOS.debug.xcconfig */,
+				602891C1C1A09EFEC335DB09BBF1C468 /* Pods-XestiMonitors-watchOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DEF16D5D92338A46A54FCB66EC81DE3F /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -1209,21 +1221,6 @@
 				66EA2D7B95D6734DBCEBB192032F45D8 /* ProximityMonitor.swift */,
 			);
 			path = Device;
-			sourceTree = "<group>";
-		};
-		DEBF25BEAAE4B4E3FEB630B4474933CE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D9DDA1F3C7499DF224DA12555A7C3930 /* Pods-XestiMonitors-iOS.debug.xcconfig */,
-				D00CC09D177FE1E4F54DA18F1172707E /* Pods-XestiMonitors-iOS.release.xcconfig */,
-				702E5D1B7E9E67B08A67E477F5AABC81 /* Pods-XestiMonitors-macOS.debug.xcconfig */,
-				6711FBACD9FE448E6FA3B5A0DDEDA366 /* Pods-XestiMonitors-macOS.release.xcconfig */,
-				1ED98C6AF1962E903CE01E1D091379FB /* Pods-XestiMonitors-tvOS.debug.xcconfig */,
-				6BD3AB9905ED88FDF487D7BF2D7EAB66 /* Pods-XestiMonitors-tvOS.release.xcconfig */,
-				4E37F5C02A397A1D1115D1903E080E74 /* Pods-XestiMonitors-watchOS.debug.xcconfig */,
-				602891C1C1A09EFEC335DB09BBF1C468 /* Pods-XestiMonitors-watchOS.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		F9A5243EC05EF2A341F904484A20BF5A /* Other */ = {
@@ -1505,7 +1502,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9E9389C82EFDCDD50CA99CE41B17602 /* Examples in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1543,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0696A5D9DE91CB46679A701A13327EE9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-iOS/Pods-XestiMonitors-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		64EEA5FCEE239B08AD0F7E3703486137 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1565,19 +1576,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D401C08AB418B97B10D128B3A171138D /* [CP] Copy Pods Resources */ = {
+		74AEFAC7DB99B75C840766F88637FC0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-tvOS/Pods-XestiMonitors-tvOS-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86C84ECE03A5989A22CEB63C8DCC85CE /* [CP] Check Pods Manifest.lock */ = {
@@ -1596,36 +1610,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE362276F69D97CC4168BC0367F0C68B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-macOS/Pods-XestiMonitors-macOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0696A5D9DE91CB46679A701A13327EE9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-iOS/Pods-XestiMonitors-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89EB3149E92267A9437BD5628EF71E46 /* [CP] Copy Pods Resources */ = {
@@ -1661,22 +1645,34 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74AEFAC7DB99B75C840766F88637FC0D /* [CP] Check Pods Manifest.lock */ = {
+		D401C08AB418B97B10D128B3A171138D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-tvOS/Pods-XestiMonitors-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE362276F69D97CC4168BC0367F0C68B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-macOS/Pods-XestiMonitors-macOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE6493286685082E6669C34269E3F1FA /* SwiftLint */ = {

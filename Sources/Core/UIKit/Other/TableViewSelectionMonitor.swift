@@ -15,9 +15,7 @@ import UIKit
 /// A `TableViewSectionMonitor` instance monitors a tableview for changes to
 /// its row selection.
 ///
-
 public class TableViewSectionMonitor: BaseNotificationMonitor {
-
     ///
     /// Encapsulates changes to the selected row in the posting
     /// table view.
