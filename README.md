@@ -313,13 +313,15 @@ in the properties associated with a screen:
 
 #### <a name="text_monitors">Text Monitors</a>
 
-XestiMonitors provides three monitor classes that you can use to detect changes
+XestiMonitors provides four monitor classes that you can use to detect changes
 in text input mode and content:
 
 * [TextFieldTextMonitor][text_field_text_monitor] to monitor a text field for
   changes to its text. *(iOS, tvOS)*
 * [TextInputModeMonitor][text_input_mode_monitor] to monitor the responder
   chain for changes to the current input mode. *(iOS, tvOS)*
+* [TextStorageMonitor][text_storage_monitor] to monitor a text storage for the
+  processing of edits to its contents. *(iOS, tvOS)*
 * [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
   changes to its text. *(iOS, tvOS)*
 
@@ -625,6 +627,7 @@ XestiMonitors is available under [the MIT license][license].
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
+[text_storage_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html
 [text_view_text_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
