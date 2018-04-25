@@ -43,8 +43,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .changed(pb, changes) = event {
-            XCTAssertEqual(pb, pasteboard)
+            case let .changed(test, changes) = event {
+            XCTAssertEqual(test, pasteboard)
             XCTAssertEqual(changes.typesAdded, expectedTypesAdded)
             XCTAssertEqual(changes.typesRemoved, expectedTypesRemoved)
         } else {
@@ -69,8 +69,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .changed(pb, changes) = event {
-            XCTAssertEqual(pb, pasteboard)
+            case let .changed(test, changes) = event {
+            XCTAssertEqual(test, pasteboard)
             XCTAssertEqual(changes.typesAdded, [])
             XCTAssertEqual(changes.typesRemoved, [])
         } else {
@@ -94,8 +94,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .removed(pb) = event {
-            XCTAssertEqual(pb, pasteboard)
+            case let .removed(test) = event {
+            XCTAssertEqual(test, pasteboard)
         } else {
             XCTFail("Unexpected Event")
         }

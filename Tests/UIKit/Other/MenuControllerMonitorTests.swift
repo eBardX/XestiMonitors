@@ -38,8 +38,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didHideMenu(menu) = event {
-            XCTAssertEqual(menu, menuController)
+            case let .didHideMenu(test) = event {
+            XCTAssertEqual(test, menuController)
         } else {
             XCTFail("Unexpected Event")
         }
@@ -60,8 +60,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didShowMenu(menu) = event {
-            XCTAssertEqual(menu, menuController)
+            case let .didShowMenu(test) = event {
+            XCTAssertEqual(test, menuController)
         } else {
             XCTFail("Unexpected Event")
         }
@@ -82,8 +82,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .menuFrameDidChange(menu) = event {
-            XCTAssertEqual(menu, menuController)
+            case let .menuFrameDidChange(test) = event {
+            XCTAssertEqual(test, menuController)
         } else {
             XCTFail("Unexpected Event")
         }
@@ -104,8 +104,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .willHideMenu(menu) = event {
-            XCTAssertEqual(menu, menuController)
+            case let .willHideMenu(test) = event {
+            XCTAssertEqual(test, menuController)
         } else {
             XCTFail("Unexpected Event")
         }
@@ -126,8 +126,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .willShowMenu(menu) = event {
-            XCTAssertEqual(menu, menuController)
+            case let .willShowMenu(test) = event {
+            XCTAssertEqual(test, menuController)
         } else {
             XCTFail("Unexpected Event")
         }

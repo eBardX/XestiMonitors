@@ -362,10 +362,12 @@
 		EF8FC3411E1BD49A6E0B8AB5134892F4 /* TextInputModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE4D885F96C3427F45E2ECBF91FB54 /* TextInputModeMonitor.swift */; };
 		18DEB0C3D9EB097A5FBA5DA7178E4049 /* TextInputModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC36E9F0DEAE6EC2E5E843C45D35E5E /* TextInputModeMonitorTests.swift */; };
 		54475080E48DCAB4BDAC878512A8FB57 /* TextInputModeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC36E9F0DEAE6EC2E5E843C45D35E5E /* TextInputModeMonitorTests.swift */; };
-		7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
-		58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
-		1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
 		0E94630B4B6DFECF116380640D90355B /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
+		1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
+		58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
+		7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
+		EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
+		E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
 		072EF941DC0777FC649507479727AF82 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		705714FDFDCB039151208535602EDF97 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		B8E9BE0B4D61F4B872528C8B0CDEECC9 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
@@ -637,6 +639,7 @@
 		D3FE4D885F96C3427F45E2ECBF91FB54 /* TextInputModeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputModeMonitor.swift; sourceTree = "<group>"; };
 		5AC36E9F0DEAE6EC2E5E843C45D35E5E /* TextInputModeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputModeMonitorTests.swift; sourceTree = "<group>"; };
 		382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStorageMonitor.swift; sourceTree = "<group>"; };
+		6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStorageMonitorTests.swift; sourceTree = "<group>"; };
 		18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitor.swift; sourceTree = "<group>"; };
 		E57C8D776FCE64CB3F0845A8CDE72008 /* TextViewTextMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitorTests.swift; sourceTree = "<group>"; };
 		94335244D3797A85A17DBE99D148570E /* TimeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
@@ -1086,6 +1089,7 @@
 			children = (
 				508C9EFF9B2152F6A48DD6C173D14350 /* TextFieldTextMonitorTests.swift */,
 				5AC36E9F0DEAE6EC2E5E843C45D35E5E /* TextInputModeMonitorTests.swift */,
+				6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */,
 				E57C8D776FCE64CB3F0845A8CDE72008 /* TextViewTextMonitorTests.swift */,
 			);
 			path = Text;
@@ -1646,6 +1650,7 @@
 				6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */,
 				85E48B3674263D9CC5DB3185025EE92E /* TextFieldTextMonitorTests.swift in Sources */,
 				18DEB0C3D9EB097A5FBA5DA7178E4049 /* TextInputModeMonitorTests.swift in Sources */,
+				EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */,
 				1350FCD75D8B051C1C351DB42B8A7B88 /* TextViewTextMonitorTests.swift in Sources */,
 				C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */,
 				DB23C2CBF8D07B2FD27623398158A45F /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
@@ -1689,6 +1694,7 @@
 				FCFEBB9DB7C084ED138D85472B5DC02B /* StandardLocationMonitorTests.swift in Sources */,
 				85C007E0EB7F76FD1CA0BA46D6F6DE05 /* TextFieldTextMonitorTests.swift in Sources */,
 				54475080E48DCAB4BDAC878512A8FB57 /* TextInputModeMonitorTests.swift in Sources */,
+				E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */,
 				C87C45EEA0DA1F6D5CF478D755D25365 /* TextViewTextMonitorTests.swift in Sources */,
 				7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */,
 				397DB8EF4A7E24F4E0FED34AB0882AD8 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,

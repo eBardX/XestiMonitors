@@ -48,8 +48,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .accessWasRevoked(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .accessWasRevoked(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
@@ -71,8 +71,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .dataDidChange(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .dataDidChange(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
@@ -94,8 +94,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .linkCountDidChange(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .linkCountDidChange(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
@@ -117,8 +117,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .metadataDidChange(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .metadataDidChange(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
@@ -140,8 +140,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .sizeDidChange(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .sizeDidChange(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
@@ -163,8 +163,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .wasDeleted(url) = event {
-            XCTAssertEqual(url, fileURL)
+            case let .wasDeleted(test) = event {
+            XCTAssertEqual(test, fileURL)
         } else {
             XCTFail("Unexpected event")
         }
