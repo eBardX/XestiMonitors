@@ -287,10 +287,6 @@
 		94C9A29513E3A2B1D9B2149AC424E204 /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */; };
 		DA42FE2795736B1FAD220D023C2D6E15 /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */; };
 		1656F7A2C0D8E6D80B9ADF10CD463919 /* PedometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29671A0F6146361CA1CBCB2000C8D368 /* PedometerMonitorTests.swift */; };
-		E0A04370E6AD3F325FB73ACBC4E2112E /* Pods_XestiMonitors_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D187F8D6CE6FC4501E037CEAAB548C /* Pods_XestiMonitors_iOS.framework */; };
-		6AF4D71FBC78F93158E381EF0A52C02D /* Pods_XestiMonitors_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDB87BF69BC1EDF1B433E63BDB398E1 /* Pods_XestiMonitors_macOS.framework */; };
-		684C526677BF343A5E1F1726E5B20539 /* Pods_XestiMonitors_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F04A09997EECF3037FAE566C564BCE0 /* Pods_XestiMonitors_tvOS.framework */; };
-		B97A8A4ECFB5B57CCE40212F742E2A69 /* Pods_XestiMonitors_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CEF160EA1F8DDAD5151DA029167211 /* Pods_XestiMonitors_watchOS.framework */; };
 		70411E61A73D866D2D9871BE3DAAC4DE /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
 		89DB54DB020B43F0263E2C36E6825C43 /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
 		95CDAA39C9E398FEF5D72B7DBFCD30E5 /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
@@ -355,7 +351,11 @@
 		4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */; };
 		B7F05D12848BB9F0BBE1B168552899F3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		692AA9D720916872ABC390D0EF08EE3B /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
 		654A68FD9FFBCB627A3ACEF2D3BB76B5 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
+		BF40384486895D63675BD8D18F7379C7 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
 		35742FEF92941032CA3C26EC20D0DD2B /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
 		65C19C55E687443D62C3258A13D26DCB /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
 		C52808C1B5FB0C55F529032F52E00F4E /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
@@ -372,8 +372,8 @@
 		1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
 		58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
 		7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
-		EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
 		E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
+		EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
 		072EF941DC0777FC649507479727AF82 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		705714FDFDCB039151208535602EDF97 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		B8E9BE0B4D61F4B872528C8B0CDEECC9 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
@@ -617,18 +617,6 @@
 		96D71B097620985F80F8280CD0284C6B /* PedometerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerInjection.swift; sourceTree = "<group>"; };
 		65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitor.swift; sourceTree = "<group>"; };
 		29671A0F6146361CA1CBCB2000C8D368 /* PedometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitorTests.swift; sourceTree = "<group>"; };
-		D9DDA1F3C7499DF224DA12555A7C3930 /* Pods-XestiMonitors-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-iOS/Pods-XestiMonitors-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D00CC09D177FE1E4F54DA18F1172707E /* Pods-XestiMonitors-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-iOS/Pods-XestiMonitors-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		702E5D1B7E9E67B08A67E477F5AABC81 /* Pods-XestiMonitors-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-macOS/Pods-XestiMonitors-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6711FBACD9FE448E6FA3B5A0DDEDA366 /* Pods-XestiMonitors-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-macOS/Pods-XestiMonitors-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		1ED98C6AF1962E903CE01E1D091379FB /* Pods-XestiMonitors-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-tvOS/Pods-XestiMonitors-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6BD3AB9905ED88FDF487D7BF2D7EAB66 /* Pods-XestiMonitors-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-tvOS/Pods-XestiMonitors-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		4E37F5C02A397A1D1115D1903E080E74 /* Pods-XestiMonitors-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-watchOS/Pods-XestiMonitors-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
-		602891C1C1A09EFEC335DB09BBF1C468 /* Pods-XestiMonitors-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XestiMonitors-watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-XestiMonitors-watchOS/Pods-XestiMonitors-watchOS.release.xcconfig"; sourceTree = "<group>"; };
-		01D187F8D6CE6FC4501E037CEAAB548C /* Pods_XestiMonitors_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitors_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FDB87BF69BC1EDF1B433E63BDB398E1 /* Pods_XestiMonitors_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitors_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F04A09997EECF3037FAE566C564BCE0 /* Pods_XestiMonitors_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitors_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3CEF160EA1F8DDAD5151DA029167211 /* Pods_XestiMonitors_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitors_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitor.swift; sourceTree = "<group>"; };
 		A172162D9B2CE33E1512D45B19F6DC33 /* ProtectedDataMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitorTests.swift; sourceTree = "<group>"; };
 		66EA2D7B95D6734DBCEBB192032F45D8 /* ProximityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityMonitor.swift; sourceTree = "<group>"; };
@@ -694,7 +682,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0A04370E6AD3F325FB73ACBC4E2112E /* Pods_XestiMonitors_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +689,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97A8A4ECFB5B57CCE40212F742E2A69 /* Pods_XestiMonitors_watchOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,7 +696,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF4D71FBC78F93158E381EF0A52C02D /* Pods_XestiMonitors_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +703,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684C526677BF343A5E1F1726E5B20539 /* Pods_XestiMonitors_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,7 +897,6 @@
 				AD40948243291BDC0AA8CAC1979B4E71 /* Documents */,
 				F07DCB7A0BC26A1D2669D9F29666B89B /* Frameworks */,
 				9D74444BDF985C26CC0764389085350B /* Metadata */,
-				DEBF25BEAAE4B4E3FEB630B4474933CE /* Pods */,
 				3C1D9718CB616E3B5C4CF197331518BA /* Products */,
 				1EFE73BEE0129DA604919F6122A4DF52 /* Scripts */,
 				8BD8D77F27B479A147051D474B460CBC /* Sources */,
@@ -1136,21 +1119,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		DEBF25BEAAE4B4E3FEB630B4474933CE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D9DDA1F3C7499DF224DA12555A7C3930 /* Pods-XestiMonitors-iOS.debug.xcconfig */,
-				D00CC09D177FE1E4F54DA18F1172707E /* Pods-XestiMonitors-iOS.release.xcconfig */,
-				702E5D1B7E9E67B08A67E477F5AABC81 /* Pods-XestiMonitors-macOS.debug.xcconfig */,
-				6711FBACD9FE448E6FA3B5A0DDEDA366 /* Pods-XestiMonitors-macOS.release.xcconfig */,
-				1ED98C6AF1962E903CE01E1D091379FB /* Pods-XestiMonitors-tvOS.debug.xcconfig */,
-				6BD3AB9905ED88FDF487D7BF2D7EAB66 /* Pods-XestiMonitors-tvOS.release.xcconfig */,
-				4E37F5C02A397A1D1115D1903E080E74 /* Pods-XestiMonitors-watchOS.debug.xcconfig */,
-				602891C1C1A09EFEC335DB09BBF1C468 /* Pods-XestiMonitors-watchOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DEF16D5D92338A46A54FCB66EC81DE3F /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,10 +1183,6 @@
 		F07DCB7A0BC26A1D2669D9F29666B89B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				01D187F8D6CE6FC4501E037CEAAB548C /* Pods_XestiMonitors_iOS.framework */,
-				8FDB87BF69BC1EDF1B433E63BDB398E1 /* Pods_XestiMonitors_macOS.framework */,
-				3F04A09997EECF3037FAE566C564BCE0 /* Pods_XestiMonitors_tvOS.framework */,
-				E3CEF160EA1F8DDAD5151DA029167211 /* Pods_XestiMonitors_watchOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1292,12 +1256,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE3F3A687EE7280713E4269B2B78C60D /* Build configuration list for PBXNativeTarget "XestiMonitors-iOS" */;
 			buildPhases = (
-				64EEA5FCEE239B08AD0F7E3703486137 /* [CP] Check Pods Manifest.lock */,
 				65D7636A825203B4519B4DC9E9B829FB /* Sources */,
 				19B37F851F2ECAD997FE3DC0A6696CC0 /* Frameworks */,
 				216295D29AE328C2656D4BA3E858A6EE /* Headers */,
 				4D4FEA86F029473829147B2BBA11FBF6 /* Resources */,
-				0696A5D9DE91CB46679A701A13327EE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1331,12 +1293,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E4294EF33CDA65D7EFEE7663DA59DBC /* Build configuration list for PBXNativeTarget "XestiMonitors-tvOS" */;
 			buildPhases = (
-				74AEFAC7DB99B75C840766F88637FC0D /* [CP] Check Pods Manifest.lock */,
 				57C919B80B0FF367BAAC944E80A07797 /* Sources */,
 				6AFDF96CED8CD760B0A71E191C3AE234 /* Frameworks */,
 				E5D7228E0172B513444659A619709221 /* Headers */,
 				D77CF6047CAD6795866A6DCDEA55CF97 /* Resources */,
-				D401C08AB418B97B10D128B3A171138D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1370,12 +1330,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AA64CBCF318D72EC04A59D9899EBBCA /* Build configuration list for PBXNativeTarget "XestiMonitors-watchOS" */;
 			buildPhases = (
-				86C84ECE03A5989A22CEB63C8DCC85CE /* [CP] Check Pods Manifest.lock */,
 				098466F91E2EDC555B8A4CB4E920CDBB /* Sources */,
 				2782CDB8ECC755E46F68792BB6169138 /* Frameworks */,
 				6100FA4B38F5E7ACA3E1E869C5A1F3DD /* Headers */,
 				6EE2058C306FD06FB928711BDD1FA9F9 /* Resources */,
-				89EB3149E92267A9437BD5628EF71E46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1390,12 +1348,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABA154D1053AAB053C9F345E38E1C460 /* Build configuration list for PBXNativeTarget "XestiMonitors-macOS" */;
 			buildPhases = (
-				8FD5E1E11D9AD563F2B79BCA1D839642 /* [CP] Check Pods Manifest.lock */,
 				DA23BF9258C79D572114DE5542267054 /* Sources */,
 				3CC25562025E30D9FCA479B12F466A83 /* Frameworks */,
 				F30A713522F8ACA774A5259AC0B4323E /* Headers */,
 				889A71BC3719AF6DCFD3B1D457E5D871 /* Resources */,
-				DE362276F69D97CC4168BC0367F0C68B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1553,138 +1509,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0696A5D9DE91CB46679A701A13327EE9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-iOS/Pods-XestiMonitors-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64EEA5FCEE239B08AD0F7E3703486137 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74AEFAC7DB99B75C840766F88637FC0D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86C84ECE03A5989A22CEB63C8DCC85CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-watchOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89EB3149E92267A9437BD5628EF71E46 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-watchOS/Pods-XestiMonitors-watchOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FD5E1E11D9AD563F2B79BCA1D839642 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XestiMonitors-macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D401C08AB418B97B10D128B3A171138D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-tvOS/Pods-XestiMonitors-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE362276F69D97CC4168BC0367F0C68B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitors-macOS/Pods-XestiMonitors-macOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DE6493286685082E6669C34269E3F1FA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1764,6 +1588,7 @@
 				3124A9FBA806920FF2E3D1363C863926 /* SignificantLocationMonitor.swift in Sources */,
 				1026D8DD5E1A9A50A0C862135FE249B7 /* StandardLocationMonitor.swift in Sources */,
 				1AC14639161E884CC91CB28007027994 /* StatusBarMonitor.swift in Sources */,
+				692AA9D720916872ABC390D0EF08EE3B /* TableViewSelectionMonitor.swift in Sources */,
 				35742FEF92941032CA3C26EC20D0DD2B /* TextFieldTextMonitor.swift in Sources */,
 				3F7CEDB2D0CE2D9959DA90041BA35C5C /* TextInputModeMonitor.swift in Sources */,
 				0E94630B4B6DFECF116380640D90355B /* TextStorageMonitor.swift in Sources */,
@@ -1879,6 +1704,7 @@
 				4FEA54A8411D3FB80DA2D7E8566F40C5 /* ScreenModeMonitorTests.swift in Sources */,
 				A7B85677ACEFCA04FE03B1C61CC38E48 /* ScreenshotMonitorTests.swift in Sources */,
 				FCFEBB9DB7C084ED138D85472B5DC02B /* StandardLocationMonitorTests.swift in Sources */,
+				BF40384486895D63675BD8D18F7379C7 /* TableViewSelectionMonitorTests.swift in Sources */,
 				85C007E0EB7F76FD1CA0BA46D6F6DE05 /* TextFieldTextMonitorTests.swift in Sources */,
 				54475080E48DCAB4BDAC878512A8FB57 /* TextInputModeMonitorTests.swift in Sources */,
 				E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */,
@@ -1953,6 +1779,7 @@
 				067BC463BBB231EC4C99512FE306FBD8 /* SignificantLocationMonitor.swift in Sources */,
 				3A6B336931443428032206A93F757B4C /* StandardLocationMonitor.swift in Sources */,
 				164E96886C5DE0B9362D3EDD7F0B6D76 /* StatusBarMonitor.swift in Sources */,
+				DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */,
 				65C19C55E687443D62C3258A13D26DCB /* TextFieldTextMonitor.swift in Sources */,
 				5E4768ADD55C2DE240E84A9432E4DCF2 /* TextInputModeMonitor.swift in Sources */,
 				1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */,
@@ -2127,6 +1954,7 @@
 				973EC5DF7D10544C2731DF3C6589F809 /* SignificantLocationMonitor.swift in Sources */,
 				B4153A8B4AD88FD4C40597CE062EA56E /* StandardLocationMonitor.swift in Sources */,
 				2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */,
+				6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */,
 				C52808C1B5FB0C55F529032F52E00F4E /* TextFieldTextMonitor.swift in Sources */,
 				EF8FC3411E1BD49A6E0B8AB5134892F4 /* TextInputModeMonitor.swift in Sources */,
 				58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */,
@@ -2191,7 +2019,6 @@
 		};
 		251B4CE6F031F68290DC8F483C684F95 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E37F5C02A397A1D1115D1903E080E74 /* Pods-XestiMonitors-watchOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2214,7 +2041,6 @@
 		};
 		25235F6037D11306944EEC31D9656795 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D00CC09D177FE1E4F54DA18F1172707E /* Pods-XestiMonitors-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -2265,7 +2091,6 @@
 		};
 		35AF7649B59B965CC66CFCCF6B53C995 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 702E5D1B7E9E67B08A67E477F5AABC81 /* Pods-XestiMonitors-macOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2288,7 +2113,6 @@
 		};
 		40C819B5DFD08A8FE40AB1310F015349 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 602891C1C1A09EFEC335DB09BBF1C468 /* Pods-XestiMonitors-watchOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2310,7 +2134,6 @@
 		};
 		478EBCE515936C3CF1A8EC48EB669892 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9DDA1F3C7499DF224DA12555A7C3930 /* Pods-XestiMonitors-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -2424,7 +2247,6 @@
 		};
 		8814E1BD661832DB36C51C5860277072 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BD3AB9905ED88FDF487D7BF2D7EAB66 /* Pods-XestiMonitors-tvOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2509,7 +2331,6 @@
 		};
 		BE4C80539CF0EF65D5A275A0743A492A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ED98C6AF1962E903CE01E1D091379FB /* Pods-XestiMonitors-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2548,7 +2369,6 @@
 		};
 		F0D33C54CDFEE6F5AC671E20AFB6512E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6711FBACD9FE448E6FA3B5A0DDEDA366 /* Pods-XestiMonitors-macOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
