@@ -36,8 +36,8 @@ internal class DocumentStateMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(doc) = event {
-            XCTAssertEqual(doc, document)
+            case let .didChange(test) = event {
+            XCTAssertEqual(test, document)
         } else {
             XCTFail("Unexpected event")
         }

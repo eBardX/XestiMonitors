@@ -61,6 +61,7 @@ custom_categories:
     children:
       - TextFieldTextMonitor
       - TextInputModeMonitor
+      - TextStorageMonitor
       - TextViewTextMonitor
   - name: Other UIKit Monitor Classes
     children:

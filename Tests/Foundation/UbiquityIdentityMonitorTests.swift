@@ -59,8 +59,8 @@ internal class UbiquityIdentityMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(token) = event,
-            let actualToken = token as? String {
+            case let .didChange(test) = event,
+            let actualToken = test as? String {
             XCTAssertEqual(actualToken, expectedToken)
         } else {
             XCTFail("Unexpected event")

@@ -407,6 +407,15 @@
                 <a class="nav-group-task-link" href="Classes/TextInputModeMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TextStorageMonitor.html">TextStorageMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TextStorageMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TextStorageMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/TextViewTextMonitor.html">TextViewTextMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -752,7 +761,8 @@ historic walking data. <em>(iOS, watchOS)</em></li>
 </ul>
 <h3 id='a-name-foundation_monitors-foundation-monitors-a' class='heading'><a name="foundation_monitors">Foundation Monitors</a></h3>
 
-<p>XestiMonitors provides three monitors wrapping <code>Foundation</code> notifications:</p>
+<p>XestiMonitors provides three monitors wrapping <code>Foundation</code>
+<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md">notifications</a>:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a> to monitor a metadata query
@@ -765,116 +775,8 @@ for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watc
 </ul>
 <h3 id='a-name-uikit_monitors-uikit-monitors-a' class='heading'><a name="uikit_monitors">UIKit Monitors</a></h3>
 
-<p>XestiMonitors provides numerous monitors wrapping the following <code>UIKit</code>
-notifications:</p>
-
-<ul>
-<li><p><strong>Accessibility-related</strong></p>
-
-<ul>
-<li><code>UIAccessibilityAnnouncementDidFinish</code></li>
-<li><code>UIAccessibilityAssistiveTouchStatusDidChange</code></li>
-<li><code>UIAccessibilityBoldTextStatusDidChange</code></li>
-<li><code>UIAccessibilityClosedCaptioningStatusDidChange</code></li>
-<li><code>UIAccessibilityDarkerSystemColorsStatusDidChange</code></li>
-<li><code>UIAccessibilityElementFocused</code></li>
-<li><code>UIAccessibilityGrayscaleStatusDidChange</code></li>
-<li><code>UIAccessibilityGuidedAccessStatusDidChange</code></li>
-<li><code>UIAccessibilityHearingDevicePairedEarDidChange</code></li>
-<li><code>UIAccessibilityInvertColorsStatusDidChange</code></li>
-<li><code>UIAccessibilityMonoAudioStatusDidChange</code></li>
-<li><code>UIAccessibilityReduceMotionStatusDidChange</code></li>
-<li><code>UIAccessibilityReduceTransparencyStatusDidChange</code></li>
-<li><code>UIAccessibilityShakeToUndoDidChange</code></li>
-<li><code>UIAccessibilitySpeakScreenStatusDidChange</code></li>
-<li><code>UIAccessibilitySpeakSelectionStatusDidChange</code></li>
-<li><code>UIAccessibilitySwitchControlStatusDidChange</code></li>
-<li><code>UIAccessibilityVoiceOverStatusDidChange</code></li>
-</ul>
-
-<p>See <a href="#accessibility_monitors">Accessibility Monitors</a> for details.</p></li>
-<li><p><strong>Application-related</strong></p>
-
-<ul>
-<li><code>UIApplicationBackgroundRefreshStatusDidChange</code></li>
-<li><code>UIApplicationDidBecomeActive</code></li>
-<li><code>UIApplicationDidChangeStatusBarFrame</code></li>
-<li><code>UIApplicationDidChangeStatusBarOrientation</code></li>
-<li><code>UIApplicationDidEnterBackground</code></li>
-<li><code>UIApplicationDidFinishLaunching</code></li>
-<li><code>UIApplicationDidReceiveMemoryWarning</code></li>
-<li><code>UIApplicationProtectedDataDidBecomeAvailable</code></li>
-<li><code>UIApplicationProtectedDataWillBecomeUnavailable</code></li>
-<li><code>UIApplicationSignificantTimeChange</code></li>
-<li><code>UIApplicationUserDidTakeScreenshot</code></li>
-<li><code>UIApplicationWillChangeStatusBarFrame</code></li>
-<li><code>UIApplicationWillChangeStatusBarOrientation</code></li>
-<li><code>UIApplicationWillEnterForeground</code></li>
-<li><code>UIApplicationWillResignActive</code></li>
-<li><code>UIApplicationWillTerminate</code></li>
-</ul>
-
-<p>See <a href="#application_monitors">Application Monitors</a> for details.</p></li>
-<li><p><strong>Device-related</strong></p>
-
-<ul>
-<li><code>UIDeviceBatteryLevelDidChange</code></li>
-<li><code>UIDeviceBatteryStateDidChange</code></li>
-<li><code>UIDeviceOrientationDidChange</code></li>
-<li><code>UIDeviceProximityStateDidChange</code></li>
-</ul>
-
-<p>See <a href="#device_monitors">Device Monitors</a> for details.</p></li>
-<li><p><strong>Screen-related</strong></p>
-
-<ul>
-<li><code>UIScreenBrightnessDidChange</code></li>
-<li><code>UIScreenCapturedDidChange</code></li>
-<li><code>UIScreenDidConnect</code></li>
-<li><code>UIScreenDidDisconnect</code></li>
-<li><code>UIScreenModeDidChange</code></li>
-</ul>
-
-<p>See <a href="#screen_monitors">Screen Monitors</a> for details.</p></li>
-<li><p><strong>Text-related</strong></p>
-
-<ul>
-<li><code>UITextFieldTextDidBeginEditing</code></li>
-<li><code>UITextFieldTextDidChange</code></li>
-<li><code>UITextFieldTextDidEndEditing</code></li>
-<li><code>UITextInputCurrentInputModeDidChange</code></li>
-<li><code>UITextViewTextDidBeginEditing</code></li>
-<li><code>UITextViewTextDidChange</code></li>
-<li><code>UITextViewTextDidEndEditing</code></li>
-</ul>
-
-<p>See <a href="#text_monitors">Text Monitors</a> for details.</p></li>
-<li><p><strong>Miscellaneous</strong></p>
-
-<ul>
-<li><code>UIDocumentStateChanged</code></li>
-<li><code>UIKeyboardDidChangeFrame</code></li>
-<li><code>UIKeyboardDidHide</code></li>
-<li><code>UIKeyboardDidShow</code></li>
-<li><code>UIKeyboardWillChangeFrame</code></li>
-<li><code>UIKeyboardWillHide</code></li>
-<li><code>UIKeyboardWillShow</code></li>
-<li><code>UIMenuControllerDidHideMenu</code></li>
-<li><code>UIMenuControllerDidShowMenu</code></li>
-<li><code>UIMenuControllerMenuFrameDidChange</code></li>
-<li><code>UIMenuControllerWillHideMenu</code></li>
-<li><code>UIMenuControllerWillShowMenu</code></li>
-<li><code>UIPasteboardChanged</code></li>
-<li><code>UIPasteboardRemoved</code></li>
-<li><code>UIViewControllerShowDetailTargetDidChange</code></li>
-<li><code>UIWindowDidBecomeHidden</code></li>
-<li><code>UIWindowDidBecomeKey</code></li>
-<li><code>UIWindowDidBecomeVisible</code></li>
-<li><code>UIWindowDidResignKey</code></li>
-</ul>
-
-<p>See <a href="#other_uikit_monitors">Other UIKit Monitors</a> for details.</p></li>
-</ul>
+<p>XestiMonitors provides numerous monitors wrapping <code>UIKit</code>
+<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-uikit-notifications.md">notifications</a>.</p>
 <h4 id='a-name-accessibility_monitors-accessibility-monitors-a' class='heading'><a name="accessibility_monitors">Accessibility Monitors</a></h4>
 
 <p>XestiMonitors provides three monitor classes that you can use to observe
@@ -941,7 +843,7 @@ its current mode. <em>(iOS, tvOS)</em></li>
 </ul>
 <h4 id='a-name-text_monitors-text-monitors-a' class='heading'><a name="text_monitors">Text Monitors</a></h4>
 
-<p>XestiMonitors provides three monitor classes that you can use to detect changes
+<p>XestiMonitors provides four monitor classes that you can use to detect changes
 in text input mode and content:</p>
 
 <ul>
@@ -949,6 +851,8 @@ in text input mode and content:</p>
 changes to its text. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html">TextInputModeMonitor</a> to monitor the responder
 chain for changes to the current input mode. <em>(iOS, tvOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html">TextStorageMonitor</a> to monitor a text storage for the
+processing of edits to its contents. <em>(iOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html">TextViewTextMonitor</a> to monitor a text view for
 changes to its text. <em>(iOS, tvOS)</em></li>
 </ul>

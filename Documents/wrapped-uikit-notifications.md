@@ -5,8 +5,8 @@ notifications:
 
 Notification Name                                  | Platform(s) | Monitor
 :------------------------------------------------- |:----------- |:-------
-`NSTextStorageDidProcessEditing`                   | iOS, tvOS   | TextStoreMonitor (_see_ [#43](https://github.com/eBardX/XestiMonitors/issues/43))
-`NSTextStorageWillProcessEditing`                  | iOS, tvOS   | TextStoreMonitor (_see_ [#43](https://github.com/eBardX/XestiMonitors/issues/43))
+`NSTextStorageDidProcessEditing`                   | iOS, tvOS   | [TextStorageMonitor][text_storage_monitor]
+`NSTextStorageWillProcessEditing`                  | iOS, tvOS   | [TextStorageMonitor][text_storage_monitor]
 `UIAccessibilityAnnouncementDidFinish`             | iOS, tvOS   | [AccessibilityAnnouncementMonitor][accessibility_announcement_monitor]
 `UIAccessibilityAssistiveTouchStatusDidChange`     | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
 `UIAccessibilityBoldTextStatusDidChange`           | iOS, tvOS   | [AccessibilityStatusMonitor][accessibility_status_monitor]
@@ -81,7 +81,6 @@ Notification Name                                  | Platform(s) | Monitor
 `UIWindowDidBecomeVisible`                         | iOS, tvOS   | [WindowMonitor][window_monitor]
 `UIWindowDidResignKey`                             | iOS, tvOS   | [WindowMonitor][window_monitor]
 
-
 [accessibility_announcement_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/AccessibilityAnnouncementMonitor.html
 [accessibility_element_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/AccessibilityElementMonitor.html
 [accessibility_status_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/AccessibilityStatusMonitor.html
@@ -105,6 +104,7 @@ Notification Name                                  | Platform(s) | Monitor
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
+[text_storage_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html
 [text_view_text_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html

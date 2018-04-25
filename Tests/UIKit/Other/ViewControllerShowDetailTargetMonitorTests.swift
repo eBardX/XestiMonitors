@@ -35,8 +35,8 @@ internal class ViewControllerShowDetailTargetMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(vc) = event {
-            XCTAssertEqual(vc, viewController)
+            case let .didChange(test) = event {
+            XCTAssertEqual(test, viewController)
         } else {
             XCTFail("Unexpected event")
         }

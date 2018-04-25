@@ -35,8 +35,8 @@ internal class TextInputModeMonitorTests: XCTestCase {
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-            case let .didChange(mode) = event {
-            XCTAssertEqual(mode, textInputMode)
+            case let .didChange(test) = event {
+            XCTAssertEqual(test, textInputMode)
         } else {
             XCTFail("Unexpected Event")
         }
