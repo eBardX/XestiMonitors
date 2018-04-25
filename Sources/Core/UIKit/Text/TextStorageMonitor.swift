@@ -13,20 +13,22 @@ import Foundation
 import UIKit
 
 ///
-/// A `TextStorageMonitor` instance monitors ...
+/// A `TextStorageMonitor` instance monitors a text storage for the processing
+/// of edits to its contents.
 ///
 public class TextStorageMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates ...
+    /// Encapsulates the processing of edits to the contents of the
+    /// text storage.
     ///
     public enum Event {
         ///
-        ///
+        /// The text storage has processed the edits to its contents.
         ///
         case didProcessEditing(NSTextStorage)
 
         ///
-        ///
+        /// The text storage is about to process the edits to its contents.
         ///
         case willProcessEditing(NSTextStorage)
     }
@@ -69,7 +71,9 @@ public class TextStorageMonitor: BaseNotificationMonitor {
     ///                     By default, all events are monitored.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     By default, the main operation queue is used.
-    ///   - handler:        The handler to call when ...
+    ///   - handler:        The handler to call when the text storage has
+    ///                     processed or is about to process edits to its
+    ///                     contents.
     ///
     public init(textStorage: NSTextStorage,
                 options: Options = .all,
