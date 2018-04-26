@@ -1,6 +1,6 @@
 //
 //  TableViewSelectionMonitor.swift
-//  XestiMonitors-iOS
+//  XestiMonitors
 //
 //  Created by Rose Maina on 2018-04-20.
 //
@@ -12,13 +12,12 @@
 import UIKit
 
 ///
-/// A `TableViewSectionMonitor` instance monitors a tableview for changes to
-/// its row selection.
+/// A `TableViewSectionMonitor` instance monitors a table view for changes to
+/// its selected row.
 ///
 public class TableViewSectionMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the selected row in the posting
-    /// table view.
+    /// Encapsulates changes to the selected row in the table view.
     ///
     public enum Event {
         ///
@@ -31,12 +30,11 @@ public class TableViewSectionMonitor: BaseNotificationMonitor {
     /// Initializes a new `TableViewSelectionMonitor`.
     ///
     /// - Parameters:
-    ///   - tableView:    The table view to monitor.
-    ///                 By default, all events are monitored.
-    ///   - queue:      The operation queue on which the handler executes.
-    ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the selected row in the
-    ///                 table view changes.
+    ///   - tableView:  The table view to monitor.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
+    ///   - handler:    The handler to call when the selected row in the table
+    ///                 view changes.
     ///
     public init(tableView: UITableView,
                 queue: OperationQueue = .main,
@@ -48,7 +46,7 @@ public class TableViewSectionMonitor: BaseNotificationMonitor {
     }
 
     ///
-    /// The tableview being monitored.
+    /// The table view being monitored.
     ///
     public let tableView: UITableView
 

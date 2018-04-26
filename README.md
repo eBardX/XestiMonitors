@@ -327,7 +327,7 @@ in text input mode and content:
 
 #### <a name="other_uikit_monitors">Other UIKit Monitors</a>
 
-In addition, XestiMonitors provides seven other `UIKit` monitors:
+In addition, XestiMonitors provides eight other `UIKit` monitors:
 
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
@@ -340,6 +340,8 @@ In addition, XestiMonitors provides seven other `UIKit` monitors:
   of the editing menu. *(iOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
+* [TableViewSelectionMonitor][table_view_selection_monitor] to monitor a table
+  view for changes to its selected row. *(iOS, tvOS)*
 * [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
   to monitor the app for changes to a split view controller’s display mode in
   the view hierarchy. *(iOS, tvOS)*
@@ -625,6 +627,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
 [text_storage_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html
