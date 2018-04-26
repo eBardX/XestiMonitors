@@ -47,7 +47,7 @@ public class ContentSizeCategoryMonitor: BaseNotificationMonitor {
     ///
     /// The font sizing option preferred by the user.
     ///
-    public var preferredContentSizeCategory: UIContentSizeCategory {
+    public var preferred: UIContentSizeCategory {
         return application.preferredContentSizeCategory
     }
 

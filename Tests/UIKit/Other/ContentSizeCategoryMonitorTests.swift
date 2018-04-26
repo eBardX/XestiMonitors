@@ -22,40 +22,25 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func test_preferredContentSizeCategory() {
-        let expectedContentSizeCategory: UIContentSizeCategory = .medium
-        let monitor = ContentSizeCategoryMonitor { _ in }
-        simulateContentSizeDidChange(to: expectedContentSizeCategory, badUserInfo: false)
-
-        XCTAssertEqual(monitor.preferredContentSizeCategory, expectedContentSizeCategory)
-    }
-
-    func test_contentSizeDidChange_badUserInfo() {
+    func testMonitor_contentSizeDidChange_badUserInfo() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedContentSize: UIContentSizeCategory = .medium
-        var expectedEvent: ContentSizeCategoryMonitor.Event?
-        let monitor = ContentSizeCategoryMonitor(queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+
+        expectation.isInverted = true
+
+        let monitor = ContentSizeCategoryMonitor(queue: .main) { _ in
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
-        simulateContentSizeDidChange(to: expectedContentSize,
-                                     badUserInfo: true)
+        simulateContentSizeCategoryDidChange(to: .extraExtraExtraLarge,
+                                             badUserInfo: true)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-
-        if let event = expectedEvent,
-            case let .didChange(contentSize) = event {
-            XCTAssertNotEqual(contentSize, expectedContentSize)
-        } else {
-            XCTFail("Unexpected event")
-        }
     }
 
     func testMonitor_contentSizeDidChange() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedContentSize: UIContentSizeCategory = .medium
+        let expectedContentSizeCategory: UIContentSizeCategory = .extraLarge
         var expectedEvent: ContentSizeCategoryMonitor.Event?
         let monitor = ContentSizeCategoryMonitor(queue: .main) { event in
             expectedEvent = event
@@ -63,23 +48,36 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateContentSizeDidChange(to: expectedContentSize, badUserInfo: false)
+        simulateContentSizeCategoryDidChange(to: expectedContentSizeCategory)
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
-        if let event = expectedEvent, case let .didChange(contentSize) = event {
-            XCTAssertEqual(contentSize, expectedContentSize)
+        if let event = expectedEvent, case let .didChange(test) = event {
+            XCTAssertEqual(test, expectedContentSizeCategory)
         } else {
             XCTFail("Unexpected event")
         }
     }
 
-    private func simulateContentSizeDidChange(to contentSize: UIContentSizeCategory, badUserInfo: Bool = false) {
-        let userInfo: [AnyHashable: Any ]?
+    func test_preferred() {
+        let expectedContentSizeCategory: UIContentSizeCategory = .small
+        let monitor = ContentSizeCategoryMonitor { _ in }
+
+        simulateContentSizeCategoryDidChange(to: expectedContentSizeCategory)
+
+        XCTAssertEqual(monitor.preferred, expectedContentSizeCategory)
+    }
+
+    private func simulateContentSizeCategoryDidChange(to category: UIContentSizeCategory,
+                                                      badUserInfo: Bool = false) {
+        application.preferredContentSizeCategory = category
+
+        let userInfo: [AnyHashable: Any]?
+
         if badUserInfo {
             userInfo = nil
         } else {
-            userInfo = [UIContentSizeCategoryNewValueKey: NSString(string: contentSize.rawValue)]
+            userInfo = [UIContentSizeCategoryNewValueKey: category.rawValue]
         }
 
         notificationCenter.post(name: .UIContentSizeCategoryDidChange,

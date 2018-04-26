@@ -14,13 +14,17 @@ internal class MockApplication: ApplicationProtocol {
     init() {
         self.applicationState = .inactive
         #if os(iOS)
-            self.backgroundRefreshStatus = .restricted
+        self.backgroundRefreshStatus = .restricted
         #endif
         self.isProtectedDataAvailable = false
-        self.preferredContentSizeCategory = .medium
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            self.preferredContentSizeCategory = .unspecified
+        } else {
+            self.preferredContentSizeCategory = .medium
+        }
         #if os(iOS)
-            self.statusBarFrame = .zero
-            self.statusBarOrientation = .unknown
+        self.statusBarFrame = .zero
+        self.statusBarOrientation = .unknown
         #endif
     }
 

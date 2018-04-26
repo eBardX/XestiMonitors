@@ -42,7 +42,7 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
             XCTFail("Unexpected event")
         }
     }
-    
+
     private func simulateContentSizeDidChange(to contentSize: UIContentSizeCategory) {
         application.preferredContentSizeCategory = contentSize
         notificationCenter.post(name: .UIContentSizeCategoryDidChange, object: application)
