@@ -327,8 +327,10 @@ in text input mode and content:
 
 #### <a name="other_uikit_monitors">Other UIKit Monitors</a>
 
-In addition, XestiMonitors provides eight other `UIKit` monitors:
+In addition, XestiMonitors provides nine other `UIKit` monitors:
 
+* [ContentSizeCategoryMonitor][content_size_category_monitor] to monitor the
+  app for changes to its preferred content size category. *(iOS, tvOS)*
 * [DocumentStateMonitor][document_state_monitor] to monitor a document for
   changes to its state. *(iOS)*
 * [FocusMonitor][focus_monitor] to monitor the app for changes to the current
@@ -599,6 +601,7 @@ XestiMonitors is available under [the MIT license][license].
 [base_notification_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html
 [battery_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
 [beacon_ranging_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
+[content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [file_system_object_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
