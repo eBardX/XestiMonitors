@@ -67,7 +67,7 @@ Notification Name                                  | Platform(s) | Monitor
 `UIScreenDidConnect`                               | iOS, tvOS   | [ScreenConnectionMonitor][screen_connection_monitor]
 `UIScreenDidDisconnect`                            | iOS, tvOS   | [ScreenConnectionMonitor][screen_connection_monitor]
 `UIScreenModeDidChange`                            | iOS, tvOS   | [ScreenModeMonitor][screen_mode_monitor]
-`UITableViewSelectionDidChange`                    | iOS, tvOS   | TableViewSelectionMonitor (_see_ [#20](https://github.com/eBardX/XestiMonitors/issues/20))
+`UITableViewSelectionDidChange`                    | iOS, tvOS   | [TableViewSelectionMonitor][table_view_selection_monitor]
 `UITextFieldTextDidBeginEditing`                   | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
 `UITextFieldTextDidChange`                         | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
 `UITextFieldTextDidEndEditing`                     | iOS, tvOS   | [TextFieldTextMonitor][text_field_text_monitor]
@@ -102,6 +102,7 @@ Notification Name                                  | Platform(s) | Monitor
 [screen_mode_monitor]:                          https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
 [screenshot_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/ScreenshotMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
 [text_storage_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html

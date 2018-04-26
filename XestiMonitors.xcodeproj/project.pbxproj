@@ -350,6 +350,12 @@
 		2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */; };
+		B7F05D12848BB9F0BBE1B168552899F3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		692AA9D720916872ABC390D0EF08EE3B /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		654A68FD9FFBCB627A3ACEF2D3BB76B5 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
+		BF40384486895D63675BD8D18F7379C7 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
 		35742FEF92941032CA3C26EC20D0DD2B /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
 		65C19C55E687443D62C3258A13D26DCB /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
 		C52808C1B5FB0C55F529032F52E00F4E /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
@@ -366,8 +372,8 @@
 		1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
 		58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
 		7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A5C84023AA9C9481A970A8C6BCB86 /* TextStorageMonitor.swift */; };
-		EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
 		E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
+		EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473CF166109179B4BC52D20EF90BD62 /* TextStorageMonitorTests.swift */; };
 		072EF941DC0777FC649507479727AF82 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		705714FDFDCB039151208535602EDF97 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
 		B8E9BE0B4D61F4B872528C8B0CDEECC9 /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1A18959DFE59D01F37332C39B80DB /* TextViewTextMonitor.swift */; };
@@ -634,6 +640,8 @@
 		28E1E25A833DFE0C9534575D47C1B8FA /* StandardLocationMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardLocationMonitorTests.swift; sourceTree = "<group>"; };
 		A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
 		8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMonitorTests.swift; sourceTree = "<group>"; };
+		1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSelectionMonitor.swift; sourceTree = "<group>"; };
+		C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSelectionMonitorTests.swift; sourceTree = "<group>"; };
 		FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTextMonitor.swift; sourceTree = "<group>"; };
 		508C9EFF9B2152F6A48DD6C173D14350 /* TextFieldTextMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTextMonitorTests.swift; sourceTree = "<group>"; };
 		D3FE4D885F96C3427F45E2ECBF91FB54 /* TextInputModeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputModeMonitor.swift; sourceTree = "<group>"; };
@@ -802,6 +810,7 @@
 				ABE2C847539114785D964DB63EE975CA /* KeyboardMonitorTests.swift */,
 				CC27E93FDCE698DA5D74B2C3E3611627 /* MenuControllerMonitorTests.swift */,
 				C13702936238651E1945B27238DF5D57 /* PasteboardMonitorTests.swift */,
+				C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */,
 				66796D5D184C72DA81D09248A42AEF99 /* ViewControllerShowDetailTargetMonitorTests.swift */,
 				CE128CC7EFB6AC7FEB3E1D6C02D68242 /* WindowMonitorTests.swift */,
 			);
@@ -986,6 +995,7 @@
 				4C0F2A254A9AF714061101012D8DCEDA /* KeyboardMonitor.swift */,
 				50117C7E66ACA342E10D0F6A0F6DDCF5 /* MenuControllerMonitor.swift */,
 				4C11570AE38DA0A0D468580240FC2ADD /* PasteboardMonitor.swift */,
+				1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */,
 				8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */,
 				815435066FC2425EFEBE58C622AEF707 /* WindowMonitor.swift */,
 			);
@@ -1578,6 +1588,7 @@
 				3124A9FBA806920FF2E3D1363C863926 /* SignificantLocationMonitor.swift in Sources */,
 				1026D8DD5E1A9A50A0C862135FE249B7 /* StandardLocationMonitor.swift in Sources */,
 				1AC14639161E884CC91CB28007027994 /* StatusBarMonitor.swift in Sources */,
+				692AA9D720916872ABC390D0EF08EE3B /* TableViewSelectionMonitor.swift in Sources */,
 				35742FEF92941032CA3C26EC20D0DD2B /* TextFieldTextMonitor.swift in Sources */,
 				3F7CEDB2D0CE2D9959DA90041BA35C5C /* TextInputModeMonitor.swift in Sources */,
 				0E94630B4B6DFECF116380640D90355B /* TextStorageMonitor.swift in Sources */,
@@ -1648,6 +1659,7 @@
 				1BD514B730B94F9EC64514C63B5BFC57 /* SignificantLocationMonitorTests.swift in Sources */,
 				6BD504197AAB97DFBC828AA48F23D952 /* StandardLocationMonitorTests.swift in Sources */,
 				6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */,
+				654A68FD9FFBCB627A3ACEF2D3BB76B5 /* TableViewSelectionMonitorTests.swift in Sources */,
 				85E48B3674263D9CC5DB3185025EE92E /* TextFieldTextMonitorTests.swift in Sources */,
 				18DEB0C3D9EB097A5FBA5DA7178E4049 /* TextInputModeMonitorTests.swift in Sources */,
 				EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */,
@@ -1692,6 +1704,7 @@
 				4FEA54A8411D3FB80DA2D7E8566F40C5 /* ScreenModeMonitorTests.swift in Sources */,
 				A7B85677ACEFCA04FE03B1C61CC38E48 /* ScreenshotMonitorTests.swift in Sources */,
 				FCFEBB9DB7C084ED138D85472B5DC02B /* StandardLocationMonitorTests.swift in Sources */,
+				BF40384486895D63675BD8D18F7379C7 /* TableViewSelectionMonitorTests.swift in Sources */,
 				85C007E0EB7F76FD1CA0BA46D6F6DE05 /* TextFieldTextMonitorTests.swift in Sources */,
 				54475080E48DCAB4BDAC878512A8FB57 /* TextInputModeMonitorTests.swift in Sources */,
 				E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */,
@@ -1766,6 +1779,7 @@
 				067BC463BBB231EC4C99512FE306FBD8 /* SignificantLocationMonitor.swift in Sources */,
 				3A6B336931443428032206A93F757B4C /* StandardLocationMonitor.swift in Sources */,
 				164E96886C5DE0B9362D3EDD7F0B6D76 /* StatusBarMonitor.swift in Sources */,
+				DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */,
 				65C19C55E687443D62C3258A13D26DCB /* TextFieldTextMonitor.swift in Sources */,
 				5E4768ADD55C2DE240E84A9432E4DCF2 /* TextInputModeMonitor.swift in Sources */,
 				1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */,
@@ -1841,6 +1855,7 @@
 				2A4EA9193CAB51B29F01ADF5A30B0B5E /* SignificantLocationMonitor.swift in Sources */,
 				F0F0CFC09FB7BF8B6994444104662A2C /* StandardLocationMonitor.swift in Sources */,
 				4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */,
+				B7F05D12848BB9F0BBE1B168552899F3 /* TableViewSelectionMonitor.swift in Sources */,
 				CC4BEA65C9413191B114C679A15E12AD /* TextFieldTextMonitor.swift in Sources */,
 				8154CAD17CCCACB8D0A9BD9FEFB2269D /* TextInputModeMonitor.swift in Sources */,
 				7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */,
@@ -1939,6 +1954,7 @@
 				973EC5DF7D10544C2731DF3C6589F809 /* SignificantLocationMonitor.swift in Sources */,
 				B4153A8B4AD88FD4C40597CE062EA56E /* StandardLocationMonitor.swift in Sources */,
 				2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */,
+				6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */,
 				C52808C1B5FB0C55F529032F52E00F4E /* TextFieldTextMonitor.swift in Sources */,
 				EF8FC3411E1BD49A6E0B8AB5134892F4 /* TextInputModeMonitor.swift in Sources */,
 				58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */,
