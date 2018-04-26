@@ -23,11 +23,11 @@ internal class TableViewSelectionMonitorTests: XCTestCase {
 
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Hander called")
-        var expectedEvent: TableViewSectionMonitor.Event?
-        let monitor = TableViewSectionMonitor(tableView: self.tableView,
-                                              queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+        var expectedEvent: TableViewSelectionMonitor.Event?
+        let monitor = TableViewSelectionMonitor(tableView: self.tableView,
+                                                queue: .main) { event in
+                                                    expectedEvent = event
+                                                    expectation.fulfill()
         }
 
         monitor.startMonitoring()

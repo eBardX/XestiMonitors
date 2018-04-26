@@ -12,10 +12,10 @@
 import UIKit
 
 ///
-/// A `TableViewSectionMonitor` instance monitors a table view for changes to
+/// A `TableViewSelectionMonitor` instance monitors a table view for changes to
 /// its selected row.
 ///
-public class TableViewSectionMonitor: BaseNotificationMonitor {
+public class TableViewSelectionMonitor: BaseNotificationMonitor {
     ///
     /// Encapsulates changes to the selected row in the table view.
     ///
