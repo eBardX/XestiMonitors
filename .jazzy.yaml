@@ -65,6 +65,7 @@ custom_categories:
       - TextViewTextMonitor
   - name: Other UIKit Monitor Classes
     children:
+      - ContentSizeCategoryMonitor
       - DocumentStateMonitor
       - FocusMonitor
       - KeyboardMonitor

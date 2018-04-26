@@ -41,7 +41,7 @@ Notification Name                                  | Platform(s) | Monitor
 `UIApplicationWillEnterForeground`                 | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
 `UIApplicationWillResignActive`                    | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
 `UIApplicationWillTerminate`                       | iOS, tvOS   | [ApplicationStateMonitor][application_state_monitor]
-`UIContentSizeCategoryDidChange`                   | iOS, tvOS   | ContentSizeCategoryMonitor (_see_ [#13](https://github.com/eBardX/XestiMonitors/issues/13))
+`UIContentSizeCategoryDidChange`                   | iOS, tvOS   | [ContentSizeCategoryMonitor][content_size_category_monitor]
 `UIDeviceBatteryLevelDidChange`                    | iOS         | [BatteryMonitor][battery_monitor]
 `UIDeviceBatteryStateDidChange`                    | iOS         | [BatteryMonitor][battery_monitor]
 `UIDeviceOrientationDidChange`                     | iOS         | [OrientationMonitor][orientation_monitor]
@@ -87,6 +87,7 @@ Notification Name                                  | Platform(s) | Monitor
 [application_state_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ApplicationStateMonitor.html
 [background_refresh_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/BackgroundRefreshMonitor.html
 [battery_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
+[content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
 [keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html

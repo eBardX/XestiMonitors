@@ -14,12 +14,17 @@ internal class MockApplication: ApplicationProtocol {
     init() {
         self.applicationState = .inactive
         #if os(iOS)
-            self.backgroundRefreshStatus = .restricted
+        self.backgroundRefreshStatus = .restricted
         #endif
         self.isProtectedDataAvailable = false
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            self.preferredContentSizeCategory = .unspecified
+        } else {
+            self.preferredContentSizeCategory = .medium
+        }
         #if os(iOS)
-            self.statusBarFrame = .zero
-            self.statusBarOrientation = .unknown
+        self.statusBarFrame = .zero
+        self.statusBarOrientation = .unknown
         #endif
     }
 
@@ -28,6 +33,7 @@ internal class MockApplication: ApplicationProtocol {
     var backgroundRefreshStatus: UIBackgroundRefreshStatus
     #endif
     var isProtectedDataAvailable: Bool
+    var preferredContentSizeCategory: UIContentSizeCategory
     #if os(iOS)
     var statusBarFrame: CGRect
     var statusBarOrientation: UIInterfaceOrientation
