@@ -46,6 +46,7 @@
 		5496E7ACFC7F274C7956B9F3F02EAD76 /* UIKitScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitScreenViewController.swift; sourceTree = "<group>"; };
 		437209303AE429E563B78CACF3DB1E2C /* UIKitTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitTextViewController.swift; sourceTree = "<group>"; };
 		92B1F142C669FFEC71E57B180AAF7F4E /* XestiMonitorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XestiMonitorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AAC444FBA999DB27835795DB24AB14B /* XestiMonitorsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XestiMonitorsDemo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 				3219AAB10BE46224A2C096CD565A8B8A /* UIKitOtherViewController.swift */,
 				5496E7ACFC7F274C7956B9F3F02EAD76 /* UIKitScreenViewController.swift */,
 				437209303AE429E563B78CACF3DB1E2C /* UIKitTextViewController.swift */,
+				4AAC444FBA999DB27835795DB24AB14B /* XestiMonitorsDemo.entitlements */,
 			);
 			path = XestiMonitorsDemo;
 			sourceTree = "<group>";
