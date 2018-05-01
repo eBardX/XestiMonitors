@@ -1,3 +1,9 @@
+# 2.9.0 (2018-05-01)
+
+* Adds support for three new monitor classes: `ContentSizeCategoryMonitor`,
+  `TableViewSelectionMonitor`, and `TextStorageMonitor`.
+* Improves documentation.
+
 # 2.8.0 (2018-04-15)
 
 * Adds support for four new monitor classes: `FocusMonitor`,
