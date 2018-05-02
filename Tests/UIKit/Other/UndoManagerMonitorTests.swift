@@ -14,7 +14,7 @@ import XCTest
 internal class UndoManagerMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let undoManager = UndoManager()
-    
+
     override func setUp() {
         super.setUp()
         
@@ -53,19 +53,18 @@ internal class UndoManagerMonitorTests: XCTestCase {
                                             expectedEvent = event
                                             expectation.fulfill()
         }
-        
+
         monitor.startMonitoring()
         simulateDidCloseUndoGroup()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .didCloseUndoGroup(test) = event {
             XCTAssertEqual(test, undoManager)
         } else {
             XCTFail("Unexpected event")
         }
-
     }
 
     func testMonitor_didOpenUndoGroup() {
@@ -82,7 +81,7 @@ internal class UndoManagerMonitorTests: XCTestCase {
         simulateDidOpenUndoGroup()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .didOpenUndoGroup(test) = event {
             XCTAssertEqual(test, undoManager)

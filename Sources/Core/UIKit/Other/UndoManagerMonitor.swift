@@ -112,7 +112,7 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
         ///
         /// Monitor all events
         ///
-        public static let all:Options = [.checkpoint,
+        public static let all: Options = [.checkpoint,
                                          .didCloseUndoGroup,
                                          .didOpenUndoGroup,
                                          .didRedoChange,
