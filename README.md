@@ -327,7 +327,7 @@ in text input mode and content:
 
 #### <a name="other_uikit_monitors">Other UIKit Monitors</a>
 
-In addition, XestiMonitors provides nine other `UIKit` monitors:
+In addition, XestiMonitors provides ten other `UIKit` monitors:
 
 * [ContentSizeCategoryMonitor][content_size_category_monitor] to monitor the
   app for changes to its preferred content size category. *(iOS, tvOS)*
@@ -344,6 +344,9 @@ In addition, XestiMonitors provides nine other `UIKit` monitors:
   to its contents or for its removal from the app. *(iOS)*
 * [TableViewSelectionMonitor][table_view_selection_monitor] to monitor a table
   view for changes to its selected row. *(iOS, tvOS)*
+* [UndoManagerMonitor][undo_manager_monitor] to monitor a device for changes whenever
+  text editing occurs. It records operations that enable undo and redo. 
+  *(iOS, macOS, tvOS, watchOS)*
 * [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
   to monitor the app for changes to a split view controller’s display mode in
   the view hierarchy. *(iOS, tvOS)*
@@ -638,7 +641,9 @@ XestiMonitors is available under [the MIT license][license].
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
-[view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
+[view_controller_show_detail_target_monitor]:
+https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[undo_manager_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 
