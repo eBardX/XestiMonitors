@@ -5,28 +5,28 @@ notifications:
 
 Notification Name                                           | Platform(s)               | Monitor
 :---------------------------------------------------------- |:------------------------- |:-------
-`Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | BundleClassLoadMonitor (_see_ [#59](https://github.com/eBardX/XestiMonitors/issues/59))
 `FileHandle.readCompletionNotification`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | _Not yet implemented_
-`NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | BundleResourceRequestMonitor (_see_ [#58](https://github.com/eBardX/XestiMonitors/issues/58))
+`NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
 `NSDidBecomeSingleThreaded`                                 | iOS, macOS, tvOS, watchOS | _Will not implement_
-`NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | _Not yet implemented_
-`NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | _Not yet implemented_
-`NSExtensionHostWillEnterForeground`                        | iOS,        tvOS, watchOS | _Not yet implemented_
-`NSExtensionHostWillResignActive`                           | iOS,        tvOS, watchOS | _Not yet implemented_
+`NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
+`NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
+`NSExtensionHostWillEnterForeground`                        | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
+`NSExtensionHostWillResignActive`                           | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
 `NSFileHandleConnectionAccepted`                            | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleDataAvailable`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleReadToEndOfFileCompletion`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSHTTPCookieManagerAcceptPolicyChanged`                    | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSHTTPCookieManagerCookiesChanged`                         | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSLocale.currentLocaleDidChangeNotification`               | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`NSHTTPCookieManagerAcceptPolicyChanged`                    | iOS, macOS, tvOS, watchOS | HTTPCookieStorageMonitor (_see_ [#49](https://github.com/eBardX/XestiMonitors/issues/49))
+`NSHTTPCookieManagerCookiesChanged`                         | iOS, macOS, tvOS, watchOS | HTTPCookieStorageMonitor (_see_ [#49](https://github.com/eBardX/XestiMonitors/issues/49))
+`NSLocale.currentLocaleDidChangeNotification`               | iOS, macOS, tvOS, watchOS | CurrentLocaleMonitor (_see_ [#56](https://github.com/eBardX/XestiMonitors/issues/56))
 `NSMetadataQueryDidFinishGathering`                         | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryDidStartGathering`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryDidUpdate`                                  | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryGatheringProgress`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
-`NSProcessInfoPowerStateDidChange`                          | iOS,        tvOS, watchOS | _Not yet implemented_
-`NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`NSProcessInfoPowerStateDidChange`                          | iOS,        tvOS, watchOS | ProcessInfoPowerStateMonitor (_see_ [#51](https://github.com/eBardX/XestiMonitors/issues/51))
+`NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | SystemClockMonitor (_see_ [#53](https://github.com/eBardX/XestiMonitors/issues/53))
+`NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | SystemTimeZoneMonitor (_see_ [#54](https://github.com/eBardX/XestiMonitors/issues/54))
 `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
 `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [UbiquityIdentityMonitor][ubiquity_identity_monitor]
@@ -38,10 +38,10 @@ Notification Name                                           | Platform(s)       
 `NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
-`NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | URLCredentialStorageMonitor (_see_ [#50](https://github.com/eBardX/XestiMonitors/issues/50))
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
+`Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | PortMonitor (_see_ [#57](https://github.com/eBardX/XestiMonitors/issues/57))
+`ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | ProcessInfoThermalStateMonitor (_see_ [#52](https://github.com/eBardX/XestiMonitors/issues/52))
 `UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
 `UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
 `UserDefaults.didChangeNotification`                        | iOS, macOS, tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
