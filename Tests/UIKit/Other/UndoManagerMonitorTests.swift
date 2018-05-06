@@ -17,7 +17,7 @@ internal class UndoManagerMonitorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        
+
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 

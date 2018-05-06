@@ -392,6 +392,7 @@
 		CFC3FFC9303C7DF3BE7AF520668D1C09 /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94335244D3797A85A17DBE99D148570E /* TimeMonitor.swift */; };
 		7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
+		8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */ = {isa = PBXBuildFile; fileRef = 3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */; };
 		10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		51D0744C9E287EFFFC1FCEC817B13677 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
@@ -662,6 +663,8 @@
 		E57C8D776FCE64CB3F0845A8CDE72008 /* TextViewTextMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitorTests.swift; sourceTree = "<group>"; };
 		94335244D3797A85A17DBE99D148570E /* TimeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
 		C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitorTests.swift; sourceTree = "<group>"; };
+		DC8AF9B1685D96DABF2E3399E284174E /* UIFocusUpdateContext+Neutered.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFocusUpdateContext+Neutered.h"; sourceTree = "<group>"; };
+		3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFocusUpdateContext+Neutered.m"; sourceTree = "<group>"; };
 		B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
 		46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
@@ -677,6 +680,7 @@
 		E83A4C27C5C877A176D099756C5BEE79 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67524B444712C096EC816D67633C9FB /* XestiMonitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XestiMonitors.h; sourceTree = "<group>"; };
 		5E0750A41AB9738D8A790DFAE276B625 /* XestiMonitors.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XestiMonitors.podspec; sourceTree = "<group>"; };
+		CA93BB36BAE46BBBCA7B9B28D401F058 /* XestiMonitorsTests-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XestiMonitorsTests-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1DDBBBB142E980C281BDF78DFED8C02 /* XestiMonitorsTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C3C5C32785ABCC0A2B668EBCC2B1E5 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		649E4A743CE6B4E1F047487649FDCC3C /* XestiMonitorsTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -880,6 +884,9 @@
 				CF2C031354262AA8FB93FFB510BCC3C3 /* MockNetworkReachability.swift */,
 				E14546FC553F1531CAB1052E278D20F2 /* MockNotificationCenter.swift */,
 				61420FA111AB46233617FCBC91CB5D31 /* MockPedometer.swift */,
+				DC8AF9B1685D96DABF2E3399E284174E /* UIFocusUpdateContext+Neutered.h */,
+				3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */,
+				CA93BB36BAE46BBBCA7B9B28D401F058 /* XestiMonitorsTests-iOS-Bridging-Header.h */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1414,7 +1421,7 @@
 					};
 					044D341643CA1B61B9CC0A1C07277077 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					0EFF1FC7B42FDE76CEB333F3C10A26AF = {
@@ -1683,6 +1690,7 @@
 				EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */,
 				1350FCD75D8B051C1C351DB42B8A7B88 /* TextViewTextMonitorTests.swift in Sources */,
 				C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */,
+				8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */,
 				DB23C2CBF8D07B2FD27623398158A45F /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				E8BFA28972EC1301293340BDF3879C34 /* UndoManagerMonitorTests.swift in Sources */,
@@ -2092,6 +2100,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2194,6 +2203,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
 			};
 			name = Release;
 		};
