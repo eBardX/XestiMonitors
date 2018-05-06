@@ -111,8 +111,8 @@
 		83B984841483D80FA930B76949C5C588 /* CMAccelerationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B243003ECCDA3383780F25E8A7C620 /* CMAccelerationExtensionsTests.swift */; };
 		12CBBA4FDEEAE22AE319CF1634DD16D2 /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D5FDF6A283356C612C3FC3995618A /* ContentSizeCategoryMonitor.swift */; };
 		17B69FEA619A681E6F7AC8451987E5BA /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D5FDF6A283356C612C3FC3995618A /* ContentSizeCategoryMonitor.swift */; };
-		BBD03C6B4426183B263B63C0B38FCC58 /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D5FDF6A283356C612C3FC3995618A /* ContentSizeCategoryMonitor.swift */; };
 		18FB2AD275D451775B9A81C7FA0A4C6D /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D5FDF6A283356C612C3FC3995618A /* ContentSizeCategoryMonitor.swift */; };
+		BBD03C6B4426183B263B63C0B38FCC58 /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D5FDF6A283356C612C3FC3995618A /* ContentSizeCategoryMonitor.swift */; };
 		5D3C61E7164A81D0C96FD655622B0298 /* ContentSizeCategoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573141E53F261D233AF75DFA32595BC6 /* ContentSizeCategoryMonitorTests.swift */; };
 		D15DE92472AFDD6337580AF5C99214DA /* ContentSizeCategoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573141E53F261D233AF75DFA32595BC6 /* ContentSizeCategoryMonitorTests.swift */; };
 		0E8BB27969E68B77A5FCD00AE6D1F7B9 /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2204EA9E639A4EF67266DDE85DB87 /* DeviceInjection.swift */; };
@@ -356,10 +356,10 @@
 		2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */; };
-		B7F05D12848BB9F0BBE1B168552899F3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
-		6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
-		DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
 		692AA9D720916872ABC390D0EF08EE3B /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		6EFAEAF9C641127B53504C4D9AA510AD /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		B7F05D12848BB9F0BBE1B168552899F3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
+		DA856DDDC66BDAC11011A407B07940B3 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */; };
 		654A68FD9FFBCB627A3ACEF2D3BB76B5 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
 		BF40384486895D63675BD8D18F7379C7 /* TableViewSelectionMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */; };
 		35742FEF92941032CA3C26EC20D0DD2B /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E1F19CDEC2C321DB4BB1CC90055E2 /* TextFieldTextMonitor.swift */; };
@@ -392,6 +392,7 @@
 		CFC3FFC9303C7DF3BE7AF520668D1C09 /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94335244D3797A85A17DBE99D148570E /* TimeMonitor.swift */; };
 		7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
+		8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */ = {isa = PBXBuildFile; fileRef = 3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */; };
 		10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		51D0744C9E287EFFFC1FCEC817B13677 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
@@ -660,6 +661,8 @@
 		E57C8D776FCE64CB3F0845A8CDE72008 /* TextViewTextMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitorTests.swift; sourceTree = "<group>"; };
 		94335244D3797A85A17DBE99D148570E /* TimeMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
 		C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitorTests.swift; sourceTree = "<group>"; };
+		DC8AF9B1685D96DABF2E3399E284174E /* UIFocusUpdateContext+Neutered.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFocusUpdateContext+Neutered.h"; sourceTree = "<group>"; };
+		3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFocusUpdateContext+Neutered.m"; sourceTree = "<group>"; };
 		B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
 		46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
@@ -673,6 +676,7 @@
 		E83A4C27C5C877A176D099756C5BEE79 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67524B444712C096EC816D67633C9FB /* XestiMonitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XestiMonitors.h; sourceTree = "<group>"; };
 		5E0750A41AB9738D8A790DFAE276B625 /* XestiMonitors.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XestiMonitors.podspec; sourceTree = "<group>"; };
+		CA93BB36BAE46BBBCA7B9B28D401F058 /* XestiMonitorsTests-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XestiMonitorsTests-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1DDBBBB142E980C281BDF78DFED8C02 /* XestiMonitorsTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C3C5C32785ABCC0A2B668EBCC2B1E5 /* XestiMonitorsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		649E4A743CE6B4E1F047487649FDCC3C /* XestiMonitorsTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XestiMonitorsTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -875,6 +879,9 @@
 				CF2C031354262AA8FB93FFB510BCC3C3 /* MockNetworkReachability.swift */,
 				E14546FC553F1531CAB1052E278D20F2 /* MockNotificationCenter.swift */,
 				61420FA111AB46233617FCBC91CB5D31 /* MockPedometer.swift */,
+				DC8AF9B1685D96DABF2E3399E284174E /* UIFocusUpdateContext+Neutered.h */,
+				3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */,
+				CA93BB36BAE46BBBCA7B9B28D401F058 /* XestiMonitorsTests-iOS-Bridging-Header.h */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1408,7 +1415,7 @@
 					};
 					044D341643CA1B61B9CC0A1C07277077 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					0EFF1FC7B42FDE76CEB333F3C10A26AF = {
@@ -1677,6 +1684,7 @@
 				EC289F8A60E7E85001B2F3209F43E093 /* TextStorageMonitorTests.swift in Sources */,
 				1350FCD75D8B051C1C351DB42B8A7B88 /* TextViewTextMonitorTests.swift in Sources */,
 				C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */,
+				8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */,
 				DB23C2CBF8D07B2FD27623398158A45F /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				8F18877FB1237E9C06F9E7C03FF14658 /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */,
@@ -2084,6 +2092,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2186,6 +2195,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
 			};
 			name = Release;
 		};

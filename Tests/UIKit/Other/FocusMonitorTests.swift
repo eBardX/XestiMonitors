@@ -15,8 +15,10 @@ internal class FocusMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     #if os(tvOS)
     let context = UIFocusUpdateContext()
-    let coordinator = UIFocusAnimationCoordinator()
+    #else
+    let context = UIFocusUpdateContext.make()
     #endif
+    let coordinator = UIFocusAnimationCoordinator()
 
     override func setUp() {
         super.setUp()
@@ -24,7 +26,6 @@ internal class FocusMonitorTests: XCTestCase {
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    #if os(tvOS)
     func testMonitor_didUpdate() {
         if #available(iOS 11.0, tvOS 11.0, *) {
             let expectation = self.expectation(description: "Handler called")
@@ -49,7 +50,6 @@ internal class FocusMonitorTests: XCTestCase {
             }
         }
     }
-    #endif
 
     func testMonitor_didUpdate_badUserInfo() {
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -69,7 +69,6 @@ internal class FocusMonitorTests: XCTestCase {
         }
     }
 
-    #if os(tvOS)
     func testMonitor_movementDidFail() {
         if #available(iOS 11.0, tvOS 11.0, *) {
             let expectation = self.expectation(description: "Handler called")
@@ -93,7 +92,6 @@ internal class FocusMonitorTests: XCTestCase {
             }
         }
     }
-    #endif
 
     private func simulateDidUpdate(badUserInfo: Bool = false) {
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -102,12 +100,8 @@ internal class FocusMonitorTests: XCTestCase {
             if badUserInfo {
                 userInfo = nil
             } else {
-                #if os(tvOS)
                 userInfo = [UIFocusUpdateAnimationCoordinatorKey: coordinator,
                             UIFocusUpdateContextKey: context]
-                #else
-                userInfo = nil
-                #endif
             }
 
             notificationCenter.post(name: .UIFocusDidUpdate,
@@ -118,13 +112,7 @@ internal class FocusMonitorTests: XCTestCase {
 
     private func simulateMovementDidFail() {
         if #available(iOS 11.0, tvOS 11.0, *) {
-            let userInfo: [AnyHashable: Any]?
-
-            #if os(tvOS)
-            userInfo = [UIFocusUpdateContextKey: context]
-            #else
-            userInfo = nil
-            #endif
+            let userInfo = [UIFocusUpdateContextKey: context]
 
             notificationCenter.post(name: .UIFocusMovementDidFail,
                                     object: nil,
