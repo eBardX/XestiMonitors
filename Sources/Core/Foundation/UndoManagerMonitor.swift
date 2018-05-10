@@ -7,10 +7,7 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
-#if os(iOS) || os(macOS) || os(tvOS) || os(watchOS)
-
 import Foundation
-import UIKit
 
 ///
 /// A `UndoManagerMonitor` instance monitors a device for changes whenever
@@ -55,7 +52,7 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
         case willCloseUndoGroup(UndoManager)
 
         ///
-        /// UndoManager object performs a redo operation
+        /// UndoManager object performs a redo operation.
         ///
         case willRedoChange(UndoManager)
 
@@ -70,56 +67,56 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
     ///
     public struct Options: OptionSet {
         ///
-        /// Monitor 'checkpoint' events
+        /// Monitor 'checkpoint' events.
         ///
         public static let checkpoint = Options(rawValue: 1 << 0)
 
         ///
-        /// Monitor 'didCloseUndoGroup' events
+        /// Monitor 'didCloseUndoGroup' events.
         ///
         public static let didCloseUndoGroup = Options(rawValue: 1 << 1)
 
         ///
-        /// Monitor 'didOpenUndoGroup' events
+        /// Monitor 'didOpenUndoGroup' events.
         ///
         public static let didOpenUndoGroup = Options(rawValue: 1 << 2)
 
         ///
-        /// Monitor 'didRedoChange' events
+        /// Monitor 'didRedoChange' events.
         ///
         public static let didRedoChange = Options(rawValue: 1 << 3)
 
         ///
-        /// Monitor 'didUndoChange' events
+        /// Monitor 'didUndoChange' events.
         ///
         public static let didUndoChange = Options(rawValue: 1 << 4)
 
         ///
-        /// Monitor 'willCloseUndoGroup' events
+        /// Monitor 'willCloseUndoGroup' events.
         ///
         public static let willCloseUndoGroup = Options(rawValue: 1 << 5)
 
         ///
-        /// Monitor 'willRedoChange' events
+        /// Monitor 'willRedoChange' events.
         ///
         public static let willRedoChange = Options(rawValue: 1 << 6)
 
         ///
-        /// Monitor 'willUndoChange' events
+        /// Monitor 'willUndoChange' events.
         ///
         public static let willUndoChange = Options(rawValue: 1 << 7)
 
         ///
-        /// Monitor all events
+        /// Monitor all events.
         ///
         public static let all: Options = [.checkpoint,
-                                         .didCloseUndoGroup,
-                                         .didOpenUndoGroup,
-                                         .didRedoChange,
-                                         .didUndoChange,
-                                         .willCloseUndoGroup,
-                                         .willRedoChange,
-                                         .willUndoChange]
+                                          .didCloseUndoGroup,
+                                          .didOpenUndoGroup,
+                                          .didRedoChange,
+                                          .didUndoChange,
+                                          .willCloseUndoGroup,
+                                          .willRedoChange,
+                                          .willUndoChange]
 
         /// :nodoc:
         public init(rawValue: UInt) {
@@ -134,7 +131,7 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
     /// Initializes a new `UndoManagerMonitor`.
     ///
     /// - Parameters:
-    ///   - undoManger: The UndoManger to monitor.
+    ///   - undoManger: The undo manager to monitor.
     ///   - options:    The options that specify which events to monitor.
     ///                 By default, all events are monitored.
     ///   - queue:      The operation queue on which the handler executes.
@@ -154,88 +151,51 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
     }
 
     ///
-    /// The UndoManger is being monitored.
+    /// The undo manager is being monitored.
     ///
     public let undoManager: UndoManager
 
     private let handler: (Event) -> Void
     private let options: Options
 
-    override public func addNotificationObservers() {
-        super.addNotificationObservers()
-
-        if options.contains(.checkpoint) {
-            observe(.NSUndoManagerCheckpoint,
+    private func observeIf(_ member: Options,
+                           _ name: Notification.Name,
+                           _ eventProvider: @escaping (UndoManager) -> Event) {
+        if options.contains(member) {
+            observe(name,
                     object: undoManager) { [unowned self] in
                         if let undoManager = $0.object as? UndoManager {
-                            self.handler(.checkpoint(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.didCloseUndoGroup) {
-            observe(.NSUndoManagerDidCloseUndoGroup,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.didCloseUndoGroup(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.didOpenUndoGroup) {
-            observe(.NSUndoManagerDidOpenUndoGroup,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.didOpenUndoGroup(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.didRedoChange) {
-            observe(.NSUndoManagerDidRedoChange,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.didRedoChange(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.didUndoChange) {
-            observe(.NSUndoManagerDidUndoChange,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.didUndoChange(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.willCloseUndoGroup) {
-            observe(.NSUndoManagerWillCloseUndoGroup,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.willCloseUndoGroup(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.willRedoChange) {
-            observe(.NSUndoManagerWillRedoChange,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.willRedoChange(undoManager))
-                        }
-            }
-        }
-
-        if options.contains(.willUndoChange) {
-            observe(.NSUndoManagerWillUndoChange,
-                    object: undoManager) { [unowned self] in
-                        if let undoManager = $0.object as? UndoManager {
-                            self.handler(.willUndoChange(undoManager))
+                            self.handler(eventProvider(undoManager))
                         }
             }
         }
     }
-}
 
-#endif
+    override public func addNotificationObservers() {
+        super.addNotificationObservers()
+
+        observeIf(.checkpoint,
+                  .NSUndoManagerCheckpoint) { .checkpoint($0) }
+
+        observeIf(.didCloseUndoGroup,
+                  .NSUndoManagerDidCloseUndoGroup) { .didCloseUndoGroup($0) }
+
+        observeIf(.didOpenUndoGroup,
+                  .NSUndoManagerDidOpenUndoGroup) { .didOpenUndoGroup($0) }
+
+        observeIf(.didRedoChange,
+                  .NSUndoManagerDidRedoChange) { .didRedoChange($0) }
+
+        observeIf(.didUndoChange,
+                  .NSUndoManagerDidUndoChange) { .didUndoChange($0) }
+
+        observeIf(.willCloseUndoGroup,
+                  .NSUndoManagerWillCloseUndoGroup) { .willCloseUndoGroup($0) }
+
+        observeIf(.willRedoChange,
+                  .NSUndoManagerWillRedoChange) { .willRedoChange($0) }
+
+        observeIf(.willUndoChange,
+                  .NSUndoManagerWillUndoChange) { .willUndoChange($0) }
+    }
+}

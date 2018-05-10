@@ -32,6 +32,7 @@ custom_categories:
       - MetadataQueryMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
+      - UndoManagerMonitor
   - name: UIKit Accessibility Monitor Classes
     children:
       - AccessibilityAnnouncementMonitor
@@ -72,7 +73,6 @@ custom_categories:
       - MenuControllerMonitor
       - PasteboardMonitor
       - TableViewSelectionMonitor
-      - UndoManagerMonitor
       - ViewControllerShowDetailTargetMonitor
       - WindowMonitor
   - name: Other Monitor Classes

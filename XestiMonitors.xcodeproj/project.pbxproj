@@ -407,8 +407,13 @@
 		29F9AE80B671E3EF9E2EBF0A50F61925 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
 		9CAA197490F32E71A29AF2B9A23E039D /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
 		AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
-		BDBE8E4440320EB477A252B51D145CD0 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED39BD43E40BF2201C968ECFEB1923E /* UndoManagerMonitor.swift */; };
-		E8BFA28972EC1301293340BDF3879C34 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FADF8F3AE338A981F0A40F933FEDDB2 /* UndoManagerMonitorTests.swift */; };
+		4178090E14AF17F5DD336EC14BD6574C /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
+		162CDB061325EE7A7E14268671EC7D25 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
+		BF0840E9F15E8E74154287959FB34ADF /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
+		446B779EBB954E569E1E58C4A4DF7AF4 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
+		A80E7E557A6D8CAABEE15B67B9E90B47 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
+		6FAA59E455824C358AB9849FC3057578 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
+		0D64EECE9A75AF3AD926011F98268706 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
 		0902BC98E7EE9BA4C6550231C563CCF4 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		379B673F07A364527C9C4A5FC2C0A7CB /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		47EE5E3B79379EFC76A11D84FCBD32A6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
@@ -669,8 +674,8 @@
 		46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
 		E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitorTests.swift; sourceTree = "<group>"; };
-		7ED39BD43E40BF2201C968ECFEB1923E /* UndoManagerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerMonitor.swift; sourceTree = "<group>"; };
-		0FADF8F3AE338A981F0A40F933FEDDB2 /* UndoManagerMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerMonitorTests.swift; sourceTree = "<group>"; };
+		56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerMonitor.swift; sourceTree = "<group>"; };
+		9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerMonitorTests.swift; sourceTree = "<group>"; };
 		8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerShowDetailTargetMonitor.swift; sourceTree = "<group>"; };
 		66796D5D184C72DA81D09248A42AEF99 /* ViewControllerShowDetailTargetMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerShowDetailTargetMonitorTests.swift; sourceTree = "<group>"; };
 		9647C7378D6773EE909C5091D317B57E /* VisitMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitMonitor.swift; sourceTree = "<group>"; };
@@ -828,7 +833,6 @@
 				CC27E93FDCE698DA5D74B2C3E3611627 /* MenuControllerMonitorTests.swift */,
 				C13702936238651E1945B27238DF5D57 /* PasteboardMonitorTests.swift */,
 				C82D53DB8A85E0C19AAD2E9D70F67391 /* TableViewSelectionMonitorTests.swift */,
-				0FADF8F3AE338A981F0A40F933FEDDB2 /* UndoManagerMonitorTests.swift */,
 				66796D5D184C72DA81D09248A42AEF99 /* ViewControllerShowDetailTargetMonitorTests.swift */,
 				CE128CC7EFB6AC7FEB3E1D6C02D68242 /* WindowMonitorTests.swift */,
 			);
@@ -841,6 +845,7 @@
 				A3220F24F25A3612F07F083C5001B9C7 /* MetadataQueryMonitor.swift */,
 				B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */,
 				168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */,
+				56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -864,6 +869,7 @@
 				89E3CB5B787B737EFE04F98527B30A34 /* MetadataQueryMonitorTests.swift */,
 				46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */,
+				9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1018,7 +1024,6 @@
 				50117C7E66ACA342E10D0F6A0F6DDCF5 /* MenuControllerMonitor.swift */,
 				4C11570AE38DA0A0D468580240FC2ADD /* PasteboardMonitor.swift */,
 				1E02D3FDD67E87B6F3A0AAD2C8B1833F /* TableViewSelectionMonitor.swift */,
-				7ED39BD43E40BF2201C968ECFEB1923E /* UndoManagerMonitor.swift */,
 				8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */,
 				815435066FC2425EFEBE58C622AEF707 /* WindowMonitor.swift */,
 			);
@@ -1620,6 +1625,7 @@
 				AF7BAA51C4445C60940D44C02F1F8D71 /* TimeMonitor.swift in Sources */,
 				286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				5BF69879C2179270CB037530836ADF55 /* UbiquityIdentityMonitor.swift in Sources */,
+				162CDB061325EE7A7E14268671EC7D25 /* UndoManagerMonitor.swift in Sources */,
 				47EE5E3B79379EFC76A11D84FCBD32A6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				C05FA0E5A80DD64C42F9753EC46DF7C5 /* VisitMonitor.swift in Sources */,
 				5A6D83553F5542C8DA4970619D7CD928 /* WindowMonitor.swift in Sources */,
@@ -1693,7 +1699,7 @@
 				8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */,
 				DB23C2CBF8D07B2FD27623398158A45F /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */,
-				E8BFA28972EC1301293340BDF3879C34 /* UndoManagerMonitorTests.swift in Sources */,
+				0D64EECE9A75AF3AD926011F98268706 /* UndoManagerMonitorTests.swift in Sources */,
 				8F18877FB1237E9C06F9E7C03FF14658 /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */,
 				EF622D3BC734689D328D48EAB477EE63 /* VisitMonitorTests.swift in Sources */,
 				750CA87054B454E7AF5E9D41ADCACE54 /* WindowMonitorTests.swift in Sources */,
@@ -1740,6 +1746,7 @@
 				7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */,
 				397DB8EF4A7E24F4E0FED34AB0882AD8 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				9CAA197490F32E71A29AF2B9A23E039D /* UbiquityIdentityMonitorTests.swift in Sources */,
+				A80E7E557A6D8CAABEE15B67B9E90B47 /* UndoManagerMonitorTests.swift in Sources */,
 				E3FCCF9C66E90022E4B5AF1D358256E1 /* ViewControllerShowDetailTargetMonitorTests.swift in Sources */,
 				58877FF146C7C561D471B021658E6BFC /* WindowMonitorTests.swift in Sources */,
 			);
@@ -1816,6 +1823,7 @@
 				C45B37CDAD547EEAA133971B7AE26E7E /* TimeMonitor.swift in Sources */,
 				BF138B01CDFC0792E35B6C4B55935DC4 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				EFC03D57FA0FCDA8B81A5E7A5AA28C10 /* UbiquityIdentityMonitor.swift in Sources */,
+				4178090E14AF17F5DD336EC14BD6574C /* UndoManagerMonitor.swift in Sources */,
 				0902BC98E7EE9BA4C6550231C563CCF4 /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				BF5E34B969D6E79CF040F94225E5D7A6 /* VisitMonitor.swift in Sources */,
 				B2B3F93203CE51E8F2790CB8684E8623 /* WindowMonitor.swift in Sources */,
@@ -1893,7 +1901,7 @@
 				CFC3FFC9303C7DF3BE7AF520668D1C09 /* TimeMonitor.swift in Sources */,
 				10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				75C1E65F849757D8B408FEA6B6305002 /* UbiquityIdentityMonitor.swift in Sources */,
-				BDBE8E4440320EB477A252B51D145CD0 /* UndoManagerMonitor.swift in Sources */,
+				446B779EBB954E569E1E58C4A4DF7AF4 /* UndoManagerMonitor.swift in Sources */,
 				9DEDACFD455D48791C6BB14415A0B9DC /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				968BAA08220CD779DB7564A32B5FE23E /* VisitMonitor.swift in Sources */,
 				5C1D6F4C5C8917595F48D8B2AC9E8239 /* WindowMonitor.swift in Sources */,
@@ -1921,6 +1929,7 @@
 				1449D809A3606968C2B30DE81D39F8A8 /* StandardLocationMonitorTests.swift in Sources */,
 				616F96C96D09839032AA4DF502916A9D /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				29F9AE80B671E3EF9E2EBF0A50F61925 /* UbiquityIdentityMonitorTests.swift in Sources */,
+				6FAA59E455824C358AB9849FC3057578 /* UndoManagerMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1994,6 +2003,7 @@
 				C9BE53804EE576BF3087939083A9CE2E /* TimeMonitor.swift in Sources */,
 				51D0744C9E287EFFFC1FCEC817B13677 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				49139480D83BA33551EA3E27842AE920 /* UbiquityIdentityMonitor.swift in Sources */,
+				BF0840E9F15E8E74154287959FB34ADF /* UndoManagerMonitor.swift in Sources */,
 				379B673F07A364527C9C4A5FC2C0A7CB /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
 				B3DAAD09DDF654BC6F856203CD85851B /* VisitMonitor.swift in Sources */,
 				136721735D613C27BBAF213558C76ADF /* WindowMonitor.swift in Sources */,

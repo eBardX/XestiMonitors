@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides three monitors wrapping `Foundation`
+XestiMonitors provides four monitors wrapping `Foundation`
 [notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
@@ -245,6 +245,9 @@ XestiMonitors provides three monitors wrapping `Foundation`
   data pushed from iCloud. *(iOS, macOS, tvOS)*
 * [UbiquityIdentityMonitor][ubiquity_identity_monitor] to monitor the system
   for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
+* [UndoManagerMonitor][undo_manager_monitor] to monitor a device for changes whenever
+  text editing occurs. It records operations that enable undo and redo. 
+  *(iOS, macOS, tvOS, watchOS)*
 
 ### <a name="uikit_monitors">UIKit Monitors</a>
 
@@ -327,7 +330,7 @@ in text input mode and content:
 
 #### <a name="other_uikit_monitors">Other UIKit Monitors</a>
 
-In addition, XestiMonitors provides ten other `UIKit` monitors:
+In addition, XestiMonitors provides nine other `UIKit` monitors:
 
 * [ContentSizeCategoryMonitor][content_size_category_monitor] to monitor the
   app for changes to its preferred content size category. *(iOS, tvOS)*
@@ -344,9 +347,6 @@ In addition, XestiMonitors provides ten other `UIKit` monitors:
   to its contents or for its removal from the app. *(iOS)*
 * [TableViewSelectionMonitor][table_view_selection_monitor] to monitor a table
   view for changes to its selected row. *(iOS, tvOS)*
-* [UndoManagerMonitor][undo_manager_monitor] to monitor a device for changes whenever
-  text editing occurs. It records operations that enable undo and redo. 
-  *(iOS, macOS, tvOS, watchOS)*
 * [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
   to monitor the app for changes to a split view controller’s display mode in
   the view hierarchy. *(iOS, tvOS)*
@@ -641,9 +641,10 @@ XestiMonitors is available under [the MIT license][license].
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
-[view_controller_show_detail_target_monitor]:
+[undo_manager_monitor]:
 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
-[undo_manager_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
+[view_controller_show_detail_target_monitor]:
+https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 
