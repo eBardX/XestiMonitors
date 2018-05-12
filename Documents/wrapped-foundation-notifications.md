@@ -30,14 +30,14 @@ Notification Name                                           | Platform(s)       
 `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
 `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [UbiquityIdentityMonitor][ubiquity_identity_monitor]
-`NSUndoManagerCheckpoint`                                   | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerDidCloseUndoGroup`                            | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerDidOpenUndoGroup`                             | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerDidRedoChange`                                | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerDidUndoChange`                                | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
-`NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | UndoManagerMonitor (_see_ [#41](https://github.com/eBardX/XestiMonitors/issues/41))
+`NSUndoManagerCheckpoint`                                   | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerDidCloseUndoGroup`                            | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerDidOpenUndoGroup`                             | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerDidRedoChange`                                | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerDidUndoChange`                                | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
+`NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | _Not yet implemented_
@@ -51,3 +51,4 @@ Notification Name                                           | Platform(s)       
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
+[undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html

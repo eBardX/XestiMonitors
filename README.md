@@ -245,9 +245,8 @@ XestiMonitors provides four monitors wrapping `Foundation`
   data pushed from iCloud. *(iOS, macOS, tvOS)*
 * [UbiquityIdentityMonitor][ubiquity_identity_monitor] to monitor the system
   for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
-* [UndoManagerMonitor][undo_manager_monitor] to monitor a device for changes whenever
-  text editing occurs. It records operations that enable undo and redo. 
-  *(iOS, macOS, tvOS, watchOS)*
+* [UndoManagerMonitor][undo_manager_monitor] to monitor an undo manager for
+  changes to its recording of operations. *(iOS, macOS, tvOS, watchOS)*
 
 ### <a name="uikit_monitors">UIKit Monitors</a>
 
@@ -641,10 +640,8 @@ XestiMonitors is available under [the MIT license][license].
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
-[undo_manager_monitor]:
-https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
-[view_controller_show_detail_target_monitor]:
-https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
+[undo_manager_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 

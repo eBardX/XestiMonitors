@@ -10,54 +10,52 @@
 import Foundation
 
 ///
-/// A `UndoManagerMonitor` instance monitors a device for changes whenever
-/// text editing occurs.
+/// An `UndoManagerMonitor` instance monitors an undo manager for changes to
+/// its recording of operations.
 ///
 public class UndoManagerMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates recording of the device's undo and redo operations.
+    /// Encapsulates changes to the undo manager.
     ///
     public enum Event {
         ///
-        /// UndoManager object opens or closes an undo group.
+        /// The undo manager has opened or closed an undo group, or has checked
+        /// the redo stack.
         ///
         case checkpoint(UndoManager)
 
         ///
-        /// UndoManager object closes an undo group, which occurs in the
-        /// implementation of the endUndoGrouping() method.
+        /// The undo manager has closed an undo group.
         ///
         case didCloseUndoGroup(UndoManager)
 
         ///
-        /// UndoManager object opens an undo group, which occurs in the
-        /// implementation of the beginUndoGrouping() method.
+        /// The undo manager has opened an undo group.
         ///
         case didOpenUndoGroup(UndoManager)
 
         ///
-        /// UndoManager object performs a redo operation.
+        /// The undo manager has performed a redo operation.
         ///
         case didRedoChange(UndoManager)
 
         ///
-        /// UndoManager object performs an undo operation.
+        /// The undo manager has performed an undo operation.
         ///
         case didUndoChange(UndoManager)
 
         ///
-        /// UndoManager object closes an undo group, which occurs in the
-        /// implementation of the endUndoGrouping() method.
+        /// The undo manager is about to close an undo group.
         ///
         case willCloseUndoGroup(UndoManager)
 
         ///
-        /// UndoManager object performs a redo operation.
+        /// The undo manager is about to perform a redo operation.
         ///
         case willRedoChange(UndoManager)
 
         ///
-        /// UndoManager object performs an undo operation.
+        /// The undo manager is about to perform an undo operation.
         ///
         case willUndoChange(UndoManager)
     }
@@ -131,13 +129,13 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
     /// Initializes a new `UndoManagerMonitor`.
     ///
     /// - Parameters:
-    ///   - undoManger: The undo manager to monitor.
-    ///   - options:    The options that specify which events to monitor.
-    ///                 By default, all events are monitored.
-    ///   - queue:      The operation queue on which the handler executes.
-    ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when an Undo or Redo operation
-    ///                 is called.
+    ///   - undoManager:    The undo manager to monitor.
+    ///   - options:        The options that specify which events to monitor.
+    ///                     By default, all events are monitored.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     By default, the main operation queue is used.
+    ///   - handler:        The handler to call when there is a change to the
+    ///                     undo manager’s recording of operations.
     ///
     public init(undoManager: UndoManager,
                 options: Options = .all,
@@ -151,7 +149,7 @@ public class UndoManagerMonitor: BaseNotificationMonitor {
     }
 
     ///
-    /// The undo manager is being monitored.
+    /// The undo manager being monitored.
     ///
     public let undoManager: UndoManager
 

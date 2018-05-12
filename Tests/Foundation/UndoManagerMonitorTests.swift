@@ -7,7 +7,6 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
-import UIKit
 import XCTest
 @testable import XestiMonitors
 
