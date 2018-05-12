@@ -32,6 +32,7 @@ custom_categories:
       - MetadataQueryMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
+      - UndoManagerMonitor
   - name: UIKit Accessibility Monitor Classes
     children:
       - AccessibilityAnnouncementMonitor
