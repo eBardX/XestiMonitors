@@ -54,8 +54,9 @@ public class ProcessInfoThermalStateMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(ProcessInfo.thermalStateDidChangeNotification) { [unowned self] _ in
-            self.handler(.didChange(self.processInfo.thermalState))
+        observe(ProcessInfo.thermalStateDidChangeNotification,
+                object: processInfo) { [unowned self] _ in
+                    self.handler(.didChange(self.processInfo.thermalState))
         }
     }
 }
