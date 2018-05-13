@@ -40,7 +40,7 @@ Notification Name                                           | Platform(s)       
 `NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | URLCredentialStorageMonitor (_see_ [#50](https://github.com/eBardX/XestiMonitors/issues/50))
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | PortMonitor (_see_ [#57](https://github.com/eBardX/XestiMonitors/issues/57))
+`Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | [PortMonitor][port_monitor]
 `ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | ProcessInfoThermalStateMonitor (_see_ [#52](https://github.com/eBardX/XestiMonitors/issues/52))
 `UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
 `UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
@@ -49,6 +49,7 @@ Notification Name                                           | Platform(s)       
 `UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
 
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
+[port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
