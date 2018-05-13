@@ -57,8 +57,9 @@ public class ProcessInfoPowerStateMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.NSProcessInfoPowerStateDidChange) { [unowned self] _ in
-            self.handler(.didChange(false))
+        observe(.NSProcessInfoPowerStateDidChange,
+                object: processInfo) { [unowned self] _ in
+                    self.handler(.didChange(self.processInfo.isLowPowerModeEnabled))
         }
     }
 }

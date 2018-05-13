@@ -307,10 +307,12 @@
 		B48D817916A019455615FDC59F5A777E /* ProcessInfoInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678E2F852298AE36703C3CAE577C3D /* ProcessInfoInjection.swift */; };
 		BA218302BC56507CE21DCF02FF99ABB6 /* ProcessInfoInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678E2F852298AE36703C3CAE577C3D /* ProcessInfoInjection.swift */; };
 		CF537FB8DCF9450EB3F0B0415FA8E9E0 /* ProcessInfoInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678E2F852298AE36703C3CAE577C3D /* ProcessInfoInjection.swift */; };
+		6E317242671EA9B8BBB8CD6CCB9D9AF2 /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */; };
 		C033E43C631072DE7F0DAD34340AF510 /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */; };
 		C0983CDE37B87A08D9559D5CCF940EF2 /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */; };
-		6E317242671EA9B8BBB8CD6CCB9D9AF2 /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */; };
 		FE67CE7EE27E46DDB843E4D03B00C9CC /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */; };
+		A2AD67F85820C9BF16B0088109A50199 /* ProcessInfoPowerStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466DE2F9FFA7C5E010D863713DF6C4C6 /* ProcessInfoPowerStateMonitorTests.swift */; };
+		E8B9878C1A967A54B1AE4CEC3164419F /* ProcessInfoPowerStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466DE2F9FFA7C5E010D863713DF6C4C6 /* ProcessInfoPowerStateMonitorTests.swift */; };
 		289E532169C146540E68DE8602A188E3 /* ProcessInfoThermalStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097203C9F4B5012E104E1FB32BEB7ACE /* ProcessInfoThermalStateMonitor.swift */; };
 		380725E6B5B7BBC4C13F39EB91348170 /* ProcessInfoThermalStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097203C9F4B5012E104E1FB32BEB7ACE /* ProcessInfoThermalStateMonitor.swift */; };
 		BF9B16D4002F03642046B941A859005E /* ProcessInfoThermalStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097203C9F4B5012E104E1FB32BEB7ACE /* ProcessInfoThermalStateMonitor.swift */; };
@@ -663,6 +665,7 @@
 		BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortMonitorTests.swift; sourceTree = "<group>"; };
 		5C678E2F852298AE36703C3CAE577C3D /* ProcessInfoInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoInjection.swift; sourceTree = "<group>"; };
 		8D968A643A3DC3E4DBA90306F4C196FB /* ProcessInfoPowerStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoPowerStateMonitor.swift; sourceTree = "<group>"; };
+		466DE2F9FFA7C5E010D863713DF6C4C6 /* ProcessInfoPowerStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoPowerStateMonitorTests.swift; sourceTree = "<group>"; };
 		097203C9F4B5012E104E1FB32BEB7ACE /* ProcessInfoThermalStateMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoThermalStateMonitor.swift; sourceTree = "<group>"; };
 		AC885DEB9A8B0BF60D055E70B1248B22 /* ProcessInfoThermalStateMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoThermalStateMonitorTests.swift; sourceTree = "<group>"; };
 		760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitor.swift; sourceTree = "<group>"; };
@@ -903,6 +906,7 @@
 			children = (
 				89E3CB5B787B737EFE04F98527B30A34 /* MetadataQueryMonitorTests.swift */,
 				BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */,
+				466DE2F9FFA7C5E010D863713DF6C4C6 /* ProcessInfoPowerStateMonitorTests.swift */,
 				AC885DEB9A8B0BF60D055E70B1248B22 /* ProcessInfoThermalStateMonitorTests.swift */,
 				46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */,
@@ -1724,6 +1728,7 @@
 				DD553DB88F689806CC4F564590C23A38 /* PasteboardMonitorTests.swift in Sources */,
 				1656F7A2C0D8E6D80B9ADF10CD463919 /* PedometerMonitorTests.swift in Sources */,
 				701AE3EC1E60FE052CADBA9228837228 /* PortMonitorTests.swift in Sources */,
+				A2AD67F85820C9BF16B0088109A50199 /* ProcessInfoPowerStateMonitorTests.swift in Sources */,
 				080D58F4F91EAC76D3956FBE594EF475 /* ProcessInfoThermalStateMonitorTests.swift in Sources */,
 				B9D031FB5F311A3BDE20C556D957BF2E /* ProtectedDataMonitorTests.swift in Sources */,
 				E3EB39648002FE2BF7DF533A5903FB30 /* ProximityMonitorTests.swift in Sources */,
@@ -1779,6 +1784,7 @@
 				8E6D35591FC4CFF740B9D42A0271C792 /* MockProcessInfo.swift in Sources */,
 				6178BB0FF93E9A608DDEEE778773AE44 /* NetworkReachabilityMonitorTests.swift in Sources */,
 				712D9A3A4C4099D172AACE950A721054 /* PortMonitorTests.swift in Sources */,
+				E8B9878C1A967A54B1AE4CEC3164419F /* ProcessInfoPowerStateMonitorTests.swift in Sources */,
 				B161F64145283C1E3465D02418AA2399 /* ProcessInfoThermalStateMonitorTests.swift in Sources */,
 				54ECF1DAD99BE47503C3C5DFBC466F96 /* ProtectedDataMonitorTests.swift in Sources */,
 				3DFD28ABECEAF5CC25D7BD2AC5E58784 /* ScreenBrightnessMonitorTests.swift in Sources */,

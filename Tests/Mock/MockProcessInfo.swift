@@ -12,8 +12,11 @@ import Foundation
 
 internal class MockProcessInfo: ProcessInfoProtocol {
     init() {
+        self.isLowPowerModeEnabled = false
         self.rawThermalState = 0
     }
+
+    var isLowPowerModeEnabled: Bool
 
     @available(iOS 11.0, OSX 10.10.3, tvOS 11.0, watchOS 4.0, *)
     var thermalState: ProcessInfo.ThermalState {
