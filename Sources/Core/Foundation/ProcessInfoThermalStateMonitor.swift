@@ -43,7 +43,7 @@ public class ProcessInfoThermalStateMonitor: BaseNotificationMonitor {
     ///
     /// The current thermal state of the system.
     ///
-    public var currentState: ProcessInfo.ThermalState {
+    public var state: ProcessInfo.ThermalState {
         return processInfo.thermalState
     }
 
