@@ -235,11 +235,13 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides four monitors wrapping `Foundation`
+XestiMonitors provides five monitors wrapping `Foundation`
 [notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
+* [PortMonitor][port_monitor] to monitor a port for changes to its validity.
+  *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*
@@ -621,6 +623,7 @@ XestiMonitors is available under [the MIT license][license].
 [orientation_monitor]:                          https://eBardX.github.io/XestiMonitors/Classes/OrientationMonitor.html
 [pasteboard_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
 [pedometer_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
+[port_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [protected_data_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
 [region_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html

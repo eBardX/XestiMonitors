@@ -30,6 +30,7 @@ custom_categories:
   - name: Foundation Monitor Classes
     children:
       - MetadataQueryMonitor
+      - PortMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - UndoManagerMonitor

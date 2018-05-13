@@ -293,6 +293,13 @@
 		94C9A29513E3A2B1D9B2149AC424E204 /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */; };
 		DA42FE2795736B1FAD220D023C2D6E15 /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */; };
 		1656F7A2C0D8E6D80B9ADF10CD463919 /* PedometerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29671A0F6146361CA1CBCB2000C8D368 /* PedometerMonitorTests.swift */; };
+		0C66095967B40DBB05DCD7DFC107E7B3 /* PortMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */; };
+		46888B036CB904D19C2250F48FC1DBDB /* PortMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */; };
+		59D455FC7635D3EEBDE9051D49CB7273 /* PortMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */; };
+		CB7E91D1F05CF844B5F42E30E71D9C6E /* PortMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */; };
+		701AE3EC1E60FE052CADBA9228837228 /* PortMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */; };
+		D3D440A0C1E4719B82FE1D597089C788 /* PortMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */; };
+		712D9A3A4C4099D172AACE950A721054 /* PortMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */; };
 		70411E61A73D866D2D9871BE3DAAC4DE /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
 		89DB54DB020B43F0263E2C36E6825C43 /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
 		95CDAA39C9E398FEF5D72B7DBFCD30E5 /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */; };
@@ -407,13 +414,13 @@
 		29F9AE80B671E3EF9E2EBF0A50F61925 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
 		9CAA197490F32E71A29AF2B9A23E039D /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
 		AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */; };
-		4178090E14AF17F5DD336EC14BD6574C /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
 		162CDB061325EE7A7E14268671EC7D25 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
-		BF0840E9F15E8E74154287959FB34ADF /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
+		4178090E14AF17F5DD336EC14BD6574C /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
 		446B779EBB954E569E1E58C4A4DF7AF4 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
-		A80E7E557A6D8CAABEE15B67B9E90B47 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
-		6FAA59E455824C358AB9849FC3057578 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
+		BF0840E9F15E8E74154287959FB34ADF /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */; };
 		0D64EECE9A75AF3AD926011F98268706 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
+		6FAA59E455824C358AB9849FC3057578 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
+		A80E7E557A6D8CAABEE15B67B9E90B47 /* UndoManagerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */; };
 		0902BC98E7EE9BA4C6550231C563CCF4 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		379B673F07A364527C9C4A5FC2C0A7CB /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		47EE5E3B79379EFC76A11D84FCBD32A6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
@@ -633,6 +640,8 @@
 		96D71B097620985F80F8280CD0284C6B /* PedometerInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerInjection.swift; sourceTree = "<group>"; };
 		65DABE6A22CA528C367957098EE415FA /* PedometerMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitor.swift; sourceTree = "<group>"; };
 		29671A0F6146361CA1CBCB2000C8D368 /* PedometerMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerMonitorTests.swift; sourceTree = "<group>"; };
+		656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortMonitor.swift; sourceTree = "<group>"; };
+		BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortMonitorTests.swift; sourceTree = "<group>"; };
 		760B14A863BB771BB9F5E6B13D584C3F /* ProtectedDataMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitor.swift; sourceTree = "<group>"; };
 		A172162D9B2CE33E1512D45B19F6DC33 /* ProtectedDataMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitorTests.swift; sourceTree = "<group>"; };
 		66EA2D7B95D6734DBCEBB192032F45D8 /* ProximityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityMonitor.swift; sourceTree = "<group>"; };
@@ -843,6 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				A3220F24F25A3612F07F083C5001B9C7 /* MetadataQueryMonitor.swift */,
+				656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */,
 				B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */,
 				168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */,
 				56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */,
@@ -867,6 +877,7 @@
 			isa = PBXGroup;
 			children = (
 				89E3CB5B787B737EFE04F98527B30A34 /* MetadataQueryMonitorTests.swift */,
+				BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */,
 				46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */,
 				9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */,
@@ -1607,6 +1618,7 @@
 				24E8B78DD825C0F89C568509E01B6FFC /* PasteboardMonitor.swift in Sources */,
 				5A765D0C03DB0C1D506C863E7F50436E /* PedometerInjection.swift in Sources */,
 				46F86C272AB6AEBE9A2319B702BB1F84 /* PedometerMonitor.swift in Sources */,
+				59D455FC7635D3EEBDE9051D49CB7273 /* PortMonitor.swift in Sources */,
 				89DB54DB020B43F0263E2C36E6825C43 /* ProtectedDataMonitor.swift in Sources */,
 				D6780BC43F467F4FA97EE21B2A393500 /* ProximityMonitor.swift in Sources */,
 				C0FA486B06C4851C5865AEBFD69A7A60 /* RegionMonitor.swift in Sources */,
@@ -1679,6 +1691,7 @@
 				7F780D646119F10EDB154CC1D55D60A5 /* OrientationMonitorTests.swift in Sources */,
 				DD553DB88F689806CC4F564590C23A38 /* PasteboardMonitorTests.swift in Sources */,
 				1656F7A2C0D8E6D80B9ADF10CD463919 /* PedometerMonitorTests.swift in Sources */,
+				701AE3EC1E60FE052CADBA9228837228 /* PortMonitorTests.swift in Sources */,
 				B9D031FB5F311A3BDE20C556D957BF2E /* ProtectedDataMonitorTests.swift in Sources */,
 				E3EB39648002FE2BF7DF533A5903FB30 /* ProximityMonitorTests.swift in Sources */,
 				139F73A972FFCB00F1EDC69F50C5EF5D /* RegionMonitorTests.swift in Sources */,
@@ -1731,6 +1744,7 @@
 				2BA08F0BCE69464421B79F3B8BCDBC7D /* MockNetworkReachability.swift in Sources */,
 				CF308FA9374CECFE080857FCB66A61C8 /* MockNotificationCenter.swift in Sources */,
 				6178BB0FF93E9A608DDEEE778773AE44 /* NetworkReachabilityMonitorTests.swift in Sources */,
+				712D9A3A4C4099D172AACE950A721054 /* PortMonitorTests.swift in Sources */,
 				54ECF1DAD99BE47503C3C5DFBC466F96 /* ProtectedDataMonitorTests.swift in Sources */,
 				3DFD28ABECEAF5CC25D7BD2AC5E58784 /* ScreenBrightnessMonitorTests.swift in Sources */,
 				ED92A242EED94C0E2C06A54EC7A6906E /* ScreenCapturedMonitorTests.swift in Sources */,
@@ -1804,6 +1818,7 @@
 				660222B1B44E56542FB9D2314B2E5781 /* PasteboardMonitor.swift in Sources */,
 				309FEFDA9BD11BB72887EED3680090CA /* PedometerInjection.swift in Sources */,
 				94C9A29513E3A2B1D9B2149AC424E204 /* PedometerMonitor.swift in Sources */,
+				0C66095967B40DBB05DCD7DFC107E7B3 /* PortMonitor.swift in Sources */,
 				70411E61A73D866D2D9871BE3DAAC4DE /* ProtectedDataMonitor.swift in Sources */,
 				BCE257440B1EC81D851CA38D87112460 /* ProximityMonitor.swift in Sources */,
 				4D7AB5C3050338D4F11ACEA0C2405607 /* RegionMonitor.swift in Sources */,
@@ -1882,6 +1897,7 @@
 				A64BED07AB7BB29D5611B399650ABB15 /* PasteboardMonitor.swift in Sources */,
 				A47DAC8A092DC932C4F57170491B3230 /* PedometerInjection.swift in Sources */,
 				DA42FE2795736B1FAD220D023C2D6E15 /* PedometerMonitor.swift in Sources */,
+				CB7E91D1F05CF844B5F42E30E71D9C6E /* PortMonitor.swift in Sources */,
 				9ED1D933C8787644110296431CBDB20A /* ProtectedDataMonitor.swift in Sources */,
 				AC8A883BACB5CE4A7A4C187B0A547DE8 /* ProximityMonitor.swift in Sources */,
 				03F6ECF4B7C237AF2A30DC1086206524 /* RegionMonitor.swift in Sources */,
@@ -1924,6 +1940,7 @@
 				89A67B4E8A07597D76A7DB6C19F9CABB /* MockNetworkReachability.swift in Sources */,
 				BAD79A11C50C5AB9842E482077BB02F1 /* MockNotificationCenter.swift in Sources */,
 				803E5AD67BA330715907C4DBF73415D9 /* NetworkReachabilityMonitorTests.swift in Sources */,
+				D3D440A0C1E4719B82FE1D597089C788 /* PortMonitorTests.swift in Sources */,
 				C7EDBC261DEEA116C4816D87C8FC8C4F /* RegionMonitorTests.swift in Sources */,
 				B169C749876B389489DDE90F3D3068EC /* SignificantLocationMonitorTests.swift in Sources */,
 				1449D809A3606968C2B30DE81D39F8A8 /* StandardLocationMonitorTests.swift in Sources */,
@@ -1985,6 +2002,7 @@
 				C7366B87F89374B856A6623FB5CFEA76 /* PasteboardMonitor.swift in Sources */,
 				FE48BA28E782D0ADEED0AC019DB3CBD6 /* PedometerInjection.swift in Sources */,
 				88B377B46C81E5A12EDEEBF7C813D89E /* PedometerMonitor.swift in Sources */,
+				46888B036CB904D19C2250F48FC1DBDB /* PortMonitor.swift in Sources */,
 				95CDAA39C9E398FEF5D72B7DBFCD30E5 /* ProtectedDataMonitor.swift in Sources */,
 				E8BF0B7A5B0112736A9F1646E5D017EA /* ProximityMonitor.swift in Sources */,
 				AF2C0B4C16610A8B36883A35D2D032C0 /* RegionMonitor.swift in Sources */,
