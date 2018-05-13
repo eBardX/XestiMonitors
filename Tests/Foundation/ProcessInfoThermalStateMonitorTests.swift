@@ -11,7 +11,6 @@ import Foundation
 import XCTest
 @testable import XestiMonitors
 
-@available(iOS 11.0, OSX 10.10.3, tvOS 11.0, *)
 internal class ProcessInfoThermalStateMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
     let processInfo = MockProcessInfo()
@@ -23,42 +22,47 @@ internal class ProcessInfoThermalStateMonitorTests: XCTestCase {
 
         ProcessInfoInjector.inject = { return self.processInfo }
 
-        processInfo.thermalState = .nominal
+        processInfo.rawThermalState = 0
     }
 
     func testMonitor_didChange() {
-        let expectation = self.expectation(description: "Handler called")
-        let expectedState: ProcessInfo.ThermalState = .serious
-        var expectedEvent: ProcessInfoThermalStateMonitor.Event?
-        let monitor = ProcessInfoThermalStateMonitor(queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
-        }
+        if #available(iOS 11.0, OSX 10.10.3, tvOS 11.0, *) {
+            let expectation = self.expectation(description: "Handler called")
+            let expectedState: ProcessInfo.ThermalState = .serious
+            var expectedEvent: ProcessInfoThermalStateMonitor.Event?
+            let monitor = ProcessInfoThermalStateMonitor(queue: .main) { event in
+                expectedEvent = event
+                expectation.fulfill()
+            }
 
-        monitor.startMonitoring()
-        simulateDidChange(to: expectedState)
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
+            monitor.startMonitoring()
+            simulateDidChange(to: expectedState)
+            waitForExpectations(timeout: 1)
+            monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .didChange(test) = event {
-            XCTAssertEqual(test, expectedState)
-        } else {
-            XCTFail("Unexpected event")
+            if let event = expectedEvent,
+                case let .didChange(test) = event {
+                XCTAssertEqual(test, expectedState)
+            } else {
+                XCTFail("Unexpected event")
+            }
         }
     }
 
     func testState() {
-        let expectedState: ProcessInfo.ThermalState = .critical
-        let monitor = ProcessInfoThermalStateMonitor(queue: .main) { _ in }
+        if #available(iOS 11.0, OSX 10.10.3, tvOS 11.0, *) {
+            let expectedState: ProcessInfo.ThermalState = .critical
+            let monitor = ProcessInfoThermalStateMonitor(queue: .main) { _ in }
 
-        simulateDidChange(to: expectedState)
+            simulateDidChange(to: expectedState)
 
-        XCTAssertEqual(monitor.state, expectedState)
+            XCTAssertEqual(monitor.state, expectedState)
+        }
     }
 
+    @available(iOS 11.0, OSX 10.10.3, tvOS 11.0, *)
     private func simulateDidChange(to state: ProcessInfo.ThermalState) {
-        processInfo.thermalState = state
+        processInfo.rawThermalState = state.rawValue
 
         notificationCenter.post(name: ProcessInfo.thermalStateDidChangeNotification,
                                 object: processInfo)

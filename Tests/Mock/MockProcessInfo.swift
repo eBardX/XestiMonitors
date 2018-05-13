@@ -10,11 +10,21 @@
 import Foundation
 @testable import XestiMonitors
 
-@available(iOS 11.0, OSX 10.10.3, tvOS 11.0, watchOS 4.0, *)
 internal class MockProcessInfo: ProcessInfoProtocol {
     init() {
-        self.thermalState = .nominal
+        self.rawThermalState = 0
     }
 
-    var thermalState: ProcessInfo.ThermalState
+    @available(iOS 11.0, OSX 10.10.3, tvOS 11.0, watchOS 4.0, *)
+    var thermalState: ProcessInfo.ThermalState {
+        guard
+            let state = ProcessInfo.ThermalState(rawValue: rawThermalState)
+            else { return .nominal }
+
+        return state
+    }
+
+    // MARK: -
+
+    var rawThermalState: Int
 }
