@@ -115,5 +115,12 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() {
         super.addNotificationObservers()
+        // Currently blocked as Xcode doesnt recognise `completedInitialCloudSyncNotification`
+        // I also check my closure implementation.
+        if options.contains(.completedInitialCloudSync) {
+            observe(.completedInitialCloudSyncNotification) { [ unowned self] in
+                self.handler(.completedInitialCloudSync)
+            }
+        }
     }
 }
