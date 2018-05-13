@@ -10,16 +10,17 @@
 import Foundation
 
 ///
-/// A `ProcessInfoThermalStateMonitor` instance monitors ...
+/// A `ProcessInfoThermalStateMonitor` instance monitors the system for changes
+/// to the thermal state.
 ///
 @available(iOS 11.0, OSX 10.10.3, tvOS 11.0, watchOS 4.0, *)
 public class ProcessInfoThermalStateMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to ...
+    /// Encapsulates changes to the thermal state.
     ///
     public enum Event {
         ///
-        ///
+        /// The thermal state has changed.
         ///
         case didChange(ProcessInfo.ThermalState)
     }
@@ -30,7 +31,7 @@ public class ProcessInfoThermalStateMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when the thermal state changes.
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
@@ -41,7 +42,7 @@ public class ProcessInfoThermalStateMonitor: BaseNotificationMonitor {
     }
 
     ///
-    /// The current thermal state of the system.
+    /// The current thermal state.
     ///
     public var state: ProcessInfo.ThermalState {
         return processInfo.thermalState
