@@ -14,7 +14,7 @@ import Foundation
 ///
 public class PortMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the validate of the port.
+    /// Encapsulates changes to the validity of the port.
     ///
     public enum Event {
         ///
