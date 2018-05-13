@@ -235,13 +235,16 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides six monitors wrapping `Foundation`
+XestiMonitors provides seven monitors wrapping `Foundation`
 [notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [PortMonitor][port_monitor] to monitor a port for changes to its validity.
   *(iOS, macOS, tvOS, watchOS)*
+* [ProcessInfoPowerStateMonitor][process_info_power_state_monitor] to monitor
+  the device for changes to its power state (Low Power Mode is enabled or
+  disabled). *(iOS, tvOS, watchOS)*
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
   *(iOS, macOS, tvOS, watchOS)*
