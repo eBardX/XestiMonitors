@@ -36,6 +36,7 @@ custom_categories:
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - UndoManagerMonitor
+      - UserDefaultsMonitor
   - name: UIKit Accessibility Monitor Classes
     children:
       - AccessibilityAnnouncementMonitor
