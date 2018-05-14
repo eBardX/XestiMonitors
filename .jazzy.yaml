@@ -31,6 +31,7 @@ custom_categories:
     children:
       - MetadataQueryMonitor
       - PortMonitor
+      - ProcessInfoThermalStateMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - UndoManagerMonitor
