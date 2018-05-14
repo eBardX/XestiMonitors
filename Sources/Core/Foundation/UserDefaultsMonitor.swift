@@ -15,28 +15,9 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     ///
     public enum Event {
         ///
-        ///  Ubiquitous defaults have finished downloading data, either the
-        ///  first time a device is connected to an iCloud account
-        ///  or when a user switches their primary iCloud account.
-        ///
-        ///
-        case completedInitialCloudSync
-
-        ///
-        /// The user has changed the primary iCloud account.
-        ///
-        case didChangeCloudAccounts
-
-        ///
         /// User defaults are changed within the current process
         ///
-
         case didChange(UserDefaults)
-
-        ///
-        /// A cloud default is set, but no iCloud user is logged in..
-        ///
-        case noCloudAccount
 
         ///
         /// More data is stored in user defaults than is allowed.
@@ -49,37 +30,19 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     ///
     public struct Options: OptionSet {
         ///
-        /// Monitor `completedInitialCloudSync` events.
-        ///
-        public static let completedInitialCloudSync = Options(rawValue: 1 << 0)
-
-        ///
-        /// Monitor `didChangeCloudAccounts` events.
-        ///
-        public static let didChangeCloudAccounts = Options(rawValue: 1 << 1)
-
-        ///
         /// Monitor `didChange` events.
         ///
-        public static let didChange = Options(rawValue: 1 << 2)
-
-        ///
-        /// Monitor `noCloudAccount` events.
-        ///
-        public static let noCloudAccount = Options(rawValue: 1 << 3)
+        public static let didChange = Options(rawValue: 1 << 0)
 
         ///
         /// Monitor `sizeLimitExceeded` events.
         ///
-        public static let sizeLimitExceeded = Options(rawValue: 1 << 4)
+        public static let sizeLimitExceeded = Options(rawValue: 1 << 1)
 
         ///
         /// Monitor `all` events.
         ///
-        public static let all: Options = [.completedInitialCloudSync,
-                                          .didChangeCloudAccounts,
-                                          .didChange,
-                                          .noCloudAccount,
+        public static let all: Options = [.didChange,
                                           .sizeLimitExceeded]
         /// :nodoc:
         public init(rawValue: UInt) {
@@ -115,12 +78,22 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
 
     public override func addNotificationObservers() {
         super.addNotificationObservers()
-        // Currently blocked as Xcode doesnt recognise `completedInitialCloudSyncNotification`
-        // I also check my closure implementation.
-        if options.contains(.completedInitialCloudSync) {
-            observe(.completedInitialCloudSyncNotification) { [ unowned self] in
-                self.handler(.completedInitialCloudSync)
+
+        if options.contains(.didChange) {
+            observe(UserDefaults.didChangeNotification) { [unowned self] in
+                if let userDefaults = $0.object as? UserDefaults {
+                    self.handler(.didChange(userDefaults))
+                }
             }
         }
+        #if os(tvOS)
+        if options.contains(.sizeLimitExceeded) {
+            if #available(tvOS 9.0, *) {
+                observe(UserDefaults.sizeLimitExceededNotification) { [unowned self] _ in
+                    self.handler(.sizeLimitExceeded)
+                }
+            }
+        }
+        #endif
     }
 }
