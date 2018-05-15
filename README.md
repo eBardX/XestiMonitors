@@ -632,6 +632,7 @@ XestiMonitors is available under [the MIT license][license].
 [pasteboard_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
 [pedometer_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [port_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
+[process_info_power_state_monitor]:             https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
 [process_info_thermal_state_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html
 [protected_data_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
