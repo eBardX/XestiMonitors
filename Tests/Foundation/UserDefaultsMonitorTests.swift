@@ -23,12 +23,20 @@ internal class UserDefaultsMonitorTests: XCTestCase {
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: UserDefaultsMonitor.Event?
+        #if os(iOS) || os(tvOS) || os(watchOS)
         let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
                                           options: .didChange,
                                           queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
         }
+        #else
+        let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
+                                          queue: .main) { event in
+                                            expectedEvent = event
+                                            expectation.fulfill()
+        }
+        #endif
 
         monitor.startMonitoring()
         simulateDidChange()

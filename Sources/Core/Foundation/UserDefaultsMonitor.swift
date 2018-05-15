@@ -22,12 +22,15 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
         ///
         case didChange(UserDefaults)
 
+        #if os(iOS) || os(tvOS) || os(watchOS)
         ///
         /// More data is stored in user defaults than is allowed.
         ///
         case sizeLimitExceeded(UserDefaults)
+        #endif
     }
 
+    #if os(iOS) || os(tvOS) || os(watchOS)
     ///
     /// Specifies which events to monitor.
     ///
@@ -55,7 +58,9 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
         /// :nodoc:
         public let rawValue: UInt
     }
+    #endif
 
+    #if os(iOS) || os(tvOS) || os(watchOS)
     ///
     /// Initializes a new `UserDefaultsMonitor`.
     ///
@@ -77,6 +82,25 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
 
         super.init(queue: queue)
     }
+    #else
+    ///
+    /// Initializes a new `UserDefaultsMonitor`.
+    ///
+    /// - Parameters:
+    ///   - userDefaults:   The user defaults to monitor.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     By default, the main operation queue is used.
+    ///   - handler:        The handler to call when the data in UserDefaults is changed
+    ///
+    public init(userDefaults: UserDefaults,
+                queue: OperationQueue = .main,
+                handler: @escaping (Event) -> Void) {
+        self.handler = handler
+        self.userDefaults = userDefaults
+
+        super.init(queue: queue)
+    }
+    #endif
 
     ///
     /// The user defaults being monitored.
@@ -84,11 +108,14 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     public let userDefaults: UserDefaults
 
     private let handler: (Event) -> Void
+    #if os(iOS) || os(tvOS) || os(watchOS)
     private let options: Options
+    #endif
 
     public override func addNotificationObservers() {
         super.addNotificationObservers()
 
+        #if os(iOS) || os(tvOS) || os(watchOS)
         if options.contains(.didChange) {
             observe(UserDefaults.didChangeNotification,
                     object: userDefaults) { [unowned self] in
@@ -98,7 +125,6 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
             }
         }
 
-        #if os(iOS) || os(tvOS) || os(watchOS)
         if options.contains(.sizeLimitExceeded),
             #available(iOS 9.3, *) {
             observe(UserDefaults.sizeLimitExceededNotification,
@@ -107,6 +133,13 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
                             self.handler(.sizeLimitExceeded(userDefaults))
                         }
             }
+        }
+        #else
+        observe(UserDefaults.didChangeNotification,
+                object: userDefaults) { [unowned self] in
+                    if let userDefaults = $0.object as? UserDefaults {
+                        self.handler(.didChange(userDefaults))
+                    }
         }
         #endif
     }
