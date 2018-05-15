@@ -60,20 +60,28 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     /// Initializes a new `UserDefaultsMonitor`.
     ///
     /// - Parameters:
-    ///   - options:    The options that specify which events to monitor. By
-    ///                 default, all events are monitored.
-    ///   - queue:      The operation queue on which the handler executes. By
-    ///                 default, the main operation queue is used.
-    ///   - handler:    The handler to call when the data in UserDefaults is changed
+    ///   - userDefaults:   The user defaults to monitor.
+    ///   - options:        The options that specify which events to monitor.
+    ///                     By default, all events are monitored.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     By default, the main operation queue is used.
+    ///   - handler:        The handler to call when the data in UserDefaults is changed
     ///
-    public init(options: Options = .all,
+    public init(userDefaults: UserDefaults,
+                options: Options = .all,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
         self.options = options
         self.handler = handler
+        self.userDefaults = userDefaults
 
         super.init(queue: queue)
     }
+
+    ///
+    /// The user defaults being monitored.
+    ///
+    public let userDefaults: UserDefaults
 
     private let handler: (Event) -> Void
     private let options: Options
@@ -82,20 +90,22 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didChange) {
-            observe(UserDefaults.didChangeNotification) { [unowned self] in
-                if let userDefaults = $0.object as? UserDefaults {
-                    self.handler(.didChange(userDefaults))
-                }
+            observe(UserDefaults.didChangeNotification,
+                    object: userDefaults) { [unowned self] in
+                        if let userDefaults = $0.object as? UserDefaults {
+                            self.handler(.didChange(userDefaults))
+                        }
             }
         }
-        #if os(tvOS) || os(iOS) || os(watchOS)
-        if options.contains(.sizeLimitExceeded) {
-            if #available(tvOS 9.0, iOS 9.3, *) {
-                observe(UserDefaults.sizeLimitExceededNotification) { [unowned self] in
-                    if let userDefaults = $0.object as? UserDefaults {
-                        self.handler(.sizeLimitExceeded(userDefaults))
-                    }
-                }
+
+        #if os(iOS) || os(tvOS) || os(watchOS)
+        if options.contains(.sizeLimitExceeded),
+            #available(iOS 9.3, *) {
+            observe(UserDefaults.sizeLimitExceededNotification,
+                    object: userDefaults) { [unowned self] in
+                        if let userDefaults = $0.object as? UserDefaults {
+                            self.handler(.sizeLimitExceeded(userDefaults))
+                        }
             }
         }
         #endif

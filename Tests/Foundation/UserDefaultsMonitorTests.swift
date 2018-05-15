@@ -23,7 +23,8 @@ internal class UserDefaultsMonitorTests: XCTestCase {
     func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: UserDefaultsMonitor.Event?
-        let monitor = UserDefaultsMonitor(options: .didChange,
+        let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
+                                          options: .didChange,
                                           queue: .main) { event in
                                             expectedEvent = event
                                             expectation.fulfill()
@@ -42,37 +43,43 @@ internal class UserDefaultsMonitorTests: XCTestCase {
         }
     }
 
-    @available(iOS 9.3, *)
+    #if os(iOS) || os(tvOS) || os(watchOS)
     func testMonitor_sizeLimitExceeded() {
-        let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: UserDefaultsMonitor.Event?
-        let monitor = UserDefaultsMonitor(options: .sizeLimitExceeded,
-                                          queue: .main) { event in
-                                            expectedEvent = event
-                                            expectation.fulfill()
-        }
+        if #available(iOS 9.3, *) {
+            let expectation = self.expectation(description: "Handler called")
+            var expectedEvent: UserDefaultsMonitor.Event?
+            let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
+                                              options: .sizeLimitExceeded,
+                                              queue: .main) { event in
+                                                expectedEvent = event
+                                                expectation.fulfill()
+            }
 
-        monitor.startMonitoring()
-        simulateSizeLimitExceeded()
-        waitForExpectations(timeout: 1)
-        monitor.stopMonitoring()
+            monitor.startMonitoring()
+            simulateSizeLimitExceeded()
+            waitForExpectations(timeout: 1)
+            monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .sizeLimitExceeded(test) = event {
-            XCTAssertEqual(test, userDefaults)
-        } else {
-            XCTFail("Unexpected event")
+            if let event = expectedEvent,
+                case let .sizeLimitExceeded(test) = event {
+                XCTAssertEqual(test, userDefaults)
+            } else {
+                XCTFail("Unexpected event")
+            }
         }
     }
+    #endif
 
     private func simulateDidChange() {
         notificationCenter.post(name: UserDefaults.didChangeNotification,
                                 object: userDefaults)
     }
 
+    #if os(iOS) || os(tvOS) || os(watchOS)
     @available(iOS 9.3, *)
     private func simulateSizeLimitExceeded() {
         notificationCenter.post(name: UserDefaults.sizeLimitExceededNotification,
                                 object: userDefaults)
     }
+    #endif
 }
