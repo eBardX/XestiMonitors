@@ -56,7 +56,7 @@ internal class UserDefaultsMonitorTests: XCTestCase {
         simulateSizeLimitExceeded()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
-        
+
         if let event = expectedEvent,
             case let .sizeLimitExceeded(test) = event {
             XCTAssertEqual(test, userDefaults)
@@ -66,11 +66,13 @@ internal class UserDefaultsMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: UserDefaults.didChangeNotification, object: userDefaults)
+        notificationCenter.post(name: UserDefaults.didChangeNotification,
+                                object: userDefaults)
     }
 
     @available(iOS 9.3, *)
     private func simulateSizeLimitExceeded() {
-        notificationCenter.post(name: UserDefaults.sizeLimitExceededNotification, object: userDefaults)
+        notificationCenter.post(name: UserDefaults.sizeLimitExceededNotification,
+                                object: userDefaults)
     }
 }

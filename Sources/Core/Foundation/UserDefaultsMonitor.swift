@@ -8,6 +8,7 @@
 //
 
 import Foundation
+
 ///
 /// A `UserDefaultsMonitor` instance monitors changes to the data stored in User Defaults.
 ///
@@ -89,7 +90,7 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
         }
         #if os(tvOS) || os(iOS) || os(watchOS)
         if options.contains(.sizeLimitExceeded) {
-            if #available(tvOS 9.0,iOS 9.3, *) {
+            if #available(tvOS 9.0, iOS 9.3, *) {
                 observe(UserDefaults.sizeLimitExceededNotification) { [unowned self] in
                     if let userDefaults = $0.object as? UserDefaults {
                         self.handler(.sizeLimitExceeded(userDefaults))
