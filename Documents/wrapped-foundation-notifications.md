@@ -55,5 +55,5 @@ Notification Name                                           | Platform(s)       
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
-[user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaults.html
+[user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
 

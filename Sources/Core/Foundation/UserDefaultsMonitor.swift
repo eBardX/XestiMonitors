@@ -10,21 +10,24 @@
 import Foundation
 
 ///
-/// A `UserDefaultsMonitor` instance monitors changes to the data stored in User Defaults.
+/// A `UserDefaultsMonitor` instance monitors a user defaults object for
+/// changes to its data.
 ///
 public class UserDefaultsMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the data stored in User Defaults.
+    /// Encapsulates changes to the user defaults object.
     ///
     public enum Event {
         ///
-        /// User defaults are changed within the current process
+        /// The user defaults object has been changed within the current
+        /// process.
         ///
         case didChange(UserDefaults)
 
         #if os(iOS) || os(tvOS) || os(watchOS)
         ///
-        /// More data is stored in user defaults than is allowed.
+        /// More data has been stored in the user defaults object than is
+        /// allowed.
         ///
         case sizeLimitExceeded(UserDefaults)
         #endif
@@ -65,12 +68,14 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     /// Initializes a new `UserDefaultsMonitor`.
     ///
     /// - Parameters:
-    ///   - userDefaults:   The user defaults to monitor.
+    ///   - userDefaults:   The user defaults object to monitor.
     ///   - options:        The options that specify which events to monitor.
     ///                     By default, all events are monitored.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     By default, the main operation queue is used.
-    ///   - handler:        The handler to call when the data in UserDefaults is changed
+    ///   - handler:        The handler to call when the user defaults object
+    ///                     is changed within the current process or more data
+    ///                     is stored in the object than is allowed.
     ///
     public init(userDefaults: UserDefaults,
                 options: Options = .all,
@@ -87,10 +92,11 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     /// Initializes a new `UserDefaultsMonitor`.
     ///
     /// - Parameters:
-    ///   - userDefaults:   The user defaults to monitor.
+    ///   - userDefaults:   The user defaults object to monitor.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     By default, the main operation queue is used.
-    ///   - handler:        The handler to call when the data in UserDefaults is changed
+    ///   - handler:        The handler to call when the user defaults object
+    ///                     is changed within the current process.
     ///
     public init(userDefaults: UserDefaults,
                 queue: OperationQueue = .main,
@@ -103,7 +109,7 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     #endif
 
     ///
-    /// The user defaults being monitored.
+    /// The user defaults object being monitored.
     ///
     public let userDefaults: UserDefaults
 
