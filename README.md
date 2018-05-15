@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides seven monitors wrapping `Foundation`
+XestiMonitors provides eight monitors wrapping `Foundation`
 [notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
@@ -247,6 +247,9 @@ XestiMonitors provides seven monitors wrapping `Foundation`
   disabled). *(iOS, tvOS, watchOS)*
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
+  *(iOS, macOS, tvOS, watchOS)*
+* [SystemTimeZoneMonitor][system_time_zone_monitor] to
+  monitor the system for changes to the location time zone.
   *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
@@ -642,6 +645,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[system_time_zone_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
