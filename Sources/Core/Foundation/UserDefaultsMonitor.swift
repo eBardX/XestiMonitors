@@ -8,7 +8,9 @@
 //
 
 import Foundation
-
+///
+/// A `UserDefaultsMonitor` instance monitors changes to the data stored in User Defaults.
+///
 public class UserDefaultsMonitor: BaseNotificationMonitor {
     ///
     /// Encapsulates changes to the data stored in User Defaults.
@@ -22,7 +24,7 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
         ///
         /// More data is stored in user defaults than is allowed.
         ///
-        case sizeLimitExceeded
+        case sizeLimitExceeded(UserDefaults)
     }
 
     ///
@@ -61,8 +63,7 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     ///                 default, all events are monitored.
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
-    ///   - handler:    The handler to call when the current focus is updated
-    ///                 or cannot be moved in the selected direction.
+    ///   - handler:    The handler to call when the data in UserDefaults is changed
     ///
     public init(options: Options = .all,
                 queue: OperationQueue = .main,
@@ -86,11 +87,13 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
                 }
             }
         }
-        #if os(tvOS)
+        #if os(tvOS) || os(iOS) || os(watchOS)
         if options.contains(.sizeLimitExceeded) {
-            if #available(tvOS 9.0, *) {
-                observe(UserDefaults.sizeLimitExceededNotification) { [unowned self] _ in
-                    self.handler(.sizeLimitExceeded)
+            if #available(tvOS 9.0,iOS 9.3, *) {
+                observe(UserDefaults.sizeLimitExceededNotification) { [unowned self] in
+                    if let userDefaults = $0.object as? UserDefaults {
+                        self.handler(.sizeLimitExceeded(userDefaults))
+                    }
                 }
             }
         }

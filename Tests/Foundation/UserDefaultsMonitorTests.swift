@@ -12,7 +12,7 @@ import XCTest
 
 internal class UserDefaultsMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let userDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults()
 
     override func setUp() {
         super.setUp()
@@ -42,7 +42,8 @@ internal class UserDefaultsMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitor_sizeLimitsExceeded() {
+    @available(iOS 9.3, *)
+    func testMonitor_sizeLimitExceeded() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: UserDefaultsMonitor.Event?
         let monitor = UserDefaultsMonitor(options: .sizeLimitExceeded,
@@ -52,16 +53,24 @@ internal class UserDefaultsMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateSizeLimitsExceeded()
+        simulateSizeLimitExceeded()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
+        
+        if let event = expectedEvent,
+            case let .sizeLimitExceeded(test) = event {
+            XCTAssertEqual(test, userDefaults)
+        } else {
+            XCTFail("Unexpected event")
+        }
     }
 
     private func simulateDidChange() {
         notificationCenter.post(name: UserDefaults.didChangeNotification, object: userDefaults)
     }
 
-    private func simulateSizeLimitsExceeded() {
-        notificationCenter.post(name: UserDefaults.sizeLimitExceededNotification, object: nil)
+    @available(iOS 9.3, *)
+    private func simulateSizeLimitExceeded() {
+        notificationCenter.post(name: UserDefaults.sizeLimitExceededNotification, object: userDefaults)
     }
 }
