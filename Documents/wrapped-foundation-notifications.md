@@ -51,6 +51,7 @@ Notification Name                                           | Platform(s)       
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:      https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
+[http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html

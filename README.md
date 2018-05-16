@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides twelve monitors wrapping
+XestiMonitors provides thirteen monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
@@ -246,6 +246,9 @@ XestiMonitors provides twelve monitors wrapping
 * [ExtensionHostMonitor][extension_host_monitor] monitors an extension context
   for changes to the runtime state of the extension’s host app.
   *(iOS, tvOS, watchOS)*
+* [HTTPCookiesStorageMonitor][http_cookies_storage_monitor] instance monitors
+  the cookie storage for changes
+  *(iOS, macOS, tvOS, watchOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [PortMonitor][port_monitor] to monitor a port for changes to its validity.
@@ -633,6 +636,7 @@ XestiMonitors is available under [the MIT license][license].
 [focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
 [gyroscope_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [heading_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
+[http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
 [location_authorization_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
 [magnetometer_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
