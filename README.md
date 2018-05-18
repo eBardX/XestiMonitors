@@ -248,9 +248,8 @@ XestiMonitors provides eight monitors wrapping `Foundation`
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
   *(iOS, macOS, tvOS, watchOS)*
-* [SystemTimeZoneMonitor][system_time_zone_monitor] to
-  monitor the system for changes to the location time zone.
-  *(iOS, macOS, tvOS, watchOS)*
+* [SystemTimeZoneMonitor][system_time_zone_monitor] to monitor the system for
+  changes to the currently used time zone. *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*

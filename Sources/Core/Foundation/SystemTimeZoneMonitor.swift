@@ -10,16 +10,16 @@
 import Foundation
 
 ///
-/// A `SystemTimeZoneMonitor` instance monitors the app for changes
-/// to the time zone used by the system
+/// A `SystemTimeZoneMonitor` instance monitors the system for changes to the
+/// currently used time zone.
 ///
 public class SystemTimeZoneMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the time zone used by the system.
+    /// Encapsulates changes to the system time zone.
     ///
     public enum Event {
         ///
-        /// The time zone has changed
+        /// The system time zone has changed
         ///
         case didChange
     }
@@ -30,8 +30,7 @@ public class SystemTimeZoneMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the system time zone
-    ///                 changes.
+    ///   - handler:    The handler to call when the system time zone changes.
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {

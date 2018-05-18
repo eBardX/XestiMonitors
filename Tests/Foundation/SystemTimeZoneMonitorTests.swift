@@ -24,8 +24,8 @@ internal class SystemTimeZoneMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: SystemTimeZoneMonitor.Event?
         let monitor = SystemTimeZoneMonitor(queue: .main) { event in
-                                                expectedEvent = event
-                                                expectation.fulfill()
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
