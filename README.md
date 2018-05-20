@@ -235,8 +235,8 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides eight monitors wrapping `Foundation`
-[notifications][wrapped_foundation_notifications]:
+XestiMonitors provides nine monitors wrapping
+[`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
@@ -262,8 +262,8 @@ XestiMonitors provides eight monitors wrapping `Foundation`
 
 ### <a name="uikit_monitors">UIKit Monitors</a>
 
-XestiMonitors provides numerous monitors wrapping `UIKit`
-[notifications][wrapped_uikit_notifications].
+XestiMonitors provides numerous monitors wrapping
+[`UIKit` notifications][wrapped_uikit_notifications].
 
 #### <a name="accessibility_monitors">Accessibility Monitors</a>
 
