@@ -257,6 +257,8 @@ XestiMonitors provides eight monitors wrapping `Foundation`
   for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
 * [UndoManagerMonitor][undo_manager_monitor] to monitor an undo manager for
   changes to its recording of operations. *(iOS, macOS, tvOS, watchOS)*
+* [UserDefaultsMonitor][user_defaults_monitor] to monitor a user defaults
+  object for changes to its data. *(iOS, macOS, tvOS, watchOS)*
 
 ### <a name="uikit_monitors">UIKit Monitors</a>
 
@@ -632,6 +634,7 @@ XestiMonitors is available under [the MIT license][license].
 [pasteboard_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/PasteboardMonitor.html
 [pedometer_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/PedometerMonitor.html
 [port_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
+[process_info_power_state_monitor]:             https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
 [process_info_thermal_state_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html
 [protected_data_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
@@ -654,6 +657,7 @@ XestiMonitors is available under [the MIT license][license].
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[user_defaults_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
 [view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html

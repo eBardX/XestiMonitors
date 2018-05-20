@@ -63,16 +63,4 @@ public class OtherViewController: UITableViewController {
 
         super.viewWillDisappear(animated)
     }
-
-    // MARK: - UITextFieldDelegate
-
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.text = ""
-
-        if textField.isFirstResponder {
-            textField.resignFirstResponder()
-        }
-
-        return false
-    }
 }
