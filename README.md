@@ -248,6 +248,8 @@ XestiMonitors provides eight monitors wrapping `Foundation`
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
   *(iOS, macOS, tvOS, watchOS)*
+* [SystemTimeZoneMonitor][system_time_zone_monitor] to monitor the system for
+  changes to the currently used time zone. *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
   monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
   data pushed from iCloud. *(iOS, macOS, tvOS)*
@@ -645,6 +647,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[system_time_zone_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html

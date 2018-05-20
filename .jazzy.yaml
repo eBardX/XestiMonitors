@@ -33,6 +33,7 @@ custom_categories:
       - PortMonitor
       - ProcessInfoPowerStateMonitor
       - ProcessInfoThermalStateMonitor
+      - SystemTimeZoneMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
       - UndoManagerMonitor
