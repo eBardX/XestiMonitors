@@ -53,8 +53,9 @@ public class BundleClassLoadMonitor: BaseNotificationMonitor {
 
         observe(Bundle.didLoadNotification,
                 object: bundle) { [unowned self] in
-                    if let bundle = $0.object as? Bundle {
-                        self.handler(.didLoad(bundle, []))
+                    if let bundle = $0.object as? Bundle,
+                        let loadedClasses = $0.userInfo?[NSLoadedClasses] as? [String] {
+                        self.handler(.didLoad(bundle, loadedClasses))
                     }
         }
     }
