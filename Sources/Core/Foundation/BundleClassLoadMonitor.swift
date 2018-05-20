@@ -10,15 +10,18 @@
 import Foundation
 
 ///
-/// A `BundleClassLoadMonitor` instance monitors a bundle for changes to ...
+/// A `BundleClassLoadMonitor` instance monitors a bundle for dynamic loads of
+/// classes.
 ///
 public class BundleClassLoadMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to ...
+    /// Encapsulates dynamic loads of classes in the bundle.
     ///
     public enum Event {
         ///
-        ///
+        /// The bundle has dynamically loaded one or more classes. The second
+        /// element in the associated value is an array of names of each class
+        /// that was loaded.
         ///
         case didLoad(Bundle, [String])
     }
@@ -30,7 +33,8 @@ public class BundleClassLoadMonitor: BaseNotificationMonitor {
     ///   - bundle:     The bundle to monitor.
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when the bundle dynamically loads
+    ///                 classes.
     ///
     public init(bundle: Bundle,
                 queue: OperationQueue = .main,
