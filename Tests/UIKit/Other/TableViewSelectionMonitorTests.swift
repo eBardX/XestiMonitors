@@ -4,7 +4,7 @@
 //
 //  Created by Rose Maina on 2018-04-20.
 //
-// © 2018 J. G. Pusey (see LICENSE.md)
+//  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
 import UIKit
