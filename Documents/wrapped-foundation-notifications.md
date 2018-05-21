@@ -26,7 +26,7 @@ Notification Name                                           | Platform(s)       
 `NSMetadataQueryGatheringProgress`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSProcessInfoPowerStateDidChange`                          | iOS,        tvOS, watchOS | [ProcessInfoPowerStateMonitor][process_info_power_state_monitor]
 `NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | SystemClockMonitor (_see_ [#53](https://github.com/eBardX/XestiMonitors/issues/53))
-`NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | SystemTimeZoneMonitor (_see_ [#54](https://github.com/eBardX/XestiMonitors/issues/54))
+`NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | [SystemTimeZoneMonitor][system_time_zone_monitor]
 `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
 `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [UbiquityIdentityMonitor][ubiquity_identity_monitor]
@@ -42,16 +42,19 @@ Notification Name                                           | Platform(s)       
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | [PortMonitor][port_monitor]
 `ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor]
-`UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
-`UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
-`UserDefaults.didChangeNotification`                        | iOS, macOS, tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
-`UserDefaults.noCloudAccountNotification`                   | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
-`UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | UserDefaultsMonitor (_see_ [#44](https://github.com/eBardX/XestiMonitors/issues/44))
+`UserDefaults.completedInitialCloudSyncNotification`        | iOS,        tvOS, watchOS | UbiquitousUserDefaultsMonitor (_see_ [#60](https://github.com/eBardX/XestiMonitors/issues/60))
+`UserDefaults.didChangeCloudAccountsNotification`           | iOS,        tvOS, watchOS | UbiquitousUserDefaultsMonitor (_see_ [#60](https://github.com/eBardX/XestiMonitors/issues/60))
+`UserDefaults.didChangeNotification`                        | iOS, macOS, tvOS, watchOS | [UserDefaultsMonitor][user_defaults_monitor]
+`UserDefaults.noCloudAccountNotification`                   | iOS,        tvOS, watchOS | UbiquitousUserDefaultsMonitor (_see_ [#60](https://github.com/eBardX/XestiMonitors/issues/60))
+`UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | [UserDefaultsMonitor][user_defaults_monitor]
 
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
 [process_info_thermal_state_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html
+[system_time_zone_monitor]:             https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
+

@@ -1,3 +1,10 @@
+# 2.10.0 (2018-05-20)
+
+* Adds support for six new monitor classes: `PortMonitor`,
+  `ProcessInfoPowerStateMonitor`, `ProcessInfoThermalStateMonitor`,
+  `SystemTimeZoneMonitor`, `UndoManagerMonitor`, and `UserDefaultsMonitor`.
+* Improves code coverage for `FocusMonitor`.
+
 # 2.9.0 (2018-05-01)
 
 * Adds support for three new monitor classes: `ContentSizeCategoryMonitor`,

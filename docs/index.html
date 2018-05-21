@@ -226,6 +226,30 @@
                 <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PortMonitor.html">PortMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PortMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ProcessInfoPowerStateMonitor.html">ProcessInfoPowerStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ProcessInfoPowerStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ProcessInfoThermalStateMonitor.html">ProcessInfoThermalStateMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ProcessInfoThermalStateMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SystemTimeZoneMonitor.html">SystemTimeZoneMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SystemTimeZoneMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -239,6 +263,24 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/UbiquityIdentityMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UndoManagerMonitor.html">UndoManagerMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UndoManagerMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UndoManagerMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UserDefaultsMonitor.html">UserDefaultsMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UserDefaultsMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UserDefaultsMonitor/Options.html">– Options</a>
               </li>
             </ul>
           </li>
@@ -773,22 +815,36 @@ historic walking data. <em>(iOS, watchOS)</em></li>
 </ul>
 <h3 id='a-name-foundation_monitors-foundation-monitors-a' class='heading'><a name="foundation_monitors">Foundation Monitors</a></h3>
 
-<p>XestiMonitors provides three monitors wrapping <code>Foundation</code>
-<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md">notifications</a>:</p>
+<p>XestiMonitors provides nine monitors wrapping
+<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md"><code>Foundation</code> notifications</a>:</p>
 
 <ul>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a> to monitor a metadata query
 for changes to its results. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html">PortMonitor</a> to monitor a port for changes to its validity.
+<em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html">ProcessInfoPowerStateMonitor</a> to monitor
+the device for changes to its power state (Low Power Mode is enabled or
+disabled). <em>(iOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html">ProcessInfoThermalStateMonitor</a> to
+monitor the system for changes to the thermal state.
+<em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html">SystemTimeZoneMonitor</a> to monitor the system for
+changes to the currently used time zone. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a> to
 monitor the iCloud (“ubiquitous”) key-value store for changes due to incoming
 data pushed from iCloud. <em>(iOS, macOS, tvOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html">UbiquityIdentityMonitor</a> to monitor the system
 for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html">UndoManagerMonitor</a> to monitor an undo manager for
+changes to its recording of operations. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html">UserDefaultsMonitor</a> to monitor a user defaults
+object for changes to its data. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 </ul>
 <h3 id='a-name-uikit_monitors-uikit-monitors-a' class='heading'><a name="uikit_monitors">UIKit Monitors</a></h3>
 
-<p>XestiMonitors provides numerous monitors wrapping <code>UIKit</code>
-<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-uikit-notifications.md">notifications</a>.</p>
+<p>XestiMonitors provides numerous monitors wrapping
+<a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-uikit-notifications.md"><code>UIKit</code> notifications</a>.</p>
 <h4 id='a-name-accessibility_monitors-accessibility-monitors-a' class='heading'><a name="accessibility_monitors">Accessibility Monitors</a></h4>
 
 <p>XestiMonitors provides three monitor classes that you can use to observe
