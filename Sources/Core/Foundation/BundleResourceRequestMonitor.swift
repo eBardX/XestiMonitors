@@ -12,15 +12,16 @@
 import Foundation
 
 ///
-/// A `BundleResourceRequestMonitor` instance monitors ...
+/// A `BundleResourceRequestMonitor` instance monitors the system to detect if
+/// the amount of available disk space for on-demand resources is getting low.
 ///
 public class BundleResourceRequestMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates ...
+    /// Encapsulates detection of low disk space availability.
     ///
     public enum Event {
         ///
-        /// Posted after the system detects that the amount of available disk space is getting low.
+        /// The amount of available disk space is getting low.
         ///
         case lowDiskSpace
     }
@@ -31,7 +32,7 @@ public class BundleResourceRequestMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when ...
+    ///   - handler:    The handler to call when low disk space is detected.
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
