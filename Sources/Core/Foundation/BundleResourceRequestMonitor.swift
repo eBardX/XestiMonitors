@@ -20,44 +20,33 @@ public class BundleResourceRequestMonitor: BaseNotificationMonitor {
     ///
     public enum Event {
         ///
+        /// Posted after the system detects that the amount of available disk space is getting low.
         ///
-        ///
-        case lowDiskSpace(NSBundleResourceRequest)
+        case lowDiskSpace
     }
 
     ///
     /// Initializes a new `BundleResourceRequestMonitor`.
     ///
     /// - Parameters:
-    ///   - request:    The bundle resource request to monitor.
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
     ///   - handler:    The handler to call when ...
     ///
-    public init(request: NSBundleResourceRequest,
-                queue: OperationQueue = .main,
+    public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
-        self.request = request
 
         super.init(queue: queue)
     }
-
-    ///
-    /// The bundle resource request being monitored.
-    ///
-    public let request: NSBundleResourceRequest
 
     private let handler: (Event) -> Void
 
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.NSBundleResourceRequestLowDiskSpace,
-                object: request) { [unowned self] in
-                    if let request = $0.object as? NSBundleResourceRequest {
-                        self.handler(.lowDiskSpace(request))
-                    }
+        observe(.NSBundleResourceRequestLowDiskSpace) { [unowned self] _ in
+            self.handler(.lowDiskSpace)
         }
     }
 }

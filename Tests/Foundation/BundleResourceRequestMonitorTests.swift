@@ -12,7 +12,6 @@ import XCTest
 
 internal class BundleResourceRequestMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let request = NSBundleResourceRequest(tags: ["bogus"])
 
     override func setUp() {
         super.setUp()
@@ -23,10 +22,9 @@ internal class BundleResourceRequestMonitorTests: XCTestCase {
     func testMonitor_didLoad() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: BundleResourceRequestMonitor.Event?
-        let monitor = BundleResourceRequestMonitor(request: request,
-                                                   queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+        let monitor = BundleResourceRequestMonitor(queue: .main) { event in
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -34,9 +32,8 @@ internal class BundleResourceRequestMonitorTests: XCTestCase {
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
-        if let event = expectedEvent,
-            case let .lowDiskSpace(test) = event {
-            XCTAssertEqual(test, request)
+        if let event = expectedEvent {
+            XCTAssertEqual(event, .lowDiskSpace)
         } else {
             XCTFail("Unexpected event")
         }
@@ -44,6 +41,6 @@ internal class BundleResourceRequestMonitorTests: XCTestCase {
 
     private func simulateLoadDiskSpace() {
         notificationCenter.post(name: .NSBundleResourceRequestLowDiskSpace,
-                                object: request)
+                                object: nil)
     }
 }
