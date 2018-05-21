@@ -235,9 +235,11 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides nine monitors wrapping
+XestiMonitors provides ten monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
+* [ExtensionHostMonitor][extension_host_monitor] monitors the host app context
+  from which an app extension is invoked. *(iOS, macOS, tvOS, watchOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [PortMonitor][port_monitor] to monitor a port for changes to its validity.
@@ -620,6 +622,7 @@ XestiMonitors is available under [the MIT license][license].
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [file_system_object_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
 [focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
+[extension_host_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [gyroscope_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [heading_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
 [keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html

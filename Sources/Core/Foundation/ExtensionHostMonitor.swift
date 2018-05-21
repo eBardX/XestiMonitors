@@ -87,7 +87,7 @@ public class ExtensionHostMonitor: BaseNotificationMonitor {
     ///   - queue:          The operation queue on which the handler executes.
     ///                     By default, the main operation queue is used.
     ///   - handler:        The handler to call when the host app sends a request
-    ///                     to an app extension
+    ///                     to an app extension.
     ///
     public init(extensionHost: NSExtensionContext,
                 options: Options = .all,
