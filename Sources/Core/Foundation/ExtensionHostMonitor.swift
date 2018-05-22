@@ -44,6 +44,9 @@ public class ExtensionHostMonitor: BaseNotificationMonitor {
         case willResignActive(NSExtensionContext)
     }
 
+    ///
+    /// Specifies which events to monitor.
+    ///
     public struct Options: OptionSet {
         ///
         /// Monitor `didBecomeActive` events.
@@ -92,7 +95,7 @@ public class ExtensionHostMonitor: BaseNotificationMonitor {
     ///   - queue:      The operation queue on which the handler executes. By
     ///                 default, the main operation queue is used.
     ///   - handler:    The handler to call when the runtime state of the
-    ///                 extension’s host app
+    ///                 extension’s host app changes.
     ///
     public init(context: NSExtensionContext,
                 options: Options = .all,
