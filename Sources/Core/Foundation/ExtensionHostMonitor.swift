@@ -7,34 +7,39 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
+#if os(iOS) || os(tvOS) || os(watchOS)
+
 import Foundation
 
 ///
-/// An `ExtensionHostMonitor` instance monitors the host app context
-/// from which an app extension is invoked.
+/// An `ExtensionHostMonitor` instance monitors an extension context for
+/// changes to the runtime state of the extension’s host app.
 ///
 public class ExtensionHostMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the extension host.
+    /// Encapsulates changes to the runtime state of the extension’s host app.
     ///
     public enum Event {
         ///
-        /// The extension host has moved from an inactive to active state.
+        /// The extension’s host app has moved from the inactive to the active
+        /// state.
         ///
         case didBecomeActive(NSExtensionContext)
 
         ///
-        /// The extension host begins to run in the background.
+        /// The extension’s host app has begun running in the background.
         ///
         case didEnterBackground(NSExtensionContext)
 
         ///
-        /// The extension host begins to run in the foreground.
+        /// The extension’s host app is about to begin running in the
+        /// foreground.
         ///
         case willEnterForeground(NSExtensionContext)
 
         ///
-        /// The extension host has moved from an active to inactive state.
+        /// The extension’s host app is about to move from the active to the
+        /// inactive state.
         ///
         case willResignActive(NSExtensionContext)
     }
@@ -81,29 +86,29 @@ public class ExtensionHostMonitor: BaseNotificationMonitor {
     /// Initializes a new `ExtensionHostMonitor`.
     ///
     /// - Parameters:
-    ///   - extensionHost:    The host app to monitor.
-    ///   - options:        The options that specify which events to monitor.
-    ///                     By default, all events are monitored.
-    ///   - queue:          The operation queue on which the handler executes.
-    ///                     By default, the main operation queue is used.
-    ///   - handler:        The handler to call when the host app sends a request
-    ///                     to an app extension.
+    ///   - context:    The extension context to monitor.
+    ///   - options:    The options that specify which events to monitor. By
+    ///                 default, all events are monitored.
+    ///   - queue:      The operation queue on which the handler executes. By
+    ///                 default, the main operation queue is used.
+    ///   - handler:    The handler to call when the runtime state of the
+    ///                 extension’s host app
     ///
-    public init(extensionHost: NSExtensionContext,
+    public init(context: NSExtensionContext,
                 options: Options = .all,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
+        self.context = context
         self.handler = handler
         self.options = options
-        self.extensionHost = extensionHost
 
         super.init(queue: queue)
     }
 
     ///
-    /// The extension host is being monitored.
+    /// The extension context being monitored.
     ///
-    public let extensionHost: NSExtensionContext
+    public let context: NSExtensionContext
 
     private let handler: (Event) -> Void
     private let options: Options
@@ -113,38 +118,40 @@ public class ExtensionHostMonitor: BaseNotificationMonitor {
 
         if options.contains(.didBecomeActive) {
             observe(.NSExtensionHostDidBecomeActive,
-                    object: extensionHost) { [unowned self] in
-                        if let extensionHost = $0.object as? NSExtensionContext {
-                            self.handler(.didBecomeActive(extensionHost))
+                    object: context) { [unowned self] in
+                        if let context = $0.object as? NSExtensionContext {
+                            self.handler(.didBecomeActive(context))
                         }
             }
         }
 
         if options.contains(.didEnterBackground) {
             observe(.NSExtensionHostDidEnterBackground,
-                    object: extensionHost) { [unowned self] in
-                        if let extensionHost = $0.object as? NSExtensionContext {
-                            self.handler(.didEnterBackground(extensionHost))
+                    object: context) { [unowned self] in
+                        if let context = $0.object as? NSExtensionContext {
+                            self.handler(.didEnterBackground(context))
                         }
             }
         }
 
         if options.contains(.willEnterForeground) {
             observe(.NSExtensionHostWillEnterForeground,
-                    object: extensionHost) { [unowned self] in
-                        if let extensionHost = $0.object as? NSExtensionContext {
-                            self.handler(.willEnterForeground(extensionHost))
+                    object: context) { [unowned self] in
+                        if let context = $0.object as? NSExtensionContext {
+                            self.handler(.willEnterForeground(context))
                         }
             }
         }
 
         if options.contains(.willResignActive) {
             observe(.NSExtensionHostWillResignActive,
-                    object: extensionHost) { [unowned self] in
-                        if let extensionHost = $0.object as? NSExtensionContext {
-                            self.handler(.willResignActive(extensionHost))
+                    object: context) { [unowned self] in
+                        if let context = $0.object as? NSExtensionContext {
+                            self.handler(.willResignActive(context))
                         }
             }
         }
     }
 }
+
+#endif

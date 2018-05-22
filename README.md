@@ -240,8 +240,9 @@ XestiMonitors provides eleven monitors wrapping
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
   dynamic loads of classes. *(iOS, macOS, tvOS, watchOS)*
-* [ExtensionHostMonitor][extension_host_monitor] monitors the host app context
-  from which an app extension is invoked. *(iOS, macOS, tvOS, watchOS)*
+* [ExtensionHostMonitor][extension_host_monitor] monitors an extension context
+  for changes to the runtime state of the extension’s host app.
+  *(iOS, tvOS, watchOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [PortMonitor][port_monitor] to monitor a port for changes to its validity.
@@ -623,9 +624,9 @@ XestiMonitors is available under [the MIT license][license].
 [content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
+[extension_host_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [file_system_object_monitor]:                   https://eBardX.github.io/XestiMonitors/Classes/FileSystemObjectMonitor.html
 [focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
-[extension_host_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [gyroscope_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [heading_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
 [keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html

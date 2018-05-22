@@ -10,10 +10,10 @@ Notification Name                                           | Platform(s)       
 `NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | BundleResourceRequestMonitor (_see_ [#58](https://github.com/eBardX/XestiMonitors/issues/58))
 `NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
 `NSDidBecomeSingleThreaded`                                 | iOS, macOS, tvOS, watchOS | _Will not implement_
-`NSExtensionHostDidBecomeActive`                            | iOS, macOS, tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
-`NSExtensionHostDidEnterBackground`                         | iOS, macOS, tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
-`NSExtensionHostWillEnterForeground`                        | iOS, macOS, tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
-`NSExtensionHostWillResignActive`                           | iOS, macOS, tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostWillEnterForeground`                        | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostWillResignActive`                           | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
 `NSFileHandleConnectionAccepted`                            | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleDataAvailable`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleReadToEndOfFileCompletion`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_

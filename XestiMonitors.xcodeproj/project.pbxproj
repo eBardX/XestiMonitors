@@ -137,7 +137,11 @@
 		CF7869DFFFA2FF0445DC4DA6B6D33566 /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4753DA906CAAC43AA95E1CF6AC622AA /* DocumentStateMonitor.swift */; };
 		CFB7376E05C361DEEB6F1F24D5880AD2 /* DocumentStateMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650D5F1A9FF403E7779526361A70B01 /* DocumentStateMonitorTests.swift */; };
 		2DC5100501BC0A1B43906F21EFDA48AD /* ExtensionHostMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF1125ADAE14A4A2844EA8364380B15 /* ExtensionHostMonitor.swift */; };
+		75B5B6097FEF60A2DBCB1A025D469F87 /* ExtensionHostMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF1125ADAE14A4A2844EA8364380B15 /* ExtensionHostMonitor.swift */; };
+		0C911E41FED47DA15D1053C91C812519 /* ExtensionHostMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF1125ADAE14A4A2844EA8364380B15 /* ExtensionHostMonitor.swift */; };
+		3EA7A17036B5B55BDE7146644DCE12E7 /* ExtensionHostMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF1125ADAE14A4A2844EA8364380B15 /* ExtensionHostMonitor.swift */; };
 		435D6882BEBA872F271E486A0079A620 /* ExtensionHostMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976E02DAD90FDAD280775883CC7C8411 /* ExtensionHostMonitorTests.swift */; };
+		24A30B986A66A7268D4AEFEDB06FEB4D /* ExtensionHostMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976E02DAD90FDAD280775883CC7C8411 /* ExtensionHostMonitorTests.swift */; };
 		60E0B8F558E3D06563E22B8D681A1A63 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
 		6C0BAFE42C6853B95BC61CE8BD861482 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
 		7B8D1EF03BE7596811604326CF31E9E9 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E0E0B1F2C23FB14772A746BF1962 /* FileManagerInjection.swift */; };
@@ -461,9 +465,9 @@
 		4870E313FB406AB67875E81D2532466F /* UserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E98F228FE0B677EDBE3045C69B372E1 /* UserDefaultsMonitor.swift */; };
 		D5FB55B8F30042BD1886D4D7FB485FAE /* UserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E98F228FE0B677EDBE3045C69B372E1 /* UserDefaultsMonitor.swift */; };
 		FF71F22858B5C05CF5A017F9675E2132 /* UserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E98F228FE0B677EDBE3045C69B372E1 /* UserDefaultsMonitor.swift */; };
+		680F6A1D1B09D3013609C5FFFB9EA743 /* UserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B3E8263833A9262D584F509D6DBDB /* UserDefaultsMonitorTests.swift */; };
 		F271D665B8987A9235C9C3DCD280E001 /* UserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B3E8263833A9262D584F509D6DBDB /* UserDefaultsMonitorTests.swift */; };
 		FD38DFA3CED93009BDC5BA3E3B15C8D8 /* UserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B3E8263833A9262D584F509D6DBDB /* UserDefaultsMonitorTests.swift */; };
-		680F6A1D1B09D3013609C5FFFB9EA743 /* UserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B3E8263833A9262D584F509D6DBDB /* UserDefaultsMonitorTests.swift */; };
 		0902BC98E7EE9BA4C6550231C563CCF4 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		379B673F07A364527C9C4A5FC2C0A7CB /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
 		47EE5E3B79379EFC76A11D84FCBD32A6 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB509C2F55570C51115C9FE522A3146 /* ViewControllerShowDetailTargetMonitor.swift */; };
@@ -1662,6 +1666,7 @@
 				E671D598580A81F2E5EB03889CFC37E4 /* DeviceInjection.swift in Sources */,
 				A01939C5A103C0C801FBB50417C6C8BB /* DeviceMotionMonitor.swift in Sources */,
 				644363F55BCF5210E4719EC64A12C098 /* DocumentStateMonitor.swift in Sources */,
+				3EA7A17036B5B55BDE7146644DCE12E7 /* ExtensionHostMonitor.swift in Sources */,
 				6C0BAFE42C6853B95BC61CE8BD861482 /* FileManagerInjection.swift in Sources */,
 				27AC6BD7186C448618A1642EA1876EE1 /* FileSystem.swift in Sources */,
 				F90478CF538B6C77FA8664345A1D1822 /* FileSystemInjection.swift in Sources */,
@@ -1815,6 +1820,7 @@
 				B96F6E1C056C6E530E99986B8DFFDDF5 /* BaseNotificationMonitorTests.swift in Sources */,
 				5F6C67B87AE42B0617AA0DC1648A94F2 /* BundleClassLoadMonitorTests.swift in Sources */,
 				5D3C61E7164A81D0C96FD655622B0298 /* ContentSizeCategoryMonitorTests.swift in Sources */,
+				24A30B986A66A7268D4AEFEDB06FEB4D /* ExtensionHostMonitorTests.swift in Sources */,
 				C03DBD18AB67C3FC572DBB54D9C4DB8B /* FileSystemObjectMonitorTests.swift in Sources */,
 				0498DAE778E2CB3ED9DC550068E600F9 /* FocusMonitorTests.swift in Sources */,
 				738F75AFA311DCA555394AF1F155B3AD /* LocationAuthorizationMonitorTests.swift in Sources */,
@@ -1881,6 +1887,7 @@
 				3AC6F8FF0D461FC07504D5B536BBD34A /* DeviceInjection.swift in Sources */,
 				600224C5B9D475993EA445907C902AE8 /* DeviceMotionMonitor.swift in Sources */,
 				41766C4489D6B0D2BDB3040EC736ACB9 /* DocumentStateMonitor.swift in Sources */,
+				0C911E41FED47DA15D1053C91C812519 /* ExtensionHostMonitor.swift in Sources */,
 				60E0B8F558E3D06563E22B8D681A1A63 /* FileManagerInjection.swift in Sources */,
 				0EE287E690C7AB0FDCFDD0256D68B674 /* FileSystem.swift in Sources */,
 				84BF2AE336F6E7CE681E0986EAF18DBE /* FileSystemInjection.swift in Sources */,
@@ -2083,6 +2090,7 @@
 				0E8BB27969E68B77A5FCD00AE6D1F7B9 /* DeviceInjection.swift in Sources */,
 				A1623556F54B56325C17CE3F47ECBE8F /* DeviceMotionMonitor.swift in Sources */,
 				BDD79C39EC160D102A6C598C591B866C /* DocumentStateMonitor.swift in Sources */,
+				75B5B6097FEF60A2DBCB1A025D469F87 /* ExtensionHostMonitor.swift in Sources */,
 				97E1208161FD9B3BC888FB0CBB3E520D /* FileManagerInjection.swift in Sources */,
 				BBDFA6D863A70773454F1AEF8DD10B4C /* FileSystem.swift in Sources */,
 				32F7CAEB80C5BB8D9A0250680F41E0B8 /* FileSystemInjection.swift in Sources */,
