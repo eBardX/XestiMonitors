@@ -5,7 +5,7 @@ notifications:
 
 Notification Name                                           | Platform(s)               | Monitor
 :---------------------------------------------------------- |:------------------------- |:-------
-`Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | BundleClassLoadMonitor (_see_ [#59](https://github.com/eBardX/XestiMonitors/issues/59))
+`Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | [BundleClassLoadMonitor][bundle_class_load_monitor]
 `FileHandle.readCompletionNotification`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | BundleResourceRequestMonitor (_see_ [#58](https://github.com/eBardX/XestiMonitors/issues/58))
 `NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
@@ -48,7 +48,8 @@ Notification Name                                           | Platform(s)       
 `UserDefaults.noCloudAccountNotification`                   | iOS,        tvOS, watchOS | UbiquitousUserDefaultsMonitor (_see_ [#60](https://github.com/eBardX/XestiMonitors/issues/60))
 `UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | [UserDefaultsMonitor][user_defaults_monitor]
 
-[extension_host_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
+[bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
+[extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html

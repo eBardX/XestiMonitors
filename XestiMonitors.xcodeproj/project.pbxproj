@@ -104,6 +104,13 @@
 		E5B1E03DC735528BEF44F81D6F457782 /* BeaconRangingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87DA520D418C1CF7124F16ABFDACB0E /* BeaconRangingMonitor.swift */; };
 		F3B758F658AAB299247CC7B3576AEF70 /* BeaconRangingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87DA520D418C1CF7124F16ABFDACB0E /* BeaconRangingMonitor.swift */; };
 		0B8B9052A3B47E71D33F473921D86F29 /* BeaconRangingMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0AAECABC7C85459E66846B419EFD66 /* BeaconRangingMonitorTests.swift */; };
+		31D8CD3AFF8C738CE735C840AB594A51 /* BundleClassLoadMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */; };
+		4DFF57B860604C70391BF9BB594D57D9 /* BundleClassLoadMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */; };
+		E8EAEE28202EEB63E53175057C3CD2F0 /* BundleClassLoadMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */; };
+		FC3F6609459E9326688FC9988300E9E5 /* BundleClassLoadMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */; };
+		15AF646A24504D9CE9E3B460431E6D39 /* BundleClassLoadMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557A307351A5E902466580622933399A /* BundleClassLoadMonitorTests.swift */; };
+		3E5DD9E0E2EF1ECC4212FABD4989CBD5 /* BundleClassLoadMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557A307351A5E902466580622933399A /* BundleClassLoadMonitorTests.swift */; };
+		5F6C67B87AE42B0617AA0DC1648A94F2 /* BundleClassLoadMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557A307351A5E902466580622933399A /* BundleClassLoadMonitorTests.swift */; };
 		22BF9B722845DFA615664A56DADC89C5 /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F43439BC2A2D115448B22AB6584548 /* CMAcceleration+DeviceOrientation.swift */; };
 		27C5AECDC09E9F535BA2BBF45AED939D /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F43439BC2A2D115448B22AB6584548 /* CMAcceleration+DeviceOrientation.swift */; };
 		52997096D68031AA4A508816621BDDC6 /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F43439BC2A2D115448B22AB6584548 /* CMAcceleration+DeviceOrientation.swift */; };
@@ -385,10 +392,10 @@
 		2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */; };
-		E9448C08D69928812537D6DECC427BFC /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
-		D83E12864CB2635EB6DCCBA901FAB4DB /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
-		C9205C9D42BA6D3F8C635450655EF54C /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
 		07C58D26C82A856E1C63237B5EC2C035 /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
+		C9205C9D42BA6D3F8C635450655EF54C /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
+		D83E12864CB2635EB6DCCBA901FAB4DB /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
+		E9448C08D69928812537D6DECC427BFC /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
 		0D76265E6317BE34326AC21942189EC6 /* SystemTimeZoneMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82BC3090204A8348C35793BCA17816 /* SystemTimeZoneMonitorTests.swift */; };
 		84CA3FE773FD533C67607098C39E5308 /* SystemTimeZoneMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82BC3090204A8348C35793BCA17816 /* SystemTimeZoneMonitorTests.swift */; };
 		FEDAF5F9A5E1594D27F72C97C0A31F63 /* SystemTimeZoneMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82BC3090204A8348C35793BCA17816 /* SystemTimeZoneMonitorTests.swift */; };
@@ -602,6 +609,8 @@
 		843B10BED0539A54D7818104916A3683 /* BatteryMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryMonitorTests.swift; sourceTree = "<group>"; };
 		B87DA520D418C1CF7124F16ABFDACB0E /* BeaconRangingMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRangingMonitor.swift; sourceTree = "<group>"; };
 		6D0AAECABC7C85459E66846B419EFD66 /* BeaconRangingMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRangingMonitorTests.swift; sourceTree = "<group>"; };
+		F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleClassLoadMonitor.swift; sourceTree = "<group>"; };
+		557A307351A5E902466580622933399A /* BundleClassLoadMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleClassLoadMonitorTests.swift; sourceTree = "<group>"; };
 		0B6E1BD414E82FC9024E77EDE7D66810 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		97F43439BC2A2D115448B22AB6584548 /* CMAcceleration+DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+DeviceOrientation.swift"; sourceTree = "<group>"; };
 		76B243003ECCDA3383780F25E8A7C620 /* CMAccelerationExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMAccelerationExtensionsTests.swift; sourceTree = "<group>"; };
@@ -899,6 +908,7 @@
 		44B4B485EAB565BCCEA7777C4F5357DB /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F8D7135D5008BC7218E18CC1E86EA5FB /* BundleClassLoadMonitor.swift */,
 				6CF1125ADAE14A4A2844EA8364380B15 /* ExtensionHostMonitor.swift */,
 				A3220F24F25A3612F07F083C5001B9C7 /* MetadataQueryMonitor.swift */,
 				656E98ECE92433FB61660B33E33E6DBD /* PortMonitor.swift */,
@@ -929,6 +939,7 @@
 		4D96BAFA1AE794D06D36EF081D970B06 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				557A307351A5E902466580622933399A /* BundleClassLoadMonitorTests.swift */,
 				976E02DAD90FDAD280775883CC7C8411 /* ExtensionHostMonitorTests.swift */,
 				89E3CB5B787B737EFE04F98527B30A34 /* MetadataQueryMonitorTests.swift */,
 				BC694AD552F0A102D1DAA82F3DF7CBFD /* PortMonitorTests.swift */,
@@ -1645,6 +1656,7 @@
 				647A4B6C7F0C52A22EA730AD688528FA /* BaseNotificationMonitor.swift in Sources */,
 				68B6C05FA1850727E47CE4DB149ACB2D /* BatteryMonitor.swift in Sources */,
 				F3B758F658AAB299247CC7B3576AEF70 /* BeaconRangingMonitor.swift in Sources */,
+				E8EAEE28202EEB63E53175057C3CD2F0 /* BundleClassLoadMonitor.swift in Sources */,
 				52997096D68031AA4A508816621BDDC6 /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				BBD03C6B4426183B263B63C0B38FCC58 /* ContentSizeCategoryMonitor.swift in Sources */,
 				E671D598580A81F2E5EB03889CFC37E4 /* DeviceInjection.swift in Sources */,
@@ -1724,6 +1736,7 @@
 				41AF9E676558B88A67EC61F0F5A429C9 /* BaseNotificationMonitorTests.swift in Sources */,
 				89714080E03F5E0B91EC55D2122EB525 /* BatteryMonitorTests.swift in Sources */,
 				0B8B9052A3B47E71D33F473921D86F29 /* BeaconRangingMonitorTests.swift in Sources */,
+				15AF646A24504D9CE9E3B460431E6D39 /* BundleClassLoadMonitorTests.swift in Sources */,
 				83B984841483D80FA930B76949C5C588 /* CMAccelerationExtensionsTests.swift in Sources */,
 				D15DE92472AFDD6337580AF5C99214DA /* ContentSizeCategoryMonitorTests.swift in Sources */,
 				1955BD62FE28D9713C284A5EA9C0813B /* DeviceMotionMonitorTests.swift in Sources */,
@@ -1800,6 +1813,7 @@
 				A12F4B58818B624B31513383DFA8776E /* ApplicationStateMonitorTests.swift in Sources */,
 				6D5FC5763DD39CE5C5CB793A8EDA5A09 /* BaseMonitorTests.swift in Sources */,
 				B96F6E1C056C6E530E99986B8DFFDDF5 /* BaseNotificationMonitorTests.swift in Sources */,
+				5F6C67B87AE42B0617AA0DC1648A94F2 /* BundleClassLoadMonitorTests.swift in Sources */,
 				5D3C61E7164A81D0C96FD655622B0298 /* ContentSizeCategoryMonitorTests.swift in Sources */,
 				C03DBD18AB67C3FC572DBB54D9C4DB8B /* FileSystemObjectMonitorTests.swift in Sources */,
 				0498DAE778E2CB3ED9DC550068E600F9 /* FocusMonitorTests.swift in Sources */,
@@ -1861,6 +1875,7 @@
 				3D50DF323034F4841617150179DE9D36 /* BaseNotificationMonitor.swift in Sources */,
 				46A3228EC6FB61ED103C00FAD0404AAB /* BatteryMonitor.swift in Sources */,
 				2C9BB4D0E2D0FA427E7ED32890FEF4AD /* BeaconRangingMonitor.swift in Sources */,
+				31D8CD3AFF8C738CE735C840AB594A51 /* BundleClassLoadMonitor.swift in Sources */,
 				D1F925B5BFC468459C36BB3DD684F3B2 /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				17B69FEA619A681E6F7AC8451987E5BA /* ContentSizeCategoryMonitor.swift in Sources */,
 				3AC6F8FF0D461FC07504D5B536BBD34A /* DeviceInjection.swift in Sources */,
@@ -1945,6 +1960,7 @@
 				C6AC6D0BFC9108EA3776DE2A3768EBC8 /* BaseNotificationMonitor.swift in Sources */,
 				FB74CEAAB60856736AC30E2F0E8B7CD4 /* BatteryMonitor.swift in Sources */,
 				E5B1E03DC735528BEF44F81D6F457782 /* BeaconRangingMonitor.swift in Sources */,
+				FC3F6609459E9326688FC9988300E9E5 /* BundleClassLoadMonitor.swift in Sources */,
 				27C5AECDC09E9F535BA2BBF45AED939D /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				12CBBA4FDEEAE22AE319CF1634DD16D2 /* ContentSizeCategoryMonitor.swift in Sources */,
 				9AF72DB7108B2E0F1FDFDBBB1E63717A /* DeviceInjection.swift in Sources */,
@@ -2017,6 +2033,7 @@
 			files = (
 				D2FC2A2938D163CFABEEA024D1A8CF2B /* BaseMonitorTests.swift in Sources */,
 				2C01F9F219B39C99B3C915DDDF8057BF /* BaseNotificationMonitorTests.swift in Sources */,
+				3E5DD9E0E2EF1ECC4212FABD4989CBD5 /* BundleClassLoadMonitorTests.swift in Sources */,
 				13D4D30F599B5FB7AB7A0FADCE49C7D1 /* FileSystemObjectMonitorTests.swift in Sources */,
 				EB3E7DC7821CD040E04B94E676203520 /* LocationAuthorizationMonitorTests.swift in Sources */,
 				68AE61298DF0F2DD99BD4E40EE1A55FF /* MetadataQueryMonitorTests.swift in Sources */,
@@ -2060,6 +2077,7 @@
 				BC4EF1D04F1A0B6BC172AEA9A48CF44C /* BaseNotificationMonitor.swift in Sources */,
 				D3E500D782C48861D0339BEEE96438E1 /* BatteryMonitor.swift in Sources */,
 				4DDE7FF5F0BE58497ADB60736B699FAC /* BeaconRangingMonitor.swift in Sources */,
+				4DFF57B860604C70391BF9BB594D57D9 /* BundleClassLoadMonitor.swift in Sources */,
 				22BF9B722845DFA615664A56DADC89C5 /* CMAcceleration+DeviceOrientation.swift in Sources */,
 				18FB2AD275D451775B9A81C7FA0A4C6D /* ContentSizeCategoryMonitor.swift in Sources */,
 				0E8BB27969E68B77A5FCD00AE6D1F7B9 /* DeviceInjection.swift in Sources */,

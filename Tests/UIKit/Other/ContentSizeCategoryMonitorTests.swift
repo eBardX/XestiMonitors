@@ -3,6 +3,7 @@
 //  XestiMonitorsTests
 //
 //  Created by Angie Mugo on 2018-04-11.
+//
 //  © 2018 J. G. Pusey (see LICENSE.md).
 //
 
@@ -52,7 +53,8 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
-        if let event = expectedEvent, case let .didChange(test) = event {
+        if let event = expectedEvent,
+            case let .didChange(test) = event {
             XCTAssertEqual(test, expectedContentSizeCategory)
         } else {
             XCTFail("Unexpected event")

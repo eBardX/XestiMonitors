@@ -29,6 +29,7 @@ custom_categories:
       - PedometerMonitor
   - name: Foundation Monitor Classes
     children:
+      - BundleClassLoadMonitor
       - ExtensionHostMonitor
       - MetadataQueryMonitor
       - PortMonitor
