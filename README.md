@@ -235,11 +235,14 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides eleven monitors wrapping
+XestiMonitors provides twelve monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
   dynamic loads of classes. *(iOS, macOS, tvOS, watchOS)*
+* [BundleResourceRequestMonitor][bundle_resource_request_monitor] to monitor
+  the system to detect if the amount of available disk space for on-demand
+  resources is getting low. *(iOS, tvOS, watchOS)*
 * [ExtensionHostMonitor][extension_host_monitor] monitors an extension context
   for changes to the runtime state of the extension’s host app.
   *(iOS, tvOS, watchOS)*
@@ -621,6 +624,7 @@ XestiMonitors is available under [the MIT license][license].
 [battery_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/BatteryMonitor.html
 [beacon_ranging_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
 [bundle_class_load_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
+[bundle_resource_request_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
