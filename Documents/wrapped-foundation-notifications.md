@@ -10,10 +10,10 @@ Notification Name                                           | Platform(s)       
 `NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | BundleResourceRequestMonitor (_see_ [#58](https://github.com/eBardX/XestiMonitors/issues/58))
 `NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
 `NSDidBecomeSingleThreaded`                                 | iOS, macOS, tvOS, watchOS | _Will not implement_
-`NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
-`NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
-`NSExtensionHostWillEnterForeground`                        | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
-`NSExtensionHostWillResignActive`                           | iOS,        tvOS, watchOS | ExtensionHostMonitor (_see_ [#48](https://github.com/eBardX/XestiMonitors/issues/48))
+`NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostWillEnterForeground`                        | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
+`NSExtensionHostWillResignActive`                           | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
 `NSFileHandleConnectionAccepted`                            | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleDataAvailable`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleReadToEndOfFileCompletion`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
@@ -49,6 +49,7 @@ Notification Name                                           | Platform(s)       
 `UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | [UserDefaultsMonitor][user_defaults_monitor]
 
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
+[extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
