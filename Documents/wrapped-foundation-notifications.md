@@ -7,7 +7,7 @@ Notification Name                                           | Platform(s)       
 :---------------------------------------------------------- |:------------------------- |:-------
 `Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | [BundleClassLoadMonitor][bundle_class_load_monitor]
 `FileHandle.readCompletionNotification`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | BundleResourceRequestMonitor (_see_ [#58](https://github.com/eBardX/XestiMonitors/issues/58))
+`NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | [BundleResourceRequestMonitor][bundle_resource_request_monitor]
 `NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
 `NSDidBecomeSingleThreaded`                                 | iOS, macOS, tvOS, watchOS | _Will not implement_
 `NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
@@ -49,6 +49,7 @@ Notification Name                                           | Platform(s)       
 `UserDefaults.sizeLimitExceededNotification`                | iOS,        tvOS, watchOS | [UserDefaultsMonitor][user_defaults_monitor]
 
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
+[bundle_resource_request_monitor]:      https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
