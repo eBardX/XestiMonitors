@@ -8,7 +8,7 @@ Notification Name                                           | Platform(s)       
 `Bundle.didLoadNotification`                                | iOS, macOS, tvOS, watchOS | [BundleClassLoadMonitor][bundle_class_load_monitor]
 `FileHandle.readCompletionNotification`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSBundleResourceRequestLowDiskSpace`                       | iOS,        tvOS, watchOS | [BundleResourceRequestMonitor][bundle_resource_request_monitor]
-`NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | CalendarDayMonitor (_see_ [#55](https://github.com/eBardX/XestiMonitors/issues/55))
+`NSCalendarDayChanged`                                      | iOS, macOS, tvOS, watchOS | [CalendarDayMonitor][calendar_day_monitor]
 `NSDidBecomeSingleThreaded`                                 | iOS, macOS, tvOS, watchOS | _Will not implement_
 `NSExtensionHostDidBecomeActive`                            | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
 `NSExtensionHostDidEnterBackground`                         | iOS,        tvOS, watchOS | [ExtensionHostMonitor][extension_host_monitor]
@@ -50,6 +50,7 @@ Notification Name                                           | Platform(s)       
 
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:      https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
+[calendar_day_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html

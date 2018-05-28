@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides thirteen monitors wrapping
+XestiMonitors provides fourteen monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
@@ -243,12 +243,14 @@ XestiMonitors provides thirteen monitors wrapping
 * [BundleResourceRequestMonitor][bundle_resource_request_monitor] to monitor
   the system to detect if the amount of available disk space for on-demand
   resources is getting low. *(iOS, tvOS, watchOS)*
-* [ExtensionHostMonitor][extension_host_monitor] monitors an extension context
-  for changes to the runtime state of the extension’s host app.
+* [CalendarDayMonitor][calendar_day_monitor] to monitor the system for changes
+  to the calendar day. *(iOS, macOS, tvOS, watchOS)*
+* [ExtensionHostMonitor][extension_host_monitor] to monitor an extension
+  context for changes to the runtime state of the extension’s host app.
   *(iOS, tvOS, watchOS)*
-* [HTTPCookiesStorageMonitor][http_cookies_storage_monitor] instance monitors
-  the cookie storage for changes
-  *(iOS, macOS, tvOS, watchOS)*
+* [HTTPCookiesStorageMonitor][http_cookies_storage_monitor] instance to monitor
+  an HTTP cookie storage object for changes to its acceptance policy or to its
+  cookies. *(iOS, macOS, tvOS, watchOS)*
 * [MetadataQueryMonitor][metadata_query_monitor] to monitor a metadata query
   for changes to its results. *(iOS, macOS, tvOS, watchOS)*
 * [PortMonitor][port_monitor] to monitor a port for changes to its validity.
@@ -628,6 +630,7 @@ XestiMonitors is available under [the MIT license][license].
 [beacon_ranging_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/BeaconRangingMonitor.html
 [bundle_class_load_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
+[calendar_day_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html
 [content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
@@ -636,7 +639,7 @@ XestiMonitors is available under [the MIT license][license].
 [focus_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/FocusMonitor.html
 [gyroscope_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/GyroscopeMonitor.html
 [heading_monitor]:                              https://eBardX.github.io/XestiMonitors/Classes/HeadingMonitor.html
-[http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
+[http_cookie_storage_monitor]:                  https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [keyboard_monitor]:                             https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html
 [location_authorization_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/LocationAuthorizationMonitor.html
 [magnetometer_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/MagnetometerMonitor.html
