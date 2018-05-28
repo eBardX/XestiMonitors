@@ -10,7 +10,8 @@
 import Foundation
 
 ///
-/// A `HTTPCookiesStorageMonitor` instance monitors the cookie storage for changes
+/// A `HTTPCookiesStorageMonitor` instance monitors an HTTP cookie storage
+/// object for changes to its acceptance policy or to its cookies.
 ///
 public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
     ///
@@ -18,12 +19,12 @@ public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
     ///
     public enum Event {
         ///
-        /// The acceptance policy of the cookie storage has changed
+        /// The acceptance policy of the cookie storage has changed.
         ///
         case acceptPolicyChanged(HTTPCookieStorage)
 
         ///
-        /// The cookies stored in the cookie storage have changed
+        /// The cookies stored in the cookie storage have changed.
         ///
         case cookiesChanged(HTTPCookieStorage)
     }
@@ -62,19 +63,19 @@ public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
     ///
     /// - Parameters:
     ///   - cookieStorage:  The cookie storage to monitor.
-    ///   - options:    The options that specify which events to monitor. By
-    ///                 default, all events are monitored.
-    ///   - queue:      The operation queue on which the handler executes. By
-    ///                 default, the main operation queue is used.
-    ///   - handler:    The handler to call when the text of the
-    ///                 cookieStorage changes
+    ///   - options:        The options that specify which events to monitor.
+    ///                     By default, all events are monitored.
+    ///   - queue:          The operation queue on which the handler executes.
+    ///                     By default, the main operation queue is used.
+    ///   - handler:        The handler to call when the cookie storage’s
+    ///                     acceptance policy or cookies have changed.
     ///
     public init(cookieStorage: HTTPCookieStorage,
                 options: Options = .all,
                 queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
-        self.handler = handler
         self.cookieStorage = cookieStorage
+        self.handler = handler
         self.options = options
 
         super.init(queue: .main)
