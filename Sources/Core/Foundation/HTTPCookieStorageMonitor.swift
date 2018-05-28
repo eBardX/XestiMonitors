@@ -10,7 +10,7 @@
 import Foundation
 
 ///
-/// A `HTTPCookiesStorageMonitor` instance monitors an HTTP cookie storage
+/// An `HTTPCookiesStorageMonitor` instance monitors an HTTP cookie storage
 /// object for changes to its acceptance policy or to its cookies.
 ///
 public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
@@ -67,8 +67,9 @@ public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
     ///                     By default, all events are monitored.
     ///   - queue:          The operation queue on which the handler executes.
     ///                     By default, the main operation queue is used.
-    ///   - handler:        The handler to call when the cookie storage’s
-    ///                     acceptance policy or cookies have changed.
+    ///   - handler:        The handler to call when the acceptance policy of
+    ///                     the cookie storage or the cookies stored in the
+    ///                     cookie storage have changed.
     ///
     public init(cookieStorage: HTTPCookieStorage,
                 options: Options = .all,
