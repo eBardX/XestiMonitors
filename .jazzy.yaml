@@ -32,6 +32,7 @@ custom_categories:
       - BundleClassLoadMonitor
       - BundleResourceRequestMonitor
       - ExtensionHostMonitor
+      - HTTPCookiesStorageMonitor
       - MetadataQueryMonitor
       - PortMonitor
       - ProcessInfoPowerStateMonitor

@@ -17,8 +17,8 @@ Notification Name                                           | Platform(s)       
 `NSFileHandleConnectionAccepted`                            | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleDataAvailable`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSFileHandleReadToEndOfFileCompletion`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
-`NSHTTPCookieManagerAcceptPolicyChanged`                    | iOS, macOS, tvOS, watchOS | HTTPCookieStorageMonitor (_see_ [#49](https://github.com/eBardX/XestiMonitors/issues/49))
-`NSHTTPCookieManagerCookiesChanged`                         | iOS, macOS, tvOS, watchOS | HTTPCookieStorageMonitor (_see_ [#49](https://github.com/eBardX/XestiMonitors/issues/49))
+`NSHTTPCookieManagerAcceptPolicyChanged`                    | iOS, macOS, tvOS, watchOS | [HTTPCookieStorageMonitor][http_cookie_storage_monitor]
+`NSHTTPCookieManagerCookiesChanged`                         | iOS, macOS, tvOS, watchOS | [HTTPCookieStorageMonitor][http_cookie_storage_monitor]
 `NSLocale.currentLocaleDidChangeNotification`               | iOS, macOS, tvOS, watchOS | CurrentLocaleMonitor (_see_ [#56](https://github.com/eBardX/XestiMonitors/issues/56))
 `NSMetadataQueryDidFinishGathering`                         | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryDidStartGathering`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
@@ -51,6 +51,7 @@ Notification Name                                           | Platform(s)       
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:      https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
+[http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
