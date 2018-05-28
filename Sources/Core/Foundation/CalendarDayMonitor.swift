@@ -11,15 +11,15 @@ import Foundation
 
 ///
 /// A `CalendarDayMonitor` instance monitors the system for changes to the
-/// system calendar day.
+/// calendar day.
 ///
 public class CalendarDayMonitor: BaseNotificationMonitor {
     ///
-    /// Encapsulates changes to the system calendar day.
+    /// Encapsulates changes to the calendar day.
     ///
     public enum Event {
         ///
-        /// The system calendar day has changed
+        /// The calendar day has changed.
         ///
         case changed
     }
@@ -30,7 +30,7 @@ public class CalendarDayMonitor: BaseNotificationMonitor {
     /// - Parameters:
     ///   - queue:      The operation queue on which the handler executes.
     ///                 By default, the main operation queue is used.
-    ///   - handler:    The handler to call when the system calendar day changes.
+    ///   - handler:    The handler to call when the calendar day changes.
     ///
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
