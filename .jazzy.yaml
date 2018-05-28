@@ -33,6 +33,7 @@ custom_categories:
       - BundleResourceRequestMonitor
       - CalendarDayMonitor
       - ExtensionHostMonitor
+      - HTTPCookiesStorageMonitor
       - MetadataQueryMonitor
       - PortMonitor
       - ProcessInfoPowerStateMonitor
