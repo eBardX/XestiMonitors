@@ -1,3 +1,10 @@
+# 2.11.0 (2018-05-28)
+
+* Adds support for five new monitor classes: `BundleClassLoadMonitor`,
+  `BundleResourceRequestMonitor`, `CalendarDayMonitor`, `ExtensionHostMonitor`,
+  and `HTTPCookieStorageMonitor`.
+* Fixes issues with Swift Package Manager builds.
+
 # 2.10.0 (2018-05-20)
 
 * Adds support for six new monitor classes: `PortMonitor`,

@@ -214,6 +214,42 @@
             <a class="nav-group-name-link" href="Foundation Monitor Classes.html">Foundation Monitor Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BundleClassLoadMonitor.html">BundleClassLoadMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BundleClassLoadMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BundleResourceRequestMonitor.html">BundleResourceRequestMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BundleResourceRequestMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CalendarDayMonitor.html">CalendarDayMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CalendarDayMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ExtensionHostMonitor.html">ExtensionHostMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ExtensionHostMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ExtensionHostMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/HTTPCookiesStorageMonitor.html">HTTPCookiesStorageMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/HTTPCookiesStorageMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/HTTPCookiesStorageMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -815,10 +851,23 @@ historic walking data. <em>(iOS, watchOS)</em></li>
 </ul>
 <h3 id='a-name-foundation_monitors-foundation-monitors-a' class='heading'><a name="foundation_monitors">Foundation Monitors</a></h3>
 
-<p>XestiMonitors provides nine monitors wrapping
+<p>XestiMonitors provides fourteen monitors wrapping
 <a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md"><code>Foundation</code> notifications</a>:</p>
 
 <ul>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html">BundleClassLoadMonitor</a> to monitor a bundle for
+dynamic loads of classes. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html">BundleResourceRequestMonitor</a> to monitor
+the system to detect if the amount of available disk space for on-demand
+resources is getting low. <em>(iOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html">CalendarDayMonitor</a> to monitor the system for changes
+to the calendar day. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html">ExtensionHostMonitor</a> to monitor an extension
+context for changes to the runtime state of the extension’s host app.
+<em>(iOS, tvOS, watchOS)</em></li>
+<li>[HTTPCookiesStorageMonitor][http_cookies_storage_monitor] instance to monitor
+an HTTP cookie storage object for changes to its acceptance policy or to its
+cookies. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html">MetadataQueryMonitor</a> to monitor a metadata query
 for changes to its results. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html">PortMonitor</a> to monitor a port for changes to its validity.
