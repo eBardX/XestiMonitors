@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides fourteen monitors wrapping
+XestiMonitors provides fifteen monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
@@ -270,6 +270,8 @@ XestiMonitors provides fourteen monitors wrapping
   for changes to the iCloud (”ubiquity”) identity. *(iOS, macOS, tvOS, watchOS)*
 * [UndoManagerMonitor][undo_manager_monitor] to monitor an undo manager for
   changes to its recording of operations. *(iOS, macOS, tvOS, watchOS)*
+* [URLCredentialStorageMonitor][url_credential_storage_monitor] to monitor the
+  system for changes in the credentials storage *(iOS, macOS, tvOS, watchOS)*
 * [UserDefaultsMonitor][user_defaults_monitor] to monitor a user defaults
   object for changes to its data. *(iOS, macOS, tvOS, watchOS)*
 
