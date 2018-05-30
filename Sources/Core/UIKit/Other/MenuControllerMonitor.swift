@@ -121,7 +121,8 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didHideMenu) {
-            observe(.UIMenuControllerDidHideMenu) { [unowned self] in
+            observe(.UIMenuControllerDidHideMenu,
+                    object: UIMenuController.shared) { [unowned self] in
                 if let menu = $0.object as? UIMenuController {
                     self.handler(.didHideMenu(menu))
                 }
@@ -129,7 +130,8 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didShowMenu) {
-            observe(.UIMenuControllerDidShowMenu) { [unowned self] in
+            observe(.UIMenuControllerDidShowMenu,
+                    object: UIMenuController.shared) { [unowned self] in
                 if let menu = $0.object as? UIMenuController {
                     self.handler(.didShowMenu(menu))
                 }
@@ -137,7 +139,8 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.menuFrameDidChange) {
-            observe(.UIMenuControllerMenuFrameDidChange) { [unowned self] in
+            observe(.UIMenuControllerMenuFrameDidChange,
+                    object: UIMenuController.shared) { [unowned self] in
                 if let menu = $0.object as? UIMenuController {
                     self.handler(.menuFrameDidChange(menu))
                 }
@@ -145,7 +148,8 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.willHideMenu) {
-            observe(.UIMenuControllerWillHideMenu) { [unowned self] in
+            observe(.UIMenuControllerWillHideMenu,
+                    object: UIMenuController.shared) { [unowned self] in
                 if let menu = $0.object as? UIMenuController {
                     self.handler(.willHideMenu(menu))
                 }
@@ -153,7 +157,8 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.willShowMenu) {
-            observe(.UIMenuControllerWillShowMenu) { [unowned self] in
+            observe(.UIMenuControllerWillShowMenu,
+                    object: UIMenuController.shared) { [unowned self] in
                 if let menu = $0.object as? UIMenuController {
                     self.handler(.willShowMenu(menu))
                 }

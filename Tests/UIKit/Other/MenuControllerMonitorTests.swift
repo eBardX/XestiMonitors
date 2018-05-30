@@ -13,7 +13,7 @@ import XCTest
 
 internal class MenuControllerMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let menuController = UIMenuController()
+    let menuController = UIMenuController.shared
 
     override func setUp() {
         super.setUp()
