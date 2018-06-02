@@ -9,6 +9,7 @@
 
 #if os(iOS) || os(macOS) || os(tvOS)
 
+import Foundation
 import SystemConfiguration
 
 ///

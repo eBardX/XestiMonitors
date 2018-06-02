@@ -7,6 +7,8 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
+import Darwin
+
 internal class FileSystem {
 
     // MARK: Public Instance Methods
