@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides fourteen monitors wrapping
+XestiMonitors provides sixteen monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
@@ -245,6 +245,8 @@ XestiMonitors provides fourteen monitors wrapping
   resources is getting low. *(iOS, tvOS, watchOS)*
 * [CalendarDayMonitor][calendar_day_monitor] to monitor the system for changes
   to the calendar day. *(iOS, macOS, tvOS, watchOS)*
+* [CurrentLocaleMonitor][current_locale_monitor] to monitor the system for changes
+  to the user's locale. *(iOS, macOS, tvOS, watchOS)*
 * [ExtensionHostMonitor][extension_host_monitor] to monitor an extension
   context for changes to the runtime state of the extension’s host app.
   *(iOS, tvOS, watchOS)*
@@ -631,6 +633,7 @@ XestiMonitors is available under [the MIT license][license].
 [bundle_class_load_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [calendar_day_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html
+[current_locale_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html
 [content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
