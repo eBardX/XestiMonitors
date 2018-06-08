@@ -263,6 +263,8 @@ XestiMonitors provides sixteen monitors wrapping
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
   *(iOS, macOS, tvOS, watchOS)*
+* [SystemClockMonitor][system_clock_monitor] to monitor the system for
+  changes to the clock. *(iOS, macOS, tvOS, watchOS)*
 * [SystemTimeZoneMonitor][system_time_zone_monitor] to monitor the system for
   changes to the currently used time zone. *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
@@ -529,7 +531,7 @@ will *not* be able to override the [startMonitoring()][bm_start_monitoring] and
 ```swift
 import XestiMonitors
 
-class GigaHoobieMonitor: BaseMonitor {
+class GigaHoobieMonitor: BaseMonitor 
     let handler: (Float) -> Void
     @objc let hoobie: GigaHoobie
     private var observation: NSKeyValueObservation?
@@ -668,6 +670,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
+[system_clock_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
 [system_time_zone_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html

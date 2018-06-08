@@ -39,6 +39,7 @@ custom_categories:
       - PortMonitor
       - ProcessInfoPowerStateMonitor
       - ProcessInfoThermalStateMonitor
+      - SystemClockMonitor
       - SystemTimeZoneMonitor
       - UbiquitousKeyValueStoreMonitor
       - UbiquityIdentityMonitor
