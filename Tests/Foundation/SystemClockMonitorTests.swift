@@ -1,8 +1,8 @@
 //
-//  CalendarDayMonitorTests.swift
+//  SystemClockMonitorTests.swift
 //  XestiMonitorsTests
 //
-//  Created by Paul Nyondo on 2018-05-28.
+//  Created by Paul Nyondo on 2018-06-24.
 //
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
@@ -11,7 +11,7 @@ import Foundation
 import XCTest
 @testable import XestiMonitors
 
-internal class CalenderDayMonitorTests: XCTestCase {
+internal class SystemClockMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
 
     override func setUp() {
@@ -21,27 +21,27 @@ internal class CalenderDayMonitorTests: XCTestCase {
         }
     }
 
-    func testMonitor_CalendarDayChanged() {
+    func testMonitor_SystemClockDidChange() {
         let expectation = self.expectation(description: "Handler called")
-        var expectedEvent: CalendarDayMonitor.Event?
-        let monitor = CalendarDayMonitor(queue: .main) { event in
+        var expectedEvent: SystemClockMonitor.Event?
+        let monitor = SystemClockMonitor(queue: .main) { event in
             expectedEvent = event
             expectation.fulfill()
         }
 
         monitor.startMonitoring()
-        simulateCalendarDayChanged()
+        simulateSystemClockDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
         if let event = expectedEvent {
-            XCTAssertEqual(.changed, event)
+            XCTAssertEqual(.didChange, event)
         } else {
             XCTFail("Unexpected event")
         }
     }
 
-    func simulateCalendarDayChanged() {
-        notificationCenter.post(name: .NSCalendarDayChanged, object: nil)
+    func simulateSystemClockDidChange() {
+        notificationCenter.post(name: .NSSystemClockDidChange, object: nil)
     }
 }
