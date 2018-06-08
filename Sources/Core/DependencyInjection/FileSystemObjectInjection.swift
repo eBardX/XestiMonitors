@@ -7,6 +7,8 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
+import Dispatch
+
 internal protocol FileSystemObjectProtocol: class {
     var data: DispatchSource.FileSystemEvent { get }
 

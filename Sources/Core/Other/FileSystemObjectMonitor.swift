@@ -8,6 +8,7 @@
 //
 
 import Dispatch
+import Foundation
 
 ///
 /// A `FileSystemObjectMonitor` instance monitors a file-system object for

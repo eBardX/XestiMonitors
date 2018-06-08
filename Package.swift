@@ -1,3 +1,5 @@
+// swift-tools-version:4.0
+
 //
 //  Package.swift
 //  XestiMonitors
@@ -11,13 +13,11 @@ import PackageDescription
 
 let package = Package(name: "XestiMonitors",
                       products: [.library(name: "XestiMonitors",
-                                          type: .dynamic,
                                           targets: ["XestiMonitors"])],
                       dependencies: [],
                       targets: [.target(name: "XestiMonitors",
                                         dependencies: [],
-                                        path: "Sources/Core"),
-                                .testTarget(name: "XestiMonitorsTests",
-                                            dependencies: ["XestiMonitors"],
-                                            path: "Tests")],
+                                        path: ".",
+                                        exclude: ["*.h", "*.m"],
+                                        sources: ["Sources/Core"])],
                       swiftLanguageVersions: [4])
