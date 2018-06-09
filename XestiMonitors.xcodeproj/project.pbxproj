@@ -467,6 +467,13 @@
 		7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */ = {isa = PBXBuildFile; fileRef = 3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */; };
+		93AD8672718F113AB415D12C7BB5D2DA /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
+		C9E2D56E4E41858BEBEE577EE5161E22 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
+		14B95DCCF1ED6132B388867335630166 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
+		2ED759E695829EA80A4784921F4C74F2 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
+		B1EB8EE19C27FD689E5906F8891E83F5 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
+		187CFB292F7860593A64536CD1BDA863 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
+		B9C878D2164B61226B50D41B35A30305 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
 		10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		51D0744C9E287EFFFC1FCEC817B13677 /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
@@ -773,6 +780,8 @@
 		C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMonitorTests.swift; sourceTree = "<group>"; };
 		DC8AF9B1685D96DABF2E3399E284174E /* UIFocusUpdateContext+Neutered.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFocusUpdateContext+Neutered.h"; sourceTree = "<group>"; };
 		3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFocusUpdateContext+Neutered.m"; sourceTree = "<group>"; };
+		A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCredentialStorageMonitor.swift; sourceTree = "<group>"; };
+		8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCredentialStorageMonitorTests.swift; sourceTree = "<group>"; };
 		B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
 		46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitorTests.swift; sourceTree = "<group>"; };
 		168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
@@ -958,6 +967,7 @@
 				097203C9F4B5012E104E1FB32BEB7ACE /* ProcessInfoThermalStateMonitor.swift */,
 				B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */,
 				7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */,
+				A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */,
 				B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */,
 				168B3CA5679839268F7F1C4FD121E92C /* UbiquityIdentityMonitor.swift */,
 				56E56CE47E0A25ED7AC9AC25B7076ABA /* UndoManagerMonitor.swift */,
@@ -993,6 +1003,7 @@
 				AC885DEB9A8B0BF60D055E70B1248B22 /* ProcessInfoThermalStateMonitorTests.swift */,
 				CF23EC5495EC41C8374A6066D13EE69E /* SystemClockMonitorTests.swift */,
 				FB82BC3090204A8348C35793BCA17816 /* SystemTimeZoneMonitorTests.swift */,
+				8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */,
 				46774B43C473AE43100E6424AE259D59 /* UbiquitousKeyValueStoreMonitorTests.swift */,
 				E285740C2D142518CCA15A0A411EBEFD /* UbiquityIdentityMonitorTests.swift */,
 				9C5E62DFBB734D9B848A2D2137E52C06 /* UndoManagerMonitorTests.swift */,
@@ -1763,6 +1774,7 @@
 				0E94630B4B6DFECF116380640D90355B /* TextStorageMonitor.swift in Sources */,
 				705714FDFDCB039151208535602EDF97 /* TextViewTextMonitor.swift in Sources */,
 				AF7BAA51C4445C60940D44C02F1F8D71 /* TimeMonitor.swift in Sources */,
+				2ED759E695829EA80A4784921F4C74F2 /* URLCredentialStorageMonitor.swift in Sources */,
 				286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				5BF69879C2179270CB037530836ADF55 /* UbiquityIdentityMonitor.swift in Sources */,
 				162CDB061325EE7A7E14268671EC7D25 /* UndoManagerMonitor.swift in Sources */,
@@ -1849,6 +1861,7 @@
 				1350FCD75D8B051C1C351DB42B8A7B88 /* TextViewTextMonitorTests.swift in Sources */,
 				C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */,
 				8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */,
+				B1EB8EE19C27FD689E5906F8891E83F5 /* URLCredentialStorageMonitorTests.swift in Sources */,
 				DB23C2CBF8D07B2FD27623398158A45F /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				AD97E0DB5D0E67EB1DA642AE922D8829 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				0D64EECE9A75AF3AD926011F98268706 /* UndoManagerMonitorTests.swift in Sources */,
@@ -1908,6 +1921,7 @@
 				E54A73B8F25E634D841E6EA6821341AC /* TextStorageMonitorTests.swift in Sources */,
 				C87C45EEA0DA1F6D5CF478D755D25365 /* TextViewTextMonitorTests.swift in Sources */,
 				7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */,
+				B9C878D2164B61226B50D41B35A30305 /* URLCredentialStorageMonitorTests.swift in Sources */,
 				397DB8EF4A7E24F4E0FED34AB0882AD8 /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				9CAA197490F32E71A29AF2B9A23E039D /* UbiquityIdentityMonitorTests.swift in Sources */,
 				A80E7E557A6D8CAABEE15B67B9E90B47 /* UndoManagerMonitorTests.swift in Sources */,
@@ -1997,6 +2011,7 @@
 				1AFB36C169D1CF3F493C9B665FB0BD78 /* TextStorageMonitor.swift in Sources */,
 				BC5D009FDEC0D127A4A7A274D6BECCC1 /* TextViewTextMonitor.swift in Sources */,
 				C45B37CDAD547EEAA133971B7AE26E7E /* TimeMonitor.swift in Sources */,
+				14B95DCCF1ED6132B388867335630166 /* URLCredentialStorageMonitor.swift in Sources */,
 				BF138B01CDFC0792E35B6C4B55935DC4 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				EFC03D57FA0FCDA8B81A5E7A5AA28C10 /* UbiquityIdentityMonitor.swift in Sources */,
 				4178090E14AF17F5DD336EC14BD6574C /* UndoManagerMonitor.swift in Sources */,
@@ -2087,6 +2102,7 @@
 				7AF91B04BA8E7D94B94DE61CA9B012DD /* TextStorageMonitor.swift in Sources */,
 				B8E9BE0B4D61F4B872528C8B0CDEECC9 /* TextViewTextMonitor.swift in Sources */,
 				CFC3FFC9303C7DF3BE7AF520668D1C09 /* TimeMonitor.swift in Sources */,
+				93AD8672718F113AB415D12C7BB5D2DA /* URLCredentialStorageMonitor.swift in Sources */,
 				10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				75C1E65F849757D8B408FEA6B6305002 /* UbiquityIdentityMonitor.swift in Sources */,
 				446B779EBB954E569E1E58C4A4DF7AF4 /* UndoManagerMonitor.swift in Sources */,
@@ -2124,6 +2140,7 @@
 				1449D809A3606968C2B30DE81D39F8A8 /* StandardLocationMonitorTests.swift in Sources */,
 				72D59A400054C98CBBA10D8E14C80984 /* SystemClockMonitorTests.swift in Sources */,
 				FEDAF5F9A5E1594D27F72C97C0A31F63 /* SystemTimeZoneMonitorTests.swift in Sources */,
+				187CFB292F7860593A64536CD1BDA863 /* URLCredentialStorageMonitorTests.swift in Sources */,
 				616F96C96D09839032AA4DF502916A9D /* UbiquitousKeyValueStoreMonitorTests.swift in Sources */,
 				29F9AE80B671E3EF9E2EBF0A50F61925 /* UbiquityIdentityMonitorTests.swift in Sources */,
 				6FAA59E455824C358AB9849FC3057578 /* UndoManagerMonitorTests.swift in Sources */,
@@ -2210,6 +2227,7 @@
 				58AF925A31F9485C47D2874492AE289F /* TextStorageMonitor.swift in Sources */,
 				072EF941DC0777FC649507479727AF82 /* TextViewTextMonitor.swift in Sources */,
 				C9BE53804EE576BF3087939083A9CE2E /* TimeMonitor.swift in Sources */,
+				C9E2D56E4E41858BEBEE577EE5161E22 /* URLCredentialStorageMonitor.swift in Sources */,
 				51D0744C9E287EFFFC1FCEC817B13677 /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
 				49139480D83BA33551EA3E27842AE920 /* UbiquityIdentityMonitor.swift in Sources */,
 				BF0840E9F15E8E74154287959FB34ADF /* UndoManagerMonitor.swift in Sources */,
