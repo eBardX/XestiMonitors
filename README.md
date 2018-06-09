@@ -34,14 +34,14 @@
 
 ## <a name="overview">Overview</a>
 
-The XestiMonitors framework provides more than three dozen fully-functional
-monitor classes right out of the box that make it easy for your app to detect
-and respond to many common system-generated events.
+The XestiMonitors framework provides more than *sixty* fully-functional monitor
+classes right out of the box that make it easy for your app to detect and
+respond to many common system-generated events.
 
 Among other things, you can think of XestiMonitors as a better way to manage
 the most common notifications (primarily on iOS and tvOS). At present,
-XestiMonitors provides “wrappers” around most `UIKit` notifications (see
-[UIKit Monitors](#uikit_monitors)) and some `Foundation` notifications (see
+XestiMonitors provides “wrappers” around nearly all `UIKit` notifications (see
+[UIKit Monitors](#uikit_monitors)) and many `Foundation` notifications (see
 [Foundation Monitors](#foundation_monitors)).
 
 XestiMonitors also provides convenient “wrappers” around several frameworks and
@@ -235,7 +235,7 @@ device:
 
 ### <a name="foundation_monitors">Foundation Monitors</a>
 
-XestiMonitors provides sixteen monitors wrapping
+XestiMonitors provides seventeen monitors wrapping
 [`Foundation` notifications][wrapped_foundation_notifications]:
 
 * [BundleClassLoadMonitor][bundle_class_load_monitor] to monitor a bundle for
@@ -245,8 +245,8 @@ XestiMonitors provides sixteen monitors wrapping
   resources is getting low. *(iOS, tvOS, watchOS)*
 * [CalendarDayMonitor][calendar_day_monitor] to monitor the system for changes
   to the calendar day. *(iOS, macOS, tvOS, watchOS)*
-* [CurrentLocaleMonitor][current_locale_monitor] to monitor the system for changes
-  to the user's locale. *(iOS, macOS, tvOS, watchOS)*
+* [CurrentLocaleMonitor][current_locale_monitor] to monitor the system for
+  changes to the user’s locale. *(iOS, macOS, tvOS, watchOS)*
 * [ExtensionHostMonitor][extension_host_monitor] to monitor an extension
   context for changes to the runtime state of the extension’s host app.
   *(iOS, tvOS, watchOS)*
@@ -263,8 +263,8 @@ XestiMonitors provides sixteen monitors wrapping
 * [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor] to
   monitor the system for changes to the thermal state.
   *(iOS, macOS, tvOS, watchOS)*
-* [SystemClockMonitor][system_clock_monitor] to monitor the system for
-  changes to the clock. *(iOS, macOS, tvOS, watchOS)*
+* [SystemClockMonitor][system_clock_monitor] to monitor the system for changes
+  to the clock. *(iOS, macOS, tvOS, watchOS)*
 * [SystemTimeZoneMonitor][system_time_zone_monitor] to monitor the system for
   changes to the currently used time zone. *(iOS, macOS, tvOS, watchOS)*
 * [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor] to
@@ -275,7 +275,8 @@ XestiMonitors provides sixteen monitors wrapping
 * [UndoManagerMonitor][undo_manager_monitor] to monitor an undo manager for
   changes to its recording of operations. *(iOS, macOS, tvOS, watchOS)*
 * [URLCredentialStorageMonitor][url_credential_storage_monitor] to monitor the
-  system for changes in the credentials storage *(iOS, macOS, tvOS, watchOS)*
+  shared URL credential storage object for changes to its stored credentials.
+  *(iOS, macOS, tvOS, watchOS)*
 * [UserDefaultsMonitor][user_defaults_monitor] to monitor a user defaults
   object for changes to its data. *(iOS, macOS, tvOS, watchOS)*
 
@@ -533,7 +534,7 @@ will *not* be able to override the [startMonitoring()][bm_start_monitoring] and
 ```swift
 import XestiMonitors
 
-class GigaHoobieMonitor: BaseMonitor 
+class GigaHoobieMonitor: BaseMonitor {
     let handler: (Float) -> Void
     @objc let hoobie: GigaHoobie
     private var observation: NSKeyValueObservation?
@@ -637,8 +638,8 @@ XestiMonitors is available under [the MIT license][license].
 [bundle_class_load_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:              https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [calendar_day_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html
-[current_locale_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html
 [content_size_category_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/ContentSizeCategoryMonitor.html
+[current_locale_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html
 [device_motion_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/DeviceMotionMonitor.html
 [document_state_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/DocumentStateMonitor.html
 [extension_host_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
@@ -672,7 +673,7 @@ XestiMonitors is available under [the MIT license][license].
 [significant_location_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SignificantLocationMonitor.html
 [standard_location_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/StandardLocationMonitor.html
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
-[system_clock_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
+[system_clock_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
 [system_time_zone_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
 [text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
@@ -683,6 +684,7 @@ XestiMonitors is available under [the MIT license][license].
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[url_credential_storage_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
 [user_defaults_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
 [view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html

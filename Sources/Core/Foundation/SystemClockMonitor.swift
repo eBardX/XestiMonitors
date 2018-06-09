@@ -19,7 +19,7 @@ public class SystemClockMonitor: BaseNotificationMonitor {
     ///
     public enum Event {
         ///
-        /// The system clock did changed.
+        /// The system clock has changed.
         ///
         case didChange
     }
@@ -35,6 +35,7 @@ public class SystemClockMonitor: BaseNotificationMonitor {
     public init(queue: OperationQueue = .main,
                 handler: @escaping (Event) -> Void) {
         self.handler = handler
+
         super.init(queue: queue)
     }
 

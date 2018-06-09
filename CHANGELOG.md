@@ -1,3 +1,10 @@
+# 2.12.0 (2018-06-09)
+
+* Adds support for three new monitor classes: `CurrentLocaleMonitor`,
+  `SystemClockMonitor`, and `URLCredentialStorageMonitor`.
+* Fixes issues with `MenuControllerMonitor` implementation.
+* Really fixes issues with Swift Package Manager builds.
+
 # 2.11.0 (2018-05-28)
 
 * Adds support for five new monitor classes: `BundleClassLoadMonitor`,

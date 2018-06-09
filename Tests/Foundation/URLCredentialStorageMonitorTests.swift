@@ -1,6 +1,6 @@
 //
 //  URLCredentialStorageMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Angie Mugo on 2018-05-29.
 //
@@ -12,7 +12,7 @@ import XCTest
 
 internal class URLCredentialStorageMonitorTests: XCTestCase {
     let notificationCenter = MockNotificationCenter()
-    let urlCredentialStorage = URLCredentialStorage.shared
+    let credentialStorage = URLCredentialStorage.shared
 
     override func setUp() {
         super.setUp()
@@ -20,29 +20,29 @@ internal class URLCredentialStorageMonitorTests: XCTestCase {
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_didChange() {
+    func testMonitor_changed() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: URLCredentialStorageMonitor.Event?
         let monitor = URLCredentialStorageMonitor(queue: .main) { event in
-                                                     expectedEvent = event
-                                                     expectation.fulfill()
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
-        simulateURLCredentialsStorageDidChange()
+        simulateChanged()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
         if let event = expectedEvent,
-           case let .changed(test) = event {
-            XCTAssertEqual(test, urlCredentialStorage)
+            case let .changed(test) = event {
+            XCTAssertEqual(test, credentialStorage)
         } else {
             XCTFail("Unexpected event")
         }
     }
 
-    func simulateURLCredentialsStorageDidChange() {
+    func simulateChanged() {
         notificationCenter.post(name: .NSURLCredentialStorageChanged,
-                                object: URLCredentialStorage.shared)
+                                object: credentialStorage)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  SystemTimeZoneMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Angie Mugo on 2018-05-13.
 //
@@ -20,7 +20,7 @@ internal class SystemTimeZoneMonitorTests: XCTestCase {
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_TimeZoneDidChange() {
+    func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: SystemTimeZoneMonitor.Event?
         let monitor = SystemTimeZoneMonitor(queue: .main) { event in
@@ -29,7 +29,7 @@ internal class SystemTimeZoneMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateTimeZoneDidChange()
+        simulateDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -40,7 +40,7 @@ internal class SystemTimeZoneMonitorTests: XCTestCase {
         }
     }
 
-    func simulateTimeZoneDidChange() {
+    func simulateDidChange() {
         notificationCenter.post(name: .NSSystemTimeZoneDidChange,
                                 object: nil)
     }

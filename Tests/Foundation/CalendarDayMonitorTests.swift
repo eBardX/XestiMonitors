@@ -16,12 +16,11 @@ internal class CalenderDayMonitorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        NotificationCenterInjector.inject = { return
-            self.notificationCenter
-        }
+
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_CalendarDayChanged() {
+    func testMonitor_changed() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: CalendarDayMonitor.Event?
         let monitor = CalendarDayMonitor(queue: .main) { event in
@@ -30,7 +29,7 @@ internal class CalenderDayMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateCalendarDayChanged()
+        simulateChanged()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -41,7 +40,7 @@ internal class CalenderDayMonitorTests: XCTestCase {
         }
     }
 
-    func simulateCalendarDayChanged() {
+    func simulateChanged() {
         notificationCenter.post(name: .NSCalendarDayChanged, object: nil)
     }
 }

@@ -16,12 +16,11 @@ internal class SystemClockMonitorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        NotificationCenterInjector.inject = { return
-            self.notificationCenter
-        }
+
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_SystemClockDidChange() {
+    func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: SystemClockMonitor.Event?
         let monitor = SystemClockMonitor(queue: .main) { event in
@@ -30,7 +29,7 @@ internal class SystemClockMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateSystemClockDidChange()
+        simulateDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -41,7 +40,8 @@ internal class SystemClockMonitorTests: XCTestCase {
         }
     }
 
-    func simulateSystemClockDidChange() {
-        notificationCenter.post(name: .NSSystemClockDidChange, object: nil)
+    func simulateDidChange() {
+        notificationCenter.post(name: .NSSystemClockDidChange,
+                                object: nil)
     }
 }

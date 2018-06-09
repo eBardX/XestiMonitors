@@ -16,12 +16,11 @@ internal class CurrentLocaleMonitorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        NotificationCenterInjector.inject = {
-            return self.notificationCenter
-        }
+
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_CurrentLocaleDidChange() {
+    func testMonitor_didChange() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: CurrentLocaleMonitor.Event?
         let monitor = CurrentLocaleMonitor(queue: .main) { event in
@@ -30,7 +29,7 @@ internal class CurrentLocaleMonitorTests: XCTestCase {
         }
 
         monitor.startMonitoring()
-        simulateCurrentLocaleDidChange()
+        simulateDidChange()
         waitForExpectations(timeout: 1)
         monitor.stopMonitoring()
 
@@ -41,7 +40,8 @@ internal class CurrentLocaleMonitorTests: XCTestCase {
         }
     }
 
-    private func simulateCurrentLocaleDidChange() {
-        notificationCenter.post(name: NSLocale.currentLocaleDidChangeNotification, object: nil)
+    private func simulateDidChange() {
+        notificationCenter.post(name: NSLocale.currentLocaleDidChangeNotification,
+                                object: nil)
     }
 }

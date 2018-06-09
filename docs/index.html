@@ -232,6 +232,12 @@
                 <a class="nav-group-task-link" href="Classes/CalendarDayMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CurrentLocaleMonitor.html">CurrentLocaleMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CurrentLocaleMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/ExtensionHostMonitor.html">ExtensionHostMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -280,6 +286,12 @@
                 <a class="nav-group-task-link" href="Classes/ProcessInfoThermalStateMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SystemClockMonitor.html">SystemClockMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SystemClockMonitor/Event.html">– Event</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SystemTimeZoneMonitor.html">SystemTimeZoneMonitor</a>
               </li>
               <li class="nav-group-task">
@@ -308,6 +320,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/UndoManagerMonitor/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/URLCredentialStorageMonitor.html">URLCredentialStorageMonitor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/URLCredentialStorageMonitor/Event.html">– Event</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/UserDefaultsMonitor.html">UserDefaultsMonitor</a>
@@ -668,14 +686,14 @@
 </ul>
 <h2 id='a-name-overview-overview-a' class='heading'><a name="overview">Overview</a></h2>
 
-<p>The XestiMonitors framework provides more than three dozen fully-functional
-monitor classes right out of the box that make it easy for your app to detect
-and respond to many common system-generated events.</p>
+<p>The XestiMonitors framework provides more than <em>sixty</em> fully-functional monitor
+classes right out of the box that make it easy for your app to detect and
+respond to many common system-generated events.</p>
 
 <p>Among other things, you can think of XestiMonitors as a better way to manage
 the most common notifications (primarily on iOS and tvOS). At present,
-XestiMonitors provides “wrappers” around most <code>UIKit</code> notifications (see
-<a href="#uikit_monitors">UIKit Monitors</a>) and some <code>Foundation</code> notifications (see
+XestiMonitors provides “wrappers” around nearly all <code>UIKit</code> notifications (see
+<a href="#uikit_monitors">UIKit Monitors</a>) and many <code>Foundation</code> notifications (see
 <a href="#foundation_monitors">Foundation Monitors</a>).</p>
 
 <p>XestiMonitors also provides convenient “wrappers” around several frameworks and
@@ -851,7 +869,7 @@ historic walking data. <em>(iOS, watchOS)</em></li>
 </ul>
 <h3 id='a-name-foundation_monitors-foundation-monitors-a' class='heading'><a name="foundation_monitors">Foundation Monitors</a></h3>
 
-<p>XestiMonitors provides fourteen monitors wrapping
+<p>XestiMonitors provides seventeen monitors wrapping
 <a href="https://github.com/eBardX/XestiMonitors/blob/master/Documents/wrapped-foundation-notifications.md"><code>Foundation</code> notifications</a>:</p>
 
 <ul>
@@ -862,6 +880,8 @@ the system to detect if the amount of available disk space for on-demand
 resources is getting low. <em>(iOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html">CalendarDayMonitor</a> to monitor the system for changes
 to the calendar day. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html">CurrentLocaleMonitor</a> to monitor the system for
+changes to the user’s locale. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html">ExtensionHostMonitor</a> to monitor an extension
 context for changes to the runtime state of the extension’s host app.
 <em>(iOS, tvOS, watchOS)</em></li>
@@ -878,6 +898,8 @@ disabled). <em>(iOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html">ProcessInfoThermalStateMonitor</a> to
 monitor the system for changes to the thermal state.
 <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html">SystemClockMonitor</a> to monitor the system for changes
+to the clock. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html">SystemTimeZoneMonitor</a> to monitor the system for
 changes to the currently used time zone. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html">UbiquitousKeyValueStoreMonitor</a> to
@@ -887,6 +909,9 @@ data pushed from iCloud. <em>(iOS, macOS, tvOS)</em></li>
 for changes to the iCloud (”ubiquity”) identity. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html">UndoManagerMonitor</a> to monitor an undo manager for
 changes to its recording of operations. <em>(iOS, macOS, tvOS, watchOS)</em></li>
+<li><a href="https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html">URLCredentialStorageMonitor</a> to monitor the
+shared URL credential storage object for changes to its stored credentials.
+<em>(iOS, macOS, tvOS, watchOS)</em></li>
 <li><a href="https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html">UserDefaultsMonitor</a> to monitor a user defaults
 object for changes to its data. <em>(iOS, macOS, tvOS, watchOS)</em></li>
 </ul>

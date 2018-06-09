@@ -1,6 +1,6 @@
 # Wrapped Foundation Notifications
 
-XestiMonitors provides several monitors wrapping the following `Foundation`
+XestiMonitors provides numerous monitors wrapping the following `Foundation`
 notifications:
 
 Notification Name                                           | Platform(s)               | Monitor
@@ -19,13 +19,13 @@ Notification Name                                           | Platform(s)       
 `NSFileHandleReadToEndOfFileCompletion`                     | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSHTTPCookieManagerAcceptPolicyChanged`                    | iOS, macOS, tvOS, watchOS | [HTTPCookieStorageMonitor][http_cookie_storage_monitor]
 `NSHTTPCookieManagerCookiesChanged`                         | iOS, macOS, tvOS, watchOS | [HTTPCookieStorageMonitor][http_cookie_storage_monitor]
-`NSLocale.currentLocaleDidChangeNotification`               | iOS, macOS, tvOS, watchOS | CurrentLocaleMonitor (_see_ [#56](https://github.com/eBardX/XestiMonitors/issues/56))
+`NSLocale.currentLocaleDidChangeNotification`               | iOS, macOS, tvOS, watchOS | [CurrentLocaleMonitor][current_locale_monitor]
 `NSMetadataQueryDidFinishGathering`                         | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryDidStartGathering`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryDidUpdate`                                  | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSMetadataQueryGatheringProgress`                          | iOS, macOS, tvOS, watchOS | [MetadataQueryMonitor][metadata_query_monitor]
 `NSProcessInfoPowerStateDidChange`                          | iOS,        tvOS, watchOS | [ProcessInfoPowerStateMonitor][process_info_power_state_monitor]
-`NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | SystemClockMonitor (_see_ [#53](https://github.com/eBardX/XestiMonitors/issues/53))
+`NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | [SystemClockMonitor][system_clock_monitor]
 `NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | [SystemTimeZoneMonitor][system_time_zone_monitor]
 `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
@@ -51,15 +51,17 @@ Notification Name                                           | Platform(s)       
 [bundle_class_load_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/BundleClassLoadMonitor.html
 [bundle_resource_request_monitor]:      https://eBardX.github.io/XestiMonitors/Classes/BundleResourceRequestMonitor.html
 [calendar_day_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/CalendarDayMonitor.html
+[current_locale_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
 [process_info_thermal_state_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html
+[system_clock_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
 [system_time_zone_monitor]:             https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
-[url_credential_storage_monitor]:       [https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
+[url_credential_storage_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
 [user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html

@@ -19,9 +19,7 @@ internal class PasteboardMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.inject = {
-            return self.notificationCenter
-        }
+        NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
     func testMonitor_changed1() {

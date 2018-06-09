@@ -1,6 +1,6 @@
 //
 //  HTTPCookiesStorageMonitorTests.swift
-//  XestiMonitors
+//  XestiMonitorsTests
 //
 //  Created by Angie Mugo on 2018-05-15.
 //
@@ -21,7 +21,7 @@ internal class HTTPCookiesStorageMonitorTests: XCTestCase {
         NotificationCenterInjector.inject = { return self.notificationCenter }
     }
 
-    func testMonitor_cookieAcceptPolicyChanged() {
+    func testMonitor_acceptPolicyChanged() {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: HTTPCookiesStorageMonitor.Event?
         let monitor = HTTPCookiesStorageMonitor(cookieStorage: cookieStorage,
