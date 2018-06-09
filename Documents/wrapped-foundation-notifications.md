@@ -38,7 +38,7 @@ Notification Name                                           | Platform(s)       
 `NSUndoManagerWillCloseUndoGroup`                           | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSUndoManagerWillRedoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
 `NSUndoManagerWillUndoChange`                               | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
-`NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | URLCredentialStorageMonitor (_see_ [#50](https://github.com/eBardX/XestiMonitors/issues/50))
+`NSURLCredentialStorageChanged`                             | iOS, macOS, tvOS, watchOS | [URLCredentialStorageMonitor][url_credential_storage_monitor]
 `NSWillBecomeMultiThreaded`                                 | iOS, macOS, tvOS, watchOS | _Not yet implemented_
 `Port.didBecomeInvalidNotification`                         | iOS, macOS, tvOS, watchOS | [PortMonitor][port_monitor]
 `ProcessInfo.thermalStateDidChangeNotification`             | iOS, macOS, tvOS, watchOS | [ProcessInfoThermalStateMonitor][process_info_thermal_state_monitor]
@@ -61,5 +61,5 @@ Notification Name                                           | Platform(s)       
 [ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
+[url_credential_storage_monitor]:       [https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
 [user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
-
