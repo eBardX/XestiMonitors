@@ -16,6 +16,9 @@
 * [Reference Documentation](#reference_documentation)
 * [Requirements](#requirements)
 * [Installation](#installation)
+    * [CocoaPods](#cocoapods_installation)
+    * [Carthage](#carthage_installation)
+    * [Swift Package Manager](#spm_installation)
 * [Usage](#usage)
     * [Core Location Monitors](#core_location_monitors)
     * [Core Motion Monitors](#core_motion_monitors)
@@ -76,19 +79,19 @@ Full [reference documentation][refdoc] is available courtesy of [Jazzy][jazzy].
 
 ## <a name="installation">Installation</a>
 
-### CocoaPods
+### <a name="cocoapods_installation">CocoaPods</a>
 
 [CocoaPods][cocoapods] is a dependency manager for Cocoa projects. You can
 install it with the following command:
 
-```bash
+```
 $ gem install cocoapods
 ```
 
 To integrate XestiMonitors into your Xcode project using CocoaPods, specify it
 in your `Podfile`:
 
-```ruby
+```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
@@ -100,18 +103,18 @@ end
 
 Then, run the following command:
 
-```bash
+```
 $ pod install
 ```
 
-### Carthage
+### <a name="carthage_installation">Carthage</a>
 
 [Carthage][carthage] is a decentralized dependency manager that builds your
 dependencies and provides you with binary frameworks.
 
-You can install Carthage with [Homebrew][homebrew] using the following command:
+You can install Carthage with [Homebrew][homebrew] using the following commands:
 
-```bash
+```
 $ brew update
 $ brew install carthage
 ```
@@ -119,14 +122,19 @@ $ brew install carthage
 To integrate XestiMonitors into your Xcode project using Carthage, specify it
 in your `Cartfile`:
 
-```ogdl
+```
 github "eBardX/XestiMonitors"
 ```
 
-Run `carthage update` to build the framework and drag the built
-`XestiMonitors.framework` into your Xcode project.
+Then, run the following command:
 
-### Swift Package Manager
+```
+$ carthage update
+```
+
+Finally, drag the built `XestiMonitors.framework` into your Xcode project.
+
+### <a name="spm_installation">Swift Package Manager</a>
 
 The [Swift Package Manager][spm] is a tool for automating the distribution of
 Swift code and is integrated into the swift compiler. It is in early
@@ -135,7 +143,7 @@ development, but XestiMonitors does support its use on supported platforms.
 Once you have your Swift package set up, adding XestiMonitors as a dependency
 is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
-```swift
+```
 dependencies: [
     .Package(url: "https://github.com/eBardX/XestiMonitors.git")
 ]
@@ -151,7 +159,7 @@ For example, in a view controller, you can lazily instantiate several
 monitors and, in addition, lazily instantiate an array variable containing
 these monitors:
 
-```swift
+```
 import XestiMonitors
 
 lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
@@ -171,7 +179,7 @@ lazy var monitors: [Monitor] = [keyboardMonitor,
 Then, in the `viewWillAppear(_:)` and `viewWillDisappear(_:)` methods, you can
 simply start or stop all these monitors with a single line of code:
 
-```swift
+```
 override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     monitors.forEach { $0.startMonitoring() }
@@ -388,7 +396,7 @@ In addition, XestiMonitors provides nine other `UIKit` monitors:
 boilerplate code from your app. This is how keyboard monitoring is typically
 handled in a custom view controller:
 
-```swift
+```
 func keyboardWillHide(_ notification: Notification) {
     let userInfo = notification.userInfo
     var animationDuration: TimeInterval = 0
@@ -434,7 +442,7 @@ override func viewWillDisappear(_ animated: Bool) {
 
 And this is the XestiMonitors way using [KeyboardMonitor][keyboard_monitor]:
 
-```swift
+```
 import XestiMonitors
 
 lazy var keyboardMonitor = KeyboardMonitor { [unowned self] event in
@@ -492,7 +500,7 @@ You can create a new class, or extend an existing class, that conforms to the
 [stopMonitoring()][m_stop_monitoring] methods, as well as the
 [isMonitoring][m_is_monitoring] property:
 
-```swift
+```
 import XestiMonitors
 
 extension MegaHoobieWatcher: Monitor {
@@ -531,7 +539,7 @@ will *not* be able to override the [startMonitoring()][bm_start_monitoring] and
 [isMonitoring][bm_is_monitoring] property—they are declared `final` in
 [BaseMonitor][base_monitor].
 
-```swift
+```
 import XestiMonitors
 
 class GigaHoobieMonitor: BaseMonitor {
@@ -578,7 +586,7 @@ stopping the monitor. Although this base class inherits from
 [cleanupMonitor()][bnm_cleanupMonitor] methods—they are declared `final` in
 [BaseNotificationMonitor][base_notification_monitor].
 
-```swift
+```
 import XestiMonitors
 
 class TeraHoobieMonitor: BaseNotificationMonitor {
