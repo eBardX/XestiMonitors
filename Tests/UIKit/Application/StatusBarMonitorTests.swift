@@ -29,7 +29,9 @@ internal class StatusBarMonitorTests: XCTestCase {
     func testFrame() {
         let expectedFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
         let monitor = StatusBarMonitor(options: .didChangeFrame,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDidChangeFrame(to: expectedFrame)
 
@@ -42,6 +44,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .didChangeFrame,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -65,6 +69,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .didChangeOrientation,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -88,6 +94,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .willChangeFrame,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -111,6 +119,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .willChangeFrame,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -135,6 +145,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .willChangeOrientation,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -158,6 +170,8 @@ internal class StatusBarMonitorTests: XCTestCase {
         var expectedEvent: StatusBarMonitor.Event?
         let monitor = StatusBarMonitor(options: .willChangeOrientation,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -179,7 +193,9 @@ internal class StatusBarMonitorTests: XCTestCase {
     func testOrientation() {
         let expectedOrientation: UIInterfaceOrientation = .landscapeLeft
         let monitor = StatusBarMonitor(options: .didChangeOrientation,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDidChangeOrientation(to: expectedOrientation)
 

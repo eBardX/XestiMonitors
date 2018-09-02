@@ -23,7 +23,9 @@ internal class HeadingMonitorTests: XCTestCase {
     func testDismissCalibrationDisplay() {
         locationManager.hideHeadingCalibrationDisplay()
 
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.shouldDisplayCalibration = true
 
@@ -36,7 +38,9 @@ internal class HeadingMonitorTests: XCTestCase {
 
     func testFilter_get() {
         let expectedFilter: CLLocationDegrees = 13
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.headingFilter = expectedFilter
 
@@ -45,7 +49,9 @@ internal class HeadingMonitorTests: XCTestCase {
 
     func testFilter_set() {
         let expectedFilter: CLLocationDegrees = 31
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.filter = expectedFilter
 
@@ -53,7 +59,9 @@ internal class HeadingMonitorTests: XCTestCase {
     }
 
     func testHeading_nil() {
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateHeading(forceHeading: nil)
 
@@ -62,7 +70,9 @@ internal class HeadingMonitorTests: XCTestCase {
 
     func testHeading_nonnil() {
         let expectedHeading = CLHeading()
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateHeading(forceHeading: expectedHeading)
 
@@ -74,7 +84,9 @@ internal class HeadingMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateHeading(available: false)
 
@@ -82,7 +94,9 @@ internal class HeadingMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateHeading(available: true)
 
@@ -94,6 +108,8 @@ internal class HeadingMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: HeadingMonitor.Event?
         let monitor = HeadingMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -117,6 +133,8 @@ internal class HeadingMonitorTests: XCTestCase {
         let expectedHeading = CLHeading()
         var expectedEvent: HeadingMonitor.Event?
         let monitor = HeadingMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -137,7 +155,9 @@ internal class HeadingMonitorTests: XCTestCase {
 
     func testOrientation_get() {
         let expectedOrientation: CLDeviceOrientation = .landscapeLeft
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.headingOrientation = expectedOrientation
 
@@ -146,7 +166,9 @@ internal class HeadingMonitorTests: XCTestCase {
 
     func testOrientation_set() {
         let expectedOrientation: CLDeviceOrientation = .landscapeRight
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.orientation = expectedOrientation
 
@@ -156,7 +178,9 @@ internal class HeadingMonitorTests: XCTestCase {
     func testShouldDisplayCalibration_false() {
         locationManager.hideHeadingCalibrationDisplay()
 
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.shouldDisplayCalibration = false
 
@@ -168,7 +192,9 @@ internal class HeadingMonitorTests: XCTestCase {
     func testShouldDisplayCalibration_true() {
         locationManager.hideHeadingCalibrationDisplay()
 
-        let monitor = HeadingMonitor(queue: .main) { _ in }
+        let monitor = HeadingMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.shouldDisplayCalibration = true
 

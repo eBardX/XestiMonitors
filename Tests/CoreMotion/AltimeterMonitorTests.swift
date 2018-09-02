@@ -21,7 +21,9 @@ internal class AltimeterMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = AltimeterMonitor(queue: .main) { _ in }
+        let monitor = AltimeterMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         altimeter.updateAltimeter(available: false)
 
@@ -29,7 +31,9 @@ internal class AltimeterMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = AltimeterMonitor(queue: .main) { _ in }
+        let monitor = AltimeterMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         altimeter.updateAltimeter(available: true)
 
@@ -41,6 +45,8 @@ internal class AltimeterMonitorTests: XCTestCase {
         let expectedData = CMAltitudeData()
         var expectedEvent: AltimeterMonitor.Event?
         let monitor = AltimeterMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -65,6 +71,8 @@ internal class AltimeterMonitorTests: XCTestCase {
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: AltimeterMonitor.Event?
         let monitor = AltimeterMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -87,6 +95,8 @@ internal class AltimeterMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: AltimeterMonitor.Event?
         let monitor = AltimeterMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

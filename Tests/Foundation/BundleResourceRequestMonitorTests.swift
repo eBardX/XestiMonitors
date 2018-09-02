@@ -23,6 +23,8 @@ internal class BundleResourceRequestMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: BundleResourceRequestMonitor.Event?
         let monitor = BundleResourceRequestMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

@@ -30,6 +30,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(options: .didBecomeActive,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -51,6 +53,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(options: .didEnterBackground,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -94,6 +98,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(options: .willEnterForeground,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -115,6 +121,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(options: .willResignActive,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -136,6 +144,8 @@ internal class ApplicationStateMonitorTests: XCTestCase {
         var expectedEvent: ApplicationStateMonitor.Event?
         let monitor = ApplicationStateMonitor(options: .willTerminate,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -155,7 +165,9 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     func testState() {
         let expectedState: UIApplicationState = .background
         let monitor = ApplicationStateMonitor(options: .didEnterBackground,
-                                              queue: .main) { _ in }
+                                              queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDidEnterBackground()
 

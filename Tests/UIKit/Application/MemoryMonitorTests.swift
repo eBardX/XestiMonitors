@@ -27,6 +27,8 @@ internal class MemoryMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MemoryMonitor.Event?
         let monitor = MemoryMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

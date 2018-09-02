@@ -27,6 +27,8 @@ internal class ScreenCapturedMonitorTests: XCTestCase {
             var expectedEvent: ScreenCapturedMonitor.Event?
             let monitor = ScreenCapturedMonitor(screen: screen,
                                                 queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
             }

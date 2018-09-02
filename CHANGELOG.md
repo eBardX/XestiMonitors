@@ -7,6 +7,18 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [2.12.1] - 2018-09-02
+
+### Changed
+
+- Enhances unit testing to ensure that handler is executed on correct operation
+  queue.
+
+### Fixed
+
+- Issues with `FileSystemObjectMonitor` and `HTTPCookieStorageMonitor` handlers
+  being executed on incorrect operation queues.
+
 ## [2.12.0] - 2018-06-09
 
 ### Added
@@ -192,7 +204,8 @@ Major rewrite.
 
 Initial release.
 
-[Unreleased]:   https://github.com/eBardX/XestiMonitors/compare/v2.12.0...HEAD
+[Unreleased]:   https://github.com/eBardX/XestiMonitors/compare/v2.12.1...HEAD
+[2.12.1]:       https://github.com/eBardX/XestiMonitors/compare/v2.12.0...v2.12.1
 [2.12.0]:       https://github.com/eBardX/XestiMonitors/compare/v2.11.0...v2.12.0
 [2.11.0]:       https://github.com/eBardX/XestiMonitors/compare/v2.10.0...v2.11.0
 [2.10.0]:       https://github.com/eBardX/XestiMonitors/compare/v2.9.0...v2.10.0

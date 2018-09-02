@@ -661,7 +661,13 @@
 <li><a href="#overview">Overview</a></li>
 <li><a href="#reference_documentation">Reference Documentation</a></li>
 <li><a href="#requirements">Requirements</a></li>
-<li><a href="#installation">Installation</a></li>
+<li><a href="#installation">Installation</a>
+
+<ul>
+<li><a href="#cocoapods_installation">CocoaPods</a></li>
+<li><a href="#carthage_installation">Carthage</a></li>
+<li><a href="#spm_installation">Swift Package Manager</a></li>
+</ul></li>
 <li><a href="#usage">Usage</a>
 
 <ul>
@@ -728,35 +734,35 @@ monitors. See <a href="#custom_monitors">Custom Monitors</a> for details.</p>
 <li>Swift 4.0+</li>
 </ul>
 <h2 id='a-name-installation-installation-a' class='heading'><a name="installation">Installation</a></h2>
-<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+<h3 id='a-name-cocoapods_installation-cocoapods-a' class='heading'><a name="cocoapods_installation">CocoaPods</a></h3>
 
 <p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can
 install it with the following command:</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
+<pre class="highlight plaintext"><code>$ gem install cocoapods
 </code></pre>
 
 <p>To integrate XestiMonitors into your Xcode project using CocoaPods, specify it
 in your <code>Podfile</code>:</p>
-<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
-<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
-<span class="n">use_frameworks!</span>
+<pre class="highlight plaintext"><code>source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
 
-<span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">'XestiMonitors'</span>
-<span class="k">end</span>
+target '&lt;Your Target Name&gt;' do
+    pod 'XestiMonitors'
+end
 </code></pre>
 
 <p>Then, run the following command:</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+<pre class="highlight plaintext"><code>$ pod install
 </code></pre>
-<h3 id='carthage' class='heading'>Carthage</h3>
+<h3 id='a-name-carthage_installation-carthage-a' class='heading'><a name="carthage_installation">Carthage</a></h3>
 
 <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your
 dependencies and provides you with binary frameworks.</p>
 
-<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>brew update
-<span class="gp">$ </span>brew install carthage
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following commands:</p>
+<pre class="highlight plaintext"><code>$ brew update
+$ brew install carthage
 </code></pre>
 
 <p>To integrate XestiMonitors into your Xcode project using Carthage, specify it
@@ -764,9 +770,12 @@ in your <code>Cartfile</code>:</p>
 <pre class="highlight plaintext"><code>github "eBardX/XestiMonitors"
 </code></pre>
 
-<p>Run <code>carthage update</code> to build the framework and drag the built
-<code>XestiMonitors.framework</code> into your Xcode project.</p>
-<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+<p>Then, run the following command:</p>
+<pre class="highlight plaintext"><code>$ carthage update
+</code></pre>
+
+<p>Finally, drag the built <code>XestiMonitors.framework</code> into your Xcode project.</p>
+<h3 id='a-name-spm_installation-swift-package-manager-a' class='heading'><a name="spm_installation">Swift Package Manager</a></h3>
 
 <p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for automating the distribution of
 Swift code and is integrated into the swift compiler. It is in early
@@ -774,9 +783,9 @@ development, but XestiMonitors does support its use on supported platforms.</p>
 
 <p>Once you have your Swift package set up, adding XestiMonitors as a dependency
 is as easy as adding it to the <code>dependencies</code> value of your <code>Package.swift</code>.</p>
-<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-    <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/eBardX/XestiMonitors.git"</span><span class="p">)</span>
-<span class="p">]</span>
+<pre class="highlight plaintext"><code>dependencies: [
+    .Package(url: "https://github.com/eBardX/XestiMonitors.git")
+]
 </code></pre>
 <h2 id='a-name-usage-usage-a' class='heading'><a name="usage">Usage</a></h2>
 
@@ -787,33 +796,33 @@ stopped uniformly—fewer lines of code!</p>
 <p>For example, in a view controller, you can lazily instantiate several
 monitors and, in addition, lazily instantiate an array variable containing
 these monitors:</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">XestiMonitors</span>
+<pre class="highlight plaintext"><code>import XestiMonitors
 
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span> <span class="o">=</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
-    <span class="c1">// do something…</span>
-<span class="p">}</span>
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">memoryMonitor</span> <span class="o">=</span> <span class="kt">MemoryMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
-    <span class="c1">// do something…</span>
-<span class="p">}</span>
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">orientationMonitor</span> <span class="o">=</span> <span class="kt">OrientationMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
-    <span class="c1">// do something…</span>
-<span class="p">}</span>
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">monitors</span><span class="p">:</span> <span class="p">[</span><span class="kt">Monitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">keyboardMonitor</span><span class="p">,</span>
-                                <span class="n">memoryMonitor</span><span class="p">,</span>
-                                <span class="n">orientationMonitor</span><span class="p">]</span>
+lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
+    // do something…
+}
+lazy var memoryMonitor = MemoryMonitor { [unowned self] in
+    // do something…
+}
+lazy var orientationMonitor = OrientationMonitor { [unowned self] in
+    // do something…
+}
+lazy var monitors: [Monitor] = [keyboardMonitor,
+                                memoryMonitor,
+                                orientationMonitor]
 </code></pre>
 
 <p>Then, in the <code>viewWillAppear(_:)</code> and <code>viewWillDisappear(_:)</code> methods, you can
 simply start or stop all these monitors with a single line of code:</p>
-<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">startMonitoring</span><span class="p">()</span> <span class="p">}</span>
-<span class="p">}</span>
+<pre class="highlight plaintext"><code>override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    monitors.forEach { $0.startMonitoring() }
+}
 
-<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">monitors</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">stopMonitoring</span><span class="p">()</span> <span class="p">}</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-<span class="p">}</span>
+override func viewWillDisappear(_ animated: Bool) {
+    monitors.forEach { $0.stopMonitoring() }
+    super.viewWillDisappear(animated)
+}
 </code></pre>
 
 <p>Easy peasy!</p>
@@ -1028,80 +1037,80 @@ visibility or key status. <em>(iOS, tvOS)</em></li>
 <p><a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a> is especially handy in removing lots of
 boilerplate code from your app. This is how keyboard monitoring is typically
 handled in a custom view controller:</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">keyboardWillHide</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
-    <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardAnimationDurationUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSNumber</span><span class="p">)?</span><span class="o">.</span><span class="n">doubleValue</span> <span class="p">{</span>
-        <span class="n">animationDuration</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="p">}</span>
-    <span class="n">constraint</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="n">animationDuration</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">layoutIfNeeded</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<pre class="highlight plaintext"><code>func keyboardWillHide(_ notification: Notification) {
+    let userInfo = notification.userInfo
+    var animationDuration: TimeInterval = 0
+    if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
+        animationDuration = value
+    }
+    constraint.constant = 0
+    UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+    }
+}
 
-<span class="kd">func</span> <span class="nf">keyboardWillShow</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">userInfo</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">userInfo</span>
-    <span class="k">var</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardAnimationDurationUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSNumber</span><span class="p">)?</span><span class="o">.</span><span class="n">doubleValue</span> <span class="p">{</span>
-        <span class="n">animationDuration</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="p">}</span>
-    <span class="k">var</span> <span class="nv">frameEnd</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="o">.</span><span class="n">zero</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">userInfo</span><span class="p">?[</span><span class="kt">UIKeyboardFrameEndUserInfoKey</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">NSValue</span><span class="p">)?</span><span class="o">.</span><span class="n">cgRectValue</span> <span class="p">{</span>
-        <span class="n">frameEnd</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="p">}</span>
-    <span class="n">constraint</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">frameEnd</span><span class="o">.</span><span class="n">height</span>
-    <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="n">animationDuration</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">layoutIfNeeded</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+func keyboardWillShow(_ notification: Notification) {
+    let userInfo = notification.userInfo
+    var animationDuration: TimeInterval = 0
+    if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
+        animationDuration = value
+    }
+    var frameEnd = CGRect.zero
+    if let value = (userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        frameEnd = value
+    }
+    constraint.constant = frameEnd.height
+    UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+    }
+}
 
-<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-    <span class="k">let</span> <span class="nv">nc</span> <span class="o">=</span> <span class="kt">NotificationCenter</span><span class="o">.</span><span class="err">`</span><span class="k">default</span><span class="err">`</span>
-    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillHide(_:)</span><span class="kd">)</span><span class="p">,</span>
-                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillHide</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-    <span class="n">nc</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">keyboardWillShow(_:)</span><span class="kd">)</span><span class="p">,</span>
-                   <span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="kt">UIKeyboardWillShow</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="p">}</span>
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    let nc = NotificationCenter.`default`
+    nc.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                   name: .UIKeyboardWillHide, object: nil)
+    nc.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                   name: .UIKeyboardWillShow, object: nil)
+}
 
-<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">NotificationCenter</span><span class="o">.</span><span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="o">.</span><span class="nf">removeObserver</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-<span class="p">}</span>
+override func viewWillDisappear(_ animated: Bool) {
+    NotificationCenter.`default`.removeObserver(self)
+    super.viewWillDisappear(animated)
+}
 </code></pre>
 
 <p>And this is the XestiMonitors way using <a href="https://eBardX.github.io/XestiMonitors/Classes/KeyboardMonitor.html">KeyboardMonitor</a>:</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">XestiMonitors</span>
+<pre class="highlight plaintext"><code>import XestiMonitors
 
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">keyboardMonitor</span> <span class="o">=</span> <span class="kt">KeyboardMonitor</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="n">event</span> <span class="k">in</span>
-    <span class="k">guard</span> <span class="k">let</span> <span class="nv">constraint</span> <span class="o">=</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">constraint</span><span class="p">,</span>
-          <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">view</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-    <span class="k">switch</span> <span class="n">event</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">willHide</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
-        <span class="n">constraint</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">animationDuration</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">view</span><span class="o">.</span><span class="nf">layoutIfNeeded</span><span class="p">()</span>
-        <span class="p">}</span>
-    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">willShow</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
-        <span class="n">constraint</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">frameEnd</span><span class="o">.</span><span class="n">height</span>
-        <span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">animationDuration</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">view</span><span class="o">.</span><span class="nf">layoutIfNeeded</span><span class="p">()</span>
-        <span class="p">}</span>
-    <span class="k">default</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+lazy var keyboardMonitor = KeyboardMonitor { [unowned self] event in
+    guard let constraint = self?.constraint,
+          let view = self?.view else { return }
+    switch event {
+    case let .willHide(info):
+        constraint.constant = 0
+        UIView.animate(withDuration: info.animationDuration) {
+            view.layoutIfNeeded()
+        }
+    case let .willShow(info):
+        constraint.constant = info.frameEnd.height
+        UIView.animate(withDuration: info.animationDuration) {
+            view.layoutIfNeeded()
+        }
+    default:
+        break
+    }
+}
 
-<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-    <span class="n">keyboardMonitor</span><span class="o">.</span><span class="nf">startMonitoring</span><span class="p">()</span>
-<span class="p">}</span>
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    keyboardMonitor.startMonitoring()
+}
 
-<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">keyboardMonitor</span><span class="o">.</span><span class="nf">stopMonitoring</span><span class="p">()</span>
-    <span class="k">super</span><span class="o">.</span><span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-<span class="p">}</span>
+override func viewWillDisappear(_ animated: Bool) {
+    keyboardMonitor.stopMonitoring()
+    super.viewWillDisappear(animated)
+}
 </code></pre>
 
 <p>What’s in <em>your</em> wallet?</p>
@@ -1127,21 +1136,21 @@ own custom monitors quite easily.</p>
 <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb">startMonitoring()</a> and
 <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor14stopMonitoringFT_Sb">stopMonitoring()</a> methods, as well as the
 <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:vP13XestiMonitors7Monitor12isMonitoringSb">isMonitoring</a> property:</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">XestiMonitors</span>
+<pre class="highlight plaintext"><code>import XestiMonitors
 
-<span class="kd">extension</span> <span class="kt">MegaHoobieWatcher</span><span class="p">:</span> <span class="kt">Monitor</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">isMonitoring</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">watchingForHoobiesCount</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+extension MegaHoobieWatcher: Monitor {
+    var isMonitoring: Bool { return watchingForHoobiesCount() &gt; 0 }
 
-    <span class="kd">func</span> <span class="nf">startMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">guard</span> <span class="o">!</span><span class="n">isMonitoring</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-        <span class="nf">beginWatchingForHoobies</span><span class="p">()</span>
-    <span class="p">}</span>
+    func startMonitoring() -&gt; Bool {
+        guard !isMonitoring else { return }
+        beginWatchingForHoobies()
+    }
 
-    <span class="kd">func</span> <span class="nf">stopMonitoring</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">guard</span> <span class="n">isMonitoring</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-        <span class="nf">endWatchingForHoobies</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    func stopMonitoring() -&gt; Bool {
+        guard isMonitoring else { return }
+        endWatchingForHoobies()
+    }
+}
 </code></pre>
 
 <p><strong>Note:</strong> The guard statements in both <a href="https://ebardx.github.io/XestiMonitors/Protocols/Monitor.html#/s:FP13XestiMonitors7Monitor15startMonitoringFT_Sb">startMonitoring()</a>
@@ -1163,30 +1172,30 @@ will <em>not</em> be able to override the <a href="https://eBardX.github.io/Xest
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:FC13XestiMonitors11BaseMonitor14stopMonitoringFT_Sb">stopMonitoring()</a> methods or the
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html#/s:vC13XestiMonitors11BaseMonitor12isMonitoringSb">isMonitoring</a> property—they are declared <code>final</code> in
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseMonitor.html">BaseMonitor</a>.</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">XestiMonitors</span>
+<pre class="highlight plaintext"><code>import XestiMonitors
 
-<span class="kd">class</span> <span class="kt">GigaHoobieMonitor</span><span class="p">:</span> <span class="kt">BaseMonitor</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">handler</span><span class="p">:</span> <span class="p">(</span><span class="kt">Float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
-    <span class="kd">@objc</span> <span class="k">let</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">GigaHoobie</span>
-    <span class="kd">private</span> <span class="k">var</span> <span class="nv">observation</span><span class="p">:</span> <span class="kt">NSKeyValueObservation</span><span class="p">?</span>
+class GigaHoobieMonitor: BaseMonitor {
+    let handler: (Float) -&gt; Void
+    @objc let hoobie: GigaHoobie
+    private var observation: NSKeyValueObservation?
 
-    <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">GigaHoobie</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">hoobie</span> <span class="o">=</span> <span class="n">hoobie</span>
-    <span class="p">}</span>
+    init(_ hoobie: GigaHoobie, handler: @escaping (Float) -&gt; Void) {
+        self.handler = handler
+        self.hoobie = hoobie
+    }
 
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">configureMonitor</span><span class="p">()</span>
-        <span class="n">observation</span> <span class="o">=</span> <span class="n">hoobie</span><span class="o">.</span><span class="nf">observe</span><span class="p">(</span><span class="err">\</span><span class="o">.</span><span class="n">nefariousActivityLevel</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="n">hoobie</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span>
-            <span class="k">self</span><span class="o">.</span><span class="nf">handler</span><span class="p">(</span><span class="n">hoobie</span><span class="o">.</span><span class="n">nefariousActivityLevel</span><span class="p">)</span> <span class="p">}</span>
-    <span class="p">}</span>
+    override func configureMonitor() -&gt; Bool {
+        super.configureMonitor()
+        observation = hoobie.observe(\.nefariousActivityLevel) { [unowned self] hoobie, _ in
+            self.handler(hoobie.nefariousActivityLevel) }
+    }
 
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="n">observation</span><span class="p">?</span><span class="o">.</span><span class="nf">invalidate</span><span class="p">()</span>
-        <span class="n">observation</span> <span class="o">=</span> <span class="kc">nil</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">cleanupMonitor</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    override func cleanupMonitor() -&gt; Bool {
+        observation?.invalidate()
+        observation = nil
+        super.cleanupMonitor()
+    }
+}
 </code></pre>
 
 <p><strong>Note:</strong> Be sure to invoke the superclass implementations of both
@@ -1207,25 +1216,25 @@ stopping the monitor. Although this base class inherits from
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor16configureMonitorFT_Sb">configureMonitor()</a> and
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html#/s:FC13XestiMonitors23BaseNotificationMonitor14cleanupMonitorFT_Sb">cleanupMonitor()</a> methods—they are declared <code>final</code> in
 <a href="https://eBardX.github.io/XestiMonitors/Classes/BaseNotificationMonitor.html">BaseNotificationMonitor</a>.</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">XestiMonitors</span>
+<pre class="highlight plaintext"><code>import XestiMonitors
 
-<span class="kd">class</span> <span class="kt">TeraHoobieMonitor</span><span class="p">:</span> <span class="kt">BaseNotificationMonitor</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">handler</span><span class="p">:</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
-    <span class="k">let</span> <span class="nv">hoobie</span><span class="p">:</span> <span class="kt">TeraHoobie</span>
+class TeraHoobieMonitor: BaseNotificationMonitor {
+    let handler: (Bool) -&gt; Void
+    let hoobie: TeraHoobie
 
-    <span class="nf">init</span><span class="p">(</span><span class="nv">hoobie</span><span class="p">:</span> <span class="kt">TeraHoobie</span><span class="p">,</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span> <span class="o">=</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span>
-         <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">hoobie</span> <span class="o">=</span> <span class="n">hoobie</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">queue</span><span class="p">:</span> <span class="n">queue</span><span class="p">)</span>
-    <span class="p">}</span>
+    init(hoobie: TeraHoobie, queue: OperationQueue = .main,
+         handler: @escaping (Bool) -&gt; Void) {
+        self.handler = handler
+        self.hoobie = hoobie
+        super.init(queue: queue)
+    }
 
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">addNotificationObservers</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">addNotificationObservers</span><span class="p">()</span>
-        <span class="nf">observe</span><span class="p">(</span><span class="o">.</span><span class="n">teraHoobieDidChange</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="n">_</span> <span class="k">in</span>
-            <span class="k">self</span><span class="o">.</span><span class="nf">handler</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">hoobie</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    override func addNotificationObservers() -&gt; Bool {
+        super.addNotificationObservers()
+        observe(.teraHoobieDidChange) { [unowned self] _ in
+            self.handler(self.hoobie.value) }
+    }
+}
 </code></pre>
 
 <p><strong>Note:</strong> Be sure to invoke the superclass implementations of both
@@ -1247,7 +1256,7 @@ overrides.</p>
     </div>
     <section class="footer">
       <p>© 2016–2018 J. G. Pusey</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

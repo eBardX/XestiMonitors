@@ -23,7 +23,9 @@ internal class AccelerometerMonitorTests: XCTestCase {
     func testInfo_data() {
         let expectedData = CMAccelerometerData()
         let monitor = AccelerometerMonitor(interval: 1,
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateAccelerometer(data: expectedData)
 
@@ -36,7 +38,9 @@ internal class AccelerometerMonitorTests: XCTestCase {
 
     func testInfo_unknown() {
         let monitor = AccelerometerMonitor(interval: 1,
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateAccelerometer(data: nil)
 
@@ -48,7 +52,9 @@ internal class AccelerometerMonitorTests: XCTestCase {
 
     func testIsAvailable_false() {
         let monitor = AccelerometerMonitor(interval: 1,
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateAccelerometer(available: false)
 
@@ -57,7 +63,9 @@ internal class AccelerometerMonitorTests: XCTestCase {
 
     func testIsAvailable_true() {
         let monitor = AccelerometerMonitor(interval: 1,
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateAccelerometer(available: true)
 
@@ -70,6 +78,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
         var expectedEvent: AccelerometerMonitor.Event?
         let monitor = AccelerometerMonitor(interval: 1,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -95,6 +105,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
         var expectedEvent: AccelerometerMonitor.Event?
         let monitor = AccelerometerMonitor(interval: 1,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -118,6 +130,8 @@ internal class AccelerometerMonitorTests: XCTestCase {
         var expectedEvent: AccelerometerMonitor.Event?
         let monitor = AccelerometerMonitor(interval: 1,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

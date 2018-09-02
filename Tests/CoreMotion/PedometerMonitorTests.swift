@@ -21,7 +21,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsCadenceAvailable_false() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(cadenceAvailable: false)
 
@@ -29,7 +31,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsCadenceAvailable_true() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(cadenceAvailable: true)
 
@@ -37,7 +41,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsDistanceAvailable_false() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(distanceAvailable: false)
 
@@ -45,7 +51,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsDistanceAvailable_true() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(distanceAvailable: true)
 
@@ -53,7 +61,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsFloorCountingAvailable_false() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(floorCountingAvailable: false)
 
@@ -61,7 +71,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsFloorCountingAvailable_true() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(floorCountingAvailable: true)
 
@@ -69,7 +81,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsPaceAvailable_false() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(paceAvailable: false)
 
@@ -77,7 +91,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsPaceAvailable_true() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(paceAvailable: true)
 
@@ -85,7 +101,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsStepCountingAvailable_false() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(stepCountingAvailable: false)
 
@@ -93,7 +111,9 @@ internal class PedometerMonitorTests: XCTestCase {
     }
 
     func testIsStepCountingAvailable_true() {
-        let monitor = PedometerMonitor(queue: .main) { _ in }
+        let monitor = PedometerMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         pedometer.updatePedometer(stepCountingAvailable: true)
 
@@ -105,6 +125,8 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -129,6 +151,8 @@ internal class PedometerMonitorTests: XCTestCase {
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -151,6 +175,8 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -173,6 +199,8 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectedData = CMPedometerData()
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -197,6 +225,8 @@ internal class PedometerMonitorTests: XCTestCase {
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -219,6 +249,8 @@ internal class PedometerMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: PedometerMonitor.Event?
         let monitor = PedometerMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

@@ -24,6 +24,8 @@ internal class SystemClockMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: SystemClockMonitor.Event?
         let monitor = SystemClockMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

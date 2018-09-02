@@ -26,6 +26,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .checkpoint,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -49,6 +51,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: undoManager,
                                          options: .didCloseUndoGroup,
                                          queue: .main) { event  in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -72,6 +76,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .didOpenUndoGroup,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -95,6 +101,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .didRedoChange,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -118,6 +126,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .didUndoChange,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -141,6 +151,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .willCloseUndoGroup,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -164,6 +176,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .willRedoChange,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -187,6 +201,8 @@ internal class UndoManagerMonitorTests: XCTestCase {
         let monitor = UndoManagerMonitor(undoManager: self.undoManager,
                                          options: .willUndoChange,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

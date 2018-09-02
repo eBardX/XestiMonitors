@@ -27,6 +27,8 @@ internal class UbiquityIdentityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: UbiquityIdentityMonitor.Event?
         let monitor = UbiquityIdentityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -49,6 +51,8 @@ internal class UbiquityIdentityMonitorTests: XCTestCase {
         let expectedToken = "bogus"
         var expectedEvent: UbiquityIdentityMonitor.Event?
         let monitor = UbiquityIdentityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

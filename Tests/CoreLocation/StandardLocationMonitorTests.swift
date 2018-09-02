@@ -26,7 +26,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     func testActivityType_get() {
         if #available(watchOS 4.0, *) {
             let expectedActivityType: CLActivityType = .automotiveNavigation
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             locationManager.activityType = expectedActivityType
 
@@ -39,7 +41,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     func testActivityType_set() {
         if #available(watchOS 4.0, *) {
             let expectedActivityType: CLActivityType = .fitness
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             monitor.activityType = expectedActivityType
 
@@ -50,7 +54,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testAllowDeferredUpdates() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
         monitor.allowDeferredUpdates(untilTraveled: 500,
@@ -63,7 +69,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #if os(iOS) || os(watchOS)
     func testAllowsBackgroundLocationUpdates_get() {
         if #available(watchOS 4.0, *) {
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             locationManager.allowsBackgroundLocationUpdates = true
 
@@ -75,7 +83,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #if os(iOS) || os(watchOS)
     func testAllowsBackgroundLocationUpdates_set() {
         if #available(watchOS 4.0, *) {
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             monitor.allowsBackgroundLocationUpdates = true
 
@@ -86,7 +96,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS) || os(macOS)
     func testCanDeferUpdates_false() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateStandardLocation(canDeferUpdates: false)
 
@@ -96,7 +108,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS) || os(macOS)
     func testCanDeferUpdates_true() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateStandardLocation(canDeferUpdates: true)
 
@@ -106,7 +120,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     func testDesiredAccuracy_get() {
         let expectedDesiredAccuracy: CLLocationAccuracy = 123
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.desiredAccuracy = expectedDesiredAccuracy
 
@@ -115,7 +131,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     func testDesiredAccuracy_set() {
         let expectedDesiredAccuracy: CLLocationAccuracy = 321
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.desiredAccuracy = expectedDesiredAccuracy
 
@@ -124,7 +142,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testDisallowDeferredUpdates() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
         monitor.allowDeferredUpdates(untilTraveled: 0,
@@ -137,7 +157,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     func testDistanceFilter_get() {
         let expectedDistanceFilter: CLLocationDistance = 2_001
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.distanceFilter = expectedDistanceFilter
 
@@ -146,7 +168,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     func testDistanceFilter_set() {
         let expectedDistanceFilter: CLLocationDistance = 1_002
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.distanceFilter = expectedDistanceFilter
 
@@ -154,7 +178,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     }
 
     func testLocation_nil() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateStandardLocation(forceLocation: nil)
 
@@ -163,7 +189,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     func testLocation_nonnil() {
         let expectedLocation = CLLocation()
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateStandardLocation(forceLocation: expectedLocation)
 
@@ -180,6 +208,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -204,6 +234,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -227,6 +259,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -249,6 +283,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -272,6 +308,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -297,6 +335,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectedLocation = CLLocation()
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -322,6 +362,8 @@ internal class StandardLocationMonitorTests: XCTestCase {
         let expectedLocation = CLLocation()
         var expectedEvent: StandardLocationMonitor.Event?
         let monitor = StandardLocationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -342,7 +384,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testPausesLocationUpdatesAutomatically_get() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.pausesLocationUpdatesAutomatically = true
 
@@ -352,7 +396,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testPausesLocationUpdatesAutomatically_set() {
-        let monitor = StandardLocationMonitor(queue: .main) { _ in }
+        let monitor = StandardLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.pausesLocationUpdatesAutomatically = true
 
@@ -363,7 +409,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #if os(iOS)
     func testShowsBackgroundLocationIndicator_get() {
         if #available(iOS 11.0, *) {
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             locationManager.showsBackgroundLocationIndicator = true
 
@@ -375,7 +423,9 @@ internal class StandardLocationMonitorTests: XCTestCase {
     #if os(iOS)
     func testShowsBackgroundLocationIndicator_set() {
         if #available(iOS 11.0, *) {
-            let monitor = StandardLocationMonitor(queue: .main) { _ in }
+            let monitor = StandardLocationMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             monitor.showsBackgroundLocationIndicator = true
 

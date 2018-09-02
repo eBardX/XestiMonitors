@@ -27,12 +27,16 @@ internal class UserDefaultsMonitorTests: XCTestCase {
         let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
                                           options: .didChange,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
         #else
         let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -59,6 +63,8 @@ internal class UserDefaultsMonitorTests: XCTestCase {
             let monitor = UserDefaultsMonitor(userDefaults: userDefaults,
                                               options: .sizeLimitExceeded,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
             }

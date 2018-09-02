@@ -31,6 +31,8 @@ internal class ProcessInfoThermalStateMonitorTests: XCTestCase {
             let expectedState: ProcessInfo.ThermalState = .serious
             var expectedEvent: ProcessInfoThermalStateMonitor.Event?
             let monitor = ProcessInfoThermalStateMonitor(queue: .main) { event in
+                XCTAssertEqual(OperationQueue.current, .main)
+
                 expectedEvent = event
                 expectation.fulfill()
             }
@@ -52,7 +54,9 @@ internal class ProcessInfoThermalStateMonitorTests: XCTestCase {
     func testState() {
         if #available(iOS 11.0, OSX 10.10.3, tvOS 11.0, *) {
             let expectedState: ProcessInfo.ThermalState = .critical
-            let monitor = ProcessInfoThermalStateMonitor(queue: .main) { _ in }
+            let monitor = ProcessInfoThermalStateMonitor(queue: .main) { _ in
+                XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             simulateDidChange(to: expectedState)
 

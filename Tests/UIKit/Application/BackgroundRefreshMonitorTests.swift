@@ -30,6 +30,8 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
         let expectedStatus: UIBackgroundRefreshStatus = .available
         var expectedEvent: BackgroundRefreshMonitor.Event?
         let monitor = BackgroundRefreshMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -49,7 +51,9 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
 
     func testStatus() {
         let expectedStatus: UIBackgroundRefreshStatus = .denied
-        let monitor = BackgroundRefreshMonitor(queue: .main) { _ in }
+        let monitor = BackgroundRefreshMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: expectedStatus)
 

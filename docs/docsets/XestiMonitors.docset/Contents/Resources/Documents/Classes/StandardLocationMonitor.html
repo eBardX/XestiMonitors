@@ -646,7 +646,8 @@
             <h1>StandardLocationMonitor</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">StandardLocationMonitor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BaseMonitor.html">BaseMonitor</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@available(watchOS 3.0, *)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">StandardLocationMonitor</span> <span class="p">:</span> <span class="kt"><a href="../Classes/BaseMonitor.html">BaseMonitor</a></span></code></pre>
 
                 </div>
               </div>
@@ -681,12 +682,12 @@ current location.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Event</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Event</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L21-L43">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L21-L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -713,12 +714,12 @@ event.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Info</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Info</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L49-L59">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L49-L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -743,7 +744,7 @@ event.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span><span class="p">,</span>
             <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/StandardLocationMonitor/Event.html">Event</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -781,7 +782,7 @@ event.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L69-L95">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L69-L95">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -806,12 +807,13 @@ event.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">activityType</span><span class="p">:</span> <span class="kt">CLActivityType</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(watchOS 4.0, *)</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">activityType</span><span class="p">:</span> <span class="kt">CLActivityType</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L102-L105">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L102-L105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -837,12 +839,13 @@ updates when suspended.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allowsBackgroundLocationUpdates</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(watchOS 4.0, *)</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">allowsBackgroundLocationUpdates</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L114-L117">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L114-L117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -868,12 +871,12 @@ location updates.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">canDeferUpdates</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">canDeferUpdates</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L125-L127">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L125-L127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -898,12 +901,12 @@ location updates.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">desiredAccuracy</span><span class="p">:</span> <span class="kt">CLLocationAccuracy</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">desiredAccuracy</span><span class="p">:</span> <span class="kt">CLLocationAccuracy</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L133-L136">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L133-L136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -929,12 +932,12 @@ horizontally before a location update is generated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">distanceFilter</span><span class="p">:</span> <span class="kt">CLLocationDistance</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">distanceFilter</span><span class="p">:</span> <span class="kt">CLLocationDistance</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L142-L145">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L142-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -962,12 +965,12 @@ initiated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">location</span><span class="p">:</span> <span class="kt">CLLocation</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">location</span><span class="p">:</span> <span class="kt">CLLocation</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L153-L155">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L153-L155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -993,12 +996,12 @@ automatically.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pausesLocationUpdatesAutomatically</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pausesLocationUpdatesAutomatically</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L162-L165">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L162-L165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1024,12 +1027,13 @@ location services are used in the background.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showsBackgroundLocationIndicator</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(iOS 11.0, *)</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">showsBackgroundLocationIndicator</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L174-L177">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L174-L177">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1055,7 +1059,7 @@ are met.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">allowDeferredUpdates</span><span class="p">(</span><span class="n">untilTraveled</span> <span class="nv">distance</span><span class="p">:</span> <span class="kt">CLLocationDistance</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">allowDeferredUpdates</span><span class="p">(</span><span class="n">untilTraveled</span> <span class="nv">distance</span><span class="p">:</span> <span class="kt">CLLocationDistance</span><span class="p">,</span>
                                  <span class="nv">timeout</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -1095,7 +1099,7 @@ are met.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L192-L196">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L192-L196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1120,12 +1124,12 @@ are met.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disallowDeferredUpdates</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disallowDeferredUpdates</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L203-L205">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L203-L205">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1150,12 +1154,12 @@ are met.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">requestLocation</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">requestLocation</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L212-L214">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L212-L214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1179,12 +1183,12 @@ are met.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cleanupMonitor</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L250-L254">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L250-L254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1208,12 +1212,12 @@ are met.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureMonitor</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/eBardX/XestiMonitors/tree/0e8d38275fb4ab5bc104e0ca116be1569c506efe/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L256-L262">Show on GitHub</a>
+                        <a href="https://github.com/eBardX/XestiMonitors/tree/f70b5c8992dc56f9e7848c97e875d3dfa5ae58c8/Sources/Core/CoreLocation/StandardLocationMonitor.swift#L256-L262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1227,7 +1231,7 @@ are met.</p>
     </div>
     <section class="footer">
       <p>© 2016–2018 J. G. Pusey</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

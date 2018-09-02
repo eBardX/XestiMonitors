@@ -21,7 +21,9 @@ internal class SignificantLocationMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = SignificantLocationMonitor(queue: .main) { _ in }
+        let monitor = SignificantLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateSignificantLocation(available: false)
 
@@ -29,7 +31,9 @@ internal class SignificantLocationMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = SignificantLocationMonitor(queue: .main) { _ in }
+        let monitor = SignificantLocationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateSignificantLocation(available: true)
 
@@ -41,8 +45,10 @@ internal class SignificantLocationMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: SignificantLocationMonitor.Event?
         let monitor = SignificantLocationMonitor(queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -64,8 +70,10 @@ internal class SignificantLocationMonitorTests: XCTestCase {
         let expectedLocation = CLLocation()
         var expectedEvent: SignificantLocationMonitor.Event?
         let monitor = SignificantLocationMonitor(queue: .main) { event in
-                                                    expectedEvent = event
-                                                    expectation.fulfill()
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
         }
 
         monitor.startMonitoring()

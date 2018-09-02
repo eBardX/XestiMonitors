@@ -26,8 +26,10 @@ internal class MenuControllerMonitorTests: XCTestCase {
         var expectedEvent: MenuControllerMonitor.Event?
         let monitor = MenuControllerMonitor(options: .all,
                                             queue: .main) { event in
-                                           expectedEvent = event
-                                           expectation.fulfill()
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
+                                                expectedEvent = event
+                                                expectation.fulfill()
         }
 
         monitor.startMonitoring()
@@ -48,6 +50,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         var expectedEvent: MenuControllerMonitor.Event?
         let monitor = MenuControllerMonitor(options: .all,
                                             queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -70,6 +74,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         var expectedEvent: MenuControllerMonitor.Event?
         let monitor = MenuControllerMonitor(options: .all,
                                             queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -92,6 +98,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         var expectedEvent: MenuControllerMonitor.Event?
         let monitor = MenuControllerMonitor(options: .all,
                                             queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -114,6 +122,8 @@ internal class MenuControllerMonitorTests: XCTestCase {
         var expectedEvent: MenuControllerMonitor.Event?
         let monitor = MenuControllerMonitor(options: .all,
                                             queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }

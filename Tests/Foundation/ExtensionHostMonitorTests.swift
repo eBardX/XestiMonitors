@@ -26,6 +26,8 @@ internal class ExtensionHostMonitorTests: XCTestCase {
         let monitor = ExtensionHostMonitor(context: context,
                                            options: .didBecomeActive,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -49,6 +51,8 @@ internal class ExtensionHostMonitorTests: XCTestCase {
         let monitor = ExtensionHostMonitor(context: context,
                                            options: .didEnterBackground,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -72,6 +76,8 @@ internal class ExtensionHostMonitorTests: XCTestCase {
         let monitor = ExtensionHostMonitor(context: context,
                                            options: .willEnterForeground,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -95,6 +101,8 @@ internal class ExtensionHostMonitorTests: XCTestCase {
         let monitor = ExtensionHostMonitor(context: context,
                                            options: .willResignActive,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

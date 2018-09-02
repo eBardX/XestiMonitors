@@ -24,6 +24,8 @@ internal class CurrentLocaleMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: CurrentLocaleMonitor.Event?
         let monitor = CurrentLocaleMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

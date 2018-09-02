@@ -26,6 +26,8 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         let expectedWasSuccessful: Bool = true
         var expectedEvent: AccessibilityAnnouncementMonitor.Event?
         let monitor = AccessibilityAnnouncementMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -51,6 +53,8 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         let expectedWasSuccessful: Bool = false
         var expectedEvent: AccessibilityAnnouncementMonitor.Event?
         let monitor = AccessibilityAnnouncementMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

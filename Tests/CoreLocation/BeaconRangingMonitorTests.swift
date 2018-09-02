@@ -22,7 +22,9 @@ internal class BeaconRangingMonitorTests: XCTestCase {
 
     func testIsActivelyRanged_false() {
         let monitor = BeaconRangingMonitor(region: makeBeaconRegion("bogus"),
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
         locationManager.stopRangingBeacons(in: monitor.region)
@@ -32,7 +34,9 @@ internal class BeaconRangingMonitorTests: XCTestCase {
 
     func testIsActivelyRanged_true() {
         let monitor = BeaconRangingMonitor(region: makeBeaconRegion("bogus"),
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
 
@@ -41,7 +45,9 @@ internal class BeaconRangingMonitorTests: XCTestCase {
 
     func testIsAvailable_false() {
         let monitor = BeaconRangingMonitor(region: makeBeaconRegion("bogus"),
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateBeaconRanging(available: false)
 
@@ -50,7 +56,9 @@ internal class BeaconRangingMonitorTests: XCTestCase {
 
     func testIsAvailable_true() {
         let monitor = BeaconRangingMonitor(region: makeBeaconRegion("bogus"),
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateBeaconRanging(available: true)
 
@@ -63,6 +71,8 @@ internal class BeaconRangingMonitorTests: XCTestCase {
         var expectedEvent: BeaconRangingMonitor.Event?
         let monitor = BeaconRangingMonitor(region: expectedRegion,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -90,6 +100,8 @@ internal class BeaconRangingMonitorTests: XCTestCase {
         var expectedEvent: BeaconRangingMonitor.Event?
         let monitor = BeaconRangingMonitor(region: expectedRegion,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -117,6 +129,8 @@ internal class BeaconRangingMonitorTests: XCTestCase {
         var expectedEvent: BeaconRangingMonitor.Event?
         let monitor = BeaconRangingMonitor(region: expectedRegion,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

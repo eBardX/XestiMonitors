@@ -27,6 +27,8 @@ internal class WindowMonitorTests: XCTestCase {
         let monitor = WindowMonitor(window: self.window,
                                     options: .didBecomeHidden,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -50,6 +52,8 @@ internal class WindowMonitorTests: XCTestCase {
         let monitor = WindowMonitor(window: self.window,
                                     options: .didBecomeKey,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -73,6 +77,8 @@ internal class WindowMonitorTests: XCTestCase {
         let monitor = WindowMonitor(window: self.window,
                                     options: .didBecomeVisible,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -96,6 +102,8 @@ internal class WindowMonitorTests: XCTestCase {
         let monitor = WindowMonitor(window: self.window,
                                     options: .didResignKey,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }

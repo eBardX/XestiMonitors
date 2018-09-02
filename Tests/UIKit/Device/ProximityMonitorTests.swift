@@ -26,7 +26,9 @@ internal class ProximityMonitorTests: XCTestCase {
     }
 
     func testIsAvailable() {
-        let monitor = ProximityMonitor(queue: .main) { _ in }
+        let monitor = ProximityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         device.isProximityMonitoringEnabled = false
 
@@ -40,6 +42,8 @@ internal class ProximityMonitorTests: XCTestCase {
         let expectedState: Bool = true
         var expectedEvent: ProximityMonitor.Event?
         let monitor = ProximityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -59,7 +63,9 @@ internal class ProximityMonitorTests: XCTestCase {
 
     func testState() {
         let expectedState: Bool = true
-        let monitor = ProximityMonitor(queue: .main) { _ in }
+        let monitor = ProximityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStateDidChange(to: expectedState)
 

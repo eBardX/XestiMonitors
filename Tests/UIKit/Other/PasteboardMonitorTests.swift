@@ -30,6 +30,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
                                         options: .changed,
                                         queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -56,6 +58,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
                                         options: .changed,
                                         queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -82,6 +86,8 @@ internal class PasteboardMonitorTests: XCTestCase {
         let monitor = PasteboardMonitor(pasteboard: pasteboard,
                                         options: .removed,
                                         queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

@@ -32,6 +32,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .didChangeFrame,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -67,6 +69,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .didChangeFrame,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -103,6 +107,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .didHide,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -138,6 +144,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .didShow,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -173,6 +181,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .willChangeFrame,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -208,6 +218,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .willHide,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -243,6 +255,8 @@ internal class KeyboardMonitorTests: XCTestCase {
         var expectedEvent: KeyboardMonitor.Event?
         let monitor = KeyboardMonitor(options: .willShow,
                                       queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }

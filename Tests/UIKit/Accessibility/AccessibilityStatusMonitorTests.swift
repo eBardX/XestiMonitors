@@ -54,7 +54,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         if #available(iOS 10.0, *) {
             let expectedValue: UIAccessibilityHearingDeviceEar = .left
             let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
-                                                     queue: .main) { _ in }
+                                                     queue: .main) { _ in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             simulateHearingDevicePairedEarDidChange(to: expectedValue)
 
@@ -67,7 +69,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         if #available(iOS 10.0, tvOS 10.0, *) {
             let expectedValue: Bool = true
             let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
-                                                     queue: .main) { _ in }
+                                                     queue: .main) { _ in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+            }
 
             simulateAssistiveTouchStatusDidChange(to: expectedValue)
 
@@ -78,7 +82,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsBoldTextEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .boldTextStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateBoldTextStatusDidChange(to: expectedValue)
 
@@ -88,7 +94,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsClosedCaptioningEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .closedCaptioningStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateClosedCaptioningStatusDidChange(to: expectedValue)
 
@@ -98,7 +106,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsDarkenColorsEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .darkenColorsStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDarkenColorsStatusDidChange(to: expectedValue)
 
@@ -108,7 +118,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsGrayscaleEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .grayscaleStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateGrayscaleStatusDidChange(to: expectedValue)
 
@@ -118,7 +130,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsGuidedAccessEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .guidedAccessStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateGuidedAccessStatusDidChange(to: expectedValue)
 
@@ -128,7 +142,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsInvertColorsEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .invertColorsStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateInvertColorsStatusDidChange(to: expectedValue)
 
@@ -138,7 +154,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsMonoAudioEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .monoAudioStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateMonoAudioStatusDidChange(to: expectedValue)
 
@@ -148,7 +166,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsReduceMotionEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .reduceMotionStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateReduceMotionStatusDidChange(to: expectedValue)
 
@@ -158,7 +178,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsReduceTransparencyEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .reduceTransparencyStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateReduceTransparencyStatusDidChange(to: expectedValue)
 
@@ -168,7 +190,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsShakeToUndoEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .shakeToUndoStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateShakeToUndoStatusDidChange(to: expectedValue)
 
@@ -178,7 +202,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsSpeakScreenEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .speakScreenStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateSpeakScreenStatusDidChange(to: expectedValue)
 
@@ -188,7 +214,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsSpeakSelectionEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .speakSelectionStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateSpeakSelectionStatusDidChange(to: expectedValue)
 
@@ -198,7 +226,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsSwitchControlEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .switchControlStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateSwitchControlStatusDidChange(to: expectedValue)
 
@@ -208,7 +238,9 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testIsVoiceOverEnabled() {
         let expectedValue: Bool = true
         let monitor = AccessibilityStatusMonitor(options: .voiceOverStatusDidChange,
-                                                 queue: .main) { _ in }
+                                                 queue: .main) { _ in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateVoiceOverStatusDidChange(to: expectedValue)
 
@@ -222,6 +254,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
             var expectedEvent: AccessibilityStatusMonitor.Event?
             let monitor = AccessibilityStatusMonitor(options: .assistiveTouchStatusDidChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
             }
@@ -246,6 +280,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .boldTextStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -269,6 +305,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .closedCaptioningStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -292,6 +330,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .darkenColorsStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -315,6 +355,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .grayscaleStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -338,6 +380,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .guidedAccessStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -363,6 +407,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
             var expectedEvent: AccessibilityStatusMonitor.Event?
             let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
             }
@@ -388,6 +434,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .invertColorsStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -411,6 +459,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .monoAudioStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -434,6 +484,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .reduceMotionStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -457,6 +509,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .reduceTransparencyStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -480,6 +534,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .shakeToUndoStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -503,6 +559,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .speakScreenStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -526,6 +584,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .speakSelectionStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -549,6 +609,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .switchControlStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -572,6 +634,8 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         var expectedEvent: AccessibilityStatusMonitor.Event?
         let monitor = AccessibilityStatusMonitor(options: .voiceOverStatusDidChange,
                                                  queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }

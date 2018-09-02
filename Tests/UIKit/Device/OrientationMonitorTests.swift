@@ -30,6 +30,8 @@ internal class OrientationMonitorTests: XCTestCase {
         let expectedOrientation: UIDeviceOrientation = .portrait
         var expectedEvent: OrientationMonitor.Event?
         let monitor = OrientationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -49,7 +51,9 @@ internal class OrientationMonitorTests: XCTestCase {
 
     func testOrientation() {
         let expectedOrientation: UIDeviceOrientation = .landscapeRight
-        let monitor = OrientationMonitor(queue: .main) { _ in }
+        let monitor = OrientationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDidChange(to: expectedOrientation)
 

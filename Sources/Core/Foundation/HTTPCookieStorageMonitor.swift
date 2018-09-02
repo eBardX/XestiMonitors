@@ -79,7 +79,7 @@ public class HTTPCookiesStorageMonitor: BaseNotificationMonitor {
         self.handler = handler
         self.options = options
 
-        super.init(queue: .main)
+        super.init(queue: queue)
     }
 
     ///

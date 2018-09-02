@@ -174,35 +174,51 @@ public class FileSystemObjectMonitor: BaseMonitor {
     private func invokeHandler(_ eventMask: DispatchSource.FileSystemEvent,
                                _ fileDescriptor: Int32) {
         if eventMask.contains(.attrib) {
-            handler(.metadataDidChange(fileURL))
+            queue.addOperation {
+                self.handler(.metadataDidChange(self.fileURL))
+            }
         }
 
         if eventMask.contains(.delete) {
-            handler(.wasDeleted(fileURL))
+            queue.addOperation {
+                self.handler(.wasDeleted(self.fileURL))
+            }
         }
 
         if eventMask.contains(.extend) {
-            handler(.sizeDidChange(fileURL))
+            queue.addOperation {
+                self.handler(.sizeDidChange(self.fileURL))
+            }
         }
 
         if eventMask.contains(.link) {
-            handler(.linkCountDidChange(fileURL))
+            queue.addOperation {
+                self.handler(.linkCountDidChange(self.fileURL))
+            }
         }
 
         if eventMask.contains(.rename) {
             if let newFileURL = fileURL(for: fileDescriptor) {
-                handler(.wasRenamed(fileURL, newFileURL))
+                let oldFileURL = fileURL
 
                 fileURL = newFileURL
+
+                queue.addOperation {
+                    self.handler(.wasRenamed(oldFileURL, newFileURL))
+                }
             }
         }
 
         if eventMask.contains(.revoke) {
-            handler(.accessWasRevoked(fileURL))
+            queue.addOperation {
+                self.handler(.accessWasRevoked(self.fileURL))
+            }
         }
 
         if eventMask.contains(.write) {
-            handler(.dataDidChange(fileURL))
+            queue.addOperation {
+                self.handler(.dataDidChange(self.fileURL))
+            }
         }
     }
 

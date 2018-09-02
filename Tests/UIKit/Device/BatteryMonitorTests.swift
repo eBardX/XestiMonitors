@@ -29,7 +29,9 @@ internal class BatteryMonitorTests: XCTestCase {
     func testLevel() {
         let expectedLevel: Float = 75
         let monitor = BatteryMonitor(options: .levelDidChange,
-                                     queue: .main) { _ in }
+                                     queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateLevelDidChange(to: expectedLevel)
 
@@ -42,6 +44,8 @@ internal class BatteryMonitorTests: XCTestCase {
         var expectedEvent: BatteryMonitor.Event?
         let monitor = BatteryMonitor(options: .levelDidChange,
                                      queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -65,6 +69,8 @@ internal class BatteryMonitorTests: XCTestCase {
         var expectedEvent: BatteryMonitor.Event?
         let monitor = BatteryMonitor(options: .stateDidChange,
                                      queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -85,7 +91,9 @@ internal class BatteryMonitorTests: XCTestCase {
     func testState() {
         let expectedState: UIDeviceBatteryState = .full
         let monitor = BatteryMonitor(options: .stateDidChange,
-                                     queue: .main) { _ in }
+                                     queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStateDidChange(to: expectedState)
 

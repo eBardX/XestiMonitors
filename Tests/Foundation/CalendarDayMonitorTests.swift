@@ -24,6 +24,8 @@ internal class CalenderDayMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: CalendarDayMonitor.Event?
         let monitor = CalendarDayMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

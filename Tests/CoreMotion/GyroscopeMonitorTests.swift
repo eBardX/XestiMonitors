@@ -23,7 +23,9 @@ internal class GyroscopeMonitorTests: XCTestCase {
     func testInfo_data() {
         let expectedData = CMGyroData()
         let monitor = GyroscopeMonitor(interval: 1,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateGyroscope(data: expectedData)
 
@@ -36,7 +38,9 @@ internal class GyroscopeMonitorTests: XCTestCase {
 
     func testInfo_unknown() {
         let monitor = GyroscopeMonitor(interval: 1,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateGyroscope(data: nil)
 
@@ -48,7 +52,9 @@ internal class GyroscopeMonitorTests: XCTestCase {
 
     func testIsAvailable_false() {
         let monitor = GyroscopeMonitor(interval: 1,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateGyroscope(available: false)
 
@@ -57,7 +63,9 @@ internal class GyroscopeMonitorTests: XCTestCase {
 
     func testIsAvailable_true() {
         let monitor = GyroscopeMonitor(interval: 1,
-                                       queue: .main) { _ in }
+                                       queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateGyroscope(available: true)
 
@@ -70,6 +78,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
         var expectedEvent: GyroscopeMonitor.Event?
         let monitor = GyroscopeMonitor(interval: 1,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -95,6 +105,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
         var expectedEvent: GyroscopeMonitor.Event?
         let monitor = GyroscopeMonitor(interval: 1,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -118,6 +130,8 @@ internal class GyroscopeMonitorTests: XCTestCase {
         var expectedEvent: GyroscopeMonitor.Event?
         let monitor = GyroscopeMonitor(interval: 1,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }

@@ -27,6 +27,8 @@ internal class BundleClassLoadMonitorTests: XCTestCase {
 
         let monitor = BundleClassLoadMonitor(bundle: bundle,
                                              queue: .main) { _ in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectation.fulfill()
         }
 
@@ -43,6 +45,8 @@ internal class BundleClassLoadMonitorTests: XCTestCase {
         var expectedEvent: BundleClassLoadMonitor.Event?
         let monitor = BundleClassLoadMonitor(bundle: bundle,
                                              queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }

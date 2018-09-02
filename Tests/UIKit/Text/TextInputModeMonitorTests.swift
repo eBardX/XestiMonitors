@@ -25,6 +25,8 @@ internal class TextInputModeMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: TextInputModeMonitor.Event?
         let monitor = TextInputModeMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

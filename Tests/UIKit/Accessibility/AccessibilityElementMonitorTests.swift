@@ -27,6 +27,8 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         let expectedUnfocusedElement: Any? = UIButton()
         var expectedEvent: AccessibilityElementMonitor.Event?
         let monitor = AccessibilityElementMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -63,6 +65,8 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
         let expectedUnfocusedElement: Any? = nil
         var expectedEvent: AccessibilityElementMonitor.Event?
         let monitor = AccessibilityElementMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

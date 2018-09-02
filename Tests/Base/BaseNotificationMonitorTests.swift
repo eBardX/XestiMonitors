@@ -28,6 +28,8 @@ internal class BaseNotificationMonitorTests: XCTestCase {
 
         monitor.observe(notificationName,
                         object: notificationObject) { notification in
+                            XCTAssertEqual(OperationQueue.current, .main)
+
                             expectedNotification = notification
                             expectation.fulfill()
         }

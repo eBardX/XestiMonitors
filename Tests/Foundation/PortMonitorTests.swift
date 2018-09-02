@@ -26,6 +26,8 @@ internal class PortMonitorTests: XCTestCase {
         var expectedEvent: PortMonitor.Event?
         let monitor = PortMonitor(port: port,
                                   queue: .main) { event in
+                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                     expectedEvent = event
                                     expectation.fulfill()
         }

@@ -27,6 +27,8 @@ internal class ScreenshotMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ScreenshotMonitor.Event?
         let monitor = ScreenshotMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

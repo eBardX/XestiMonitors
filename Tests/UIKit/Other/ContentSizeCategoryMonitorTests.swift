@@ -29,6 +29,8 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         expectation.isInverted = true
 
         let monitor = ContentSizeCategoryMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectation.fulfill()
         }
 
@@ -44,6 +46,8 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         let expectedContentSizeCategory: UIContentSizeCategory = .extraLarge
         var expectedEvent: ContentSizeCategoryMonitor.Event?
         let monitor = ContentSizeCategoryMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -63,7 +67,9 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
 
     func test_preferred() {
         let expectedContentSizeCategory: UIContentSizeCategory = .small
-        let monitor = ContentSizeCategoryMonitor { _ in }
+        let monitor = ContentSizeCategoryMonitor { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateContentSizeCategoryDidChange(to: expectedContentSizeCategory)
 

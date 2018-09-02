@@ -38,6 +38,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .accessWasRevoked,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -61,6 +63,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .dataDidChange,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -84,6 +88,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .linkCountDidChange,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -107,6 +113,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .metadataDidChange,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -130,6 +138,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .sizeDidChange,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -153,6 +163,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .wasDeleted,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -177,6 +189,8 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
         let monitor = FileSystemObjectMonitor(fileURL: fileURL,
                                               options: .wasRenamed,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }

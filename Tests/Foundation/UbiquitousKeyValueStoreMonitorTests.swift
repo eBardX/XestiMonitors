@@ -27,6 +27,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
         var expectedEvent: UbiquitousKeyValueStoreMonitor.Event?
         let monitor = UbiquitousKeyValueStoreMonitor(options: .accountChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
         }
@@ -51,6 +53,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
 
         let monitor = UbiquitousKeyValueStoreMonitor(options: .all,
                                                      queue: .main) { _ in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectation.fulfill()
         }
 
@@ -67,6 +71,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
 
         let monitor = UbiquitousKeyValueStoreMonitor(options: .all,
                                                      queue: .main) { _ in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectation.fulfill()
         }
 
@@ -82,6 +88,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
         var expectedEvent: UbiquitousKeyValueStoreMonitor.Event?
         let monitor = UbiquitousKeyValueStoreMonitor(options: .initialSyncChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
         }
@@ -105,6 +113,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
         var expectedEvent: UbiquitousKeyValueStoreMonitor.Event?
         let monitor = UbiquitousKeyValueStoreMonitor(options: .quotaViolationChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
         }
@@ -128,6 +138,8 @@ internal class UbiquitousKeyValueStoreMonitorTests: XCTestCase {
         var expectedEvent: UbiquitousKeyValueStoreMonitor.Event?
         let monitor = UbiquitousKeyValueStoreMonitor(options: .serverChange,
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
         }

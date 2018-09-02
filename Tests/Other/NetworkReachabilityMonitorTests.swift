@@ -23,7 +23,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
     }
 
     func testIsReachable_false1() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .notReachable)
 
@@ -31,7 +33,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
     }
 
     func testIsReachable_false2() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateNoStatus()
 
@@ -39,7 +43,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
     }
 
     func testIsReachable_true1() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
@@ -48,7 +54,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testIsReachable_true2() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
@@ -58,7 +66,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testIsReachableViaWiFi_false() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
@@ -67,7 +77,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
     #endif
 
     func testIsReachableViaWiFi_true() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
@@ -76,7 +88,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testIsReachableViaWWAN_false() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWiFi)
 
@@ -86,7 +100,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     #if os(iOS)
     func testIsReachableViaWWAN_true() throws {
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: .reachableViaWWAN)
 
@@ -106,6 +122,8 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         let expectedStatus: NetworkReachabilityMonitor.Status = .reachableViaWiFi
         var expectedEvent: NetworkReachabilityMonitor.Event?
         let monitor = try NetworkReachabilityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -140,6 +158,8 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
         var expectedEvent: NetworkReachabilityMonitor.Event?
         let monitor = try NetworkReachabilityMonitor(name: "bogus",
                                                      queue: .main) { event in
+                                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                                         expectedEvent = event
                                                         expectation.fulfill()
         }
@@ -159,7 +179,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testStatus_notReachable1() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -170,7 +192,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testStatus_notReachable2() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -182,7 +206,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testStatus_notReachable3() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .notReachable
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: expectedStatus,
                                 using: [.connectionRequired,
@@ -195,7 +221,9 @@ internal class NetworkReachabilityMonitorTests: XCTestCase {
 
     func testStatus_unknown() throws {
         let expectedStatus: NetworkReachabilityMonitor.Status = .unknown
-        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in }
+        let monitor = try NetworkReachabilityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateStatusDidChange(to: expectedStatus)
 

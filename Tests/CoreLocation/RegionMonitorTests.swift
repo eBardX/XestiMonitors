@@ -22,7 +22,9 @@ internal class RegionMonitorTests: XCTestCase {
 
     func testIsActivelyMonitored_false() {
         let monitor = RegionMonitor(region: makeCircularRegion("bogus"),
-                                    queue: .main) { _ in }
+                                    queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
         locationManager.stopMonitoring(for: monitor.region)
@@ -32,7 +34,9 @@ internal class RegionMonitorTests: XCTestCase {
 
     func testIsActivelyMonitored_true() {
         let monitor = RegionMonitor(region: makeCircularRegion("bogus"),
-                                    queue: .main) { _ in }
+                                    queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         monitor.startMonitoring()
 
@@ -41,7 +45,9 @@ internal class RegionMonitorTests: XCTestCase {
 
     func testIsAvailable_false() {
         let monitor = RegionMonitor(region: makeCircularRegion("bogus"),
-                                    queue: .main) { _ in }
+                                    queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateRegion(available: false)
 
@@ -50,7 +56,9 @@ internal class RegionMonitorTests: XCTestCase {
 
     func testIsAvailable_true() {
         let monitor = RegionMonitor(region: makeCircularRegion("bogus"),
-                                    queue: .main) { _ in }
+                                    queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateRegion(available: true)
 
@@ -59,7 +67,9 @@ internal class RegionMonitorTests: XCTestCase {
 
     func testMaximumMonitoringDistance() {
         let monitor = RegionMonitor(region: makeCircularRegion("bogus"),
-                                    queue: .main) { _ in }
+                                    queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         XCTAssertEqual(monitor.maximumMonitoringDistance, locationManager.maximumRegionMonitoringDistance)
     }
@@ -71,6 +81,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -98,6 +110,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -124,6 +138,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -150,6 +166,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -175,6 +193,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -201,6 +221,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }
@@ -225,6 +247,8 @@ internal class RegionMonitorTests: XCTestCase {
         var expectedEvent: RegionMonitor.Event?
         let monitor = RegionMonitor(region: expectedRegion,
                                     queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
         }

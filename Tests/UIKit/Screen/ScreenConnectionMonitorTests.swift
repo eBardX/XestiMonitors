@@ -25,6 +25,8 @@ internal class ScreenConnectionMonitorTest: XCTestCase {
         var expectedEvent: ScreenConnectionMonitor.Event?
         let monitor = ScreenConnectionMonitor(options: .didConnect,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }
@@ -47,6 +49,8 @@ internal class ScreenConnectionMonitorTest: XCTestCase {
         var expectedEvent: ScreenConnectionMonitor.Event?
         let monitor = ScreenConnectionMonitor(options: .didDisconnect,
                                               queue: .main) { event in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }

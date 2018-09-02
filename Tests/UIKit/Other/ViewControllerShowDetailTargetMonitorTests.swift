@@ -25,6 +25,8 @@ internal class ViewControllerShowDetailTargetMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: ViewControllerShowDetailTargetMonitor.Event?
         let monitor = ViewControllerShowDetailTargetMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

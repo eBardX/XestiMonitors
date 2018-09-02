@@ -27,6 +27,8 @@ internal class HTTPCookiesStorageMonitorTests: XCTestCase {
         let monitor = HTTPCookiesStorageMonitor(cookieStorage: cookieStorage,
                                                 options: .acceptPolicyChanged,
                                                 queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }
@@ -50,6 +52,8 @@ internal class HTTPCookiesStorageMonitorTests: XCTestCase {
         let monitor = HTTPCookiesStorageMonitor(cookieStorage: cookieStorage,
                                                 options: .cookiesChanged,
                                                 queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }

@@ -27,6 +27,8 @@ internal class TextStorageMonitorTests: XCTestCase {
         let monitor = TextStorageMonitor(textStorage: textStorage,
                                          options: .didProcessEditing,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -50,6 +52,8 @@ internal class TextStorageMonitorTests: XCTestCase {
         let monitor = TextStorageMonitor(textStorage: textStorage,
                                          options: .willProcessEditing,
                                          queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

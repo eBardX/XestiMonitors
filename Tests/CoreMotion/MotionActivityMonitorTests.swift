@@ -21,7 +21,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_false() {
-        let monitor = MotionActivityMonitor(queue: .main) { _ in }
+        let monitor = MotionActivityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionActivityManager.updateMotionActivity(available: false)
 
@@ -29,7 +31,9 @@ internal class MotionActivityMonitorTests: XCTestCase {
     }
 
     func testIsAvailable_true() {
-        let monitor = MotionActivityMonitor(queue: .main) { _ in }
+        let monitor = MotionActivityMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionActivityManager.updateMotionActivity(available: true)
 
@@ -41,6 +45,8 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectedData = CMMotionActivity()
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -63,6 +69,8 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -85,6 +93,8 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectedData = [CMMotionActivity()]
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -109,6 +119,8 @@ internal class MotionActivityMonitorTests: XCTestCase {
                                     code: Int(CMErrorUnknown.rawValue))
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -131,6 +143,8 @@ internal class MotionActivityMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: MotionActivityMonitor.Event?
         let monitor = MotionActivityMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

@@ -30,6 +30,8 @@ internal class ProtectedDataMonitorTests: XCTestCase {
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(options: .didBecomeAvailable,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -49,7 +51,9 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     func testIsContentAccessible() {
         let expectedIsContentAccessible: Bool = true
         let monitor = ProtectedDataMonitor(options: .all,
-                                           queue: .main) { _ in }
+                                           queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         application.isProtectedDataAvailable = true
 
@@ -61,6 +65,8 @@ internal class ProtectedDataMonitorTests: XCTestCase {
         var expectedEvent: ProtectedDataMonitor.Event?
         let monitor = ProtectedDataMonitor(options: .willBecomeUnavailable,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

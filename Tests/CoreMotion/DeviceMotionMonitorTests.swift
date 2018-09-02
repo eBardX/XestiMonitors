@@ -24,7 +24,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let expectedData = CMDeviceMotion()
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateDeviceMotion(data: expectedData)
 
@@ -38,7 +40,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     func testInfo_unknown() {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateDeviceMotion(data: nil)
 
@@ -51,7 +55,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     func testIsAvailable_false() {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateDeviceMotion(available: false)
 
@@ -61,7 +67,9 @@ internal class DeviceMotionMonitorTests: XCTestCase {
     func testIsAvailable_true() {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateDeviceMotion(available: true)
 
@@ -75,6 +83,8 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -101,6 +111,8 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -125,6 +137,8 @@ internal class DeviceMotionMonitorTests: XCTestCase {
         let monitor = DeviceMotionMonitor(interval: 1,
                                           using: .xArbitraryZVertical,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

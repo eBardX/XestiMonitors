@@ -23,7 +23,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
     func testInfo_data() {
         let expectedData = CMMagnetometerData()
         let monitor = MagnetometerMonitor(interval: 1,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateMagnetometer(data: expectedData)
 
@@ -36,7 +38,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
 
     func testInfo_unknown() {
         let monitor = MagnetometerMonitor(interval: 1,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateMagnetometer(data: nil)
 
@@ -48,7 +52,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
 
     func testIsAvailable_false() {
         let monitor = MagnetometerMonitor(interval: 1,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateMagnetometer(available: false)
 
@@ -57,7 +63,9 @@ internal class MagnetometerMonitorTests: XCTestCase {
 
     func testIsAvailable_true() {
         let monitor = MagnetometerMonitor(interval: 1,
-                                          queue: .main) { _ in }
+                                          queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         motionManager.updateMagnetometer(available: true)
 
@@ -70,6 +78,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
         var expectedEvent: MagnetometerMonitor.Event?
         let monitor = MagnetometerMonitor(interval: 1,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -95,6 +105,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
         var expectedEvent: MagnetometerMonitor.Event?
         let monitor = MagnetometerMonitor(interval: 1,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -118,6 +130,8 @@ internal class MagnetometerMonitorTests: XCTestCase {
         var expectedEvent: MagnetometerMonitor.Event?
         let monitor = MagnetometerMonitor(interval: 1,
                                           queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

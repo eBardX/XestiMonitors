@@ -163,7 +163,9 @@ public class PedometerMonitor: BaseMonitor {
                 info = .unknown
             }
 
-            self.queue.addOperation { self.handler(.didUpdate(info)) }
+            self.queue.addOperation {
+                self.handler(.didUpdate(info))
+            }
         }
     }
 }

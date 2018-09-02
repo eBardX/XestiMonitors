@@ -26,8 +26,10 @@ internal class DocumentStateMonitorTests: XCTestCase {
         var expectedEvent: DocumentStateMonitor.Event?
         let monitor = DocumentStateMonitor(document: document,
                                            queue: .main) { event in
-            expectedEvent = event
-            expectation.fulfill()
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
+                                            expectedEvent = event
+                                            expectation.fulfill()
         }
 
         monitor.startMonitoring()

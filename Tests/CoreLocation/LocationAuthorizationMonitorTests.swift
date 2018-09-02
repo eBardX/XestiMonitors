@@ -21,7 +21,9 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
     }
 
     func testIsEnabled_false() {
-        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in }
+        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateLocationServices(enabled: false)
 
@@ -29,7 +31,9 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
     }
 
     func testIsEnabled_true() {
-        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in }
+        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateLocationServices(enabled: true)
 
@@ -42,6 +46,8 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: LocationAuthorizationMonitor.Event?
         let monitor = LocationAuthorizationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -66,6 +72,8 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
         let expectedStatus = CLAuthorizationStatus.authorizedAlways
         var expectedEvent: LocationAuthorizationMonitor.Event?
         let monitor = LocationAuthorizationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -86,7 +94,9 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
 
     func testMonitor_status_denied() {
         let expectedStatus = CLAuthorizationStatus.denied
-        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in }
+        let monitor = LocationAuthorizationMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         locationManager.updateAuthorization(forceStatus: expectedStatus)
 
@@ -99,6 +109,8 @@ internal class LocationAuthorizationMonitorTests: XCTestCase {
         let expectedStatus = CLAuthorizationStatus.authorizedWhenInUse
         var expectedEvent: LocationAuthorizationMonitor.Event?
         let monitor = LocationAuthorizationMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

@@ -24,6 +24,8 @@ internal class URLCredentialStorageMonitorTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         var expectedEvent: URLCredentialStorageMonitor.Event?
         let monitor = URLCredentialStorageMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

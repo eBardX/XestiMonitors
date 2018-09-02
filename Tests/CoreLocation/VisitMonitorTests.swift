@@ -25,6 +25,8 @@ internal class VisitMonitorTests: XCTestCase {
         let expectedError = makeError()
         var expectedEvent: VisitMonitor.Event?
         let monitor = VisitMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -48,6 +50,8 @@ internal class VisitMonitorTests: XCTestCase {
         let expectedVisit = CLVisit()
         var expectedEvent: VisitMonitor.Event?
         let monitor = VisitMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }

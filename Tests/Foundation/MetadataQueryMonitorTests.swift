@@ -30,6 +30,8 @@ internal class MetadataQueryMonitorTests: XCTestCase {
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .didFinishGathering,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -61,6 +63,8 @@ internal class MetadataQueryMonitorTests: XCTestCase {
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .didStartGathering,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -92,6 +96,8 @@ internal class MetadataQueryMonitorTests: XCTestCase {
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .didUpdate,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -123,6 +129,8 @@ internal class MetadataQueryMonitorTests: XCTestCase {
         let monitor = MetadataQueryMonitor(query: query,
                                            options: .gatheringProgress,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

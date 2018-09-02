@@ -26,6 +26,8 @@ internal class ScreenBrightnessMonitorTests: XCTestCase {
         var expectedEvent: ScreenBrightnessMonitor.Event?
         let monitor = ScreenBrightnessMonitor(screen: screen,
                                               queue: .main) { event  in
+                                                XCTAssertEqual(OperationQueue.current, .main)
+
                                                 expectedEvent = event
                                                 expectation.fulfill()
         }

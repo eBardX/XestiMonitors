@@ -30,6 +30,8 @@ internal class ProcessInfoPowerStateMonitorTests: XCTestCase {
         let expectedState: Bool = true
         var expectedEvent: ProcessInfoPowerStateMonitor.Event?
         let monitor = ProcessInfoPowerStateMonitor(queue: .main) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
             expectedEvent = event
             expectation.fulfill()
         }
@@ -49,7 +51,9 @@ internal class ProcessInfoPowerStateMonitorTests: XCTestCase {
 
     func testState() {
         let expectedState: Bool = true
-        let monitor = ProcessInfoPowerStateMonitor(queue: .main) { _ in }
+        let monitor = ProcessInfoPowerStateMonitor(queue: .main) { _ in
+            XCTAssertEqual(OperationQueue.current, .main)
+        }
 
         simulateDidChange(to: expectedState)
 

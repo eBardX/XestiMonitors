@@ -26,6 +26,8 @@ internal class ScreenModeMonitorTests: XCTestCase {
         var expectedEvent: ScreenModeMonitor.Event?
         let monitor = ScreenModeMonitor(screen: screen,
                                         queue: .main) { event  in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }

@@ -26,6 +26,8 @@ internal class TableViewSelectionMonitorTests: XCTestCase {
         var expectedEvent: TableViewSelectionMonitor.Event?
         let monitor = TableViewSelectionMonitor(tableView: self.tableView,
                                                 queue: .main) { event in
+                                                    XCTAssertEqual(OperationQueue.current, .main)
+
                                                     expectedEvent = event
                                                     expectation.fulfill()
         }

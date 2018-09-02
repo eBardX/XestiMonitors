@@ -32,6 +32,8 @@ internal class FocusMonitorTests: XCTestCase {
             var expectedEvent: FocusMonitor.Event?
             let monitor = FocusMonitor(options: .didUpdate,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
             }
@@ -59,6 +61,8 @@ internal class FocusMonitorTests: XCTestCase {
 
             let monitor = FocusMonitor(options: .didUpdate,
                                        queue: .main) { _ in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectation.fulfill()
             }
 
@@ -75,6 +79,8 @@ internal class FocusMonitorTests: XCTestCase {
             var expectedEvent: FocusMonitor.Event?
             let monitor = FocusMonitor(options: .movementDidFail,
                                        queue: .main) { event in
+                                        XCTAssertEqual(OperationQueue.current, .main)
+
                                         expectedEvent = event
                                         expectation.fulfill()
             }

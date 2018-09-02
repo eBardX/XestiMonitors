@@ -27,6 +27,8 @@ internal class TextFieldTextMonitorTests: XCTestCase {
         let monitor = TextFieldTextMonitor(textField: textField,
                                            options: .didBeginEditing,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -50,6 +52,8 @@ internal class TextFieldTextMonitorTests: XCTestCase {
         let monitor = TextFieldTextMonitor(textField: textField,
                                            options: .didChange,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
@@ -73,6 +77,8 @@ internal class TextFieldTextMonitorTests: XCTestCase {
         let monitor = TextFieldTextMonitor(textField: textField,
                                            options: .didEndEditing,
                                            queue: .main) { event in
+                                            XCTAssertEqual(OperationQueue.current, .main)
+
                                             expectedEvent = event
                                             expectation.fulfill()
         }
