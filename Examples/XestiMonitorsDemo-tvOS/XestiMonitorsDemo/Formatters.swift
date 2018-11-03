@@ -22,11 +22,11 @@ public func formatAccessibilityElement(_ element: Any) -> String {
 }
 
 public func formatAssistiveTechnology(_ value: String) -> String {
-    if UIAccessibilityNotificationSwitchControlIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationSwitchControl.rawValue == value {
         return "Switch Control"
     }
 
-    if UIAccessibilityNotificationVoiceOverIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationVoiceOver.rawValue == value {
         return "VoiceOver"
     }
 

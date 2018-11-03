@@ -188,8 +188,8 @@ public class UIKitAccessibilityViewController: UITableViewController {
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
-                                            "Announcement #\(self.announcementCount)")
+            UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
+                                            argument: "Announcement #\(self.announcementCount)")
         }
     }
 

@@ -19,7 +19,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
     // MARK: UIApplicationDelegate Methods
 
     public func application(_ application: UIApplication,
-                            didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                            didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard
             let svc = window?.rootViewController as? UISplitViewController
             else { return false }
@@ -53,7 +53,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
 
     // MARK: UISplitViewControllerDelegate Methods
 
-    public func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
+    public func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewController.DisplayMode {
         return .allVisible
     }
 }

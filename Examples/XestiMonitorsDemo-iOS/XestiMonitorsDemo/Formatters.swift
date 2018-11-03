@@ -27,11 +27,11 @@ public func formatAccessibilityElement(_ element: Any) -> String {
 }
 
 public func formatAssistiveTechnology(_ value: String) -> String {
-    if UIAccessibilityNotificationSwitchControlIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationSwitchControl.rawValue == value {
         return "Switch Control"
     }
 
-    if UIAccessibilityNotificationVoiceOverIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationVoiceOver.rawValue == value {
         return "VoiceOver"
     }
 
@@ -108,7 +108,7 @@ public func formatDecimal(_ value: NSNumber,
     return decimalFormatter.string(from: value) ?? "\(value)"
 }
 
-public func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
+public func formatDeviceBatteryStateAndLevel(_ state: UIDevice.BatteryState,
                                              _ level: Float) -> String {
     switch state {
     case .charging:
@@ -185,7 +185,7 @@ public func formatHeadingComponentValues(_ x: CLHeadingComponentValue,
 }
 
 @available(iOS 10.0, *)
-public func formatHearingDeviceEar(_ ear: UIAccessibilityHearingDeviceEar) -> String {
+public func formatHearingDeviceEar(_ ear: UIAccessibility.HearingDeviceEar) -> String {
     switch ear {
     case [.both]:
         return "L+R"
@@ -369,7 +369,7 @@ public func formatTimeInterval(_ value: TimeInterval) -> String {
     return timeIntervalFormatter.string(from: value) ?? "\(value)"
 }
 
-public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
+public func formatViewAnimationCurve(_ value: UIView.AnimationCurve) -> String {
     switch value {
     case .easeIn:
         return "Ease in"
