@@ -18,9 +18,9 @@ internal class UbiquityIdentityMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        FileManagerInjector.inject = { return self.fileManager }
+        FileManagerInjector.inject = { self.fileManager }
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     func testMonitor_didChange_nil() {

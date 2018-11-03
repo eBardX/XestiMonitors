@@ -19,7 +19,7 @@ internal class StandardLocationMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        LocationManagerInjector.inject = { return self.locationManager }
+        LocationManagerInjector.inject = { self.locationManager }
     }
 
     #if os(iOS) || os(watchOS)

@@ -18,9 +18,9 @@ internal class ProcessInfoPowerStateMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
 
-        ProcessInfoInjector.inject = { return self.processInfo }
+        ProcessInfoInjector.inject = { self.processInfo }
 
         processInfo.isLowPowerModeEnabled = false
     }

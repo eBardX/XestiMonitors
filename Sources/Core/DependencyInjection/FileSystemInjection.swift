@@ -7,7 +7,7 @@
 //  © 2018 J. G. Pusey (see LICENSE.md)
 //
 
-internal protocol FileSystemProtocol: class {
+internal protocol FileSystemProtocol: AnyObject {
     @discardableResult
     func close(_ fd: Int32) -> Int32
 
@@ -21,8 +21,8 @@ internal protocol FileSystemProtocol: class {
 
 extension FileSystem: FileSystemProtocol {}
 
-internal struct FileSystemInjector {
-    internal static var inject: () -> FileSystemProtocol = { return shared }
+internal enum FileSystemInjector {
+    internal static var inject: () -> FileSystemProtocol = { shared }
 
     private static let shared: FileSystemProtocol = FileSystem()
 }

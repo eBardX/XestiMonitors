@@ -18,11 +18,11 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        ApplicationInjector.inject = { return self.application }
+        ApplicationInjector.inject = { self.application }
 
         application.applicationState = .inactive
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     func testMonitor_didBecomeActive() {

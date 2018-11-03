@@ -29,7 +29,7 @@ internal class FileSystemObjectMonitorTests: XCTestCase {
             return self.fileSystemObject
         }
 
-        FileSystemInjector.inject = { return self.fileSystem }
+        FileSystemInjector.inject = { self.fileSystem }
     }
 
     func testMonitor_accessWasRevoked() {

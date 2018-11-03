@@ -17,7 +17,7 @@ internal class VisitMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        LocationManagerInjector.inject = { return self.locationManager }
+        LocationManagerInjector.inject = { self.locationManager }
     }
 
     func testMonitor_error() {

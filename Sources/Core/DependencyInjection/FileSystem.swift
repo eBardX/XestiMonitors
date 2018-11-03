@@ -13,18 +13,18 @@ internal class FileSystem {
 
     // MARK: Public Instance Methods
 
-    public func close(_ fd: Int32) -> Int32 {
+    internal func close(_ fd: Int32) -> Int32 {
         return Darwin.close(fd)
     }
 
-    public func fcntl(_ fd: Int32,
-                      _ cmd: Int32,
-                      _ ptr: UnsafeMutableRawPointer) -> Int32 {
+    internal func fcntl(_ fd: Int32,
+                        _ cmd: Int32,
+                        _ ptr: UnsafeMutableRawPointer) -> Int32 {
         return Darwin.fcntl(fd, cmd, ptr)
     }
 
-    public func open(_ path: UnsafePointer<CChar>,
-                     _ oflag: Int32) -> Int32 {
+    internal func open(_ path: UnsafePointer<CChar>,
+                       _ oflag: Int32) -> Int32 {
         return Darwin.open(path, oflag)
     }
 }

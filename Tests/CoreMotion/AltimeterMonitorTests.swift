@@ -17,7 +17,7 @@ internal class AltimeterMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        AltimeterInjector.inject = { return self.altimeter }
+        AltimeterInjector.inject = { self.altimeter }
     }
 
     func testIsAvailable_false() {

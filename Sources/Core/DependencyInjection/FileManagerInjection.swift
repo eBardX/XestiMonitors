@@ -9,12 +9,12 @@
 
 import Foundation
 
-internal protocol FileManagerProtocol: class {
+internal protocol FileManagerProtocol: AnyObject {
     var ubiquityIdentityToken: (NSCoding & NSCopying & NSObjectProtocol)? { get }
 }
 
 extension FileManager: FileManagerProtocol {}
 
-internal struct FileManagerInjector {
-    internal static var inject: () -> FileManagerProtocol = { return FileManager.`default` }
+internal enum FileManagerInjector {
+    internal static var inject: () -> FileManagerProtocol = { FileManager.`default` }
 }

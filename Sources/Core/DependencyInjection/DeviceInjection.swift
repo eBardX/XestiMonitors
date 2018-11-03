@@ -11,7 +11,7 @@
 
 import UIKit
 
-internal protocol DeviceProtocol: class {
+internal protocol DeviceProtocol: AnyObject {
     var batteryLevel: Float { get }
 
     var batteryState: UIDeviceBatteryState { get }
@@ -31,8 +31,8 @@ internal protocol DeviceProtocol: class {
 
 extension UIDevice: DeviceProtocol {}
 
-internal struct DeviceInjector {
-    internal static var inject: () -> DeviceProtocol = { return UIDevice.current }
+internal enum DeviceInjector {
+    internal static var inject: () -> DeviceProtocol = { UIDevice.current }
 }
 
 #endif

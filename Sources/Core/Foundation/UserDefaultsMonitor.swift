@@ -118,7 +118,7 @@ public class UserDefaultsMonitor: BaseNotificationMonitor {
     private let options: Options
     #endif
 
-    public override func addNotificationObservers() {
+    override public func addNotificationObservers() {
         super.addNotificationObservers()
 
         #if os(iOS) || os(tvOS) || os(watchOS)

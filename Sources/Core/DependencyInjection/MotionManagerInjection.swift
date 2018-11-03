@@ -11,7 +11,7 @@
 
 import CoreMotion
 
-internal protocol MotionManagerProtocol: class {
+internal protocol MotionManagerProtocol: AnyObject {
     var accelerometerData: CMAccelerometerData? { get }
 
     var accelerometerUpdateInterval: TimeInterval { get set }
@@ -60,8 +60,8 @@ internal protocol MotionManagerProtocol: class {
 
 extension CMMotionManager: MotionManagerProtocol {}
 
-internal struct MotionManagerInjector {
-    internal static var inject: () -> MotionManagerProtocol = { return shared }
+internal enum MotionManagerInjector {
+    internal static var inject: () -> MotionManagerProtocol = { shared }
 
     private static let shared: MotionManagerProtocol = CMMotionManager()
 }

@@ -53,7 +53,7 @@ public class ScreenCapturedMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    public override func addNotificationObservers() {
+    override public func addNotificationObservers() {
         super.addNotificationObservers()
         observe(.UIScreenCapturedDidChange) { [unowned self] in
             if let screen = $0.object as? UIScreen {

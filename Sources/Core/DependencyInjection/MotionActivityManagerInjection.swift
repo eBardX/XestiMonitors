@@ -11,7 +11,7 @@
 
 import CoreMotion
 
-internal protocol MotionActivityManagerProtocol: class {
+internal protocol MotionActivityManagerProtocol: AnyObject {
     static func isActivityAvailable() -> Bool
 
     func queryActivityStarting(from start: Date,
@@ -27,8 +27,8 @@ internal protocol MotionActivityManagerProtocol: class {
 
 extension CMMotionActivityManager: MotionActivityManagerProtocol {}
 
-internal struct MotionActivityManagerInjector {
-    internal static var inject: () -> MotionActivityManagerProtocol = { return CMMotionActivityManager() }
+internal enum MotionActivityManagerInjector {
+    internal static var inject: () -> MotionActivityManagerProtocol = { CMMotionActivityManager() }
 }
 
 #endif

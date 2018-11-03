@@ -18,11 +18,11 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        ApplicationInjector.inject = { return self.application }
+        ApplicationInjector.inject = { self.application }
 
         application.isProtectedDataAvailable = false
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     func testMonitor_didBecomeAvailable() {

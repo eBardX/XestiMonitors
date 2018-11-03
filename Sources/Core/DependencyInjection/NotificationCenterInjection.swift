@@ -9,7 +9,7 @@
 
 import Foundation
 
-internal protocol NotificationCenterProtocol: class {
+internal protocol NotificationCenterProtocol: AnyObject {
     func addObserver(forName name: NSNotification.Name?,
                      object obj: Any?,
                      queue: OperationQueue?,
@@ -20,6 +20,6 @@ internal protocol NotificationCenterProtocol: class {
 
 extension NotificationCenter: NotificationCenterProtocol {}
 
-internal struct NotificationCenterInjector {
-    internal static var inject: () -> NotificationCenterProtocol = { return NotificationCenter.`default` }
+internal enum NotificationCenterInjector {
+    internal static var inject: () -> NotificationCenterProtocol = { NotificationCenter.`default` }
 }

@@ -9,7 +9,7 @@
 
 import Dispatch
 
-internal protocol FileSystemObjectProtocol: class {
+internal protocol FileSystemObjectProtocol: AnyObject {
     var data: DispatchSource.FileSystemEvent { get }
 
     func cancel()
@@ -27,7 +27,7 @@ internal protocol FileSystemObjectProtocol: class {
 
 extension DispatchSource: FileSystemObjectProtocol {}
 
-internal struct FileSystemObjectInjector {
+internal enum FileSystemObjectInjector {
     // swiftlint:disable force_cast
 
     internal static var inject: (Int32, DispatchSource.FileSystemEvent, DispatchQueue?) -> FileSystemObjectProtocol = {

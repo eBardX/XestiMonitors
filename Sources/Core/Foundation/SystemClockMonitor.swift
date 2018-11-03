@@ -41,7 +41,7 @@ public class SystemClockMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    public override func addNotificationObservers() {
+    override public func addNotificationObservers() {
         super.addNotificationObservers()
 
         observe(.NSSystemClockDidChange) { [unowned self] _ in

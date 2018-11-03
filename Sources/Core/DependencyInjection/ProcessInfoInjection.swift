@@ -9,7 +9,7 @@
 
 import Foundation
 
-internal protocol ProcessInfoProtocol: class {
+internal protocol ProcessInfoProtocol: AnyObject {
     #if os(iOS) || os(tvOS) || os(watchOS)
     var isLowPowerModeEnabled: Bool { get }
     #endif
@@ -20,6 +20,6 @@ internal protocol ProcessInfoProtocol: class {
 
 extension ProcessInfo: ProcessInfoProtocol {}
 
-internal struct ProcessInfoInjector {
-    internal static var inject: () -> ProcessInfoProtocol = { return ProcessInfo.processInfo }
+internal enum ProcessInfoInjector {
+    internal static var inject: () -> ProcessInfoProtocol = { ProcessInfo.processInfo }
 }

@@ -15,13 +15,13 @@ internal class NetworkReachability {
 
     // MARK: Public Nested Types
 
-    public enum Error: Swift.Error {
+    internal enum Error: Swift.Error {
         case creationFailure
     }
 
     // MARK: Public Instance Methods
 
-    public func getFlags(_ flags: UnsafeMutablePointer<SCNetworkReachabilityFlags>) -> Bool {
+    internal func getFlags(_ flags: UnsafeMutablePointer<SCNetworkReachabilityFlags>) -> Bool {
         guard
             let handle = handle
             else { return false }
@@ -30,7 +30,7 @@ internal class NetworkReachability {
                                              flags)
     }
 
-    public func listen(to address: UnsafePointer<sockaddr>) throws {
+    internal func listen(to address: UnsafePointer<sockaddr>) throws {
         self.handle = SCNetworkReachabilityCreateWithAddress(nil,
                                                              address)
 
@@ -39,7 +39,7 @@ internal class NetworkReachability {
         }
     }
 
-    public func listen(to nodename: UnsafePointer<Int8>) throws {
+    internal func listen(to nodename: UnsafePointer<Int8>) throws {
         self.handle = SCNetworkReachabilityCreateWithName(nil,
                                                           nodename)
 
@@ -49,8 +49,8 @@ internal class NetworkReachability {
     }
 
     @discardableResult
-    public func setCallback(_ callout: SystemConfiguration.SCNetworkReachabilityCallBack?,
-                            _ context: UnsafeMutablePointer<SCNetworkReachabilityContext>?) -> Bool {
+    internal func setCallback(_ callout: SystemConfiguration.SCNetworkReachabilityCallBack?,
+                              _ context: UnsafeMutablePointer<SCNetworkReachabilityContext>?) -> Bool {
         guard
             let handle = handle
             else { return false }
@@ -61,7 +61,7 @@ internal class NetworkReachability {
     }
 
     @discardableResult
-    public func setDispatchQueue(_ queue: DispatchQueue?) -> Bool {
+    internal func setDispatchQueue(_ queue: DispatchQueue?) -> Bool {
         guard
             let handle = handle
             else { return false }

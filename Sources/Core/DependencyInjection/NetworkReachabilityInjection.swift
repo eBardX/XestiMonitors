@@ -11,7 +11,7 @@
 
 import SystemConfiguration
 
-internal protocol NetworkReachabilityProtocol: class {
+internal protocol NetworkReachabilityProtocol: AnyObject {
     func getFlags(_ flags: UnsafeMutablePointer<SCNetworkReachabilityFlags>) -> Bool
 
     func listen(to address: UnsafePointer<sockaddr>) throws
@@ -28,8 +28,8 @@ internal protocol NetworkReachabilityProtocol: class {
 
 extension NetworkReachability: NetworkReachabilityProtocol {}
 
-internal struct NetworkReachabilityInjector {
-    internal static var inject: () -> NetworkReachabilityProtocol = { return shared }
+internal enum NetworkReachabilityInjector {
+    internal static var inject: () -> NetworkReachabilityProtocol = { shared }
 
     private static let shared: NetworkReachabilityProtocol = NetworkReachability()
 }

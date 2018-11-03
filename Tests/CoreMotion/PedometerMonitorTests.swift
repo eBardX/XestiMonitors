@@ -17,7 +17,7 @@ internal class PedometerMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        PedometerInjector.inject = { return self.pedometer }
+        PedometerInjector.inject = { self.pedometer }
     }
 
     func testIsCadenceAvailable_false() {

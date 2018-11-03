@@ -18,11 +18,11 @@ internal class ProximityMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        DeviceInjector.inject = { return self.device }
+        DeviceInjector.inject = { self.device }
 
         device.proximityState = false
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     func testIsAvailable() {

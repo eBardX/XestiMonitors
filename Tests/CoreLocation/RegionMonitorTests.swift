@@ -17,7 +17,7 @@ internal class RegionMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        LocationManagerInjector.inject = { return self.locationManager }
+        LocationManagerInjector.inject = { self.locationManager }
     }
 
     func testIsActivelyMonitored_false() {

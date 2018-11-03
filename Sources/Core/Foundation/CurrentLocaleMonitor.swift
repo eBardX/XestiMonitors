@@ -41,7 +41,7 @@ public class CurrentLocaleMonitor: BaseNotificationMonitor {
 
     private let handler: (Event) -> Void
 
-    public override func addNotificationObservers() {
+    override public func addNotificationObservers() {
         super.addNotificationObservers()
 
         observe(NSLocale.currentLocaleDidChangeNotification) { [unowned self] _ in

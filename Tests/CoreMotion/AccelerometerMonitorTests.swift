@@ -17,7 +17,7 @@ internal class AccelerometerMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        MotionManagerInjector.inject = { return self.motionManager }
+        MotionManagerInjector.inject = { self.motionManager }
     }
 
     func testInfo_data() {

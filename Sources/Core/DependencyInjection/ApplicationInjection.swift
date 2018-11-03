@@ -11,7 +11,7 @@
 
 import UIKit
 
-internal protocol ApplicationProtocol: class {
+internal protocol ApplicationProtocol: AnyObject {
     var applicationState: UIApplicationState { get }
 
     #if os(iOS)
@@ -31,8 +31,8 @@ internal protocol ApplicationProtocol: class {
 
 extension UIApplication: ApplicationProtocol {}
 
-internal struct ApplicationInjector {
-    internal static var inject: () -> ApplicationProtocol = { return UIApplication.shared }
+internal enum ApplicationInjector {
+    internal static var inject: () -> ApplicationProtocol = { UIApplication.shared }
 }
 
 #endif

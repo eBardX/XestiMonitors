@@ -20,7 +20,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        AccessibilityStatusInjector.inject = { return self.accessibilityStatus }
+        AccessibilityStatusInjector.inject = { self.accessibilityStatus }
 
         accessibilityStatus.mockDarkerSystemColorsEnabled = false
 
@@ -46,7 +46,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         accessibilityStatus.mockIsSwitchControlRunning = false
         accessibilityStatus.mockIsVoiceOverRunning = false
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     #if os(iOS)

@@ -18,7 +18,7 @@ internal class BaseNotificationMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        NotificationCenterInjector.inject = { return self.notificationCenter }
+        NotificationCenterInjector.inject = { self.notificationCenter }
     }
 
     func testMonitor_notificationFired() {

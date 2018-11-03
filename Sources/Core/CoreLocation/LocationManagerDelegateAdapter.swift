@@ -10,62 +10,62 @@
 import CoreLocation
 
 internal class LocationManagerDelegateAdapter: NSObject {
-    public var didChangeAuthorization: ((CLAuthorizationStatus) -> Void)?
+    internal var didChangeAuthorization: ((CLAuthorizationStatus) -> Void)?
 
     #if os(iOS) || os(macOS)
-    public var didDetermineState: ((CLRegion, CLRegionState) -> Void)?
-    #endif
-
-    #if os(iOS) || os(macOS)
-    public var didEnterRegion: ((CLRegion) -> Void)?
+    internal var didDetermineState: ((CLRegion, CLRegionState) -> Void)?
     #endif
 
     #if os(iOS) || os(macOS)
-    public var didExitRegion: ((CLRegion) -> Void)?
-    #endif
-
-    public var didFail: ((Error) -> Void)?
-
-    #if os(iOS) || os(macOS)
-    public var didFinishDeferredUpdates: ((Error?) -> Void)?
-    #endif
-
-    #if os(iOS)
-    public var didPauseLocationUpdates: (() -> Void)?
-    #endif
-
-    #if os(iOS)
-    public var didRangeBeacons: ((CLBeaconRegion, [CLBeacon]) -> Void)?
-    #endif
-
-    #if os(iOS)
-    public var didResumeLocationUpdates: (() -> Void)?
+    internal var didEnterRegion: ((CLRegion) -> Void)?
     #endif
 
     #if os(iOS) || os(macOS)
-    public var didStartMonitoring: ((CLRegion) -> Void)?
+    internal var didExitRegion: ((CLRegion) -> Void)?
+    #endif
+
+    internal var didFail: ((Error) -> Void)?
+
+    #if os(iOS) || os(macOS)
+    internal var didFinishDeferredUpdates: ((Error?) -> Void)?
     #endif
 
     #if os(iOS)
-    public var didUpdateHeading: ((CLHeading) -> Void)?
+    internal var didPauseLocationUpdates: (() -> Void)?
     #endif
 
-    public var didUpdateLocations: (([CLLocation]) -> Void)?
+    #if os(iOS)
+    internal var didRangeBeacons: ((CLBeaconRegion, [CLBeacon]) -> Void)?
+    #endif
 
     #if os(iOS)
-    public var didVisit: ((CLVisit) -> Void)?
+    internal var didResumeLocationUpdates: (() -> Void)?
     #endif
 
     #if os(iOS) || os(macOS)
-    public var monitoringDidFail: ((CLRegion?, Error) -> Void)?
+    internal var didStartMonitoring: ((CLRegion) -> Void)?
     #endif
 
     #if os(iOS)
-    public var rangingBeaconsDidFail: ((CLBeaconRegion, Error) -> Void)?
+    internal var didUpdateHeading: ((CLHeading) -> Void)?
+    #endif
+
+    internal var didUpdateLocations: (([CLLocation]) -> Void)?
+
+    #if os(iOS)
+    internal var didVisit: ((CLVisit) -> Void)?
+    #endif
+
+    #if os(iOS) || os(macOS)
+    internal var monitoringDidFail: ((CLRegion?, Error) -> Void)?
     #endif
 
     #if os(iOS)
-    public var shouldDisplayHeadingCalibration: (() -> Bool)?
+    internal var rangingBeaconsDidFail: ((CLBeaconRegion, Error) -> Void)?
+    #endif
+
+    #if os(iOS)
+    internal var shouldDisplayHeadingCalibration: (() -> Bool)?
     #endif
 }
 

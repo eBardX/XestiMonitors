@@ -15,71 +15,71 @@ internal class AccessibilityStatus {
 
     // MARK: Public Instance Methods
 
-    public func darkerSystemColorsEnabled() -> Bool {
+    internal func darkerSystemColorsEnabled() -> Bool {
         return UIAccessibilityDarkerSystemColorsEnabled()
     }
 
     #if os(iOS)
     @available(iOS 10.0, *)
-    public func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar {
+    internal func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar {
         return UIAccessibilityHearingDevicePairedEar()
     }
     #endif
 
     @available(iOS 10.0, tvOS 10.0, *)
-    public func isAssistiveTouchRunning() -> Bool {
+    internal func isAssistiveTouchRunning() -> Bool {
         return UIAccessibilityIsAssistiveTouchRunning()
     }
 
-    public func isBoldTextEnabled() -> Bool {
+    internal func isBoldTextEnabled() -> Bool {
         return UIAccessibilityIsBoldTextEnabled()
     }
 
-    public func isClosedCaptioningEnabled() -> Bool {
+    internal func isClosedCaptioningEnabled() -> Bool {
         return UIAccessibilityIsClosedCaptioningEnabled()
     }
 
-    public func isGrayscaleEnabled() -> Bool {
+    internal func isGrayscaleEnabled() -> Bool {
         return UIAccessibilityIsGrayscaleEnabled()
     }
 
-    public func isGuidedAccessEnabled() -> Bool {
+    internal func isGuidedAccessEnabled() -> Bool {
         return UIAccessibilityIsGuidedAccessEnabled()
     }
 
-    public func isInvertColorsEnabled() -> Bool {
+    internal func isInvertColorsEnabled() -> Bool {
         return UIAccessibilityIsInvertColorsEnabled()
     }
 
-    public func isMonoAudioEnabled() -> Bool {
+    internal func isMonoAudioEnabled() -> Bool {
         return UIAccessibilityIsMonoAudioEnabled()
     }
 
-    public func isReduceMotionEnabled() -> Bool {
+    internal func isReduceMotionEnabled() -> Bool {
         return UIAccessibilityIsReduceMotionEnabled()
     }
 
-    public func isReduceTransparencyEnabled() -> Bool {
+    internal func isReduceTransparencyEnabled() -> Bool {
         return UIAccessibilityIsReduceTransparencyEnabled()
     }
 
-    public func isShakeToUndoEnabled() -> Bool {
+    internal func isShakeToUndoEnabled() -> Bool {
         return UIAccessibilityIsShakeToUndoEnabled()
     }
 
-    public func isSpeakScreenEnabled() -> Bool {
+    internal func isSpeakScreenEnabled() -> Bool {
         return UIAccessibilityIsSpeakScreenEnabled()
     }
 
-    public func isSpeakSelectionEnabled() -> Bool {
+    internal func isSpeakSelectionEnabled() -> Bool {
         return UIAccessibilityIsSpeakSelectionEnabled()
     }
 
-    public func isSwitchControlRunning() -> Bool {
+    internal func isSwitchControlRunning() -> Bool {
         return UIAccessibilityIsSwitchControlRunning()
     }
 
-    public func isVoiceOverRunning() -> Bool {
+    internal func isVoiceOverRunning() -> Bool {
         return UIAccessibilityIsVoiceOverRunning()
     }
 }

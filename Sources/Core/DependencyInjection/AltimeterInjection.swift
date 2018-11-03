@@ -11,7 +11,7 @@
 
 import CoreMotion
 
-internal protocol AltimeterProtocol: class {
+internal protocol AltimeterProtocol: AnyObject {
     static func isRelativeAltitudeAvailable() -> Bool
 
     func startRelativeAltitudeUpdates(to queue: OperationQueue,
@@ -22,8 +22,8 @@ internal protocol AltimeterProtocol: class {
 
 extension CMAltimeter: AltimeterProtocol {}
 
-internal struct AltimeterInjector {
-    internal static var inject: () -> AltimeterProtocol = { return CMAltimeter() }
+internal enum AltimeterInjector {
+    internal static var inject: () -> AltimeterProtocol = { CMAltimeter() }
 }
 
 #endif

@@ -17,7 +17,7 @@ internal class SignificantLocationMonitorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        LocationManagerInjector.inject = { return self.locationManager }
+        LocationManagerInjector.inject = { self.locationManager }
     }
 
     func testIsAvailable_false() {

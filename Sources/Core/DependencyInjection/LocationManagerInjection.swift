@@ -9,7 +9,7 @@
 
 import CoreLocation
 
-internal protocol LocationManagerProtocol: class {
+internal protocol LocationManagerProtocol: AnyObject {
     #if os(iOS) || os(watchOS)
     @available(watchOS 4.0, *)
     var activityType: CLActivityType { get set }
@@ -164,6 +164,6 @@ internal protocol LocationManagerProtocol: class {
 
 extension CLLocationManager: LocationManagerProtocol {}
 
-internal struct LocationManagerInjector {
-    internal static var inject: () -> LocationManagerProtocol = { return CLLocationManager() }
+internal enum LocationManagerInjector {
+    internal static var inject: () -> LocationManagerProtocol = { CLLocationManager() }
 }

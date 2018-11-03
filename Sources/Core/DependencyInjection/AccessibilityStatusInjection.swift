@@ -11,7 +11,7 @@
 
 import UIKit
 
-internal protocol AccessibilityStatusProtocol: class {
+internal protocol AccessibilityStatusProtocol: AnyObject {
     func darkerSystemColorsEnabled() -> Bool
 
     #if os(iOS)
@@ -51,8 +51,8 @@ internal protocol AccessibilityStatusProtocol: class {
 
 extension AccessibilityStatus: AccessibilityStatusProtocol {}
 
-internal struct AccessibilityStatusInjector {
-    internal static var inject: () -> AccessibilityStatusProtocol = { return shared }
+internal enum AccessibilityStatusInjector {
+    internal static var inject: () -> AccessibilityStatusProtocol = { shared }
 
     private static let shared: AccessibilityStatusProtocol = AccessibilityStatus()
 }

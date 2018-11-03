@@ -82,7 +82,7 @@ public class ScreenConnectionMonitor: BaseNotificationMonitor {
     private let handler: (Event) -> Void
     private let options: Options
 
-    public override func addNotificationObservers() {
+    override public func addNotificationObservers() {
         super.addNotificationObservers()
 
         if options.contains(.didConnect) {
