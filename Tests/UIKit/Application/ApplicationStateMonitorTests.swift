@@ -163,7 +163,7 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     }
 
     func testState() {
-        let expectedState: UIApplicationState = .background
+        let expectedState: UIApplication.State = .background
         let monitor = ApplicationStateMonitor(options: .didEnterBackground,
                                               queue: .main) { _ in
             XCTAssertEqual(OperationQueue.current, .main)
@@ -177,34 +177,34 @@ internal class ApplicationStateMonitorTests: XCTestCase {
     private func simulateDidBecomeActive() {
         application.applicationState = .active
 
-        notificationCenter.post(name: .UIApplicationDidBecomeActive,
+        notificationCenter.post(name: UIApplication.didBecomeActiveNotification,
                                 object: application)
     }
 
     private func simulateDidEnterBackground() {
         application.applicationState = .background
 
-        notificationCenter.post(name: .UIApplicationDidEnterBackground,
+        notificationCenter.post(name: UIApplication.didEnterBackgroundNotification,
                                 object: application)
     }
 
     private func simulateDidFinishLaunching() {
-        notificationCenter.post(name: .UIApplicationDidFinishLaunching,
+        notificationCenter.post(name: UIApplication.didFinishLaunchingNotification,
                                 object: application)
     }
 
     private func simulateWillEnterForeground() {
-        notificationCenter.post(name: .UIApplicationWillEnterForeground,
+        notificationCenter.post(name: UIApplication.willEnterForegroundNotification,
                                 object: application)
     }
 
     private func simulateWillResignActive() {
-        notificationCenter.post(name: .UIApplicationWillResignActive,
+        notificationCenter.post(name: UIApplication.willResignActiveNotification,
                                 object: application)
     }
 
     private func simulateWillTerminate() {
-        notificationCenter.post(name: .UIApplicationWillTerminate,
+        notificationCenter.post(name: UIApplication.willTerminateNotification,
                                 object: application)
     }
 }

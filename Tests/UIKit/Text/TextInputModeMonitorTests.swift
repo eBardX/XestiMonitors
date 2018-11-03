@@ -45,7 +45,7 @@ internal class TextInputModeMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UITextInputCurrentInputModeDidChange,
+        notificationCenter.post(name: UITextInputMode.currentInputModeDidChangeNotification,
                                 object: textInputMode)
     }
 }

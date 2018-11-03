@@ -52,7 +52,7 @@ public class MemoryMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIApplicationDidReceiveMemoryWarning,
+        observe(UIApplication.didReceiveMemoryWarningNotification,
                 object: application) { [unowned self] _ in
                     self.handler(.didReceiveWarning)
         }

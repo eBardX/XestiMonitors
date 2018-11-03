@@ -55,7 +55,7 @@ public class ScreenCapturedMonitor: BaseNotificationMonitor {
 
     override public func addNotificationObservers() {
         super.addNotificationObservers()
-        observe(.UIScreenCapturedDidChange) { [unowned self] in
+        observe(UIScreen.capturedDidChangeNotification) { [unowned self] in
             if let screen = $0.object as? UIScreen {
                 self.handler(.didChange(screen))
             }

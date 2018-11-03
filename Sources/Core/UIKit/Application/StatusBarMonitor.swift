@@ -125,7 +125,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     private let options: Options
 
     private func extractStatusBarFrame(_ notification: Notification) -> CGRect {
-        if let frame = (notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
+        if let frame = (notification.userInfo?[UIApplication.statusBarFrameUserInfoKey] as? NSValue)?.cgRectValue {
             return frame
         }
 
@@ -133,7 +133,7 @@ public class StatusBarMonitor: BaseNotificationMonitor {
     }
 
     private func extractStatusBarOrientation(_ notification: Notification) -> UIInterfaceOrientation {
-        if let rawValue = (notification.userInfo?[UIApplicationStatusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
+        if let rawValue = (notification.userInfo?[UIApplication.statusBarOrientationUserInfoKey] as? NSNumber)?.intValue,
             let orientation = UIInterfaceOrientation(rawValue: rawValue) {
             return orientation
         }
@@ -145,28 +145,28 @@ public class StatusBarMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didChangeFrame) {
-            observe(.UIApplicationDidChangeStatusBarFrame,
+            observe(UIApplication.didChangeStatusBarFrameNotification,
                     object: application) { [unowned self] in
                         self.handler(.didChangeFrame(self.extractStatusBarFrame($0)))
             }
         }
 
         if options.contains(.didChangeOrientation) {
-            observe(.UIApplicationDidChangeStatusBarOrientation,
+            observe(UIApplication.didChangeStatusBarOrientationNotification,
                     object: application) { [unowned self] in
                         self.handler(.didChangeOrientation(self.extractStatusBarOrientation($0)))
             }
         }
 
         if options.contains(.willChangeFrame) {
-            observe(.UIApplicationWillChangeStatusBarFrame,
+            observe(UIApplication.willChangeStatusBarFrameNotification,
                     object: application) { [unowned self] in
                         self.handler(.willChangeFrame(self.extractStatusBarFrame($0)))
             }
         }
 
         if options.contains(.willChangeOrientation) {
-            observe(.UIApplicationWillChangeStatusBarOrientation,
+            observe(UIApplication.willChangeStatusBarOrientationNotification,
                     object: application) { [unowned self] in
                         self.handler(.willChangeOrientation(self.extractStatusBarOrientation($0)))
             }

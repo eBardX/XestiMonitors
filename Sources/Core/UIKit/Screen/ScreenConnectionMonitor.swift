@@ -86,7 +86,7 @@ public class ScreenConnectionMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didConnect) {
-            observe(.UIScreenDidConnect) { [unowned self] in
+            observe(UIScreen.didConnectNotification) { [unowned self] in
                 if let screen = $0.object as? UIScreen {
                     self.handler(.didConnect(screen))
                 }
@@ -94,7 +94,7 @@ public class ScreenConnectionMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didDisconnect) {
-            observe(.UIScreenDidDisconnect) { [unowned self] in
+            observe(UIScreen.didDisconnectNotification) { [unowned self] in
                 if let screen = $0.object as? UIScreen {
                     self.handler(.didDisconnect(screen))
                 }

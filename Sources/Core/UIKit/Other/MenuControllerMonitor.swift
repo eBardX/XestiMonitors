@@ -123,7 +123,7 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didHideMenu) {
-            observe(.UIMenuControllerDidHideMenu,
+            observe(UIMenuController.didHideMenuNotification,
                     object: menuController) { [unowned self] in
                 if let menuController = $0.object as? UIMenuController {
                     self.handler(.didHideMenu(menuController))
@@ -132,7 +132,7 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didShowMenu) {
-            observe(.UIMenuControllerDidShowMenu,
+            observe(UIMenuController.didShowMenuNotification,
                     object: menuController) { [unowned self] in
                 if let menuController = $0.object as? UIMenuController {
                     self.handler(.didShowMenu(menuController))
@@ -141,7 +141,7 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.menuFrameDidChange) {
-            observe(.UIMenuControllerMenuFrameDidChange,
+            observe(UIMenuController.menuFrameDidChangeNotification,
                     object: menuController) { [unowned self] in
                 if let menuController = $0.object as? UIMenuController {
                     self.handler(.menuFrameDidChange(menuController))
@@ -150,7 +150,7 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.willHideMenu) {
-            observe(.UIMenuControllerWillHideMenu,
+            observe(UIMenuController.willHideMenuNotification,
                     object: menuController) { [unowned self] in
                 if let menuController = $0.object as? UIMenuController {
                     self.handler(.willHideMenu(menuController))
@@ -159,7 +159,7 @@ public class MenuControllerMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.willShowMenu) {
-            observe(.UIMenuControllerWillShowMenu,
+            observe(UIMenuController.willShowMenuNotification,
                     object: menuController) { [unowned self] in
                 if let menuController = $0.object as? UIMenuController {
                     self.handler(.willShowMenu(menuController))

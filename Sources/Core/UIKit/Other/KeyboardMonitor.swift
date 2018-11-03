@@ -61,7 +61,7 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         /// Defines how the keyboard will be animated onto or off the
         /// screen.
         ///
-        public let animationCurve: UIViewAnimationCurve
+        public let animationCurve: UIView.AnimationCurve
 
         ///
         /// The duration of the animation onto or off the screen in
@@ -100,32 +100,32 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         fileprivate init(_ notification: Notification) {
             let userInfo = notification.userInfo
 
-            if let rawValue = (userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue,
-                let value = UIViewAnimationCurve(rawValue: rawValue) {
+            if let rawValue = (userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue,
+                let value = UIView.AnimationCurve(rawValue: rawValue) {
                 self.animationCurve = value
             } else {
                 self.animationCurve = .easeInOut
             }
 
-            if let value = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
+            if let value = (userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
                 self.animationDuration = value
             } else {
                 self.animationDuration = 0.0
             }
 
-            if let value = (userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if let value = (userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 self.frameBegin = value
             } else {
                 self.frameBegin = .zero
             }
 
-            if let value = (userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if let value = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.frameEnd = value
             } else {
                 self.frameEnd = .zero
             }
 
-            if let value = (userInfo?[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue {
+            if let value = (userInfo?[UIResponder.keyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue {
                 self.isLocal = value
             } else {
                 self.isLocal = true
@@ -214,37 +214,37 @@ public class KeyboardMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didChangeFrame) {
-            observe(.UIKeyboardDidChangeFrame) { [unowned self] in
+            observe(UIResponder.keyboardDidChangeFrameNotification) { [unowned self] in
                 self.handler(.didChangeFrame(Info($0)))
             }
         }
 
         if options.contains(.didHide) {
-            observe(.UIKeyboardDidHide) { [unowned self] in
+            observe(UIResponder.keyboardDidHideNotification) { [unowned self] in
                 self.handler(.didHide(Info($0)))
             }
         }
 
         if options.contains(.didShow) {
-            observe(.UIKeyboardDidShow) { [unowned self] in
+            observe(UIResponder.keyboardDidShowNotification) { [unowned self] in
                 self.handler(.didShow(Info($0)))
             }
         }
 
         if options.contains(.willChangeFrame) {
-            observe(.UIKeyboardWillChangeFrame) { [unowned self] in
+            observe(UIResponder.keyboardWillChangeFrameNotification) { [unowned self] in
                 self.handler(.willChangeFrame(Info($0)))
             }
         }
 
         if options.contains(.willHide) {
-            observe(.UIKeyboardWillHide) { [unowned self] in
+            observe(UIResponder.keyboardWillHideNotification) { [unowned self] in
                 self.handler(.willHide(Info($0)))
             }
         }
 
         if options.contains(.willShow) {
-            observe(.UIKeyboardWillShow) { [unowned self] in
+            observe(UIResponder.keyboardWillShowNotification) { [unowned self] in
                 self.handler(.willShow(Info($0)))
             }
         }

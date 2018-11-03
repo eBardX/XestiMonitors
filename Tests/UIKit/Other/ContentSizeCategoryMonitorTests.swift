@@ -85,10 +85,10 @@ internal class ContentSizeCategoryMonitorTests: XCTestCase {
         if badUserInfo {
             userInfo = nil
         } else {
-            userInfo = [UIContentSizeCategoryNewValueKey: category.rawValue]
+            userInfo = [UIContentSizeCategory.newValueUserInfoKey: category.rawValue]
         }
 
-        notificationCenter.post(name: .UIContentSizeCategoryDidChange,
+        notificationCenter.post(name: UIContentSizeCategory.didChangeNotification,
                                 object: application,
                                 userInfo: userInfo)
     }

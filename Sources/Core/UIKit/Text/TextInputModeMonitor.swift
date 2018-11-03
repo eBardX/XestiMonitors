@@ -47,7 +47,7 @@ public class TextInputModeMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UITextInputCurrentInputModeDidChange) { [unowned self] in
+        observe(UITextInputMode.currentInputModeDidChangeNotification) { [unowned self] in
             self.handler(.didChange($0.object as? UITextInputMode))
         }
     }

@@ -34,8 +34,8 @@ public class PasteboardMonitor: BaseNotificationMonitor {
         public let typesRemoved: [String]
 
         fileprivate init(_ userInfo: [AnyHashable: Any]?) {
-            self.typesAdded = userInfo?[UIPasteboardChangedTypesAddedKey] as? [String] ?? []
-            self.typesRemoved = userInfo?[UIPasteboardChangedTypesRemovedKey] as? [String] ?? []
+            self.typesAdded = userInfo?[UIPasteboard.changedTypesAddedUserInfoKey] as? [String] ?? []
+            self.typesRemoved = userInfo?[UIPasteboard.changedTypesRemovedUserInfoKey] as? [String] ?? []
         }
     }
 
@@ -118,7 +118,7 @@ public class PasteboardMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.changed) {
-            observe(.UIPasteboardChanged,
+            observe(UIPasteboard.changedNotification,
                     object: pasteboard) { [unowned self] in
                         if let pasteboard = $0.object as? UIPasteboard {
                             self.handler(.changed(pasteboard, Changes($0.userInfo)))
@@ -127,7 +127,7 @@ public class PasteboardMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.removed) {
-            observe(.UIPasteboardRemoved,
+            observe(UIPasteboard.removedNotification,
                     object: pasteboard) { [unowned self] in
                         if let pasteboard = $0.object as? UIPasteboard {
                             self.handler(.removed(pasteboard))

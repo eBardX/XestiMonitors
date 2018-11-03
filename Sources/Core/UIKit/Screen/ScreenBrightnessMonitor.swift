@@ -55,7 +55,7 @@ public class ScreenBrightnessMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIScreenBrightnessDidChange,
+        observe(UIScreen.brightnessDidChangeNotification,
                 object: screen) { [unowned self] in
                     if let screen = $0.object as? UIScreen {
                         self.handler(.didChange(screen))

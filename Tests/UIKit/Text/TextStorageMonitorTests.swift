@@ -72,12 +72,12 @@ internal class TextStorageMonitorTests: XCTestCase {
     }
 
     private func simulateDidProcessEditing() {
-        notificationCenter.post(name: .NSTextStorageDidProcessEditing,
+        notificationCenter.post(name: NSTextStorage.didProcessEditingNotification,
                                 object: textStorage)
     }
 
     private func simulateWillProcessEditing() {
-        notificationCenter.post(name: .NSTextStorageWillProcessEditing,
+        notificationCenter.post(name: NSTextStorage.willProcessEditingNotification,
                                 object: textStorage)
     }
 }

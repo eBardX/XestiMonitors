@@ -55,7 +55,7 @@ public class TableViewSelectionMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UITableViewSelectionDidChange,
+        observe(UITableView.selectionDidChangeNotification,
                 object: tableView) { [unowned self] in
                     if let tableView = $0.object as? UITableView {
                         self.handler(.didChange(tableView))

@@ -56,7 +56,7 @@ public class ContentSizeCategoryMonitor: BaseNotificationMonitor {
 
     private func extractContentSizeCategory(_ notification: Notification) -> UIContentSizeCategory? {
         guard
-            let rawValue = notification.userInfo?[UIContentSizeCategoryNewValueKey] as? String
+            let rawValue = notification.userInfo?[UIContentSizeCategory.newValueUserInfoKey] as? String
             else { return nil }
 
         return UIContentSizeCategory(rawValue: rawValue)
@@ -65,7 +65,7 @@ public class ContentSizeCategoryMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIContentSizeCategoryDidChange,
+        observe(UIContentSizeCategory.didChangeNotification,
                 object: application) { [unowned self] in
                     if let category = self.extractContentSizeCategory($0) {
                         self.handler(.didChange(category))

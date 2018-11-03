@@ -48,13 +48,13 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
         fileprivate init(_ notification: Notification) {
             let userInfo = notification.userInfo
 
-            if let value = userInfo?[UIAccessibilityAnnouncementKeyStringValue] as? String {
+            if let value = userInfo?[UIAccessibility.announcementStringValueUserInfoKey] as? String {
                 self.stringValue = value
             } else {
                 self.stringValue = " "
             }
 
-            if let value = (userInfo?[UIAccessibilityAnnouncementKeyWasSuccessful] as? NSNumber)?.boolValue {
+            if let value = (userInfo?[UIAccessibility.announcementWasSuccessfulUserInfoKey] as? NSNumber)?.boolValue {
                 self.wasSuccessful = value
             } else {
                 self.wasSuccessful = false
@@ -83,7 +83,7 @@ public class AccessibilityAnnouncementMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIAccessibilityAnnouncementDidFinish) { [unowned self] in
+        observe(UIAccessibility.announcementDidFinishNotification) { [unowned self] in
             self.handler(.didFinish(Info($0)))
         }
     }

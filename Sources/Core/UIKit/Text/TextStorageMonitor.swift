@@ -98,7 +98,7 @@ public class TextStorageMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didProcessEditing) {
-            observe(.NSTextStorageDidProcessEditing,
+            observe(NSTextStorage.didProcessEditingNotification,
                     object: textStorage) { [unowned self] in
                         if let textStorage = $0.object as? NSTextStorage {
                             self.handler(.didProcessEditing(textStorage))
@@ -107,7 +107,7 @@ public class TextStorageMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.willProcessEditing) {
-            observe(.NSTextStorageWillProcessEditing,
+            observe(NSTextStorage.willProcessEditingNotification,
                     object: textStorage) { [unowned self] in
                         if let textStorage = $0.object as? NSTextStorage {
                             self.handler(.willProcessEditing(textStorage))

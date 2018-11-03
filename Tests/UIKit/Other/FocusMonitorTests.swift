@@ -106,11 +106,11 @@ internal class FocusMonitorTests: XCTestCase {
             if badUserInfo {
                 userInfo = nil
             } else {
-                userInfo = [UIFocusUpdateAnimationCoordinatorKey: coordinator,
-                            UIFocusUpdateContextKey: context]
+                userInfo = [UIFocusSystem.animationCoordinatorUserInfoKey: coordinator,
+                            UIFocusSystem.focusUpdateContextUserInfoKey: context]
             }
 
-            notificationCenter.post(name: .UIFocusDidUpdate,
+            notificationCenter.post(name: UIFocusSystem.didUpdateNotification,
                                     object: nil,
                                     userInfo: userInfo)
         }
@@ -118,9 +118,9 @@ internal class FocusMonitorTests: XCTestCase {
 
     private func simulateMovementDidFail() {
         if #available(iOS 11.0, tvOS 11.0, *) {
-            let userInfo = [UIFocusUpdateContextKey: context]
+            let userInfo = [UIFocusSystem.focusUpdateContextUserInfoKey: context]
 
-            notificationCenter.post(name: .UIFocusMovementDidFail,
+            notificationCenter.post(name: UIFocusSystem.movementDidFailNotification,
                                     object: nil,
                                     userInfo: userInfo)
         }

@@ -46,7 +46,7 @@ internal class ScreenshotMonitorTests: XCTestCase {
     }
 
     private func simulateUserDidTake() {
-        notificationCenter.post(name: .UIApplicationUserDidTakeScreenshot,
+        notificationCenter.post(name: UIApplication.userDidTakeScreenshotNotification,
                                 object: application)
     }
 }

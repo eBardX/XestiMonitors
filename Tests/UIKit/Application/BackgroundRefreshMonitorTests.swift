@@ -63,7 +63,7 @@ internal class BackgroundRefreshMonitorTests: XCTestCase {
     private func simulateStatusDidChange(to status: UIBackgroundRefreshStatus) {
         application.backgroundRefreshStatus = status
 
-        notificationCenter.post(name: .UIApplicationBackgroundRefreshStatusDidChange,
+        notificationCenter.post(name: UIApplication.backgroundRefreshStatusDidChangeNotification,
                                 object: application)
     }
 }

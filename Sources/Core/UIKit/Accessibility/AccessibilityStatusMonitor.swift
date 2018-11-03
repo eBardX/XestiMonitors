@@ -57,7 +57,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         /// The system’s hearing device pairing options have changed.
         ///
         @available(iOS 10.0, *)
-        case hearingDevicePairedEarDidChange(UIAccessibilityHearingDeviceEar)
+        case hearingDevicePairedEarDidChange(UIAccessibility.HearingDeviceEar)
         #endif
 
         ///
@@ -268,8 +268,8 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// The current hearing device pairing options.
     ///
     @available(iOS 10.0, *)
-    public var hearingDevicePairedEar: UIAccessibilityHearingDeviceEar {
-        return accessibilityStatus.hearingDevicePairedEar()
+    public var hearingDevicePairedEar: UIAccessibility.HearingDeviceEar {
+        return accessibilityStatus.hearingDevicePairedEar
     }
 
     #endif
@@ -280,7 +280,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     ///
     @available(iOS 10.0, tvOS 10.0, *)
     public var isAssistiveTouchEnabled: Bool {
-        return accessibilityStatus.isAssistiveTouchRunning()
+        return accessibilityStatus.isAssistiveTouchRunning
     }
 
     ///
@@ -288,7 +288,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isBoldTextEnabled: Bool {
-        return accessibilityStatus.isBoldTextEnabled()
+        return accessibilityStatus.isBoldTextEnabled
     }
 
     ///
@@ -296,7 +296,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Captioning in Settings.
     ///
     public var isClosedCaptioningEnabled: Bool {
-        return accessibilityStatus.isClosedCaptioningEnabled()
+        return accessibilityStatus.isClosedCaptioningEnabled
     }
 
     ///
@@ -304,7 +304,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Colors in Settings.
     ///
     public var isDarkenColorsEnabled: Bool {
-        return accessibilityStatus.darkerSystemColorsEnabled()
+        return accessibilityStatus.darkerSystemColorsEnabled
     }
 
     ///
@@ -312,7 +312,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isGrayscaleEnabled: Bool {
-        return accessibilityStatus.isGrayscaleEnabled()
+        return accessibilityStatus.isGrayscaleEnabled
     }
 
     ///
@@ -320,7 +320,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Access in Settings.
     ///
     public var isGuidedAccessEnabled: Bool {
-        return accessibilityStatus.isGuidedAccessEnabled()
+        return accessibilityStatus.isGuidedAccessEnabled
     }
 
     ///
@@ -328,7 +328,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Colors in Settings.
     ///
     public var isInvertColorsEnabled: Bool {
-        return accessibilityStatus.isInvertColorsEnabled()
+        return accessibilityStatus.isInvertColorsEnabled
     }
 
     ///
@@ -336,7 +336,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isMonoAudioEnabled: Bool {
-        return accessibilityStatus.isMonoAudioEnabled()
+        return accessibilityStatus.isMonoAudioEnabled
     }
 
     ///
@@ -344,7 +344,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Motion in Settings.
     ///
     public var isReduceMotionEnabled: Bool {
-        return accessibilityStatus.isReduceMotionEnabled()
+        return accessibilityStatus.isReduceMotionEnabled
     }
 
     ///
@@ -352,7 +352,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Transparency in Settings.
     ///
     public var isReduceTransparencyEnabled: Bool {
-        return accessibilityStatus.isReduceTransparencyEnabled()
+        return accessibilityStatus.isReduceTransparencyEnabled
     }
 
     ///
@@ -360,7 +360,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Undo in Settings.
     ///
     public var isShakeToUndoEnabled: Bool {
-        return accessibilityStatus.isShakeToUndoEnabled()
+        return accessibilityStatus.isShakeToUndoEnabled
     }
 
     ///
@@ -368,7 +368,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Screen in Settings.
     ///
     public var isSpeakScreenEnabled: Bool {
-        return accessibilityStatus.isSpeakScreenEnabled()
+        return accessibilityStatus.isSpeakScreenEnabled
     }
 
     ///
@@ -376,7 +376,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Selection in Settings.
     ///
     public var isSpeakSelectionEnabled: Bool {
-        return accessibilityStatus.isSpeakSelectionEnabled()
+        return accessibilityStatus.isSpeakSelectionEnabled
     }
 
     ///
@@ -384,7 +384,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// Control in Settings.
     ///
     public var isSwitchControlEnabled: Bool {
-        return accessibilityStatus.isSwitchControlRunning()
+        return accessibilityStatus.isSwitchControlRunning
     }
 
     ///
@@ -392,7 +392,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
     /// in Settings.
     ///
     public var isVoiceOverEnabled: Bool {
-        return accessibilityStatus.isVoiceOverRunning()
+        return accessibilityStatus.isVoiceOverRunning
     }
 
     private let accessibilityStatus: AccessibilityStatusProtocol
@@ -406,37 +406,37 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
 
         if options.contains(.assistiveTouchStatusDidChange),
             #available(iOS 10.0, tvOS 10.0, *) {
-            observe(.UIAccessibilityAssistiveTouchStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.assistiveTouchStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.assistiveTouchStatusDidChange(self.isAssistiveTouchEnabled))
             }
         }
 
         if options.contains(.boldTextStatusDidChange) {
-            observe(.UIAccessibilityBoldTextStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.boldTextStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.boldTextStatusDidChange(self.isBoldTextEnabled))
             }
         }
 
         if options.contains(.closedCaptioningStatusDidChange) {
-            observe(.UIAccessibilityClosedCaptioningStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.closedCaptioningStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.closedCaptioningStatusDidChange(self.isClosedCaptioningEnabled))
             }
         }
 
         if options.contains(.darkenColorsStatusDidChange) {
-            observe(.UIAccessibilityDarkerSystemColorsStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.darkerSystemColorsStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.darkenColorsStatusDidChange(self.isDarkenColorsEnabled))
             }
         }
 
         if options.contains(.grayscaleStatusDidChange) {
-            observe(.UIAccessibilityGrayscaleStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.grayscaleStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.grayscaleStatusDidChange(self.isGrayscaleEnabled))
             }
         }
 
         if options.contains(.guidedAccessStatusDidChange) {
-            observe(.UIAccessibilityGuidedAccessStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.guidedAccessStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.guidedAccessStatusDidChange(self.isGuidedAccessEnabled))
             }
         }
@@ -444,56 +444,56 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
         #if os(iOS)
         if options.contains(.hearingDevicePairedEarDidChange),
             #available(iOS 10.0, *) {
-            observe(.UIAccessibilityHearingDevicePairedEarDidChange) { [unowned self] _ in
+            observe(UIAccessibility.hearingDevicePairedEarDidChangeNotification) { [unowned self] _ in
                 self.handler(.hearingDevicePairedEarDidChange(self.hearingDevicePairedEar))
             }
         }
         #endif
 
         if options.contains(.invertColorsStatusDidChange) {
-            observe(.UIAccessibilityInvertColorsStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.invertColorsStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.invertColorsStatusDidChange(self.isInvertColorsEnabled))
             }
         }
 
         if options.contains(.monoAudioStatusDidChange) {
-            observe(.UIAccessibilityMonoAudioStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.monoAudioStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.monoAudioStatusDidChange(self.isMonoAudioEnabled))
             }
         }
 
         if options.contains(.reduceMotionStatusDidChange) {
-            observe(.UIAccessibilityReduceMotionStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.reduceMotionStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.reduceMotionStatusDidChange(self.isReduceMotionEnabled))
             }
         }
 
         if options.contains(.reduceTransparencyStatusDidChange) {
-            observe(.UIAccessibilityReduceTransparencyStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.reduceTransparencyStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.reduceTransparencyStatusDidChange(self.isReduceTransparencyEnabled))
             }
         }
 
         if options.contains(.shakeToUndoStatusDidChange) {
-            observe(.UIAccessibilityShakeToUndoDidChange) { [unowned self] _ in
+            observe(UIAccessibility.shakeToUndoDidChangeNotification) { [unowned self] _ in
                 self.handler(.shakeToUndoStatusDidChange(self.isShakeToUndoEnabled))
             }
         }
 
         if options.contains(.speakScreenStatusDidChange) {
-            observe(.UIAccessibilitySpeakScreenStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.speakScreenStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.speakScreenStatusDidChange(self.isSpeakScreenEnabled))
             }
         }
 
         if options.contains(.speakSelectionStatusDidChange) {
-            observe(.UIAccessibilitySpeakSelectionStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.speakSelectionStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.speakSelectionStatusDidChange(self.isSpeakSelectionEnabled))
             }
         }
 
         if options.contains(.switchControlStatusDidChange) {
-            observe(.UIAccessibilitySwitchControlStatusDidChange) { [unowned self] _ in
+            observe(UIAccessibility.switchControlStatusDidChangeNotification) { [unowned self] _ in
                 self.handler(.switchControlStatusDidChange(self.isSwitchControlEnabled))
             }
         }
@@ -502,7 +502,7 @@ public class AccessibilityStatusMonitor: BaseNotificationMonitor {
             let voiceOverStatusDidChange: Notification.Name
 
             if #available(iOS 11.0, tvOS 11.0, *) {
-                voiceOverStatusDidChange = .UIAccessibilityVoiceOverStatusDidChange
+                voiceOverStatusDidChange = UIAccessibility.voiceOverStatusDidChangeNotification
             } else {
                 voiceOverStatusDidChange = Notification.Name(UIAccessibilityVoiceOverStatusChanged)
             }

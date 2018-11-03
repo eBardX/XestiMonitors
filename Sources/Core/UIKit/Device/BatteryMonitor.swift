@@ -30,7 +30,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
         ///
         /// The battery state of the device has changed.
         ///
-        case stateDidChange(UIDeviceBatteryState)
+        case stateDidChange(UIDevice.BatteryState)
     }
 
     ///
@@ -93,7 +93,7 @@ public class BatteryMonitor: BaseNotificationMonitor {
     ///
     /// The battery state for the device.
     ///
-    public var state: UIDeviceBatteryState {
+    public var state: UIDevice.BatteryState {
         return device.batteryState
     }
 
@@ -105,14 +105,14 @@ public class BatteryMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.levelDidChange) {
-            observe(.UIDeviceBatteryLevelDidChange,
+            observe(UIDevice.batteryLevelDidChangeNotification,
                     object: device) { [unowned self] _ in
                         self.handler(.levelDidChange(self.level))
             }
         }
 
         if options.contains(.stateDidChange) {
-            observe(.UIDeviceBatteryStateDidChange,
+            observe(UIDevice.batteryStateDidChangeNotification,
                     object: device) { [unowned self] _ in
                         self.handler(.stateDidChange(self.state))
             }

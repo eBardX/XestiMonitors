@@ -50,7 +50,7 @@ public class ScreenshotMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIApplicationUserDidTakeScreenshot,
+        observe(UIApplication.userDidTakeScreenshotNotification,
                 object: application) { [unowned self] _ in
                     self.handler(.userDidTake)
         }

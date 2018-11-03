@@ -55,7 +55,7 @@ public class ScreenModeMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIScreenModeDidChange,
+        observe(UIScreen.modeDidChangeNotification,
                 object: screen) { [unowned self] in
                     if let screen = $0.object as? UIScreen {
                         self.handler(.didChange(screen))

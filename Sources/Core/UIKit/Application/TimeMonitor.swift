@@ -50,7 +50,7 @@ public class TimeMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIApplicationSignificantTimeChange,
+        observe(UIApplication.significantTimeChangeNotification,
                 object: application) { [unowned self] _ in
                     self.handler(.significantChange)
         }

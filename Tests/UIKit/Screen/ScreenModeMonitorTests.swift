@@ -46,7 +46,7 @@ internal class ScreenModeMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UIScreenModeDidChange,
+        notificationCenter.post(name: UIScreen.modeDidChangeNotification,
                                 object: screen)
     }
 }

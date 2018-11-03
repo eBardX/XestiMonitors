@@ -45,7 +45,7 @@ internal class ViewControllerShowDetailTargetMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UIViewControllerShowDetailTargetDidChange,
+        notificationCenter.post(name: UIViewController.showDetailTargetDidChangeNotification,
                                 object: viewController)
     }
 }

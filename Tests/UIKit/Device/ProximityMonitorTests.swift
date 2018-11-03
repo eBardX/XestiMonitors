@@ -75,7 +75,7 @@ internal class ProximityMonitorTests: XCTestCase {
     private func simulateStateDidChange(to state: Bool) {
         device.proximityState = state
 
-        notificationCenter.post(name: .UIDeviceProximityStateDidChange,
+        notificationCenter.post(name: UIDevice.proximityStateDidChangeNotification,
                                 object: device)
     }
 }

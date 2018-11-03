@@ -28,7 +28,7 @@ internal class MockApplication: ApplicationProtocol {
         #endif
     }
 
-    var applicationState: UIApplicationState
+    var applicationState: UIApplication.State
     #if os(iOS)
     var backgroundRefreshStatus: UIBackgroundRefreshStatus
     #endif

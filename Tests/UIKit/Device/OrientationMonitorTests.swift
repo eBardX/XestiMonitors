@@ -63,7 +63,7 @@ internal class OrientationMonitorTests: XCTestCase {
     private func simulateDidChange(to orientation: UIDeviceOrientation) {
         device.orientation = orientation
 
-        notificationCenter.post(name: .UIDeviceOrientationDidChange,
+        notificationCenter.post(name: UIDevice.orientationDidChangeNotification,
                                 object: device)
     }
 }

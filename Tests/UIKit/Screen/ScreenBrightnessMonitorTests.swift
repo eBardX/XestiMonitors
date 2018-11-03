@@ -46,7 +46,7 @@ internal class ScreenBrightnessMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UIScreenBrightnessDidChange,
+        notificationCenter.post(name: UIScreen.brightnessDidChangeNotification,
                                 object: screen)
     }
 }

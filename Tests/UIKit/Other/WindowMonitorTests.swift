@@ -122,22 +122,22 @@ internal class WindowMonitorTests: XCTestCase {
     }
 
     private func simulateDidBecomeHidden() {
-        notificationCenter.post(name: .UIWindowDidBecomeHidden,
+        notificationCenter.post(name: UIWindow.didBecomeHiddenNotification,
                                 object: window)
     }
 
     private func simulateDidBecomeKey() {
-        notificationCenter.post(name: .UIWindowDidBecomeKey,
+        notificationCenter.post(name: UIWindow.didBecomeKeyNotification,
                                 object: window)
     }
 
     private func simulateDidBecomeVisible() {
-        notificationCenter.post(name: .UIWindowDidBecomeVisible,
+        notificationCenter.post(name: UIWindow.didBecomeVisibleNotification,
                                 object: window)
     }
 
     private func simulateDidResignKey() {
-        notificationCenter.post(name: .UIWindowDidResignKey,
+        notificationCenter.post(name: UIWindow.didResignKeyNotification,
                                 object: window)
     }
 }

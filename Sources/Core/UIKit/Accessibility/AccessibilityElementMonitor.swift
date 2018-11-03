@@ -51,9 +51,9 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
         fileprivate init(_ notification: Notification) {
             let userInfo = notification.userInfo
 
-            self.assistiveTechnology = userInfo?[UIAccessibilityAssistiveTechnologyKey] as? String
-            self.focusedElement = userInfo?[UIAccessibilityFocusedElementKey]
-            self.unfocusedElement = userInfo?[UIAccessibilityUnfocusedElementKey]
+            self.assistiveTechnology = userInfo?[UIAccessibility.assistiveTechnologyUserInfoKey] as? String
+            self.focusedElement = userInfo?[UIAccessibility.focusedElementUserInfoKey]
+            self.unfocusedElement = userInfo?[UIAccessibility.unfocusedElementUserInfoKey]
         }
     }
 
@@ -78,7 +78,7 @@ public class AccessibilityElementMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIAccessibilityElementFocused) { [unowned self] in
+        observe(UIAccessibility.elementFocusedNotification) { [unowned self] in
             self.handler(.didFocus(Info($0)))
         }
     }

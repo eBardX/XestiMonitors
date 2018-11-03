@@ -130,7 +130,7 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
     ///
     /// The runtime state of the app.
     ///
-    public var state: UIApplicationState {
+    public var state: UIApplication.State {
         return application.applicationState
     }
 
@@ -142,42 +142,42 @@ public class ApplicationStateMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didBecomeActive) {
-            observe(.UIApplicationDidBecomeActive,
+            observe(UIApplication.didBecomeActiveNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.didBecomeActive)
             }
         }
 
         if options.contains(.didEnterBackground) {
-            observe(.UIApplicationDidEnterBackground,
+            observe(UIApplication.didEnterBackgroundNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.didEnterBackground)
             }
         }
 
         if options.contains(.didFinishLaunching) {
-            observe(.UIApplicationDidFinishLaunching,
+            observe(UIApplication.didFinishLaunchingNotification,
                     object: application) { [unowned self] in
                         self.handler(.didFinishLaunching($0.userInfo))
             }
         }
 
         if options.contains(.willEnterForeground) {
-            observe(.UIApplicationWillEnterForeground,
+            observe(UIApplication.willEnterForegroundNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.willEnterForeground)
             }
         }
 
         if options.contains(.willResignActive) {
-            observe(.UIApplicationWillResignActive,
+            observe(UIApplication.willResignActiveNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.willResignActive)
             }
         }
 
         if options.contains(.willTerminate) {
-            observe(.UIApplicationWillTerminate,
+            observe(UIApplication.willTerminateNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.willTerminate)
             }

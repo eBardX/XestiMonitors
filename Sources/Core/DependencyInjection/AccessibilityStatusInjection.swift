@@ -12,41 +12,41 @@
 import UIKit
 
 internal protocol AccessibilityStatusProtocol: AnyObject {
-    func darkerSystemColorsEnabled() -> Bool
+    var darkerSystemColorsEnabled: Bool { get }
 
     #if os(iOS)
     @available(iOS 10.0, *)
-    func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar
+    var hearingDevicePairedEar: UIAccessibility.HearingDeviceEar { get }
     #endif
 
     @available(iOS 10.0, tvOS 10.0, *)
-    func isAssistiveTouchRunning() -> Bool
+    var isAssistiveTouchRunning: Bool { get }
 
-    func isBoldTextEnabled() -> Bool
+    var isBoldTextEnabled: Bool { get }
 
-    func isClosedCaptioningEnabled() -> Bool
+    var isClosedCaptioningEnabled: Bool { get }
 
-    func isGrayscaleEnabled() -> Bool
+    var isGrayscaleEnabled: Bool { get }
 
-    func isGuidedAccessEnabled() -> Bool
+    var isGuidedAccessEnabled: Bool { get }
 
-    func isInvertColorsEnabled() -> Bool
+    var isInvertColorsEnabled: Bool { get }
 
-    func isMonoAudioEnabled() -> Bool
+    var isMonoAudioEnabled: Bool { get }
 
-    func isReduceMotionEnabled() -> Bool
+    var isReduceMotionEnabled: Bool { get }
 
-    func isReduceTransparencyEnabled() -> Bool
+    var isReduceTransparencyEnabled: Bool { get }
 
-    func isShakeToUndoEnabled() -> Bool
+    var isShakeToUndoEnabled: Bool { get }
 
-    func isSpeakScreenEnabled() -> Bool
+    var isSpeakScreenEnabled: Bool { get }
 
-    func isSpeakSelectionEnabled() -> Bool
+    var isSpeakSelectionEnabled: Bool { get }
 
-    func isSwitchControlRunning() -> Bool
+    var isSwitchControlRunning: Bool { get }
 
-    func isVoiceOverRunning() -> Bool
+    var isVoiceOverRunning: Bool { get }
 }
 
 extension AccessibilityStatus: AccessibilityStatusProtocol {}

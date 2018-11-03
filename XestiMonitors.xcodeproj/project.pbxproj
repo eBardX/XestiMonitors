@@ -136,11 +136,11 @@
 		5D3C61E7164A81D0C96FD655622B0298 /* ContentSizeCategoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573141E53F261D233AF75DFA32595BC6 /* ContentSizeCategoryMonitorTests.swift */; };
 		D15DE92472AFDD6337580AF5C99214DA /* ContentSizeCategoryMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573141E53F261D233AF75DFA32595BC6 /* ContentSizeCategoryMonitorTests.swift */; };
 		5218E84300E87465F5C01C0C0360B581 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
-		E00E579D696A21FC05CEEE7C01D6BB18 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
-		AF6EA808947EF47D24EAD1162A23EE69 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
 		9AFF7F009FC917AA8508CEE3FE138F26 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
-		22C83CC0A619B1289D8C9B6FAFADFEEB /* CurrentLocaleMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E39F2AE28ED0B40C9857994C5687D /* CurrentLocaleMonitorTests.swift */; };
+		AF6EA808947EF47D24EAD1162A23EE69 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
+		E00E579D696A21FC05CEEE7C01D6BB18 /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F874C334143B1DDC895DDFDA6BA3843 /* CurrentLocaleMonitor.swift */; };
 		10DA19240139414612A2571C514FA787 /* CurrentLocaleMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E39F2AE28ED0B40C9857994C5687D /* CurrentLocaleMonitorTests.swift */; };
+		22C83CC0A619B1289D8C9B6FAFADFEEB /* CurrentLocaleMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E39F2AE28ED0B40C9857994C5687D /* CurrentLocaleMonitorTests.swift */; };
 		B215739FEF37A0E458D255B26BA91FC5 /* CurrentLocaleMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E39F2AE28ED0B40C9857994C5687D /* CurrentLocaleMonitorTests.swift */; };
 		0E8BB27969E68B77A5FCD00AE6D1F7B9 /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2204EA9E639A4EF67266DDE85DB87 /* DeviceInjection.swift */; };
 		3AC6F8FF0D461FC07504D5B536BBD34A /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2204EA9E639A4EF67266DDE85DB87 /* DeviceInjection.swift */; };
@@ -423,13 +423,13 @@
 		2EEB20D3E7CF5CC3593152A1B5ED024C /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		4073EE440022485438963DAD131BF03E /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C5F0D430EC2DDA8B8C4344A7FE11 /* StatusBarMonitor.swift */; };
 		6A6A74159885C13BA902C04853C79CD3 /* StatusBarMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BE5FF5514827E91F24D24FEB171BF /* StatusBarMonitorTests.swift */; };
-		C74A1735103ACC474FF353BBAC8A9ABF /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */; };
 		7683D1C43207E5FC18053CD927CC70B4 /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */; };
+		C74A1735103ACC474FF353BBAC8A9ABF /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */; };
 		CECC58B9C40C84299E9926B0E1A1ADA7 /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */; };
 		F6B0C2643BA2F4A62053D3E9FFB2D231 /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289B46B716CC58DED782F5ED45540CA /* SystemClockMonitor.swift */; };
-		A88ABDA90C1B1DC3DDBA9E2114D17018 /* SystemClockMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EC5495EC41C8374A6066D13EE69E /* SystemClockMonitorTests.swift */; };
 		72D59A400054C98CBBA10D8E14C80984 /* SystemClockMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EC5495EC41C8374A6066D13EE69E /* SystemClockMonitorTests.swift */; };
 		8D2C89305E3387BA84BCA2AE4B56DB95 /* SystemClockMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EC5495EC41C8374A6066D13EE69E /* SystemClockMonitorTests.swift */; };
+		A88ABDA90C1B1DC3DDBA9E2114D17018 /* SystemClockMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EC5495EC41C8374A6066D13EE69E /* SystemClockMonitorTests.swift */; };
 		07C58D26C82A856E1C63237B5EC2C035 /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
 		C9205C9D42BA6D3F8C635450655EF54C /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
 		D83E12864CB2635EB6DCCBA901FAB4DB /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419CB9606952A6669F1955E534DCCCE /* SystemTimeZoneMonitor.swift */; };
@@ -474,12 +474,12 @@
 		7BF70C20DE46DCFB69A009B4ABC8CC87 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		C76C15C2CA6F6E1A8D623935BC83F1A9 /* TimeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D258AF0ECCD4A8C9E860A5C10FB6E2 /* TimeMonitorTests.swift */; };
 		8768CA340F2FC8F6A46D11618ECAE11E /* UIFocusUpdateContext+Neutered.m in Sources */ = {isa = PBXBuildFile; fileRef = 3418DB677A868D3A80A083F430527442 /* UIFocusUpdateContext+Neutered.m */; };
-		93AD8672718F113AB415D12C7BB5D2DA /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
-		C9E2D56E4E41858BEBEE577EE5161E22 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
 		14B95DCCF1ED6132B388867335630166 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
 		2ED759E695829EA80A4784921F4C74F2 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
-		B1EB8EE19C27FD689E5906F8891E83F5 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
+		93AD8672718F113AB415D12C7BB5D2DA /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
+		C9E2D56E4E41858BEBEE577EE5161E22 /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A9B85BACA8FF09CA8007B4EC1DF96A /* URLCredentialStorageMonitor.swift */; };
 		187CFB292F7860593A64536CD1BDA863 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
+		B1EB8EE19C27FD689E5906F8891E83F5 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
 		B9C878D2164B61226B50D41B35A30305 /* URLCredentialStorageMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664A67838F032A814F954F4C367D7F5 /* URLCredentialStorageMonitorTests.swift */; };
 		10C117EFB123D9E3746E1BC5B157687E /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
 		286936A1D0B637FAEB01BF7F208CAF4C /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44BEDF7571B409CE612C599CEB84768 /* UbiquitousKeyValueStoreMonitor.swift */; };
@@ -1572,7 +1572,7 @@
 				TargetAttributes = {
 					024D49938D406EB59BC46844D2B0F078 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					044D341643CA1B61B9CC0A1C07277077 = {
@@ -1582,7 +1582,7 @@
 					};
 					0EFF1FC7B42FDE76CEB333F3C10A26AF = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					1DA704285F57494BAFD700884AA80859 = {
@@ -1592,12 +1592,12 @@
 					};
 					586E3A5AFB970F975F2AEE0B8C7C9B84 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					7843705D5B2FBE666972254A07C8BEDC = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					8A1685101D7A69192343BA657E49B967 = {
@@ -2322,6 +2322,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2343,6 +2344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitors;
 				PRODUCT_NAME = XestiMonitors;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2358,6 +2360,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2375,6 +2378,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2397,6 +2401,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2416,6 +2421,7 @@
 				PRODUCT_NAME = XestiMonitors;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2438,6 +2444,7 @@
 				PRODUCT_NAME = XestiMonitors;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2460,6 +2467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mock/XestiMonitorsTests-iOS-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2476,6 +2484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2551,6 +2560,7 @@
 				PRODUCT_NAME = XestiMonitors;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2636,6 +2646,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2653,6 +2664,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -2675,6 +2687,7 @@
 				PRODUCT_NAME = XestiMonitors;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2689,6 +2702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xesticode.XestiMonitorsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;

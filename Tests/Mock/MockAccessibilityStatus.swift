@@ -30,7 +30,7 @@ internal class MockAccessibilityStatus: AccessibilityStatusProtocol {
         self.mockIsVoiceOverRunning = false
     }
 
-    func darkerSystemColorsEnabled() -> Bool {
+    var darkerSystemColorsEnabled: Bool {
         return mockDarkerSystemColorsEnabled
     }
 
@@ -38,67 +38,67 @@ internal class MockAccessibilityStatus: AccessibilityStatusProtocol {
 
     #if os(iOS)
     @available(iOS 10.0, *)
-    func hearingDevicePairedEar() -> UIAccessibilityHearingDeviceEar {
-        return mockHearingDevicePairedEar as! UIAccessibilityHearingDeviceEar
+    var hearingDevicePairedEar: UIAccessibility.HearingDeviceEar {
+        return mockHearingDevicePairedEar as! UIAccessibility.HearingDeviceEar
     }
     #endif
 
     // swiftlint:enable force_cast
 
     @available(iOS 10.0, tvOS 10.0, *)
-    func isAssistiveTouchRunning() -> Bool {
+    var isAssistiveTouchRunning: Bool {
         return mockIsAssistiveTouchRunning
     }
 
-    func isBoldTextEnabled() -> Bool {
+    var isBoldTextEnabled: Bool {
         return mockIsBoldTextEnabled
     }
 
-    func isClosedCaptioningEnabled() -> Bool {
+    var isClosedCaptioningEnabled: Bool {
         return mockIsClosedCaptioningEnabled
     }
 
-    func isGrayscaleEnabled() -> Bool {
+    var isGrayscaleEnabled: Bool {
         return mockIsGrayscaleEnabled
     }
 
-    func isGuidedAccessEnabled() -> Bool {
+    var isGuidedAccessEnabled: Bool {
         return mockIsGuidedAccessEnabled
     }
 
-    func isInvertColorsEnabled() -> Bool {
+    var isInvertColorsEnabled: Bool {
         return mockIsInvertColorsEnabled
     }
 
-    func isMonoAudioEnabled() -> Bool {
+    var isMonoAudioEnabled: Bool {
         return mockIsMonoAudioEnabled
     }
 
-    func isReduceMotionEnabled() -> Bool {
+    var isReduceMotionEnabled: Bool {
         return mockIsReduceMotionEnabled
     }
 
-    func isReduceTransparencyEnabled() -> Bool {
+    var isReduceTransparencyEnabled: Bool {
         return mockIsReduceTransparencyEnabled
     }
 
-    func isShakeToUndoEnabled() -> Bool {
+    var isShakeToUndoEnabled: Bool {
         return mockIsShakeToUndoEnabled
     }
 
-    func isSpeakScreenEnabled() -> Bool {
+    var isSpeakScreenEnabled: Bool {
         return mockIsSpeakScreenEnabled
     }
 
-    func isSpeakSelectionEnabled() -> Bool {
+    var isSpeakSelectionEnabled: Bool {
         return mockIsSpeakSelectionEnabled
     }
 
-    func isSwitchControlRunning() -> Bool {
+    var isSwitchControlRunning: Bool {
         return mockIsSwitchControlRunning
     }
 
-    func isVoiceOverRunning() -> Bool {
+    var isVoiceOverRunning: Bool {
         return mockIsVoiceOverRunning
     }
 

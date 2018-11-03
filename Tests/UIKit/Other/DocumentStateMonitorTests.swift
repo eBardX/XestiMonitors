@@ -46,7 +46,7 @@ internal class DocumentStateMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UIDocumentStateChanged,
+        notificationCenter.post(name: UIDocument.stateChangedNotification,
                                 object: document)
     }
 }

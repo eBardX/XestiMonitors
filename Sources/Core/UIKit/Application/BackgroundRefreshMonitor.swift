@@ -59,7 +59,7 @@ public class BackgroundRefreshMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIApplicationBackgroundRefreshStatusDidChange,
+        observe(UIApplication.backgroundRefreshStatusDidChangeNotification,
                 object: application) { [unowned self] _ in
                     self.handler(.statusDidChange(self.status))
         }

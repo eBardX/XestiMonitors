@@ -72,7 +72,7 @@ public class ProximityMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIDeviceProximityStateDidChange,
+        observe(UIDevice.proximityStateDidChangeNotification,
                 object: device) { [unowned self] _ in
                     self.handler(.stateDidChange(self.device.proximityState))
         }

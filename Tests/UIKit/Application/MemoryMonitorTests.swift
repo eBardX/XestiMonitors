@@ -46,7 +46,7 @@ internal class MemoryMonitorTests: XCTestCase {
     }
 
     private func simulateDidReceiveMemoryWarning() {
-        notificationCenter.post(name: .UIApplicationDidReceiveMemoryWarning,
+        notificationCenter.post(name: UIApplication.didReceiveMemoryWarningNotification,
                                 object: application)
     }
 }

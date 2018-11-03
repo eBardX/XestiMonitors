@@ -101,14 +101,14 @@ public class ProtectedDataMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didBecomeAvailable) {
-            observe(.UIApplicationProtectedDataDidBecomeAvailable,
+            observe(UIApplication.protectedDataDidBecomeAvailableNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.didBecomeAvailable)
             }
         }
 
         if options.contains(.willBecomeUnavailable) {
-            observe(.UIApplicationProtectedDataWillBecomeUnavailable,
+            observe(UIApplication.protectedDataWillBecomeUnavailableNotification,
                     object: application) { [unowned self] _ in
                         self.handler(.willBecomeUnavailable)
             }

@@ -14,7 +14,7 @@ import UIKit
 internal protocol DeviceProtocol: AnyObject {
     var batteryLevel: Float { get }
 
-    var batteryState: UIDeviceBatteryState { get }
+    var batteryState: UIDevice.BatteryState { get }
 
     var isBatteryMonitoringEnabled: Bool { get set }
 

@@ -52,7 +52,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     #if os(iOS)
     func testHearingDevicePairedEar() {
         if #available(iOS 10.0, *) {
-            let expectedValue: UIAccessibilityHearingDeviceEar = .left
+            let expectedValue: UIAccessibility.HearingDeviceEar = .left
             let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
                                                      queue: .main) { _ in
                                                         XCTAssertEqual(OperationQueue.current, .main)
@@ -403,7 +403,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     func testMonitor_hearingDevicePairedEarDidChange() {
         if #available(iOS 10.0, *) {
             let expectation = self.expectation(description: "Handler called")
-            let expectedValue: UIAccessibilityHearingDeviceEar = .right
+            let expectedValue: UIAccessibility.HearingDeviceEar = .right
             var expectedEvent: AccessibilityStatusMonitor.Event?
             let monitor = AccessibilityStatusMonitor(options: .hearingDevicePairedEarDidChange,
                                                      queue: .main) { event in
@@ -657,7 +657,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         if #available(iOS 10.0, tvOS 10.0, *) {
             accessibilityStatus.mockIsAssistiveTouchRunning = value
 
-            notificationCenter.post(name: .UIAccessibilityAssistiveTouchStatusDidChange,
+            notificationCenter.post(name: UIAccessibility.assistiveTouchStatusDidChangeNotification,
                                     object: nil)
         }
     }
@@ -665,44 +665,44 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     private func simulateBoldTextStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsBoldTextEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityBoldTextStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.boldTextStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateClosedCaptioningStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsClosedCaptioningEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityClosedCaptioningStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.closedCaptioningStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateDarkenColorsStatusDidChange(to value: Bool) {
         accessibilityStatus.mockDarkerSystemColorsEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityDarkerSystemColorsStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.darkerSystemColorsStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateGrayscaleStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsGrayscaleEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityGrayscaleStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.grayscaleStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateGuidedAccessStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsGuidedAccessEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityGuidedAccessStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.guidedAccessStatusDidChangeNotification,
                                 object: nil)
     }
 
     #if os(iOS)
     @available(iOS 10.0, *)
-    private func simulateHearingDevicePairedEarDidChange(to value: UIAccessibilityHearingDeviceEar) {
+    private func simulateHearingDevicePairedEarDidChange(to value: UIAccessibility.HearingDeviceEar) {
         accessibilityStatus.mockHearingDevicePairedEar = value
 
-        notificationCenter.post(name: .UIAccessibilityHearingDevicePairedEarDidChange,
+        notificationCenter.post(name: UIAccessibility.hearingDevicePairedEarDidChangeNotification,
                                 object: nil)
     }
     #endif
@@ -710,56 +710,56 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
     private func simulateInvertColorsStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsInvertColorsEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityInvertColorsStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.invertColorsStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateMonoAudioStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsMonoAudioEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityMonoAudioStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.monoAudioStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateReduceMotionStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsReduceMotionEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityReduceMotionStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.reduceMotionStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateReduceTransparencyStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsReduceTransparencyEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityReduceTransparencyStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.reduceTransparencyStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateShakeToUndoStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsShakeToUndoEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilityShakeToUndoDidChange,
+        notificationCenter.post(name: UIAccessibility.shakeToUndoDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateSpeakScreenStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsSpeakScreenEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilitySpeakScreenStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.speakScreenStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateSpeakSelectionStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsSpeakSelectionEnabled = value
 
-        notificationCenter.post(name: .UIAccessibilitySpeakSelectionStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.speakSelectionStatusDidChangeNotification,
                                 object: nil)
     }
 
     private func simulateSwitchControlStatusDidChange(to value: Bool) {
         accessibilityStatus.mockIsSwitchControlRunning = value
 
-        notificationCenter.post(name: .UIAccessibilitySwitchControlStatusDidChange,
+        notificationCenter.post(name: UIAccessibility.switchControlStatusDidChangeNotification,
                                 object: nil)
     }
 
@@ -767,7 +767,7 @@ internal class AccessibilityStatusMonitorTests: XCTestCase {
         accessibilityStatus.mockIsVoiceOverRunning = value
 
         if #available(iOS 11.0, tvOS 11.0, *) {
-            notificationCenter.post(name: .UIAccessibilityVoiceOverStatusDidChange,
+            notificationCenter.post(name: UIAccessibility.voiceOverStatusDidChangeNotification,
                                     object: nil)
         } else {
             notificationCenter.post(name: Notification.Name(UIAccessibilityVoiceOverStatusChanged),

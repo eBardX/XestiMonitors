@@ -97,17 +97,17 @@ internal class TextViewTextMonitorTests: XCTestCase {
     }
 
     private func simulateDidBeginEditing() {
-        notificationCenter.post(name: .UITextViewTextDidBeginEditing,
+        notificationCenter.post(name: UITextView.textDidBeginEditingNotification,
                                 object: textView)
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UITextViewTextDidChange,
+        notificationCenter.post(name: UITextView.textDidChangeNotification,
                                 object: textView)
     }
 
     private func simulateDidEndEditing() {
-        notificationCenter.post(name: .UITextViewTextDidEndEditing,
+        notificationCenter.post(name: UITextView.textDidEndEditingNotification,
                                 object: textView)
     }
 }

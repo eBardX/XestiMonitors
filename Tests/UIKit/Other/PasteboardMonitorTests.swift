@@ -12,7 +12,7 @@ import XCTest
 @testable import XestiMonitors
 
 internal class PasteboardMonitorTests: XCTestCase {
-    let pasteboard = UIPasteboard(name: UIPasteboardName("bogus"),
+    let pasteboard = UIPasteboard(name: UIPasteboard.Name("bogus"),
                                   create: true) ?? .general
     let notificationCenter = MockNotificationCenter()
 
@@ -110,11 +110,11 @@ internal class PasteboardMonitorTests: XCTestCase {
         var userInfo: [AnyHashable: Any] = [:]
 
         if let typesAdded = typesAdded {
-            userInfo[UIPasteboardChangedTypesAddedKey] = typesAdded
+            userInfo[UIPasteboard.changedTypesAddedUserInfoKey] = typesAdded
         }
 
         if let typesRemoved = typesRemoved {
-            userInfo[UIPasteboardChangedTypesRemovedKey] = typesRemoved
+            userInfo[UIPasteboard.changedTypesRemovedUserInfoKey] = typesRemoved
         }
 
         return userInfo
@@ -125,13 +125,13 @@ internal class PasteboardMonitorTests: XCTestCase {
         let userInfo = makeUserInfo(typesAdded: typesAdded,
                                     typesRemoved: typesRemoved)
 
-        notificationCenter.post(name: .UIPasteboardChanged,
+        notificationCenter.post(name: UIPasteboard.changedNotification,
                                 object: pasteboard,
                                 userInfo: userInfo)
     }
 
     private func simulateRemoved() {
-        notificationCenter.post(name: .UIPasteboardRemoved,
+        notificationCenter.post(name: UIPasteboard.removedNotification,
                                 object: pasteboard,
                                 userInfo: nil)
     }

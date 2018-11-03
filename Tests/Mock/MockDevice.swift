@@ -21,7 +21,7 @@ internal class MockDevice: DeviceProtocol {
     }
 
     var batteryLevel: Float
-    var batteryState: UIDeviceBatteryState
+    var batteryState: UIDevice.BatteryState
     var isBatteryMonitoringEnabled: Bool
     var isProximityMonitoringEnabled: Bool
     var orientation: UIDeviceOrientation

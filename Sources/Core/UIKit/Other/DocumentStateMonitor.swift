@@ -55,7 +55,7 @@ public class DocumentStateMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIDocumentStateChanged,
+        observe(UIDocument.stateChangedNotification,
                 object: document) { [unowned self] in
                     if let document = $0.object as? UIDocument {
                         self.handler(.didChange(document))

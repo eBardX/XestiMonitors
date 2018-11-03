@@ -49,7 +49,7 @@ internal class ScreenCapturedMonitorTests: XCTestCase {
 
     private func simulateDidChange() {
         if #available(iOS 11.0, tvOS 11.0, *) {
-            notificationCenter.post(name: .UIScreenCapturedDidChange,
+            notificationCenter.post(name: UIScreen.capturedDidChangeNotification,
                                     object: screen)
         }
     }

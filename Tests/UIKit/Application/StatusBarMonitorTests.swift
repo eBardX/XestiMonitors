@@ -205,17 +205,17 @@ internal class StatusBarMonitorTests: XCTestCase {
     private func simulateDidChangeFrame(to frame: CGRect) {
         application.statusBarFrame = frame
 
-        notificationCenter.post(name: .UIApplicationDidChangeStatusBarFrame,
+        notificationCenter.post(name: UIApplication.didChangeStatusBarFrameNotification,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarFrameUserInfoKey: NSValue(cgRect: frame)])
+                                userInfo: [UIApplication.statusBarFrameUserInfoKey: NSValue(cgRect: frame)])
     }
 
     private func simulateDidChangeOrientation(to orientation: UIInterfaceOrientation) {
         application.statusBarOrientation = orientation
 
-        notificationCenter.post(name: .UIApplicationDidChangeStatusBarOrientation,
+        notificationCenter.post(name: UIApplication.didChangeStatusBarOrientationNotification,
                                 object: application,
-                                userInfo: [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)])
+                                userInfo: [UIApplication.statusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)])
     }
 
     private func simulateWillChangeFrame(to frame: CGRect,
@@ -225,10 +225,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         if badUserInfo {
             userInfo = nil
         } else {
-            userInfo = [UIApplicationStatusBarFrameUserInfoKey: NSValue(cgRect: frame)]
+            userInfo = [UIApplication.statusBarFrameUserInfoKey: NSValue(cgRect: frame)]
         }
 
-        notificationCenter.post(name: .UIApplicationWillChangeStatusBarFrame,
+        notificationCenter.post(name: UIApplication.willChangeStatusBarFrameNotification,
                                 object: application,
                                 userInfo: userInfo)
     }
@@ -240,10 +240,10 @@ internal class StatusBarMonitorTests: XCTestCase {
         if badUserInfo {
             userInfo = nil
         } else {
-            userInfo = [UIApplicationStatusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)]
+            userInfo = [UIApplication.statusBarOrientationUserInfoKey: NSNumber(value: orientation.rawValue)]
         }
 
-        notificationCenter.post(name: .UIApplicationWillChangeStatusBarOrientation,
+        notificationCenter.post(name: UIApplication.willChangeStatusBarOrientationNotification,
                                 object: application,
                                 userInfo: userInfo)
     }

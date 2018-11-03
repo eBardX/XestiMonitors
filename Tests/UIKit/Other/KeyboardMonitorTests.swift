@@ -24,7 +24,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_didChangeFrame() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.15
         let expectedFrameBegin = CGRect(x: 11, y: 21, width: 31, height: 41)
         let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
@@ -61,7 +61,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_didChangeFrame_badUserInfo() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.15
         let expectedFrameBegin = CGRect(x: 11, y: 21, width: 31, height: 41)
         let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
@@ -99,7 +99,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_didHide() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeOut
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeOut
         let expectedAnimationDuration: TimeInterval = 0.25
         let expectedFrameBegin = CGRect(x: 12, y: 22, width: 32, height: 42)
         let expectedFrameEnd = CGRect(x: 52, y: 62, width: 72, height: 82)
@@ -136,7 +136,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_didShow() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeInOut
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeInOut
         let expectedAnimationDuration: TimeInterval = 0.35
         let expectedFrameBegin = CGRect(x: 13, y: 23, width: 33, height: 43)
         let expectedFrameEnd = CGRect(x: 53, y: 63, width: 73, height: 83)
@@ -173,7 +173,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_willChangeFrame() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeIn
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
         let expectedAnimationDuration: TimeInterval = 0.45
         let expectedFrameBegin = CGRect(x: 14, y: 24, width: 34, height: 44)
         let expectedFrameEnd = CGRect(x: 54, y: 64, width: 74, height: 84)
@@ -210,7 +210,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_willHide() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeOut
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeOut
         let expectedAnimationDuration: TimeInterval = 0.55
         let expectedFrameBegin = CGRect(x: 15, y: 25, width: 35, height: 45)
         let expectedFrameEnd = CGRect(x: 55, y: 65, width: 75, height: 85)
@@ -247,7 +247,7 @@ internal class KeyboardMonitorTests: XCTestCase {
 
     func testMonitor_willShow() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedAnimationCurve: UIViewAnimationCurve = .easeInOut
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeInOut
         let expectedAnimationDuration: TimeInterval = 0.65
         let expectedFrameBegin = CGRect(x: 16, y: 26, width: 36, height: 46)
         let expectedFrameEnd = CGRect(x: 56, y: 66, width: 76, height: 86)
@@ -282,19 +282,19 @@ internal class KeyboardMonitorTests: XCTestCase {
         }
     }
 
-    private func makeUserInfo(animationCurve: UIViewAnimationCurve,
+    private func makeUserInfo(animationCurve: UIView.AnimationCurve,
                               animationDuration: TimeInterval,
                               frameBegin: CGRect,
                               frameEnd: CGRect,
                               isLocal: Bool) -> [AnyHashable: Any] {
-        return [UIKeyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
-                UIKeyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
-                UIKeyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
-                UIKeyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
-                UIKeyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
+        return [UIResponder.keyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
+                UIResponder.keyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
+                UIResponder.keyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
+                UIResponder.keyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
+                UIResponder.keyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
     }
 
-    private func simulateDidChangeFrame(animationCurve: UIViewAnimationCurve,
+    private func simulateDidChangeFrame(animationCurve: UIView.AnimationCurve,
                                         animationDuration: TimeInterval,
                                         frameBegin: CGRect,
                                         frameEnd: CGRect,
@@ -312,12 +312,12 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     isLocal: isLocal)
         }
 
-        notificationCenter.post(name: .UIKeyboardDidChangeFrame,
+        notificationCenter.post(name: UIResponder.keyboardDidChangeFrameNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }
 
-    private func simulateDidHide(animationCurve: UIViewAnimationCurve,
+    private func simulateDidHide(animationCurve: UIView.AnimationCurve,
                                  animationDuration: TimeInterval,
                                  frameBegin: CGRect,
                                  frameEnd: CGRect,
@@ -328,12 +328,12 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     frameEnd: frameEnd,
                                     isLocal: isLocal)
 
-        notificationCenter.post(name: .UIKeyboardDidHide,
+        notificationCenter.post(name: UIResponder.keyboardDidHideNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }
 
-    private func simulateDidShow(animationCurve: UIViewAnimationCurve,
+    private func simulateDidShow(animationCurve: UIView.AnimationCurve,
                                  animationDuration: TimeInterval,
                                  frameBegin: CGRect,
                                  frameEnd: CGRect,
@@ -344,12 +344,12 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     frameEnd: frameEnd,
                                     isLocal: isLocal)
 
-        notificationCenter.post(name: .UIKeyboardDidShow,
+        notificationCenter.post(name: UIResponder.keyboardDidShowNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }
 
-    private func simulateWillChangeFrame(animationCurve: UIViewAnimationCurve,
+    private func simulateWillChangeFrame(animationCurve: UIView.AnimationCurve,
                                          animationDuration: TimeInterval,
                                          frameBegin: CGRect,
                                          frameEnd: CGRect,
@@ -360,12 +360,12 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     frameEnd: frameEnd,
                                     isLocal: isLocal)
 
-        notificationCenter.post(name: .UIKeyboardWillChangeFrame,
+        notificationCenter.post(name: UIResponder.keyboardWillChangeFrameNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }
 
-    private func simulateWillHide(animationCurve: UIViewAnimationCurve,
+    private func simulateWillHide(animationCurve: UIView.AnimationCurve,
                                   animationDuration: TimeInterval,
                                   frameBegin: CGRect,
                                   frameEnd: CGRect,
@@ -376,12 +376,12 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     frameEnd: frameEnd,
                                     isLocal: isLocal)
 
-        notificationCenter.post(name: .UIKeyboardWillHide,
+        notificationCenter.post(name: UIResponder.keyboardWillHideNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }
 
-    private func simulateWillShow(animationCurve: UIViewAnimationCurve,
+    private func simulateWillShow(animationCurve: UIView.AnimationCurve,
                                   animationDuration: TimeInterval,
                                   frameBegin: CGRect,
                                   frameEnd: CGRect,
@@ -392,7 +392,7 @@ internal class KeyboardMonitorTests: XCTestCase {
                                     frameEnd: frameEnd,
                                     isLocal: isLocal)
 
-        notificationCenter.post(name: .UIKeyboardWillShow,
+        notificationCenter.post(name: UIResponder.keyboardWillShowNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }

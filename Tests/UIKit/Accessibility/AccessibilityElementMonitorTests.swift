@@ -109,19 +109,19 @@ internal class AccessibilityElementMonitorTests: XCTestCase {
             userInfo = [:]
 
             if let value = assistiveTechnology {
-                userInfo?[UIAccessibilityAssistiveTechnologyKey] = value
+                userInfo?[UIAccessibility.assistiveTechnologyUserInfoKey] = value
             }
 
             if let value = focusedElement {
-                userInfo?[UIAccessibilityFocusedElementKey] = value
+                userInfo?[UIAccessibility.focusedElementUserInfoKey] = value
             }
 
             if let value = unfocusedElement {
-                userInfo?[UIAccessibilityUnfocusedElementKey] = value
+                userInfo?[UIAccessibility.unfocusedElementUserInfoKey] = value
             }
         }
 
-        notificationCenter.post(name: .UIAccessibilityElementFocused,
+        notificationCenter.post(name: UIAccessibility.elementFocusedNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }

@@ -65,7 +65,7 @@ internal class BatteryMonitorTests: XCTestCase {
 
     func testMonitor_stateDidChange() {
         let expectation = self.expectation(description: "Handler called")
-        let expectedState: UIDeviceBatteryState = .charging
+        let expectedState: UIDevice.BatteryState = .charging
         var expectedEvent: BatteryMonitor.Event?
         let monitor = BatteryMonitor(options: .stateDidChange,
                                      queue: .main) { event in
@@ -89,7 +89,7 @@ internal class BatteryMonitorTests: XCTestCase {
     }
 
     func testState() {
-        let expectedState: UIDeviceBatteryState = .full
+        let expectedState: UIDevice.BatteryState = .full
         let monitor = BatteryMonitor(options: .stateDidChange,
                                      queue: .main) { _ in
             XCTAssertEqual(OperationQueue.current, .main)
@@ -103,14 +103,14 @@ internal class BatteryMonitorTests: XCTestCase {
     private func simulateLevelDidChange(to level: Float) {
         device.batteryLevel = level
 
-        notificationCenter.post(name: .UIDeviceBatteryLevelDidChange,
+        notificationCenter.post(name: UIDevice.batteryLevelDidChangeNotification,
                                 object: device)
     }
 
-    private func simulateStateDidChange(to state: UIDeviceBatteryState) {
+    private func simulateStateDidChange(to state: UIDevice.BatteryState) {
         device.batteryState = state
 
-        notificationCenter.post(name: .UIDeviceBatteryStateDidChange,
+        notificationCenter.post(name: UIDevice.batteryStateDidChangeNotification,
                                 object: device)
     }
 }

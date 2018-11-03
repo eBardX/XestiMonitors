@@ -119,7 +119,7 @@ public class WindowMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didBecomeHidden) {
-            observe(.UIWindowDidBecomeHidden,
+            observe(UIWindow.didBecomeHiddenNotification,
                     object: window) { [unowned self] in
                         if let window = $0.object as? UIWindow {
                             self.handler(.didBecomeHidden(window))
@@ -128,7 +128,7 @@ public class WindowMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didBecomeKey) {
-            observe(.UIWindowDidBecomeKey,
+            observe(UIWindow.didBecomeKeyNotification,
                     object: window) { [unowned self] in
                         if let window = $0.object as? UIWindow {
                             self.handler(.didBecomeKey(window))
@@ -137,7 +137,7 @@ public class WindowMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didBecomeVisible) {
-            observe(.UIWindowDidBecomeVisible,
+            observe(UIWindow.didBecomeVisibleNotification,
                     object: window) { [unowned self] in
                         if let window = $0.object as? UIWindow {
                             self.handler(.didBecomeVisible(window))
@@ -146,7 +146,7 @@ public class WindowMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didResignKey) {
-            observe(.UIWindowDidResignKey,
+            observe(UIWindow.didResignKeyNotification,
                     object: window) { [unowned self] in
                         if let window = $0.object as? UIWindow {
                             self.handler(.didResignKey(window))

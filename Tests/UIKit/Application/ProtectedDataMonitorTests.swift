@@ -84,12 +84,12 @@ internal class ProtectedDataMonitorTests: XCTestCase {
     }
 
     private func simulateDidBecomeAvailable() {
-        notificationCenter.post(name: .UIApplicationProtectedDataDidBecomeAvailable,
+        notificationCenter.post(name: UIApplication.protectedDataDidBecomeAvailableNotification,
                                 object: application)
     }
 
     private func simulateWillBecomeUnavailable() {
-        notificationCenter.post(name: .UIApplicationProtectedDataWillBecomeUnavailable,
+        notificationCenter.post(name: UIApplication.protectedDataWillBecomeUnavailableNotification,
                                 object: application)
     }
 }

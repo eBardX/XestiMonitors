@@ -142,27 +142,27 @@ internal class MenuControllerMonitorTests: XCTestCase {
     }
 
     private func simulateDidHideMenu() {
-        notificationCenter.post(name: .UIMenuControllerDidHideMenu,
+        notificationCenter.post(name: UIMenuController.didHideMenuNotification,
                                 object: menuController)
     }
 
     private func simulateDidShowMenu() {
-        notificationCenter.post(name: .UIMenuControllerDidShowMenu,
+        notificationCenter.post(name: UIMenuController.didShowMenuNotification,
                                 object: menuController)
     }
 
     private func simulateMenuDidChangeFrame() {
-        notificationCenter.post(name: .UIMenuControllerMenuFrameDidChange,
+        notificationCenter.post(name: UIMenuController.menuFrameDidChangeNotification,
                                 object: menuController)
     }
 
     private func simulateWillHideMenu() {
-        notificationCenter.post(name: .UIMenuControllerWillHideMenu,
+        notificationCenter.post(name: UIMenuController.willHideMenuNotification,
                                 object: menuController)
     }
 
     private func simulateWillShowMenu() {
-        notificationCenter.post(name: .UIMenuControllerWillShowMenu,
+        notificationCenter.post(name: UIMenuController.willShowMenuNotification,
                                 object: menuController)
     }
 }

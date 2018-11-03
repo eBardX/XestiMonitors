@@ -46,7 +46,7 @@ internal class TimeMonitorTests: XCTestCase {
     }
 
     private func simulateSignificantChange() {
-        notificationCenter.post(name: .UIApplicationSignificantTimeChange,
+        notificationCenter.post(name: UIApplication.significantTimeChangeNotification,
                                 object: application)
     }
 }

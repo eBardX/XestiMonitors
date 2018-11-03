@@ -83,11 +83,11 @@ internal class AccessibilityAnnouncementMonitorTests: XCTestCase {
         if badUserInfo {
             userInfo = nil
         } else {
-            userInfo = [UIAccessibilityAnnouncementKeyStringValue: stringValue,
-                        UIAccessibilityAnnouncementKeyWasSuccessful: NSNumber(value: wasSuccessful)]
+            userInfo = [UIAccessibility.announcementStringValueUserInfoKey: stringValue,
+                        UIAccessibility.announcementWasSuccessfulUserInfoKey: NSNumber(value: wasSuccessful)]
         }
 
-        notificationCenter.post(name: .UIAccessibilityAnnouncementDidFinish,
+        notificationCenter.post(name: UIAccessibility.announcementDidFinishNotification,
                                 object: nil,
                                 userInfo: userInfo)
     }

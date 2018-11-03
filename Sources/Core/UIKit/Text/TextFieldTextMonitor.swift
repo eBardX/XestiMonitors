@@ -107,7 +107,7 @@ public class TextFieldTextMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didBeginEditing) {
-            observe(.UITextFieldTextDidBeginEditing,
+            observe(UITextField.textDidBeginEditingNotification,
                     object: textField) { [unowned self] in
                         if let textField = $0.object as? UITextField {
                             self.handler(.didBeginEditing(textField))
@@ -116,7 +116,7 @@ public class TextFieldTextMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didChange) {
-            observe(.UITextFieldTextDidChange,
+            observe(UITextField.textDidChangeNotification,
                     object: textField) { [unowned self] in
                         if let textField = $0.object as? UITextField {
                             self.handler(.didChange(textField))
@@ -125,7 +125,7 @@ public class TextFieldTextMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.didEndEditing) {
-            observe(.UITextFieldTextDidEndEditing,
+            observe(UITextField.textDidEndEditingNotification,
                     object: textField) { [unowned self] in
                         if let textField = $0.object as? UITextField {
                             self.handler(.didEndEditing(textField))

@@ -57,7 +57,7 @@ public class OrientationMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIDeviceOrientationDidChange,
+        observe(UIDevice.orientationDidChangeNotification,
                 object: device) { [unowned self] _ in
                     self.handler(.didChange(self.device.orientation))
         }

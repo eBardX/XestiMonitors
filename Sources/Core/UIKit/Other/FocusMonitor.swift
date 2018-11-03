@@ -52,11 +52,11 @@ public class FocusMonitor: BaseNotificationMonitor {
         fileprivate init?(_ notification: Notification) {
             guard
                 let userInfo = notification.userInfo,
-                let context = userInfo[UIFocusUpdateContextKey] as? UIFocusUpdateContext
+                let context = userInfo[UIFocusSystem.focusUpdateContextUserInfoKey] as? UIFocusUpdateContext
                 else { return nil }
 
             self.context = context
-            self.coordinator = userInfo[UIFocusUpdateAnimationCoordinatorKey] as? UIFocusAnimationCoordinator
+            self.coordinator = userInfo[UIFocusSystem.animationCoordinatorUserInfoKey] as? UIFocusAnimationCoordinator
         }
     }
 
@@ -116,7 +116,7 @@ public class FocusMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         if options.contains(.didUpdate) {
-            observe(.UIFocusDidUpdate) { [unowned self] in
+            observe(UIFocusSystem.didUpdateNotification) { [unowned self] in
                 if let info = Info($0) {
                     self.handler(.didUpdate(info))
                 }
@@ -124,7 +124,7 @@ public class FocusMonitor: BaseNotificationMonitor {
         }
 
         if options.contains(.movementDidFail) {
-            observe(.UIFocusMovementDidFail) { [unowned self] in
+            observe(UIFocusSystem.movementDidFailNotification) { [unowned self] in
                 if let info = Info($0) {
                     self.handler(.movementDidFail(info))
                 }

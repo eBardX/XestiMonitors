@@ -46,7 +46,7 @@ internal class TableViewSelectionMonitorTests: XCTestCase {
     }
 
     private func simulateDidChange() {
-        notificationCenter.post(name: .UITableViewSelectionDidChange,
+        notificationCenter.post(name: UITableView.selectionDidChangeNotification,
                                 object: tableView)
     }
 }

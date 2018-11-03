@@ -69,12 +69,12 @@ internal class ScreenConnectionMonitorTest: XCTestCase {
     }
 
     private func simulateDidConnect() {
-        notificationCenter.post(name: .UIScreenDidConnect,
+        notificationCenter.post(name: UIScreen.didConnectNotification,
                                 object: screen)
     }
 
     private func simulateDidDisconnect() {
-        notificationCenter.post(name: .UIScreenDidDisconnect,
+        notificationCenter.post(name: UIScreen.didDisconnectNotification,
                                 object: screen)
     }
 }

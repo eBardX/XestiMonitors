@@ -12,7 +12,7 @@
 import UIKit
 
 internal protocol ApplicationProtocol: AnyObject {
-    var applicationState: UIApplicationState { get }
+    var applicationState: UIApplication.State { get }
 
     #if os(iOS)
     var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }

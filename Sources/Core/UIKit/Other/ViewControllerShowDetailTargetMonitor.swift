@@ -49,7 +49,7 @@ public class ViewControllerShowDetailTargetMonitor: BaseNotificationMonitor {
     override public func addNotificationObservers() {
         super.addNotificationObservers()
 
-        observe(.UIViewControllerShowDetailTargetDidChange) { [unowned self] in
+        observe(UIViewController.showDetailTargetDidChangeNotification) { [unowned self] in
             if let vc = $0.object as? UIViewController {
                 self.handler(.didChange(vc))
             }
