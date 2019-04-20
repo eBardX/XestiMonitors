@@ -46,7 +46,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
     private lazy var statusMonitor = AccessibilityStatusMonitor(options: .all,
                                                                 queue: .main) { [unowned self] in
-        self.displayStatus($0)
+                                                                    self.displayStatus($0)
     }
 
     private lazy var monitors: [Monitor] = [announcementMonitor,
@@ -189,7 +189,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
-                                            argument: "Announcement #\(self.announcementCount)")
+                                 argument: "Announcement #\(self.announcementCount)")
         }
     }
 
