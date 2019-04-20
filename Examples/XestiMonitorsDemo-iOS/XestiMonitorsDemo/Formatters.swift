@@ -58,6 +58,9 @@ public func formatAuthorizationStatus(_ value: CLAuthorizationStatus) -> String 
 
     case .restricted:
         return "Restricted"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -71,6 +74,9 @@ public func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) ->
 
     case .restricted:
         return "Restricted"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -122,6 +128,9 @@ public func formatDeviceBatteryStateAndLevel(_ state: UIDevice.BatteryState,
 
     case .unknown:
         return "Unknown"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -146,6 +155,9 @@ public func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
         return "Portrait upside down"
 
     case .unknown:
+        return "Unknown"
+
+    @unknown default:
         return "Unknown"
     }
 }
@@ -225,6 +237,9 @@ public func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> Strin
 
     case .unknown:
         return "Unknown"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -288,6 +303,9 @@ public func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalib
 
     case .uncalibrated:
         return "Uncalibrated"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -301,6 +319,9 @@ public func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) 
 
     case .medium:
         return "Medium"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -332,6 +353,9 @@ public func formatProximity(_ value: CLProximity) -> String {
         return "Near"
 
     case .unknown:
+        return "Unknown"
+
+    @unknown default:
         return "Unknown"
     }
 }
@@ -382,6 +406,9 @@ public func formatViewAnimationCurve(_ value: UIView.AnimationCurve) -> String {
 
     case .linear:
         return "Linear"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 

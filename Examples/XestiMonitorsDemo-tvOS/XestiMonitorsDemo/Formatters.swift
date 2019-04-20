@@ -49,6 +49,9 @@ public func formatAuthorizationStatus(_ value: CLAuthorizationStatus) -> String 
 
     case .restricted:
         return "Restricted"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 

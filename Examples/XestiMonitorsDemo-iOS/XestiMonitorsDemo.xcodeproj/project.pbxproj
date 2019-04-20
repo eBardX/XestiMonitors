@@ -131,7 +131,7 @@
 				3264F9A8C33AACD7E1755001B277D462 /* Sources */,
 				EEE6F4BB0BC7B8C6E7436FBBC8538E3F /* Frameworks */,
 				B888D89D170C240B8495EA107AB9730A /* Resources */,
-				5D06AE0FE1909CA6226749564191856D /* [CP] Embed Pods Frameworks */,
+				D00F848D9CEA2AB03E2B831ECE41A438 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,7 +154,7 @@
 				TargetAttributes = {
 					1DA964FAE5CEDB2B43F3B3AA1557CD73 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -196,13 +196,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D06AE0FE1909CA6226749564191856D /* [CP] Embed Pods Frameworks */ = {
+		D00F848D9CEA2AB03E2B831ECE41A438 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/XestiMonitors/XestiMonitors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -211,7 +211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A2AD097F09172752B342449DFEF2F813 /* [CP] Check Pods Manifest.lock */ = {
@@ -343,6 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xesticode.XestiMonitorsDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -359,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xesticode.XestiMonitorsDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
