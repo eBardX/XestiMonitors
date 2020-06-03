@@ -10,6 +10,6 @@ install:
   - chmod +x ${WALDO_CLI_BIN}/waldo
 script:
   - cd Examples/XestiMonitorsDemo-iOS
-  - xcodebuild -workspace XestiMonitorsDemo.xcworkspace -scheme XestiMonitorsDemo -destination 'platform=iOS Simulator,OS=13.4.1,name=iPhone 11' -configuration Release -derivedDataPath "$TRAVIS_BUILD_DIR" build | xcpretty -c
+  - xcodebuild -workspace XestiMonitorsDemo.xcworkspace -scheme XestiMonitorsDemo -destination 'generic/platform=iOS Simulator' -configuration Release -derivedDataPath "$TRAVIS_BUILD_DIR" build | xcpretty -c
   - BUILD_PATH="$TRAVIS_BUILD_DIR"/Build/Products/Release-iphonesimulator/XestiMonitorsDemo.app
   - ${WALDO_CLI_BIN}/waldo "$BUILD_PATH" --include_symbols
