@@ -5,5 +5,5 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'XestiMonitorsDemo' do
-    pod 'XestiMonitors', :path => '../../'
+    pod 'XestiMonitors', ' 2.12.1'
 end

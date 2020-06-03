@@ -1,0 +1,27 @@
+{
+  "name": "AmoloNetwork",
+  "version": "0.8.0",
+  "swift_version": "4.0",
+  "authors": {
+    "J. G. Pusey": "john@waldo.io"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "homepage": "https://github.com/waldoapp/AmoloNetwork",
+  "source": {
+    "git": "https://github.com/waldoapp/AmoloNetwork.git",
+    "tag": "0.8.0"
+  },
+  "summary": "A simple network abstraction layer written in Swift.",
+  "documentation_url": "https://waldoapp.github.io/AmoloNetwork/",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "ios": {
+    "frameworks": "Foundation"
+  },
+  "source_files": "Sources/**/*.swift"
+}

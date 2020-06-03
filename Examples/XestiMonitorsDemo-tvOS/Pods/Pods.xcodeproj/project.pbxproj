@@ -1,0 +1,1583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5C6CBA11DF5219FFD2EB3AC957571FD /* AccelerometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55F154556B49D2658C9E2C5EE1FB25 /* AccelerometerMonitor.swift */; };
+		950917432897BB2E2938BE1220891231 /* AccessibilityAnnouncementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB736BD659D86CDF6CC012442CCC0A3 /* AccessibilityAnnouncementMonitor.swift */; };
+		DAD8EA3628E059581AB0346A5F70A6AB /* AccessibilityElementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DA289516AE50A8A91CDB9BC7BF3F21 /* AccessibilityElementMonitor.swift */; };
+		AF92F0993C65F8C0D0F78A309BBF769E /* AccessibilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3ABF2FC22C16C83074B9D435E7BDF /* AccessibilityStatus.swift */; };
+		964ACC581D8F55A3EFDF515545114D00 /* AccessibilityStatusInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC716903D3D0143C4257621F8F8ABBCD /* AccessibilityStatusInjection.swift */; };
+		51FFA37D4916C6663C7BEA64FEC07B82 /* AccessibilityStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3232FDED999A7BBB1FEE00CCA4A8E54E /* AccessibilityStatusMonitor.swift */; };
+		A045D48B0CD33377783FFD0AB56FFBDB /* AltimeterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB172650612F1F50B33BF3B86CEFA4 /* AltimeterInjection.swift */; };
+		297B44510496C44AC66F134B8E148DC0 /* AltimeterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6ED7968D67852BE4D40BD3E24F9BA /* AltimeterMonitor.swift */; };
+		43DE574F9326FC1196D3BDEFC8BFE4E8 /* ApplicationInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E947235C4B10E97ABC4512AA206B6E /* ApplicationInjection.swift */; };
+		CAAE1C23A18A30C1EC929AAEFEC50E7A /* ApplicationStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBDAA731B1CBDC387519884ED20A0C6 /* ApplicationStateMonitor.swift */; };
+		F71101F9DD28369F8064192257F8D27A /* BackgroundRefreshMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3210CC28338358830AC6053FC1E6C9 /* BackgroundRefreshMonitor.swift */; };
+		4BA82E21003A8473D3AAB45B6B463243 /* BaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528AE034097115EF0D9A15FF9CAA32A /* BaseMonitor.swift */; };
+		29CB42D19517DAE943AED92B83394425 /* BaseNotificationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90603913F187DA617D28956AAA266CEE /* BaseNotificationMonitor.swift */; };
+		389CA48AB8F0A331068A93427D15BC72 /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFC532A54EAC24ADCB8E63A9A476C5 /* BatteryMonitor.swift */; };
+		41259882E07A78006A9F70461FD4825F /* BeaconRangingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27F18A1A949B2C542F5811E3051F87 /* BeaconRangingMonitor.swift */; };
+		AF1F5BFD7D7031A271FC0BEB3D5ED740 /* BundleClassLoadMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336B2CA02F8246F84AD8E823F06B8D6 /* BundleClassLoadMonitor.swift */; };
+		09CC222E8E8A1A23F0F406DC1F62F7AF /* BundleResourceRequestMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0364C20F659EABB13F1CAA9C1B498E19 /* BundleResourceRequestMonitor.swift */; };
+		DAD58412CE57EB2EC762F01ACCB2C810 /* CMAcceleration+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1DFEABA59A8B622A2750070559613 /* CMAcceleration+DeviceOrientation.swift */; };
+		C299CCD2C97DF85F05BEE693881C31FA /* CalendarDayMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C871405976AD3848A4AF2C6A9DF524 /* CalendarDayMonitor.swift */; };
+		C185BE0DBF8DC615158B6D6F6F9296C5 /* ContentSizeCategoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71751A92162506C0AC5B8D37771C688 /* ContentSizeCategoryMonitor.swift */; };
+		B9CA1156687E8F6A8774222686EDF614 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1978672C754027C9168FE89A179C96 /* CoreLocation.framework */; };
+		DE4A2CA2EF92C25ACB6C0FA4E75D454B /* CurrentLocaleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A66736175D2C38E4E329180C1493997 /* CurrentLocaleMonitor.swift */; };
+		E6DDC8D5E01D9BAAFFB58CEB1DD2B158 /* DeviceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CF3C9050A7941E5B1ABF561FCEACA0 /* DeviceInjection.swift */; };
+		FEC07FDC05AB7D97564444D51B417810 /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C1748AB410365A4BCC618170115B5 /* DeviceMotionMonitor.swift */; };
+		3F7897DDEBA5650ABF2E16160C825268 /* DocumentStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DC47A3514509F9DD27384839B7219 /* DocumentStateMonitor.swift */; };
+		4CB4B4D6988BA9E006464C44C0D5C156 /* ExtensionHostMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2483C11AD077C6F36328CB04AA968 /* ExtensionHostMonitor.swift */; };
+		D2E7ECE53437203CDB9D303AE45DA984 /* FileManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6ED11318B7604727832889C9C0A54 /* FileManagerInjection.swift */; };
+		8467356BF3AA050F345EC4B41E3FDAB2 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223BCCE414894365563012C72A39AE0 /* FileSystem.swift */; };
+		72F61C33873CC60652F3F08101526CFE /* FileSystemInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900A69179E0CCAE9EC04A69410AED6D /* FileSystemInjection.swift */; };
+		BA356A486B229C5B3BAD65877B1F1777 /* FileSystemObjectInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BE771699ED0769B7DED67419CC09AE /* FileSystemObjectInjection.swift */; };
+		3CF36B11C09831B435285F41A6761686 /* FileSystemObjectMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EBA450CEE43368B0D5166874B7B58 /* FileSystemObjectMonitor.swift */; };
+		D918DFEF681F6328F92CBAA8430AC400 /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949A52581B5FBA5347667B0D7385E22 /* FocusMonitor.swift */; };
+		2269EE088E704943FAE58723378A9EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A822E5E3CDFCC86FEC214C99131A21 /* Foundation.framework */; };
+		C62DBCCC2963CB16A7A4CCBD9F21169A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A822E5E3CDFCC86FEC214C99131A21 /* Foundation.framework */; };
+		8EAD0F955D454D8F8F5EDBF73C15BAA3 /* GyroscopeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D08EAD059EDC37ADC0E7ECBFED0F9B /* GyroscopeMonitor.swift */; };
+		58790556752B69562B1B70013458BC03 /* HTTPCookieStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4717CE040D6E4A3ABA25B2861B31290D /* HTTPCookieStorageMonitor.swift */; };
+		7DF8E07351D448C6C10E1F41D9CAD6F4 /* HeadingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F245A9EF4A8F6C2A5B7483350CEA1901 /* HeadingMonitor.swift */; };
+		74F315B1BB06D6CDF6419966A7F6927D /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A9336F7523081912E71FE56DA40C2 /* KeyboardMonitor.swift */; };
+		F75FF26D5269191E4A0912C299EAE5A1 /* LocationAuthorizationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C3F8D8078137425F4A36AF44C396A /* LocationAuthorizationMonitor.swift */; };
+		B2AE0C92D9977A75A750ACECD2060289 /* LocationManagerDelegateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA561BB6C11061DCE86B621BB41659C /* LocationManagerDelegateAdapter.swift */; };
+		1F01D8527FEFC9441B9B359538F7636D /* LocationManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604769715957DAD90D59DE6045574D46 /* LocationManagerInjection.swift */; };
+		F0E26064D5038A75D4E120CD23826141 /* MagnetometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200926977746E9AF6EC28EC994B5784D /* MagnetometerMonitor.swift */; };
+		9C47E576540E575130D99BEED91EEB88 /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F39C76DF2FC3833C9468D60FFC82CF /* MemoryMonitor.swift */; };
+		91E46CA8A17E60781FF9E9F21F2FA96B /* MenuControllerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAE85ECED41DBC8C4F1AC7EA0D00E1 /* MenuControllerMonitor.swift */; };
+		E5904A7DD6C86EDBA78892B9447B2215 /* MetadataQueryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA1AFB3545E94049A74280F529E0D2 /* MetadataQueryMonitor.swift */; };
+		5D498C69A749AB25671408EE86D27DC2 /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872F8886DFB75C1D5A56BCFE56FC9D9 /* Monitor.swift */; };
+		473652F3F676EBE0B4A5620DAF9823EC /* MotionActivityManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30756941FC6B99BE6FCC218050E11B20 /* MotionActivityManagerInjection.swift */; };
+		5ABC59BB8561C87B3CDE43A3F0FFC122 /* MotionActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5819972BE358A5ED2A78633695AE112 /* MotionActivityMonitor.swift */; };
+		D772450816FA75E8B1F2D00DE715839A /* MotionManagerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676C8E1D3DEC5EAC97946FE21C83BABF /* MotionManagerInjection.swift */; };
+		2088A84F72C0B79CC4D93E0DBAE55472 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F59514E52D27DFE37CE3CB89C1FC5 /* NetworkReachability.swift */; };
+		871F69C43FAF8A6EE431B79A8AE17DBA /* NetworkReachabilityInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8A1D35D243532EFACEAA16245838C1 /* NetworkReachabilityInjection.swift */; };
+		788518E31D38D63DEAC7C0D67125A9A8 /* NetworkReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD73C24B5966872BC7D03C1B2EED3F /* NetworkReachabilityMonitor.swift */; };
+		705CCB7A61544F1AAF5869A5B8E53553 /* NotificationCenterInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D24D1AA1E605339AFC9141865E3215 /* NotificationCenterInjection.swift */; };
+		E935BA2610C60114CF0C515A920CAEA1 /* OrientationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A97D1B82436CF13F5F033A8F4DAB6F /* OrientationMonitor.swift */; };
+		127C93769D300D869F63F701235A3FA7 /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E20E00D5BF5D23F6FBEFEE11F52D6 /* PasteboardMonitor.swift */; };
+		961A66CDE9076D8CAEC11FC29EA91613 /* PedometerInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACFB2C442A6EA47EE6EF76D442A22EC /* PedometerInjection.swift */; };
+		E8BB86F2A1D9F4FBC37DAC23D746EC73 /* PedometerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CCFBD418860917E040F1E22062D3C /* PedometerMonitor.swift */; };
+		E6BA5871BB5C24DC4826D1A07478682A /* Pods-XestiMonitorsDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FA7F808668D10742DB4055E244E711 /* Pods-XestiMonitorsDemo-dummy.m */; };
+		3D09F067013909E27C0E16CF34FC55FC /* Pods-XestiMonitorsDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B4D4F3AD3B84462201276CBF827220D /* Pods-XestiMonitorsDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C22BDDF12070EA2510EB72C69A2F55 /* PortMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB4DD0F94D9FE13017C878D816F85 /* PortMonitor.swift */; };
+		DAFDF7D4B644A143D22B6980E31099B4 /* ProcessInfoInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D36BB4F45AC355E430523F5087F0B /* ProcessInfoInjection.swift */; };
+		EAEF6CCEA5C676B059543D15FE19ECC5 /* ProcessInfoPowerStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0728B83C27BDA6190857EA1695DEBB1 /* ProcessInfoPowerStateMonitor.swift */; };
+		2288C2F1B2F544B8DF6AAF88B777D938 /* ProcessInfoThermalStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E13A4A2E818C63255AA02C142DC7046 /* ProcessInfoThermalStateMonitor.swift */; };
+		E0A359A21857F719AF62D1EC4386C793 /* ProtectedDataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B13575AF321486EAD65B5485B65F3B /* ProtectedDataMonitor.swift */; };
+		60486863395AF8565F7800CED827DC74 /* ProximityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EFCAF57F205A3D17E747C412B0AC16 /* ProximityMonitor.swift */; };
+		3099DE7DC545E5920DF7F39BA65F6F2E /* RegionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E60CE5ABFCE8AE3E9DE436289AB3FB /* RegionMonitor.swift */; };
+		6F00EF3D7CECEB0677A504D0C6EAF3DD /* ScreenBrightnessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87353C5613F0B89A921F71558C589243 /* ScreenBrightnessMonitor.swift */; };
+		298D091C893200548E0B013E9A5D2AFC /* ScreenCapturedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F0F45B2DE0D12D43B2CA8B76520D5 /* ScreenCapturedMonitor.swift */; };
+		9DA45600DCA53B8C809953576112902F /* ScreenConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5DEF25755BEEEC83D5B4807EB3235 /* ScreenConnectionMonitor.swift */; };
+		CD247543AB6673B189B390CB75A3D745 /* ScreenModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF7BA7F6ACE4432FE2C029E1FBC123 /* ScreenModeMonitor.swift */; };
+		379A5F495774D57EA0C955EE9F05654D /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C715C9C995956E993ABC0217A734865 /* ScreenshotMonitor.swift */; };
+		FB5DBEBD845AD91FD0A962BCF149078E /* SignificantLocationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A500E6248ACB8A5616C2DC2E080625A0 /* SignificantLocationMonitor.swift */; };
+		F5D14E200F61953A28526ED3771B2AB7 /* StandardLocationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C6A7DB496AFF2711EDB0DBC3B9464 /* StandardLocationMonitor.swift */; };
+		6BB89D460E5DE925E2264CDC1B096B12 /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA406DAA3F7A8E790F20DB310591DF /* StatusBarMonitor.swift */; };
+		9783309D6C0CB7E09AFABC586230A7C5 /* SystemClockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EC8373128235ED32F4C7BD479BD282 /* SystemClockMonitor.swift */; };
+		EFE9B5D0970506BC899BE72915C20BF6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1828751C620B2B90777607D6FCB05 /* SystemConfiguration.framework */; };
+		C3D854115A2C59E3A90B77FAB6007E2E /* SystemTimeZoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977AE7A2A13F81C1343A90E690E15DFD /* SystemTimeZoneMonitor.swift */; };
+		F45EC437CA93C99EDFA8359BA4A05DB1 /* TableViewSelectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25010441F4BCBA88E3B733DEAADEFB38 /* TableViewSelectionMonitor.swift */; };
+		BA93152FE9B858CAB1802E567146C8E2 /* TextFieldTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A10E8215A976D7C3B2E497CEC6E817 /* TextFieldTextMonitor.swift */; };
+		17C451C4A164DFDF81B704A52C7934F2 /* TextInputModeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305BBC68314A76FBD0AE7348EC52A08D /* TextInputModeMonitor.swift */; };
+		741BD40226B157ECC8B10AA5F6542C3B /* TextStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65489661307D31E415045BAAB683C36 /* TextStorageMonitor.swift */; };
+		2910F933EC5D82C5EB883CD158364EFE /* TextViewTextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472D9B3BEAC0A84B34AA75D097EFD4B /* TextViewTextMonitor.swift */; };
+		F4267ED4797060BC65DDDF5CBF14D798 /* TimeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9685293D31BA46A128A47DE9EC9B8 /* TimeMonitor.swift */; };
+		8A9D3256C75E9AA46936AA540ABE2C98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E009680341C05CB21C72C0DF0249DAFC /* UIKit.framework */; };
+		2E9908F1A90607A2C4C57F7D5E58F2CC /* URLCredentialStorageMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B6D9AE4E46FA4B375DD7C971B6F3 /* URLCredentialStorageMonitor.swift */; };
+		90584B4077B34B3D21FFEE3849EEBECB /* UbiquitousKeyValueStoreMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA2463D19B4027D1E5926A9B8024D7B /* UbiquitousKeyValueStoreMonitor.swift */; };
+		991A89B2F040746185E1E3E8CF9B4BD8 /* UbiquityIdentityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C473AF1E12909006C7DA902C429F6B /* UbiquityIdentityMonitor.swift */; };
+		376780859E870BF16DDE7EAD1986FC53 /* UndoManagerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8142E24D6278B932455B12BCB7D7037 /* UndoManagerMonitor.swift */; };
+		D2DF2215D70AE6BB41CAF0A812D5C6D3 /* UserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC6E9C079E1AE382183D2BBDB48FAAF /* UserDefaultsMonitor.swift */; };
+		5252AD23F5561E5B0FA30190C7B97D32 /* ViewControllerShowDetailTargetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9B600F0A67E8438A1C6140665D5C9 /* ViewControllerShowDetailTargetMonitor.swift */; };
+		97ACBB53F21D48840376060B641624F9 /* VisitMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409635C2109FBFAF84AED87586826F5 /* VisitMonitor.swift */; };
+		32B87853416C7ED6D3817354E26EEB35 /* WindowMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C2E956FF0D428C118BDDCC310B6F4 /* WindowMonitor.swift */; };
+		0B7FA71BC05577A52A194AF294BD49C8 /* XestiMonitors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D708A6C64322DFF3F029ECD9F55BFEEB /* XestiMonitors-dummy.m */; };
+		1256811657A1761F5EFE12FDEC766CA9 /* XestiMonitors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DA89C65ABFD62833553CD5A244B684 /* XestiMonitors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4D54AC616E0D94E03BE8AD69064022A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DCDD4F1C0B2E1824A68714BD42BF4A8;
+			remoteInfo = XestiMonitors;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8AD6553807F99612ED86256C12F9BC8 /* AccelerometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AccelerometerMonitor.html; path = docs/Classes/AccelerometerMonitor.html; sourceTree = "<group>"; };
+		C8AD6553807F99612ED86256C12F9BC8 /* AccelerometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AccelerometerMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccelerometerMonitor.html; sourceTree = "<group>"; };
+		2D55F154556B49D2658C9E2C5EE1FB25 /* AccelerometerMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccelerometerMonitor.swift; sourceTree = "<group>"; };
+		4DF82BDA848CDF216E08C8697F70B111 /* AccessibilityAnnouncementMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AccessibilityAnnouncementMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityAnnouncementMonitor.html; sourceTree = "<group>"; };
+		4DF82BDA848CDF216E08C8697F70B111 /* AccessibilityAnnouncementMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AccessibilityAnnouncementMonitor.html; path = docs/Classes/AccessibilityAnnouncementMonitor.html; sourceTree = "<group>"; };
+		2CB736BD659D86CDF6CC012442CCC0A3 /* AccessibilityAnnouncementMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityAnnouncementMonitor.swift; sourceTree = "<group>"; };
+		78F807F41C8847EA1C301CF00CF37F52 /* AccessibilityElementMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AccessibilityElementMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityElementMonitor.html; sourceTree = "<group>"; };
+		78F807F41C8847EA1C301CF00CF37F52 /* AccessibilityElementMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AccessibilityElementMonitor.html; path = docs/Classes/AccessibilityElementMonitor.html; sourceTree = "<group>"; };
+		61DA289516AE50A8A91CDB9BC7BF3F21 /* AccessibilityElementMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityElementMonitor.swift; sourceTree = "<group>"; };
+		D0E3ABF2FC22C16C83074B9D435E7BDF /* AccessibilityStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityStatus.swift; sourceTree = "<group>"; };
+		FC716903D3D0143C4257621F8F8ABBCD /* AccessibilityStatusInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusInjection.swift; sourceTree = "<group>"; };
+		EAE40520768053ABD6D3EABC18C6DEED /* AccessibilityStatusMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AccessibilityStatusMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityStatusMonitor.html; sourceTree = "<group>"; };
+		EAE40520768053ABD6D3EABC18C6DEED /* AccessibilityStatusMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AccessibilityStatusMonitor.html; path = docs/Classes/AccessibilityStatusMonitor.html; sourceTree = "<group>"; };
+		3232FDED999A7BBB1FEE00CCA4A8E54E /* AccessibilityStatusMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityStatusMonitor.swift; sourceTree = "<group>"; };
+		A5AB172650612F1F50B33BF3B86CEFA4 /* AltimeterInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AltimeterInjection.swift; sourceTree = "<group>"; };
+		F5558DCF42AAE303D5C1D0BFA2D00BBF /* AltimeterMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AltimeterMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AltimeterMonitor.html; sourceTree = "<group>"; };
+		F5558DCF42AAE303D5C1D0BFA2D00BBF /* AltimeterMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AltimeterMonitor.html; path = docs/Classes/AltimeterMonitor.html; sourceTree = "<group>"; };
+		9FA6ED7968D67852BE4D40BD3E24F9BA /* AltimeterMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AltimeterMonitor.swift; sourceTree = "<group>"; };
+		F9E947235C4B10E97ABC4512AA206B6E /* ApplicationInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationInjection.swift; sourceTree = "<group>"; };
+		248F3859E3DFDF649B354250B63EA8EC /* ApplicationStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ApplicationStateMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ApplicationStateMonitor.html; sourceTree = "<group>"; };
+		248F3859E3DFDF649B354250B63EA8EC /* ApplicationStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ApplicationStateMonitor.html; path = docs/Classes/ApplicationStateMonitor.html; sourceTree = "<group>"; };
+		6DBDAA731B1CBDC387519884ED20A0C6 /* ApplicationStateMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationStateMonitor.swift; sourceTree = "<group>"; };
+		2288D8818DB3CA22B2EBF7F7444C295E /* BackgroundRefreshMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BackgroundRefreshMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BackgroundRefreshMonitor.html; sourceTree = "<group>"; };
+		2288D8818DB3CA22B2EBF7F7444C295E /* BackgroundRefreshMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BackgroundRefreshMonitor.html; path = docs/Classes/BackgroundRefreshMonitor.html; sourceTree = "<group>"; };
+		AB3210CC28338358830AC6053FC1E6C9 /* BackgroundRefreshMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshMonitor.swift; sourceTree = "<group>"; };
+		A1E3E2B2B7E5EB4818B26C7DAB6D8411 /* Base Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Base Monitor Classes.html"; path = "docs/Base Monitor Classes.html"; sourceTree = "<group>"; };
+		A1E3E2B2B7E5EB4818B26C7DAB6D8411 /* Base Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Base Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Base Monitor Classes.html"; sourceTree = "<group>"; };
+		DDF1253C59407A9EC1FDB06444D56F24 /* BaseMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BaseMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BaseMonitor.html; sourceTree = "<group>"; };
+		DDF1253C59407A9EC1FDB06444D56F24 /* BaseMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BaseMonitor.html; path = docs/Classes/BaseMonitor.html; sourceTree = "<group>"; };
+		F528AE034097115EF0D9A15FF9CAA32A /* BaseMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseMonitor.swift; sourceTree = "<group>"; };
+		4CD7C54D506BEC95D27C9D32F5CE9493 /* BaseNotificationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BaseNotificationMonitor.html; path = docs/Classes/BaseNotificationMonitor.html; sourceTree = "<group>"; };
+		4CD7C54D506BEC95D27C9D32F5CE9493 /* BaseNotificationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BaseNotificationMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BaseNotificationMonitor.html; sourceTree = "<group>"; };
+		90603913F187DA617D28956AAA266CEE /* BaseNotificationMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseNotificationMonitor.swift; sourceTree = "<group>"; };
+		64EFC765668F6C2A8C016B6BE34E0688 /* BatteryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BatteryMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BatteryMonitor.html; sourceTree = "<group>"; };
+		64EFC765668F6C2A8C016B6BE34E0688 /* BatteryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BatteryMonitor.html; path = docs/Classes/BatteryMonitor.html; sourceTree = "<group>"; };
+		3ECFC532A54EAC24ADCB8E63A9A476C5 /* BatteryMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		31F9D5C836CD7D489016BF71F289123C /* BeaconRangingMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BeaconRangingMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BeaconRangingMonitor.html; sourceTree = "<group>"; };
+		31F9D5C836CD7D489016BF71F289123C /* BeaconRangingMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BeaconRangingMonitor.html; path = docs/Classes/BeaconRangingMonitor.html; sourceTree = "<group>"; };
+		5B27F18A1A949B2C542F5811E3051F87 /* BeaconRangingMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BeaconRangingMonitor.swift; sourceTree = "<group>"; };
+		AE5CFED28E5FB3CBB1C7754F0C5BC23C /* BundleClassLoadMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BundleClassLoadMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BundleClassLoadMonitor.html; sourceTree = "<group>"; };
+		AE5CFED28E5FB3CBB1C7754F0C5BC23C /* BundleClassLoadMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BundleClassLoadMonitor.html; path = docs/Classes/BundleClassLoadMonitor.html; sourceTree = "<group>"; };
+		6336B2CA02F8246F84AD8E823F06B8D6 /* BundleClassLoadMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundleClassLoadMonitor.swift; sourceTree = "<group>"; };
+		DFAC457FA901E02267C21C0D21495616 /* BundleResourceRequestMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = BundleResourceRequestMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BundleResourceRequestMonitor.html; sourceTree = "<group>"; };
+		DFAC457FA901E02267C21C0D21495616 /* BundleResourceRequestMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = BundleResourceRequestMonitor.html; path = docs/Classes/BundleResourceRequestMonitor.html; sourceTree = "<group>"; };
+		0364C20F659EABB13F1CAA9C1B498E19 /* BundleResourceRequestMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundleResourceRequestMonitor.swift; sourceTree = "<group>"; };
+		5CD1DFEABA59A8B622A2750070559613 /* CMAcceleration+DeviceOrientation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+DeviceOrientation.swift"; sourceTree = "<group>"; };
+		092D5C8967C8B042531659ABC93AC0DA /* CMAcceleration.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CMAcceleration.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Extensions/CMAcceleration.html; sourceTree = "<group>"; };
+		092D5C8967C8B042531659ABC93AC0DA /* CMAcceleration.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CMAcceleration.html; path = docs/Extensions/CMAcceleration.html; sourceTree = "<group>"; };
+		955D64D3C1103AB441ED349F7FC0A4F3 /* CalendarDayMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CalendarDayMonitor.html; path = docs/Classes/CalendarDayMonitor.html; sourceTree = "<group>"; };
+		955D64D3C1103AB441ED349F7FC0A4F3 /* CalendarDayMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CalendarDayMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/CalendarDayMonitor.html; sourceTree = "<group>"; };
+		E2C871405976AD3848A4AF2C6A9DF524 /* CalendarDayMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarDayMonitor.swift; sourceTree = "<group>"; };
+		1EE65D6312C677764463FC7DB7B5613E /* Changes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Changes.html; path = docs/Classes/PasteboardMonitor/Changes.html; sourceTree = "<group>"; };
+		1EE65D6312C677764463FC7DB7B5613E /* Changes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Changes.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PasteboardMonitor/Changes.html; sourceTree = "<group>"; };
+		54CFBD4707D3259175CFC7C04359AC7E /* ContentSizeCategoryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ContentSizeCategoryMonitor.html; path = docs/Classes/ContentSizeCategoryMonitor.html; sourceTree = "<group>"; };
+		54CFBD4707D3259175CFC7C04359AC7E /* ContentSizeCategoryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ContentSizeCategoryMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ContentSizeCategoryMonitor.html; sourceTree = "<group>"; };
+		E71751A92162506C0AC5B8D37771C688 /* ContentSizeCategoryMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentSizeCategoryMonitor.swift; sourceTree = "<group>"; };
+		AA4089E49EF3B405F11170489E84BCE4 /* Core Location Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Core Location Monitor Classes.html"; path = "docs/Core Location Monitor Classes.html"; sourceTree = "<group>"; };
+		AA4089E49EF3B405F11170489E84BCE4 /* Core Location Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Core Location Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Core Location Monitor Classes.html"; sourceTree = "<group>"; };
+		CA72C52ACC3C7A25EB9128CDB4105307 /* Core Motion Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Core Motion Monitor Classes.html"; path = "docs/Core Motion Monitor Classes.html"; sourceTree = "<group>"; };
+		CA72C52ACC3C7A25EB9128CDB4105307 /* Core Motion Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Core Motion Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Core Motion Monitor Classes.html"; sourceTree = "<group>"; };
+		0A1978672C754027C9168FE89A179C96 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		64B007A1F4B131D50F64B1912FE6DEED /* CurrentLocaleMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CurrentLocaleMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/CurrentLocaleMonitor.html; sourceTree = "<group>"; };
+		64B007A1F4B131D50F64B1912FE6DEED /* CurrentLocaleMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CurrentLocaleMonitor.html; path = docs/Classes/CurrentLocaleMonitor.html; sourceTree = "<group>"; };
+		6A66736175D2C38E4E329180C1493997 /* CurrentLocaleMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrentLocaleMonitor.swift; sourceTree = "<group>"; };
+		98CF3C9050A7941E5B1ABF561FCEACA0 /* DeviceInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInjection.swift; sourceTree = "<group>"; };
+		02BE405153DA070EDFF0317263C2898C /* DeviceMotionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = DeviceMotionMonitor.html; path = docs/Classes/DeviceMotionMonitor.html; sourceTree = "<group>"; };
+		02BE405153DA070EDFF0317263C2898C /* DeviceMotionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = DeviceMotionMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/DeviceMotionMonitor.html; sourceTree = "<group>"; };
+		751C1748AB410365A4BCC618170115B5 /* DeviceMotionMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceMotionMonitor.swift; sourceTree = "<group>"; };
+		0E766DDCFB35EA8DA9BBDA059CA65612 /* DocumentStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = DocumentStateMonitor.html; path = docs/Classes/DocumentStateMonitor.html; sourceTree = "<group>"; };
+		0E766DDCFB35EA8DA9BBDA059CA65612 /* DocumentStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = DocumentStateMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/DocumentStateMonitor.html; sourceTree = "<group>"; };
+		BD8DC47A3514509F9DD27384839B7219 /* DocumentStateMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DocumentStateMonitor.swift; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProximityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/URLCredentialStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TimeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccelerometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MetadataQueryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UbiquityIdentityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ViewControllerShowDetailTargetMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/UndoManagerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextFieldTextMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/LocationAuthorizationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/AccessibilityAnnouncementMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UbiquitousKeyValueStoreMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/MagnetometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/SystemTimeZoneMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UserDefaultsMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/OrientationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TextInputModeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/UbiquityIdentityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StandardLocationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/PortMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PortMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StatusBarMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ProcessInfoThermalStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextViewTextMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/MenuControllerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/PasteboardMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FocusMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenCapturedMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/CalendarDayMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/KeyboardMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/GyroscopeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ExtensionHostMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TableViewSelectionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/DocumentStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BeaconRangingMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ViewControllerShowDetailTargetMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityElementMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/AltimeterMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProcessInfoThermalStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/VisitMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/FocusMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ScreenModeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/BackgroundRefreshMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityStatusMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BundleClassLoadMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ApplicationStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MotionActivityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/GyroscopeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TextFieldTextMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/AccelerometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/DocumentStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ContentSizeCategoryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/URLCredentialStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/HTTPCookiesStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/OrientationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ScreenCapturedMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/AccessibilityElementMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/BundleResourceRequestMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MemoryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/UserDefaultsMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/CurrentLocaleMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/BatteryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PedometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BackgroundRefreshMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MenuControllerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/StatusBarMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenBrightnessMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AltimeterMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ScreenConnectionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/LocationAuthorizationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TextViewTextMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/HeadingMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenConnectionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HeadingMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenModeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/BundleClassLoadMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TableViewSelectionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UndoManagerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/RegionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ScreenBrightnessMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/FileSystemObjectMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/CurrentLocaleMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BatteryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PasteboardMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/WindowMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/VisitMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ExtensionHostMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SystemClockMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ScreenshotMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TextStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/BeaconRangingMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/UbiquitousKeyValueStoreMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/CalendarDayMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/WindowMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MagnetometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ProtectedDataMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/MotionActivityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ApplicationStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/NetworkReachabilityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/NetworkReachabilityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/DeviceMotionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HTTPCookiesStorageMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenshotMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/SystemClockMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/RegionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/MetadataQueryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ProcessInfoPowerStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/StandardLocationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProcessInfoPowerStateMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/MemoryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/SignificantLocationMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProtectedDataMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextInputModeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ContentSizeCategoryMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/KeyboardMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/PedometerMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BundleResourceRequestMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityAnnouncementMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/DeviceMotionMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/ProximityMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FileSystemObjectMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/TimeMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SystemTimeZoneMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Event.html; path = docs/Classes/AccessibilityStatusMonitor/Event.html; sourceTree = "<group>"; };
+		A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Event.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SignificantLocationMonitor/Event.html; sourceTree = "<group>"; };
+		95130E4E1D30A85FD80B06C3B5725245 /* ExtensionHostMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ExtensionHostMonitor.html; path = docs/Classes/ExtensionHostMonitor.html; sourceTree = "<group>"; };
+		95130E4E1D30A85FD80B06C3B5725245 /* ExtensionHostMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ExtensionHostMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ExtensionHostMonitor.html; sourceTree = "<group>"; };
+		27F2483C11AD077C6F36328CB04AA968 /* ExtensionHostMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtensionHostMonitor.swift; sourceTree = "<group>"; };
+		5673C16E99089C9B29AA37A0BA662D04 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Extensions.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Extensions.html; sourceTree = "<group>"; };
+		5673C16E99089C9B29AA37A0BA662D04 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Extensions.html; path = docs/Extensions.html; sourceTree = "<group>"; };
+		CEE6ED11318B7604727832889C9C0A54 /* FileManagerInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileManagerInjection.swift; sourceTree = "<group>"; };
+		F223BCCE414894365563012C72A39AE0 /* FileSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		8900A69179E0CCAE9EC04A69410AED6D /* FileSystemInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystemInjection.swift; sourceTree = "<group>"; };
+		32BE771699ED0769B7DED67419CC09AE /* FileSystemObjectInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystemObjectInjection.swift; sourceTree = "<group>"; };
+		63D5226649B07DED566111C43ABD2A0A /* FileSystemObjectMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = FileSystemObjectMonitor.html; path = docs/Classes/FileSystemObjectMonitor.html; sourceTree = "<group>"; };
+		63D5226649B07DED566111C43ABD2A0A /* FileSystemObjectMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = FileSystemObjectMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FileSystemObjectMonitor.html; sourceTree = "<group>"; };
+		2D9EBA450CEE43368B0D5166874B7B58 /* FileSystemObjectMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystemObjectMonitor.swift; sourceTree = "<group>"; };
+		8BEF052EC89128E318D827CE9282199D /* FocusMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = FocusMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FocusMonitor.html; sourceTree = "<group>"; };
+		8BEF052EC89128E318D827CE9282199D /* FocusMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = FocusMonitor.html; path = docs/Classes/FocusMonitor.html; sourceTree = "<group>"; };
+		D949A52581B5FBA5347667B0D7385E22 /* FocusMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusMonitor.swift; sourceTree = "<group>"; };
+		C0A0E7E3E9FAEF0F1AC7E39DCE42AA78 /* Foundation Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Foundation Monitor Classes.html"; path = "docs/Foundation Monitor Classes.html"; sourceTree = "<group>"; };
+		C0A0E7E3E9FAEF0F1AC7E39DCE42AA78 /* Foundation Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Foundation Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Foundation Monitor Classes.html"; sourceTree = "<group>"; };
+		F8A822E5E3CDFCC86FEC214C99131A21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		16E2F13F57026E5B9E487FE2140174F8 /* GyroscopeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GyroscopeMonitor.html; path = docs/Classes/GyroscopeMonitor.html; sourceTree = "<group>"; };
+		16E2F13F57026E5B9E487FE2140174F8 /* GyroscopeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GyroscopeMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/GyroscopeMonitor.html; sourceTree = "<group>"; };
+		F3D08EAD059EDC37ADC0E7ECBFED0F9B /* GyroscopeMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GyroscopeMonitor.swift; sourceTree = "<group>"; };
+		4717CE040D6E4A3ABA25B2861B31290D /* HTTPCookieStorageMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPCookieStorageMonitor.swift; sourceTree = "<group>"; };
+		548B15AA9CB008223A6BEF479F329292 /* HTTPCookiesStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = HTTPCookiesStorageMonitor.html; path = docs/Classes/HTTPCookiesStorageMonitor.html; sourceTree = "<group>"; };
+		548B15AA9CB008223A6BEF479F329292 /* HTTPCookiesStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = HTTPCookiesStorageMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HTTPCookiesStorageMonitor.html; sourceTree = "<group>"; };
+		C3D716D48D04C18CAB7AA66871014A4C /* HeadingMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = HeadingMonitor.html; path = docs/Classes/HeadingMonitor.html; sourceTree = "<group>"; };
+		C3D716D48D04C18CAB7AA66871014A4C /* HeadingMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = HeadingMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HeadingMonitor.html; sourceTree = "<group>"; };
+		F245A9EF4A8F6C2A5B7483350CEA1901 /* HeadingMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeadingMonitor.swift; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/HeadingMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StandardLocationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AltimeterMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/GyroscopeMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PedometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/MagnetometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HeadingMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/FocusMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/MetadataQueryMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/AltimeterMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccelerometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/SignificantLocationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MetadataQueryMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BeaconRangingMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/KeyboardMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/AccelerometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/BeaconRangingMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SignificantLocationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/PedometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/KeyboardMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/GyroscopeMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/VisitMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/MotionActivityMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MotionActivityMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityAnnouncementMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/DeviceMotionMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FocusMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/RegionMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/DeviceMotionMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/LocationAuthorizationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MagnetometerMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/RegionMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/AccessibilityAnnouncementMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityElementMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/VisitMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/StandardLocationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Info.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/LocationAuthorizationMonitor/Info.html; sourceTree = "<group>"; };
+		D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Info.html; path = docs/Classes/AccessibilityElementMonitor/Info.html; sourceTree = "<group>"; };
+		D9BC26862220B700D0137B57AA9741E0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = docs/docsets/XestiMonitors.docset/Contents/Info.plist; sourceTree = "<group>"; };
+		B7CAE4277EA702DC016F9532E2A8820B /* KeyboardMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = KeyboardMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/KeyboardMonitor.html; sourceTree = "<group>"; };
+		B7CAE4277EA702DC016F9532E2A8820B /* KeyboardMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = KeyboardMonitor.html; path = docs/Classes/KeyboardMonitor.html; sourceTree = "<group>"; };
+		E61A9336F7523081912E71FE56DA40C2 /* KeyboardMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
+		AFB582EB69A395AEBC9576286E75EBAF /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		3AC6D69B84D96278EEE737F0F362F33E /* LocationAuthorizationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = LocationAuthorizationMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/LocationAuthorizationMonitor.html; sourceTree = "<group>"; };
+		3AC6D69B84D96278EEE737F0F362F33E /* LocationAuthorizationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = LocationAuthorizationMonitor.html; path = docs/Classes/LocationAuthorizationMonitor.html; sourceTree = "<group>"; };
+		1E8C3F8D8078137425F4A36AF44C396A /* LocationAuthorizationMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationMonitor.swift; sourceTree = "<group>"; };
+		9BA561BB6C11061DCE86B621BB41659C /* LocationManagerDelegateAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegateAdapter.swift; sourceTree = "<group>"; };
+		604769715957DAD90D59DE6045574D46 /* LocationManagerInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationManagerInjection.swift; sourceTree = "<group>"; };
+		26D8F76C701245E8A3FB5BBD998CDCD6 /* MagnetometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = MagnetometerMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MagnetometerMonitor.html; sourceTree = "<group>"; };
+		26D8F76C701245E8A3FB5BBD998CDCD6 /* MagnetometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = MagnetometerMonitor.html; path = docs/Classes/MagnetometerMonitor.html; sourceTree = "<group>"; };
+		200926977746E9AF6EC28EC994B5784D /* MagnetometerMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MagnetometerMonitor.swift; sourceTree = "<group>"; };
+		1A7F9E1B8C6A8FE983DEF8BBCCABD2D8 /* MemoryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = MemoryMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MemoryMonitor.html; sourceTree = "<group>"; };
+		1A7F9E1B8C6A8FE983DEF8BBCCABD2D8 /* MemoryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = MemoryMonitor.html; path = docs/Classes/MemoryMonitor.html; sourceTree = "<group>"; };
+		88F39C76DF2FC3833C9468D60FFC82CF /* MemoryMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryMonitor.swift; sourceTree = "<group>"; };
+		279BD8C7A0520281351C0E82BF464D6E /* MenuControllerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = MenuControllerMonitor.html; path = docs/Classes/MenuControllerMonitor.html; sourceTree = "<group>"; };
+		279BD8C7A0520281351C0E82BF464D6E /* MenuControllerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = MenuControllerMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MenuControllerMonitor.html; sourceTree = "<group>"; };
+		35FAE85ECED41DBC8C4F1AC7EA0D00E1 /* MenuControllerMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuControllerMonitor.swift; sourceTree = "<group>"; };
+		8191EFCBDF5F8DD304B1506D55217D7B /* MetadataQueryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = MetadataQueryMonitor.html; path = docs/Classes/MetadataQueryMonitor.html; sourceTree = "<group>"; };
+		8191EFCBDF5F8DD304B1506D55217D7B /* MetadataQueryMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = MetadataQueryMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MetadataQueryMonitor.html; sourceTree = "<group>"; };
+		E2DA1AFB3545E94049A74280F529E0D2 /* MetadataQueryMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetadataQueryMonitor.swift; sourceTree = "<group>"; };
+		60DBAA9FE5256A16A3FE05F47D44FB96 /* Monitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Monitor.html; path = docs/Protocols/Monitor.html; sourceTree = "<group>"; };
+		60DBAA9FE5256A16A3FE05F47D44FB96 /* Monitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Monitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Protocols/Monitor.html; sourceTree = "<group>"; };
+		7872F8886DFB75C1D5A56BCFE56FC9D9 /* Monitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Monitor.swift; sourceTree = "<group>"; };
+		30756941FC6B99BE6FCC218050E11B20 /* MotionActivityManagerInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MotionActivityManagerInjection.swift; sourceTree = "<group>"; };
+		22D28F538EB128CBA874384D69422A62 /* MotionActivityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = MotionActivityMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MotionActivityMonitor.html; sourceTree = "<group>"; };
+		22D28F538EB128CBA874384D69422A62 /* MotionActivityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = MotionActivityMonitor.html; path = docs/Classes/MotionActivityMonitor.html; sourceTree = "<group>"; };
+		B5819972BE358A5ED2A78633695AE112 /* MotionActivityMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MotionActivityMonitor.swift; sourceTree = "<group>"; };
+		676C8E1D3DEC5EAC97946FE21C83BABF /* MotionManagerInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MotionManagerInjection.swift; sourceTree = "<group>"; };
+		7D0F59514E52D27DFE37CE3CB89C1FC5 /* NetworkReachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		1C8A1D35D243532EFACEAA16245838C1 /* NetworkReachabilityInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityInjection.swift; sourceTree = "<group>"; };
+		AE52054AEE135D0D9E809C5A5B1DDE72 /* NetworkReachabilityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = NetworkReachabilityMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/NetworkReachabilityMonitor.html; sourceTree = "<group>"; };
+		AE52054AEE135D0D9E809C5A5B1DDE72 /* NetworkReachabilityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = NetworkReachabilityMonitor.html; path = docs/Classes/NetworkReachabilityMonitor.html; sourceTree = "<group>"; };
+		57DD73C24B5966872BC7D03C1B2EED3F /* NetworkReachabilityMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityMonitor.swift; sourceTree = "<group>"; };
+		20D24D1AA1E605339AFC9141865E3215 /* NotificationCenterInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationCenterInjection.swift; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/HTTPCookiesStorageMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/ApplicationStateMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/TextFieldTextMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PasteboardMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/TextStorageMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/MetadataQueryMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/ExtensionHostMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/WindowMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/FocusMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MenuControllerMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/UndoManagerMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProtectedDataMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/KeyboardMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StatusBarMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/FileSystemObjectMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ExtensionHostMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UserDefaultsMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/UbiquitousKeyValueStoreMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/ScreenConnectionMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/TextViewTextMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/BatteryMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FocusMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextFieldTextMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextStorageMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/ProtectedDataMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/HTTPCookiesStorageMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/FileSystemObjectMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextViewTextMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/KeyboardMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UbiquitousKeyValueStoreMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UndoManagerMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenConnectionMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/AccessibilityStatusMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/WindowMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/UserDefaultsMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/MetadataQueryMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/BatteryMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ApplicationStateMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/StatusBarMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Options.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/AccessibilityStatusMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/PasteboardMonitor/Options.html; sourceTree = "<group>"; };
+		CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Options.html; path = docs/Classes/MenuControllerMonitor/Options.html; sourceTree = "<group>"; };
+		D2838644E37E14D5163EA20239A5BE65 /* OrientationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = OrientationMonitor.html; path = docs/Classes/OrientationMonitor.html; sourceTree = "<group>"; };
+		D2838644E37E14D5163EA20239A5BE65 /* OrientationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = OrientationMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/OrientationMonitor.html; sourceTree = "<group>"; };
+		89A97D1B82436CF13F5F033A8F4DAB6F /* OrientationMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrientationMonitor.swift; sourceTree = "<group>"; };
+		B4085A76A0FAC8102A4D83DC5A6FB6CE /* Other Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Other Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Other Monitor Classes.html"; sourceTree = "<group>"; };
+		B4085A76A0FAC8102A4D83DC5A6FB6CE /* Other Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Other Monitor Classes.html"; path = "docs/Other Monitor Classes.html"; sourceTree = "<group>"; };
+		D76DD852B66224BD9512BB40DFC11A40 /* Other UIKit Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "Other UIKit Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Other UIKit Monitor Classes.html"; sourceTree = "<group>"; };
+		D76DD852B66224BD9512BB40DFC11A40 /* Other UIKit Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "Other UIKit Monitor Classes.html"; path = "docs/Other UIKit Monitor Classes.html"; sourceTree = "<group>"; };
+		78E7A99DEAC821806547C78B9838EBF5 /* PasteboardMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = PasteboardMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PasteboardMonitor.html; sourceTree = "<group>"; };
+		78E7A99DEAC821806547C78B9838EBF5 /* PasteboardMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = PasteboardMonitor.html; path = docs/Classes/PasteboardMonitor.html; sourceTree = "<group>"; };
+		324E20E00D5BF5D23F6FBEFEE11F52D6 /* PasteboardMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
+		8ACFB2C442A6EA47EE6EF76D442A22EC /* PedometerInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PedometerInjection.swift; sourceTree = "<group>"; };
+		218C08BDF5C90AC27651BF68101A8305 /* PedometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = PedometerMonitor.html; path = docs/Classes/PedometerMonitor.html; sourceTree = "<group>"; };
+		218C08BDF5C90AC27651BF68101A8305 /* PedometerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = PedometerMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PedometerMonitor.html; sourceTree = "<group>"; };
+		F12CCFBD418860917E040F1E22062D3C /* PedometerMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PedometerMonitor.swift; sourceTree = "<group>"; };
+		A38FF61C71733211E6DDB19385503404 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8F08943F5642D3C4A41B0B76C315FF7F /* Pods-XestiMonitorsDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XestiMonitorsDemo-Info.plist"; sourceTree = "<group>"; };
+		41A20CBF0A63AC42D7FB41BB9430EBB9 /* Pods-XestiMonitorsDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XestiMonitorsDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F87D178B9A831AC6551D8105D5CDA85A /* Pods-XestiMonitorsDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XestiMonitorsDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		C1FA7F808668D10742DB4055E244E711 /* Pods-XestiMonitorsDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XestiMonitorsDemo-dummy.m"; sourceTree = "<group>"; };
+		1A4D4F9446A8CFBC856E842E23D8C3E7 /* Pods-XestiMonitorsDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XestiMonitorsDemo-frameworks.sh"; sourceTree = "<group>"; };
+		6B4D4F3AD3B84462201276CBF827220D /* Pods-XestiMonitorsDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XestiMonitorsDemo-umbrella.h"; sourceTree = "<group>"; };
+		258BC70209E608CACDD915A0ED569DD4 /* Pods-XestiMonitorsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XestiMonitorsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4FBF05FF541986DAB8563A25EEAE176D /* Pods-XestiMonitorsDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XestiMonitorsDemo.modulemap"; sourceTree = "<group>"; };
+		51028837CD69BD0FEC1291C2B30FA7CF /* Pods-XestiMonitorsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XestiMonitorsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E67028B9FB2AB285998F2996E0D14A71 /* Pods_XestiMonitorsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XestiMonitorsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB8F1FFF6FED0847310B8F7E58B0435 /* PortMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = PortMonitor.html; path = docs/Classes/PortMonitor.html; sourceTree = "<group>"; };
+		8CB8F1FFF6FED0847310B8F7E58B0435 /* PortMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = PortMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/PortMonitor.html; sourceTree = "<group>"; };
+		715DB4DD0F94D9FE13017C878D816F85 /* PortMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PortMonitor.swift; sourceTree = "<group>"; };
+		942D36BB4F45AC355E430523F5087F0B /* ProcessInfoInjection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProcessInfoInjection.swift; sourceTree = "<group>"; };
+		6AB768F97D422CC0955FFE66FE202F15 /* ProcessInfoPowerStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ProcessInfoPowerStateMonitor.html; path = docs/Classes/ProcessInfoPowerStateMonitor.html; sourceTree = "<group>"; };
+		6AB768F97D422CC0955FFE66FE202F15 /* ProcessInfoPowerStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ProcessInfoPowerStateMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProcessInfoPowerStateMonitor.html; sourceTree = "<group>"; };
+		E0728B83C27BDA6190857EA1695DEBB1 /* ProcessInfoPowerStateMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProcessInfoPowerStateMonitor.swift; sourceTree = "<group>"; };
+		74865FBBDA1165B10833F21EDC999557 /* ProcessInfoThermalStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ProcessInfoThermalStateMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProcessInfoThermalStateMonitor.html; sourceTree = "<group>"; };
+		74865FBBDA1165B10833F21EDC999557 /* ProcessInfoThermalStateMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ProcessInfoThermalStateMonitor.html; path = docs/Classes/ProcessInfoThermalStateMonitor.html; sourceTree = "<group>"; };
+		2E13A4A2E818C63255AA02C142DC7046 /* ProcessInfoThermalStateMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProcessInfoThermalStateMonitor.swift; sourceTree = "<group>"; };
+		924AD06DD5095619805733FE36A01F05 /* ProtectedDataMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ProtectedDataMonitor.html; path = docs/Classes/ProtectedDataMonitor.html; sourceTree = "<group>"; };
+		924AD06DD5095619805733FE36A01F05 /* ProtectedDataMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ProtectedDataMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProtectedDataMonitor.html; sourceTree = "<group>"; };
+		A0B13575AF321486EAD65B5485B65F3B /* ProtectedDataMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProtectedDataMonitor.swift; sourceTree = "<group>"; };
+		138D183BDD679FA2C665AECCFA096EE9 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
+		138D183BDD679FA2C665AECCFA096EE9 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Protocols.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
+		B65C5F0EB9F0B777E67AB3097188334B /* ProximityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ProximityMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ProximityMonitor.html; sourceTree = "<group>"; };
+		B65C5F0EB9F0B777E67AB3097188334B /* ProximityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ProximityMonitor.html; path = docs/Classes/ProximityMonitor.html; sourceTree = "<group>"; };
+		52EFCAF57F205A3D17E747C412B0AC16 /* ProximityMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProximityMonitor.swift; sourceTree = "<group>"; };
+		B0D08CADBD71E4A8FED1DF041ECAFD0E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		14B96B5C5931521109702FE4F1E5047A /* RegionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RegionMonitor.html; path = docs/Classes/RegionMonitor.html; sourceTree = "<group>"; };
+		14B96B5C5931521109702FE4F1E5047A /* RegionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RegionMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/RegionMonitor.html; sourceTree = "<group>"; };
+		E3E60CE5ABFCE8AE3E9DE436289AB3FB /* RegionMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegionMonitor.swift; sourceTree = "<group>"; };
+		B273663365CF91033466245E105EAE17 /* ScreenBrightnessMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ScreenBrightnessMonitor.html; path = docs/Classes/ScreenBrightnessMonitor.html; sourceTree = "<group>"; };
+		B273663365CF91033466245E105EAE17 /* ScreenBrightnessMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ScreenBrightnessMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenBrightnessMonitor.html; sourceTree = "<group>"; };
+		87353C5613F0B89A921F71558C589243 /* ScreenBrightnessMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenBrightnessMonitor.swift; sourceTree = "<group>"; };
+		563F3DD845C07A75687A6E4929BC2A0E /* ScreenCapturedMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ScreenCapturedMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenCapturedMonitor.html; sourceTree = "<group>"; };
+		563F3DD845C07A75687A6E4929BC2A0E /* ScreenCapturedMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ScreenCapturedMonitor.html; path = docs/Classes/ScreenCapturedMonitor.html; sourceTree = "<group>"; };
+		B62F0F45B2DE0D12D43B2CA8B76520D5 /* ScreenCapturedMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenCapturedMonitor.swift; sourceTree = "<group>"; };
+		F90EFD3ADD34BED4FE11DF70C3062CD7 /* ScreenConnectionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ScreenConnectionMonitor.html; path = docs/Classes/ScreenConnectionMonitor.html; sourceTree = "<group>"; };
+		F90EFD3ADD34BED4FE11DF70C3062CD7 /* ScreenConnectionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ScreenConnectionMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenConnectionMonitor.html; sourceTree = "<group>"; };
+		4DF5DEF25755BEEEC83D5B4807EB3235 /* ScreenConnectionMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenConnectionMonitor.swift; sourceTree = "<group>"; };
+		3E64F942436E75C5A03578B925633F09 /* ScreenModeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ScreenModeMonitor.html; path = docs/Classes/ScreenModeMonitor.html; sourceTree = "<group>"; };
+		3E64F942436E75C5A03578B925633F09 /* ScreenModeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ScreenModeMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenModeMonitor.html; sourceTree = "<group>"; };
+		C4DF7BA7F6ACE4432FE2C029E1FBC123 /* ScreenModeMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenModeMonitor.swift; sourceTree = "<group>"; };
+		BD3CE164E88F7A367A3C179E9A6CC819 /* ScreenshotMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ScreenshotMonitor.html; path = docs/Classes/ScreenshotMonitor.html; sourceTree = "<group>"; };
+		BD3CE164E88F7A367A3C179E9A6CC819 /* ScreenshotMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ScreenshotMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ScreenshotMonitor.html; sourceTree = "<group>"; };
+		6C715C9C995956E993ABC0217A734865 /* ScreenshotMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitor.swift; sourceTree = "<group>"; };
+		0C370F65FFDA9F8141F23BB795A38C32 /* SignificantLocationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = SignificantLocationMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SignificantLocationMonitor.html; sourceTree = "<group>"; };
+		0C370F65FFDA9F8141F23BB795A38C32 /* SignificantLocationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = SignificantLocationMonitor.html; path = docs/Classes/SignificantLocationMonitor.html; sourceTree = "<group>"; };
+		A500E6248ACB8A5616C2DC2E080625A0 /* SignificantLocationMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignificantLocationMonitor.swift; sourceTree = "<group>"; };
+		BBD57AF2467B3B636CEF8BCC103670E3 /* StandardLocationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = StandardLocationMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StandardLocationMonitor.html; sourceTree = "<group>"; };
+		BBD57AF2467B3B636CEF8BCC103670E3 /* StandardLocationMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = StandardLocationMonitor.html; path = docs/Classes/StandardLocationMonitor.html; sourceTree = "<group>"; };
+		3F4C6A7DB496AFF2711EDB0DBC3B9464 /* StandardLocationMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StandardLocationMonitor.swift; sourceTree = "<group>"; };
+		0F66E075257FCEB56E280A38AA8A47A9 /* Status.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Status.html; path = docs/Classes/NetworkReachabilityMonitor/Status.html; sourceTree = "<group>"; };
+		0F66E075257FCEB56E280A38AA8A47A9 /* Status.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Status.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/NetworkReachabilityMonitor/Status.html; sourceTree = "<group>"; };
+		7F05BC6AAA02FADA98C9E6FB272EFE1F /* StatusBarMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = StatusBarMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/StatusBarMonitor.html; sourceTree = "<group>"; };
+		7F05BC6AAA02FADA98C9E6FB272EFE1F /* StatusBarMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = StatusBarMonitor.html; path = docs/Classes/StatusBarMonitor.html; sourceTree = "<group>"; };
+		E2BA406DAA3F7A8E790F20DB310591DF /* StatusBarMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
+		1F87FEC44EBB55E8CAF1C606438C8910 /* SystemClockMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = SystemClockMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SystemClockMonitor.html; sourceTree = "<group>"; };
+		1F87FEC44EBB55E8CAF1C606438C8910 /* SystemClockMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = SystemClockMonitor.html; path = docs/Classes/SystemClockMonitor.html; sourceTree = "<group>"; };
+		92EC8373128235ED32F4C7BD479BD282 /* SystemClockMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemClockMonitor.swift; sourceTree = "<group>"; };
+		BAC1828751C620B2B90777607D6FCB05 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		1400D12E05C2D339359CE74051A4B382 /* SystemTimeZoneMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = SystemTimeZoneMonitor.html; path = docs/Classes/SystemTimeZoneMonitor.html; sourceTree = "<group>"; };
+		1400D12E05C2D339359CE74051A4B382 /* SystemTimeZoneMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = SystemTimeZoneMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/SystemTimeZoneMonitor.html; sourceTree = "<group>"; };
+		977AE7A2A13F81C1343A90E690E15DFD /* SystemTimeZoneMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemTimeZoneMonitor.swift; sourceTree = "<group>"; };
+		C7C5FE313D0374C6D84F4BAF259D4179 /* TableViewSelectionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TableViewSelectionMonitor.html; path = docs/Classes/TableViewSelectionMonitor.html; sourceTree = "<group>"; };
+		C7C5FE313D0374C6D84F4BAF259D4179 /* TableViewSelectionMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TableViewSelectionMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TableViewSelectionMonitor.html; sourceTree = "<group>"; };
+		25010441F4BCBA88E3B733DEAADEFB38 /* TableViewSelectionMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewSelectionMonitor.swift; sourceTree = "<group>"; };
+		9674EAC6375DB0843618258637D07054 /* TextFieldTextMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TextFieldTextMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextFieldTextMonitor.html; sourceTree = "<group>"; };
+		9674EAC6375DB0843618258637D07054 /* TextFieldTextMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TextFieldTextMonitor.html; path = docs/Classes/TextFieldTextMonitor.html; sourceTree = "<group>"; };
+		A0A10E8215A976D7C3B2E497CEC6E817 /* TextFieldTextMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldTextMonitor.swift; sourceTree = "<group>"; };
+		CD163AA3A993DBDA595324E359DD5E82 /* TextInputModeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TextInputModeMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextInputModeMonitor.html; sourceTree = "<group>"; };
+		CD163AA3A993DBDA595324E359DD5E82 /* TextInputModeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TextInputModeMonitor.html; path = docs/Classes/TextInputModeMonitor.html; sourceTree = "<group>"; };
+		305BBC68314A76FBD0AE7348EC52A08D /* TextInputModeMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextInputModeMonitor.swift; sourceTree = "<group>"; };
+		9C1CDEDA58A0C1E814D47BC274E33453 /* TextStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TextStorageMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextStorageMonitor.html; sourceTree = "<group>"; };
+		9C1CDEDA58A0C1E814D47BC274E33453 /* TextStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TextStorageMonitor.html; path = docs/Classes/TextStorageMonitor.html; sourceTree = "<group>"; };
+		B65489661307D31E415045BAAB683C36 /* TextStorageMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextStorageMonitor.swift; sourceTree = "<group>"; };
+		6F67E89D86E45309758A3B6D1C337D3A /* TextViewTextMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TextViewTextMonitor.html; path = docs/Classes/TextViewTextMonitor.html; sourceTree = "<group>"; };
+		6F67E89D86E45309758A3B6D1C337D3A /* TextViewTextMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TextViewTextMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TextViewTextMonitor.html; sourceTree = "<group>"; };
+		8472D9B3BEAC0A84B34AA75D097EFD4B /* TextViewTextMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextViewTextMonitor.swift; sourceTree = "<group>"; };
+		8B0B85DF440146C0DEF398C83B234B47 /* TimeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = TimeMonitor.html; path = docs/Classes/TimeMonitor.html; sourceTree = "<group>"; };
+		8B0B85DF440146C0DEF398C83B234B47 /* TimeMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = TimeMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/TimeMonitor.html; sourceTree = "<group>"; };
+		81F9685293D31BA46A128A47DE9EC9B8 /* TimeMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeMonitor.swift; sourceTree = "<group>"; };
+		2375872CEDD0052474296ED04835DE70 /* UIKit Accessibility Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "UIKit Accessibility Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/UIKit Accessibility Monitor Classes.html"; sourceTree = "<group>"; };
+		2375872CEDD0052474296ED04835DE70 /* UIKit Accessibility Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "UIKit Accessibility Monitor Classes.html"; path = "docs/UIKit Accessibility Monitor Classes.html"; sourceTree = "<group>"; };
+		88B7EFD187344CAAFD1C0BB1C95B0155 /* UIKit Application Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "UIKit Application Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/UIKit Application Monitor Classes.html"; sourceTree = "<group>"; };
+		88B7EFD187344CAAFD1C0BB1C95B0155 /* UIKit Application Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "UIKit Application Monitor Classes.html"; path = "docs/UIKit Application Monitor Classes.html"; sourceTree = "<group>"; };
+		F57CC50E4BF33C4367A4B021975C117A /* UIKit Device Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "UIKit Device Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/UIKit Device Monitor Classes.html"; sourceTree = "<group>"; };
+		F57CC50E4BF33C4367A4B021975C117A /* UIKit Device Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "UIKit Device Monitor Classes.html"; path = "docs/UIKit Device Monitor Classes.html"; sourceTree = "<group>"; };
+		94A85FA46218703AC30293378D54D50D /* UIKit Screen Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "UIKit Screen Monitor Classes.html"; path = "docs/UIKit Screen Monitor Classes.html"; sourceTree = "<group>"; };
+		94A85FA46218703AC30293378D54D50D /* UIKit Screen Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "UIKit Screen Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/UIKit Screen Monitor Classes.html"; sourceTree = "<group>"; };
+		3D303CC4E39DB80D9EE226B15CEBEF30 /* UIKit Text Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "UIKit Text Monitor Classes.html"; path = "docs/UIKit Text Monitor Classes.html"; sourceTree = "<group>"; };
+		3D303CC4E39DB80D9EE226B15CEBEF30 /* UIKit Text Monitor Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = "UIKit Text Monitor Classes.html"; path = "docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/UIKit Text Monitor Classes.html"; sourceTree = "<group>"; };
+		E009680341C05CB21C72C0DF0249DAFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6911FA8EAFD9C4B18C3F6B785DA4D4D5 /* URLCredentialStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = URLCredentialStorageMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/URLCredentialStorageMonitor.html; sourceTree = "<group>"; };
+		6911FA8EAFD9C4B18C3F6B785DA4D4D5 /* URLCredentialStorageMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = URLCredentialStorageMonitor.html; path = docs/Classes/URLCredentialStorageMonitor.html; sourceTree = "<group>"; };
+		D8D4B6D9AE4E46FA4B375DD7C971B6F3 /* URLCredentialStorageMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URLCredentialStorageMonitor.swift; sourceTree = "<group>"; };
+		706D014DF5841A50640B33C6E94D1943 /* UbiquitousKeyValueStoreMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UbiquitousKeyValueStoreMonitor.html; path = docs/Classes/UbiquitousKeyValueStoreMonitor.html; sourceTree = "<group>"; };
+		706D014DF5841A50640B33C6E94D1943 /* UbiquitousKeyValueStoreMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UbiquitousKeyValueStoreMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UbiquitousKeyValueStoreMonitor.html; sourceTree = "<group>"; };
+		AAA2463D19B4027D1E5926A9B8024D7B /* UbiquitousKeyValueStoreMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UbiquitousKeyValueStoreMonitor.swift; sourceTree = "<group>"; };
+		EB62C209143B03BD1582894DC99AB75C /* UbiquityIdentityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UbiquityIdentityMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UbiquityIdentityMonitor.html; sourceTree = "<group>"; };
+		EB62C209143B03BD1582894DC99AB75C /* UbiquityIdentityMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UbiquityIdentityMonitor.html; path = docs/Classes/UbiquityIdentityMonitor.html; sourceTree = "<group>"; };
+		A2C473AF1E12909006C7DA902C429F6B /* UbiquityIdentityMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UbiquityIdentityMonitor.swift; sourceTree = "<group>"; };
+		1638053D8EE72DFF0F1B9C3AB54BC39B /* UndoManagerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UndoManagerMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UndoManagerMonitor.html; sourceTree = "<group>"; };
+		1638053D8EE72DFF0F1B9C3AB54BC39B /* UndoManagerMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UndoManagerMonitor.html; path = docs/Classes/UndoManagerMonitor.html; sourceTree = "<group>"; };
+		F8142E24D6278B932455B12BCB7D7037 /* UndoManagerMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UndoManagerMonitor.swift; sourceTree = "<group>"; };
+		FD09D194EF1E4653E7A6ECC0E348FAB2 /* UserDefaultsMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UserDefaultsMonitor.html; path = docs/Classes/UserDefaultsMonitor.html; sourceTree = "<group>"; };
+		FD09D194EF1E4653E7A6ECC0E348FAB2 /* UserDefaultsMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UserDefaultsMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/UserDefaultsMonitor.html; sourceTree = "<group>"; };
+		CFC6E9C079E1AE382183D2BBDB48FAAF /* UserDefaultsMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsMonitor.swift; sourceTree = "<group>"; };
+		6E38E94B4A18E9E1D44E975D092F24E9 /* ViewControllerShowDetailTargetMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ViewControllerShowDetailTargetMonitor.html; path = docs/Classes/ViewControllerShowDetailTargetMonitor.html; sourceTree = "<group>"; };
+		6E38E94B4A18E9E1D44E975D092F24E9 /* ViewControllerShowDetailTargetMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ViewControllerShowDetailTargetMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/ViewControllerShowDetailTargetMonitor.html; sourceTree = "<group>"; };
+		FFD9B600F0A67E8438A1C6140665D5C9 /* ViewControllerShowDetailTargetMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerShowDetailTargetMonitor.swift; sourceTree = "<group>"; };
+		63C945EF3C60AD2E0F6E73FEBE469EB4 /* VisitMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = VisitMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/VisitMonitor.html; sourceTree = "<group>"; };
+		63C945EF3C60AD2E0F6E73FEBE469EB4 /* VisitMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = VisitMonitor.html; path = docs/Classes/VisitMonitor.html; sourceTree = "<group>"; };
+		7409635C2109FBFAF84AED87586826F5 /* VisitMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisitMonitor.swift; sourceTree = "<group>"; };
+		B4D41F12862ED7646B4B0E0989ED5C9E /* WindowMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = WindowMonitor.html; path = docs/Classes/WindowMonitor.html; sourceTree = "<group>"; };
+		B4D41F12862ED7646B4B0E0989ED5C9E /* WindowMonitor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = WindowMonitor.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/Classes/WindowMonitor.html; sourceTree = "<group>"; };
+		6C0C2E956FF0D428C118BDDCC310B6F4 /* WindowMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WindowMonitor.swift; sourceTree = "<group>"; };
+		DE8793F9889523450742E9AFAA9326C4 /* XestiMonitors-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XestiMonitors-Info.plist"; sourceTree = "<group>"; };
+		D708A6C64322DFF3F029ECD9F55BFEEB /* XestiMonitors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XestiMonitors-dummy.m"; sourceTree = "<group>"; };
+		33F5BD2F973219755CA5ADD5B2F63415 /* XestiMonitors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XestiMonitors-prefix.pch"; sourceTree = "<group>"; };
+		B1DA89C65ABFD62833553CD5A244B684 /* XestiMonitors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XestiMonitors-umbrella.h"; sourceTree = "<group>"; };
+		8A9694245FEB4A4456F4CAACBDF43322 /* XestiMonitors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XestiMonitors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D615FA30D388A7A6FBE4BF23DA4EA3F /* XestiMonitors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XestiMonitors.modulemap; sourceTree = "<group>"; };
+		8A346D170026F898176229A0FE2293D3 /* XestiMonitors.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XestiMonitors.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0D50740F1192CD39B70EC0F1E08DADFF /* XestiMonitors.tgz */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = XestiMonitors.tgz; path = docs/docsets/XestiMonitors.tgz; sourceTree = "<group>"; };
+		6F4C280F86B2A30AEFA32A95BA479374 /* XestiMonitors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XestiMonitors.xcconfig; sourceTree = "<group>"; };
+		F8C66A92AF1EE9E41BEFCF4AA79723A8 /* XestiMonitors.xml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = XestiMonitors.xml; path = docs/docsets/XestiMonitors.xml; sourceTree = "<group>"; };
+		267D029D44C459EE78AA5632B9E5AE37 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
+		FCA679D76F6F91235872627BE9420E74 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
+		FCA679D76F6F91235872627BE9420E74 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
+		43F40D8066648FD81F301B8DEEB9E3E6 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/img/dash.png; sourceTree = "<group>"; };
+		43F40D8066648FD81F301B8DEEB9E3E6 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/img/dash.png; sourceTree = "<group>"; };
+		3EA5A24D9FCEC3D8BB2353ECC013548D /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = docSet.dsidx; path = docs/docsets/XestiMonitors.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
+		5AC2C4D67787C8D0D34693226B99E28B /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/img/gh.png; sourceTree = "<group>"; };
+		5AC2C4D67787C8D0D34693226B99E28B /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
+		9CAF1B166051BA68524EAD46590A06BD /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
+		9CAF1B166051BA68524EAD46590A06BD /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		5CD8D9375567C45F6D7D52845319C033 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = index.html; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
+		5CD8D9375567C45F6D7D52845319C033 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
+		9CC274AA0E84C3D8867E451C94F93D52 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
+		9CC274AA0E84C3D8867E451C94F93D52 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		F0CFCBE1A73813F61EBB8EC437FF8803 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
+		F0CFCBE1A73813F61EBB8EC437FF8803 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
+		9C3FAC6B11F119C2581804BB28B31600 /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.search.js; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/js/jazzy.search.js; sourceTree = "<group>"; };
+		9C3FAC6B11F119C2581804BB28B31600 /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.search.js; path = docs/js/jazzy.search.js; sourceTree = "<group>"; };
+		28CC48561316F40A8E9A8918759F1602 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
+		28CC48561316F40A8E9A8918759F1602 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		B86D40D1971CCABC91A508B6D835DDF4 /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = lunr.min.js; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/js/lunr.min.js; sourceTree = "<group>"; };
+		B86D40D1971CCABC91A508B6D835DDF4 /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = lunr.min.js; path = docs/js/lunr.min.js; sourceTree = "<group>"; };
+		7DEECA47D73696327646E773A56CE4F0 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
+		7DEECA47D73696327646E773A56CE4F0 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
+		E903268ED813E0A2D8162846025106B8 /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/img/spinner.gif; sourceTree = "<group>"; };
+		E903268ED813E0A2D8162846025106B8 /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = docs/img/spinner.gif; sourceTree = "<group>"; };
+		6C69A208856BDCC63719A7F94CC34CA5 /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = typeahead.jquery.js; path = docs/js/typeahead.jquery.js; sourceTree = "<group>"; };
+		6C69A208856BDCC63719A7F94CC34CA5 /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = typeahead.jquery.js; path = docs/docsets/XestiMonitors.docset/Contents/Resources/Documents/js/typeahead.jquery.js; sourceTree = "<group>"; };
+		9C5119E8E2E353DBF8944585548FCCDA /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F6C63C4DF27F58848079615C6F850A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C62DBCCC2963CB16A7A4CCBD9F21169A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B9891EAFBB22F966FC3F85D2CFAA66C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9CA1156687E8F6A8774222686EDF614 /* CoreLocation.framework in Frameworks */,
+				2269EE088E704943FAE58723378A9EEF /* Foundation.framework in Frameworks */,
+				EFE9B5D0970506BC899BE72915C20BF6 /* SystemConfiguration.framework in Frameworks */,
+				8A9D3256C75E9AA46936AA540ABE2C98 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9677E02F272F9B197B026A49B44D73C4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6DBDAA731B1CBDC387519884ED20A0C6 /* ApplicationStateMonitor.swift */,
+				AB3210CC28338358830AC6053FC1E6C9 /* BackgroundRefreshMonitor.swift */,
+				88F39C76DF2FC3833C9468D60FFC82CF /* MemoryMonitor.swift */,
+				A0B13575AF321486EAD65B5485B65F3B /* ProtectedDataMonitor.swift */,
+				6C715C9C995956E993ABC0217A734865 /* ScreenshotMonitor.swift */,
+				E2BA406DAA3F7A8E790F20DB310591DF /* StatusBarMonitor.swift */,
+				81F9685293D31BA46A128A47DE9EC9B8 /* TimeMonitor.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B8A74388B6861EAA6D48ADAA1CB01F9B /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				5B27F18A1A949B2C542F5811E3051F87 /* BeaconRangingMonitor.swift */,
+				F245A9EF4A8F6C2A5B7483350CEA1901 /* HeadingMonitor.swift */,
+				1E8C3F8D8078137425F4A36AF44C396A /* LocationAuthorizationMonitor.swift */,
+				9BA561BB6C11061DCE86B621BB41659C /* LocationManagerDelegateAdapter.swift */,
+				E3E60CE5ABFCE8AE3E9DE436289AB3FB /* RegionMonitor.swift */,
+				A500E6248ACB8A5616C2DC2E080625A0 /* SignificantLocationMonitor.swift */,
+				3F4C6A7DB496AFF2711EDB0DBC3B9464 /* StandardLocationMonitor.swift */,
+				7409635C2109FBFAF84AED87586826F5 /* VisitMonitor.swift */,
+			);
+			name = CoreLocation;
+			path = Sources/Core/CoreLocation;
+			sourceTree = "<group>";
+		};
+		3F9B44F0CF9D0F2E930DCD1F4790472E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6336B2CA02F8246F84AD8E823F06B8D6 /* BundleClassLoadMonitor.swift */,
+				0364C20F659EABB13F1CAA9C1B498E19 /* BundleResourceRequestMonitor.swift */,
+				E2C871405976AD3848A4AF2C6A9DF524 /* CalendarDayMonitor.swift */,
+				6A66736175D2C38E4E329180C1493997 /* CurrentLocaleMonitor.swift */,
+				27F2483C11AD077C6F36328CB04AA968 /* ExtensionHostMonitor.swift */,
+				4717CE040D6E4A3ABA25B2861B31290D /* HTTPCookieStorageMonitor.swift */,
+				E2DA1AFB3545E94049A74280F529E0D2 /* MetadataQueryMonitor.swift */,
+				715DB4DD0F94D9FE13017C878D816F85 /* PortMonitor.swift */,
+				E0728B83C27BDA6190857EA1695DEBB1 /* ProcessInfoPowerStateMonitor.swift */,
+				2E13A4A2E818C63255AA02C142DC7046 /* ProcessInfoThermalStateMonitor.swift */,
+				92EC8373128235ED32F4C7BD479BD282 /* SystemClockMonitor.swift */,
+				977AE7A2A13F81C1343A90E690E15DFD /* SystemTimeZoneMonitor.swift */,
+				D8D4B6D9AE4E46FA4B375DD7C971B6F3 /* URLCredentialStorageMonitor.swift */,
+				AAA2463D19B4027D1E5926A9B8024D7B /* UbiquitousKeyValueStoreMonitor.swift */,
+				A2C473AF1E12909006C7DA902C429F6B /* UbiquityIdentityMonitor.swift */,
+				F8142E24D6278B932455B12BCB7D7037 /* UndoManagerMonitor.swift */,
+				CFC6E9C079E1AE382183D2BBDB48FAAF /* UserDefaultsMonitor.swift */,
+			);
+			name = Foundation;
+			path = Sources/Core/Foundation;
+			sourceTree = "<group>";
+		};
+		A0F19375E1F61C57DA2EE522D9405845 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				87353C5613F0B89A921F71558C589243 /* ScreenBrightnessMonitor.swift */,
+				B62F0F45B2DE0D12D43B2CA8B76520D5 /* ScreenCapturedMonitor.swift */,
+				4DF5DEF25755BEEEC83D5B4807EB3235 /* ScreenConnectionMonitor.swift */,
+				C4DF7BA7F6ACE4432FE2C029E1FBC123 /* ScreenModeMonitor.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		39201781ABCCB6AB788B90E280F90FF3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8DCB96E2475FB7675A0EC197BFE6D565 /* Accessibility */,
+				9677E02F272F9B197B026A49B44D73C4 /* Application */,
+				4D270BFE32A47FE6FC34E72AF9EE5A5B /* Device */,
+				84230456FEE3C72FFFB7D829D5769547 /* Other */,
+				A0F19375E1F61C57DA2EE522D9405845 /* Screen */,
+				49A5C393EFB7DAF0CD189DEAC1DE9D8C /* Text */,
+			);
+			name = UIKit;
+			path = Sources/Core/UIKit;
+			sourceTree = "<group>";
+		};
+		320913820E13A0676FF95E8A8014BBE6 /* CoreMotion */ = {
+			isa = PBXGroup;
+			children = (
+				2D55F154556B49D2658C9E2C5EE1FB25 /* AccelerometerMonitor.swift */,
+				9FA6ED7968D67852BE4D40BD3E24F9BA /* AltimeterMonitor.swift */,
+				751C1748AB410365A4BCC618170115B5 /* DeviceMotionMonitor.swift */,
+				F3D08EAD059EDC37ADC0E7ECBFED0F9B /* GyroscopeMonitor.swift */,
+				200926977746E9AF6EC28EC994B5784D /* MagnetometerMonitor.swift */,
+				B5819972BE358A5ED2A78633695AE112 /* MotionActivityMonitor.swift */,
+				F12CCFBD418860917E040F1E22062D3C /* PedometerMonitor.swift */,
+			);
+			name = CoreMotion;
+			path = Sources/Core/CoreMotion;
+			sourceTree = "<group>";
+		};
+		84230456FEE3C72FFFB7D829D5769547 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E71751A92162506C0AC5B8D37771C688 /* ContentSizeCategoryMonitor.swift */,
+				BD8DC47A3514509F9DD27384839B7219 /* DocumentStateMonitor.swift */,
+				D949A52581B5FBA5347667B0D7385E22 /* FocusMonitor.swift */,
+				E61A9336F7523081912E71FE56DA40C2 /* KeyboardMonitor.swift */,
+				35FAE85ECED41DBC8C4F1AC7EA0D00E1 /* MenuControllerMonitor.swift */,
+				324E20E00D5BF5D23F6FBEFEE11F52D6 /* PasteboardMonitor.swift */,
+				25010441F4BCBA88E3B733DEAADEFB38 /* TableViewSelectionMonitor.swift */,
+				FFD9B600F0A67E8438A1C6140665D5C9 /* ViewControllerShowDetailTargetMonitor.swift */,
+				6C0C2E956FF0D428C118BDDCC310B6F4 /* WindowMonitor.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E2C2BD453A45E14D607EB9C716D9BE72 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE8793F9889523450742E9AFAA9326C4 /* XestiMonitors-Info.plist */,
+				D708A6C64322DFF3F029ECD9F55BFEEB /* XestiMonitors-dummy.m */,
+				33F5BD2F973219755CA5ADD5B2F63415 /* XestiMonitors-prefix.pch */,
+				B1DA89C65ABFD62833553CD5A244B684 /* XestiMonitors-umbrella.h */,
+				4D615FA30D388A7A6FBE4BF23DA4EA3F /* XestiMonitors.modulemap */,
+				6F4C280F86B2A30AEFA32A95BA479374 /* XestiMonitors.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Examples/XestiMonitorsDemo-tvOS/Pods/Target Support Files/XestiMonitors";
+			sourceTree = "<group>";
+		};
+		9F13F589B0EAC0C9A4E03BAED2800F3F /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				0A1978672C754027C9168FE89A179C96 /* CoreLocation.framework */,
+				F8A822E5E3CDFCC86FEC214C99131A21 /* Foundation.framework */,
+				BAC1828751C620B2B90777607D6FCB05 /* SystemConfiguration.framework */,
+				E009680341C05CB21C72C0DF0249DAFC /* UIKit.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		4D270BFE32A47FE6FC34E72AF9EE5A5B /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				3ECFC532A54EAC24ADCB8E63A9A476C5 /* BatteryMonitor.swift */,
+				89A97D1B82436CF13F5F033A8F4DAB6F /* OrientationMonitor.swift */,
+				52EFCAF57F205A3D17E747C412B0AC16 /* ProximityMonitor.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		F11F3D9AADDE75DD48B2D75FDE6D0F2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E67028B9FB2AB285998F2996E0D14A71 /* Pods_XestiMonitorsDemo.framework */,
+				8A9694245FEB4A4456F4CAACBDF43322 /* XestiMonitors.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		536845E373BCC8693A4BA656CF4143FA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F528AE034097115EF0D9A15FF9CAA32A /* BaseMonitor.swift */,
+				90603913F187DA617D28956AAA266CEE /* BaseNotificationMonitor.swift */,
+				7872F8886DFB75C1D5A56BCFE56FC9D9 /* Monitor.swift */,
+			);
+			name = Base;
+			path = Sources/Core/Base;
+			sourceTree = "<group>";
+		};
+		8205D5E1014E4DEE9C43DFBB39FF0C68 /* Pods-XestiMonitorsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8F08943F5642D3C4A41B0B76C315FF7F /* Pods-XestiMonitorsDemo-Info.plist */,
+				41A20CBF0A63AC42D7FB41BB9430EBB9 /* Pods-XestiMonitorsDemo-acknowledgements.markdown */,
+				F87D178B9A831AC6551D8105D5CDA85A /* Pods-XestiMonitorsDemo-acknowledgements.plist */,
+				C1FA7F808668D10742DB4055E244E711 /* Pods-XestiMonitorsDemo-dummy.m */,
+				1A4D4F9446A8CFBC856E842E23D8C3E7 /* Pods-XestiMonitorsDemo-frameworks.sh */,
+				6B4D4F3AD3B84462201276CBF827220D /* Pods-XestiMonitorsDemo-umbrella.h */,
+				258BC70209E608CACDD915A0ED569DD4 /* Pods-XestiMonitorsDemo.debug.xcconfig */,
+				4FBF05FF541986DAB8563A25EEAE176D /* Pods-XestiMonitorsDemo.modulemap */,
+				51028837CD69BD0FEC1291C2B30FA7CF /* Pods-XestiMonitorsDemo.release.xcconfig */,
+			);
+			name = "Pods-XestiMonitorsDemo";
+			path = "Target Support Files/Pods-XestiMonitorsDemo";
+			sourceTree = "<group>";
+		};
+		29A328CB3551AC3F29DBBBBBD73D9AD1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				536845E373BCC8693A4BA656CF4143FA /* Base */,
+				B8A74388B6861EAA6D48ADAA1CB01F9B /* CoreLocation */,
+				320913820E13A0676FF95E8A8014BBE6 /* CoreMotion */,
+				8FEE375B18E6E18A5C78C4623AE4DFDD /* DependencyInjection */,
+				D1BF8C3228587E94C864174FEF0AF7BE /* Extensions */,
+				3F9B44F0CF9D0F2E930DCD1F4790472E /* Foundation */,
+				76C91FF45C451E96466B3DA33A4CF83D /* Other */,
+				39201781ABCCB6AB788B90E280F90FF3 /* UIKit */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		EA7F8D5904273D8F83A89AD84953D3A7 /* XestiMonitors */ = {
+			isa = PBXGroup;
+			children = (
+				29A328CB3551AC3F29DBBBBBD73D9AD1 /* Core */,
+				7780EAE8F699B4A73E3AF96F069AE04A /* Pod */,
+				E2C2BD453A45E14D607EB9C716D9BE72 /* Support Files */,
+			);
+			name = XestiMonitors;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		49A5C393EFB7DAF0CD189DEAC1DE9D8C /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				A0A10E8215A976D7C3B2E497CEC6E817 /* TextFieldTextMonitor.swift */,
+				305BBC68314A76FBD0AE7348EC52A08D /* TextInputModeMonitor.swift */,
+				B65489661307D31E415045BAAB683C36 /* TextStorageMonitor.swift */,
+				8472D9B3BEAC0A84B34AA75D097EFD4B /* TextViewTextMonitor.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		6D1EB8A38E8CBA4A4B0D3C897A545D0A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA7F8D5904273D8F83A89AD84953D3A7 /* XestiMonitors */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		8FEE375B18E6E18A5C78C4623AE4DFDD /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3ABF2FC22C16C83074B9D435E7BDF /* AccessibilityStatus.swift */,
+				FC716903D3D0143C4257621F8F8ABBCD /* AccessibilityStatusInjection.swift */,
+				A5AB172650612F1F50B33BF3B86CEFA4 /* AltimeterInjection.swift */,
+				F9E947235C4B10E97ABC4512AA206B6E /* ApplicationInjection.swift */,
+				98CF3C9050A7941E5B1ABF561FCEACA0 /* DeviceInjection.swift */,
+				CEE6ED11318B7604727832889C9C0A54 /* FileManagerInjection.swift */,
+				F223BCCE414894365563012C72A39AE0 /* FileSystem.swift */,
+				8900A69179E0CCAE9EC04A69410AED6D /* FileSystemInjection.swift */,
+				32BE771699ED0769B7DED67419CC09AE /* FileSystemObjectInjection.swift */,
+				604769715957DAD90D59DE6045574D46 /* LocationManagerInjection.swift */,
+				30756941FC6B99BE6FCC218050E11B20 /* MotionActivityManagerInjection.swift */,
+				676C8E1D3DEC5EAC97946FE21C83BABF /* MotionManagerInjection.swift */,
+				7D0F59514E52D27DFE37CE3CB89C1FC5 /* NetworkReachability.swift */,
+				1C8A1D35D243532EFACEAA16245838C1 /* NetworkReachabilityInjection.swift */,
+				20D24D1AA1E605339AFC9141865E3215 /* NotificationCenterInjection.swift */,
+				8ACFB2C442A6EA47EE6EF76D442A22EC /* PedometerInjection.swift */,
+				942D36BB4F45AC355E430523F5087F0B /* ProcessInfoInjection.swift */,
+			);
+			name = DependencyInjection;
+			path = Sources/Core/DependencyInjection;
+			sourceTree = "<group>";
+		};
+		7780EAE8F699B4A73E3AF96F069AE04A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD6553807F99612ED86256C12F9BC8 /* AccelerometerMonitor.html */,
+				4DF82BDA848CDF216E08C8697F70B111 /* AccessibilityAnnouncementMonitor.html */,
+				78F807F41C8847EA1C301CF00CF37F52 /* AccessibilityElementMonitor.html */,
+				EAE40520768053ABD6D3EABC18C6DEED /* AccessibilityStatusMonitor.html */,
+				F5558DCF42AAE303D5C1D0BFA2D00BBF /* AltimeterMonitor.html */,
+				248F3859E3DFDF649B354250B63EA8EC /* ApplicationStateMonitor.html */,
+				2288D8818DB3CA22B2EBF7F7444C295E /* BackgroundRefreshMonitor.html */,
+				A1E3E2B2B7E5EB4818B26C7DAB6D8411 /* Base Monitor Classes.html */,
+				DDF1253C59407A9EC1FDB06444D56F24 /* BaseMonitor.html */,
+				4CD7C54D506BEC95D27C9D32F5CE9493 /* BaseNotificationMonitor.html */,
+				64EFC765668F6C2A8C016B6BE34E0688 /* BatteryMonitor.html */,
+				31F9D5C836CD7D489016BF71F289123C /* BeaconRangingMonitor.html */,
+				AE5CFED28E5FB3CBB1C7754F0C5BC23C /* BundleClassLoadMonitor.html */,
+				DFAC457FA901E02267C21C0D21495616 /* BundleResourceRequestMonitor.html */,
+				092D5C8967C8B042531659ABC93AC0DA /* CMAcceleration.html */,
+				955D64D3C1103AB441ED349F7FC0A4F3 /* CalendarDayMonitor.html */,
+				1EE65D6312C677764463FC7DB7B5613E /* Changes.html */,
+				54CFBD4707D3259175CFC7C04359AC7E /* ContentSizeCategoryMonitor.html */,
+				AA4089E49EF3B405F11170489E84BCE4 /* Core Location Monitor Classes.html */,
+				CA72C52ACC3C7A25EB9128CDB4105307 /* Core Motion Monitor Classes.html */,
+				64B007A1F4B131D50F64B1912FE6DEED /* CurrentLocaleMonitor.html */,
+				02BE405153DA070EDFF0317263C2898C /* DeviceMotionMonitor.html */,
+				0E766DDCFB35EA8DA9BBDA059CA65612 /* DocumentStateMonitor.html */,
+				A4A79DFFE13FA385ADB34B6BACD8B78C /* Event.html */,
+				95130E4E1D30A85FD80B06C3B5725245 /* ExtensionHostMonitor.html */,
+				5673C16E99089C9B29AA37A0BA662D04 /* Extensions.html */,
+				63D5226649B07DED566111C43ABD2A0A /* FileSystemObjectMonitor.html */,
+				8BEF052EC89128E318D827CE9282199D /* FocusMonitor.html */,
+				C0A0E7E3E9FAEF0F1AC7E39DCE42AA78 /* Foundation Monitor Classes.html */,
+				16E2F13F57026E5B9E487FE2140174F8 /* GyroscopeMonitor.html */,
+				548B15AA9CB008223A6BEF479F329292 /* HTTPCookiesStorageMonitor.html */,
+				C3D716D48D04C18CAB7AA66871014A4C /* HeadingMonitor.html */,
+				D0E2285E50752D4225BEDB2AFD5D3AE2 /* Info.html */,
+				D9BC26862220B700D0137B57AA9741E0 /* Info.plist */,
+				B7CAE4277EA702DC016F9532E2A8820B /* KeyboardMonitor.html */,
+				AFB582EB69A395AEBC9576286E75EBAF /* LICENSE.md */,
+				3AC6D69B84D96278EEE737F0F362F33E /* LocationAuthorizationMonitor.html */,
+				26D8F76C701245E8A3FB5BBD998CDCD6 /* MagnetometerMonitor.html */,
+				1A7F9E1B8C6A8FE983DEF8BBCCABD2D8 /* MemoryMonitor.html */,
+				279BD8C7A0520281351C0E82BF464D6E /* MenuControllerMonitor.html */,
+				8191EFCBDF5F8DD304B1506D55217D7B /* MetadataQueryMonitor.html */,
+				60DBAA9FE5256A16A3FE05F47D44FB96 /* Monitor.html */,
+				22D28F538EB128CBA874384D69422A62 /* MotionActivityMonitor.html */,
+				AE52054AEE135D0D9E809C5A5B1DDE72 /* NetworkReachabilityMonitor.html */,
+				CF09624F8D3A905A0143C5488DFAC5C5 /* Options.html */,
+				D2838644E37E14D5163EA20239A5BE65 /* OrientationMonitor.html */,
+				B4085A76A0FAC8102A4D83DC5A6FB6CE /* Other Monitor Classes.html */,
+				D76DD852B66224BD9512BB40DFC11A40 /* Other UIKit Monitor Classes.html */,
+				78E7A99DEAC821806547C78B9838EBF5 /* PasteboardMonitor.html */,
+				218C08BDF5C90AC27651BF68101A8305 /* PedometerMonitor.html */,
+				8CB8F1FFF6FED0847310B8F7E58B0435 /* PortMonitor.html */,
+				6AB768F97D422CC0955FFE66FE202F15 /* ProcessInfoPowerStateMonitor.html */,
+				74865FBBDA1165B10833F21EDC999557 /* ProcessInfoThermalStateMonitor.html */,
+				924AD06DD5095619805733FE36A01F05 /* ProtectedDataMonitor.html */,
+				138D183BDD679FA2C665AECCFA096EE9 /* Protocols.html */,
+				B65C5F0EB9F0B777E67AB3097188334B /* ProximityMonitor.html */,
+				B0D08CADBD71E4A8FED1DF041ECAFD0E /* README.md */,
+				14B96B5C5931521109702FE4F1E5047A /* RegionMonitor.html */,
+				B273663365CF91033466245E105EAE17 /* ScreenBrightnessMonitor.html */,
+				563F3DD845C07A75687A6E4929BC2A0E /* ScreenCapturedMonitor.html */,
+				F90EFD3ADD34BED4FE11DF70C3062CD7 /* ScreenConnectionMonitor.html */,
+				3E64F942436E75C5A03578B925633F09 /* ScreenModeMonitor.html */,
+				BD3CE164E88F7A367A3C179E9A6CC819 /* ScreenshotMonitor.html */,
+				0C370F65FFDA9F8141F23BB795A38C32 /* SignificantLocationMonitor.html */,
+				BBD57AF2467B3B636CEF8BCC103670E3 /* StandardLocationMonitor.html */,
+				0F66E075257FCEB56E280A38AA8A47A9 /* Status.html */,
+				7F05BC6AAA02FADA98C9E6FB272EFE1F /* StatusBarMonitor.html */,
+				1F87FEC44EBB55E8CAF1C606438C8910 /* SystemClockMonitor.html */,
+				1400D12E05C2D339359CE74051A4B382 /* SystemTimeZoneMonitor.html */,
+				C7C5FE313D0374C6D84F4BAF259D4179 /* TableViewSelectionMonitor.html */,
+				9674EAC6375DB0843618258637D07054 /* TextFieldTextMonitor.html */,
+				CD163AA3A993DBDA595324E359DD5E82 /* TextInputModeMonitor.html */,
+				9C1CDEDA58A0C1E814D47BC274E33453 /* TextStorageMonitor.html */,
+				6F67E89D86E45309758A3B6D1C337D3A /* TextViewTextMonitor.html */,
+				8B0B85DF440146C0DEF398C83B234B47 /* TimeMonitor.html */,
+				2375872CEDD0052474296ED04835DE70 /* UIKit Accessibility Monitor Classes.html */,
+				88B7EFD187344CAAFD1C0BB1C95B0155 /* UIKit Application Monitor Classes.html */,
+				F57CC50E4BF33C4367A4B021975C117A /* UIKit Device Monitor Classes.html */,
+				94A85FA46218703AC30293378D54D50D /* UIKit Screen Monitor Classes.html */,
+				3D303CC4E39DB80D9EE226B15CEBEF30 /* UIKit Text Monitor Classes.html */,
+				6911FA8EAFD9C4B18C3F6B785DA4D4D5 /* URLCredentialStorageMonitor.html */,
+				706D014DF5841A50640B33C6E94D1943 /* UbiquitousKeyValueStoreMonitor.html */,
+				EB62C209143B03BD1582894DC99AB75C /* UbiquityIdentityMonitor.html */,
+				1638053D8EE72DFF0F1B9C3AB54BC39B /* UndoManagerMonitor.html */,
+				FD09D194EF1E4653E7A6ECC0E348FAB2 /* UserDefaultsMonitor.html */,
+				6E38E94B4A18E9E1D44E975D092F24E9 /* ViewControllerShowDetailTargetMonitor.html */,
+				63C945EF3C60AD2E0F6E73FEBE469EB4 /* VisitMonitor.html */,
+				B4D41F12862ED7646B4B0E0989ED5C9E /* WindowMonitor.html */,
+				8A346D170026F898176229A0FE2293D3 /* XestiMonitors.podspec */,
+				0D50740F1192CD39B70EC0F1E08DADFF /* XestiMonitors.tgz */,
+				F8C66A92AF1EE9E41BEFCF4AA79723A8 /* XestiMonitors.xml */,
+				267D029D44C459EE78AA5632B9E5AE37 /* badge.svg */,
+				FCA679D76F6F91235872627BE9420E74 /* carat.png */,
+				43F40D8066648FD81F301B8DEEB9E3E6 /* dash.png */,
+				3EA5A24D9FCEC3D8BB2353ECC013548D /* docSet.dsidx */,
+				5AC2C4D67787C8D0D34693226B99E28B /* gh.png */,
+				9CAF1B166051BA68524EAD46590A06BD /* highlight.css */,
+				5CD8D9375567C45F6D7D52845319C033 /* index.html */,
+				9CC274AA0E84C3D8867E451C94F93D52 /* jazzy.css */,
+				F0CFCBE1A73813F61EBB8EC437FF8803 /* jazzy.js */,
+				9C3FAC6B11F119C2581804BB28B31600 /* jazzy.search.js */,
+				28CC48561316F40A8E9A8918759F1602 /* jquery.min.js */,
+				B86D40D1971CCABC91A508B6D835DDF4 /* lunr.min.js */,
+				7DEECA47D73696327646E773A56CE4F0 /* search.json */,
+				E903268ED813E0A2D8162846025106B8 /* spinner.gif */,
+				6C69A208856BDCC63719A7F94CC34CA5 /* typeahead.jquery.js */,
+				9C5119E8E2E353DBF8944585548FCCDA /* undocumented.json */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		27E772C472EE5BD87EA005C1E920FEC6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8205D5E1014E4DEE9C43DFBB39FF0C68 /* Pods-XestiMonitorsDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DC48BCE815EC154A59BCA69936CF7135 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F13F589B0EAC0C9A4E03BAED2800F3F /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76C91FF45C451E96466B3DA33A4CF83D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2D9EBA450CEE43368B0D5166874B7B58 /* FileSystemObjectMonitor.swift */,
+				57DD73C24B5966872BC7D03C1B2EED3F /* NetworkReachabilityMonitor.swift */,
+			);
+			name = Other;
+			path = Sources/Core/Other;
+			sourceTree = "<group>";
+		};
+		5DECD2D2DDBCF1DF25E1166EAF85634C = {
+			isa = PBXGroup;
+			children = (
+				6D1EB8A38E8CBA4A4B0D3C897A545D0A /* Development Pods */,
+				DC48BCE815EC154A59BCA69936CF7135 /* Frameworks */,
+				A38FF61C71733211E6DDB19385503404 /* Podfile */,
+				F11F3D9AADDE75DD48B2D75FDE6D0F2A /* Products */,
+				27E772C472EE5BD87EA005C1E920FEC6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8DCB96E2475FB7675A0EC197BFE6D565 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				2CB736BD659D86CDF6CC012442CCC0A3 /* AccessibilityAnnouncementMonitor.swift */,
+				61DA289516AE50A8A91CDB9BC7BF3F21 /* AccessibilityElementMonitor.swift */,
+				3232FDED999A7BBB1FEE00CCA4A8E54E /* AccessibilityStatusMonitor.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		D1BF8C3228587E94C864174FEF0AF7BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CD1DFEABA59A8B622A2750070559613 /* CMAcceleration+DeviceOrientation.swift */,
+			);
+			name = Extensions;
+			path = Sources/Core/Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7684B9C35367066AD21AF77E5C3D3A62 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1256811657A1761F5EFE12FDEC766CA9 /* XestiMonitors-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D1DA9AFF5691E93EE607045626A98C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D09F067013909E27C0E16CF34FC55FC /* Pods-XestiMonitorsDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1DCDD4F1C0B2E1824A68714BD42BF4A8 /* XestiMonitors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 248086DBC66BCE50E8454233E395428A /* Build configuration list for PBXNativeTarget "XestiMonitors" */;
+			buildPhases = (
+				7684B9C35367066AD21AF77E5C3D3A62 /* Headers */,
+				934E3C2F686E85E5027AA88571D2A553 /* Sources */,
+				4B9891EAFBB22F966FC3F85D2CFAA66C /* Frameworks */,
+				315E535F9B631BD5F5CA7EEBC7E3A7DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XestiMonitors;
+			productName = XestiMonitors;
+			productReference = 8A9694245FEB4A4456F4CAACBDF43322 /* XestiMonitors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84D01A952B4176C448DE4E77C8E0BB3C /* Pods-XestiMonitorsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E693DFFA93C619F0942D32D0AD078D30 /* Build configuration list for PBXNativeTarget "Pods-XestiMonitorsDemo" */;
+			buildPhases = (
+				7D1DA9AFF5691E93EE607045626A98C2 /* Headers */,
+				461366683D009DB78F201251E0769CD9 /* Sources */,
+				6F6C63C4DF27F58848079615C6F850A5 /* Frameworks */,
+				EEF49C8EDF90426FC25861CDB6410A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71D69024F8FC4D56D5130771D7325A4B /* PBXTargetDependency */,
+			);
+			name = "Pods-XestiMonitorsDemo";
+			productName = "Pods-XestiMonitorsDemo";
+			productReference = E67028B9FB2AB285998F2996E0D14A71 /* Pods_XestiMonitorsDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 1020;
+			};
+			buildConfigurationList = FC02AE59B0DCC1367E03651BD0868F72 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DECD2D2DDBCF1DF25E1166EAF85634C;
+			productRefGroup = F11F3D9AADDE75DD48B2D75FDE6D0F2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84D01A952B4176C448DE4E77C8E0BB3C /* Pods-XestiMonitorsDemo */,
+				1DCDD4F1C0B2E1824A68714BD42BF4A8 /* XestiMonitors */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		315E535F9B631BD5F5CA7EEBC7E3A7DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEF49C8EDF90426FC25861CDB6410A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		461366683D009DB78F201251E0769CD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6BA5871BB5C24DC4826D1A07478682A /* Pods-XestiMonitorsDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934E3C2F686E85E5027AA88571D2A553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5C6CBA11DF5219FFD2EB3AC957571FD /* AccelerometerMonitor.swift in Sources */,
+				950917432897BB2E2938BE1220891231 /* AccessibilityAnnouncementMonitor.swift in Sources */,
+				DAD8EA3628E059581AB0346A5F70A6AB /* AccessibilityElementMonitor.swift in Sources */,
+				AF92F0993C65F8C0D0F78A309BBF769E /* AccessibilityStatus.swift in Sources */,
+				964ACC581D8F55A3EFDF515545114D00 /* AccessibilityStatusInjection.swift in Sources */,
+				51FFA37D4916C6663C7BEA64FEC07B82 /* AccessibilityStatusMonitor.swift in Sources */,
+				A045D48B0CD33377783FFD0AB56FFBDB /* AltimeterInjection.swift in Sources */,
+				297B44510496C44AC66F134B8E148DC0 /* AltimeterMonitor.swift in Sources */,
+				43DE574F9326FC1196D3BDEFC8BFE4E8 /* ApplicationInjection.swift in Sources */,
+				CAAE1C23A18A30C1EC929AAEFEC50E7A /* ApplicationStateMonitor.swift in Sources */,
+				F71101F9DD28369F8064192257F8D27A /* BackgroundRefreshMonitor.swift in Sources */,
+				4BA82E21003A8473D3AAB45B6B463243 /* BaseMonitor.swift in Sources */,
+				29CB42D19517DAE943AED92B83394425 /* BaseNotificationMonitor.swift in Sources */,
+				389CA48AB8F0A331068A93427D15BC72 /* BatteryMonitor.swift in Sources */,
+				41259882E07A78006A9F70461FD4825F /* BeaconRangingMonitor.swift in Sources */,
+				AF1F5BFD7D7031A271FC0BEB3D5ED740 /* BundleClassLoadMonitor.swift in Sources */,
+				09CC222E8E8A1A23F0F406DC1F62F7AF /* BundleResourceRequestMonitor.swift in Sources */,
+				DAD58412CE57EB2EC762F01ACCB2C810 /* CMAcceleration+DeviceOrientation.swift in Sources */,
+				C299CCD2C97DF85F05BEE693881C31FA /* CalendarDayMonitor.swift in Sources */,
+				C185BE0DBF8DC615158B6D6F6F9296C5 /* ContentSizeCategoryMonitor.swift in Sources */,
+				DE4A2CA2EF92C25ACB6C0FA4E75D454B /* CurrentLocaleMonitor.swift in Sources */,
+				E6DDC8D5E01D9BAAFFB58CEB1DD2B158 /* DeviceInjection.swift in Sources */,
+				FEC07FDC05AB7D97564444D51B417810 /* DeviceMotionMonitor.swift in Sources */,
+				3F7897DDEBA5650ABF2E16160C825268 /* DocumentStateMonitor.swift in Sources */,
+				4CB4B4D6988BA9E006464C44C0D5C156 /* ExtensionHostMonitor.swift in Sources */,
+				D2E7ECE53437203CDB9D303AE45DA984 /* FileManagerInjection.swift in Sources */,
+				8467356BF3AA050F345EC4B41E3FDAB2 /* FileSystem.swift in Sources */,
+				72F61C33873CC60652F3F08101526CFE /* FileSystemInjection.swift in Sources */,
+				BA356A486B229C5B3BAD65877B1F1777 /* FileSystemObjectInjection.swift in Sources */,
+				3CF36B11C09831B435285F41A6761686 /* FileSystemObjectMonitor.swift in Sources */,
+				D918DFEF681F6328F92CBAA8430AC400 /* FocusMonitor.swift in Sources */,
+				8EAD0F955D454D8F8F5EDBF73C15BAA3 /* GyroscopeMonitor.swift in Sources */,
+				58790556752B69562B1B70013458BC03 /* HTTPCookieStorageMonitor.swift in Sources */,
+				7DF8E07351D448C6C10E1F41D9CAD6F4 /* HeadingMonitor.swift in Sources */,
+				74F315B1BB06D6CDF6419966A7F6927D /* KeyboardMonitor.swift in Sources */,
+				F75FF26D5269191E4A0912C299EAE5A1 /* LocationAuthorizationMonitor.swift in Sources */,
+				B2AE0C92D9977A75A750ACECD2060289 /* LocationManagerDelegateAdapter.swift in Sources */,
+				1F01D8527FEFC9441B9B359538F7636D /* LocationManagerInjection.swift in Sources */,
+				F0E26064D5038A75D4E120CD23826141 /* MagnetometerMonitor.swift in Sources */,
+				9C47E576540E575130D99BEED91EEB88 /* MemoryMonitor.swift in Sources */,
+				91E46CA8A17E60781FF9E9F21F2FA96B /* MenuControllerMonitor.swift in Sources */,
+				E5904A7DD6C86EDBA78892B9447B2215 /* MetadataQueryMonitor.swift in Sources */,
+				5D498C69A749AB25671408EE86D27DC2 /* Monitor.swift in Sources */,
+				473652F3F676EBE0B4A5620DAF9823EC /* MotionActivityManagerInjection.swift in Sources */,
+				5ABC59BB8561C87B3CDE43A3F0FFC122 /* MotionActivityMonitor.swift in Sources */,
+				D772450816FA75E8B1F2D00DE715839A /* MotionManagerInjection.swift in Sources */,
+				2088A84F72C0B79CC4D93E0DBAE55472 /* NetworkReachability.swift in Sources */,
+				871F69C43FAF8A6EE431B79A8AE17DBA /* NetworkReachabilityInjection.swift in Sources */,
+				788518E31D38D63DEAC7C0D67125A9A8 /* NetworkReachabilityMonitor.swift in Sources */,
+				705CCB7A61544F1AAF5869A5B8E53553 /* NotificationCenterInjection.swift in Sources */,
+				E935BA2610C60114CF0C515A920CAEA1 /* OrientationMonitor.swift in Sources */,
+				127C93769D300D869F63F701235A3FA7 /* PasteboardMonitor.swift in Sources */,
+				961A66CDE9076D8CAEC11FC29EA91613 /* PedometerInjection.swift in Sources */,
+				E8BB86F2A1D9F4FBC37DAC23D746EC73 /* PedometerMonitor.swift in Sources */,
+				41C22BDDF12070EA2510EB72C69A2F55 /* PortMonitor.swift in Sources */,
+				DAFDF7D4B644A143D22B6980E31099B4 /* ProcessInfoInjection.swift in Sources */,
+				EAEF6CCEA5C676B059543D15FE19ECC5 /* ProcessInfoPowerStateMonitor.swift in Sources */,
+				2288C2F1B2F544B8DF6AAF88B777D938 /* ProcessInfoThermalStateMonitor.swift in Sources */,
+				E0A359A21857F719AF62D1EC4386C793 /* ProtectedDataMonitor.swift in Sources */,
+				60486863395AF8565F7800CED827DC74 /* ProximityMonitor.swift in Sources */,
+				3099DE7DC545E5920DF7F39BA65F6F2E /* RegionMonitor.swift in Sources */,
+				6F00EF3D7CECEB0677A504D0C6EAF3DD /* ScreenBrightnessMonitor.swift in Sources */,
+				298D091C893200548E0B013E9A5D2AFC /* ScreenCapturedMonitor.swift in Sources */,
+				9DA45600DCA53B8C809953576112902F /* ScreenConnectionMonitor.swift in Sources */,
+				CD247543AB6673B189B390CB75A3D745 /* ScreenModeMonitor.swift in Sources */,
+				379A5F495774D57EA0C955EE9F05654D /* ScreenshotMonitor.swift in Sources */,
+				FB5DBEBD845AD91FD0A962BCF149078E /* SignificantLocationMonitor.swift in Sources */,
+				F5D14E200F61953A28526ED3771B2AB7 /* StandardLocationMonitor.swift in Sources */,
+				6BB89D460E5DE925E2264CDC1B096B12 /* StatusBarMonitor.swift in Sources */,
+				9783309D6C0CB7E09AFABC586230A7C5 /* SystemClockMonitor.swift in Sources */,
+				C3D854115A2C59E3A90B77FAB6007E2E /* SystemTimeZoneMonitor.swift in Sources */,
+				F45EC437CA93C99EDFA8359BA4A05DB1 /* TableViewSelectionMonitor.swift in Sources */,
+				BA93152FE9B858CAB1802E567146C8E2 /* TextFieldTextMonitor.swift in Sources */,
+				17C451C4A164DFDF81B704A52C7934F2 /* TextInputModeMonitor.swift in Sources */,
+				741BD40226B157ECC8B10AA5F6542C3B /* TextStorageMonitor.swift in Sources */,
+				2910F933EC5D82C5EB883CD158364EFE /* TextViewTextMonitor.swift in Sources */,
+				F4267ED4797060BC65DDDF5CBF14D798 /* TimeMonitor.swift in Sources */,
+				2E9908F1A90607A2C4C57F7D5E58F2CC /* URLCredentialStorageMonitor.swift in Sources */,
+				90584B4077B34B3D21FFEE3849EEBECB /* UbiquitousKeyValueStoreMonitor.swift in Sources */,
+				991A89B2F040746185E1E3E8CF9B4BD8 /* UbiquityIdentityMonitor.swift in Sources */,
+				376780859E870BF16DDE7EAD1986FC53 /* UndoManagerMonitor.swift in Sources */,
+				D2DF2215D70AE6BB41CAF0A812D5C6D3 /* UserDefaultsMonitor.swift in Sources */,
+				5252AD23F5561E5B0FA30190C7B97D32 /* ViewControllerShowDetailTargetMonitor.swift in Sources */,
+				97ACBB53F21D48840376060B641624F9 /* VisitMonitor.swift in Sources */,
+				32B87853416C7ED6D3817354E26EEB35 /* WindowMonitor.swift in Sources */,
+				0B7FA71BC05577A52A194AF294BD49C8 /* XestiMonitors-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71D69024F8FC4D56D5130771D7325A4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XestiMonitors;
+			target = 1DCDD4F1C0B2E1824A68714BD42BF4A8 /* XestiMonitors */;
+			targetProxy = A4D54AC616E0D94E03BE8AD69064022A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7274A05F8FD1B2FC8B03B94DA9BE7AC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51028837CD69BD0FEC1291C2B30FA7CF /* Pods-XestiMonitorsDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		29915A707A12A2C46DAA846C396CAB6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		78F0498F2AF1B86F8B7B7477CD49552F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		FDBACB4DC1A4DAA0248385BAFF7CF826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F4C280F86B2A30AEFA32A95BA479374 /* XestiMonitors.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XestiMonitors/XestiMonitors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XestiMonitors/XestiMonitors-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XestiMonitors/XestiMonitors.modulemap";
+				PRODUCT_MODULE_NAME = XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2F3EC8002B55F9A47AD7EEB466770C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F4C280F86B2A30AEFA32A95BA479374 /* XestiMonitors.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XestiMonitors/XestiMonitors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XestiMonitors/XestiMonitors-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XestiMonitors/XestiMonitors.modulemap";
+				PRODUCT_MODULE_NAME = XestiMonitors;
+				PRODUCT_NAME = XestiMonitors;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5F4F21EA65AED0625A5D137A2C6A4B6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258BC70209E608CACDD915A0ED569DD4 /* Pods-XestiMonitorsDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XestiMonitorsDemo/Pods-XestiMonitorsDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC02AE59B0DCC1367E03651BD0868F72 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78F0498F2AF1B86F8B7B7477CD49552F /* Debug */,
+				29915A707A12A2C46DAA846C396CAB6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E693DFFA93C619F0942D32D0AD078D30 /* Build configuration list for PBXNativeTarget "Pods-XestiMonitorsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F4F21EA65AED0625A5D137A2C6A4B6A /* Debug */,
+				7274A05F8FD1B2FC8B03B94DA9BE7AC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		248086DBC66BCE50E8454233E395428A /* Build configuration list for PBXNativeTarget "XestiMonitors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F3EC8002B55F9A47AD7EEB466770C80 /* Debug */,
+				FDBACB4DC1A4DAA0248385BAFF7CF826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

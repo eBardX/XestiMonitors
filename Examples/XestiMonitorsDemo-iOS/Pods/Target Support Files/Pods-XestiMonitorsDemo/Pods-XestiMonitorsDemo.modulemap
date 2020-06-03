@@ -1,0 +1,6 @@
+framework module Pods_XestiMonitorsDemo {
+  umbrella header "Pods-XestiMonitorsDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
