@@ -1,11 +1,4 @@
-//
-//  CoreLocationViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2018-03-24.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import CoreLocation
 import UIKit
@@ -51,36 +44,34 @@ public class CoreLocationViewController: UITableViewController {
     @IBOutlet private weak var visitDepartureDateLabel: UILabel!
     @IBOutlet private weak var visitHorizontalAccuracyLabel: UILabel!
 
-    private lazy var beaconRangingMonitor = BeaconRangingMonitor(region: beaconRegion,
-                                                                 queue: .main) { [unowned self] in
-                                                                    self.displayBeaconRanging($0)
+    private lazy var beaconRangingMonitor = BeaconRangingMonitor(region: beaconRegion) { [unowned self] in
+        self.displayBeaconRanging($0)
     }
 
     private lazy var beaconRegion = CLBeaconRegion(proximityUUID: UUID(),
                                                    identifier: "Test Region")
 
-    private lazy var headingMonitor = HeadingMonitor(queue: .main) { [unowned self] in
+    private lazy var headingMonitor = HeadingMonitor { [unowned self] in
         self.displayHeading($0)
     }
 
-    private lazy var locationAuthorizationMonitor = LocationAuthorizationMonitor(queue: .main) { [unowned self] in
+    private lazy var locationAuthorizationMonitor = LocationAuthorizationMonitor { [unowned self] in
         self.displayLocationAuthorization($0)
     }
 
-    private lazy var regionMonitor = RegionMonitor(region: beaconRegion,
-                                                   queue: .main) { [unowned self] in
-                                                    self.displayRegion($0)
+    private lazy var regionMonitor = RegionMonitor(region: beaconRegion) { [unowned self] in
+        self.displayRegion($0)
     }
 
-    private lazy var significantLocationMonitor = SignificantLocationMonitor(queue: .main) { [unowned self] in
+    private lazy var significantLocationMonitor = SignificantLocationMonitor { [unowned self] in
         self.displaySignificantLocation($0)
     }
 
-    private lazy var standardLocationMonitor = StandardLocationMonitor(queue: .main) { [unowned self] in
+    private lazy var standardLocationMonitor = StandardLocationMonitor { [unowned self] in
         self.displayStandardLocation($0)
     }
 
-    private lazy var visitMonitor = VisitMonitor(queue: .main) { [unowned self] in
+    private lazy var visitMonitor = VisitMonitor { [unowned self] in
         self.displayVisit($0)
     }
 
@@ -100,7 +91,7 @@ public class CoreLocationViewController: UITableViewController {
                                  altText: "Not available",
                                  altColor: .red)
         } else if let event = event,
-            case let .didUpdate(info) = event {
+                  case let .didUpdate(info) = event {
             switch info {
             case let .beacons(beacons, region):
                 displayBeaconRanging(beacons.first,
@@ -160,7 +151,7 @@ public class CoreLocationViewController: UITableViewController {
                            altText: "Not available",
                            altColor: .red)
         } else if let event = event,
-            case let .didUpdate(info) = event {
+                  case let .didUpdate(info) = event {
             switch info {
             case let .error(error):
                 displayHeading(nil,
@@ -215,7 +206,7 @@ public class CoreLocationViewController: UITableViewController {
                                          altText: "Not enabled",
                                          altColor: .red)
         } else if let event = event,
-            case let .didUpdate(info) = event {
+                  case let .didUpdate(info) = event {
             switch info {
             case let .error(error):
                 displayLocationAuthorization(nil,
@@ -252,7 +243,7 @@ public class CoreLocationViewController: UITableViewController {
                           altText: "Not available",
                           altColor: .red)
         } else if let event = event,
-            case let .didUpdate(info) = event {
+                  case let .didUpdate(info) = event {
             switch info {
             case let .error(error, region):
                 displayRegion(nil,
@@ -301,7 +292,7 @@ public class CoreLocationViewController: UITableViewController {
                                        altText: "Not available",
                                        altColor: .red)
         } else if let event = event,
-            case let .didUpdate(info) = event {
+                  case let .didUpdate(info) = event {
             switch info {
             case let .error(error):
                 displaySignificantLocation(nil,
@@ -362,7 +353,7 @@ public class CoreLocationViewController: UITableViewController {
 
     private func displayStandardLocation(_ event: StandardLocationMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             switch info {
             case let .error(error):
                 displayStandardLocation(nil,
@@ -423,7 +414,7 @@ public class CoreLocationViewController: UITableViewController {
 
     private func displayVisit(_ event: VisitMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             switch info {
             case let .error(error):
                 displayVisit(nil,

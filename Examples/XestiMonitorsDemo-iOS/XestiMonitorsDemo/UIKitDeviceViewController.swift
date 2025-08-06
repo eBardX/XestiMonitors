@@ -1,11 +1,4 @@
-//
-//  UIKitDeviceViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-11-23.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -15,16 +8,15 @@ public class UIKitDeviceViewController: UITableViewController {
     @IBOutlet private weak var orientationLabel: UILabel!
     @IBOutlet private weak var proximityLabel: UILabel!
 
-    private lazy var batteryMonitor = BatteryMonitor(options: .all,
-                                                     queue: .main) { [unowned self] in
-                                                        self.displayBattery($0)
+    private lazy var batteryMonitor = BatteryMonitor { [unowned self] in
+        self.displayBattery($0)
     }
 
-    private lazy var orientationMonitor = OrientationMonitor(queue: .main) { [unowned self] in
+    private lazy var orientationMonitor = OrientationMonitor { [unowned self] in
         self.displayOrientation($0)
     }
 
-    private lazy var proximityMonitor = ProximityMonitor(queue: .main) { [unowned self] in
+    private lazy var proximityMonitor = ProximityMonitor { [unowned self] in
         self.displayProximity($0)
     }
 
@@ -53,7 +45,7 @@ public class UIKitDeviceViewController: UITableViewController {
 
     private func displayOrientation(_ event: OrientationMonitor.Event?) {
         if let event = event,
-            case let .didChange(orientation) = event {
+           case let .didChange(orientation) = event {
             orientationLabel.text = formatDeviceOrientation(orientation)
         } else {
             orientationLabel.text = formatDeviceOrientation(orientationMonitor.orientation)
@@ -64,7 +56,7 @@ public class UIKitDeviceViewController: UITableViewController {
         if !proximityMonitor.isAvailable {
             proximityLabel.text = formatDeviceProximityState(nil)
         } else if let event = event,
-            case let .stateDidChange(state) = event {
+                  case let .stateDidChange(state) = event {
             proximityLabel.text = formatDeviceProximityState(state)
         } else {
             proximityLabel.text = formatDeviceProximityState(proximityMonitor.state)

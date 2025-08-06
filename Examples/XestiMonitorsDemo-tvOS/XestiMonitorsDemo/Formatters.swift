@@ -1,11 +1,4 @@
-//
-//  Formatters.swift
-//  XestiMonitorsDemo-tvOS
-//
-//  Created by J. G. Pusey on 2018-01-11.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import CoreLocation
 import Foundation
@@ -22,11 +15,11 @@ public func formatAccessibilityElement(_ element: Any) -> String {
 }
 
 public func formatAssistiveTechnology(_ value: String) -> String {
-    if UIAccessibilityNotificationSwitchControlIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationSwitchControl.rawValue == value {
         return "Switch Control"
     }
 
-    if UIAccessibilityNotificationVoiceOverIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationVoiceOver.rawValue == value {
         return "VoiceOver"
     }
 
@@ -49,6 +42,9 @@ public func formatAuthorizationStatus(_ value: CLAuthorizationStatus) -> String 
 
     case .restricted:
         return "Restricted"
+
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -127,7 +123,6 @@ public func formatFocusHeading(_ value: UIFocusHeading) -> String {
     return headings.joined(separator: ", ")
 }
 
-@available(tvOS 10.0, *)
 public func formatFocusItem(_ item: UIFocusItem) -> String {
     if let object = item as? NSObject {
         return String(format: "%1$@:%2$p",
@@ -153,17 +148,15 @@ public func formatInteger(_ value: NSNumber) -> String {
 }
 
 public func formatLocationAccuracy(_ value: CLLocationAccuracy) -> String {
-    guard
-        value >= 0
-        else { return "Invalid" }
+    guard value >= 0
+    else { return "Invalid" }
 
     return "\(formatDecimal(value)) m"
 }
 
 public func formatLocationCoordinate2D(_ value: CLLocationCoordinate2D) -> String {
-    guard
-        CLLocationCoordinate2DIsValid(value)
-        else { return "Invalid" }
+    guard CLLocationCoordinate2DIsValid(value)
+    else { return "Invalid" }
 
     return "\(formatLatitude(value.latitude)) \(formatLongitude(value.longitude))"
 }

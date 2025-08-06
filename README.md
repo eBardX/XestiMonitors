@@ -344,7 +344,7 @@ in the characteristics of the device:
 XestiMonitors provides four monitor classes that you can use to detect changes
 in the properties associated with a screen:
 
-* [ScreenBrightnessMonitor][screen_brightness_monitor] to monitor a screen for
+* [ScreenMonitor][screen_brightness_monitor] to monitor a screen for
   changes to its brightness level. *(iOS, tvOS)*
 * [ScreenCapturedMonitor][screen_captured_monitor] to monitor a screen for
   changes to its captured status. *(iOS, tvOS)*
@@ -358,13 +358,13 @@ in the properties associated with a screen:
 XestiMonitors provides four monitor classes that you can use to detect changes
 in text input mode and content:
 
-* [TextFieldTextMonitor][text_field_text_monitor] to monitor a text field for
+* [TextFieldMonitor][text_field_text_monitor] to monitor a text field for
   changes to its text. *(iOS, tvOS)*
 * [TextInputModeMonitor][text_input_mode_monitor] to monitor the responder
   chain for changes to the current input mode. *(iOS, tvOS)*
 * [TextStorageMonitor][text_storage_monitor] to monitor a text storage for the
   processing of edits to its contents. *(iOS, tvOS)*
-* [TextViewTextMonitor][text_view_text_monitor] to monitor a text view for
+* [TextViewMonitor][text_view_text_monitor] to monitor a text view for
   changes to its text. *(iOS, tvOS)*
 
 #### <a name="other_uikit_monitors">Other UIKit Monitors</a>
@@ -384,9 +384,9 @@ In addition, XestiMonitors provides nine other `UIKit` monitors:
   of the editing menu. *(iOS)*
 * [PasteboardMonitor][pasteboard_monitor] to monitor a pasteboard for changes
   to its contents or for its removal from the app. *(iOS)*
-* [TableViewSelectionMonitor][table_view_selection_monitor] to monitor a table
+* [TableViewMonitor][table_view_selection_monitor] to monitor a table
   view for changes to its selected row. *(iOS, tvOS)*
-* [ViewControllerShowDetailTargetMonitor][view_controller_show_detail_target_monitor]
+* [ViewControllerMonitor][view_controller_show_detail_target_monitor]
   to monitor the app for changes to a split view controller’s display mode in
   the view hierarchy. *(iOS, tvOS)*
 * [WindowMonitor][window_monitor] to monitor a window for changes to its
@@ -615,7 +615,7 @@ overrides.
 
 ## <a name="credits">Credits</a>
 
-J. G. Pusey (ebardx@gmail.com)
+John Gary Pusey (ebardx@gmail.com)
 
 ## <a name="license">License</a>
 
@@ -673,7 +673,7 @@ XestiMonitors is available under [the MIT license][license].
 [protected_data_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/ProtectedDataMonitor.html
 [proximity_monitor]:                            https://eBardX.github.io/XestiMonitors/Classes/ProximityMonitor.html
 [region_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/RegionMonitor.html
-[screen_brightness_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ScreenBrightnessMonitor.html
+[screen_brightness_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ScreenMonitor.html
 [screen_captured_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/ScreenCapturedMonitor.html
 [screen_connection_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/ScreenConnectionMonitor.html
 [screen_mode_monitor]:                          https://eBardX.github.io/XestiMonitors/Classes/ScreenModeMonitor.html
@@ -683,18 +683,18 @@ XestiMonitors is available under [the MIT license][license].
 [status_bar_monitor]:                           https://eBardX.github.io/XestiMonitors/Classes/StatusBarMonitor.html
 [system_clock_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
 [system_time_zone_monitor]:                     https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
-[table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewSelectionMonitor.html
-[text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldTextMonitor.html
+[table_view_selection_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/TableViewMonitor.html
+[text_field_text_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextFieldMonitor.html
 [text_input_mode_monitor]:                      https://eBardX.github.io/XestiMonitors/Classes/TextInputModeMonitor.html
 [text_storage_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/TextStorageMonitor.html
-[text_view_text_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/TextViewTextMonitor.html
+[text_view_text_monitor]:                       https://eBardX.github.io/XestiMonitors/Classes/TextViewMonitor.html
 [time_monitor]:                                 https://eBardX.github.io/XestiMonitors/Classes/TimeMonitor.html
 [ubiquitous_key_value_store_monitor]:           https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
 [ubiquity_identity_monitor]:                    https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
 [url_credential_storage_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
 [user_defaults_monitor]:                        https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html
-[view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerShowDetailTargetMonitor.html
+[view_controller_show_detail_target_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ViewControllerMonitor.html
 [visit_monitor]:                                https://eBardX.github.io/XestiMonitors/Classes/VisitMonitor.html
 [window_monitor]:                               https://eBardX.github.io/XestiMonitors/Classes/WindowMonitor.html
 

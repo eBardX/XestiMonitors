@@ -1,0 +1,389 @@
+// © 2017–2025 John Gary Pusey (see LICENSE.md)
+
+import UIKit
+import XCTest
+@testable import XestiMonitors
+
+// swiftlint:disable type_body_length
+
+internal class KeyboardMonitorTests: XCTestCase {
+    let notificationCenter = MockNotificationCenter()
+
+    override func setUp() {
+        super.setUp()
+
+        DependencyResolver.register(notificationCenter as any NotificationCenterProtocol)
+    }
+
+    func testMonitor_didChangeFrame() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
+        let expectedAnimationDuration: TimeInterval = 0.15
+        let expectedFrameBegin = CGRect(x: 11, y: 21, width: 31, height: 41)
+        let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
+        let expectedIsLocal = true
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateDidChangeFrame(animationCurve: expectedAnimationCurve,
+                                animationDuration: expectedAnimationDuration,
+                                frameBegin: expectedFrameBegin,
+                                frameEnd: expectedFrameEnd,
+                                isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .didChangeFrame(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_didChangeFrame_badUserInfo() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
+        let expectedAnimationDuration: TimeInterval = 0.15
+        let expectedFrameBegin = CGRect(x: 11, y: 21, width: 31, height: 41)
+        let expectedFrameEnd = CGRect(x: 51, y: 61, width: 71, height: 81)
+        let expectedIsLocal = false
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateDidChangeFrame(animationCurve: expectedAnimationCurve,
+                                animationDuration: expectedAnimationDuration,
+                                frameBegin: expectedFrameBegin,
+                                frameEnd: expectedFrameEnd,
+                                isLocal: expectedIsLocal,
+                                badUserInfo: true)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .didChangeFrame(info) = event {
+            XCTAssertNotEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertNotEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertNotEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertNotEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertNotEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_didHide() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeOut
+        let expectedAnimationDuration: TimeInterval = 0.25
+        let expectedFrameBegin = CGRect(x: 12, y: 22, width: 32, height: 42)
+        let expectedFrameEnd = CGRect(x: 52, y: 62, width: 72, height: 82)
+        let expectedIsLocal = false
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateDidHide(animationCurve: expectedAnimationCurve,
+                         animationDuration: expectedAnimationDuration,
+                         frameBegin: expectedFrameBegin,
+                         frameEnd: expectedFrameEnd,
+                         isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .didHide(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_didShow() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeInOut
+        let expectedAnimationDuration: TimeInterval = 0.35
+        let expectedFrameBegin = CGRect(x: 13, y: 23, width: 33, height: 43)
+        let expectedFrameEnd = CGRect(x: 53, y: 63, width: 73, height: 83)
+        let expectedIsLocal = true
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateDidShow(animationCurve: expectedAnimationCurve,
+                         animationDuration: expectedAnimationDuration,
+                         frameBegin: expectedFrameBegin,
+                         frameEnd: expectedFrameEnd,
+                         isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .didShow(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_willChangeFrame() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeIn
+        let expectedAnimationDuration: TimeInterval = 0.45
+        let expectedFrameBegin = CGRect(x: 14, y: 24, width: 34, height: 44)
+        let expectedFrameEnd = CGRect(x: 54, y: 64, width: 74, height: 84)
+        let expectedIsLocal = false
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateWillChangeFrame(animationCurve: expectedAnimationCurve,
+                                 animationDuration: expectedAnimationDuration,
+                                 frameBegin: expectedFrameBegin,
+                                 frameEnd: expectedFrameEnd,
+                                 isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .willChangeFrame(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_willHide() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeOut
+        let expectedAnimationDuration: TimeInterval = 0.55
+        let expectedFrameBegin = CGRect(x: 15, y: 25, width: 35, height: 45)
+        let expectedFrameEnd = CGRect(x: 55, y: 65, width: 75, height: 85)
+        let expectedIsLocal = true
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateWillHide(animationCurve: expectedAnimationCurve,
+                          animationDuration: expectedAnimationDuration,
+                          frameBegin: expectedFrameBegin,
+                          frameEnd: expectedFrameEnd,
+                          isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .willHide(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    func testMonitor_willShow() {
+        let expectation = self.expectation(description: "Handler called")
+        let expectedAnimationCurve: UIView.AnimationCurve = .easeInOut
+        let expectedAnimationDuration: TimeInterval = 0.65
+        let expectedFrameBegin = CGRect(x: 16, y: 26, width: 36, height: 46)
+        let expectedFrameEnd = CGRect(x: 56, y: 66, width: 76, height: 86)
+        let expectedIsLocal = false
+        var expectedEvent: KeyboardMonitor.Event?
+        let monitor = KeyboardMonitor { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateWillShow(animationCurve: expectedAnimationCurve,
+                          animationDuration: expectedAnimationDuration,
+                          frameBegin: expectedFrameBegin,
+                          frameEnd: expectedFrameEnd,
+                          isLocal: expectedIsLocal)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .willShow(info) = event {
+            XCTAssertEqual(info.animationCurve, expectedAnimationCurve)
+            XCTAssertEqual(info.animationDuration, expectedAnimationDuration)
+            XCTAssertEqual(info.frameBegin, expectedFrameBegin)
+            XCTAssertEqual(info.frameEnd, expectedFrameEnd)
+            XCTAssertEqual(info.isLocal, expectedIsLocal)
+        } else {
+            XCTFail("Unexpected event")
+        }
+    }
+
+    // MARK: Private Instance Methods
+
+    private func _makeUserInfo(animationCurve: UIView.AnimationCurve,
+                               animationDuration: TimeInterval,
+                               frameBegin: CGRect,
+                               frameEnd: CGRect,
+                               isLocal: Bool) -> [AnyHashable: Any] {
+        [UIResponder.keyboardAnimationCurveUserInfoKey: NSNumber(value: animationCurve.rawValue),
+         UIResponder.keyboardAnimationDurationUserInfoKey: NSNumber(value: animationDuration),
+         UIResponder.keyboardFrameBeginUserInfoKey: NSValue(cgRect: frameBegin),
+         UIResponder.keyboardFrameEndUserInfoKey: NSValue(cgRect: frameEnd),
+         UIResponder.keyboardIsLocalUserInfoKey: NSNumber(value: isLocal)]
+    }
+
+    private func _simulateDidChangeFrame(animationCurve: UIView.AnimationCurve,
+                                         animationDuration: TimeInterval,
+                                         frameBegin: CGRect,
+                                         frameEnd: CGRect,
+                                         isLocal: Bool,
+                                         badUserInfo: Bool = false) {
+        let userInfo: [AnyHashable: Any]?
+
+        if badUserInfo {
+            userInfo = nil
+        } else {
+            userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+        }
+
+        notificationCenter.post(name: UIResponder.keyboardDidChangeFrameNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateDidHide(animationCurve: UIView.AnimationCurve,
+                                  animationDuration: TimeInterval,
+                                  frameBegin: CGRect,
+                                  frameEnd: CGRect,
+                                  isLocal: Bool) {
+        let userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+
+        notificationCenter.post(name: UIResponder.keyboardDidHideNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateDidShow(animationCurve: UIView.AnimationCurve,
+                                  animationDuration: TimeInterval,
+                                  frameBegin: CGRect,
+                                  frameEnd: CGRect,
+                                  isLocal: Bool) {
+        let userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+
+        notificationCenter.post(name: UIResponder.keyboardDidShowNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateWillChangeFrame(animationCurve: UIView.AnimationCurve,
+                                          animationDuration: TimeInterval,
+                                          frameBegin: CGRect,
+                                          frameEnd: CGRect,
+                                          isLocal: Bool) {
+        let userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+
+        notificationCenter.post(name: UIResponder.keyboardWillChangeFrameNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateWillHide(animationCurve: UIView.AnimationCurve,
+                                   animationDuration: TimeInterval,
+                                   frameBegin: CGRect,
+                                   frameEnd: CGRect,
+                                   isLocal: Bool) {
+        let userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+
+        notificationCenter.post(name: UIResponder.keyboardWillHideNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateWillShow(animationCurve: UIView.AnimationCurve,
+                                   animationDuration: TimeInterval,
+                                   frameBegin: CGRect,
+                                   frameEnd: CGRect,
+                                   isLocal: Bool) {
+        let userInfo = _makeUserInfo(animationCurve: animationCurve,
+                                     animationDuration: animationDuration,
+                                     frameBegin: frameBegin,
+                                     frameEnd: frameEnd,
+                                     isLocal: isLocal)
+
+        notificationCenter.post(name: UIResponder.keyboardWillShowNotification,
+                                object: nil,
+                                userInfo: userInfo)
+    }
+}
+
+// swiftlint:enable type_body_length

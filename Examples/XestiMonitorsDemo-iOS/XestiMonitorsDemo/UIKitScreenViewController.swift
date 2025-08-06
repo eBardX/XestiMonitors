@@ -1,11 +1,4 @@
-//
-//  UIKitScreenViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by Paul Nyondo on 2018-03-23.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md).
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md).
 
 import UIKit
 import XestiMonitors
@@ -16,18 +9,17 @@ public class UIKitScreenViewController: UITableViewController {
 
     @IBOutlet private weak var brightnessLevelLabel: UILabel!
 
-    private lazy var screenBrightnessMonitor = ScreenBrightnessMonitor(screen: .main,
-                                                                       queue: .main) { [unowned self] in
-                                                                        self.displayScreenBrightness($0)
+    private lazy var screenBrightnessMonitor = ScreenMonitor(screen: .main) { [unowned self] in
+        self.displayScreenBrightness($0)
     }
 
     private lazy var monitors: [Monitor] = [screenBrightnessMonitor]
 
     // MARK: Private Instance Methods
 
-    private func displayScreenBrightness(_ event: ScreenBrightnessMonitor.Event?) {
+    private func displayScreenBrightness(_ event: ScreenMonitor.Event?) {
         if let event = event,
-            case let .didChange(screen) = event {
+           case let .didChange(screen) = event {
             brightnessLevelLabel.text = formatPercentage(Float(screen.brightness))
         } else {
             brightnessLevelLabel.text = formatPercentage(Float(UIScreen.main.brightness))
@@ -41,7 +33,7 @@ public class UIKitScreenViewController: UITableViewController {
 
         displayScreenBrightness(nil)
     }
-
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

@@ -1,11 +1,4 @@
-//
-//  UIKitAccessibilityViewController.swift
-//  XestiMonitorsDemo-tvOS
-//
-//  Created by J. G. Pusey on 2018-01-11.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -36,16 +29,15 @@ public class UIKitAccessibilityViewController: UITableViewController {
     @IBOutlet private weak var statusSwitchControlLabel: UILabel!
     @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
-    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor(queue: .main) { [unowned self] in
+    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
         self.displayAnnouncement($0)
     }
 
-    private lazy var elementMonitor = AccessibilityElementMonitor(queue: .main) { [unowned self] in
+    private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
         self.displayElement($0)
     }
 
-    private lazy var statusMonitor = AccessibilityStatusMonitor(options: .all,
-                                                                queue: .main) { [unowned self] in
+    private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
         self.displayStatus($0)
     }
 
@@ -59,7 +51,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
     private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
         if let event = event,
-            case let .didFinish(info) = event {
+           case let .didFinish(info) = event {
             announcementStringValueLabel.text = info.stringValue
 
             announcementWasSuccessfulLabel.text = formatBool(info.wasSuccessful)
@@ -72,7 +64,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
         if let event = event,
-            case let .didFocus(info) = event {
+           case let .didFocus(info) = event {
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatAccessibilityElement(element)
             } else {
@@ -148,11 +140,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
                 statusVoiceOverLabel.text = formatBool(value)
             }
         } else {
-            if #available(tvOS 10.0, *) {
-                statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
-            } else {
-                statusAssistiveTouchLabel.text = " "
-            }
+            statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
 
             statusBoldTextLabel.text = formatBool(statusMonitor.isBoldTextEnabled)
 
@@ -188,8 +176,8 @@ public class UIKitAccessibilityViewController: UITableViewController {
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
-                                            "Announcement #\(self.announcementCount)")
+            UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
+                                 argument: "Announcement #\(self.announcementCount)")
         }
     }
 
@@ -202,7 +190,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
         displayElement(nil)
         displayStatus(nil)
     }
-
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -220,8 +208,8 @@ public class UIKitAccessibilityViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView,
                                    canFocusRowAt indexPath: IndexPath) -> Bool {
         if let cell = tableView.cellForRow(at: indexPath),
-            let abSuperview = announcementButton?.superview,
-            cell.contentView == abSuperview {
+           let abSuperview = announcementButton?.superview,
+           cell.contentView == abSuperview {
             return false
         }
 

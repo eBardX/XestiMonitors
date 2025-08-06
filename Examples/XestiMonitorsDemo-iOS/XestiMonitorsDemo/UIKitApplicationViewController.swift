@@ -1,11 +1,4 @@
-//
-//  UIKitApplicationViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-11-23.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -14,7 +7,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     // MARK: Private Instance Properties
 
-    @IBOutlet private weak var applicationStateLabel: UILabel!
+    @IBOutlet private weak var appStateLabel: UILabel!
     @IBOutlet private weak var backgroundRefreshLabel: UILabel!
     @IBOutlet private weak var memoryButton: UIButton!
     @IBOutlet private weak var memoryLabel: UILabel!
@@ -25,38 +18,35 @@ public class UIKitApplicationViewController: UITableViewController {
     @IBOutlet private weak var statusBarOrientationLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
 
-    private lazy var applicationStateMonitor = ApplicationStateMonitor(options: .all,
-                                                                       queue: .main) { [unowned self] in
-                                                                        self.displayApplicationState($0)
+    private lazy var appStateMonitor = AppStateMonitor { [unowned self] in
+        self.displayAppState($0)
     }
 
-    private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor(queue: .main) { [unowned self] in
+    private lazy var backgroundRefreshMonitor = BackgroundRefreshMonitor { [unowned self] in
         self.displayBackgroundRefresh($0)
     }
 
-    private lazy var memoryMonitor = MemoryMonitor(queue: .main) { [unowned self] in
+    private lazy var memoryMonitor = MemoryMonitor { [unowned self] in
         self.displayMemory($0)
     }
 
-    private lazy var protectedDataMonitor = ProtectedDataMonitor(options: .all,
-                                                                 queue: .main) { [unowned self] in
-                                                                    self.displayProtectedData($0)
+    private lazy var protectedDataMonitor = ProtectedDataMonitor { [unowned self] in
+        self.displayProtectedData($0)
     }
 
-    private lazy var screenshotMonitor = ScreenshotMonitor(queue: .main) { [unowned self] in
+    private lazy var screenshotMonitor = ScreenshotMonitor { [unowned self] in
         self.displayScreenshot($0)
     }
 
-    private lazy var statusBarMonitor = StatusBarMonitor(options: .all,
-                                                         queue: .main) { [unowned self] in
-                                                            self.displayStatusBar($0)
+    private lazy var statusBarMonitor = StatusBarMonitor { [unowned self] in
+        self.displayStatusBar($0)
     }
 
-    private lazy var timeMonitor = TimeMonitor(queue: .main) { [unowned self] in
+    private lazy var timeMonitor = TimeMonitor { [unowned self] in
         self.displayTime($0)
     }
 
-    private lazy var monitors: [Monitor] = [applicationStateMonitor,
+    private lazy var monitors: [Monitor] = [appStateMonitor,
                                             backgroundRefreshMonitor,
                                             memoryMonitor,
                                             protectedDataMonitor,
@@ -70,35 +60,35 @@ public class UIKitApplicationViewController: UITableViewController {
 
     // MARK: Private Instance Methods
 
-    private func displayApplicationState(_ event: ApplicationStateMonitor.Event?) {
+    private func displayAppState(_ event: AppStateMonitor.Event?) {
         if let event = event {
             switch event {
             case .didBecomeActive:
-                applicationStateLabel.text = "Did become active"
+                appStateLabel.text = "Did become active"
 
             case .didEnterBackground:
-                applicationStateLabel.text = "Did enter background"
+                appStateLabel.text = "Did enter background"
 
             case .didFinishLaunching:
-                applicationStateLabel.text = "Did finish launching"
+                appStateLabel.text = "Did finish launching"
 
             case .willEnterForeground:
-                applicationStateLabel.text = "Will enter foreground"
+                appStateLabel.text = "Will enter foreground"
 
             case .willResignActive:
-                applicationStateLabel.text = "Will resign active"
+                appStateLabel.text = "Will resign active"
 
             case .willTerminate:
-                applicationStateLabel.text = "Will terminate"
+                appStateLabel.text = "Will terminate"
             }
         } else {
-            applicationStateLabel.text = " "
+            appStateLabel.text = " "
         }
     }
 
     private func displayBackgroundRefresh(_ event: BackgroundRefreshMonitor.Event?) {
         if let event = event,
-            case let .statusDidChange(status) = event {
+           case let .statusDidChange(status) = event {
             backgroundRefreshLabel.text = formatBackgroundRefreshStatus(status)
         } else {
             backgroundRefreshLabel.text = formatBackgroundRefreshStatus(backgroundRefreshMonitor.status)
@@ -107,7 +97,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayMemory(_ event: MemoryMonitor.Event?) {
         if let event = event,
-            case .didReceiveWarning = event {
+           case .didReceiveWarning = event {
             memoryCount += 1
         }
 
@@ -130,7 +120,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayScreenshot(_ event: ScreenshotMonitor.Event?) {
         if let event = event,
-            case .userDidTake = event {
+           case .userDidTake = event {
             screenshotCount += 1
         }
 
@@ -179,7 +169,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayTime(_ event: TimeMonitor.Event?) {
         if let event = event,
-            case .significantChange = event {
+           case .significantChange = event {
             timeCount += 1
         }
 
@@ -197,7 +187,7 @@ public class UIKitApplicationViewController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        displayApplicationState(nil)
+        displayAppState(nil)
         displayBackgroundRefresh(nil)
         displayMemory(nil)
         displayProtectedData(nil)

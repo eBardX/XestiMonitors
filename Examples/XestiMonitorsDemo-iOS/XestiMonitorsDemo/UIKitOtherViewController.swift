@@ -1,11 +1,4 @@
-//
-//  UIKitOtherViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-11-23.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -27,15 +20,12 @@ public class UIKitOtherViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet private weak var pasteboardTypesAddedLabel: UILabel!
     @IBOutlet private weak var pasteboardTypesRemovedLabel: UILabel!
 
-    private lazy var keyboardMonitor = KeyboardMonitor(options: .all,
-                                                       queue: .main) { [unowned self] in
-                                                        self.displayKeyboard($0)
+    private lazy var keyboardMonitor = KeyboardMonitor { [unowned self] in
+        self.displayKeyboard($0)
     }
 
-    private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: pasteboard,
-                                                           options: .all,
-                                                           queue: .main) { [unowned self] in
-                                                            self.displayPasteboard($0)
+    private lazy var pasteboardMonitor = PasteboardMonitor(pasteboard: pasteboard) { [unowned self] in
+        self.displayPasteboard($0)
     }
 
     private lazy var monitors: [Monitor] = [keyboardMonitor,

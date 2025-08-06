@@ -1,11 +1,4 @@
-//
-//  CoreMotionViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-12-18.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import CoreMotion
 import UIKit
@@ -51,36 +44,32 @@ public class CoreMotionViewController: UITableViewController {
     @IBOutlet private weak var pedometerNumberOfStepsLabel: UILabel!
     @IBOutlet private weak var pedometerStartDateLabel: UILabel!
 
-    private lazy var accelerometerMonitor = AccelerometerMonitor(interval: 1,
-                                                                 queue: .main) { [unowned self] in
-                                                                    self.displayAccelerometer($0)
+    private lazy var accelerometerMonitor = AccelerometerMonitor(interval: 1) { [unowned self] in
+        self.displayAccelerometer($0)
     }
 
-    private lazy var altimeterMonitor = AltimeterMonitor(queue: .main) { [unowned self] in
+    private lazy var altimeterMonitor = AltimeterMonitor { [unowned self] in
         self.displayAltimeter($0)
     }
 
     private lazy var deviceMotionMonitor = DeviceMotionMonitor(interval: 1,
-                                                               using: .xArbitraryZVertical,
-                                                               queue: .main) { [unowned self] in
-                                                                self.displayDeviceMotion($0)
+                                                               using: .xArbitraryZVertical) { [unowned self] in
+        self.displayDeviceMotion($0)
     }
 
-    private lazy var gyroscopeMonitor = GyroscopeMonitor(interval: 1,
-                                                         queue: .main) { [unowned self] in
-                                                            self.displayGyroscope($0)
+    private lazy var gyroscopeMonitor = GyroscopeMonitor(interval: 1) { [unowned self] in
+        self.displayGyroscope($0)
     }
 
-    private lazy var magnetometerMonitor = MagnetometerMonitor(interval: 1,
-                                                               queue: .main) { [unowned self] in
-                                                                self.displayMagnetometer($0)
+    private lazy var magnetometerMonitor = MagnetometerMonitor(interval: 1) { [unowned self] in
+        self.displayMagnetometer($0)
     }
 
-    private lazy var motionActivityMonitor = MotionActivityMonitor(queue: .main) { [unowned self] in
+    private lazy var motionActivityMonitor = MotionActivityMonitor { [unowned self] in
         self.displayMotionActivity($0)
     }
 
-    private lazy var pedometerMonitor = PedometerMonitor(queue: .main) { [unowned self] in
+    private lazy var pedometerMonitor = PedometerMonitor { [unowned self] in
         self.displayPedometer($0)
     }
 
@@ -96,7 +85,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayAccelerometer(_ event: AccelerometerMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayAccelerometer(info)
         } else {
             displayAccelerometer(.unknown)
@@ -133,7 +122,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayAltimeter(_ event: AltimeterMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayAltimeter(info)
         } else {
             displayAltimeter(.unknown)
@@ -164,7 +153,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayDeviceMotion(_ event: DeviceMotionMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayDeviceMotion(info)
         } else {
             displayDeviceMotion(.unknown)
@@ -219,7 +208,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayGyroscope(_ event: GyroscopeMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayGyroscope(info)
         } else {
             displayGyroscope(.unknown)
@@ -250,7 +239,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayMagnetometer(_ event: MagnetometerMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayMagnetometer(info)
         } else {
             displayMagnetometer(.unknown)
@@ -281,7 +270,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayMotionActivity(_ event: MotionActivityMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayMotionActivity(info)
         } else {
             displayMotionActivity(.unknown)
@@ -357,7 +346,7 @@ public class CoreMotionViewController: UITableViewController {
 
     private func displayPedometer(_ event: PedometerMonitor.Event?) {
         if let event = event,
-            case let .didUpdate(info) = event {
+           case let .didUpdate(info) = event {
             displayPedometer(info)
         } else {
             displayPedometer(.unknown)
@@ -367,12 +356,8 @@ public class CoreMotionViewController: UITableViewController {
     private func displayPedometer(_ info: PedometerMonitor.Info) {
         switch info {
         case .data(let data):
-            if #available(iOS 10.0, *) {
-                if let value = data.averageActivePace {
-                    pedometerAverageActivePaceLabel.text = formatPace(value)
-                } else {
-                    pedometerAverageActivePaceLabel.text = " "
-                }
+            if let value = data.averageActivePace {
+                pedometerAverageActivePaceLabel.text = formatPace(value)
             } else {
                 pedometerAverageActivePaceLabel.text = " "
             }
