@@ -62,8 +62,8 @@ public final class FileSystemObjectMonitor: BaseMonitor {
         let fileDescriptor = fileSystem.open(path, O_EVTONLY)
 
         let fileSystemObject = FileSystemObjectInjector.inject(fileDescriptor,
-                                                    _makeEventMask(),
-                                                    targetQueue)
+                                                               _makeEventMask(),
+                                                               targetQueue)
 
         fileSystemObject.setEventHandler(qos: .unspecified,
                                          flags: []) { [weak self] in
