@@ -1,11 +1,4 @@
-//
-//  MasterViewController.swift
-//  XestiMonitorsDemo-tvOS
-//
-//  Created by J. G. Pusey on 2018-01-11.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 

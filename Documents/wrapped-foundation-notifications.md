@@ -28,8 +28,8 @@ notifications:
  `NSSystemClockDidChange`                                    | iOS, macOS, tvOS, watchOS | [SystemClockMonitor][system_clock_monitor]
  `NSSystemTimeZoneDidChange`                                 | iOS, macOS, tvOS, watchOS | [SystemTimeZoneMonitor][system_time_zone_monitor]
  `NSThreadWillExit`                                          | iOS, macOS, tvOS, watchOS | _Not yet implemented_
- `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [UbiquitousKeyValueStoreMonitor][ubiquitous_key_value_store_monitor]
- `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [UbiquityIdentityMonitor][ubiquity_identity_monitor]
+ `NSUbiquitousKeyValueStore.didChangeExternallyNotification` | iOS, macOS, tvOS          | [ICloudKeyValueStoreMonitor][icloud_key_value_store_monitor]
+ `NSUbiquityIdentityDidChange`                               | iOS, macOS, tvOS, watchOS | [ICloudIdentityMonitor][icloud_identity_monitor]
  `NSUndoManagerCheckpoint`                                   | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
  `NSUndoManagerDidCloseUndoGroup`                            | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
  `NSUndoManagerDidOpenUndoGroup`                             | iOS, macOS, tvOS, watchOS | [UndoManagerMonitor][undo_manager_monitor]
@@ -54,14 +54,14 @@ notifications:
 [current_locale_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/CurrentLocaleMonitor.html
 [extension_host_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/ExtensionHostMonitor.html
 [http_cookie_storage_monitor]:          https://eBardX.github.io/XestiMonitors/Classes/HTTPCookieStorageMonitor.html
+[icloud_identity_monitor]:            	https://eBardX.github.io/XestiMonitors/Classes/ICloudIdentityMonitor.html
+[icloud_key_value_store_monitor]:   	https://eBardX.github.io/XestiMonitors/Classes/ICloudKeyValueStoreMonitor.html
 [metadata_query_monitor]:               https://eBardX.github.io/XestiMonitors/Classes/MetadataQueryMonitor.html
 [port_monitor]:                         https://eBardX.github.io/XestiMonitors/Classes/PortMonitor.html
 [process_info_power_state_monitor]:     https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoPowerStateMonitor.html
 [process_info_thermal_state_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/ProcessInfoThermalStateMonitor.html
 [system_clock_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/SystemClockMonitor.html
 [system_time_zone_monitor]:             https://eBardX.github.io/XestiMonitors/Classes/SystemTimeZoneMonitor.html
-[ubiquitous_key_value_store_monitor]:   https://eBardX.github.io/XestiMonitors/Classes/UbiquitousKeyValueStoreMonitor.html
-[ubiquity_identity_monitor]:            https://eBardX.github.io/XestiMonitors/Classes/UbiquityIdentityMonitor.html
 [undo_manager_monitor]:                 https://eBardX.github.io/XestiMonitors/Classes/UndoManagerMonitor.html
 [url_credential_storage_monitor]:       https://eBardX.github.io/XestiMonitors/Classes/URLCredentialStorageMonitor.html
 [user_defaults_monitor]:                https://eBardX.github.io/XestiMonitors/Classes/UserDefaultsMonitor.html

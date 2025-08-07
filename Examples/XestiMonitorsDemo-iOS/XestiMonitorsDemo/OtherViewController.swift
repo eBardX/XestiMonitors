@@ -1,11 +1,4 @@
-//
-//  OtherViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-11-23.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import XestiMonitors
 
@@ -15,11 +8,17 @@ public class OtherViewController: UITableViewController {
 
     @IBOutlet private weak var networkReachabilityLabel: UILabel!
 
-    private lazy var networkReachabilityMonitor = NetworkReachabilityMonitor(queue: .main) { [unowned self] in
+    private lazy var networkReachabilityMonitor = try? NetworkReachabilityMonitor { [unowned self] in
         self.displayNetworkReachability($0)
     }
 
-    private lazy var monitors: [Monitor] = [networkReachabilityMonitor]
+    private lazy var monitors: [Monitor] = {
+        if let monitor = networkReachabilityMonitor {
+            return [monitor]
+        } else {
+            return []
+        }
+    }()
 
     // MARK: Private Instance Methods
 

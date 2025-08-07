@@ -1,0 +1,127 @@
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
+
+import UIKit
+import XCTest
+@testable import XestiMonitors
+
+internal class PasteboardMonitorTests: XCTestCase {
+    let pasteboard = UIPasteboard(name: UIPasteboard.Name("bogus"),
+                                  create: true) ?? .general
+    let notificationCenter = MockNotificationCenter()
+
+    override func setUp() {
+        super.setUp()
+
+        NotificationCenterInjector.inject = { self.notificationCenter }
+    }
+
+    func testMonitor_changed1() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: PasteboardMonitor.Event?
+        let expectedTypesAdded = ["a", "b", "c"]
+        let expectedTypesRemoved = ["d", "e"]
+        let monitor = PasteboardMonitor(pasteboard: pasteboard) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateChanged(typesAdded: expectedTypesAdded,
+                         typesRemoved: expectedTypesRemoved)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .changed(test, changes) = event {
+            XCTAssertEqual(test, pasteboard)
+            XCTAssertEqual(changes.typesAdded, expectedTypesAdded)
+            XCTAssertEqual(changes.typesRemoved, expectedTypesRemoved)
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+
+    func testMonitor_changed2() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: PasteboardMonitor.Event?
+        let monitor = PasteboardMonitor(pasteboard: pasteboard) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateChanged(typesAdded: nil,
+                         typesRemoved: nil)
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .changed(test, changes) = event {
+            XCTAssertEqual(test, pasteboard)
+            XCTAssertEqual(changes.typesAdded, [])
+            XCTAssertEqual(changes.typesRemoved, [])
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+
+    func testMonitor_removed() {
+        let expectation = self.expectation(description: "Handler called")
+        var expectedEvent: PasteboardMonitor.Event?
+        let monitor = PasteboardMonitor(pasteboard: pasteboard) { event in
+            XCTAssertEqual(OperationQueue.current, .main)
+
+            expectedEvent = event
+            expectation.fulfill()
+        }
+
+        monitor.startMonitoring()
+        _simulateRemoved()
+        waitForExpectations(timeout: 1)
+        monitor.stopMonitoring()
+
+        if let event = expectedEvent,
+           case let .removed(test) = event {
+            XCTAssertEqual(test, pasteboard)
+        } else {
+            XCTFail("Unexpected Event")
+        }
+    }
+
+    // MARK: Private Instance Methods
+
+    private func _makeUserInfo(typesAdded: [String]?,
+                               typesRemoved: [String]?) -> [AnyHashable: Any] {
+        var userInfo: [AnyHashable: Any] = [:]
+
+        if let typesAdded = typesAdded {
+            userInfo[UIPasteboard.changedTypesAddedUserInfoKey] = typesAdded
+        }
+
+        if let typesRemoved = typesRemoved {
+            userInfo[UIPasteboard.changedTypesRemovedUserInfoKey] = typesRemoved
+        }
+
+        return userInfo
+    }
+
+    private func _simulateChanged(typesAdded: [String]?,
+                                  typesRemoved: [String]?) {
+        let userInfo = _makeUserInfo(typesAdded: typesAdded,
+                                     typesRemoved: typesRemoved)
+
+        notificationCenter.post(name: UIPasteboard.changedNotification,
+                                object: pasteboard,
+                                userInfo: userInfo)
+    }
+
+    private func _simulateRemoved() {
+        notificationCenter.post(name: UIPasteboard.removedNotification,
+                                object: pasteboard,
+                                userInfo: nil)
+    }
+}

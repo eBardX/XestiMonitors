@@ -1,0 +1,29 @@
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
+
+import XCTest
+@testable import XestiMonitors
+
+internal class BaseMonitorTests: XCTestCase {
+    func testMonitor_isMonitoring_false1() {
+        let monitor = BaseMonitor()
+
+        XCTAssertFalse(monitor.isMonitoring)
+    }
+
+    func testMonitor_isMonitoring_false2() {
+        let monitor = BaseMonitor()
+
+        monitor.startMonitoring()
+        monitor.stopMonitoring()
+
+        XCTAssertFalse(monitor.isMonitoring)
+    }
+
+    func testMonitor_isMonitoring_true() {
+        let monitor = BaseMonitor()
+
+        monitor.startMonitoring()
+
+        XCTAssertTrue(monitor.isMonitoring)
+    }
+}

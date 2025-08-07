@@ -1,23 +1,35 @@
-// swift-tools-version:4.0
+// swift-tools-version: 5.10
 
-//
-//  Package.swift
-//  XestiMonitors
-//
-//  Created by J. G. Pusey on 2018-01-10.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import PackageDescription
 
 let package = Package(name: "XestiMonitors",
+                      platforms: [.iOS(.v16),
+                                  .macOS(.v14),
+                                  .tvOS(.v16),
+                                  .watchOS(.v9)],
                       products: [.library(name: "XestiMonitors",
                                           targets: ["XestiMonitors"])],
-                      dependencies: [],
+                      dependencies: [.package(url: "https://github.com/eBardX/XestiTools.git",
+                                              from: "4.0.0")],
                       targets: [.target(name: "XestiMonitors",
-                                        dependencies: [],
-                                        path: ".",
-                                        exclude: ["*.h", "*.m"],
-                                        sources: ["Sources/Core"])],
-                      swiftLanguageVersions: [4])
+                                        dependencies: [.product(name: "XestiTools",
+                                                                package: "XestiTools")]),
+                                .testTarget(name: "XestiMonitorsTests",
+                                            dependencies: [.target(name: "XestiMonitors")])],
+                      swiftLanguageVersions: [.v5])
+
+let swiftSettings: [SwiftSetting] = [.enableUpcomingFeature("BareSlashRegexLiterals"),
+                                     .enableUpcomingFeature("ConciseMagicFile"),
+                                     .enableUpcomingFeature("ExistentialAny"),
+                                     .enableUpcomingFeature("ForwardTrailingClosures"),
+                                     .enableUpcomingFeature("ImplicitOpenExistentials")]
+
+for target in package.targets {
+    var settings = target.swiftSettings ?? []
+
+    settings.append(contentsOf: swiftSettings)
+
+    target.swiftSettings = settings
+}

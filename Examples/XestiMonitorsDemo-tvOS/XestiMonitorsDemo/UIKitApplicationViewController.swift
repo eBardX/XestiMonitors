@@ -1,11 +1,4 @@
-//
-//  UIKitApplicationViewController.swift
-//  XestiMonitorsDemo-tvOS
-//
-//  Created by J. G. Pusey on 2018-01-11.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -21,25 +14,23 @@ public class UIKitApplicationViewController: UITableViewController {
     @IBOutlet private weak var screenshotLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
 
-    private lazy var applicationStateMonitor = ApplicationStateMonitor(options: .all,
-                                                                       queue: .main) { [unowned self] in
+    private lazy var applicationStateMonitor = ApplicationStateMonitor { [unowned self] in
         self.displayApplicationState($0)
     }
 
-    private lazy var memoryMonitor = MemoryMonitor(queue: .main) { [unowned self] in
+    private lazy var memoryMonitor = MemoryMonitor { [unowned self] in
         self.displayMemory($0)
     }
 
-    private lazy var protectedDataMonitor = ProtectedDataMonitor(options: .all,
-                                                                 queue: .main) { [unowned self] in
+    private lazy var protectedDataMonitor = ProtectedDataMonitor { [unowned self] in
         self.displayProtectedData($0)
     }
 
-    private lazy var screenshotMonitor = ScreenshotMonitor(queue: .main) { [unowned self] in
+    private lazy var screenshotMonitor = ScreenshotMonitor { [unowned self] in
         self.displayScreenshot($0)
     }
 
-    private lazy var timeMonitor = TimeMonitor(queue: .main) { [unowned self] in
+    private lazy var timeMonitor = TimeMonitor { [unowned self] in
         self.displayTime($0)
     }
 
@@ -83,7 +74,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayMemory(_ event: MemoryMonitor.Event?) {
         if let event = event,
-            case .didReceiveWarning = event {
+           case .didReceiveWarning = event {
             memoryCount += 1
         }
 
@@ -106,7 +97,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayScreenshot(_ event: ScreenshotMonitor.Event?) {
         if let event = event,
-            case .userDidTake = event {
+           case .userDidTake = event {
             screenshotCount += 1
         }
 
@@ -115,7 +106,7 @@ public class UIKitApplicationViewController: UITableViewController {
 
     private func displayTime(_ event: TimeMonitor.Event?) {
         if let event = event,
-            case .significantChange = event {
+           case .significantChange = event {
             timeCount += 1
         }
 
@@ -157,8 +148,8 @@ public class UIKitApplicationViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView,
                                    canFocusRowAt indexPath: IndexPath) -> Bool {
         if let cell = tableView.cellForRow(at: indexPath),
-            let mbSuperview = memoryButton?.superview,
-            cell.contentView == mbSuperview {
+           let mbSuperview = memoryButton?.superview,
+           cell.contentView == mbSuperview {
             return false
         }
 

@@ -1,11 +1,4 @@
-//
-//  UIKitAccessibilityViewController.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-11-23.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import UIKit
 import XestiMonitors
@@ -37,17 +30,16 @@ public class UIKitAccessibilityViewController: UITableViewController {
     @IBOutlet private weak var statusSwitchControlLabel: UILabel!
     @IBOutlet private weak var statusVoiceOverLabel: UILabel!
 
-    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor(queue: .main) { [unowned self] in
+    private lazy var announcementMonitor = AccessibilityAnnouncementMonitor { [unowned self] in
         self.displayAnnouncement($0)
     }
 
-    private lazy var elementMonitor = AccessibilityElementMonitor(queue: .main) { [unowned self] in
+    private lazy var elementMonitor = AccessibilityElementMonitor { [unowned self] in
         self.displayElement($0)
     }
 
-    private lazy var statusMonitor = AccessibilityStatusMonitor(options: .all,
-                                                                queue: .main) { [unowned self] in
-                                                                    self.displayStatus($0)
+    private lazy var statusMonitor = AccessibilityStatusMonitor { [unowned self] in
+        self.displayStatus($0)
     }
 
     private lazy var monitors: [Monitor] = [announcementMonitor,
@@ -60,7 +52,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
     private func displayAnnouncement(_ event: AccessibilityAnnouncementMonitor.Event?) {
         if let event = event,
-            case let .didFinish(info) = event {
+           case let .didFinish(info) = event {
             announcementStringValueLabel.text = info.stringValue
 
             announcementWasSuccessfulLabel.text = formatBool(info.wasSuccessful)
@@ -73,7 +65,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
     private func displayElement(_ event: AccessibilityElementMonitor.Event?) {
         if let event = event,
-            case let .didFocus(info) = event {
+           case let .didFocus(info) = event {
             if let element = info.focusedElement {
                 elementFocusedLabel.text = formatAccessibilityElement(element)
             } else {
@@ -122,11 +114,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
                 statusGuidedAccessLabel.text = formatBool(value)
 
             case let .hearingDevicePairedEarDidChange(value):
-                if #available(iOS 10.0, *) {
-                    statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
-                } else {
-                    statusHearingDeviceLabel.text = " "
-                }
+                statusHearingDeviceLabel.text = formatHearingDeviceEar(value)
 
             case let .invertColorsStatusDidChange(value):
                 statusInvertColorsLabel.text = formatBool(value)
@@ -156,11 +144,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
                 statusVoiceOverLabel.text = formatBool(value)
             }
         } else {
-            if #available(iOS 10.0, *) {
-                statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
-            } else {
-                statusAssistiveTouchLabel.text = " "
-            }
+            statusAssistiveTouchLabel.text = formatBool(statusMonitor.isAssistiveTouchEnabled)
 
             statusBoldTextLabel.text = formatBool(statusMonitor.isBoldTextEnabled)
 
@@ -172,11 +156,7 @@ public class UIKitAccessibilityViewController: UITableViewController {
 
             statusGuidedAccessLabel.text = formatBool(statusMonitor.isGuidedAccessEnabled)
 
-            if #available(iOS 10.0, *) {
-                statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
-            } else {
-                statusHearingDeviceLabel.text = " "
-            }
+            statusHearingDeviceLabel.text = formatHearingDeviceEar(statusMonitor.hearingDevicePairedEar)
 
             statusInvertColorsLabel.text = formatBool(statusMonitor.isInvertColorsEnabled)
 
@@ -202,8 +182,8 @@ public class UIKitAccessibilityViewController: UITableViewController {
         announcementCount += 1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification,
-                                            "Announcement #\(self.announcementCount)")
+            UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
+                                 argument: "Announcement #\(self.announcementCount)")
         }
     }
 

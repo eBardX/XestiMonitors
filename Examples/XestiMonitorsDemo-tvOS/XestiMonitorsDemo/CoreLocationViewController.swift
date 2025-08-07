@@ -1,11 +1,4 @@
-//
-//  CoreLocationViewController.swift
-//  XestiMonitorsDemo-tvOS
-//
-//  Created by J. G. Pusey on 2018-03-29.
-//
-//  © 2018 J. G. Pusey (see LICENSE.md)
-//
+// © 2018–2025 John Gary Pusey (see LICENSE.md)
 
 import CoreLocation
 import UIKit
@@ -23,11 +16,11 @@ public class CoreLocationViewController: UITableViewController {
     @IBOutlet private weak var standardLocationTimestampLabel: UILabel!
     @IBOutlet private weak var standardLocationVerticalAccuracyLabel: UILabel!
 
-    private lazy var locationAuthorizationMonitor = LocationAuthorizationMonitor(queue: .main) { [unowned self] in
+    private lazy var locationAuthorizationMonitor = LocationAuthorizationMonitor { [unowned self] in
         self.displayLocationAuthorization($0)
     }
 
-    private lazy var standardLocationMonitor = StandardLocationMonitor(queue: .main) { [unowned self] in
+    private lazy var standardLocationMonitor = StandardLocationMonitor { [unowned self] in
         self.displayStandardLocation($0)
     }
 

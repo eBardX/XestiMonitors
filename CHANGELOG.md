@@ -60,7 +60,7 @@ This project adheres to [Semantic Versioning].
 ### Added
 
 - Three new monitor classes: `ContentSizeCategoryMonitor`,
-  `TableViewSelectionMonitor`, and `TextStorageMonitor`.
+  `TableViewMonitor`, and `TextStorageMonitor`.
 
 ### Changed
 
@@ -71,7 +71,7 @@ This project adheres to [Semantic Versioning].
 ### Added
 
 - Four new monitor classes: `FocusMonitor`, `MenuControllerMonitor`,
-  `ScreenConnectionMonitor`, and `ViewControllerShowDetailTargetMonitor`.
+  `ScreenConnectionMonitor`, and `ViewControllerMonitor`.
 
 ### Changed
 
@@ -85,7 +85,7 @@ This project adheres to [Semantic Versioning].
 - Ten new monitor classes: `BeaconRangingMonitor`, `HeadingMonitor`,
   `LocationAuthorizationMonitor`, `RegionMonitor`, `ScreenCapturedMonitor`,
   `SignificantLocationMonitor`, `StandardLocationMonitor`,
-  `TextFieldTextMonitor`, `TextInputModeMonitor`, and `VisitMonitor`.
+  `TextFieldMonitor`, `TextInputModeMonitor`, and `VisitMonitor`.
 
 ### Changed
 
@@ -100,8 +100,8 @@ This project adheres to [Semantic Versioning].
 
 ### Added
 
-- Three new monitor classes: `ScreenBrightnessMonitor`, `ScreenModeMonitor`,
-  and `TextViewTextMonitor`.
+- Three new monitor classes: `ScreenMonitor`, `ScreenModeMonitor`,
+  and `TextViewMonitor`.
 
 ## [2.5.0] - 2018-03-21
 

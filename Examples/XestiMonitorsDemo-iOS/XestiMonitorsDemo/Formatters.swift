@@ -1,11 +1,4 @@
-//
-//  Formatters.swift
-//  XestiMonitorsDemo-iOS
-//
-//  Created by J. G. Pusey on 2016-12-20.
-//
-//  © 2016 J. G. Pusey (see LICENSE.md)
-//
+// © 2016–2025 John Gary Pusey (see LICENSE.md)
 
 import CoreLocation
 import CoreMotion
@@ -19,22 +12,22 @@ public func formatAcceleration(_ value: CMAcceleration) -> String {
 
 public func formatAccessibilityElement(_ element: Any) -> String {
     if let accElem = element as? UIAccessibilityElement,
-        let label = accElem.accessibilityLabel {
+       let label = accElem.accessibilityLabel {
         return label
     }
-
+    
     return "\(element)"
 }
 
 public func formatAssistiveTechnology(_ value: String) -> String {
-    if UIAccessibilityNotificationSwitchControlIdentifier == value {
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationSwitchControl.rawValue == value {
         return "Switch Control"
     }
-
-    if UIAccessibilityNotificationVoiceOverIdentifier == value {
+    
+    if UIAccessibility.AssistiveTechnologyIdentifier.notificationVoiceOver.rawValue == value {
         return "VoiceOver"
     }
-
+    
     return value
 }
 
@@ -46,18 +39,21 @@ public func formatAuthorizationStatus(_ value: CLAuthorizationStatus) -> String 
     switch value {
     case .authorizedAlways:
         return "Authorized always"
-
+        
     case .authorizedWhenInUse:
         return "Authorized when in use"
-
+        
     case .denied:
         return "Denied"
-
+        
     case .notDetermined:
         return "Not determined"
-
+        
     case .restricted:
         return "Restricted"
+        
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -65,12 +61,15 @@ public func formatBackgroundRefreshStatus(_ value: UIBackgroundRefreshStatus) ->
     switch value {
     case .available:
         return "Available"
-
+        
     case .denied:
         return "Denied"
-
+        
     case .restricted:
         return "Restricted"
+        
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -104,23 +103,26 @@ public func formatDecimal(_ value: NSNumber,
                           maximumFractionDigits: Int = 3) -> String {
     decimalFormatter.maximumFractionDigits = maximumFractionDigits
     decimalFormatter.minimumFractionDigits = minimumFractionDigits
-
+    
     return decimalFormatter.string(from: value) ?? "\(value)"
 }
 
-public func formatDeviceBatteryStateAndLevel(_ state: UIDeviceBatteryState,
+public func formatDeviceBatteryStateAndLevel(_ state: UIDevice.BatteryState,
                                              _ level: Float) -> String {
     switch state {
     case .charging:
         return "Charging \(formatPercentage(level))"
-
+        
     case .full:
         return "Full"
-
+        
     case .unplugged:
         return "Unplugged \(formatPercentage(level))"
-
+        
     case .unknown:
+        return "Unknown"
+        
+    @unknown default:
         return "Unknown"
     }
 }
@@ -129,23 +131,26 @@ public func formatDeviceOrientation(_ value: UIDeviceOrientation) -> String {
     switch value {
     case .faceDown:
         return "Face down"
-
+        
     case .faceUp:
         return "Face up"
-
+        
     case .landscapeLeft:
         return "Landscape left"
-
+        
     case .landscapeRight:
         return "Landscape right"
-
+        
     case .portrait:
         return "Portrait"
-
+        
     case .portraitUpsideDown:
         return "Portrait upside down"
-
+        
     case .unknown:
+        return "Unknown"
+        
+    @unknown default:
         return "Unknown"
     }
 }
@@ -167,11 +172,11 @@ public func formatFloor(_ value: CLFloor?) -> String {
         if level > 0 {
             return "GL+\(formatInteger(level))"
         }
-
+        
         if level < 0 {
             return "GL-\(formatInteger(abs(level)))"
         }
-
+        
         return "Ground level"
     } else {
         return "N/A"
@@ -184,18 +189,17 @@ public func formatHeadingComponentValues(_ x: CLHeadingComponentValue,
     return "\(formatDecimal(x)), \(formatDecimal(y)), \(formatDecimal(z))"
 }
 
-@available(iOS 10.0, *)
-public func formatHearingDeviceEar(_ ear: UIAccessibilityHearingDeviceEar) -> String {
+public func formatHearingDeviceEar(_ ear: UIAccessibility.HearingDeviceEar) -> String {
     switch ear {
     case [.both]:
         return "L+R"
-
+        
     case [.left]:
         return "L"
-
+        
     case [.right]:
         return "R"
-
+        
     default :
         return "None"
     }
@@ -213,45 +217,45 @@ public func formatInterfaceOrientation(_ value: UIInterfaceOrientation) -> Strin
     switch value {
     case .landscapeLeft:
         return "Landscape left"
-
+        
     case .landscapeRight:
         return "Landscape right"
-
+        
     case .portrait:
         return "Portrait"
-
+        
     case .portraitUpsideDown:
         return "Portrait upside down"
-
+        
     case .unknown:
+        return "Unknown"
+        
+    @unknown default:
         return "Unknown"
     }
 }
 
 public func formatLocationAccuracy(_ value: CLLocationAccuracy) -> String {
-    guard
-        value >= 0
-        else { return "Invalid" }
-
+    guard value >= 0
+    else { return "Invalid" }
+    
     return "\(formatDecimal(value)) m"
 }
 
 public func formatLocationCoordinate2D(_ value: CLLocationCoordinate2D) -> String {
-    guard
-        CLLocationCoordinate2DIsValid(value)
-        else { return "Invalid" }
-
+    guard CLLocationCoordinate2DIsValid(value)
+    else { return "Invalid" }
+    
     return "\(formatLatitude(value.latitude)) \(formatLongitude(value.longitude))"
 }
 
 public func formatLocationDirection(_ value: CLLocationDirection) -> String {
-    guard
-        value >= 0
-        else { return "Invalid" }
-
+    guard value >= 0
+    else { return "Invalid" }
+    
     let rawDegrees = formatDecimal(value.seconds,
                                    maximumFractionDigits: 1)
-
+    
     return "\(rawDegrees)°"
 }
 
@@ -260,10 +264,9 @@ public func formatLocationDistance(_ value: CLLocationDistance) -> String {
 }
 
 public func formatLocationSpeed(_ value: CLLocationSpeed) -> String {
-    guard
-        value >= 0
-        else { return "Invalid" }
-
+    guard value >= 0
+    else { return "Invalid" }
+    
     return "\(formatDecimal(value)) m/s"
 }
 
@@ -279,15 +282,18 @@ public func formatMagneticFieldCalibrationAccuracy(_ value: CMMagneticFieldCalib
     switch value {
     case .high:
         return "High"
-
+        
     case .low:
         return "Low"
-
+        
     case .medium:
         return "Medium"
-
+        
     case .uncalibrated:
         return "Uncalibrated"
+        
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -295,12 +301,15 @@ public func formatMotionActivityConfidence(_ value: CMMotionActivityConfidence) 
     switch value {
     case .high:
         return "High"
-
+        
     case .low:
         return "Low"
-
+        
     case .medium:
         return "Medium"
+        
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -324,14 +333,17 @@ public func formatProximity(_ value: CLProximity) -> String {
     switch value {
     case .far:
         return "Far"
-
+        
     case .immediate:
         return "Immediate"
-
+        
     case .near:
         return "Near"
-
+        
     case .unknown:
+        return "Unknown"
+        
+    @unknown default:
         return "Unknown"
     }
 }
@@ -344,10 +356,10 @@ public func formatRegionState(_ value: CLRegionState) -> String {
     switch value {
     case .inside:
         return "Inside"
-
+        
     case .outside:
         return "Outside"
-
+        
     case .unknown:
         return "Unknown"
     }
@@ -369,19 +381,22 @@ public func formatTimeInterval(_ value: TimeInterval) -> String {
     return timeIntervalFormatter.string(from: value) ?? "\(value)"
 }
 
-public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
+public func formatViewAnimationCurve(_ value: UIView.AnimationCurve) -> String {
     switch value {
     case .easeIn:
         return "Ease in"
-
+        
     case .easeInOut:
         return "Ease in/out"
-
+        
     case .easeOut:
         return "Ease out"
-
+        
     case .linear:
         return "Linear"
+        
+    @unknown default:
+        return "Unknown"
     }
 }
 
@@ -389,51 +404,51 @@ public func formatViewAnimationCurve(_ value: UIViewAnimationCurve) -> String {
 
 private var dateFormatter: DateFormatter = {
     var formatter = DateFormatter()
-
+    
     formatter.dateStyle = .medium
     formatter.timeStyle = .medium
-
+    
     return formatter
 }()
 
 private var decimalFormatter: NumberFormatter = {
     var formatter = NumberFormatter()
-
+    
     formatter.numberStyle = .decimal
     formatter.usesGroupingSeparator = true
-
+    
     return formatter
 }()
 
 private var integerFormatter: NumberFormatter = {
     var formatter = NumberFormatter()
-
+    
     formatter.maximumFractionDigits = 0
     formatter.minimumFractionDigits = 0
     formatter.numberStyle = .decimal
     formatter.usesGroupingSeparator = true
-
+    
     return formatter
 }()
 
 private var percentageFormatter: NumberFormatter = {
     var formatter = NumberFormatter()
-
+    
     formatter.maximumFractionDigits = 1
     formatter.minimumFractionDigits = 0
     formatter.numberStyle = .percent
     formatter.usesGroupingSeparator = true
-
+    
     return formatter
 }()
 
 private var timeIntervalFormatter: DateComponentsFormatter = {
     var formatter = DateComponentsFormatter()
-
+    
     formatter.allowedUnits = [.day, .hour, .minute, .second]
     formatter.unitsStyle = .positional
     formatter.zeroFormattingBehavior = .pad
-
+    
     return formatter
 }()
 
@@ -455,11 +470,11 @@ private func formatLocationDegrees(_ value: CLLocationDegrees,
     let seconds = formatDecimal(value.seconds,
                                 maximumFractionDigits: 1)
     let direction = rawDegrees > 0
-        ? directions.pos
-        : rawDegrees < 0
-        ? directions.neg
-        : ""
-
+    ? directions.pos
+    : rawDegrees < 0
+    ? directions.neg
+    : ""
+    
     return "\(degrees)° \(minutes)′ \(seconds)″ \(direction)"
 }
 
@@ -467,15 +482,15 @@ private extension CLLocationDegrees {
     var degrees: Int {
         return Int(rounded(.towardZero))
     }
-
+    
     var minutes: Int {
         return Int((abs(self) * 60).modulo(60).rounded(.towardZero))
     }
-
+    
     var seconds: Double {
         return (abs(self) * 3_600).modulo(60)
     }
-
+    
     private func modulo(_ mod: CLLocationDegrees) -> CLLocationDegrees {
         return self - (mod * (self / mod).rounded(.towardZero))
     }
