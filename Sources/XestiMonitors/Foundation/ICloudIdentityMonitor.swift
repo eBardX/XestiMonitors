@@ -35,7 +35,7 @@ public final class ICloudIdentityMonitor: BaseNotificationMonitor {
         super.addNotificationObservers()
 
         observe(.NSUbiquityIdentityDidChange) { [unowned self] _ in
-            self.handler(.didChange(self.identity))
+            self.handler(.didChange)
         }
     }
 }
@@ -48,16 +48,14 @@ extension ICloudIdentityMonitor {
 
     /// Encapsulates changes to the iCloud identity.
     public enum Event {
-        /// The iCloud identity has changed. The associated value is `nil` if
-        /// this change is due to the current user disabling or logging out of
-        /// iCloud.
-        case didChange(ICloudIdentity?)
+        /// The iCloud identity has changed.
+        case didChange
     }
 
     // MARK: Public Instance Properties
 
-    /// An opaque token that represents the current user’s iCloud identity. The
-    /// value of this token is `nil` if the current user has disabled or logged
+    /// The current user’s iCloud identity. The
+    /// value of this identity is `nil` if the current user has disabled or logged
     /// out of iCloud.
     public var identity: ICloudIdentity? {
         guard let token = fileManager.ubiquityIdentityToken
