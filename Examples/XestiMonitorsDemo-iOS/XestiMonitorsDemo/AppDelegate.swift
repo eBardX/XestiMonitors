@@ -11,13 +11,13 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
 
     // MARK: UIApplicationDelegate Methods
 
-    public func app(_ app: UIApplication,
+    public func application(_ app: UIApplication,
                             didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let svc = window?.rootViewController as? UISplitViewController
         else { return false }
 
         svc.delegate = self
-        svc.preferredDisplayMode = .allVisible
+        svc.preferredDisplayMode = .oneBesideSecondary
 
         guard let nc = svc.viewControllers[svc.viewControllers.count - 1] as? UINavigationController
         else { return false }
@@ -45,6 +45,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControl
     // MARK: UISplitViewControllerDelegate Methods
 
     public func targetDisplayModeForAction(in splitViewController: UISplitViewController) -> UISplitViewController.DisplayMode {
-        return .allVisible
+        return .oneBesideSecondary
     }
 }

@@ -38,9 +38,9 @@ public class UIKitApplicationViewController: UITableViewController {
         self.displayScreenshot($0)
     }
 
-    private lazy var statusBarMonitor = StatusBarMonitor { [unowned self] in
-        self.displayStatusBar($0)
-    }
+//    private lazy var statusBarMonitor = StatusBarMonitor { [unowned self] in
+//        self.displayStatusBar($0)
+//    }
 
     private lazy var timeMonitor = TimeMonitor { [unowned self] in
         self.displayTime($0)
@@ -51,7 +51,7 @@ public class UIKitApplicationViewController: UITableViewController {
                                             memoryMonitor,
                                             protectedDataMonitor,
                                             screenshotMonitor,
-                                            statusBarMonitor,
+                                            //statusBarMonitor,
                                             timeMonitor]
 
     private var memoryCount = 0
@@ -127,44 +127,44 @@ public class UIKitApplicationViewController: UITableViewController {
         screenshotLabel.text = formatInteger(screenshotCount)
     }
 
-    private func displayStatusBar(_ event: StatusBarMonitor.Event?) {
-        if let event = event {
-            switch event {
-            case let .didChangeFrame(frame):
-                statusBarActionLabel.text = "Did change frame"
-
-                statusBarFrameLabel.text = formatRect(frame)
-
-                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
-
-            case let .didChangeOrientation(orientation):
-                statusBarActionLabel.text = "Did change orientation"
-
-                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
-
-                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
-
-            case let .willChangeFrame(frame):
-                statusBarActionLabel.text = "Will change frame"
-
-                statusBarFrameLabel.text = formatRect(frame)
-
-                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
-
-            case let .willChangeOrientation(orientation):
-                statusBarActionLabel.text = "Will change orientation"
-
-                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
-
-                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
-            }
-        } else {
+    private func displayStatusBar(_ event: Any? /*StatusBarMonitor.Event?*/) {
+//        if let event = event {
+//            switch event {
+//            case let .didChangeFrame(frame):
+//                statusBarActionLabel.text = "Did change frame"
+//
+//                statusBarFrameLabel.text = formatRect(frame)
+//
+//                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
+//
+//            case let .didChangeOrientation(orientation):
+//                statusBarActionLabel.text = "Did change orientation"
+//
+//                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
+//
+//                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
+//
+//            case let .willChangeFrame(frame):
+//                statusBarActionLabel.text = "Will change frame"
+//
+//                statusBarFrameLabel.text = formatRect(frame)
+//
+//                statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
+//
+//            case let .willChangeOrientation(orientation):
+//                statusBarActionLabel.text = "Will change orientation"
+//
+//                statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
+//
+//                statusBarOrientationLabel.text = formatInterfaceOrientation(orientation)
+//            }
+//        } else {
             statusBarActionLabel.text = " "
 
-            statusBarFrameLabel.text = formatRect(statusBarMonitor.frame)
+        statusBarFrameLabel.text = formatRect(.zero /*statusBarMonitor.frame*/)
 
-            statusBarOrientationLabel.text = formatInterfaceOrientation(statusBarMonitor.orientation)
-        }
+        statusBarOrientationLabel.text = formatInterfaceOrientation(.unknown /*statusBarMonitor.orientation*/)
+//        }
     }
 
     private func displayTime(_ event: TimeMonitor.Event?) {

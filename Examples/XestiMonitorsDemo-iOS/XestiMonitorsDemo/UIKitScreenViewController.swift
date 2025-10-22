@@ -19,7 +19,7 @@ public class UIKitScreenViewController: UITableViewController {
 
     private func displayScreenBrightness(_ event: ScreenMonitor.Event?) {
         if let event = event,
-           case let .didChange(screen) = event {
+           case let .brightnessDidChange(screen) = event {
             brightnessLevelLabel.text = formatPercentage(Float(screen.brightness))
         } else {
             brightnessLevelLabel.text = formatPercentage(Float(UIScreen.main.brightness))

@@ -44,11 +44,11 @@ public class CoreLocationViewController: UITableViewController {
     @IBOutlet private weak var visitDepartureDateLabel: UILabel!
     @IBOutlet private weak var visitHorizontalAccuracyLabel: UILabel!
 
-    private lazy var beaconRangingMonitor = BeaconRangingMonitor(region: beaconRegion) { [unowned self] in
-        self.displayBeaconRanging($0)
-    }
+//    private lazy var beaconRangingMonitor = BeaconRangingMonitor(region: beaconRegion) { [unowned self] in
+//        self.displayBeaconRanging($0)
+//    }
 
-    private lazy var beaconRegion = CLBeaconRegion(proximityUUID: UUID(),
+    private lazy var beaconRegion = CLBeaconRegion(uuid: UUID(),
                                                    identifier: "Test Region")
 
     private lazy var headingMonitor = HeadingMonitor { [unowned self] in
@@ -75,7 +75,7 @@ public class CoreLocationViewController: UITableViewController {
         self.displayVisit($0)
     }
 
-    private lazy var monitors: [Monitor] = [beaconRangingMonitor,
+    private lazy var monitors: [Monitor] = [//beaconRangingMonitor,
                                             headingMonitor,
                                             locationAuthorizationMonitor,
                                             regionMonitor,
@@ -85,31 +85,31 @@ public class CoreLocationViewController: UITableViewController {
 
     // MARK: Private Instance Methods
 
-    private func displayBeaconRanging(_ event: BeaconRangingMonitor.Event?) {
-        if !beaconRangingMonitor.isAvailable {
-            displayBeaconRanging(nil,
-                                 altText: "Not available",
-                                 altColor: .red)
-        } else if let event = event,
-                  case let .didUpdate(info) = event {
-            switch info {
-            case let .beacons(beacons, region):
-                displayBeaconRanging(beacons.first,
-                                     altText: region.proximityUUID.uuidString,
-                                     altColor: .gray)
-
-            case let .error(error, region):
-                displayBeaconRanging(nil,
-                                     altText: region.proximityUUID.uuidString,
-                                     altColor: .gray,
-                                     altText2: error.localizedDescription,
-                                     altColor2: .red)
-            }
-        } else {
+    private func displayBeaconRanging(_ event: Any? /*BeaconRangingMonitor.Event?*/) {
+//        if !beaconRangingMonitor.isAvailable {
+//            displayBeaconRanging(nil,
+//                                 altText: "Not available",
+//                                 altColor: .red)
+//        } else if let event = event,
+//                  case let .didUpdate(info) = event {
+//            switch info {
+//            case let .beacons(beacons, region):
+//                displayBeaconRanging(beacons.first,
+//                                     altText: region.proximityUUID.uuidString,
+//                                     altColor: .gray)
+//
+//            case let .error(error, region):
+//                displayBeaconRanging(nil,
+//                                     altText: region.proximityUUID.uuidString,
+//                                     altColor: .gray,
+//                                     altText2: error.localizedDescription,
+//                                     altColor2: .red)
+//            }
+//        } else {
             displayBeaconRanging(nil,
                                  altText: "Unknown",
                                  altColor: .gray)
-        }
+//        }
     }
 
     private func displayBeaconRanging(_ beacon: CLBeacon?,
@@ -126,7 +126,7 @@ public class CoreLocationViewController: UITableViewController {
 
             beaconRangingProximityLabel.text = formatProximity(beacon.proximity)
 
-            beaconRangingProximityUUIDLabel.text = beacon.proximityUUID.uuidString
+            beaconRangingProximityUUIDLabel.text = beacon.uuid.uuidString
             beaconRangingProximityUUIDLabel.textColor = .black
 
             beaconRangingRSSILabel.text = formatRSSI(beacon.rssi)

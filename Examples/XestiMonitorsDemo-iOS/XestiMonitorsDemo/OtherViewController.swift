@@ -1,65 +1,66 @@
 // © 2016–2025 John Gary Pusey (see LICENSE.md)
 
-import XestiMonitors
-
-public class OtherViewController: UITableViewController {
-
-    // MARK: Private Instance Properties
-
-    @IBOutlet private weak var networkReachabilityLabel: UILabel!
-
-    private lazy var networkReachabilityMonitor = try? NetworkReachabilityMonitor { [unowned self] in
-        self.displayNetworkReachability($0)
-    }
-
-    private lazy var monitors: [Monitor] = {
-        if let monitor = networkReachabilityMonitor {
-            return [monitor]
-        } else {
-            return []
-        }
-    }()
-
-    // MARK: Private Instance Methods
-
-    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
-        if let event = event,
-            case let .statusDidChange(status) = event {
-            switch status {
-            case .notReachable:
-                networkReachabilityLabel.text = "Not reachable"
-
-            case .reachableViaWiFi:
-                networkReachabilityLabel.text = "Reachable via Wi-Fi"
-
-            case .reachableViaWWAN:
-                networkReachabilityLabel.text = "Reachable via WWAN"
-
-            default :
-                networkReachabilityLabel.text = "Unknown"
-            }
-        } else {
-            networkReachabilityLabel.text = "Unknown"
-        }
-    }
-
-    // MARK: Overridden UIViewController Methods
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        displayNetworkReachability(nil)
-    }
-
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        monitors.forEach { $0.startMonitoring() }
-    }
-
-    override public func viewWillDisappear(_ animated: Bool) {
-        monitors.forEach { $0.stopMonitoring() }
-
-        super.viewWillDisappear(animated)
-    }
-}
+//import UIKit
+//import XestiMonitors
+//
+//public class OtherViewController: UITableViewController {
+//
+//    // MARK: Private Instance Properties
+//
+//    @IBOutlet private weak var networkReachabilityLabel: UILabel!
+//
+//    private lazy var networkReachabilityMonitor = try? NetworkReachabilityMonitor { [unowned self] in
+//        self.displayNetworkReachability($0)
+//    }
+//
+//    private lazy var monitors: [Monitor] = {
+//        if let monitor = networkReachabilityMonitor {
+//            return [monitor]
+//        } else {
+//            return []
+//        }
+//    }()
+//
+//    // MARK: Private Instance Methods
+//
+//    private func displayNetworkReachability(_ event: NetworkReachabilityMonitor.Event?) {
+//        if let event = event,
+//            case let .statusDidChange(status) = event {
+//            switch status {
+//            case .notReachable:
+//                networkReachabilityLabel.text = "Not reachable"
+//
+//            case .reachableViaWiFi:
+//                networkReachabilityLabel.text = "Reachable via Wi-Fi"
+//
+//            case .reachableViaWWAN:
+//                networkReachabilityLabel.text = "Reachable via WWAN"
+//
+//            default :
+//                networkReachabilityLabel.text = "Unknown"
+//            }
+//        } else {
+//            networkReachabilityLabel.text = "Unknown"
+//        }
+//    }
+//
+//    // MARK: Overridden UIViewController Methods
+//
+//    override public func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        displayNetworkReachability(nil)
+//    }
+//
+//    override public func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        monitors.forEach { $0.startMonitoring() }
+//    }
+//
+//    override public func viewWillDisappear(_ animated: Bool) {
+//        monitors.forEach { $0.stopMonitoring() }
+//
+//        super.viewWillDisappear(animated)
+//    }
+//}

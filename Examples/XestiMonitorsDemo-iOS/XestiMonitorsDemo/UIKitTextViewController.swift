@@ -46,17 +46,17 @@ public class UIKitTextViewController: UITableViewController, UITextFieldDelegate
     private func displayTextFieldText(_ event: TextFieldMonitor.Event?) {
         if let event = event {
             switch event {
-            case let .didBeginEditing(tf):
+            case let .textDidBeginEditing(tf):
                 if tf == textField {
                     textFieldTextActionLabel.text = "Did begin editing"
                 }
 
-            case let .didChange(tf):
+            case let .textDidChange(tf):
                 if tf == textField {
                     textFieldTextActionLabel.text = "Did change"
                 }
 
-            case let .didEndEditing(tf):
+            case let .textDidEndEditing(tf):
                 if tf == textField {
                     textFieldTextActionLabel.text = "Did end editing"
                 }
@@ -80,17 +80,17 @@ public class UIKitTextViewController: UITableViewController, UITextFieldDelegate
     private func displayTextViewText(_ event: TextViewMonitor.Event?) {
         if let event = event {
             switch event {
-            case let .didBeginEditing(tv):
+            case let .textDidBeginEditing(tv):
                 if tv == textView {
                     textViewTextActionLabel.text = "Did begin editing"
                 }
 
-            case let .didChange(tv):
+            case let .textDidChange(tv):
                 if tv == textView {
                     textViewTextActionLabel.text = "Did change"
                 }
 
-            case let .didEndEditing(tv):
+            case let .textDidEndEditing(tv):
                 if tv == textView {
                     textViewTextActionLabel.text = "Did end editing"
                 }

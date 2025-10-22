@@ -44,7 +44,8 @@ public class CoreMotionViewController: UITableViewController {
     @IBOutlet private weak var pedometerNumberOfStepsLabel: UILabel!
     @IBOutlet private weak var pedometerStartDateLabel: UILabel!
 
-    private lazy var accelerometerMonitor = AccelerometerMonitor(interval: 1) { [unowned self] in
+    private lazy var accelerometerMonitor = AccelerometerMonitor(interval: 1,
+                                                                 queue: .main) { [unowned self] in
         self.displayAccelerometer($0)
     }
 
@@ -53,15 +54,18 @@ public class CoreMotionViewController: UITableViewController {
     }
 
     private lazy var deviceMotionMonitor = DeviceMotionMonitor(interval: 1,
-                                                               using: .xArbitraryZVertical) { [unowned self] in
+                                                               using: .xArbitraryZVertical,
+                                                               queue: .main) { [unowned self] in
         self.displayDeviceMotion($0)
     }
 
-    private lazy var gyroscopeMonitor = GyroscopeMonitor(interval: 1) { [unowned self] in
+    private lazy var gyroscopeMonitor = GyroscopeMonitor(interval: 1,
+                                                         queue: .main) { [unowned self] in
         self.displayGyroscope($0)
     }
 
-    private lazy var magnetometerMonitor = MagnetometerMonitor(interval: 1) { [unowned self] in
+    private lazy var magnetometerMonitor = MagnetometerMonitor(interval: 1,
+                                                               queue: .main) { [unowned self] in
         self.displayMagnetometer($0)
     }
 
